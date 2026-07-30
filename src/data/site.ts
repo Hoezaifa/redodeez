@@ -18,10 +18,16 @@ export const site = {
 };
 
 export const bankDetails = {
-  bankName: "Meezan Bank",
-  accountTitle: "Deez Prints Studio",
-  iban: "PK27 MEZN 0001 0701 0454",
-  accountNumber: "000107010454",
+  meezan: {
+    bankName: "Meezan Bank",
+    accountTitle: "MUHAMMAD HUZAIFA RIAZ",
+    accountNumber: "01890110481675",
+  },
+  easypaisa: {
+    title: "Easypaisa / JazzCash / Zindigi",
+    accountTitle: "MUHAMMAD HUZAIFA RIAZ",
+    accountNumber: "03272487127",
+  },
 };
 
 export function whatsappLink(message: string) {
@@ -32,11 +38,8 @@ export function whatsappLink(message: string) {
 }
 
 export const paymentMethods = [
-  "Cash on Delivery",
   "Meezan Bank Transfer",
-  "Easypaisa",
-  "JazzCash",
-  "SadaPay",
+  "Easypaisa / JazzCash / Zindigi",
 ];
 
 export type Collection = {
