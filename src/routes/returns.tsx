@@ -29,7 +29,10 @@ function Returns() {
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-foreground">7-Day Exchange Policy</h2>
             <p className="text-muted-foreground leading-relaxed">
-              We offer a <strong className="text-foreground font-semibold">7-day exchange policy</strong> from the date of delivery. If you have received a defective item or the wrong size, please contact us immediately.
+              We offer a{" "}
+              <strong className="text-foreground font-semibold">7-day exchange policy</strong> from
+              the date of delivery. If you have received a defective item or the wrong size, please
+              contact us immediately.
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-2">
               <li>Item must be unworn, unwashed, and in original condition.</li>
@@ -43,14 +46,17 @@ function Returns() {
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-foreground">Returns & Refunds</h2>
             <p className="text-muted-foreground leading-relaxed">
-              We generally do not offer cash refunds. However, if a product is out of stock or faulty upon arrival, we may process a refund via Bank Transfer within <strong className="text-foreground font-semibold">7 working days</strong>.
+              We generally do not offer cash refunds. However, if a product is out of stock or
+              faulty upon arrival, we may process a refund via Bank Transfer within{" "}
+              <strong className="text-foreground font-semibold">7 working days</strong>.
             </p>
           </div>
 
           <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 flex gap-4 items-start">
             <AlertCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
             <p className="text-sm text-foreground/90">
-              <strong className="font-semibold">Note:</strong> Custom or personalized items are not eligible for return or exchange unless defective or printed incorrectly.
+              <strong className="font-semibold">Note:</strong> Custom or personalized items are not
+              eligible for return or exchange unless defective or printed incorrectly.
             </p>
           </div>
         </div>

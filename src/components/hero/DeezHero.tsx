@@ -66,9 +66,12 @@ function Navbar({ scrolled, onOpenSearch }: { scrolled: boolean; onOpenSearch: (
       }`}
     >
       <div className="mx-auto grid h-[62px] max-w-[1440px] grid-cols-[auto_1fr_auto] items-center gap-6 px-6 md:px-10">
-
         {/* Logo image */}
-        <Link to="/" aria-label="Deez Prints — Home" className="flex items-center shrink-0 active:scale-95 transition-transform">
+        <Link
+          to="/"
+          aria-label="Deez Prints — Home"
+          className="flex items-center shrink-0 active:scale-95 transition-transform"
+        >
           <img src={LOGO_URL} alt="Deez Prints" className="h-7 w-auto md:h-8" />
         </Link>
 
@@ -173,16 +176,20 @@ function AccentLines() {
       >
         {/* Bold diagonal slash */}
         <line
-          x1="520" y1="-20"
-          x2="320" y2="400"
+          x1="520"
+          y1="-20"
+          x2="320"
+          y2="400"
           stroke="var(--accent)"
           strokeWidth="2.5"
           strokeLinecap="round"
         />
         {/* Thinner parallel slash */}
         <line
-          x1="560" y1="-20"
-          x2="360" y2="380"
+          x1="560"
+          y1="-20"
+          x2="360"
+          y2="380"
           stroke="var(--accent)"
           strokeWidth="1"
           strokeOpacity="0.45"
@@ -190,8 +197,10 @@ function AccentLines() {
         />
         {/* Short accent tick upper-right */}
         <line
-          x1="480" y1="30"
-          x2="530" y2="80"
+          x1="480"
+          y1="30"
+          x2="530"
+          y2="80"
           stroke="var(--accent)"
           strokeWidth="1.5"
           strokeOpacity="0.5"
@@ -199,8 +208,10 @@ function AccentLines() {
         />
         {/* Horizontal accent line */}
         <line
-          x1="330" y1="305"
-          x2="540" y2="305"
+          x1="330"
+          y1="305"
+          x2="540"
+          y2="305"
           stroke="var(--accent)"
           strokeWidth="1"
           strokeOpacity="0.25"
@@ -384,7 +395,6 @@ export function DeezHero() {
           {/* ── Content ── */}
           <div className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-center px-6 py-16 md:px-10 md:py-20 lg:py-24">
             <div className="max-w-[560px] md:-translate-x-[20px]">
-
               {/* Main headline */}
               <h1
                 className="font-display uppercase leading-[0.855] tracking-[-0.01em] pr-6"
@@ -453,9 +463,7 @@ export function DeezHero() {
                   className="group relative inline-flex h-[48px] items-center gap-4 bg-[color:var(--accent)] px-7 text-xs font-black uppercase tracking-[0.2em] text-black transition-all duration-300 hover:bg-white hover:scale-105 active:scale-95 rounded shadow-lg"
                 >
                   Shop All
-                  <ArrowRight
-                    className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 stroke-[3]"
-                  />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 stroke-[3]" />
                 </Link>
 
                 {/* Secondary — Dark glass button */}
@@ -498,7 +506,10 @@ export function DeezHero() {
                   {f}
                 </span>
                 {i < features.length - 1 && (
-                  <span className="h-[5px] w-[5px] rounded-full bg-[color:var(--accent)] opacity-80" aria-hidden />
+                  <span
+                    className="h-[5px] w-[5px] rounded-full bg-[color:var(--accent)] opacity-80"
+                    aria-hidden
+                  />
                 )}
               </div>
             ))}

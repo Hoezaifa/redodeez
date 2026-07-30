@@ -48,12 +48,14 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
   }, [open, onClose]);
 
   const results: Product[] = query.trim()
-    ? products.filter(
-        (p) =>
-          p.title.toLowerCase().includes(query.toLowerCase()) ||
-          p.category.toLowerCase().includes(query.toLowerCase()) ||
-          p.subcategory.toLowerCase().includes(query.toLowerCase()),
-      ).slice(0, 8)
+    ? products
+        .filter(
+          (p) =>
+            p.title.toLowerCase().includes(query.toLowerCase()) ||
+            p.category.toLowerCase().includes(query.toLowerCase()) ||
+            p.subcategory.toLowerCase().includes(query.toLowerCase()),
+        )
+        .slice(0, 8)
     : [];
 
   return (
@@ -166,7 +168,10 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
               ) : (
                 <div className="py-8 text-center text-white/50">
                   <p className="text-sm">No products matching &ldquo;{query}&rdquo;</p>
-                  <p className="text-xs text-white/30 mt-1">Try searching for &apos;hoodie&apos;, &apos;t-shirt&apos;, or &apos;acid wash&apos;.</p>
+                  <p className="text-xs text-white/30 mt-1">
+                    Try searching for &apos;hoodie&apos;, &apos;t-shirt&apos;, or &apos;acid
+                    wash&apos;.
+                  </p>
                 </div>
               )}
             </div>

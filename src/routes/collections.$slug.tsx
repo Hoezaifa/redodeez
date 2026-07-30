@@ -54,11 +54,13 @@ function CollectionPage() {
 
   return (
     <div className="edge py-14 md:py-20">
-      <JsonLd data={breadcrumbSchema([
-        { name: "Home", url: "/" },
-        { name: "Shop", url: "/collections" },
-        { name, url: `/collections/${slug}` },
-      ])} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Shop", url: "/collections" },
+          { name, url: `/collections/${slug}` },
+        ])}
+      />
       <nav aria-label="Breadcrumb" className="label-mono text-muted-foreground">
         <Link to="/" className="hover:text-primary">
           Home
@@ -108,9 +110,7 @@ function CollectionPage() {
                 }}
                 className={cn(
                   "flex items-center gap-1 px-3 py-2 label-mono transition-all duration-300",
-                  sort === s.id
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground",
+                  sort === s.id ? "text-primary" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {s.label}
@@ -122,9 +122,7 @@ function CollectionPage() {
                     )}
                   />
                 )}
-                {s.id === "featured" && sort === "featured" && (
-                  <ChevronDown className="h-3 w-3" />
-                )}
+                {s.id === "featured" && sort === "featured" && <ChevronDown className="h-3 w-3" />}
               </button>
             ))}
           </div>

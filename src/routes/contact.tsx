@@ -88,7 +88,9 @@ function Contact() {
             </div>
             <div>
               <p className="label-mono text-primary">WhatsApp (Fastest response)</p>
-              <p className="text-sm text-muted-foreground mt-0.5 underline underline-offset-4 decoration-primary">Click to Chat (+92 327 2487127)</p>
+              <p className="text-sm text-muted-foreground mt-0.5 underline underline-offset-4 decoration-primary">
+                Click to Chat (+92 327 2487127)
+              </p>
             </div>
           </a>
           <div className="flex items-start gap-3 bg-background p-5">

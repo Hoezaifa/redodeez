@@ -19,7 +19,8 @@ const base =
 
 const variants = {
   solid: "bg-primary text-primary-foreground hover:bg-foreground hover:text-background",
-  outline: "border-2 border-primary bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground",
+  outline:
+    "border-2 border-primary bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground",
   ghost: "text-foreground hover:text-primary",
 };
 

@@ -32,7 +32,9 @@ function Shipping() {
           <Truck className="w-6 h-6 text-primary" />
           <p className="text-sm font-mono text-muted-foreground uppercase">Shipping Rate</p>
           <p className="text-xl font-bold text-foreground">Flat Rs. {site.shippingFee}</p>
-          <p className="text-xs text-muted-foreground">Free shipping on orders above Rs. {site.freeShippingThreshold}</p>
+          <p className="text-xs text-muted-foreground">
+            Free shipping on orders above Rs. {site.freeShippingThreshold}
+          </p>
         </div>
         <div className="rounded-xl border border-white/10 bg-surface/50 p-6 space-y-2">
           <Clock className="w-6 h-6 text-primary" />
@@ -53,7 +55,10 @@ function Shipping() {
           <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground">Delivery Timeline</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Standard delivery time is <strong className="text-foreground font-semibold">3-5 working days</strong> across Pakistan. Orders placed before 1 PM are usually dispatched the same day. During sales or national holidays, delivery may take up to 7 working days.
+              Standard delivery time is{" "}
+              <strong className="text-foreground font-semibold">3-5 working days</strong> across
+              Pakistan. Orders placed before 1 PM are usually dispatched the same day. During sales
+              or national holidays, delivery may take up to 7 working days.
             </p>
           </div>
 
@@ -62,7 +67,8 @@ function Shipping() {
           <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground">Tracking Your Order</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Once your order is dispatched, we send a tracking number via Email/SMS so you can track your package directly on courier portals.
+              Once your order is dispatched, we send a tracking number via Email/SMS so you can
+              track your package directly on courier portals.
             </p>
           </div>
 
@@ -71,7 +77,9 @@ function Shipping() {
           <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground">Payment Methods</h2>
             <p className="text-muted-foreground leading-relaxed">
-              We currently accept: <strong className="text-foreground font-semibold">{paymentMethods.join(", ")}</strong>.
+              We currently accept:{" "}
+              <strong className="text-foreground font-semibold">{paymentMethods.join(", ")}</strong>
+              .
             </p>
           </div>
 
@@ -80,7 +88,8 @@ function Shipping() {
           <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground">International Shipping</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Currently, we only ship within Pakistan. However, we plan to expand internationally in the near future!
+              Currently, we only ship within Pakistan. However, we plan to expand internationally in
+              the near future!
             </p>
           </div>
         </div>

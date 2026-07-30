@@ -111,11 +111,15 @@ export function CollectionsStrip() {
               <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent opacity-90" />
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-6">
                 <div className="min-w-0">
-                  <span className="label-mono text-[10px] text-primary tracking-widest uppercase">Featured Drop</span>
+                  <span className="label-mono text-[10px] text-primary tracking-widest uppercase">
+                    Featured Drop
+                  </span>
                   <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight text-white mt-1">
                     {c.name}
                   </h3>
-                  <p className="label-mono mt-1.5 text-xs text-muted-foreground truncate">{c.blurb}</p>
+                  <p className="label-mono mt-1.5 text-xs text-muted-foreground truncate">
+                    {c.blurb}
+                  </p>
                 </div>
                 <span className="grid h-10 w-10 shrink-0 place-items-center bg-primary text-primary-foreground transition-transform duration-500 group-hover:translate-x-1">
                   <ArrowRight className="h-4 w-4" />

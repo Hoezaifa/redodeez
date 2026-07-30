@@ -82,7 +82,12 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           onClick={() => toggleWish(product.id)}
           className="absolute right-3 top-3 z-10 grid h-8 w-8 sm:h-9 sm:w-9 place-items-center bg-background/70 backdrop-blur-sm transition-colors hover:text-primary active:scale-90"
         >
-          <Heart className={cn("h-4 w-4 transition-transform active:scale-125", wished && "fill-primary text-primary")} />
+          <Heart
+            className={cn(
+              "h-4 w-4 transition-transform active:scale-125",
+              wished && "fill-primary text-primary",
+            )}
+          />
         </button>
 
         {/* Quick Add '+' button bottom right of image */}

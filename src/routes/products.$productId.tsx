@@ -1,14 +1,7 @@
 import { createFileRoute, Link, useNavigate, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import {
-  Heart,
-  Minus,
-  Plus,
-  ShoppingCart,
-  ArrowRight,
-  ChevronDown,
-} from "lucide-react";
+import { Heart, Minus, Plus, ShoppingCart, ArrowRight, ChevronDown } from "lucide-react";
 import { products } from "@/data/products";
 import { site, sizes as ALL_SIZES, whatsappLink } from "@/data/site";
 import { formatPrice } from "@/lib/format";
@@ -64,7 +57,10 @@ function AccordionItem({ title, children }: { title: string; children: React.Rea
       >
         <span className="font-semibold">{title}</span>
         <ChevronDown
-          className={cn("h-4 w-4 text-muted-foreground transition-transform duration-300", open && "rotate-180 text-primary")}
+          className={cn(
+            "h-4 w-4 text-muted-foreground transition-transform duration-300",
+            open && "rotate-180 text-primary",
+          )}
         />
       </button>
       <AnimatePresence>
@@ -98,9 +94,9 @@ function ProductPage() {
   ];
 
   const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
-  const availableSizes = isTapestry ? ["24\"x36\"", "36\"x48\"", "48\"x60\""] : ALL_SIZES;
+  const availableSizes = isTapestry ? ['24"x36"', '36"x48"', '48"x60"'] : ALL_SIZES;
 
-  const [size, setSize] = useState<string>(isTapestry ? "36\"x48\"" : "");
+  const [size, setSize] = useState<string>(isTapestry ? '36"x48"' : "");
   const [qty, setQty] = useState(1);
   const [active, setActive] = useState(0);
   const [err, setErr] = useState(false);
@@ -224,7 +220,9 @@ function ProductPage() {
                   onClick={() => setActive(i)}
                   className={cn(
                     "aspect-square overflow-hidden border bg-surface rounded-xl p-1 transition-all",
-                    i === active ? "border-primary ring-2 ring-primary/20 scale-95" : "border-border hover:border-primary/50",
+                    i === active
+                      ? "border-primary ring-2 ring-primary/20 scale-95"
+                      : "border-border hover:border-primary/50",
                   )}
                 >
                   <img src={src} alt="" loading="lazy" className="h-full w-full object-contain" />
@@ -272,7 +270,9 @@ function ProductPage() {
           {needsSize && (
             <div>
               <div className="flex items-center justify-between mb-2">
-                <p className="label-mono uppercase text-xs text-muted-foreground font-bold">Select Size</p>
+                <p className="label-mono uppercase text-xs text-muted-foreground font-bold">
+                  Select Size
+                </p>
                 <Link to="/faq" className="label-mono text-xs text-primary hover:underline">
                   Size Guide
                 </Link>
@@ -297,13 +297,19 @@ function ProductPage() {
                   </button>
                 ))}
               </div>
-              {err && <p className="mt-2 label-mono text-xs text-destructive">Please select a size to proceed</p>}
+              {err && (
+                <p className="mt-2 label-mono text-xs text-destructive">
+                  Please select a size to proceed
+                </p>
+              )}
             </div>
           )}
 
           {/* Quantity Selector */}
           <div>
-            <p className="label-mono uppercase text-xs text-muted-foreground font-bold mb-2">Quantity</p>
+            <p className="label-mono uppercase text-xs text-muted-foreground font-bold mb-2">
+              Quantity
+            </p>
             <div className="flex items-center border border-border bg-surface rounded-xl w-fit p-1">
               <button
                 type="button"
@@ -313,9 +319,7 @@ function ProductPage() {
               >
                 <Minus className="h-4 w-4" />
               </button>
-              <span className="w-10 text-center font-mono text-base font-bold">
-                {qty}
-              </span>
+              <span className="w-10 text-center font-mono text-base font-bold">{qty}</span>
               <button
                 type="button"
                 aria-label="Increase quantity"
@@ -370,13 +374,12 @@ function ProductPage() {
 
           {/* Expandable Accordion Sections */}
           <div className="pt-6">
-            <AccordionItem title="Materials & Details">
-              {getMaterialsText()}
-            </AccordionItem>
+            <AccordionItem title="Materials & Details">{getMaterialsText()}</AccordionItem>
 
             <AccordionItem title="Shipping Information">
               <p>
-                Standard delivery time is 3-5 working days across Pakistan, and 2-4 working days for Karachi. You will receive an instant order notification & confirmation update.
+                Standard delivery time is 3-5 working days across Pakistan, and 2-4 working days for
+                Karachi. You will receive an instant order notification & confirmation update.
               </p>
             </AccordionItem>
 
@@ -385,7 +388,8 @@ function ProductPage() {
                 We replace any defective or damaged products immediately upon delivery.
               </p>
               <p>
-                For size adjustments or support, contact our team via WhatsApp or email at <span className="text-primary font-mono">deezprints69@gmail.com</span>.
+                For size adjustments or support, contact our team via WhatsApp or email at{" "}
+                <span className="text-primary font-mono">deezprints69@gmail.com</span>.
               </p>
             </AccordionItem>
 

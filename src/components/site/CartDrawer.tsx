@@ -151,10 +151,7 @@ export function CartDrawer() {
                       <p className="label-mono text-muted-foreground">Complete the look</p>
                       <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
                         {suggestions.map((p) => (
-                          <div
-                            key={p.id}
-                            className="flex w-[140px] shrink-0 flex-col"
-                          >
+                          <div key={p.id} className="flex w-[140px] shrink-0 flex-col">
                             <Link
                               to="/products/$productId"
                               params={{ productId: p.id }}

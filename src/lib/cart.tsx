@@ -10,6 +10,11 @@ export type CartLine = {
   color?: string;
   qty: number;
   note?: string;
+  isCustom?: boolean;
+  frontArtworkUrl?: string;
+  backArtworkUrl?: string;
+  placement?: string;
+  blankItem?: string;
 };
 
 export type CartToastInfo = {
@@ -76,7 +81,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<CartCtx>(() => {
     const add: CartCtx["add"] = (line) => {
-      const id = [line.productId, line.size ?? "", line.color ?? "", line.note ?? ""].join("|");
+      const id = [
+        line.productId,
+        line.size ?? "",
+        line.color ?? "",
+        line.note ?? "",
+        line.frontArtworkUrl ?? "",
+        line.placement ?? "",
+      ].join("|");
       setLines((prev) => {
         const found = prev.find((l) => l.id === id);
         if (found) {

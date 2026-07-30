@@ -37,10 +37,7 @@ export function whatsappLink(message: string) {
     : `https://www.instagram.com/deez_prints/`;
 }
 
-export const paymentMethods = [
-  "Meezan Bank Transfer",
-  "Easypaisa / JazzCash / Zindigi",
-];
+export const paymentMethods = ["Meezan Bank Transfer", "Easypaisa / JazzCash / Zindigi"];
 
 export type Collection = {
   slug: string;

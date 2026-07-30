@@ -118,9 +118,7 @@ export function productSchema(product: Product) {
 }
 
 /** BreadcrumbList schema */
-export function breadcrumbSchema(
-  crumbs: Array<{ name: string; url: string }>
-) {
+export function breadcrumbSchema(crumbs: Array<{ name: string; url: string }>) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -134,9 +132,7 @@ export function breadcrumbSchema(
 }
 
 /** FAQPage schema for the FAQ page */
-export function faqPageSchema(
-  faqs: Array<{ q: string; a: string }>
-) {
+export function faqPageSchema(faqs: Array<{ q: string; a: string }>) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",

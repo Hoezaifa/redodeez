@@ -122,9 +122,7 @@ function ShopAll() {
                 }}
                 className={cn(
                   "flex items-center gap-1 px-3 py-2 label-mono transition-all duration-300",
-                  sort === s.id
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground",
+                  sort === s.id ? "text-primary" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {s.label}
@@ -136,9 +134,7 @@ function ShopAll() {
                     )}
                   />
                 )}
-                {s.id === "featured" && sort === "featured" && (
-                  <ChevronDown className="h-3 w-3" />
-                )}
+                {s.id === "featured" && sort === "featured" && <ChevronDown className="h-3 w-3" />}
               </button>
             ))}
           </div>

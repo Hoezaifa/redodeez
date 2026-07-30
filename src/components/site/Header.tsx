@@ -79,9 +79,7 @@ export function Header() {
           <nav className="hidden items-center justify-center gap-8 lg:flex">
             {navLinks.map((l) => {
               const isActive =
-                l.to === "/"
-                  ? location.pathname === "/"
-                  : location.pathname.startsWith(l.to);
+                l.to === "/" ? location.pathname === "/" : location.pathname.startsWith(l.to);
 
               return (
                 <div

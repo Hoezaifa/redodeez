@@ -16,6 +16,10 @@ import { products } from "@/data/products";
 import { whatsappLink } from "@/data/site";
 import { cn } from "@/lib/utils";
 
+import { useNavigate } from "@tanstack/react-router";
+import { useCart } from "@/lib/cart";
+import { uploadArtworkToCloudinary } from "@/lib/cloudinary";
+
 export const Route = createFileRoute("/custom-print")({
   head: () => ({
     meta: [
@@ -23,19 +27,20 @@ export const Route = createFileRoute("/custom-print")({
       {
         name: "description",
         content:
-          "Custom print Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Send your quote request and get replied within minutes on WhatsApp.",
+          "Custom print Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Upload artwork and order custom streetwear across Pakistan.",
       },
       { property: "og:title", content: "Custom Printing — Deez Prints" },
       {
         property: "og:description",
-        content: "Custom prints on premium blanks and tapestries. Direct quote response on WhatsApp within minutes.",
+        content:
+          "Custom prints on premium blanks and tapestries. Fast nationwide delivery in 3–5 days.",
       },
     ],
   }),
   component: CustomPrint,
 });
 
-// Thumbnails from existing products
+// Thumbnails and dynamic prices from catalog products
 const regTeeProduct = products.find((p) => p.subcategory === "oversized") ?? products[0];
 const dropProduct = products.find((p) => p.title.toLowerCase().includes("drop")) ?? products[1];
 const acidProduct = products.find((p) => p.subcategory === "acid-wash") ?? products[2];
@@ -48,6 +53,7 @@ const bases = [
     subtitle: "180 GSM Premium Cotton",
     isClothing: true,
     image: regTeeProduct.images[0],
+    price: regTeeProduct.price,
   },
   {
     id: "drop-shoulder",
@@ -55,6 +61,7 @@ const bases = [
     subtitle: "Oversized Streetwear Cut",
     isClothing: true,
     image: dropProduct.images[0],
+    price: dropProduct.price,
   },
   {
     id: "acid-wash",
@@ -62,6 +69,7 @@ const bases = [
     subtitle: "Hand-dyed Vintage Finish",
     isClothing: true,
     image: acidProduct.images[0],
+    price: acidProduct.price,
   },
   {
     id: "tapestry",
@@ -69,6 +77,7 @@ const bases = [
     subtitle: "High-Quality Wall Piece",
     isClothing: false,
     image: tapestryProduct.images[0],
+    price: tapestryProduct.price,
   },
 ];
 
@@ -94,6 +103,8 @@ interface UploadedFile {
 }
 
 function CustomPrint() {
+  const navigate = useNavigate();
+  const { add } = useCart();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [base, setBase] = useState(bases[0].id);
   const [color, setColor] = useState(colorOptions[0].name);
@@ -105,16 +116,20 @@ function CustomPrint() {
   const [singlePlacement, setSinglePlacement] = useState<"Front" | "Back">("Front");
 
   const [notes, setNotes] = useState("");
-  const [quoteSent, setQuoteSent] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
   const selectedBase = bases.find((b) => b.id === base)!;
   const isClothing = selectedBase.isClothing;
   const maxAllowedFiles = isClothing ? 2 : 1;
   const currentSize = isClothing ? clothingSize : tapestrySize;
+  const placementText = !isClothing
+    ? "Wall Print"
+    : files.length === 2
+      ? "Front + Back"
+      : singlePlacement;
 
   function handleSelectBase(newBaseId: string) {
     setBase(newBaseId);
-    setQuoteSent(false);
     if (newBaseId === "tapestry" && files.length > 1) {
       setFiles((prev) => prev.slice(0, 1));
     }
@@ -132,7 +147,6 @@ function CustomPrint() {
     }));
 
     setFiles((prev) => [...prev, ...newUploaded].slice(0, maxAllowedFiles));
-    setQuoteSent(false);
   }
 
   function removeFile(index: number) {
@@ -148,53 +162,60 @@ function CustomPrint() {
     setSinglePlacement("Front");
   }
 
-  function generateWhatsAppMessage() {
-    const lines = [
-      "🎨 *Custom Print Quote Request*",
-      `• *Item:* ${selectedBase.label}`,
-      `• *Color:* ${color}`,
-      `• *Size:* ${currentSize}`,
-    ];
-
-    if (!isClothing) {
-      lines.push(`• *Item Type:* Wall Tapestry`);
-      lines.push(`• *Placement:* Single-Sided Wall Print`);
-      lines.push(`• *Artwork:* ${files.length > 0 ? files[0].name : "(Will send artwork directly in WhatsApp)"}`);
-    } else if (files.length === 0) {
-      lines.push(`• *Placement:* ${singlePlacement}`);
-      lines.push(`• *Artwork:* (Will send artwork directly in WhatsApp)`);
-    } else if (files.length === 1) {
-      lines.push(`• *Placement:* ${singlePlacement}`);
-      lines.push(`• *Artwork File:* ${files[0].name}`);
-    } else if (files.length === 2) {
-      lines.push(`• *Placement:* Front + Back`);
-      lines.push(`• *Front Design:* ${files[0].name}`);
-      lines.push(`• *Back Design:* ${files[1].name}`);
+  async function handlePlaceCustomOrder() {
+    if (files.length === 0) {
+      alert("Please upload at least 1 artwork file for your custom print.");
+      fileInputRef.current?.click();
+      return;
     }
 
-    if (notes.trim()) {
-      lines.push(`• *Notes:* ${notes.trim()}`);
+    try {
+      setIsUploading(true);
+
+      // Upload artwork to Cloudinary
+      const frontUrl = await uploadArtworkToCloudinary(files[0].file);
+      let backUrl: string | undefined = undefined;
+      if (files.length > 1) {
+        backUrl = await uploadArtworkToCloudinary(files[1].file);
+      }
+
+      // Base price + optional double-sided add-on (Rs. 500)
+      const doubleSidedFee = files.length === 2 ? 500 : 0;
+      const finalItemPrice = selectedBase.price + doubleSidedFee;
+
+      // Add custom line item to cart
+      add({
+        productId: `custom-${selectedBase.id}-${Date.now()}`,
+        title: `CUSTOM ${selectedBase.label}`,
+        price: finalItemPrice,
+        image: frontUrl || files[0].preview,
+        size: currentSize,
+        color,
+        qty: 1,
+        note: notes,
+        isCustom: true,
+        frontArtworkUrl: frontUrl,
+        backArtworkUrl: backUrl,
+        placement: placementText,
+        blankItem: selectedBase.label,
+      });
+
+      // Redirect to checkout
+      navigate({ to: "/checkout" });
+    } catch (err) {
+      console.error("Failed to prepare custom order", err);
+      alert("There was an error uploading your artwork. Please try again.");
+    } finally {
+      setIsUploading(false);
     }
-
-    lines.push("\n_Please send custom quote & pricing (expecting reply within minutes)._");
-    return lines.join("\n");
-  }
-
-  function sendQuote() {
-    const msg = generateWhatsAppMessage();
-    const url = whatsappLink(msg);
-    window.open(url, "_blank");
-    setQuoteSent(true);
   }
 
   return (
     <div className="pt-24 sm:pt-32 md:pt-36 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto">
       {/* Responsive Grid */}
       <div className="grid lg:grid-cols-12 gap-8 items-start">
-        
         {/* Left & Center Main Section */}
         <div className="lg:col-span-7 xl:col-span-7 space-y-8">
-          
           {/* Quick Base Item Selector Bar (Mobile & Desktop synchronized) */}
           <div className="border border-zinc-800/80 bg-zinc-950/90 rounded-xl p-4 space-y-3">
             <label className="block font-mono text-xs font-bold uppercase tracking-wider text-white">
@@ -212,10 +233,14 @@ function CustomPrint() {
                       "flex items-center gap-2.5 p-2.5 rounded-lg border transition-all text-left cursor-pointer",
                       selected
                         ? "border-primary bg-primary/10 text-white font-bold shadow-sm"
-                        : "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-zinc-700 hover:text-white"
+                        : "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-zinc-700 hover:text-white",
                     )}
                   >
-                    <img src={b.image} alt={b.label} className="h-8 w-8 rounded object-cover shrink-0 border border-zinc-800" />
+                    <img
+                      src={b.image}
+                      alt={b.label}
+                      className="h-8 w-8 rounded object-cover shrink-0 border border-zinc-800"
+                    />
                     <div className="min-w-0 flex-1">
                       <span className="font-display font-black text-[11px] uppercase tracking-wider block truncate text-white">
                         {b.label}
@@ -232,7 +257,6 @@ function CustomPrint() {
 
           {/* Hero Row: Left Title + Middle Artwork Dropzone */}
           <div className="grid md:grid-cols-2 gap-6 items-stretch">
-            
             {/* Hero Left Title Block */}
             <div className="flex flex-col justify-between py-2 space-y-6">
               <div>
@@ -256,7 +280,10 @@ function CustomPrint() {
                   { label: "FAST TURNAROUND", icon: Zap },
                   { label: "MADE TO LAST", icon: Sparkles },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2 text-[10px] font-mono font-bold tracking-wider text-zinc-300">
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-2 text-[10px] font-mono font-bold tracking-wider text-zinc-300"
+                  >
                     <span className="grid h-5 w-5 place-items-center rounded-full border border-primary/40 bg-primary/10 text-primary shrink-0">
                       <item.icon className="h-3 w-3" />
                     </span>
@@ -318,7 +345,12 @@ function CustomPrint() {
                     )}
                   </div>
 
-                  <div className={cn("grid gap-3", files.length === 2 ? "grid-cols-2" : "max-w-xs mx-auto")}>
+                  <div
+                    className={cn(
+                      "grid gap-3",
+                      files.length === 2 ? "grid-cols-2" : "max-w-xs mx-auto",
+                    )}
+                  >
                     {files.map((fileObj, idx) => (
                       <div
                         key={fileObj.id}
@@ -340,7 +372,8 @@ function CustomPrint() {
                           </button>
                         </div>
                         <p className="mt-2 text-[10px] font-mono text-zinc-400 truncate max-w-full">
-                          {isClothing ? `Design ${idx + 1}: ` : "Wall Art: "}{fileObj.name}
+                          {isClothing ? `Design ${idx + 1}: ` : "Wall Art: "}
+                          {fileObj.name}
                         </p>
                       </div>
                     ))}
@@ -424,14 +457,19 @@ function CustomPrint() {
                 </div>
 
                 <p className="text-xs text-zinc-400 font-sans leading-relaxed">
-                  High-definition single-sided wall print. Seamless edges with hemmed borders for effortless wall mounting.
+                  High-definition single-sided wall print. Seamless edges with hemmed borders for
+                  effortless wall mounting.
                 </p>
 
                 <div className="p-4 rounded-lg border border-zinc-800 bg-zinc-900/50 flex items-center gap-3">
                   <Sparkles className="h-5 w-5 text-primary shrink-0" />
                   <div>
-                    <h4 className="font-display font-bold text-xs uppercase text-white">HD Full Bleed Print</h4>
-                    <p className="text-[11px] text-zinc-400 font-sans mt-0.5">Edge-to-edge wall artwork printing on premium fabric banner.</p>
+                    <h4 className="font-display font-bold text-xs uppercase text-white">
+                      HD Full Bleed Print
+                    </h4>
+                    <p className="text-[11px] text-zinc-400 font-sans mt-0.5">
+                      Edge-to-edge wall artwork printing on premium fabric banner.
+                    </p>
                   </div>
                 </div>
               </>
@@ -448,7 +486,9 @@ function CustomPrint() {
               },
               {
                 title: isClothing ? "PREMIUM GARMENT" : "FABRIC CANVAS",
-                desc: isClothing ? "Soft, heavy-grade cotton for long lasting wear." : "Durable wall hanging fabric canvas.",
+                desc: isClothing
+                  ? "Soft, heavy-grade cotton for long lasting wear."
+                  : "Durable wall hanging fabric canvas.",
                 icon: Shirt,
               },
               {
@@ -467,9 +507,7 @@ function CustomPrint() {
                 <h4 className="font-display font-black text-xs uppercase tracking-wider text-white mt-1">
                   {item.title}
                 </h4>
-                <p className="text-[11px] text-zinc-400 font-sans leading-relaxed">
-                  {item.desc}
-                </p>
+                <p className="text-[11px] text-zinc-400 font-sans leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -477,7 +515,6 @@ function CustomPrint() {
 
         {/* Right Sidebar Section */}
         <aside className="lg:col-span-5 xl:col-span-5 border border-zinc-800 bg-zinc-950/90 rounded-xl p-6 space-y-6 lg:sticky lg:top-28">
-          
           {/* 1. SELECT BLANK ITEM */}
           <div>
             <label className="block font-mono text-xs font-bold uppercase tracking-wider text-white mb-3">
@@ -605,27 +642,47 @@ function CustomPrint() {
             )}
           </div>
 
-          {/* WhatsApp Quote Banner / CTA Button */}
+          {/* Optional Print Notes */}
+          <div>
+            <label className="block font-mono text-xs font-bold uppercase tracking-wider text-white mb-2">
+              SPECIAL INSTRUCTIONS / NOTES (OPTIONAL)
+            </label>
+            <textarea
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              placeholder="E.g., print size (A3/A4), placement tweaks, or design adjustments..."
+              className="w-full bg-zinc-900/60 border border-zinc-800 rounded-md p-3 text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-primary resize-none h-20"
+            />
+          </div>
+
+          {/* Place Custom Order CTA Button */}
           <div className="border-t border-zinc-800 pt-5 space-y-3">
             <button
               type="button"
-              onClick={sendQuote}
-              className="w-full bg-primary text-black font-display font-black uppercase text-xs tracking-wider py-4 px-4 rounded-lg flex items-center justify-center gap-2 transition-all hover:brightness-110 active:scale-[0.98] cursor-pointer shadow-lg shadow-primary/20"
+              disabled={isUploading}
+              onClick={handlePlaceCustomOrder}
+              className="w-full bg-primary text-black font-display font-black uppercase text-xs tracking-wider py-4 px-4 rounded-lg flex items-center justify-center gap-2 transition-all hover:brightness-110 active:scale-[0.98] cursor-pointer shadow-lg shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <span>CONTINUE TO PREVIEW</span>
-              <ArrowRight className="h-4 w-4 stroke-[2.5]" />
+              {isUploading ? (
+                <>
+                  <div className="h-4 w-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                  <span>UPLOADING ARTWORK & PREPARING ORDER...</span>
+                </>
+              ) : (
+                <>
+                  <span>PLACE CUSTOM ORDER</span>
+                  <ArrowRight className="h-4 w-4 stroke-[2.5]" />
+                </>
+              )}
             </button>
-
-            {quoteSent && (
-              <div className="p-3 rounded-md bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 text-xs font-mono flex items-center gap-2">
-                <Check className="h-4 w-4 shrink-0" />
-                <span>Quote opened in WhatsApp! We will reply within minutes.</span>
-              </div>
-            )}
 
             <div className="flex items-center justify-center gap-1.5 text-xs font-sans text-zinc-400 hover:text-white transition-colors cursor-pointer pt-1">
               <HelpCircle className="h-3.5 w-3.5" />
-              <a href={whatsappLink("Hi Deez Prints! I have a question about custom printing.")} target="_blank" rel="noreferrer">
+              <a
+                href={whatsappLink("Hi Deez Prints! I have a question about custom printing.")}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Need help? Contact us on WhatsApp
               </a>
             </div>

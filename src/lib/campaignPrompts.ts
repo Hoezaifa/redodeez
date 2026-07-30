@@ -184,7 +184,7 @@ export function generateCampaignPrompt(
   productTitle: string,
   category: string,
   style: PhotographyStyle,
-  garmentReferenceImagePath: string
+  garmentReferenceImagePath: string,
 ): { prompt: string; imagePaths: string[] } {
   const tpl = PHOTOGRAPHY_TEMPLATES[style];
   const prompt = `Transform the garment from the reference image into a high-end commercial fashion campaign photograph. The ${tpl.gender} model with ${tpl.hair}${tpl.accessories ? ` wearing ${tpl.accessories}` : ""} is wearing the EXACT ${productTitle} (${category}) from the input image. PRESERVE 100% EXACT: graphic artwork, print placement, color saturation, proportions, wash texture, collar stitching, drop shoulder cut, and fabric drape from the input garment. POSE: ${tpl.pose}. CAMERA ANGLE: ${tpl.cameraAngle}. SETTING: ${tpl.lighting}.`;

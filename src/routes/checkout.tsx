@@ -1,14 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import {
-  Check,
-  Smartphone,
-  Building2,
-  Download,
-  Share2,
-  ArrowLeft,
-} from "lucide-react";
+import { Check, Smartphone, Building2, Download, Share2, ArrowLeft } from "lucide-react";
 import { toPng } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site } from "@/data/site";
@@ -22,7 +15,8 @@ export const Route = createFileRoute("/checkout")({
       { title: "Checkout — Deez Prints" },
       {
         name: "description",
-        content: "Complete your Deez Prints order with Meezan Bank transfer, Easypaisa, or JazzCash.",
+        content:
+          "Complete your Deez Prints order with Meezan Bank transfer, Easypaisa, or JazzCash.",
       },
       { name: "robots", content: "noindex, nofollow" },
     ],
@@ -57,18 +51,14 @@ function Checkout() {
   const shippingCost = subtotal >= site.freeShippingThreshold ? 0 : site.shippingFee;
   const total = lines.length ? subtotal + shippingCost : 0;
 
-  const orderNumber = useMemo(
-    () => `DP-${String(Math.floor(10000 + Math.random() * 90000))}`,
-    [],
-  );
+  const orderNumber = useMemo(() => `DP-${String(Math.floor(10000 + Math.random() * 90000))}`, []);
 
   const deliveryDate = useMemo(() => {
     const d1 = new Date();
     d1.setDate(d1.getDate() + 3);
     const d2 = new Date();
     d2.setDate(d2.getDate() + 5);
-    const fmt = (d: Date) =>
-      d.toLocaleDateString("en-PK", { day: "numeric", month: "short" });
+    const fmt = (d: Date) => d.toLocaleDateString("en-PK", { day: "numeric", month: "short" });
     return `${fmt(d1)} – ${fmt(d2)}`;
   }, []);
 
@@ -78,7 +68,13 @@ function Checkout() {
 
   const handleSubmitInfo = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.address || !formData.phone || !formData.city) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.address ||
+      !formData.phone ||
+      !formData.city
+    ) {
       alert("Please fill in all required fields.");
       return;
     }
@@ -88,9 +84,9 @@ function Checkout() {
 
   const handlePlaceOrder = async () => {
     const methodTitle =
-      paymentMethod === "meezan"
-        ? "Meezan Bank Transfer"
-        : "Easypaisa / JazzCash / Zindigi";
+      paymentMethod === "meezan" ? "Meezan Bank Transfer" : "Easypaisa / JazzCash / Zindigi";
+
+    const hasCustomItems = lines.some((l) => l.isCustom);
 
     const orderData: OrderPayload = {
       orderId: orderNumber,
@@ -105,19 +101,36 @@ function Checkout() {
         id: l.id,
         title: l.title,
         size: l.size,
+        color: l.color,
         qty: l.qty,
         price: l.price,
+        isCustom: l.isCustom,
+        frontArtworkUrl: l.frontArtworkUrl,
+        backArtworkUrl: l.backArtworkUrl,
+        placement: l.placement,
+        blankItem: l.blankItem,
       })),
       subtotal,
       shipping: shippingCost,
       total,
+      orderType: hasCustomItems ? "custom" : "normal",
+      createdAt: new Date().toISOString(),
+      status: "Pending",
     };
 
     setCompletedOrder(orderData);
     setPlaced(true);
     setStep(3);
 
-    // Send Telegram notification
+    // Save order in orders registry
+    try {
+      const existing = JSON.parse(localStorage.getItem("deez-orders-v1") || "[]");
+      localStorage.setItem("deez-orders-v1", JSON.stringify([orderData, ...existing]));
+    } catch {
+      /* ignore */
+    }
+
+    // Send Telegram notification (includes artwork images if custom order)
     sendOrderTelegramNotification(orderData);
     clear();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -179,20 +192,28 @@ function Checkout() {
           <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-primary mb-4">
             <Check className="h-8 w-8 text-primary-foreground" strokeWidth={3} />
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight">Order Confirmed!</h1>
+          <h1 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight">
+            Order Confirmed!
+          </h1>
           <p className="mt-2 text-zinc-400 text-sm">
-            Thank you, <span className="text-white font-semibold">{completedOrder.name}</span>. We have received your order!
+            Thank you, <span className="text-white font-semibold">{completedOrder.name}</span>. We
+            have received your order!
           </p>
           <div className="mt-3 flex items-center justify-center gap-3 text-xs text-zinc-400">
-            <span>Order <strong className="text-white">#{completedOrder.orderId}</strong></span>
+            <span>
+              Order <strong className="text-white">#{completedOrder.orderId}</strong>
+            </span>
             <span>•</span>
-            <span>Est. delivery <strong className="text-white">{deliveryDate}</strong></span>
+            <span>
+              Est. delivery <strong className="text-white">{deliveryDate}</strong>
+            </span>
           </div>
 
           {/* Prominent WhatsApp Payment Notice */}
           <div className="mt-6 max-w-md mx-auto p-4 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-200 text-xs sm:text-sm font-medium text-center shadow-lg">
             <p className="leading-relaxed">
-              💬 <strong>Please share your payment screenshot on WhatsApp</strong> to confirm your order dispatch!
+              💬 <strong>Please share your payment screenshot on WhatsApp</strong> to confirm your
+              order dispatch!
             </p>
           </div>
         </motion.div>
@@ -221,18 +242,28 @@ function Checkout() {
                   #{completedOrder.orderId}
                 </span>
                 <span className="text-[10px] text-zinc-400 block">
-                  {new Date().toLocaleDateString("en-PK", { day: "numeric", month: "short", year: "numeric" })}
+                  {new Date().toLocaleDateString("en-PK", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
                 </span>
               </div>
             </div>
 
             <div className="my-4 p-3 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-mono text-zinc-500 uppercase block">Payment Method</span>
-                <span className="text-xs font-bold text-zinc-900">{completedOrder.paymentMethod}</span>
+                <span className="text-[10px] font-mono text-zinc-500 uppercase block">
+                  Payment Method
+                </span>
+                <span className="text-xs font-bold text-zinc-900">
+                  {completedOrder.paymentMethod}
+                </span>
               </div>
               <div className="text-right">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase block">Total Amount</span>
+                <span className="text-[10px] font-mono text-zinc-500 uppercase block">
+                  Total Amount
+                </span>
                 <span className="text-lg font-black text-emerald-600">
                   Rs. {completedOrder.total.toLocaleString()}
                 </span>
@@ -246,7 +277,9 @@ function Checkout() {
               </div>
               <div className="flex justify-between">
                 <span className="text-zinc-500">Phone:</span>
-                <span className="font-mono font-semibold text-zinc-900">{completedOrder.phone}</span>
+                <span className="font-mono font-semibold text-zinc-900">
+                  {completedOrder.phone}
+                </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-zinc-500">City / Address:</span>
@@ -274,11 +307,11 @@ function Checkout() {
               </div>
             </div>
 
-
-
             <div className="mt-4 text-center text-[10px] text-zinc-400">
               <p>Download receipt image & share on WhatsApp to confirm delivery.</p>
-              <p className="mt-0.5 font-semibold text-zinc-500">Deez Prints — Streetwear. No limits.</p>
+              <p className="mt-0.5 font-semibold text-zinc-500">
+                Deez Prints — Streetwear. No limits.
+              </p>
             </div>
           </div>
         </motion.div>
@@ -347,7 +380,6 @@ function Checkout() {
     <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6">
       {/* 2-Column Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        
         {/* Left Column: Form Steps */}
         <div className="space-y-6">
           {/* Step Indicator */}
@@ -457,7 +489,6 @@ function Checkout() {
               >
                 <h2 className="text-xl sm:text-2xl font-bold text-white">Payment Method</h2>
                 <div className="space-y-3">
-                  
                   {/* Option 1: Easypaisa */}
                   <button
                     type="button"
@@ -471,7 +502,9 @@ function Checkout() {
                     <div className="flex items-center justify-between mb-1">
                       <div className="flex items-center gap-2.5">
                         <Smartphone className="w-5 h-5 text-emerald-400" />
-                        <span className="font-bold text-sm text-white">Easypaisa / JazzCash / Zindigi</span>
+                        <span className="font-bold text-sm text-white">
+                          Easypaisa / JazzCash / Zindigi
+                        </span>
                       </div>
                       <div
                         className={`w-3.5 h-3.5 rounded-full border ${
@@ -483,9 +516,19 @@ function Checkout() {
                     </div>
                     {paymentMethod === "easypaisa" && (
                       <div className="pt-2 text-xs text-zinc-300 space-y-1 border-t border-white/10 mt-2">
-                        <p>Title: <strong className="text-white">{bankDetails.easypaisa.accountTitle}</strong></p>
+                        <p>
+                          Title:{" "}
+                          <strong className="text-white">
+                            {bankDetails.easypaisa.accountTitle}
+                          </strong>
+                        </p>
                         <div className="flex items-center justify-between">
-                          <p>Number: <strong className="text-white font-mono">{bankDetails.easypaisa.accountNumber}</strong></p>
+                          <p>
+                            Number:{" "}
+                            <strong className="text-white font-mono">
+                              {bankDetails.easypaisa.accountNumber}
+                            </strong>
+                          </p>
                           <span
                             onClick={(e) => {
                               e.stopPropagation();
@@ -527,9 +570,17 @@ function Checkout() {
                     </div>
                     {paymentMethod === "meezan" && (
                       <div className="pt-2 text-xs text-zinc-300 space-y-1 border-t border-white/10 mt-2">
-                        <p>Title: <strong className="text-white">{bankDetails.meezan.accountTitle}</strong></p>
+                        <p>
+                          Title:{" "}
+                          <strong className="text-white">{bankDetails.meezan.accountTitle}</strong>
+                        </p>
                         <div className="flex items-center justify-between">
-                          <p>Account: <strong className="text-white font-mono">{bankDetails.meezan.accountNumber}</strong></p>
+                          <p>
+                            Account:{" "}
+                            <strong className="text-white font-mono">
+                              {bankDetails.meezan.accountNumber}
+                            </strong>
+                          </p>
                           <span
                             onClick={(e) => {
                               e.stopPropagation();
@@ -576,15 +627,16 @@ function Checkout() {
             {/* Item List */}
             <div className="space-y-3 max-h-[320px] overflow-y-auto pr-1">
               {lines.map((item) => (
-                <div key={item.id} className="flex items-center gap-3 py-2 border-b border-white/10">
+                <div
+                  key={item.id}
+                  className="flex items-center gap-3 py-2 border-b border-white/10"
+                >
                   <span className="px-2 py-0.5 bg-zinc-800 border border-white/10 rounded text-xs font-bold text-white shrink-0">
                     {item.qty}x
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-bold text-white truncate uppercase">{item.title}</p>
-                    {item.size && (
-                      <p className="text-[11px] text-zinc-400">{item.size}</p>
-                    )}
+                    {item.size && <p className="text-[11px] text-zinc-400">{item.size}</p>}
                   </div>
                   <span className="text-xs font-bold text-white font-mono shrink-0">
                     Rs. {(item.price * item.qty).toLocaleString()}
@@ -597,7 +649,9 @@ function Checkout() {
             <div className="space-y-2 pt-4 text-xs">
               <div className="flex justify-between text-zinc-400">
                 <span>Subtotal</span>
-                <span className="text-white font-mono font-bold">Rs. {subtotal.toLocaleString()}</span>
+                <span className="text-white font-mono font-bold">
+                  Rs. {subtotal.toLocaleString()}
+                </span>
               </div>
               <div className="flex justify-between text-zinc-400">
                 <span>Shipping</span>
@@ -615,7 +669,6 @@ function Checkout() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
