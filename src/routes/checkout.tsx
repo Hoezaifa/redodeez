@@ -18,10 +18,16 @@ import {
   MessageCircle,
   HelpCircle,
   RotateCcw,
+  Download,
+  Copy,
+  Share2,
 } from "lucide-react";
+import { useRef } from "react";
+import { toPng } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
-import { paymentMethods, site, whatsappLink } from "@/data/site";
+import { paymentMethods, site, whatsappLink, bankDetails } from "@/data/site";
+import { sendOrderTelegramNotification, type OrderPayload } from "@/lib/sendTelegramOrder";
 import { products } from "@/data/products";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { cn } from "@/lib/utils";
@@ -185,6 +191,10 @@ function Checkout() {
   const { lines, subtotal, remove, setQty, clear } = useCart();
   const [payment, setPayment] = useState(paymentMethods[0]);
   const [placed, setPlaced] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const receiptRef = useRef<HTMLDivElement>(null);
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -193,6 +203,8 @@ function Checkout() {
     city: "",
     notes: "",
   });
+
+  const [completedOrder, setCompletedOrder] = useState<OrderPayload | null>(null);
 
   const total = lines.length ? subtotal + (subtotal >= site.freeShippingThreshold ? 0 : site.shippingFee) : 0;
   const shippingCost = subtotal >= site.freeShippingThreshold ? 0 : site.shippingFee;
@@ -212,35 +224,74 @@ function Checkout() {
     return `${fmt(d1)} – ${fmt(d2)}`;
   }, []);
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
+
+    const orderData: OrderPayload = {
+      orderId: orderNumber,
+      name: form.name,
+      phone: form.phone,
+      email: form.email,
+      address: form.address,
+      city: form.city,
+      notes: form.notes,
+      paymentMethod: payment,
+      items: lines.map((l) => ({
+        id: l.id,
+        title: l.title,
+        size: l.size,
+        qty: l.qty,
+        price: l.price,
+      })),
+      subtotal,
+      shipping: shippingCost,
+      total,
+    };
+
+    setCompletedOrder(orderData);
     setPlaced(true);
+
+    // Send Telegram notification to store owner (async, non-blocking)
+    sendOrderTelegramNotification(orderData);
+
     clear();
   }
 
+  const handleDownloadReceipt = async () => {
+    if (!receiptRef.current) return;
+    try {
+      setDownloading(true);
+      const dataUrl = await toPng(receiptRef.current, {
+        backgroundColor: "#ffffff",
+        pixelRatio: 2,
+        filter: (node) => {
+          if (node.tagName?.toLowerCase() === "button") {
+            const ignore = node.getAttribute("data-html2canvas-ignore");
+            if (ignore === "true") return false;
+          }
+          return true;
+        },
+      });
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = `DeezPrints-Receipt-${orderNumber}.png`;
+      link.click();
+    } catch (err) {
+      console.error("Failed to generate receipt", err);
+      alert("Failed to download receipt image.");
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   /* ── ORDER SUCCESS STATE ── */
-  if (placed) {
+  if (placed && completedOrder) {
     const suggested = products
       .filter((p) => p.images.length > 0)
       .sort(() => Math.random() - 0.5)
       .slice(0, 4);
 
-    const timeline = [
-      { label: "Order Placed", done: true },
-      { label: "Preparing", done: false },
-      { label: "Printing", done: false },
-      { label: "Packed", done: false },
-      { label: "Shipped", done: false },
-      { label: "Delivered", done: false },
-    ];
-
-    const nextSteps = [
-      "We received your order.",
-      "Our team confirms it via WhatsApp.",
-      "Printing begins.",
-      "Tracking number shared.",
-      "Delivered to your door.",
-    ];
+    const whatsappMessage = `Hi Deez Prints! I just placed Order #${completedOrder.orderId}.\n\n*Name:* ${completedOrder.name}\n*Total:* PKR ${completedOrder.total.toLocaleString()}\n*Payment:* ${completedOrder.paymentMethod}\n\nAttached is my payment receipt screenshot.`;
 
     return (
       <div className="edge py-14 md:py-20">
@@ -261,114 +312,185 @@ function Checkout() {
           >
             <Check className="h-8 w-8 text-primary-foreground" strokeWidth={3} />
           </motion.div>
-          <h1 className="display-lg mt-6">Order Confirmed</h1>
+          <h1 className="display-lg mt-6">Order Confirmed!</h1>
           <p className="mt-3 text-muted-foreground">
-            Thank you{form.name ? `, ${form.name.split(" ")[0]}` : ""}.
+            Thank you, <span className="text-foreground font-semibold">{completedOrder.name}</span>. We've received your order and alerted our team on Telegram.
           </p>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-4 label-mono text-muted-foreground">
             <span>
-              Order <span className="text-foreground">{orderNumber}</span>
+              Order <span className="text-foreground font-bold">{completedOrder.orderId}</span>
             </span>
             <span className="h-1 w-1 rounded-full bg-primary" aria-hidden />
             <span>
-              Est. delivery <span className="text-foreground">{deliveryDate}</span>
+              Est. delivery <span className="text-foreground font-bold">{deliveryDate}</span>
             </span>
           </div>
         </motion.div>
 
-        {/* Timeline + What happens next */}
-        <div className="mt-16 grid gap-12 md:grid-cols-2">
-          {/* Timeline */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+        {/* ── Official Downloadable / Printable Payment Receipt Card ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
+          className="mx-auto max-w-lg shadow-2xl rounded-2xl overflow-hidden border border-zinc-200 bg-white text-zinc-900 my-10"
+        >
+          <div
+            ref={receiptRef}
+            className="p-6 sm:p-8 relative text-left bg-white text-zinc-900"
+            style={{ backgroundColor: "#ffffff", color: "#18181b" }}
           >
-            <p className="label-mono text-primary">Order Timeline</p>
-            <div className="mt-6 space-y-0">
-              {timeline.map((t, i) => (
-                <div key={t.label} className="flex items-start gap-4">
-                  <div className="flex flex-col items-center">
-                    <div
-                      className={cn(
-                        "grid h-7 w-7 place-items-center rounded-full border-2",
-                        t.done
-                          ? "border-primary bg-primary text-primary-foreground"
-                          : i === 1
-                            ? "border-primary text-primary"
-                            : "border-border text-muted-foreground",
-                      )}
-                    >
-                      {t.done ? (
-                        <Check className="h-3 w-3" strokeWidth={3} />
-                      ) : (
-                        <span className="h-2 w-2 rounded-full bg-current" />
-                      )}
-                    </div>
-                    {i < timeline.length - 1 && (
-                      <div
-                        className={cn(
-                          "w-px flex-1 min-h-[32px]",
-                          t.done ? "bg-primary" : "bg-border",
-                        )}
-                      />
-                    )}
-                  </div>
-                  <p
-                    className={cn(
-                      "pb-6 text-sm",
-                      t.done ? "font-semibold text-foreground" : "text-muted-foreground",
-                    )}
-                  >
-                    {t.label}
-                  </p>
-                </div>
-              ))}
+            {/* Top Brand Stripe */}
+            <div
+              className="absolute top-0 inset-x-0 h-2"
+              style={{ background: "linear-gradient(to right, #fb923c, #ea580c)" }}
+            />
+
+            {/* Receipt Header */}
+            <div className="flex items-center justify-between pb-4 border-b border-zinc-200 mt-1">
+              <div>
+                <h2 className="font-display font-black text-2xl tracking-tight text-zinc-900 uppercase">
+                  DEEZ PRINTS
+                </h2>
+                <p className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider">
+                  OFFICIAL PAYMENT RECEIPT
+                </p>
+              </div>
+              <div className="text-right">
+                <span className="font-mono text-xs font-bold text-zinc-900 block">
+                  #{completedOrder.orderId}
+                </span>
+                <span className="text-[10px] font-mono text-zinc-400 block">
+                  {new Date().toLocaleDateString("en-PK", { day: "numeric", month: "short", year: "numeric" })}
+                </span>
+              </div>
             </div>
-          </motion.div>
 
-          {/* What happens next */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45 }}
-          >
-            <p className="label-mono text-primary">What Happens Next</p>
-            <ol className="mt-6 space-y-5">
-              {nextSteps.map((step, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="label-mono text-primary shrink-0 pt-0.5">
-                    {String(i + 1).padStart(2, "0")}
+            {/* Total Amount Banner */}
+            <div className="my-5 p-4 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-between">
+              <div>
+                <span className="text-[11px] font-mono text-zinc-500 uppercase block">Payment Method</span>
+                <span className="text-xs font-bold text-zinc-900">{completedOrder.paymentMethod}</span>
+              </div>
+              <div className="text-right">
+                <span className="text-[11px] font-mono text-zinc-500 uppercase block">Total Amount</span>
+                <span className="text-xl font-black text-emerald-600">
+                  PKR {completedOrder.total.toLocaleString()}
+                </span>
+              </div>
+            </div>
+
+            {/* Customer Details */}
+            <div className="space-y-1.5 py-3 border-y border-zinc-100 text-xs font-sans">
+              <div className="flex justify-between">
+                <span className="text-zinc-500">Customer:</span>
+                <span className="font-semibold text-zinc-900">{completedOrder.name}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-zinc-500">Phone:</span>
+                <span className="font-mono font-semibold text-zinc-900">{completedOrder.phone}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-zinc-500">City / Address:</span>
+                <span className="font-medium text-zinc-900 text-right max-w-[220px] truncate">
+                  {completedOrder.city}, {completedOrder.address}
+                </span>
+              </div>
+            </div>
+
+            {/* Ordered Items Breakdown */}
+            <div className="py-4 border-b border-zinc-100">
+              <p className="text-[11px] font-mono font-bold text-zinc-500 uppercase mb-2">
+                Ordered Items ({completedOrder.items.length})
+              </p>
+              <div className="space-y-2 text-xs">
+                {completedOrder.items.map((item, idx) => (
+                  <div key={idx} className="flex items-center justify-between text-zinc-800">
+                    <span className="truncate pr-2 max-w-[240px]">
+                      • {item.title} {item.size ? `(${item.size})` : ""} × {item.qty}
+                    </span>
+                    <span className="font-mono font-semibold shrink-0">
+                      PKR {(item.price * item.qty).toLocaleString()}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bank Transfer Information Box */}
+            {completedOrder.paymentMethod !== "Cash on Delivery" && (
+              <div className="mt-4 p-4 rounded-xl bg-orange-50/60 border border-orange-100 text-xs space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-orange-950 uppercase tracking-wider text-[11px]">
+                    BANK PAYMENT DETAILS
                   </span>
-                  <p className="text-sm text-muted-foreground">{step}</p>
-                </li>
-              ))}
-            </ol>
-          </motion.div>
-        </div>
+                  <span className="text-[10px] font-mono text-orange-700 font-bold">MEEZAN BANK</span>
+                </div>
+                <div className="flex justify-between text-zinc-700">
+                  <span>Account Title:</span>
+                  <span className="font-bold text-zinc-900">{bankDetails.accountTitle}</span>
+                </div>
+                <div className="flex justify-between items-center pt-1">
+                  <span className="text-zinc-700">IBAN:</span>
+                  <div className="flex items-center gap-1.5 font-mono font-bold text-zinc-900 bg-white px-2 py-1 rounded border border-orange-200 text-[11px]">
+                    <span>{bankDetails.iban}</span>
+                    <button
+                      type="button"
+                      data-html2canvas-ignore="true"
+                      onClick={() => {
+                        navigator.clipboard.writeText(bankDetails.iban);
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                      }}
+                      className="text-orange-600 hover:text-orange-800 font-sans text-[10px] underline ml-1 cursor-pointer"
+                    >
+                      {copied ? "Copied!" : "Copy"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
 
-        {/* CTAs */}
+            {/* Footer Instructions inside Receipt */}
+            <div className="mt-5 text-center text-[10px] font-mono text-zinc-400">
+              <p>Download this receipt image & share on WhatsApp to confirm delivery.</p>
+              <p className="mt-0.5 font-semibold text-zinc-500">Deez Prints — Streetwear. No limits.</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ── Action Buttons ── */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
-          className="mt-12 flex flex-wrap justify-center gap-3"
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mx-auto max-w-lg space-y-3"
         >
+          <button
+            type="button"
+            onClick={handleDownloadReceipt}
+            disabled={downloading}
+            className="w-full bg-zinc-900 text-white hover:bg-black font-display font-black uppercase text-xs tracking-wider py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg"
+          >
+            <Download className="h-4 w-4" />
+            <span>{downloading ? "GENERATING RECEIPT..." : "DOWNLOAD RECEIPT (PNG)"}</span>
+          </button>
+
+          <a
+            href={whatsappLink(whatsappMessage)}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-display font-black uppercase text-xs tracking-wider py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg text-center cursor-pointer"
+          >
+            <Share2 className="h-4 w-4" />
+            <span>SEND RECEIPT ON WHATSAPP</span>
+          </a>
+
           <Link
             to="/collections"
-            className="bg-primary px-7 py-4 label-mono text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
+            className="block text-center border border-border px-6 py-3.5 label-mono text-xs hover:border-primary hover:text-primary transition-colors rounded-xl"
           >
             Continue Shopping
           </Link>
-          <a
-            href={whatsappLink(`Hi! I just placed order ${orderNumber}.`)}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 border border-border-strong px-7 py-4 label-mono hover:border-primary hover:text-primary transition-colors"
-          >
-            <MessageCircle className="h-4 w-4" />
-            Track on WhatsApp
-          </a>
         </motion.div>
 
         {/* Suggested products */}
@@ -376,7 +498,7 @@ function Checkout() {
           <motion.section
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.65 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
             className="mt-20 border-t border-border pt-12"
           >
             <h2 className="display-md">You might also like</h2>

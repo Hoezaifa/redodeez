@@ -17,6 +17,13 @@ export const site = {
   couriers: "TCS, Leopards, M&P",
 };
 
+export const bankDetails = {
+  bankName: "Meezan Bank",
+  accountTitle: "Deez Prints Studio",
+  iban: "PK27 MEZN 0001 0701 0454",
+  accountNumber: "000107010454",
+};
+
 export function whatsappLink(message: string) {
   const text = encodeURIComponent(message);
   return site.whatsappNumber
