@@ -131,7 +131,12 @@ function Checkout() {
     }
 
     // Send Telegram notification (includes artwork images if custom order)
-    sendOrderTelegramNotification(orderData);
+    try {
+      await sendOrderTelegramNotification(orderData);
+    } catch (err) {
+      console.warn("Telegram order notification warning:", err);
+    }
+
     clear();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
