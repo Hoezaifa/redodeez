@@ -1,0 +1,340 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * DEEZ PRINTS design system.
+ * Mood: black / charcoal / bone white / burnt orange. Editorial, brutalist restraint.
+ */
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+  --ease-brand: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.968 0.002 90);
+  --ink-0: oklch(0.115 0 89.9);
+  --ink-1: oklch(0.145 0 89.9);
+  --ink-2: oklch(0.178 0 89.9);
+  --ink-3: oklch(0.222 0 89.9);
+  --accent-hover: oklch(0.621 0.174 43.5);
+  --surface: oklch(0.185 0.002 90);
+  --elevated: oklch(0.225 0.003 90);
+  --card: oklch(0.185 0.002 90);
+  --card-foreground: oklch(0.968 0.002 90);
+  --popover: oklch(0.185 0.002 90);
+  --popover-foreground: oklch(0.968 0.002 90);
+  --primary: oklch(0.635 0.185 43);
+  --primary-foreground: oklch(0.145 0 0);
+  --secondary: oklch(0.245 0.003 90);
+  --secondary-foreground: oklch(0.968 0.002 90);
+  --muted: oklch(0.245 0.003 90);
+  --muted-foreground: oklch(0.66 0.004 90);
+  --accent: oklch(0.635 0.185 43);
+  --accent-foreground: oklch(0.145 0 0);
+  --destructive: oklch(0.58 0.21 27);
+  --destructive-foreground: oklch(0.968 0.002 90);
+  --border: oklch(1 0 0 / 10%);
+  --border-strong: oklch(1 0 0 / 22%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.635 0.185 43);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-elevated);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+}
+
+/* ---------- utilities ---------- */
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.045em;
+  line-height: 0.82;
+  font-size: clamp(3rem, 11vw, 11rem);
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 0.86;
+  font-size: clamp(2.25rem, 6.5vw, 5.5rem);
+}
+
+@utility display-md {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+  font-size: clamp(1.75rem, 3.6vw, 3rem);
+}
+
+@utility outline-type {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-foreground);
+}
+
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-foreground);
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@utility rule-t {
+  border-top: 1px solid var(--color-border);
+}
+
+@utility edge {
+  padding-inline: 1.25rem;
+  @media (width >= 768px) {
+    padding-inline: 2.5rem;
+  }
+  @media (width >= 1280px) {
+    padding-inline: 3.5rem;
+  }
+}
+
+@utility link-underline {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s var(--ease-brand);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@utility grain {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.28;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee-x 32s linear infinite;
+}
+
+/* ---------- polish-pass additions ---------- */
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@utility skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 25%,
+    var(--color-elevated) 50%,
+    var(--color-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@utility img-fade {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  &[data-loaded="true"] {
+    opacity: 1;
+  }
+}
+
+/* Global input focus polish */
+@layer base {
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 0 1px var(--color-primary);
+    outline: none;
+    transition: border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/* Floating label pattern */
+.float-label {
+  position: relative;
+}
+.float-label input,
+.float-label textarea {
+  padding-top: 1.25rem;
+  padding-bottom: 0.5rem;
+}
+.float-label .float-label-text {
+  position: absolute;
+  left: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8125rem;
+  color: var(--color-muted-foreground);
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: left;
+}
+.float-label textarea ~ .float-label-text {
+  top: 1.25rem;
+}
+.float-label input:focus ~ .float-label-text,
+.float-label input:not(:placeholder-shown) ~ .float-label-text,
+.float-label textarea:focus ~ .float-label-text,
+.float-label textarea:not(:placeholder-shown) ~ .float-label-text {
+  top: 0.45rem;
+  transform: translateY(0) scale(0.75);
+  color: var(--color-primary);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Filter chip glow */
+.chip-glow {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.chip-glow:hover {
+  box-shadow: 0 0 14px -3px var(--color-primary);
+}
+.chip-glow-active {
+  box-shadow: 0 0 18px -4px var(--color-primary);
+}
+
+/* Progress stepper connector */
+.step-line {
+  height: 2px;
+  flex: 1;
+  background: var(--color-border);
+  position: relative;
+}
+.step-line.done {
+  background: var(--color-primary);
+}
+
+/* Checkout payment card */
+.pay-card {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pay-card:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-1px);
+}
+.pay-card.selected {
+  border-color: var(--color-primary);
+  background: oklch(0.635 0.185 43 / 5%);
+  box-shadow: 0 0 20px -6px var(--color-primary);
+}
