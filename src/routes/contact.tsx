@@ -52,20 +52,20 @@ function Contact() {
             <div className="grid gap-6 sm:grid-cols-2">
               <label className="block">
                 <span className="label-mono">Name</span>
-                <input required className={field} />
+                <input required name="name" className={field} />
               </label>
               <label className="block">
                 <span className="label-mono">Email</span>
-                <input required type="email" className={field} />
+                <input required name="email" type="email" className={field} />
               </label>
             </div>
             <label className="block">
               <span className="label-mono">Subject</span>
-              <input required className={field} />
+              <input required name="subject" className={field} />
             </label>
             <label className="block">
               <span className="label-mono">Message</span>
-              <textarea required rows={6} className={field} />
+              <textarea required name="message" rows={6} className={field} />
             </label>
             <button
               type="submit"

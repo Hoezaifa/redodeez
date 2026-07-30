@@ -4,6 +4,8 @@ import { Plus } from "lucide-react";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { faqs } from "@/data/site";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { faqPageSchema } from "@/lib/structuredData";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -34,6 +36,7 @@ function Faq() {
 
   return (
     <div className="edge py-14 md:py-20">
+      <JsonLd data={faqPageSchema(faqs)} />
       <SectionHeading eyebrow="Help" title={"Questions,\nanswered"} />
 
       <div className="mt-14 grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,360px)]">

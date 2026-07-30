@@ -14,6 +14,7 @@ export const Route = createFileRoute("/account")({
       },
       { property: "og:title", content: "Your Account — Deez Prints" },
       { property: "og:description", content: "Order tracking and saved pieces." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: Account,

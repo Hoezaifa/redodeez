@@ -14,6 +14,7 @@ export const Route = createFileRoute("/wishlist")({
       },
       { property: "og:title", content: "Wishlist — Deez Prints" },
       { property: "og:description", content: "Your saved Deez Prints pieces." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: WishlistPage,

@@ -15,6 +15,8 @@ import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { productSchema, breadcrumbSchema } from "@/lib/structuredData";
 
 export const Route = createFileRoute("/products/$productId")({
   loader: ({ params }) => {
@@ -44,6 +46,7 @@ export const Route = createFileRoute("/products/$productId")({
             ]
           : []),
       ],
+      links: [{ rel: "canonical", href: `/products/${p?.id ?? ""}` }],
     };
   },
   component: ProductPage,
@@ -87,7 +90,13 @@ function ProductPage() {
   const { product } = Route.useLoaderData();
   const navigate = useNavigate();
   const { add, wishlist, toggleWish } = useCart();
-  
+
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Shop", url: "/collections" },
+    { name: product.title, url: `/products/${product.id}` },
+  ];
+
   const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
   const availableSizes = isTapestry ? ["24\"x36\"", "36\"x48\"", "48\"x60\""] : ALL_SIZES;
 
@@ -167,8 +176,10 @@ function ProductPage() {
 
   return (
     <div className="edge py-10 md:py-14">
+      <JsonLd data={productSchema(product)} />
+      <JsonLd data={breadcrumbSchema(breadcrumbs)} />
       {/* Breadcrumbs */}
-      <nav className="label-mono text-muted-foreground">
+      <nav aria-label="Breadcrumb" className="label-mono text-muted-foreground">
         <Link to="/" className="hover:text-primary">
           Home
         </Link>{" "}
@@ -248,7 +259,7 @@ function ProductPage() {
               </div>
               <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-full bg-sky-500" />
-                <span>7 Day Return Policy</span>
+                <span>7-Day Exchange Policy</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-full bg-orange-500" />

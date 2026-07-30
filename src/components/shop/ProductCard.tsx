@@ -37,6 +37,8 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
               <motion.img
                 src={primary}
                 alt={product.title}
+                width={400}
+                height={500}
                 loading="lazy"
                 style={{ viewTransitionName: `product-img-${product.id}` }}
                 className="absolute inset-0 h-full w-full object-cover"
@@ -46,8 +48,9 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
               {alt !== primary && (
                 <motion.img
                   src={alt}
-                  alt=""
-                  aria-hidden
+                  alt={product.title}
+                  width={400}
+                  height={500}
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover"
                   initial={false}

@@ -252,6 +252,8 @@ export function DeezHero() {
             <img
               src={heroModel}
               alt="Model wearing an oversized Deez Prints graphic tee"
+              width={800}
+              height={1000}
               className="h-full w-full object-cover object-[50%_15%]"
               fetchPriority="high"
             />
@@ -334,6 +336,8 @@ export function DeezHero() {
             <img
               src={heroModel}
               alt="Model wearing an oversized Deez Prints graphic tee"
+              width={1600}
+              height={1200}
               className="h-full w-full object-cover object-[70%_15%] md:object-[68%_15%]"
               fetchPriority="high"
             />

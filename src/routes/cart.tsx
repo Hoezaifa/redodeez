@@ -16,6 +16,7 @@ export const Route = createFileRoute("/cart")({
       },
       { property: "og:title", content: "Your Bag — Deez Prints" },
       { property: "og:description", content: "Review your Deez Prints order before checkout." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: CartPage,
@@ -23,7 +24,8 @@ export const Route = createFileRoute("/cart")({
 
 function CartPage() {
   const { lines, setQty, remove, subtotal } = useCart();
-  const total = lines.length ? subtotal + site.shippingFee : 0;
+  const shippingCost = subtotal >= site.freeShippingThreshold ? 0 : site.shippingFee;
+  const total = lines.length ? subtotal + shippingCost : 0;
 
   return (
     <div className="edge py-14 md:py-20">
@@ -103,7 +105,7 @@ function CartPage() {
               </div>
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Shipping</dt>
-                <dd>{formatPrice(site.shippingFee)}</dd>
+                <dd>{shippingCost === 0 ? "FREE" : formatPrice(shippingCost)}</dd>
               </div>
             </dl>
             <div className="mt-5 flex items-center justify-between border-t border-border pt-5">

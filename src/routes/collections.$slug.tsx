@@ -6,6 +6,8 @@ import { collections, site } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/structuredData";
 
 export const Route = createFileRoute("/collections/$slug")({
   loader: ({ params }) => {
@@ -23,6 +25,7 @@ export const Route = createFileRoute("/collections/$slug")({
       { property: "og:title", content: `${loaderData?.name ?? "Collection"} — Deez Prints` },
       { property: "og:description", content: loaderData?.blurb ?? "Deez Prints collection." },
     ],
+    links: [{ rel: "canonical", href: `/collections/${loaderData?.slug ?? ""}` }],
   }),
   component: CollectionPage,
 });
@@ -51,7 +54,12 @@ function CollectionPage() {
 
   return (
     <div className="edge py-14 md:py-20">
-      <nav className="label-mono text-muted-foreground">
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Shop", url: "/collections" },
+        { name, url: `/collections/${slug}` },
+      ])} />
+      <nav aria-label="Breadcrumb" className="label-mono text-muted-foreground">
         <Link to="/" className="hover:text-primary">
           Home
         </Link>{" "}

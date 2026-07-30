@@ -48,10 +48,10 @@ export function Header() {
               {Array.from({ length: 2 }).map((_, k) => (
                 <div key={k} className="flex shrink-0 gap-16">
                   {[
-                    "Free delivery nationwide",
+                    "Flat Rs. 200 nationwide delivery",
+                    "Free shipping above Rs. 5,000",
                     "COD available",
                     "7-day exchange",
-                    "Made for misfits",
                     "Printed in Karachi",
                   ].map((t) => (
                     <span key={t} className="label-mono text-muted-foreground">
@@ -258,12 +258,12 @@ export function Header() {
                     <div className="aspect-[4/3] overflow-hidden bg-surface rounded">
                       <img
                         src={c.image}
-                        alt={c.title}
+                        alt={c.name}
                         className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                     <span className="font-display text-sm font-extrabold uppercase group-hover:text-primary transition-colors">
-                      {c.title}
+                      {c.name}
                     </span>
                   </Link>
                 ))}

@@ -92,7 +92,7 @@ export function CartDrawer() {
                     <div key={l.id} className="flex gap-4 border-b border-border p-5">
                       <div className="h-28 w-22 shrink-0 overflow-hidden bg-elevated">
                         {l.image && (
-                          <img src={l.image} alt="" className="h-full w-full object-cover" />
+                          <img src={l.image} alt={l.title} className="h-full w-full object-cover" />
                         )}
                       </div>
                       <div className="flex min-w-0 flex-1 flex-col">

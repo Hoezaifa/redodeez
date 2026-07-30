@@ -27,6 +27,7 @@ export const Route = createFileRoute("/")({
           "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and wall art. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
       },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Home,
 });

@@ -112,7 +112,7 @@ export const faqs = [
   },
   {
     q: "What payment methods do you accept?",
-    a: "We currently accept Bank Transfers (Meezan Bank, Easypaisa, Jazzcash, SadaPay).",
+    a: "We currently accept Bank Transfers (Meezan Bank) and Mobile Wallets (Easypaisa, JazzCash, Zindigi).",
   },
   {
     q: "Do you offer international shipping?",

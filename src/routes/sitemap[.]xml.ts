@@ -3,9 +3,6 @@ import type {} from "@tanstack/react-start";
 import { collections } from "@/data/site";
 import { products } from "@/data/products";
 
-// TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
-
 interface SitemapEntry {
   path: string;
   lastmod?: string;
@@ -16,7 +13,10 @@ interface SitemapEntry {
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
-      GET: async () => {
+      GET: async ({ request }) => {
+        const host = request.headers.get("host") ?? request.headers.get("x-forwarded-host") ?? "";
+        const proto = request.headers.get("x-forwarded-proto") ?? "https";
+        const BASE_URL = host ? `${proto}://${host}` : "";
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/collections", changefreq: "weekly", priority: "0.9" },

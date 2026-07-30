@@ -17,6 +17,8 @@ import { CartProvider } from "@/lib/cart";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CartDrawer } from "@/components/site/CartDrawer";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { organizationSchema, websiteSchema } from "@/lib/structuredData";
 
 function NotFoundComponent() {
   return (
@@ -114,13 +116,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap",
-      },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://res.cloudinary.com" },
     ],
   }),
   shellComponent: RootShell,
@@ -136,6 +133,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:label-mono"
+        >
+          Skip to content
+        </a>
         {children}
         <Scripts />
       </body>
@@ -151,9 +154,11 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
         {!isHome && <Header />}
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <main className="min-h-screen overflow-x-hidden">
+        <main id="main-content" className="min-h-screen overflow-x-hidden">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={location.pathname}
