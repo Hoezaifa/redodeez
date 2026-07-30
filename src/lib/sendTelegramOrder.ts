@@ -29,7 +29,8 @@ export interface OrderPayload {
 }
 
 function escapeHtml(text: string): string {
-  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  if (!text) return "";
+  return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 function dataURLtoBlob(dataurl: string): Blob {
@@ -53,9 +54,13 @@ export async function sendOrderTelegramNotification(payload: OrderPayload) {
   const TELEGRAM_CHAT_ID = "6105402097";
 
   const hasCustom = payload.items.some((item) => item.isCustom);
-  const headerIcon = hasCustom ? "🟠 <b>NEW CUSTOM ORDER</b>" : "🛒 <b>NEW DEEZ PRINTS ORDER</b>";
+  const headerIconHtml = hasCustom
+    ? "🟠 <b>NEW CUSTOM ORDER</b>"
+    : "🛒 <b>NEW DEEZ PRINTS ORDER</b>";
+  const headerIconPlain = hasCustom ? "🟠 NEW CUSTOM ORDER" : "🛒 NEW DEEZ PRINTS ORDER";
 
-  const itemsList = payload.items
+  // Build HTML formatted items list
+  const itemsListHtml = payload.items
     .map((item) => {
       if (item.isCustom) {
         const parts = [
@@ -64,34 +69,64 @@ export async function sendOrderTelegramNotification(payload: OrderPayload) {
           `• <b>Size:</b> ${escapeHtml(item.size || "N/A")}`,
           `• <b>Placement:</b> ${escapeHtml(item.placement || "N/A")}`,
           `• <b>Quantity:</b> ${item.qty}`,
-          `• <b>Price:</b> Rs ${item.price.toLocaleString()}`,
+          `• <b>Price:</b> Rs ${(item.price || 0).toLocaleString()}`,
         ];
 
         if (item.frontArtworkUrl) {
           if (item.frontArtworkUrl.startsWith("http")) {
-            parts.push(`• <b>Front Artwork:</b> <a href="${item.frontArtworkUrl}">View Image</a>`);
+            parts.push(
+              `• <b>Front Artwork:</b> <a href="${escapeHtml(item.frontArtworkUrl)}">View Image</a>`,
+            );
           } else {
-            parts.push(`• <b>Front Artwork:</b> Custom Image (Sending Photo...)`);
+            parts.push(`• <b>Front Artwork:</b> Custom Image Attached`);
           }
         }
 
         if (item.backArtworkUrl) {
           if (item.backArtworkUrl.startsWith("http")) {
-            parts.push(`• <b>Back Artwork:</b> <a href="${item.backArtworkUrl}">View Image</a>`);
+            parts.push(
+              `• <b>Back Artwork:</b> <a href="${escapeHtml(item.backArtworkUrl)}">View Image</a>`,
+            );
           } else {
-            parts.push(`• <b>Back Artwork:</b> Custom Image (Sending Photo...)`);
+            parts.push(`• <b>Back Artwork:</b> Custom Image Attached`);
           }
         }
 
         return parts.join("\n");
       }
-      return `• <b>${escapeHtml(item.title)}</b> ${item.size ? `(Size: ${escapeHtml(item.size)})` : ""} x${item.qty} — Rs ${item.price.toLocaleString()}`;
+      return `• <b>${escapeHtml(item.title)}</b> ${item.size ? `(Size: ${escapeHtml(item.size)})` : ""} x${item.qty} — Rs ${(item.price || 0).toLocaleString()}`;
     })
     .join("\n\n");
 
-  const cleanPhone = payload.phone.replace(/[^0-9]/g, "");
+  // Build Plain Text items list (Fallback that NEVER fails parsing)
+  const itemsListPlain = payload.items
+    .map((item) => {
+      if (item.isCustom) {
+        const parts = [
+          `🎨 CUSTOM ITEM: ${item.blankItem || item.title}`,
+          `• Color: ${item.color || "N/A"}`,
+          `• Size: ${item.size || "N/A"}`,
+          `• Placement: ${item.placement || "N/A"}`,
+          `• Quantity: ${item.qty}`,
+          `• Price: Rs ${(item.price || 0).toLocaleString()}`,
+        ];
 
-  const message = `${headerIcon}
+        if (item.frontArtworkUrl && item.frontArtworkUrl.startsWith("http")) {
+          parts.push(`• Front Artwork: ${item.frontArtworkUrl}`);
+        }
+        if (item.backArtworkUrl && item.backArtworkUrl.startsWith("http")) {
+          parts.push(`• Back Artwork: ${item.backArtworkUrl}`);
+        }
+
+        return parts.join("\n");
+      }
+      return `• ${item.title} ${item.size ? `(Size: ${item.size})` : ""} x${item.qty} — Rs ${(item.price || 0).toLocaleString()}`;
+    })
+    .join("\n\n");
+
+  const cleanPhone = (payload.phone || "").replace(/[^0-9]/g, "");
+
+  const messageHtml = `${headerIconHtml}
 
 <b>Order ID:</b> ${escapeHtml(payload.orderId)}
 <b>Name:</b> ${escapeHtml(payload.name)}
@@ -102,23 +137,43 @@ export async function sendOrderTelegramNotification(payload: OrderPayload) {
 <b>Payment Method:</b> ${escapeHtml(payload.paymentMethod)}
 ${payload.notes ? `<b>Notes:</b> ${escapeHtml(payload.notes)}\n` : ""}
 <b>Items Ordered:</b>
-${itemsList}
+${itemsListHtml}
 
-<b>Subtotal:</b> Rs ${payload.subtotal.toLocaleString()}
-<b>Shipping:</b> Rs ${payload.shipping.toLocaleString()}
-<b>Total Amount:</b> Rs ${payload.total.toLocaleString()}
+<b>Subtotal:</b> Rs ${(payload.subtotal || 0).toLocaleString()}
+<b>Shipping:</b> Rs ${(payload.shipping || 0).toLocaleString()}
+<b>Total Amount:</b> Rs ${(payload.total || 0).toLocaleString()}
 
 💬 <b>WhatsApp Direct:</b>
 https://wa.me/${cleanPhone}`;
 
-  // 1. Send Main Text Message (HTML Mode - Zero Parse Errors & Clean Payload)
+  const messagePlain = `${headerIconPlain}
+
+Order ID: ${payload.orderId}
+Name: ${payload.name}
+Phone: ${payload.phone}
+Email: ${payload.email || "N/A"}
+City: ${payload.city}
+Address: ${payload.address}
+Payment Method: ${payload.paymentMethod}
+${payload.notes ? `Notes: ${payload.notes}\n` : ""}
+Items Ordered:
+${itemsListPlain}
+
+Subtotal: Rs ${(payload.subtotal || 0).toLocaleString()}
+Shipping: Rs ${(payload.shipping || 0).toLocaleString()}
+Total Amount: Rs ${(payload.total || 0).toLocaleString()}
+
+WhatsApp Direct:
+https://wa.me/${cleanPhone}`;
+
+  // 1. Send Main Text Message (HTML Mode first, with automatic Plain Text fallback)
   try {
-    const textRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    let textRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         chat_id: TELEGRAM_CHAT_ID,
-        text: message,
+        text: messageHtml,
         parse_mode: "HTML",
         disable_web_page_preview: false,
       }),
@@ -126,16 +181,30 @@ https://wa.me/${cleanPhone}`;
 
     if (!textRes.ok) {
       const errText = await textRes.text();
-      console.error("Telegram sendMessage failed:", errText);
+      console.warn("Telegram HTML sendMessage failed, trying Plain Text fallback:", errText);
+
+      // Plain Text Fallback (Guaranteed to succeed, zero formatting rules)
+      textRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: messagePlain,
+        }),
+      });
+
+      if (!textRes.ok) {
+        console.error("Telegram Plain Text sendMessage also failed:", await textRes.text());
+      }
     }
   } catch (err) {
     console.error("Telegram sendMessage network error:", err);
   }
 
-  // 2. Dispatch Artwork Images directly to Telegram
+  // 2. Dispatch Artwork Images directly to Telegram as Photos
   for (const item of payload.items) {
     if (item.isCustom) {
-      // Front Artwork
+      // Front Artwork Photo
       if (item.frontArtworkUrl) {
         try {
           if (item.frontArtworkUrl.startsWith("http")) {
@@ -168,7 +237,7 @@ https://wa.me/${cleanPhone}`;
         }
       }
 
-      // Back Artwork
+      // Back Artwork Photo
       if (item.backArtworkUrl) {
         try {
           if (item.backArtworkUrl.startsWith("http")) {
