@@ -361,3 +361,51 @@
   background: oklch(0.635 0.185 43 / 5%);
   box-shadow: 0 0 20px -6px var(--color-primary);
 }
+
+/* ---------- admin dashboard utilities ---------- */
+
+.admin-btn-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid oklch(1 0 0 / 6%);
+  background: transparent;
+  color: oklch(0.66 0.004 90);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+.admin-btn-sm:hover {
+  background: oklch(1 0 0 / 4%);
+  color: oklch(0.968 0.002 90);
+  border-color: oklch(1 0 0 / 10%);
+}
+
+.admin-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+  border: none;
+}
+.admin-btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}

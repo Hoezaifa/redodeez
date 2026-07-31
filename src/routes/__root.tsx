@@ -150,15 +150,16 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const isAdmin = location.pathname.startsWith("/admin");
 
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
-        <JsonLd data={organizationSchema()} />
-        <JsonLd data={websiteSchema()} />
-        {!isHome && <Header />}
+        {!isAdmin && <JsonLd data={organizationSchema()} />}
+        {!isAdmin && <JsonLd data={websiteSchema()} />}
+        {!isHome && !isAdmin && <Header />}
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <main id="main-content" className="min-h-screen overflow-x-hidden">
+        <main id="main-content" className={isAdmin ? "" : "min-h-screen overflow-x-hidden"}>
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={location.pathname}
@@ -171,8 +172,8 @@ function RootComponent() {
             </motion.div>
           </AnimatePresence>
         </main>
-        <Footer />
-        <CartDrawer />
+        {!isAdmin && <Footer />}
+        {!isAdmin && <CartDrawer />}
       </CartProvider>
     </QueryClientProvider>
   );

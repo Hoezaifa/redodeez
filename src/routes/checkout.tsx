@@ -5,7 +5,8 @@ import { Check, Smartphone, Building2, Download, Share2, ArrowLeft } from "lucid
 import { toPng } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site } from "@/data/site";
-import { sendOrderTelegramNotification, type OrderPayload } from "@/lib/sendTelegramOrder";
+import { sendOrderTelegramNotification } from "@/lib/sendTelegramOrder";
+import { saveOrder, generateOrderId, type StoredOrder } from "@/lib/ordersStore";
 import { products } from "@/data/products";
 import { ProductCard } from "@/components/shop/ProductCard";
 
@@ -46,12 +47,12 @@ function Checkout() {
     notes: "",
   });
 
-  const [completedOrder, setCompletedOrder] = useState<OrderPayload | null>(null);
+  const [completedOrder, setCompletedOrder] = useState<StoredOrder | null>(null);
 
   const shippingCost = subtotal >= site.freeShippingThreshold ? 0 : site.shippingFee;
   const total = lines.length ? subtotal + shippingCost : 0;
 
-  const orderNumber = useMemo(() => `DP-${String(Math.floor(10000 + Math.random() * 90000))}`, []);
+  const orderNumber = useMemo(() => generateOrderId(), []);
 
   const deliveryDate = useMemo(() => {
     const d1 = new Date();
@@ -88,7 +89,8 @@ function Checkout() {
 
     const hasCustomItems = lines.some((l) => l.isCustom);
 
-    const orderData: OrderPayload = {
+    const now = new Date().toISOString();
+    const orderData: StoredOrder = {
       orderId: orderNumber,
       name: formData.name,
       phone: formData.phone,
@@ -112,23 +114,21 @@ function Checkout() {
       })),
       subtotal,
       shipping: shippingCost,
+      discount: 0,
       total,
       orderType: hasCustomItems ? "custom" : "normal",
-      createdAt: new Date().toISOString(),
       status: "Pending",
+      statusHistory: [{ status: "Pending", date: now }],
+      createdAt: now,
+      updatedAt: now,
     };
 
     setCompletedOrder(orderData);
     setPlaced(true);
     setStep(3);
 
-    // Save order in orders registry
-    try {
-      const existing = JSON.parse(localStorage.getItem("deez-orders-v1") || "[]");
-      localStorage.setItem("deez-orders-v1", JSON.stringify([orderData, ...existing]));
-    } catch {
-      /* ignore */
-    }
+    // Save order to centralized store (instantly available in Admin Dashboard)
+    saveOrder(orderData);
 
     // Send Telegram notification (includes artwork images if custom order)
     try {

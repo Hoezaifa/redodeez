@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Mail, MapPin } from "lucide-react";
+import { Instagram, Mail, MapPin, Lock } from "lucide-react";
 import { LOGO_URL, site, collections, paymentMethods, whatsappLink } from "@/data/site";
 
 export function Footer() {
@@ -95,6 +95,11 @@ export function Footer() {
               <a href={`mailto:${site.email}`} className="link-underline">
                 {site.email}
               </a>
+            </li>
+            <li>
+              <Link to="/admin" className="link-underline flex items-center gap-1.5">
+                <Lock className="w-3 h-3 opacity-50" /> Studio
+              </Link>
             </li>
           </ul>
           <p className="label-mono mt-8 text-muted-foreground">Payments</p>

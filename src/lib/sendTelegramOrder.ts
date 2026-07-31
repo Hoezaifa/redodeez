@@ -1,274 +1,306 @@
-export interface OrderPayload {
-  orderId: string;
-  name: string;
-  phone: string;
-  email: string;
-  address: string;
-  city: string;
-  notes?: string;
-  paymentMethod: string;
-  items: Array<{
-    id: string;
-    title: string;
-    size?: string;
-    color?: string;
-    qty: number;
-    price: number;
-    isCustom?: boolean;
-    frontArtworkUrl?: string;
-    backArtworkUrl?: string;
-    placement?: string;
-    blankItem?: string;
-  }>;
-  subtotal: number;
-  shipping: number;
-  total: number;
-  orderType?: "normal" | "custom";
-  createdAt?: string;
-  status?: "Pending" | "Processing" | "Dispatched" | "Delivered" | "Cancelled";
+/**
+ * Deez Prints — Telegram Notification Service (v2)
+ *
+ * Fresh rewrite: clean HTML templates, dynamic credentials from Admin Settings,
+ * artwork dispatch, connection testing, and re-send capability.
+ */
+
+import { getAdminSettings, type StoredOrder } from "./ordersStore";
+
+// ─── Legacy compat export (used by checkout.tsx) ──────────────────────────────
+
+export type { StoredOrder as OrderPayload } from "./ordersStore";
+
+// ─── Credential Resolution ────────────────────────────────────────────────────
+
+function getCredentials() {
+  const s = getAdminSettings();
+  return {
+    token: s.telegramBotToken,
+    chatId: s.telegramChatId,
+    apiBase: (s.telegramApiBase || "https://api.telegram.org").replace(/\/$/, ""),
+    enabled: s.enableNotifications,
+    sendArtwork: s.sendArtwork,
+  };
 }
 
-function escapeHtml(text: string): string {
+// ─── HTML Escaping ────────────────────────────────────────────────────────────
+
+function esc(text: string | undefined | null): string {
   if (!text) return "";
   return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-function dataURLtoBlob(dataurl: string): Blob {
-  try {
-    const arr = dataurl.split(",");
-    const mime = arr[0].match(/:(.*?);/)?.[1] || "image/png";
-    const bstr = atob(arr[1]);
-    let n = bstr.length;
-    const u8arr = new Uint8Array(n);
-    while (n--) {
-      u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new Blob([u8arr], { type: mime });
-  } catch {
-    return new Blob([], { type: "image/png" });
-  }
+// ─── Message Builder ──────────────────────────────────────────────────────────
+
+function buildOrderMessage(order: StoredOrder): { html: string; plain: string } {
+  const isCustom = order.orderType === "custom" || order.items.some((i) => i.isCustom);
+  const icon = isCustom ? "🟠" : "🟢";
+  const label = isCustom ? "NEW CUSTOM ORDER" : "NEW ORDER";
+  const sep = "━━━━━━━━━━━━━━";
+
+  // Items HTML
+  const itemsHtml = order.items
+    .map((item) => {
+      if (item.isCustom) {
+        const parts = [
+          `  🎨 <b>${esc(item.blankItem || item.title)}</b>`,
+          `  • Color: ${esc(item.color || "N/A")}`,
+          `  • Size: ${esc(item.size || "N/A")}`,
+          `  • Placement: ${esc(item.placement || "N/A")}`,
+          `  • Qty: ${item.qty}`,
+          `  • Price: Rs ${(item.price || 0).toLocaleString()}`,
+        ];
+        if (item.frontArtworkUrl?.startsWith("http")) {
+          parts.push(`  • <a href="${esc(item.frontArtworkUrl)}">Front Artwork ↗</a>`);
+        }
+        if (item.backArtworkUrl?.startsWith("http")) {
+          parts.push(`  • <a href="${esc(item.backArtworkUrl)}">Back Artwork ↗</a>`);
+        }
+        return parts.join("\n");
+      }
+      return `  • <b>${esc(item.title)}</b> ${item.size ? `(${esc(item.size)})` : ""} ×${item.qty} — Rs ${(item.price || 0).toLocaleString()}`;
+    })
+    .join("\n\n");
+
+  // Items plain
+  const itemsPlain = order.items
+    .map((item) => {
+      if (item.isCustom) {
+        const parts = [
+          `  🎨 ${item.blankItem || item.title}`,
+          `  • Color: ${item.color || "N/A"}`,
+          `  • Size: ${item.size || "N/A"}`,
+          `  • Placement: ${item.placement || "N/A"}`,
+          `  • Qty: ${item.qty}`,
+          `  • Price: Rs ${(item.price || 0).toLocaleString()}`,
+        ];
+        if (item.frontArtworkUrl?.startsWith("http")) parts.push(`  • Front: ${item.frontArtworkUrl}`);
+        if (item.backArtworkUrl?.startsWith("http")) parts.push(`  • Back: ${item.backArtworkUrl}`);
+        return parts.join("\n");
+      }
+      return `  • ${item.title} ${item.size ? `(${item.size})` : ""} ×${item.qty} — Rs ${(item.price || 0).toLocaleString()}`;
+    })
+    .join("\n\n");
+
+  const cleanPhone = (order.phone || "").replace(/[^0-9]/g, "");
+  const date = new Date(order.createdAt).toLocaleString("en-PK", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const html = `${icon} <b>${label}</b>
+${sep}
+
+<b>Order:</b>  ${esc(order.orderId)}
+<b>Date:</b>   ${date}
+<b>Customer:</b> ${esc(order.name)}
+<b>Phone:</b>  ${esc(order.phone)}
+<b>Email:</b>  ${esc(order.email || "N/A")}
+<b>City:</b>   ${esc(order.city)}
+<b>Address:</b> ${esc(order.address)}
+
+${sep}
+<b>📦 Items:</b>
+
+${itemsHtml}
+
+${sep}
+<b>Payment:</b> ${esc(order.paymentMethod)}
+
+<b>Subtotal:</b>  Rs ${(order.subtotal || 0).toLocaleString()}
+<b>Shipping:</b>  Rs ${(order.shipping || 0).toLocaleString()}${order.discount ? `\n<b>Discount:</b>  -Rs ${order.discount.toLocaleString()}` : ""}
+<b>Total:</b>     <b>Rs ${(order.total || 0).toLocaleString()}</b>
+${sep}${order.notes ? `\n<b>Notes:</b> ${esc(order.notes)}` : ""}
+
+💬 <a href="https://wa.me/${cleanPhone}">WhatsApp Customer ↗</a>`;
+
+  const plain = `${icon} ${label}
+${sep}
+
+Order: ${order.orderId}
+Date: ${date}
+Customer: ${order.name}
+Phone: ${order.phone}
+Email: ${order.email || "N/A"}
+City: ${order.city}
+Address: ${order.address}
+
+${sep}
+Items:
+
+${itemsPlain}
+
+${sep}
+Payment: ${order.paymentMethod}
+
+Subtotal: Rs ${(order.subtotal || 0).toLocaleString()}
+Shipping: Rs ${(order.shipping || 0).toLocaleString()}${order.discount ? `\nDiscount: -Rs ${order.discount.toLocaleString()}` : ""}
+Total: Rs ${(order.total || 0).toLocaleString()}
+${sep}${order.notes ? `\nNotes: ${order.notes}` : ""}
+
+WhatsApp: https://wa.me/${cleanPhone}`;
+
+  return { html, plain };
 }
 
-export async function sendOrderTelegramNotification(payload: OrderPayload) {
-  const TELEGRAM_BOT_TOKEN = "8279119193:AAFeJGDEKNfxDoMg4k8rWDWr6eJNWI91aac";
-  const TELEGRAM_CHAT_ID = "6105402097";
+// ─── Send Functions ───────────────────────────────────────────────────────────
 
-  const hasCustom = payload.items.some((item) => item.isCustom);
-  const headerIconHtml = hasCustom
-    ? "🟠 <b>NEW CUSTOM ORDER</b>"
-    : "🛒 <b>NEW DEEZ PRINTS ORDER</b>";
-  const headerIconPlain = hasCustom ? "🟠 NEW CUSTOM ORDER" : "🛒 NEW DEEZ PRINTS ORDER";
+async function sendTelegramText(token: string, chatId: string, html: string, plain: string, apiBase?: string) {
+  const base = apiBase || getCredentials().apiBase;
+  const apiUrl = `${base}/bot${token}/sendMessage`;
 
-  // Build HTML formatted items list
-  const itemsListHtml = payload.items
-    .map((item) => {
-      if (item.isCustom) {
-        const parts = [
-          `🎨 <b>CUSTOM ITEM:</b> ${escapeHtml(item.blankItem || item.title)}`,
-          `• <b>Color:</b> ${escapeHtml(item.color || "N/A")}`,
-          `• <b>Size:</b> ${escapeHtml(item.size || "N/A")}`,
-          `• <b>Placement:</b> ${escapeHtml(item.placement || "N/A")}`,
-          `• <b>Quantity:</b> ${item.qty}`,
-          `• <b>Price:</b> Rs ${(item.price || 0).toLocaleString()}`,
-        ];
-
-        if (item.frontArtworkUrl) {
-          if (item.frontArtworkUrl.startsWith("http")) {
-            parts.push(
-              `• <b>Front Artwork:</b> <a href="${escapeHtml(item.frontArtworkUrl)}">View Image</a>`,
-            );
-          } else {
-            parts.push(`• <b>Front Artwork:</b> Custom Image Attached`);
-          }
-        }
-
-        if (item.backArtworkUrl) {
-          if (item.backArtworkUrl.startsWith("http")) {
-            parts.push(
-              `• <b>Back Artwork:</b> <a href="${escapeHtml(item.backArtworkUrl)}">View Image</a>`,
-            );
-          } else {
-            parts.push(`• <b>Back Artwork:</b> Custom Image Attached`);
-          }
-        }
-
-        return parts.join("\n");
-      }
-      return `• <b>${escapeHtml(item.title)}</b> ${item.size ? `(Size: ${escapeHtml(item.size)})` : ""} x${item.qty} — Rs ${(item.price || 0).toLocaleString()}`;
-    })
-    .join("\n\n");
-
-  // Build Plain Text items list (Fallback that NEVER fails parsing)
-  const itemsListPlain = payload.items
-    .map((item) => {
-      if (item.isCustom) {
-        const parts = [
-          `🎨 CUSTOM ITEM: ${item.blankItem || item.title}`,
-          `• Color: ${item.color || "N/A"}`,
-          `• Size: ${item.size || "N/A"}`,
-          `• Placement: ${item.placement || "N/A"}`,
-          `• Quantity: ${item.qty}`,
-          `• Price: Rs ${(item.price || 0).toLocaleString()}`,
-        ];
-
-        if (item.frontArtworkUrl && item.frontArtworkUrl.startsWith("http")) {
-          parts.push(`• Front Artwork: ${item.frontArtworkUrl}`);
-        }
-        if (item.backArtworkUrl && item.backArtworkUrl.startsWith("http")) {
-          parts.push(`• Back Artwork: ${item.backArtworkUrl}`);
-        }
-
-        return parts.join("\n");
-      }
-      return `• ${item.title} ${item.size ? `(Size: ${item.size})` : ""} x${item.qty} — Rs ${(item.price || 0).toLocaleString()}`;
-    })
-    .join("\n\n");
-
-  const cleanPhone = (payload.phone || "").replace(/[^0-9]/g, "");
-
-  const messageHtml = `${headerIconHtml}
-
-<b>Order ID:</b> ${escapeHtml(payload.orderId)}
-<b>Name:</b> ${escapeHtml(payload.name)}
-<b>Phone:</b> ${escapeHtml(payload.phone)}
-<b>Email:</b> ${escapeHtml(payload.email || "N/A")}
-<b>City:</b> ${escapeHtml(payload.city)}
-<b>Address:</b> ${escapeHtml(payload.address)}
-<b>Payment Method:</b> ${escapeHtml(payload.paymentMethod)}
-${payload.notes ? `<b>Notes:</b> ${escapeHtml(payload.notes)}\n` : ""}
-<b>Items Ordered:</b>
-${itemsListHtml}
-
-<b>Subtotal:</b> Rs ${(payload.subtotal || 0).toLocaleString()}
-<b>Shipping:</b> Rs ${(payload.shipping || 0).toLocaleString()}
-<b>Total Amount:</b> Rs ${(payload.total || 0).toLocaleString()}
-
-💬 <b>WhatsApp Direct:</b>
-https://wa.me/${cleanPhone}`;
-
-  const messagePlain = `${headerIconPlain}
-
-Order ID: ${payload.orderId}
-Name: ${payload.name}
-Phone: ${payload.phone}
-Email: ${payload.email || "N/A"}
-City: ${payload.city}
-Address: ${payload.address}
-Payment Method: ${payload.paymentMethod}
-${payload.notes ? `Notes: ${payload.notes}\n` : ""}
-Items Ordered:
-${itemsListPlain}
-
-Subtotal: Rs ${(payload.subtotal || 0).toLocaleString()}
-Shipping: Rs ${(payload.shipping || 0).toLocaleString()}
-Total Amount: Rs ${(payload.total || 0).toLocaleString()}
-
-WhatsApp Direct:
-https://wa.me/${cleanPhone}`;
-
-  // 1. Send Main Text Message (HTML Mode first, with automatic Plain Text fallback)
   try {
-    let textRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    // Try HTML first
+    let res = await fetch(apiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
-        text: messageHtml,
+        chat_id: chatId,
+        text: html,
         parse_mode: "HTML",
         disable_web_page_preview: false,
       }),
     });
 
-    if (!textRes.ok) {
-      const errText = await textRes.text();
-      console.warn("Telegram HTML sendMessage failed, trying Plain Text fallback:", errText);
-
-      // Plain Text Fallback (Guaranteed to succeed, zero formatting rules)
-      textRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    if (!res.ok) {
+      console.warn("Telegram HTML failed, trying plain text:", await res.text());
+      res = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: messagePlain,
-        }),
+        body: JSON.stringify({ chat_id: chatId, text: plain }),
       });
-
-      if (!textRes.ok) {
-        console.error("Telegram Plain Text sendMessage also failed:", await textRes.text());
+      if (!res.ok) {
+        console.error("Telegram plain text also failed:", await res.text());
       }
     }
+
+    return res.ok;
   } catch (err) {
-    console.error("Telegram sendMessage network error:", err);
+    console.error("Network error reaching Telegram API:", err);
+    return false;
+  }
+}
+
+async function sendTelegramPhoto(token: string, chatId: string, url: string, caption: string, apiBase?: string) {
+  const base = apiBase || getCredentials().apiBase;
+  try {
+    const res = await fetch(`${base}/bot${token}/sendPhoto`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, photo: url, caption }),
+    });
+    if (!res.ok) console.warn("Photo send failed:", await res.text());
+  } catch (err) {
+    console.warn("Photo send error:", err);
+  }
+}
+
+// ─── Public API ───────────────────────────────────────────────────────────────
+
+/** Send order notification to Telegram. Called from checkout. */
+export async function sendOrderTelegramNotification(order: StoredOrder): Promise<boolean> {
+  const { token, chatId, apiBase, enabled, sendArtwork } = getCredentials();
+  if (!enabled || !token || !chatId) return false;
+
+  const { html, plain } = buildOrderMessage(order);
+  const textOk = await sendTelegramText(token, chatId, html, plain, apiBase);
+
+  // Send artwork images if enabled
+  if (sendArtwork) {
+    for (const item of order.items) {
+      if (!item.isCustom) continue;
+      if (item.frontArtworkUrl?.startsWith("http")) {
+        await sendTelegramPhoto(
+          token, chatId, item.frontArtworkUrl,
+          `Order #${order.orderId} — Front Artwork (${item.blankItem || "Custom"})`,
+          apiBase,
+        );
+      }
+      if (item.backArtworkUrl?.startsWith("http")) {
+        await sendTelegramPhoto(
+          token, chatId, item.backArtworkUrl,
+          `Order #${order.orderId} — Back Artwork (${item.blankItem || "Custom"})`,
+          apiBase,
+        );
+      }
+    }
   }
 
-  // 2. Dispatch Artwork Images directly to Telegram as Photos
-  for (const item of payload.items) {
-    if (item.isCustom) {
-      // Front Artwork Photo
-      if (item.frontArtworkUrl) {
-        try {
-          if (item.frontArtworkUrl.startsWith("http")) {
-            await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                chat_id: TELEGRAM_CHAT_ID,
-                photo: item.frontArtworkUrl,
-                caption: `Order #${payload.orderId} — Front Artwork (${item.blankItem || "Custom"})`,
-              }),
-            });
-          } else if (item.frontArtworkUrl.startsWith("data:")) {
-            const blob = dataURLtoBlob(item.frontArtworkUrl);
-            const formData = new FormData();
-            formData.append("chat_id", TELEGRAM_CHAT_ID);
-            formData.append("photo", blob, `order-${payload.orderId}-front.png`);
-            formData.append(
-              "caption",
-              `Order #${payload.orderId} — Front Artwork (${item.blankItem || "Custom"})`,
-            );
+  return textOk;
+}
 
-            await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
-              method: "POST",
-              body: formData,
-            });
-          }
-        } catch (photoErr) {
-          console.warn("Telegram front photo send failed:", photoErr);
-        }
-      }
+/** Re-send notification for an existing order (Admin Dashboard) */
+export async function resendOrderTelegramNotification(order: StoredOrder): Promise<boolean> {
+  return sendOrderTelegramNotification(order);
+}
 
-      // Back Artwork Photo
-      if (item.backArtworkUrl) {
-        try {
-          if (item.backArtworkUrl.startsWith("http")) {
-            await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                chat_id: TELEGRAM_CHAT_ID,
-                photo: item.backArtworkUrl,
-                caption: `Order #${payload.orderId} — Back Artwork (${item.blankItem || "Custom"})`,
-              }),
-            });
-          } else if (item.backArtworkUrl.startsWith("data:")) {
-            const blob = dataURLtoBlob(item.backArtworkUrl);
-            const formData = new FormData();
-            formData.append("chat_id", TELEGRAM_CHAT_ID);
-            formData.append("photo", blob, `order-${payload.orderId}-back.png`);
-            formData.append(
-              "caption",
-              `Order #${payload.orderId} — Back Artwork (${item.blankItem || "Custom"})`,
-            );
+/** Send status update notification */
+export async function sendStatusUpdateNotification(
+  order: StoredOrder,
+  newStatus: string,
+): Promise<boolean> {
+  const { token, chatId, apiBase, enabled } = getCredentials();
+  const settings = getAdminSettings();
+  if (!enabled || !settings.notifyStatusChanges || !token || !chatId) return false;
 
-            await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
-              method: "POST",
-              body: formData,
-            });
-          }
-        } catch (photoErr) {
-          console.warn("Telegram back photo send failed:", photoErr);
-        }
-      }
-    }
+  const statusEmoji: Record<string, string> = {
+    Pending: "⏳",
+    Processing: "🔄",
+    Dispatched: "🚚",
+    Delivered: "✅",
+    Cancelled: "❌",
+  };
+
+  const msg = `${statusEmoji[newStatus] || "📋"} <b>STATUS UPDATE</b>
+
+<b>Order:</b> ${esc(order.orderId)}
+<b>Customer:</b> ${esc(order.name)}
+<b>New Status:</b> <b>${esc(newStatus)}</b>${order.trackingNumber ? `\n<b>Tracking:</b> ${esc(order.trackingNumber)}` : ""}`;
+
+  return sendTelegramText(token, chatId, msg, msg.replace(/<[^>]+>/g, ""), apiBase);
+}
+
+/** Test Telegram bot connection */
+export async function testTelegramConnection(
+  token?: string,
+  chatId?: string,
+  customApiBase?: string,
+): Promise<{ ok: boolean; botName?: string; error?: string }> {
+  const creds = getCredentials();
+  const t = token || creds.token;
+  const c = chatId || creds.chatId;
+  const base = (customApiBase || creds.apiBase).replace(/\/$/, "");
+
+  if (!t || !c) return { ok: false, error: "Bot token and Chat ID are required" };
+
+  try {
+    // Test bot token
+    const meRes = await fetch(`${base}/bot${t}/getMe`);
+    const meData = await meRes.json();
+    if (!meData.ok) return { ok: false, error: meData.description || "Invalid bot token" };
+
+    // Test sending a message
+    const testRes = await fetch(`${base}/bot${t}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: c,
+        text: "✅ Deez Prints Bot — Connection test successful!",
+      }),
+    });
+
+    const testData = await testRes.json();
+    if (!testData.ok) return { ok: false, error: testData.description || "Failed to send test message" };
+
+    return { ok: true, botName: meData.result.first_name };
+  } catch (err) {
+    return {
+      ok: false,
+      error: `ISP/Network Block: Unable to reach ${base}. Please turn on Cloudflare WARP / VPN or check your connection. (${String(err)})`,
+    };
   }
 }
