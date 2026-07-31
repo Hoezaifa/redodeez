@@ -149,51 +149,79 @@ WhatsApp: https://wa.me/${cleanPhone}`;
 
 // ─── Send Functions ───────────────────────────────────────────────────────────
 
-async function sendTelegramText(token: string, chatId: string, html: string, plain: string, apiBase?: string) {
-  const base = apiBase || getCredentials().apiBase;
-  const apiUrl = `${base}/bot${token}/sendMessage`;
-
+/** Helper to send requests to Telegram API via Vercel proxy or direct fallback */
+async function callTelegramApi(token: string, endpoint: string, payload: any, customApiBase?: string): Promise<{ ok: boolean; status?: number; data?: any; error?: string }> {
+  // 1. Try Vercel Serverless Endpoint /api/telegram (runs on server outside Pakistan, NO VPN needed!)
   try {
-    // Try HTML first
-    let res = await fetch(apiUrl, {
+    const proxyRes = await fetch("/api/telegram", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: html,
-        parse_mode: "HTML",
-        disable_web_page_preview: false,
-      }),
+      body: JSON.stringify({ endpoint, token, payload }),
     });
 
-    if (!res.ok) {
-      console.warn("Telegram HTML failed, trying plain text:", await res.text());
-      res = await fetch(apiUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: chatId, text: plain }),
-      });
-      if (!res.ok) {
-        console.error("Telegram plain text also failed:", await res.text());
-      }
+    if (proxyRes.ok) {
+      const data = await proxyRes.json();
+      return { ok: !!data.ok, status: proxyRes.status, data, error: data.description };
     }
+  } catch (proxyErr) {
+    // /api/telegram proxy unreachable (e.g. local vite dev without vercel function server)
+  }
 
-    return res.ok;
+  // 2. Direct fallback (for local dev or custom proxy URL)
+  const base = (customApiBase || getCredentials().apiBase).replace(/\/$/, "");
+  const directUrl = `${base}/bot${token}/${endpoint}`;
+
+  try {
+    const directRes = await fetch(directUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await directRes.json();
+    return { ok: !!data.ok, status: directRes.status, data, error: data.description };
   } catch (err) {
-    console.error("Network error reaching Telegram API:", err);
-    return false;
+    return {
+      ok: false,
+      error: `Unable to reach Telegram (${String(err)}). If testing locally without WARP, note that production Vercel deployment routes automatically through serverless proxy.`,
+    };
   }
 }
 
+async function sendTelegramText(token: string, chatId: string, html: string, plain: string, apiBase?: string) {
+  // Try HTML first
+  let res = await callTelegramApi(
+    token,
+    "sendMessage",
+    { chat_id: chatId, text: html, parse_mode: "HTML", disable_web_page_preview: false },
+    apiBase,
+  );
+
+  if (!res.ok) {
+    console.warn("Telegram HTML failed, trying plain text:", res.error);
+    res = await callTelegramApi(
+      token,
+      "sendMessage",
+      { chat_id: chatId, text: plain },
+      apiBase,
+    );
+    if (!res.ok) {
+      console.error("Telegram plain text also failed:", res.error);
+    }
+  }
+
+  return res.ok;
+}
+
 async function sendTelegramPhoto(token: string, chatId: string, url: string, caption: string, apiBase?: string) {
-  const base = apiBase || getCredentials().apiBase;
   try {
-    const res = await fetch(`${base}/bot${token}/sendPhoto`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, photo: url, caption }),
-    });
-    if (!res.ok) console.warn("Photo send failed:", await res.text());
+    const res = await callTelegramApi(
+      token,
+      "sendPhoto",
+      { chat_id: chatId, photo: url, caption },
+      apiBase,
+    );
+    if (!res.ok) console.warn("Photo send failed:", res.error);
   } catch (err) {
     console.warn("Photo send error:", err);
   }
@@ -273,34 +301,22 @@ export async function testTelegramConnection(
   const creds = getCredentials();
   const t = token || creds.token;
   const c = chatId || creds.chatId;
-  const base = (customApiBase || creds.apiBase).replace(/\/$/, "");
 
   if (!t || !c) return { ok: false, error: "Bot token and Chat ID are required" };
 
-  try {
-    // Test bot token
-    const meRes = await fetch(`${base}/bot${t}/getMe`);
-    const meData = await meRes.json();
-    if (!meData.ok) return { ok: false, error: meData.description || "Invalid bot token" };
+  // Test getMe via callTelegramApi
+  const meRes = await callTelegramApi(t, "getMe", {}, customApiBase);
+  if (!meRes.ok) return { ok: false, error: meRes.error || "Invalid bot token or network issue" };
 
-    // Test sending a message
-    const testRes = await fetch(`${base}/bot${t}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: c,
-        text: "✅ Deez Prints Bot — Connection test successful!",
-      }),
-    });
+  // Test sending a message
+  const testRes = await callTelegramApi(
+    t,
+    "sendMessage",
+    { chat_id: c, text: "✅ Deez Prints Bot — Connection test successful!" },
+    customApiBase,
+  );
 
-    const testData = await testRes.json();
-    if (!testData.ok) return { ok: false, error: testData.description || "Failed to send test message" };
+  if (!testRes.ok) return { ok: false, error: testRes.error || "Failed to send test message" };
 
-    return { ok: true, botName: meData.result.first_name };
-  } catch (err) {
-    return {
-      ok: false,
-      error: `ISP/Network Block: Unable to reach ${base}. Please turn on Cloudflare WARP / VPN or check your connection. (${String(err)})`,
-    };
-  }
+  return { ok: true, botName: meRes.data?.result?.first_name || "Deez Prints Bot" };
 }
