@@ -7,6 +7,7 @@ import { site, sizes as ALL_SIZES, whatsappLink } from "@/data/site";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
 import { ProductCard } from "@/components/shop/ProductCard";
+import { ProductZoomImage } from "@/components/shop/ProductZoomImage";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema, breadcrumbSchema } from "@/lib/structuredData";
@@ -189,26 +190,13 @@ function ProductPage() {
       <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Left Column: Image Gallery */}
         <div className="grid gap-4">
-          <div className="relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-2xl group">
-            {product.images.length ? (
-              <motion.img
-                key={active}
-                src={product.images[active]}
-                alt={product.title}
-                initial={{ opacity: 0, scale: 1.02 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="h-full w-full object-contain p-4"
-              />
-            ) : (
-              <div className="grid h-full place-items-center">
-                <span className="display-md text-muted-foreground">{product.title}</span>
-              </div>
-            )}
-            <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-[10px] label-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-              PREMIUM STREETWEAR
+          {product.images.length ? (
+            <ProductZoomImage src={product.images[active]} alt={product.title} />
+          ) : (
+            <div className="relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-2xl grid place-items-center">
+              <span className="display-md text-muted-foreground">{product.title}</span>
             </div>
-          </div>
+          )}
 
           {/* Gallery Thumbnails */}
           {product.images.length > 1 && (
