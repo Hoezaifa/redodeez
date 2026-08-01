@@ -1,6 +1,6 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { Search, User, ShoppingBag, ChevronDown, ArrowRight } from "lucide-react";
+import { Search, User, ShoppingBag, ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import heroModel from "@/assets/hero-model.jpg";
 import { useCart } from "@/lib/cart";
@@ -56,6 +56,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 function Navbar({ scrolled, onOpenSearch }: { scrolled: boolean; onOpenSearch: () => void }) {
   const { count, setDrawerOpen } = useCart();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header
@@ -156,8 +157,88 @@ function Navbar({ scrolled, onOpenSearch }: { scrolled: boolean; onOpenSearch: (
               </span>
             )}
           </button>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            type="button"
+            aria-label="Menu"
+            onClick={() => setMenuOpen(true)}
+            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-none text-white/60 transition-colors duration-200 hover:text-white hover:bg-white/[0.06] lg:hidden"
+          >
+            <Menu className="h-[18px] w-[18px]" strokeWidth={2} />
+          </button>
         </div>
       </div>
+
+      {/* Mobile Slide-Out Menu Drawer */}
+      <AnimatePresence>
+        {menuOpen && (
+          <div className="fixed inset-0 z-50 lg:hidden">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMenuOpen(false)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-md"
+            />
+
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 280 }}
+              className="fixed top-0 left-0 h-full w-[85vw] max-w-xs bg-zinc-950 border-r border-white/10 p-6 flex flex-col justify-between overflow-y-auto shadow-2xl"
+            >
+              <div className="space-y-6">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                  <img src={LOGO_URL} alt="Deez Prints" className="h-6 w-auto" />
+                  <button
+                    onClick={() => setMenuOpen(false)}
+                    className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+
+                <nav className="flex flex-col space-y-1">
+                  {navLinks.map((item) => (
+                    <div key={item.name} className="py-1 border-b border-white/5">
+                      <Link
+                        to={item.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="block text-sm font-extrabold uppercase tracking-wider text-zinc-200 hover:text-orange-500 py-1.5"
+                      >
+                        {item.name}
+                      </Link>
+                      {item.subcategories && (
+                        <div className="pl-3 py-1 space-y-1">
+                          {item.subcategories.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              to={sub.href}
+                              onClick={() => setMenuOpen(false)}
+                              className="block text-xs font-semibold text-zinc-400 hover:text-white py-1"
+                            >
+                              • {sub.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </nav>
+              </div>
+
+              <div className="pt-6 border-t border-white/10 space-y-2 text-xs text-zinc-400">
+                <p className="font-bold text-white uppercase tracking-wider">Karachi Print Studio</p>
+                <p>Oversized streetwear & custom prints delivered across Pakistan.</p>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

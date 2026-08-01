@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import {
   isAdminAuthenticated,
   getOrders,
+  syncFromNeon,
   calculateAnalytics,
   subscribe,
   type StoredOrder,
@@ -30,21 +31,25 @@ function AdminPage() {
   const [authed, setAuthed] = useState(isAdminAuthenticated());
   const [view, setView] = useState<AdminView>("dashboard");
   const [collapsed, setCollapsed] = useState(false);
-  const [orders, setOrders] = useState<StoredOrder[]>([]);
-  const [analytics, setAnalytics] = useState<OrderAnalytics>(calculateAnalytics([]));
+  const [orders, setOrders] = useState<StoredOrder[]>(getOrders());
+  const [analytics, setAnalytics] = useState<OrderAnalytics>(calculateAnalytics(orders));
 
-  const refresh = useCallback(() => {
-    const o = getOrders();
-    setOrders(o);
+  const refresh = useCallback(async () => {
+    const o = await syncFromNeon();
+    setOrders([...o]);
     setAnalytics(calculateAnalytics(o));
   }, []);
 
-  // Load data + subscribe to changes
+  // Load data + subscribe to changes + auto-poll every 5 seconds
   useEffect(() => {
     if (!authed) return;
     refresh();
     const unsub = subscribe(refresh);
-    return unsub;
+    const interval = setInterval(refresh, 5000);
+    return () => {
+      unsub();
+      clearInterval(interval);
+    };
   }, [authed, refresh]);
 
   if (!authed) {
@@ -52,7 +57,7 @@ function AdminPage() {
   }
 
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex flex-col md:flex-row min-h-screen bg-background">
       <AdminSidebar
         active={view}
         onNavigate={setView}
@@ -60,7 +65,7 @@ function AdminPage() {
         onToggle={() => setCollapsed(!collapsed)}
       />
 
-      <main className="flex-1 min-w-0 p-6 md:p-8 overflow-y-auto">
+      <main className="flex-1 min-w-0 p-4 sm:p-6 md:p-8 overflow-y-auto">
         {view === "dashboard" && (
           <DashboardView
             analytics={analytics}

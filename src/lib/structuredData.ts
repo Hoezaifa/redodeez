@@ -20,7 +20,7 @@ export function organizationSchema() {
     description:
       "Premium streetwear and custom printing studio based in Karachi, Pakistan. Oversized tees, acid wash, hoodies, wall art, and more.",
     email: site.email,
-    telephone: site.phone,
+    telephone: site.whatsappNumber,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Karachi",
@@ -29,7 +29,7 @@ export function organizationSchema() {
     sameAs: [site.instagram],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: site.phone,
+      telephone: site.whatsappNumber,
       contactType: "customer service",
       availableLanguage: ["English", "Urdu"],
     },
@@ -61,7 +61,7 @@ export function productSchema(product: Product) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.title,
-    description: product.description ?? `${product.title} — premium streetwear by Deez Prints`,
+    description: `${product.title} — premium streetwear by Deez Prints`,
     image: product.images.length > 0 ? product.images : undefined,
     sku: product.id,
     brand: {

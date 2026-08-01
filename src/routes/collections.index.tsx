@@ -52,7 +52,7 @@ function ShopAll() {
     { label: `${products.length} Products` },
     { label: `${collections.length} Collections` },
     { label: `Ships in ${site.deliveryTime}` },
-    { label: "COD Available" },
+    { label: "Secure Payments" },
   ];
 
   return (

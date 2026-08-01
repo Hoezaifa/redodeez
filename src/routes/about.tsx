@@ -47,9 +47,9 @@ function About() {
             work where you send us the artwork and we handle the press.
           </p>
           <p>
-            We ship nationwide via {site.couriers}, usually within {site.deliveryTime}, with cash on
-            delivery available. If something isn&apos;t right, our 7-day exchange policy has you
-            covered.
+            We ship nationwide via {site.couriers}, usually within {site.deliveryTime}, with secure
+            payment options via Meezan Bank, Easypaisa, and JazzCash. If something isn&apos;t right,
+            our 7-day exchange policy has you covered.
           </p>
           <div className="mt-2 grid gap-px bg-border sm:grid-cols-2">
             {usps.map((u) => (

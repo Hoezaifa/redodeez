@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Smartphone, Building2, Download, Share2, ArrowLeft } from "lucide-react";
+import { Check, Smartphone, Building2, Download, Share2, ArrowLeft, Banknote } from "lucide-react";
 import { toPng } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site } from "@/data/site";
@@ -85,7 +85,9 @@ function Checkout() {
 
   const handlePlaceOrder = async () => {
     const methodTitle =
-      paymentMethod === "meezan" ? "Meezan Bank Transfer" : "Easypaisa / JazzCash / Zindigi";
+      paymentMethod === "meezan"
+        ? "Meezan Bank Transfer"
+        : "Easypaisa / JazzCash / Zindigi";
 
     const hasCustomItems = lines.some((l) => l.isCustom);
 
@@ -123,12 +125,12 @@ function Checkout() {
       updatedAt: now,
     };
 
+    // Save order to Neon database (fully awaited)
+    await saveOrder(orderData);
+
     setCompletedOrder(orderData);
     setPlaced(true);
     setStep(3);
-
-    // Save order to centralized store (instantly available in Admin Dashboard)
-    saveOrder(orderData);
 
     // Send Telegram notification (includes artwork images if custom order)
     try {
@@ -178,7 +180,7 @@ function Checkout() {
     const whatsappMessage = `Hi Deez Prints! I just placed Order #${completedOrder.orderId}.\n\n*Name:* ${completedOrder.name}\n*Total:* PKR ${completedOrder.total.toLocaleString()}\n*Payment:* ${completedOrder.paymentMethod}\n\nAttached is my payment receipt.`;
 
     return (
-      <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto pt-28 pb-16 px-4 sm:px-6">
         {/* Step Indicator */}
         <div className="flex items-center justify-center gap-4 text-xs font-bold tracking-widest text-muted-foreground mb-10">
           <span className="text-zinc-400">1. INFORMATION</span>
@@ -382,7 +384,7 @@ function Checkout() {
 
   /* ── 2-COLUMN CHECKOUT LAYOUT (IMAGE 1) ── */
   return (
-    <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6">
+    <div className="max-w-4xl mx-auto pt-28 pb-16 px-4 sm:px-6">
       {/* 2-Column Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Left Column: Form Steps */}

@@ -7,6 +7,7 @@ import { products } from "@/data/products";
 import { CUSTOM_IMAGE, collections, site, usps, whatsappLink } from "@/data/site";
 import { Reveal } from "@/components/motion/Reveal";
 import { MagneticButton } from "@/components/motion/MagneticButton";
+import { TrustSection } from "@/components/home/TrustSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -207,6 +208,9 @@ function Home() {
           ))}
         </div>
       </section>
+
+      {/* Trust & Credibility Section */}
+      <TrustSection />
 
       {/* Collections quick links */}
       <section className="edge border-t border-border py-14">

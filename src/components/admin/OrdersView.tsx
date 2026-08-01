@@ -496,13 +496,13 @@ function OrderDrawer({
           )}
 
           {/* Status History */}
-          {order.statusHistory.length > 0 && (
+          {(order.statusHistory?.length ?? 0) > 0 && (
             <div>
               <p className="text-[11px] font-bold text-zinc-500 uppercase tracking-wider mb-2">
                 Status History
               </p>
               <div className="space-y-2">
-                {order.statusHistory.map((entry, idx) => (
+                {(order.statusHistory || []).map((entry, idx) => (
                   <div
                     key={idx}
                     className="flex items-center gap-3 text-xs"

@@ -12,7 +12,7 @@ export const Route = createFileRoute("/cart")({
       {
         name: "description",
         content:
-          "Review the pieces in your Deez Prints bag, adjust sizes and quantities, then check out with COD or bank transfer.",
+          "Review the pieces in your Deez Prints bag, adjust sizes and quantities, then check out with Meezan Bank, Easypaisa, or JazzCash.",
       },
       { property: "og:title", content: "Your Bag — Deez Prints" },
       { property: "og:description", content: "Review your Deez Prints order before checkout." },

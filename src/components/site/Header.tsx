@@ -50,7 +50,7 @@ export function Header() {
                   {[
                     "Flat Rs. 200 nationwide delivery",
                     "Free shipping above Rs. 5,000",
-                    "COD available",
+                    "Meezan, Easypaisa & JazzCash accepted",
                     "7-day exchange",
                     "Printed in Karachi",
                   ].map((t) => (

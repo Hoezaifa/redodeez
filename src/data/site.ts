@@ -134,7 +134,7 @@ export const sizes = ["S", "M", "L", "XL", "XXL"];
 export const usps = [
   { title: "Premium Quality", body: "Top-notch fabric & prints" },
   { title: "Fast Delivery", body: "Nationwide, 3–5 working days" },
-  { title: "COD Available", body: "Pay when you receive" },
+  { title: "Secure Payments", body: "Meezan, Easypaisa & JazzCash" },
   { title: "Easy Returns", body: "7-day exchange policy" },
 ];
 
