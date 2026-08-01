@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ZoomIn, ZoomOut, ChevronLeft, ChevronRight } from "lucide-react";
+import { Maximize2, Minimize2, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ProductZoomImageProps {
@@ -155,19 +155,15 @@ export function ProductZoomImage({
         </>
       )}
 
-      {/* Zoom Helper Indicator */}
-      <div className="absolute bottom-4 right-4 bg-background/85 backdrop-blur-md border border-border text-foreground text-xs label-mono px-3 py-1.5 rounded-lg flex items-center gap-1.5 pointer-events-none transition-opacity duration-200 z-10 shadow-md">
-        {isZoomed ? (
-          <>
-            <ZoomOut className="h-3.5 w-3.5 text-primary" />
-            <span>Click to reset</span>
-          </>
-        ) : (
-          <>
-            <ZoomIn className="h-3.5 w-3.5 text-primary" />
-            <span>Click to zoom</span>
-          </>
-        )}
+      {/* Round Circular Zoom Icon Button matching user screenshot */}
+      <div className="absolute bottom-4 right-4 pointer-events-none z-10">
+        <div className="grid h-9 w-9 place-items-center rounded-full bg-background/85 text-foreground border border-border-strong backdrop-blur-md shadow-md transition-all group-hover:scale-105">
+          {isZoomed ? (
+            <Minimize2 className="h-4 w-4 stroke-[2]" />
+          ) : (
+            <Maximize2 className="h-4 w-4 stroke-[2]" />
+          )}
+        </div>
       </div>
     </div>
   );
