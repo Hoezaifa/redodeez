@@ -66,7 +66,7 @@ function Navbar({ scrolled, onOpenSearch }: { scrolled: boolean; onOpenSearch: (
           : "bg-[color:var(--ink-0)] border-b border-white/[0.05]"
       }`}
     >
-      <div className="mx-auto grid h-[62px] max-w-[1440px] grid-cols-[auto_1fr_auto] items-center gap-6 px-6 md:px-10">
+      <div className="mx-auto flex h-[62px] max-w-[1440px] items-center justify-between gap-6 px-6 md:px-10">
         {/* Logo image */}
         <Link
           to="/"
@@ -77,7 +77,7 @@ function Navbar({ scrolled, onOpenSearch }: { scrolled: boolean; onOpenSearch: (
         </Link>
 
         {/* Center nav matching original deezprints.store */}
-        <nav aria-label="Primary" className="hidden items-center justify-center gap-2 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center justify-center gap-2 lg:flex flex-1">
           {navLinks.map((item) => (
             <div
               key={item.name}
@@ -120,7 +120,7 @@ function Navbar({ scrolled, onOpenSearch }: { scrolled: boolean; onOpenSearch: (
         </nav>
 
         {/* Right — icon-only actions */}
-        <div className="flex items-center gap-1">
+        <div className="ml-auto flex items-center gap-1 shrink-0">
           {/* Search */}
           <button
             type="button"
