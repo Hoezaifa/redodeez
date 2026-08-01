@@ -66,17 +66,17 @@ export function Header() {
 
         <div
           className={cn(
-            "edge relative grid grid-cols-[auto_1fr_auto] items-center gap-4 border-b transition-colors duration-500 lg:grid-cols-3",
+            "edge relative flex items-center justify-between gap-4 border-b transition-colors duration-500",
             solid || shopOpen
               ? "border-border bg-background/95 backdrop-blur-md"
               : "border-transparent bg-linear-to-b from-background/80 to-transparent",
           )}
         >
-          <Link to="/" className="flex items-center py-4 active:scale-95 transition-transform">
+          <Link to="/" className="flex items-center py-4 active:scale-95 transition-transform shrink-0">
             <img src={LOGO_URL} alt="Deez Prints" className="h-7 w-auto md:h-8" />
           </Link>
 
-          <nav className="hidden items-center justify-center gap-8 lg:flex">
+          <nav className="hidden items-center justify-center gap-8 lg:flex flex-1">
             {navLinks.map((l) => {
               const isActive =
                 l.to === "/" ? location.pathname === "/" : location.pathname.startsWith(l.to);
@@ -108,7 +108,7 @@ export function Header() {
             })}
           </nav>
 
-          <div className="flex items-center justify-end gap-4 md:gap-5">
+          <div className="flex items-center justify-end gap-3 sm:gap-4 md:gap-5 shrink-0 ml-auto">
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
