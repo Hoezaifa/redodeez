@@ -172,7 +172,7 @@ function ProductPage() {
   };
 
   return (
-    <div className="edge py-10 md:py-14">
+    <div className="edge pt-20 sm:pt-24 md:pt-28 pb-12 md:pb-16">
       <JsonLd data={productSchema(product)} />
       <JsonLd data={breadcrumbSchema(breadcrumbs)} />
       {/* Breadcrumbs */}
