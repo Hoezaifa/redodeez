@@ -191,9 +191,14 @@ function ProductPage() {
         {/* Left Column: Image Gallery */}
         <div className="grid gap-4">
           {product.images.length ? (
-            <ProductZoomImage src={product.images[active]} alt={product.title} />
+            <ProductZoomImage
+              images={product.images}
+              activeIndex={active}
+              onIndexChange={setActive}
+              alt={product.title}
+            />
           ) : (
-            <div className="relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-2xl grid place-items-center">
+            <div className="relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-xl grid place-items-center">
               <span className="display-md text-muted-foreground">{product.title}</span>
             </div>
           )}
@@ -207,13 +212,13 @@ function ProductPage() {
                   type="button"
                   onClick={() => setActive(i)}
                   className={cn(
-                    "aspect-square overflow-hidden border bg-surface rounded-xl p-1 transition-all",
+                    "aspect-square overflow-hidden border bg-surface rounded-xl transition-all cursor-pointer",
                     i === active
                       ? "border-primary ring-2 ring-primary/20 scale-95"
-                      : "border-border hover:border-primary/50",
+                      : "border-border hover:border-primary/50 opacity-70 hover:opacity-100",
                   )}
                 >
-                  <img src={src} alt="" loading="lazy" className="h-full w-full object-contain" />
+                  <img src={src} alt="" loading="lazy" className="h-full w-full object-cover p-0" />
                 </button>
               ))}
             </div>

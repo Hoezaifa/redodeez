@@ -1,18 +1,42 @@
 import { useState, useRef } from "react";
-import { motion } from "motion/react";
-import { ZoomIn, ZoomOut } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { ZoomIn, ZoomOut, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ProductZoomImageProps {
-  src: string;
+  images: string[];
+  activeIndex: number;
+  onIndexChange: (index: number) => void;
   alt: string;
   badgeText?: string;
 }
 
-export function ProductZoomImage({ src, alt, badgeText = "PREMIUM STREETWEAR" }: ProductZoomImageProps) {
+export function ProductZoomImage({
+  images,
+  activeIndex,
+  onIndexChange,
+  alt,
+  badgeText = "PREMIUM STREETWEAR",
+}: ProductZoomImageProps) {
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const containerRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
+  const currentSrc = images[activeIndex] || images[0] || "";
+
+  const handlePrev = () => {
+    if (images.length <= 1) return;
+    setIsZoomed(false);
+    onIndexChange((activeIndex - 1 + images.length) % images.length);
+  };
+
+  const handleNext = () => {
+    if (images.length <= 1) return;
+    setIsZoomed(false);
+    onIndexChange((activeIndex + 1) % images.length);
+  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
@@ -31,36 +55,63 @@ export function ProductZoomImage({ src, alt, badgeText = "PREMIUM STREETWEAR" }:
     setIsZoomed((prev) => !prev);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const diffX = e.changedTouches[0].clientX - touchStartX.current;
+    const diffY = e.changedTouches[0].clientY - touchStartY.current;
+
+    // Threshold 40px for swipe action
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      if (diffX < 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
   return (
     <div
       ref={containerRef}
       onClick={handleToggleZoom}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => setIsZoomed(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       className={cn(
-        "relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-2xl group transition-all duration-300 select-none",
+        "relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-xl group transition-all duration-300 select-none",
         isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"
       )}
     >
-      {/* Zoomable Image Container */}
-      <motion.img
-        key={src}
-        src={src}
-        alt={alt}
-        initial={{ opacity: 0, scale: 1 }}
-        animate={{
-          opacity: 1,
-          scale: isZoomed ? 2.5 : 1,
-        }}
-        style={{
-          transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
-        }}
-        transition={{
-          scale: { duration: 0.2, ease: [0.16, 1, 0.3, 1] },
-          opacity: { duration: 0.3 },
-        }}
-        className="h-full w-full object-contain p-3 pointer-events-none"
-      />
+      {/* Zoomable Image — Edge-to-Edge object-cover without padding gaps */}
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={currentSrc}
+          src={currentSrc}
+          alt={alt}
+          initial={{ opacity: 0, scale: 1 }}
+          animate={{
+            opacity: 1,
+            scale: isZoomed ? 2.5 : 1,
+          }}
+          exit={{ opacity: 0 }}
+          style={{
+            transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+          }}
+          transition={{
+            scale: { duration: 0.2, ease: [0.16, 1, 0.3, 1] },
+            opacity: { duration: 0.2 },
+          }}
+          className="h-full w-full object-cover p-0 pointer-events-none"
+        />
+      </AnimatePresence>
 
       {/* Top Left Badge */}
       {badgeText && (
@@ -69,7 +120,42 @@ export function ProductZoomImage({ src, alt, badgeText = "PREMIUM STREETWEAR" }:
         </div>
       )}
 
-      {/* Zoom Helper Indicator Button */}
+      {/* Image Counter Badge */}
+      {images.length > 1 && (
+        <div className="absolute bottom-4 left-4 bg-background/85 backdrop-blur-md border border-border text-foreground text-xs label-mono px-3 py-1 rounded-full pointer-events-none z-10 shadow-sm">
+          {activeIndex + 1} / {images.length}
+        </div>
+      )}
+
+      {/* Navigation Arrows for Multiple Images */}
+      {images.length > 1 && !isZoomed && (
+        <>
+          <button
+            type="button"
+            aria-label="Previous image"
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePrev();
+            }}
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 grid h-9 w-9 place-items-center rounded-full bg-background/80 text-foreground border border-border-strong backdrop-blur-md shadow-md transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
+          >
+            <ChevronLeft className="h-4 w-4 stroke-[2.5]" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next image"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNext();
+            }}
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 grid h-9 w-9 place-items-center rounded-full bg-background/80 text-foreground border border-border-strong backdrop-blur-md shadow-md transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
+          >
+            <ChevronRight className="h-4 w-4 stroke-[2.5]" />
+          </button>
+        </>
+      )}
+
+      {/* Zoom Helper Indicator */}
       <div className="absolute bottom-4 right-4 bg-background/85 backdrop-blur-md border border-border text-foreground text-xs label-mono px-3 py-1.5 rounded-lg flex items-center gap-1.5 pointer-events-none transition-opacity duration-200 z-10 shadow-md">
         {isZoomed ? (
           <>
