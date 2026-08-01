@@ -120,14 +120,7 @@ export function ProductZoomImage({
         </div>
       )}
 
-      {/* Image Counter Badge */}
-      {images.length > 1 && (
-        <div className="absolute bottom-4 left-4 bg-background/85 backdrop-blur-md border border-border text-foreground text-xs label-mono px-3 py-1 rounded-full pointer-events-none z-10 shadow-sm">
-          {activeIndex + 1} / {images.length}
-        </div>
-      )}
-
-      {/* Navigation Arrows for Multiple Images */}
+      {/* Navigation Arrows for Multiple Images (Light Translucent Style) */}
       {images.length > 1 && !isZoomed && (
         <>
           <button
@@ -137,7 +130,7 @@ export function ProductZoomImage({
               e.stopPropagation();
               handlePrev();
             }}
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 grid h-9 w-9 place-items-center rounded-full bg-background/80 text-foreground border border-border-strong backdrop-blur-md shadow-md transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 grid h-9 w-9 place-items-center rounded-full bg-white/85 text-black border border-white/30 backdrop-blur-md shadow-md transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer"
           >
             <ChevronLeft className="h-4 w-4 stroke-[2.5]" />
           </button>
@@ -148,20 +141,20 @@ export function ProductZoomImage({
               e.stopPropagation();
               handleNext();
             }}
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 grid h-9 w-9 place-items-center rounded-full bg-background/80 text-foreground border border-border-strong backdrop-blur-md shadow-md transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 grid h-9 w-9 place-items-center rounded-full bg-white/85 text-black border border-white/30 backdrop-blur-md shadow-md transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer"
           >
             <ChevronRight className="h-4 w-4 stroke-[2.5]" />
           </button>
         </>
       )}
 
-      {/* Round Circular Zoom Icon Button matching user screenshot */}
+      {/* Light Circular Zoom Icon Button */}
       <div className="absolute bottom-4 right-4 pointer-events-none z-10">
-        <div className="grid h-9 w-9 place-items-center rounded-full bg-background/85 text-foreground border border-border-strong backdrop-blur-md shadow-md transition-all group-hover:scale-105">
+        <div className="grid h-9 w-9 place-items-center rounded-full bg-white/85 text-black border border-white/30 backdrop-blur-md shadow-md transition-all group-hover:scale-105">
           {isZoomed ? (
-            <Minimize2 className="h-4 w-4 stroke-[2]" />
+            <Minimize2 className="h-4 w-4 stroke-[2.5]" />
           ) : (
-            <Maximize2 className="h-4 w-4 stroke-[2]" />
+            <Maximize2 className="h-4 w-4 stroke-[2.5]" />
           )}
         </div>
       </div>
