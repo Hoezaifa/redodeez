@@ -66,111 +66,114 @@ export function Header() {
 
         <div
           className={cn(
-            "edge relative flex w-full items-center justify-between gap-4 border-b transition-colors duration-500",
+            "edge relative border-b transition-colors duration-500",
             solid || shopOpen
               ? "border-border bg-background/95 backdrop-blur-md"
               : "border-transparent bg-linear-to-b from-background/80 to-transparent",
           )}
         >
-          <Link to="/" className="flex items-center py-4 active:scale-95 transition-transform shrink-0">
-            <img src={LOGO_URL} alt="Deez Prints" className="h-7 w-auto md:h-8" />
-          </Link>
+          {/* Main nav row — logo left, icons right, desktop nav centered */}
+          <div className="flex items-center" style={{ width: "100%" }}>
+            <Link to="/" className="flex items-center py-4 active:scale-95 transition-transform" style={{ flexShrink: 0 }}>
+              <img src={LOGO_URL} alt="Deez Prints" className="h-7 w-auto md:h-8" />
+            </Link>
 
-          <nav className="hidden items-center justify-center gap-8 lg:flex flex-1">
-            {navLinks.map((l) => {
-              const isActive =
-                l.to === "/" ? location.pathname === "/" : location.pathname.startsWith(l.to);
+            <nav className="hidden items-center justify-center gap-8 lg:flex" style={{ flex: 1 }}>
+              {navLinks.map((l) => {
+                const isActive =
+                  l.to === "/" ? location.pathname === "/" : location.pathname.startsWith(l.to);
 
-              return (
-                <div
-                  key={l.to}
-                  onMouseEnter={() => setShopOpen(l.label === "Shop")}
-                  className="relative py-5"
-                >
-                  <Link
-                    to={l.to}
-                    className={cn(
-                      "label-mono whitespace-nowrap transition-colors duration-200 hover:text-primary",
-                      isActive ? "text-foreground font-bold" : "text-muted-foreground",
-                    )}
+                return (
+                  <div
+                    key={l.to}
+                    onMouseEnter={() => setShopOpen(l.label === "Shop")}
+                    className="relative py-5"
                   >
-                    {l.label}
-                  </Link>
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
-                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </nav>
+                    <Link
+                      to={l.to}
+                      className={cn(
+                        "label-mono whitespace-nowrap transition-colors duration-200 hover:text-primary",
+                        isActive ? "text-foreground font-bold" : "text-muted-foreground",
+                      )}
+                    >
+                      {l.label}
+                    </Link>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNavIndicator"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                        transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </nav>
 
-          <div className="ml-auto flex items-center justify-end gap-3 sm:gap-4 md:gap-5 shrink-0">
-            <button
-              type="button"
-              onClick={() => setSearchOpen(true)}
-              aria-label="Search"
-              className="hover:text-primary active:scale-95 transition-transform cursor-pointer"
-            >
-              <Search className="h-[18px] w-[18px]" />
-            </button>
-            <Link
-              to="/account"
-              aria-label="Account"
-              className="hidden hover:text-primary active:scale-95 transition-transform sm:block"
-            >
-              <User className="h-[18px] w-[18px]" />
-            </Link>
-            <Link
-              to="/wishlist"
-              aria-label="Wishlist"
-              className="relative hidden hover:text-primary active:scale-95 transition-transform sm:block"
-            >
-              <Heart className="h-[18px] w-[18px]" />
-              {wishlist.length > 0 && (
-                <motion.span
-                  key={wishlist.length}
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="absolute -right-2 -top-2 grid h-4 min-w-4 place-items-center bg-primary px-1 font-mono text-[10px] text-primary-foreground"
-                >
-                  {wishlist.length}
-                </motion.span>
-              )}
-            </Link>
-            <button
-              type="button"
-              aria-label="Open cart"
-              onClick={() => setDrawerOpen(true)}
-              className="relative hover:text-primary active:scale-95 transition-transform cursor-pointer"
-            >
-              <ShoppingBag className="h-[18px] w-[18px]" />
-              {count > 0 && (
-                <motion.span
-                  key={count}
-                  initial={{ scale: 0.4, opacity: 0 }}
-                  animate={{ scale: [1.4, 0.95, 1], opacity: 1 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute -right-2 -top-2 grid h-4 min-w-4 place-items-center bg-primary px-1 font-mono text-[10px] text-primary-foreground"
-                >
-                  {count}
-                </motion.span>
-              )}
-            </button>
-            <button
-              type="button"
-              aria-label="Menu"
-              onClick={() => setOpen(true)}
-              className="lg:hidden active:scale-95 transition-transform cursor-pointer"
-            >
-              <Menu className="h-5 w-5" />
-            </button>
+            <div className="flex items-center gap-3 sm:gap-4 md:gap-5" style={{ marginLeft: "auto", flexShrink: 0 }}>
+              <button
+                type="button"
+                onClick={() => setSearchOpen(true)}
+                aria-label="Search"
+                className="hover:text-primary active:scale-95 transition-transform cursor-pointer"
+              >
+                <Search className="h-[18px] w-[18px]" />
+              </button>
+              <Link
+                to="/account"
+                aria-label="Account"
+                className="hidden hover:text-primary active:scale-95 transition-transform sm:block"
+              >
+                <User className="h-[18px] w-[18px]" />
+              </Link>
+              <Link
+                to="/wishlist"
+                aria-label="Wishlist"
+                className="relative hidden hover:text-primary active:scale-95 transition-transform sm:block"
+              >
+                <Heart className="h-[18px] w-[18px]" />
+                {wishlist.length > 0 && (
+                  <motion.span
+                    key={wishlist.length}
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="absolute -right-2 -top-2 grid h-4 min-w-4 place-items-center bg-primary px-1 font-mono text-[10px] text-primary-foreground"
+                  >
+                    {wishlist.length}
+                  </motion.span>
+                )}
+              </Link>
+              <button
+                type="button"
+                aria-label="Open cart"
+                onClick={() => setDrawerOpen(true)}
+                className="relative hover:text-primary active:scale-95 transition-transform cursor-pointer"
+              >
+                <ShoppingBag className="h-[18px] w-[18px]" />
+                {count > 0 && (
+                  <motion.span
+                    key={count}
+                    initial={{ scale: 0.4, opacity: 0 }}
+                    animate={{ scale: [1.4, 0.95, 1], opacity: 1 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute -right-2 -top-2 grid h-4 min-w-4 place-items-center bg-primary px-1 font-mono text-[10px] text-primary-foreground"
+                  >
+                    {count}
+                  </motion.span>
+                )}
+              </button>
+              <button
+                type="button"
+                aria-label="Menu"
+                onClick={() => setOpen(true)}
+                className="lg:hidden active:scale-95 transition-transform cursor-pointer"
+              >
+                <Menu className="h-5 w-5" />
+              </button>
+            </div>
           </div>
 
-          {/* Cart Toast Notification */}
+          {/* Cart Toast Notification — positioned absolutely, outside flex flow */}
           <AnimatePresence>
             {lastAdded && (
               <motion.div

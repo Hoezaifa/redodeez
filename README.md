@@ -1,29 +1,25 @@
-# Welcome to your Lovable project
+# Deez Prints — Streetwear & Custom Apparel Storefront
 
-This project was built with [Lovable](https://lovable.dev).
+Premium e-commerce storefront for Deez Prints, specializing in oversized drop-shoulder tees, acid-wash streetwear, custom DTF printing, hoodies, and accessories across Pakistan.
 
-## Build with Lovable
+## Tech Stack
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Framework**: TanStack Start / React 19 / TypeScript
+- **Styling**: Tailwind CSS v4 / Framer Motion
+- **Database & Serverless**: Neon PostgreSQL (via Prisma Adapter & `@neondatabase/serverless`)
+- **Integrations**: Telegram Bot API for real-time order notifications
+- **Deployment**: Vercel Serverless Architecture
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
+# Install dependencies
 npm i
+
+# Run local development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
