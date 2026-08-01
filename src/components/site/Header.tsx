@@ -66,7 +66,7 @@ export function Header() {
 
         <div
           className={cn(
-            "edge relative flex items-center justify-between gap-4 border-b transition-colors duration-500",
+            "edge relative flex w-full items-center justify-between gap-4 border-b transition-colors duration-500",
             solid || shopOpen
               ? "border-border bg-background/95 backdrop-blur-md"
               : "border-transparent bg-linear-to-b from-background/80 to-transparent",
@@ -108,7 +108,7 @@ export function Header() {
             })}
           </nav>
 
-          <div className="flex items-center justify-end gap-3 sm:gap-4 md:gap-5 shrink-0 ml-auto">
+          <div className="ml-auto flex items-center justify-end gap-3 sm:gap-4 md:gap-5 shrink-0">
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
@@ -168,70 +168,70 @@ export function Header() {
             >
               <Menu className="h-5 w-5" />
             </button>
-
-            {/* Cart Toast Notification */}
-            <AnimatePresence>
-              {lastAdded && (
-                <motion.div
-                  initial={{ opacity: 0, y: -12, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -8, scale: 0.95 }}
-                  transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute right-4 top-full mt-2 z-50 w-72 sm:w-80 rounded border border-border bg-background/95 p-3.5 shadow-2xl backdrop-blur-md"
-                >
-                  <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
-                    <span className="flex items-center gap-1.5 font-sans text-xs font-bold text-emerald-500 uppercase tracking-wide">
-                      <Check className="h-3.5 w-3.5 stroke-[3]" /> Added to Cart
-                    </span>
-                    <button
-                      type="button"
-                      onClick={dismissToast}
-                      className="text-muted-foreground hover:text-foreground text-xs p-1"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                  <div className="flex items-center gap-3 py-2.5">
-                    {lastAdded.image && (
-                      <img
-                        src={lastAdded.image}
-                        alt=""
-                        className="h-11 w-11 rounded object-cover bg-surface shrink-0"
-                      />
-                    )}
-                    <div className="flex-1 min-w-0">
-                      <p className="truncate text-xs font-bold text-foreground uppercase">
-                        {lastAdded.title}
-                      </p>
-                      <p className="text-[11px] text-muted-foreground">
-                        {lastAdded.size ? `Size: ${lastAdded.size} • ` : ""}
-                        {formatPrice(lastAdded.price)}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 pt-1">
-                    <button
-                      type="button"
-                      onClick={dismissToast}
-                      className="flex-1 py-1.5 text-center text-xs font-semibold label-mono border border-border rounded hover:bg-surface transition-colors"
-                    >
-                      Continue Shopping
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        dismissToast();
-                        setDrawerOpen(true);
-                      }}
-                      className="flex-1 py-1.5 text-center text-xs font-semibold label-mono bg-primary text-primary-foreground rounded hover:bg-foreground hover:text-background transition-colors"
-                    >
-                      View Cart
-                    </button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
+
+          {/* Cart Toast Notification */}
+          <AnimatePresence>
+            {lastAdded && (
+              <motion.div
+                initial={{ opacity: 0, y: -12, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute right-4 top-full mt-2 z-50 w-72 sm:w-80 rounded border border-border bg-background/95 p-3.5 shadow-2xl backdrop-blur-md"
+              >
+                <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+                  <span className="flex items-center gap-1.5 font-sans text-xs font-bold text-emerald-500 uppercase tracking-wide">
+                    <Check className="h-3.5 w-3.5 stroke-[3]" /> Added to Cart
+                  </span>
+                  <button
+                    type="button"
+                    onClick={dismissToast}
+                    className="text-muted-foreground hover:text-foreground text-xs p-1"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <div className="flex items-center gap-3 py-2.5">
+                  {lastAdded.image && (
+                    <img
+                      src={lastAdded.image}
+                      alt=""
+                      className="h-11 w-11 rounded object-cover bg-surface shrink-0"
+                    />
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <p className="truncate text-xs font-bold text-foreground uppercase">
+                      {lastAdded.title}
+                    </p>
+                    <p className="text-[11px] text-muted-foreground">
+                      {lastAdded.size ? `Size: ${lastAdded.size} • ` : ""}
+                      {formatPrice(lastAdded.price)}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={dismissToast}
+                    className="flex-1 py-1.5 text-center text-xs font-semibold label-mono border border-border rounded hover:bg-surface transition-colors"
+                  >
+                    Continue Shopping
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      dismissToast();
+                      setDrawerOpen(true);
+                    }}
+                    className="flex-1 py-1.5 text-center text-xs font-semibold label-mono bg-primary text-primary-foreground rounded hover:bg-foreground hover:text-background transition-colors"
+                  >
+                    View Cart
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Mega Menu Dropdown */}
