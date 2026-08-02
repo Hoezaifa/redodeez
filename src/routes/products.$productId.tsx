@@ -401,7 +401,7 @@ function ProductPage() {
       {related.length > 0 && (
         <section className="mt-24 border-t border-border pt-12">
           <h2 className="display-md">You might also like</h2>
-          <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-12 md:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-x-4 md:gap-y-10">
             {related.map((p, i) => (
               <ProductCard key={p.id} product={p} index={i} />
             ))}
