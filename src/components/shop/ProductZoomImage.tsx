@@ -86,7 +86,7 @@ export function ProductZoomImage({
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       className={cn(
-        "relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-xl group transition-all duration-300 select-none",
+        "relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-none group transition-all duration-300 select-none",
         isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"
       )}
     >
@@ -115,7 +115,7 @@ export function ProductZoomImage({
 
       {/* Top Left Badge */}
       {badgeText && (
-        <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-[10px] label-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider pointer-events-none z-10 shadow-md">
+        <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-[10px] label-mono font-bold px-3 py-1 rounded-none uppercase tracking-wider pointer-events-none z-10 shadow-md">
           {badgeText}
         </div>
       )}
@@ -130,7 +130,7 @@ export function ProductZoomImage({
               e.stopPropagation();
               handlePrev();
             }}
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 grid h-9 w-9 place-items-center rounded-full bg-white/85 text-black border border-white/30 backdrop-blur-md shadow-md transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 grid h-9 w-9 place-items-center rounded-none bg-white/85 text-black border border-white/30 backdrop-blur-md shadow-md transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer"
           >
             <ChevronLeft className="h-4 w-4 stroke-[2.5]" />
           </button>
@@ -141,7 +141,7 @@ export function ProductZoomImage({
               e.stopPropagation();
               handleNext();
             }}
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 grid h-9 w-9 place-items-center rounded-full bg-white/85 text-black border border-white/30 backdrop-blur-md shadow-md transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 grid h-9 w-9 place-items-center rounded-none bg-white/85 text-black border border-white/30 backdrop-blur-md shadow-md transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer"
           >
             <ChevronRight className="h-4 w-4 stroke-[2.5]" />
           </button>
@@ -150,7 +150,7 @@ export function ProductZoomImage({
 
       {/* Light Circular Zoom Icon Button */}
       <div className="absolute bottom-4 right-4 pointer-events-none z-10">
-        <div className="grid h-9 w-9 place-items-center rounded-full bg-white/85 text-black border border-white/30 backdrop-blur-md shadow-md transition-all group-hover:scale-105">
+        <div className="grid h-9 w-9 place-items-center rounded-none bg-white/85 text-black border border-white/30 backdrop-blur-md shadow-md transition-all group-hover:scale-105">
           {isZoomed ? (
             <Minimize2 className="h-4 w-4 stroke-[2.5]" />
           ) : (

@@ -37,23 +37,23 @@ export function ProductRow({
           <div>
             <div className="flex items-center justify-between">
               <p className="label-mono text-primary">{eyebrow}</p>
-              {/* Circular Carousel Controls (visible on mobile) */}
-              <div className="flex items-center gap-2 lg:hidden">
+              {/* Circular Carousel Controls (visible on mobile only) */}
+              <div className="flex items-center gap-2 md:hidden">
                 <button
                   type="button"
                   onClick={() => handleScroll("left")}
                   aria-label="Scroll left"
-                  className="grid h-9 w-9 place-items-center rounded-full border border-border-strong bg-surface/80 text-foreground shadow-sm transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
+                  className="grid h-8 w-8 place-items-center rounded-none border border-border-strong bg-surface/80 text-foreground shadow-sm transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
                 >
-                  <ChevronLeft className="h-4 w-4 stroke-[2.5]" />
+                  <ChevronLeft className="h-3.5 w-3.5 stroke-[2.5]" />
                 </button>
                 <button
                   type="button"
                   onClick={() => handleScroll("right")}
                   aria-label="Scroll right"
-                  className="grid h-9 w-9 place-items-center rounded-full border border-border-strong bg-surface/80 text-foreground shadow-sm transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
+                  className="grid h-8 w-8 place-items-center rounded-none border border-border-strong bg-surface/80 text-foreground shadow-sm transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
                 >
-                  <ChevronRight className="h-4 w-4 stroke-[2.5]" />
+                  <ChevronRight className="h-3.5 w-3.5 stroke-[2.5]" />
                 </button>
               </div>
             </div>
@@ -65,30 +65,10 @@ export function ProductRow({
             <Link
               to={ctaTo}
               params={ctaParams}
-              className="inline-flex items-center gap-2.5 bg-primary text-primary-foreground font-sans text-xs font-black uppercase tracking-wider px-6 py-3.5 rounded hover:bg-foreground hover:text-background active:scale-95 transition-all shadow-md"
+              className="inline-flex items-center gap-2.5 bg-primary text-primary-foreground font-sans text-xs font-black uppercase tracking-wider px-6 py-3.5 rounded-none hover:bg-foreground hover:text-background active:scale-95 transition-all shadow-md"
             >
               {ctaLabel} <ArrowRight className="h-4 w-4 stroke-[3]" />
             </Link>
-
-            {/* Desktop Circular Navigation Controls */}
-            <div className="hidden lg:flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => handleScroll("left")}
-                aria-label="Scroll left"
-                className="grid h-9 w-9 place-items-center rounded-full border border-border-strong bg-surface/80 text-foreground shadow-sm transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
-              >
-                <ChevronLeft className="h-4 w-4 stroke-[2.5]" />
-              </button>
-              <button
-                type="button"
-                onClick={() => handleScroll("right")}
-                aria-label="Scroll right"
-                className="grid h-9 w-9 place-items-center rounded-full border border-border-strong bg-surface/80 text-foreground shadow-sm transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
-              >
-                <ChevronRight className="h-4 w-4 stroke-[2.5]" />
-              </button>
-            </div>
           </div>
         </div>
 

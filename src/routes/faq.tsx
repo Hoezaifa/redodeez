@@ -33,24 +33,60 @@ const sizeChart = [
 
 function Faq() {
   const [open, setOpen] = useState<number | null>(0);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
+  const categories = ["All", "Payments", "Shipping", "Returns", "Custom Orders", "Sizing", "Production"];
+
+  const filteredFaqs =
+    selectedCategory === "All"
+      ? faqs
+      : faqs.filter((f) => f.category?.toLowerCase() === selectedCategory.toLowerCase());
 
   return (
     <div className="edge py-14 md:py-20">
       <JsonLd data={faqPageSchema(faqs)} />
       <SectionHeading eyebrow="Help" title={"Questions,\nanswered"} />
 
-      <div className="mt-14 grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,360px)]">
+      {/* Category filter pills */}
+      <div className="mt-8 flex flex-wrap gap-2">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => {
+              setSelectedCategory(cat);
+              setOpen(0);
+            }}
+            className={cn(
+              "px-4 py-2 text-xs font-mono font-bold uppercase transition-all rounded-full border border-white/10 cursor-pointer",
+              selectedCategory === cat
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-surface text-muted-foreground hover:border-white/20 hover:text-white"
+            )}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-10 grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,360px)]">
         <div className="border-t border-border">
-          {faqs.map((f, i) => (
+          {filteredFaqs.map((f, i) => (
             <div key={f.q} className="border-b border-border">
               <button
                 type="button"
                 onClick={() => setOpen(open === i ? null : i)}
                 className="flex w-full items-center justify-between gap-6 py-6 text-left"
               >
-                <span className="font-display text-lg font-extrabold uppercase tracking-tight">
-                  {f.q}
-                </span>
+                <div className="space-y-1">
+                  {f.category && (
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block">
+                      {f.category}
+                    </span>
+                  )}
+                  <span className="font-display text-lg font-extrabold uppercase tracking-tight block">
+                    {f.q}
+                  </span>
+                </div>
                 <Plus
                   className={cn(
                     "h-4 w-4 shrink-0 text-primary transition-transform duration-300",

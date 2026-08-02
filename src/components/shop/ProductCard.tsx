@@ -104,7 +104,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
               qty: 1,
             })
           }
-          className="absolute right-2.5 bottom-2.5 z-10 grid h-8 w-8 sm:h-9 sm:w-9 place-items-center rounded-full bg-white text-black shadow-md transition-transform duration-300 hover:scale-110 active:scale-90"
+          className="absolute right-2.5 bottom-2.5 z-10 grid h-8 w-8 sm:h-9 sm:w-9 place-items-center rounded-none bg-white text-black shadow-md transition-transform duration-300 hover:scale-110 active:scale-90"
         >
           <Plus className="h-4 w-4 sm:h-5 sm:w-5 stroke-[2.5]" />
         </button>

@@ -175,6 +175,7 @@ export const products: Product[] = [
     colors: ["Black", "White", "Grey", "Navy"],
     rating: 5,
   },
+  /* Hidden for now: Jerseys
   {
     id: "jersey-1",
     title: "PRO MOTO JERSEY 1",
@@ -195,6 +196,7 @@ export const products: Product[] = [
     colors: [],
     rating: 5,
   },
+  */
   {
     id: "tshirt-acid-9",
     title: "SPIDERVERSE ACID WASH TEE",
@@ -538,6 +540,7 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
   },
+  /* Hidden for now: Flag
   {
     id: "flag-1",
     title: "CUSTOMIZED DIGITAL FLAG",
@@ -548,6 +551,7 @@ export const products: Product[] = [
     colors: [],
     rating: 5,
   },
+  */
   {
     id: "tapestry-berserk-eclipse",
     title: "BERSERK ECLIPSE TAPESTRY",
@@ -588,6 +592,7 @@ export const products: Product[] = [
     colors: [],
     rating: 5,
   },
+  /* Hidden for now: Wristbands, Badges, Wallet cards, Keychains, Magnets, Notebooks, Gift boxes
   {
     id: "wristband-1",
     title: "SILICONE WRISTBAND 1",
@@ -668,4 +673,5 @@ export const products: Product[] = [
     colors: [],
     rating: 5,
   },
+  */
 ];

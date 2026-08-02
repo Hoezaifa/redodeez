@@ -326,15 +326,9 @@
   font-weight: 700;
 }
 
-/* Filter chip glow */
+/* Filter chip */
 .chip-glow {
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.chip-glow:hover {
-  box-shadow: 0 0 14px -3px var(--color-primary);
-}
-.chip-glow-active {
-  box-shadow: 0 0 18px -4px var(--color-primary);
 }
 
 /* Progress stepper connector */
@@ -359,7 +353,6 @@
 .pay-card.selected {
   border-color: var(--color-primary);
   background: oklch(0.635 0.185 43 / 5%);
-  box-shadow: 0 0 20px -6px var(--color-primary);
 }
 
 /* ---------- admin dashboard utilities ---------- */

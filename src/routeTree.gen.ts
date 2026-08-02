@@ -18,9 +18,15 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomPrintRouteImport } from './routes/custom-print'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as PaymentsRouteImport } from './routes/payments'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReturnsRouteImport } from './routes/returns'
+import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ShippingRouteImport } from './routes/shipping'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TrustRouteImport } from './routes/trust'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
 import { Route as CollectionsSlugRouteImport } from './routes/collections.$slug'
@@ -71,9 +77,24 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaymentsRoute = PaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReturnsRoute = ReturnsRouteImport.update({
   id: '/returns',
   path: '/returns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShippingRoute = ShippingRouteImport.update({
@@ -84,6 +105,21 @@ const ShippingRoute = ShippingRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrustRoute = TrustRouteImport.update({
+  id: '/trust',
+  path: '/trust',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WishlistRoute = WishlistRouteImport.update({
@@ -117,9 +153,15 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
   '/faq': typeof FaqRoute
+  '/payments': typeof PaymentsRoute
+  '/privacy': typeof PrivacyRoute
   '/returns': typeof ReturnsRoute
+  '/reviews': typeof ReviewsRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/trust': typeof TrustRoute
   '/wishlist': typeof WishlistRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$productId': typeof ProductsProductIdRoute
@@ -135,9 +177,15 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
   '/faq': typeof FaqRoute
+  '/payments': typeof PaymentsRoute
+  '/privacy': typeof PrivacyRoute
   '/returns': typeof ReturnsRoute
+  '/reviews': typeof ReviewsRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/trust': typeof TrustRoute
   '/wishlist': typeof WishlistRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$productId': typeof ProductsProductIdRoute
@@ -154,9 +202,15 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
   '/faq': typeof FaqRoute
+  '/payments': typeof PaymentsRoute
+  '/privacy': typeof PrivacyRoute
   '/returns': typeof ReturnsRoute
+  '/reviews': typeof ReviewsRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/trust': typeof TrustRoute
   '/wishlist': typeof WishlistRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$productId': typeof ProductsProductIdRoute
@@ -174,9 +228,15 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-print'
     | '/faq'
+    | '/payments'
+    | '/privacy'
     | '/returns'
+    | '/reviews'
     | '/shipping'
     | '/sitemap.xml'
+    | '/support'
+    | '/terms'
+    | '/trust'
     | '/wishlist'
     | '/collections/$slug'
     | '/products/$productId'
@@ -192,9 +252,15 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-print'
     | '/faq'
+    | '/payments'
+    | '/privacy'
     | '/returns'
+    | '/reviews'
     | '/shipping'
     | '/sitemap.xml'
+    | '/support'
+    | '/terms'
+    | '/trust'
     | '/wishlist'
     | '/collections/$slug'
     | '/products/$productId'
@@ -210,9 +276,15 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-print'
     | '/faq'
+    | '/payments'
+    | '/privacy'
     | '/returns'
+    | '/reviews'
     | '/shipping'
     | '/sitemap.xml'
+    | '/support'
+    | '/terms'
+    | '/trust'
     | '/wishlist'
     | '/collections/$slug'
     | '/products/$productId'
@@ -229,9 +301,15 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CustomPrintRoute: typeof CustomPrintRoute
   FaqRoute: typeof FaqRoute
+  PaymentsRoute: typeof PaymentsRoute
+  PrivacyRoute: typeof PrivacyRoute
   ReturnsRoute: typeof ReturnsRoute
+  ReviewsRoute: typeof ReviewsRoute
   ShippingRoute: typeof ShippingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SupportRoute: typeof SupportRoute
+  TermsRoute: typeof TermsRoute
+  TrustRoute: typeof TrustRoute
   WishlistRoute: typeof WishlistRoute
   CollectionsSlugRoute: typeof CollectionsSlugRoute
   ProductsProductIdRoute: typeof ProductsProductIdRoute
@@ -303,11 +381,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/payments': {
+      id: '/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof PaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/returns': {
       id: '/returns'
       path: '/returns'
       fullPath: '/returns'
       preLoaderRoute: typeof ReturnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shipping': {
@@ -322,6 +421,27 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trust': {
+      id: '/trust'
+      path: '/trust'
+      fullPath: '/trust'
+      preLoaderRoute: typeof TrustRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/wishlist': {
@@ -365,9 +485,15 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CustomPrintRoute: CustomPrintRoute,
   FaqRoute: FaqRoute,
+  PaymentsRoute: PaymentsRoute,
+  PrivacyRoute: PrivacyRoute,
   ReturnsRoute: ReturnsRoute,
+  ReviewsRoute: ReviewsRoute,
   ShippingRoute: ShippingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SupportRoute: SupportRoute,
+  TermsRoute: TermsRoute,
+  TrustRoute: TrustRoute,
   WishlistRoute: WishlistRoute,
   CollectionsSlugRoute: CollectionsSlugRoute,
   ProductsProductIdRoute: ProductsProductIdRoute,

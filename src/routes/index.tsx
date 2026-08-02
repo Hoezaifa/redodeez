@@ -1,14 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, ArrowUpRight, Instagram } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Instagram, Star } from "lucide-react";
 import { Hero, TickerRule, CollectionsStrip } from "@/components/site/Hero";
 import { ProductRow } from "@/components/shop/ProductRow";
 import { products } from "@/data/products";
-import { CUSTOM_IMAGE, collections, site, usps, whatsappLink } from "@/data/site";
+import { CUSTOM_IMAGE, collections, site, whatsappLink } from "@/data/site";
 import { Reveal } from "@/components/motion/Reveal";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { AestheticCollections } from "@/components/home/AestheticCollections";
-import { TrustSection } from "@/components/home/TrustSection";
+import { CustomPrintSection } from "@/components/home/CustomPrintSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -58,6 +58,8 @@ function Home() {
         ctaParams={{ slug: "drop-shoulder" }}
       />
 
+      {/* Hidden: Loved by the cult / Best sellers section */}
+      {/* 
       <ProductRow
         eyebrow="Best sellers"
         title={"Loved by\nthe cult"}
@@ -66,6 +68,7 @@ function Home() {
         ctaTo="/collections/$slug"
         ctaParams={{ slug: "t-shirts" }}
       />
+      */}
 
       {/* Custom printing */}
       <section className="border-t border-border bg-surface relative overflow-hidden">
@@ -93,53 +96,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="edge grid gap-12 py-20 md:py-28 lg:grid-cols-2 lg:items-center">
-          <Reveal>
-            <p className="label-mono text-primary">Custom printing</p>
-            <h2 className="display-lg mt-4">
-              Your design.
-              <br />
-              <span className="text-primary">No limits.</span>
-            </h2>
-            <ol className="mt-10 grid gap-px bg-border sm:grid-cols-3">
-              {[
-                ["01", "Upload", "Drop your artwork or idea"],
-                ["02", "We print", "Premium DTF & sublimation"],
-                ["03", "Delivered", `${site.deliveryTime} to your door`],
-              ].map(([n, t, d]) => (
-                <li key={n} className="bg-surface p-5">
-                  <span className="label-mono text-primary">{n}</span>
-                  <p className="mt-3 font-display text-lg font-extrabold uppercase">{t}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{d}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <MagneticButton to="/custom-print">
-                Start custom print <ArrowRight className="h-4 w-4" />
-              </MagneticButton>
-              <MagneticButton href={whatsappLink("Hi! I want a custom print.")} variant="outline">
-                Ask on WhatsApp
-              </MagneticButton>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <div className="relative aspect-4/5 overflow-hidden bg-background">
-              <motion.img
-                src={CUSTOM_IMAGE}
-                alt="Blank tee ready for a custom print"
-                loading="lazy"
-                className="h-full w-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              />
-              <span className="absolute left-5 top-5 bg-primary px-3 py-1.5 label-mono text-primary-foreground">
-                Your idea here
-              </span>
-            </div>
-          </Reveal>
-        </div>
+        <CustomPrintSection />
       </section>
 
       <ProductRow
@@ -160,18 +117,25 @@ function Home() {
         ctaParams={{ slug: "accessories" }}
       />
 
-      {/* Why */}
-      <section className="edge border-t border-border py-16 md:py-20">
-        <p className="label-mono text-muted-foreground">Why shop with Deez Prints</p>
-        <div className="mt-8 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {usps.map((u, i) => (
-            <Reveal key={u.title} delay={i * 0.06} className="bg-background p-6">
-              <p className="font-display text-lg font-extrabold uppercase tracking-tight">
-                {u.title}
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">{u.body}</p>
-            </Reveal>
-          ))}
+      {/* Reviews Teaser Banner */}
+      <section className="border-t border-border bg-surface/40 py-8">
+        <div className="edge flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="flex text-amber-400 gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-current" />
+              ))}
+            </div>
+            <span className="font-display font-extrabold uppercase text-foreground text-sm tracking-tight">
+              Rated 4.9/5 by 500+ verified customers
+            </span>
+          </div>
+          <Link
+            to="/reviews"
+            className="inline-flex items-center gap-2 label-mono text-xs text-primary hover:underline font-bold"
+          >
+            Read Reviews <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </div>
       </section>
 
@@ -212,9 +176,6 @@ function Home() {
           ))}
         </div>
       </section>
-
-      {/* Trust & Credibility Section */}
-      <TrustSection />
 
       {/* Collections quick links */}
       <section className="edge border-t border-border py-14">

@@ -53,33 +53,27 @@ function Shipping() {
       <div className="mt-12 max-w-3xl space-y-8">
         <div className="rounded-xl border border-white/10 bg-surface/50 p-8 space-y-6">
           <div className="space-y-3">
-            <h2 className="text-2xl font-bold text-foreground">Delivery Timeline</h2>
+            <h2 className="text-2xl font-bold text-foreground">Production &amp; Dispatch Timeline</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Standard delivery time is{" "}
-              <strong className="text-foreground font-semibold">3-5 working days</strong> across
-              Pakistan. Orders placed before 1 PM are usually dispatched the same day. During sales
-              or national holidays, delivery may take up to 7 working days.
+              Every garment is made to order or quality-inspected at our Karachi studio. Blanks and graphic prints undergo a <strong className="text-foreground font-semibold">24 to 48-hour production window</strong> before handed to couriers. Orders placed before 1 PM are processed the same working day.
             </p>
           </div>
 
           <div className="w-full h-px bg-border" />
 
           <div className="space-y-3">
-            <h2 className="text-2xl font-bold text-foreground">Tracking Your Order</h2>
+            <h2 className="text-2xl font-bold text-foreground">Local Nationwide Delivery</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Once your order is dispatched, we send a tracking number via Email/SMS so you can
-              track your package directly on courier portals.
+              We deliver across <strong className="text-foreground font-semibold">250+ cities in Pakistan</strong> including Karachi, Lahore, Islamabad, Rawalpindi, Faisalabad, Multan, Peshawar, and Quetta. Delivery typically takes <strong className="text-foreground font-semibold">3 to 5 working days</strong> via TCS, Leopards, and M&amp;P.
             </p>
           </div>
 
           <div className="w-full h-px bg-border" />
 
           <div className="space-y-3">
-            <h2 className="text-2xl font-bold text-foreground">Payment Methods</h2>
+            <h2 className="text-2xl font-bold text-foreground">Order Tracking &amp; SMS Dispatch Alert</h2>
             <p className="text-muted-foreground leading-relaxed">
-              We currently accept:{" "}
-              <strong className="text-foreground font-semibold">{paymentMethods.join(", ")}</strong>
-              .
+              As soon as your package leaves our Karachi studio, a consignment tracking link will be sent to your registered Phone Number and Email. You can enter your tracking code on TCS or Leopards official websites anytime.
             </p>
           </div>
 
@@ -88,8 +82,7 @@ function Shipping() {
           <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground">International Shipping</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Currently, we only ship within Pakistan. However, we plan to expand internationally in
-              the near future!
+              Currently, online checkout supports addresses within Pakistan. However, for overseas inquiries or worldwide bulk orders, please contact our team directly via WhatsApp (+92 327 2487127).
             </p>
           </div>
         </div>

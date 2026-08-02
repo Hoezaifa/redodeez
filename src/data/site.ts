@@ -77,23 +77,16 @@ export const collections: Collection[] = [
     match: (p) => p.category === "hoodies",
   },
   {
-    slug: "jerseys",
-    name: "Jerseys",
-    blurb: "Moto-cut, full sublimation.",
-    image: `${CDN}/v1773571102/place_d2aqxn.webp`,
-    match: (p) => p.category === "jerseys",
-  },
-  {
     slug: "wall-art",
     name: "Wall Art",
-    blurb: "Tapestries and flags for your space.",
+    blurb: "Tapestries for your space.",
     image: `${CDN}/v1773597161/tapestry_hr14wa.webp`,
     match: (p) => ["tapestries", "flags"].includes(p.subcategory),
   },
   {
     slug: "accessories",
     name: "Accessories",
-    blurb: "Mugs, keychains, badges, gift boxes.",
+    blurb: "Premium ceramic mugs & lifestyle accessories.",
     image: `${CDN}/v1773596802/mug_collection_gntc3f.webp`,
     match: (p) => p.category === "accessories",
   },
@@ -104,28 +97,54 @@ export const CUSTOM_IMAGE = `${CDN}/v1773571102/place_d2aqxn.webp`;
 
 export const faqs = [
   {
-    q: "How long does delivery take?",
-    a: "Standard delivery time is 3-5 working days across Pakistan. Orders placed before 1 PM are usually dispatched the same day.",
-  },
-  {
     q: "What payment methods do you accept?",
-    a: "We currently accept Bank Transfers (Meezan Bank) and Mobile Wallets (Easypaisa, JazzCash, Zindigi).",
+    category: "Payments",
+    a: "We accept Direct Bank Transfers (Meezan Bank IBAN & App) as well as Mobile Wallet transfers via Easypaisa, JazzCash, and Zindigi. Simply transfer the order total and upload your transaction reference or screenshot at checkout or via WhatsApp for instant verification.",
   },
   {
-    q: "Do you offer international shipping?",
-    a: "Currently, we only ship within Pakistan. However, we plan to expand internationally in the future.",
+    q: "How long does delivery take?",
+    category: "Shipping",
+    a: "Standard delivery time is 3 to 5 working days across 250+ cities in Pakistan. Orders placed before 1 PM are usually dispatched the same working day via TCS, Leopards, and M&P.",
   },
   {
-    q: "Can I cancel my order?",
-    a: "You can cancel your order before it has been dispatched. Once dispatched, the order cannot be cancelled. Please contact us on WhatsApp immediately for cancellations.",
-  },
-  {
-    q: "How do I track my order?",
-    a: "Once your order is dispatched, we will send you a tracking number via Email/SMS which you can use to track your package.",
+    q: "What is your shipping fee?",
+    a: "We charge a flat nationwide delivery fee of Rs. 200. Orders above Rs. 5,000 qualify for FREE shipping automatically at checkout.",
+    category: "Shipping",
   },
   {
     q: "What is your exchange policy?",
-    a: "We offer a 7-day exchange policy for size issues or defects. Please verify the size chart before ordering. Items must be unworn and in original condition.",
+    category: "Returns",
+    a: "We offer a 7-day hassle-free exchange policy from the date of delivery for sizing adjustments or any rare printing/fabric defects. Items must be unworn, unwashed, and in original condition with tags attached.",
+  },
+  {
+    q: "Do you offer cash refunds?",
+    category: "Refunds",
+    a: "We generally do not issue cash refunds. However, if an ordered item is out of stock upon arrival or confirmed defective, we process a direct bank refund within 7 working days.",
+  },
+  {
+    q: "How does Custom Printing work?",
+    category: "Custom Orders",
+    a: "Upload your artwork on our /custom-print page or send your high-res design to us on WhatsApp (+92 327 2487127). Our studio team will prepare a digital mockup for approval before printing.",
+  },
+  {
+    q: "What sizes are available and how do drop-shoulder tees fit?",
+    category: "Sizing",
+    a: "Our sizes range from S to XXL. Drop shoulder and acid wash tees feature a relaxed, luxury streetwear oversized fit with heavy 240+ GSM cotton. If you prefer a regular tailored fit, we recommend sizing down.",
+  },
+  {
+    q: "Where are Deez Prints garments manufactured?",
+    category: "Production",
+    a: "All blanks and custom prints are proudly designed, manufactured, and hand-inspected in our main Karachi studio using industrial DTF and UV printing machinery.",
+  },
+  {
+    q: "How do I track my package?",
+    category: "Shipping",
+    a: "Once your parcel is dispatched from our Karachi studio, you will receive a tracking link and consignment ID via Email and SMS to monitor delivery on TCS or Leopards tracking portals.",
+  },
+  {
+    q: "Do you ship internationally?",
+    category: "Shipping",
+    a: "Currently, we deliver nationwide across Pakistan. We are preparing to launch worldwide international shipping soon. Message us on WhatsApp for international order inquiries.",
   },
 ];
 

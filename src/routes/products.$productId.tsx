@@ -198,7 +198,7 @@ function ProductPage() {
               alt={product.title}
             />
           ) : (
-            <div className="relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-xl grid place-items-center">
+            <div className="relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-none grid place-items-center">
               <span className="display-md text-muted-foreground">{product.title}</span>
             </div>
           )}
@@ -212,7 +212,7 @@ function ProductPage() {
                   type="button"
                   onClick={() => setActive(i)}
                   className={cn(
-                    "aspect-square overflow-hidden border bg-surface rounded-xl transition-all cursor-pointer",
+                    "aspect-square overflow-hidden border bg-surface rounded-none transition-all cursor-pointer",
                     i === active
                       ? "border-primary ring-2 ring-primary/20 scale-95"
                       : "border-border hover:border-primary/50 opacity-70 hover:opacity-100",
@@ -237,23 +237,23 @@ function ProductPage() {
               <span className="font-display text-3xl font-black text-foreground">
                 {formatPrice(product.price)}
               </span>
-              <span className="text-xs label-mono text-primary border border-primary/30 bg-primary/10 px-2.5 py-1 rounded-md">
+              <span className="text-xs label-mono text-primary border border-primary/30 bg-primary/10 px-2.5 py-1 rounded-none">
                 BEST SELLER
               </span>
             </div>
 
-            {/* Trust Indicators (Dots) from old site */}
+            {/* Trust Indicators (Square Badges) from old site */}
             <div className="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-xs text-muted-foreground font-medium border-y border-border py-3">
               <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                <div className="w-2 h-2 rounded-none bg-emerald-500" />
                 <span>Premium Material</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-sky-500" />
+                <div className="w-2 h-2 rounded-none bg-sky-500" />
                 <span>7-Day Exchange Policy</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-orange-500" />
+                <div className="w-2 h-2 rounded-none bg-orange-500" />
                 <span>All Over Pakistan Delivery</span>
               </div>
             </div>
@@ -280,9 +280,9 @@ function ProductPage() {
                       setErr(false);
                     }}
                     className={cn(
-                      "min-w-12 h-12 px-3 rounded-xl label-mono transition-all duration-200 active:scale-95 font-bold border text-sm",
+                      "min-w-12 h-12 px-3 rounded-none label-mono transition-all duration-200 active:scale-95 font-bold border text-sm",
                       size === s
-                        ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20 scale-105"
+                        ? "bg-primary text-primary-foreground border-primary scale-105"
                         : "border-border bg-surface text-muted-foreground hover:border-primary hover:text-foreground",
                     )}
                   >
@@ -303,12 +303,12 @@ function ProductPage() {
             <p className="label-mono uppercase text-xs text-muted-foreground font-bold mb-2">
               Quantity
             </p>
-            <div className="flex items-center border border-border bg-surface rounded-xl w-fit p-1">
+            <div className="flex items-center border border-border bg-surface rounded-none w-fit p-1">
               <button
                 type="button"
                 aria-label="Decrease quantity"
                 onClick={() => setQty((q) => Math.max(1, q - 1))}
-                className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-elevated text-muted-foreground hover:text-foreground transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-none hover:bg-elevated text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Minus className="h-4 w-4" />
               </button>
@@ -317,7 +317,7 @@ function ProductPage() {
                 type="button"
                 aria-label="Increase quantity"
                 onClick={() => setQty((q) => q + 1)}
-                className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-elevated text-muted-foreground hover:text-foreground transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-none hover:bg-elevated text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Plus className="h-4 w-4" />
               </button>
@@ -329,7 +329,7 @@ function ProductPage() {
             <button
               type="button"
               onClick={handleAdd}
-              className="flex items-center justify-center gap-2 border border-border-strong bg-surface hover:bg-elevated px-6 py-4 label-mono text-sm font-bold transition-all rounded-xl cursor-pointer"
+              className="flex items-center justify-center gap-2 border border-border-strong bg-surface hover:bg-elevated px-6 py-4 label-mono text-sm font-bold transition-all rounded-none cursor-pointer"
             >
               <ShoppingCart className="h-4 w-4 text-primary" />
               <span>Add to Cart</span>
@@ -338,7 +338,7 @@ function ProductPage() {
             <button
               type="button"
               onClick={handleBuyNow}
-              className="flex items-center justify-center gap-2 bg-primary hover:bg-foreground hover:text-background text-primary-foreground px-6 py-4 label-mono text-sm font-bold transition-all rounded-xl shadow-lg cursor-pointer"
+              className="flex items-center justify-center gap-2 bg-primary hover:bg-foreground hover:text-background text-primary-foreground px-6 py-4 label-mono text-sm font-bold transition-all rounded-none shadow-lg cursor-pointer"
             >
               <span>Buy Now</span>
               <ArrowRight className="h-4 w-4" />
@@ -351,7 +351,7 @@ function ProductPage() {
               href={whatsappLink(`Hi Deez Prints! I'm interested in ordering ${product.title}.`)}
               target="_blank"
               rel="noreferrer"
-              className="flex-1 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 py-3.5 text-center label-mono text-xs rounded-xl transition-colors font-semibold"
+              className="flex-1 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 py-3.5 text-center label-mono text-xs rounded-none transition-colors font-semibold"
             >
               Order directly on WhatsApp
             </a>
@@ -359,7 +359,7 @@ function ProductPage() {
               type="button"
               aria-label="Add to wishlist"
               onClick={() => toggleWish(product.id)}
-              className="grid h-12 w-12 shrink-0 place-items-center border border-border rounded-xl hover:border-primary hover:text-primary transition-colors"
+              className="grid h-12 w-12 shrink-0 place-items-center border border-border rounded-none hover:border-primary hover:text-primary transition-colors"
             >
               <Heart className={cn("h-5 w-5", wished && "fill-primary text-primary")} />
             </button>

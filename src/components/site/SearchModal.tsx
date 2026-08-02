@@ -5,7 +5,7 @@ import { Search, X, ArrowRight, Tag } from "lucide-react";
 import { products, type Product } from "@/data/products";
 import { formatPrice } from "@/lib/format";
 
-const QUICK_TAGS = ["Hoodies", "Acid Wash", "Jerseys", "Flags", "Mugs", "Wallet Cards"];
+const QUICK_TAGS = ["Hoodies", "Acid Wash", "T-Shirts", "Mugs", "Drop Shoulder", "Tapestries"];
 
 interface SearchModalProps {
   open: boolean;
