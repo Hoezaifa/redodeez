@@ -7,6 +7,7 @@ import { products } from "@/data/products";
 import { CUSTOM_IMAGE, collections, site, usps, whatsappLink } from "@/data/site";
 import { Reveal } from "@/components/motion/Reveal";
 import { MagneticButton } from "@/components/motion/MagneticButton";
+import { AestheticCollections } from "@/components/home/AestheticCollections";
 import { TrustSection } from "@/components/home/TrustSection";
 
 export const Route = createFileRoute("/")({
@@ -62,6 +63,9 @@ function Home() {
         ctaTo="/collections/$slug"
         ctaParams={{ slug: "t-shirts" }}
       />
+
+      {/* Browse by Aesthetic Collections Section */}
+      <AestheticCollections />
 
       {/* Custom printing */}
       <section className="border-t border-border bg-surface relative overflow-hidden">
