@@ -18,7 +18,7 @@ const aestheticCards: AestheticCard[] = [
     title: "ANIME ARCHIVE",
     count: "48+ DESIGNS",
     description: "Iconic anime graphics inspired by classics and new-gen legends.",
-    image: "/assets/collections/anime_archive.png",
+    image: "/assets/collections/anime_archive_v3.png",
     link: "/collections/$slug",
     params: { slug: "t-shirts" },
   },
