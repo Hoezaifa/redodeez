@@ -46,6 +46,9 @@ function Home() {
       <Hero />
       <CollectionsStrip />
 
+      {/* Browse by Aesthetic Collections Section */}
+      <AestheticCollections />
+
       <ProductRow
         eyebrow="Latest drops"
         title={"Just\nlanded"}
@@ -63,9 +66,6 @@ function Home() {
         ctaTo="/collections/$slug"
         ctaParams={{ slug: "t-shirts" }}
       />
-
-      {/* Browse by Aesthetic Collections Section */}
-      <AestheticCollections />
 
       {/* Custom printing */}
       <section className="border-t border-border bg-surface relative overflow-hidden">
