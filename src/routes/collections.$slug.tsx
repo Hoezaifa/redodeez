@@ -129,7 +129,7 @@ function CollectionPage() {
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-10">
+      <div className="mt-12 grid grid-cols-2 gap-x-4 gap-y-12 md:grid-cols-3 xl:grid-cols-4">
         {items.map((p, i) => (
           <ProductCard key={p.id} product={p} index={i} />
         ))}
