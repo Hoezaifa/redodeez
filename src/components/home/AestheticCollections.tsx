@@ -23,22 +23,22 @@ const aestheticCards: AestheticCard[] = [
     params: { slug: "t-shirts" },
   },
   {
-    id: "dark-archive",
-    title: "DARK ARCHIVE",
+    id: "comic-universe",
+    title: "COMIC UNIVERSE",
     count: "28+ DESIGNS",
-    description: "Punk, skulls, metal and distressed gothic graphics from the underground.",
-    image: "/assets/collections/dark_archive.png",
-    link: "/collections/$slug",
-    params: { slug: "acid-wash" },
-  },
-  {
-    id: "culture-club",
-    title: "CULTURE CLUB",
-    count: "35+ DESIGNS",
-    description: "Music, movies, comics & hip hop references pulled straight from culture.",
-    image: "/assets/collections/culture_club.png",
+    description: "Marvel, DC, Comics, Superheroes.",
+    image: "/assets/collections/comic_universe.png",
     link: "/collections/$slug",
     params: { slug: "graphic" },
+  },
+  {
+    id: "minimal-drops",
+    title: "MINIMAL DROPS",
+    count: "35+ DESIGNS",
+    description: "Small chest prints, clean graphics, typography, symbols, understated everyday wear.",
+    image: "/assets/collections/minimal_drops.png",
+    link: "/collections/$slug",
+    params: { slug: "t-shirts" },
   },
   {
     id: "essentials",
@@ -110,91 +110,106 @@ export function AestheticCollections() {
         </Reveal>
       </div>
 
-      {/* Mobile Collection Banner List (Full-width right-image cards) */}
-      <div className="flex flex-col gap-4 md:hidden">
-        {aestheticCards.map((card, index) => (
-          <Reveal key={card.id} delay={index * 0.04}>
-            <Link
-              to={card.link}
-              params={card.params}
-              className="group relative flex min-h-[165px] w-full flex-col justify-between overflow-hidden border border-white/10 bg-zinc-950 p-5 transition-all duration-300 active:scale-[0.99] rounded-none"
-            >
-              {/* Background Image on Right with Dark Fade Gradient */}
-              <div className="absolute inset-0 z-0 overflow-hidden">
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  loading="lazy"
-                  className="absolute right-0 top-0 h-full w-[65%] object-cover object-center opacity-80 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 via-50% to-transparent z-10" />
-              </div>
+      {/* Mobile Collection Banner List */}
+      <div className="flex flex-col gap-5 md:hidden">
+        {aestheticCards.map((card, index) => {
+          const parts = card.title.split(" ");
+          const word1 = parts[0];
+          const word2 = parts.slice(1).join(" ");
 
-              {/* Card Left Text Overlay */}
-              <div className="relative z-20 space-y-1 max-w-[62%]">
-                <h3 className="font-display text-xl font-extrabold uppercase tracking-tight text-white group-hover:text-primary transition-colors leading-tight">
-                  {card.title}
-                </h3>
-                <p className="text-xs font-mono font-bold text-primary tracking-wide">
-                  {card.count}
-                </p>
-                <p className="text-[11px] text-zinc-400 font-sans line-clamp-2 leading-relaxed pt-1">
-                  {card.description}
-                </p>
-              </div>
+          return (
+            <Reveal key={card.id} delay={index * 0.04}>
+              <Link
+                to={card.link}
+                params={card.params}
+                className="group relative flex min-h-[210px] w-full flex-col justify-between overflow-hidden border border-border/80 bg-zinc-950 p-6 transition-all duration-300 active:scale-[0.99] rounded-none"
+              >
+                {/* Background Image Right-Aligned with Dark Left-to-Right Fade */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-right opacity-90 transition-all duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/60 via-50% to-transparent z-10" />
+                </div>
 
-              {/* Bottom Orange Arrow */}
-              <div className="relative z-20 pt-3">
-                <ArrowRight className="h-4 w-4 text-primary group-hover:translate-x-1.5 transition-transform" />
-              </div>
-            </Link>
-          </Reveal>
-        ))}
+                {/* Card Left Text Overlay (Generous padding from card edges) */}
+                <div className="relative z-20 space-y-2.5 max-w-[65%] text-left pt-1 pl-1">
+                  <h3 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight leading-[0.9] drop-shadow-md">
+                    <span className="block text-white">{word1}</span>
+                    {word2 && <span className="block text-primary">{word2}</span>}
+                  </h3>
+                  <div className="inline-block bg-background/90 border border-border/80 px-2.5 py-0.5 label-mono text-[10px] font-extrabold text-foreground uppercase tracking-wider rounded-none">
+                    {card.count}
+                  </div>
+                  <p className="text-[11px] text-muted-foreground font-sans line-clamp-2 leading-relaxed pt-0.5">
+                    {card.description}
+                  </p>
+                </div>
+
+                {/* Bottom Button */}
+                <div className="relative z-20 pt-4 pl-1 pb-1">
+                  <span className="inline-flex items-center gap-1.5 border border-border/80 bg-background/80 px-3.5 py-2 label-mono text-[10px] font-bold text-foreground uppercase tracking-wider backdrop-blur-md transition-all group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground">
+                    EXPLORE <ArrowRight className="h-3 w-3" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          );
+        })}
       </div>
 
       {/* Desktop 2-Column Grid */}
       <div className="hidden md:grid gap-6 md:grid-cols-2">
-        {aestheticCards.map((card, index) => (
-          <Reveal key={card.id} delay={index * 0.08}>
-            <Link
-              to={card.link}
-              params={card.params}
-              className="group relative flex min-h-[380px] sm:min-h-[420px] flex-col justify-between overflow-hidden rounded-none border border-border/80 bg-surface p-6 sm:p-8 transition-all duration-500 hover:border-primary/50"
-            >
-              {/* Background Image with Dark Vignette */}
-              <div className="absolute inset-0 z-0 overflow-hidden">
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover opacity-65 transition-all duration-700 group-hover:scale-105 group-hover:opacity-80"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent" />
-              </div>
+        {aestheticCards.map((card, index) => {
+          const parts = card.title.split(" ");
+          const word1 = parts[0];
+          const word2 = parts.slice(1).join(" ");
 
-              {/* Card Content Top */}
-              <div className="relative z-10 space-y-3">
-                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-foreground drop-shadow-md">
-                  {card.title}
-                </h3>
-                <div className="inline-block rounded-none bg-background/90 px-3 py-1 label-mono text-xs font-bold text-foreground border border-border/60 backdrop-blur-md">
-                  {card.count}
+          return (
+            <Reveal key={card.id} delay={index * 0.08}>
+              <Link
+                to={card.link}
+                params={card.params}
+                className="group relative flex min-h-[380px] sm:min-h-[420px] flex-col justify-between overflow-hidden rounded-none border border-border/80 bg-surface p-8 lg:p-10 transition-all duration-500 hover:border-primary/50"
+              >
+                {/* Background Image with Dark Left-to-Right Fade */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover opacity-90 transition-all duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 via-45% to-transparent z-10" />
                 </div>
-                <p className="text-xs sm:text-sm text-muted-foreground/90 font-sans max-w-xs line-clamp-2 leading-relaxed">
-                  {card.description}
-                </p>
-              </div>
 
-              {/* Card Action Bottom */}
-              <div className="relative z-10 pt-6">
-                <span className="inline-flex items-center gap-2 rounded-none border border-foreground/20 bg-background/80 px-4 py-2 label-mono text-xs font-bold text-foreground uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground group-hover:translate-x-1">
-                  EXPLORE <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </div>
-            </Link>
-          </Reveal>
-        ))}
+                {/* Card Content Top (Safe margins from card walls) */}
+                <div className="relative z-20 space-y-3.5 text-left max-w-sm">
+                  <h3 className="font-display text-4xl lg:text-5xl font-black uppercase tracking-tight leading-[0.88] drop-shadow-md">
+                    <span className="block text-foreground">{word1}</span>
+                    {word2 && <span className="block text-primary">{word2}</span>}
+                  </h3>
+                  <div className="inline-block rounded-none bg-background/90 px-3 py-1 label-mono text-xs font-bold text-foreground border border-border/60 backdrop-blur-md">
+                    {card.count}
+                  </div>
+                  <p className="text-xs sm:text-sm text-muted-foreground/90 font-sans max-w-xs leading-relaxed pt-1">
+                    {card.description}
+                  </p>
+                </div>
+
+                {/* Card Action Bottom */}
+                <div className="relative z-20 pt-6">
+                  <span className="inline-flex items-center gap-2 rounded-none border border-border/80 bg-background/80 px-5 py-2.5 label-mono text-xs font-bold text-foreground uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground group-hover:translate-x-1">
+                    EXPLORE <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          );
+        })}
       </div>
 
       {/* Bottom Tagline */}
