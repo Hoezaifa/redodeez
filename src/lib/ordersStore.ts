@@ -201,13 +201,10 @@ export async function syncFromNeon(): Promise<StoredOrder[]> {
   try {
     const json = await apiGet();
     if (json.ok && Array.isArray(json.orders)) {
-      const dbOrders: StoredOrder[] = json.orders;
-      // Merge: DB is the source of truth, but keep any local-only orders too
-      const orderMap = new Map<string, StoredOrder>();
-      _inMemoryOrders.forEach((o) => orderMap.set(o.orderId, o));
-      dbOrders.forEach((o) => orderMap.set(o.orderId, o));
-      _inMemoryOrders = Array.from(orderMap.values()).sort(
-        (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      // DB is the SOLE source of truth — replace local state entirely
+      _inMemoryOrders = json.orders.sort(
+        (a: StoredOrder, b: StoredOrder) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       );
       notify();
     }
