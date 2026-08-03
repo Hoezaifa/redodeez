@@ -1,20 +1,9 @@
 /**
  * Deez Prints — Order Management Repository
  *
- * Instant local cache + background Neon PostgreSQL persistence.
- * Zero UI freezing, guaranteed instant loading for Checkout & Admin Panel.
+ * Direct /api/orders calls for guaranteed cross-device Neon DB persistence.
+ * Instant local cache + background API persistence.
  */
-
-import {
-  getOrdersFn,
-  saveOrderFn,
-  updateStatusFn,
-  deleteOrderFn,
-  clearOrdersFn,
-  getSettingsFn,
-  saveSettingsFn,
-  importLocalOrdersFn,
-} from "@/lib/orderFunctions";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -114,6 +103,49 @@ const DEFAULT_SETTINGS: AdminSettings = {
   passwordHash: "1661623862",
 };
 
+// ─── Direct API helpers ───────────────────────────────────────────────────────
+
+const API_PIN = "0000";
+
+async function apiGet(params?: string): Promise<any> {
+  const url = params ? `/api/orders?${params}` : "/api/orders";
+  const res = await fetch(url, {
+    headers: { "X-Admin-PIN": API_PIN },
+  });
+  if (!res.ok) throw new Error(`API ${res.status}`);
+  return res.json();
+}
+
+async function apiPost(body: Record<string, any>): Promise<any> {
+  const res = await fetch("/api/orders", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Admin-PIN": API_PIN },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`API ${res.status}`);
+  return res.json();
+}
+
+async function apiPut(body: Record<string, any>): Promise<any> {
+  const res = await fetch("/api/orders", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", "X-Admin-PIN": API_PIN },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`API ${res.status}`);
+  return res.json();
+}
+
+async function apiDelete(body: Record<string, any>): Promise<any> {
+  const res = await fetch("/api/orders", {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json", "X-Admin-PIN": API_PIN },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`API ${res.status}`);
+  return res.json();
+}
+
 // ─── In-Memory Cache + LocalStorage Sync ──────────────────────────────────────
 
 let _inMemoryOrders: StoredOrder[] = [];
@@ -162,44 +194,35 @@ if (typeof window !== "undefined") {
   });
 }
 
-// ─── Non-Blocking Neon DB Background Sync ─────────────────────────────────────
-
-function withTimeout<T>(promise: Promise<T>, ms = 2500): Promise<T> {
-  return Promise.race([
-    promise,
-    new Promise<T>((_, reject) => setTimeout(() => reject(new Error("Timeout")), ms)),
-  ]);
-}
+// ─── Neon DB Sync via /api/orders ─────────────────────────────────────────────
 
 export async function syncFromNeon(): Promise<StoredOrder[]> {
+  if (typeof window === "undefined") return _inMemoryOrders;
   try {
-    // If we have local orders in localStorage, attempt to import unsynced ones to DB
-    if (typeof window !== "undefined" && _inMemoryOrders.length > 0) {
-      importLocalOrdersFn({ data: _inMemoryOrders }).catch(() => {});
-    }
-
-    const orders = await withTimeout(getOrdersFn(), 4000);
-    if (Array.isArray(orders) && orders.length > 0) {
-      // Merge Neon DB orders with local orders
+    const json = await apiGet();
+    if (json.ok && Array.isArray(json.orders)) {
+      const dbOrders: StoredOrder[] = json.orders;
+      // Merge: DB is the source of truth, but keep any local-only orders too
       const orderMap = new Map<string, StoredOrder>();
       _inMemoryOrders.forEach((o) => orderMap.set(o.orderId, o));
-      orders.forEach((o) => orderMap.set(o.orderId, o));
+      dbOrders.forEach((o) => orderMap.set(o.orderId, o));
       _inMemoryOrders = Array.from(orderMap.values()).sort(
         (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       );
       notify();
     }
-  } catch {
-    /* fallback to local orders silently if network/DB is slow */
+  } catch (err) {
+    console.warn("syncFromNeon failed, using local cache:", err);
   }
   return _inMemoryOrders;
 }
 
 export async function syncSettingsFromNeon(): Promise<AdminSettings> {
+  if (typeof window === "undefined") return _inMemorySettings;
   try {
-    const settings = await withTimeout(getSettingsFn(), 4000);
-    if (settings) {
-      _inMemorySettings = { ...DEFAULT_SETTINGS, ...settings };
+    const json = await apiGet("settings=1");
+    if (json.ok && json.settings) {
+      _inMemorySettings = { ...DEFAULT_SETTINGS, ...json.settings };
       notify();
     }
   } catch {
@@ -248,10 +271,12 @@ export async function saveOrder(order: StoredOrder): Promise<StoredOrder> {
   }
   notify();
 
-  // Save to Neon DB in background asynchronously (non-blocking)
-  saveOrderFn({ data: order }).catch((err) => {
-    console.warn("Background Neon DB sync warning:", err);
-  });
+  // Save to Neon DB via /api/orders (non-blocking)
+  if (typeof window !== "undefined") {
+    apiPost({ order }).catch((err) => {
+      console.warn("Background DB save warning:", err);
+    });
+  }
 
   return order;
 }
@@ -283,27 +308,33 @@ export async function updateStatus(
   if (idx >= 0) _inMemoryOrders[idx] = updatedOrder;
   notify();
 
-  updateStatusFn({ data: { orderId, status, note } }).catch((err) => {
-    console.warn("Background Neon DB updateStatus warning:", err);
-  });
+  if (typeof window !== "undefined") {
+    apiPut({ orderId, status, note }).catch((err) => {
+      console.warn("Background DB updateStatus warning:", err);
+    });
+  }
 }
 
 export async function deleteOrder(orderId: string): Promise<void> {
   _inMemoryOrders = _inMemoryOrders.filter((o) => o.orderId !== orderId);
   notify();
 
-  deleteOrderFn({ data: orderId }).catch((err) => {
-    console.warn("Background Neon DB deleteOrder warning:", err);
-  });
+  if (typeof window !== "undefined") {
+    apiDelete({ orderId }).catch((err) => {
+      console.warn("Background DB deleteOrder warning:", err);
+    });
+  }
 }
 
 export async function clearOrders(): Promise<void> {
   _inMemoryOrders = [];
   notify();
 
-  clearOrdersFn().catch((err) => {
-    console.warn("Background Neon DB clearOrders warning:", err);
-  });
+  if (typeof window !== "undefined") {
+    apiDelete({ clearAll: true }).catch((err) => {
+      console.warn("Background DB clearOrders warning:", err);
+    });
+  }
 }
 
 export async function importLocalOrdersToNeon(): Promise<{ imported: number; skipped: number }> {
@@ -314,9 +345,9 @@ export async function importLocalOrdersToNeon(): Promise<{ imported: number; ski
       if (raw) localOrders = JSON.parse(raw);
     }
     if (!localOrders.length) return { imported: 0, skipped: 0 };
-    const result = await importLocalOrdersFn({ data: localOrders });
+    const json = await apiPost({ action: "import", orders: localOrders });
     await syncFromNeon();
-    return result;
+    return { imported: json.imported || 0, skipped: json.skipped || 0 };
   } catch (err) {
     console.error("Error importing local orders:", err);
     return { imported: 0, skipped: 0 };
@@ -451,9 +482,11 @@ export async function saveAdminSettings(settings: Partial<AdminSettings>): Promi
   _inMemorySettings = { ..._inMemorySettings, ...settings };
   notify();
 
-  saveSettingsFn({ data: _inMemorySettings }).catch((err) => {
-    console.warn("Background Neon DB saveSettings warning:", err);
-  });
+  if (typeof window !== "undefined") {
+    apiPost({ action: "settings", settings: _inMemorySettings }).catch((err) => {
+      console.warn("Background DB saveSettings warning:", err);
+    });
+  }
 }
 
 // ─── Session Auth ──────────────────────────────────────────────────────────────
