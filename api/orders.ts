@@ -7,15 +7,36 @@ import {
   clearOrdersFromDb,
   importLocalOrdersToDb,
   generateNextOrderIdFromDb,
+  getAdminSettingsFromDb,
+  saveAdminSettingsToDb,
 } from "../src/lib/dbService";
 
 const VALID_PINS = new Set(["0000", "deez123", process.env.ADMIN_PIN].filter(Boolean));
 
-function isAuthorized(req: IncomingMessage): boolean {
+function simpleHash(str: string): string {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const chr = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + chr;
+    hash |= 0;
+  }
+  return String(hash);
+}
+
+async function isAuthorized(req: IncomingMessage): Promise<boolean> {
   const pin =
     (req.headers["x-admin-pin"] as string) ||
     (req.headers["authorization"] as string)?.replace("Bearer ", "");
-  return !!pin && VALID_PINS.has(pin.trim());
+  if (!pin) return false;
+  const trimmed = pin.trim();
+  if (VALID_PINS.has(trimmed)) return true;
+  try {
+    const settings = await getAdminSettingsFromDb();
+    if (settings && simpleHash(trimmed) === settings.passwordHash) return true;
+  } catch {
+    /* fallback */
+  }
+  return false;
 }
 
 export default async function handler(
@@ -50,7 +71,7 @@ export default async function handler(
     const body = bodyStr ? JSON.parse(bodyStr) : {};
 
     // Action routing
-    const action = body.action || (req.url?.includes("import") ? "import" : req.url?.includes("next-id") ? "next-id" : null);
+    const action = body.action || (req.url?.includes("import") ? "import" : req.url?.includes("next-id") ? "next-id" : req.url?.includes("settings") ? "settings" : null);
 
     // 1. GET requests
     if (req.method === "GET") {
@@ -58,8 +79,12 @@ export default async function handler(
         const orderId = await generateNextOrderIdFromDb();
         return sendJson(200, { ok: true, orderId });
       }
+      if (req.url?.includes("settings")) {
+        const settings = await getAdminSettingsFromDb();
+        return sendJson(200, { ok: true, settings });
+      }
       // Fetching all customer orders requires admin authorization
-      if (!isAuthorized(req)) {
+      if (!(await isAuthorized(req))) {
         return sendJson(401, { ok: false, error: "Unauthorized access" });
       }
       const orders = await getOrdersFromDb();
@@ -69,11 +94,18 @@ export default async function handler(
     // 2. POST requests
     if (req.method === "POST") {
       if (action === "import") {
-        if (!isAuthorized(req)) {
+        if (!(await isAuthorized(req))) {
           return sendJson(401, { ok: false, error: "Unauthorized access" });
         }
         const result = await importLocalOrdersToDb(body.orders || []);
         return sendJson(200, { ok: true, ...result });
+      }
+      if (action === "settings") {
+        if (!(await isAuthorized(req))) {
+          return sendJson(401, { ok: false, error: "Unauthorized access" });
+        }
+        const updatedSettings = await saveAdminSettingsToDb(body.settings || {});
+        return sendJson(200, { ok: true, settings: updatedSettings });
       }
       // Save order (Public endpoint for checkout)
       if (!body.order || typeof body.order !== "object") {
@@ -85,7 +117,7 @@ export default async function handler(
 
     // 3. PUT requests (Update status — Admin only)
     if (req.method === "PUT") {
-      if (!isAuthorized(req)) {
+      if (!(await isAuthorized(req))) {
         return sendJson(401, { ok: false, error: "Unauthorized access" });
       }
       const updated = await updateOrderStatusInDb(body.orderId, body.status, body.note);
@@ -94,7 +126,7 @@ export default async function handler(
 
     // 4. DELETE requests (Delete order / Clear — Admin only)
     if (req.method === "DELETE") {
-      if (!isAuthorized(req)) {
+      if (!(await isAuthorized(req))) {
         return sendJson(401, { ok: false, error: "Unauthorized access" });
       }
       if (body.clearAll) {
@@ -111,4 +143,5 @@ export default async function handler(
     return sendJson(500, { ok: false, error: "An unexpected server error occurred." });
   }
 }
+
 

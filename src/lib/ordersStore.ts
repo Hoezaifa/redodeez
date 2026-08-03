@@ -173,9 +173,14 @@ function withTimeout<T>(promise: Promise<T>, ms = 2500): Promise<T> {
 
 export async function syncFromNeon(): Promise<StoredOrder[]> {
   try {
-    const orders = await withTimeout(getOrdersFn(), 2500);
+    // If we have local orders in localStorage, attempt to import unsynced ones to DB
+    if (typeof window !== "undefined" && _inMemoryOrders.length > 0) {
+      importLocalOrdersFn({ data: _inMemoryOrders }).catch(() => {});
+    }
+
+    const orders = await withTimeout(getOrdersFn(), 4000);
     if (Array.isArray(orders) && orders.length > 0) {
-      // Merge Neon DB orders with local orders (preserving unsaved local orders)
+      // Merge Neon DB orders with local orders
       const orderMap = new Map<string, StoredOrder>();
       _inMemoryOrders.forEach((o) => orderMap.set(o.orderId, o));
       orders.forEach((o) => orderMap.set(o.orderId, o));
@@ -192,7 +197,7 @@ export async function syncFromNeon(): Promise<StoredOrder[]> {
 
 export async function syncSettingsFromNeon(): Promise<AdminSettings> {
   try {
-    const settings = await withTimeout(getSettingsFn(), 2500);
+    const settings = await withTimeout(getSettingsFn(), 4000);
     if (settings) {
       _inMemorySettings = { ...DEFAULT_SETTINGS, ...settings };
       notify();
