@@ -8,7 +8,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { AnimatePresence, motion } from "motion/react";
@@ -146,6 +146,15 @@ function RootComponent() {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const isAdmin = location.pathname.startsWith("/admin");
+  const prevPath = useRef(location.pathname);
+
+  // Instant scroll-to-top on every route change (no delay, no restore)
+  useEffect(() => {
+    if (prevPath.current !== location.pathname) {
+      window.scrollTo(0, 0);
+      prevPath.current = location.pathname;
+    }
+  }, [location.pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -155,17 +164,14 @@ function RootComponent() {
         {!isHome && !isAdmin && <Header />}
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <main id="main-content" className={isAdmin ? "" : "min-h-screen overflow-x-hidden"}>
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={location.pathname}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Outlet />
-            </motion.div>
-          </AnimatePresence>
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
+          >
+            <Outlet />
+          </motion.div>
         </main>
         {!isAdmin && <Footer />}
         {!isAdmin && <CartDrawer />}
