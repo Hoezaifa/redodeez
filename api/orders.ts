@@ -15,6 +15,20 @@ const DATABASE_URL =
 
 const sql = neon(DATABASE_URL);
 
+// Auto-migrate: add per-order customer snapshot columns if they don't exist
+let _migrated = false;
+async function ensureMigration() {
+  if (_migrated) return;
+  _migrated = true;
+  try {
+    await sql`ALTER TABLE orders ADD COLUMN IF NOT EXISTS "customerName" TEXT`;
+    await sql`ALTER TABLE orders ADD COLUMN IF NOT EXISTS "customerPhone" TEXT`;
+    await sql`ALTER TABLE orders ADD COLUMN IF NOT EXISTS "customerEmail" TEXT`;
+    await sql`ALTER TABLE orders ADD COLUMN IF NOT EXISTS "customerCity" TEXT`;
+    await sql`ALTER TABLE orders ADD COLUMN IF NOT EXISTS "customerAddress" TEXT`;
+  } catch { /* columns may already exist */ }
+}
+
 // ─── Auth ────────────────────────────────────────────────────────────────────
 
 const VALID_PINS = new Set(["0000", "deez123"]);
@@ -68,8 +82,10 @@ interface OrderRow {
 }
 
 async function getAllOrders() {
+  await ensureMigration();
+  // Read per-order customer snapshot columns; fall back to joined customer data for old orders
   const orders = await sql`
-    SELECT o.*, c.name, c.email, c.phone, c.city, c.address
+    SELECT o.*, c.name AS c_name, c.email AS c_email, c.phone AS c_phone, c.city AS c_city, c.address AS c_address
     FROM orders o
     JOIN customers c ON o."customerId" = c.id
     ORDER BY o."createdAt" DESC
@@ -104,11 +120,11 @@ async function getAllOrders() {
     orderId: o.orderId,
     createdAt: new Date(o.createdAt).toISOString(),
     updatedAt: new Date(o.updatedAt).toISOString(),
-    name: o.name,
-    email: o.email || "",
-    phone: o.phone,
-    city: o.city,
-    address: o.address,
+    name: o.customerName || o.c_name,
+    email: o.customerEmail || o.c_email || "",
+    phone: o.customerPhone || o.c_phone,
+    city: o.customerCity || o.c_city,
+    address: o.customerAddress || o.c_address,
     notes: o.notes || undefined,
     paymentMethod: o.paymentMethod,
     orderType: o.orderType,
@@ -124,13 +140,15 @@ async function getAllOrders() {
 }
 
 async function saveOneOrder(order: any) {
-  // Upsert customer
+  await ensureMigration();
+
+  // Upsert customer (don't update name — each order stores its own snapshot)
   const existing = await sql`SELECT id FROM customers WHERE phone = ${order.phone} LIMIT 1`;
   let customerId: string;
 
   if (existing.length > 0) {
     customerId = existing[0].id;
-    await sql`UPDATE customers SET name = ${order.name}, email = ${order.email || null}, city = ${order.city}, address = ${order.address}, "updatedAt" = NOW() WHERE id = ${customerId}`;
+    // Only update email if provided (don't overwrite name/city/address)
   } else {
     const newId = crypto.randomUUID();
     await sql`INSERT INTO customers (id, phone, name, email, city, address, "createdAt", "updatedAt") VALUES (${newId}, ${order.phone}, ${order.name}, ${order.email || null}, ${order.city}, ${order.address}, NOW(), NOW())`;
@@ -140,16 +158,16 @@ async function saveOneOrder(order: any) {
   const statusHistory = JSON.stringify(order.statusHistory || [{ status: order.status, date: new Date().toISOString() }]);
   const createdAt = order.createdAt ? new Date(order.createdAt) : new Date();
 
-  // Upsert order
+  // Upsert order — with per-order customer snapshot
   const existingOrder = await sql`SELECT id FROM orders WHERE "orderId" = ${order.orderId} LIMIT 1`;
 
   let dbOrderId: string;
   if (existingOrder.length > 0) {
     dbOrderId = existingOrder[0].id;
-    await sql`UPDATE orders SET status = ${order.status}, "statusHistory" = ${statusHistory}::jsonb, notes = ${order.notes || null}, "trackingNumber" = ${order.trackingNumber || null}, "paymentMethod" = ${order.paymentMethod}, subtotal = ${order.subtotal}, shipping = ${order.shipping}, discount = ${order.discount}, total = ${order.total}, "updatedAt" = NOW() WHERE id = ${dbOrderId}`;
+    await sql`UPDATE orders SET status = ${order.status}, "statusHistory" = ${statusHistory}::jsonb, notes = ${order.notes || null}, "trackingNumber" = ${order.trackingNumber || null}, "paymentMethod" = ${order.paymentMethod}, subtotal = ${order.subtotal}, shipping = ${order.shipping}, discount = ${order.discount}, total = ${order.total}, "customerName" = ${order.name}, "customerPhone" = ${order.phone}, "customerEmail" = ${order.email || null}, "customerCity" = ${order.city}, "customerAddress" = ${order.address}, "updatedAt" = NOW() WHERE id = ${dbOrderId}`;
   } else {
     dbOrderId = crypto.randomUUID();
-    await sql`INSERT INTO orders (id, "orderId", "customerId", notes, "paymentMethod", "orderType", subtotal, shipping, discount, total, status, "statusHistory", "trackingNumber", "createdAt", "updatedAt") VALUES (${dbOrderId}, ${order.orderId}, ${customerId}, ${order.notes || null}, ${order.paymentMethod}, ${order.orderType || "normal"}, ${order.subtotal}, ${order.shipping}, ${order.discount || 0}, ${order.total}, ${order.status || "Pending"}, ${statusHistory}::jsonb, ${order.trackingNumber || null}, ${createdAt.toISOString()}::timestamptz, NOW())`;
+    await sql`INSERT INTO orders (id, "orderId", "customerId", notes, "paymentMethod", "orderType", subtotal, shipping, discount, total, status, "statusHistory", "trackingNumber", "customerName", "customerPhone", "customerEmail", "customerCity", "customerAddress", "createdAt", "updatedAt") VALUES (${dbOrderId}, ${order.orderId}, ${customerId}, ${order.notes || null}, ${order.paymentMethod}, ${order.orderType || "normal"}, ${order.subtotal}, ${order.shipping}, ${order.discount || 0}, ${order.total}, ${order.status || "Pending"}, ${statusHistory}::jsonb, ${order.trackingNumber || null}, ${order.name}, ${order.phone}, ${order.email || null}, ${order.city}, ${order.address}, ${createdAt.toISOString()}::timestamptz, NOW())`;
   }
 
   // Re-create items
