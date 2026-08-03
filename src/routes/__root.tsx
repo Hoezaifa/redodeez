@@ -11,7 +11,6 @@ import {
 import { useEffect, useRef, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { AnimatePresence, motion } from "motion/react";
 import { CartProvider } from "@/lib/cart";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -148,7 +147,7 @@ function RootComponent() {
   const isAdmin = location.pathname.startsWith("/admin");
   const prevPath = useRef(location.pathname);
 
-  // Instant scroll-to-top on every route change (no delay, no restore)
+  // Instant scroll-to-top on every route change
   useEffect(() => {
     if (prevPath.current !== location.pathname) {
       window.scrollTo(0, 0);
@@ -164,14 +163,7 @@ function RootComponent() {
         {!isHome && !isAdmin && <Header />}
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <main id="main-content" className={isAdmin ? "" : "min-h-screen overflow-x-hidden"}>
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.18, ease: "easeOut" }}
-          >
-            <Outlet />
-          </motion.div>
+          <Outlet />
         </main>
         {!isAdmin && <Footer />}
         {!isAdmin && <CartDrawer />}
@@ -179,3 +171,4 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
+
