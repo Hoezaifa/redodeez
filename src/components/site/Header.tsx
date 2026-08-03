@@ -260,7 +260,8 @@ export function Header() {
                       <img
                         src={c.image}
                         alt={c.name}
-                        className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="h-full w-full object-cover group-hover:scale-105"
+                        style={{ transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
                       />
                     </div>
                     <span className="font-display text-sm font-extrabold uppercase group-hover:text-primary transition-colors">

@@ -41,11 +41,11 @@ const aestheticCards: AestheticCard[] = [
     params: { slug: "t-shirts" },
   },
   {
-    id: "essentials",
-    title: "ESSENTIALS",
-    count: "18+ DESIGNS",
-    description: "Minimal graphics, clean types and everyday premium basics.",
-    image: "/assets/collections/essentials.png",
+    id: "cinema-collection",
+    title: "CINEMA COLLECTION",
+    count: "24+ DESIGNS",
+    description: "Iconic films, unforgettable characters, and legendary moments brought to life.",
+    image: "/assets/collections/cinema_collection.jpg",
     link: "/collections/$slug",
     params: { slug: "t-shirts" },
   },
@@ -122,7 +122,7 @@ export function AestheticCollections() {
               <Link
                 to={card.link}
                 params={card.params}
-                className="group relative flex min-h-[210px] w-full flex-col justify-between overflow-hidden border border-border/80 bg-zinc-950 p-6 transition-all duration-300 active:scale-[0.99] rounded-none"
+                className="group relative flex min-h-[220px] w-full flex-col justify-between overflow-hidden border border-zinc-800/80 bg-black p-6 transition-all duration-300 active:scale-[0.99] rounded-none"
               >
                 {/* Background Image Right-Aligned with Dark Left-to-Right Fade */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
@@ -130,29 +130,33 @@ export function AestheticCollections() {
                     src={card.image}
                     alt={card.title}
                     loading="lazy"
-                    className="h-full w-full object-cover object-right opacity-90 transition-all duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover object-right opacity-95 group-hover:scale-105"
+                    style={{ transition: 'transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/60 via-50% to-transparent z-10" />
+                  <div 
+                    className="absolute inset-0 z-10" 
+                    style={{ background: 'linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 25%, transparent 45%)' }} 
+                  />
                 </div>
 
-                {/* Card Left Text Overlay (Generous padding from card edges) */}
-                <div className="relative z-20 space-y-2.5 max-w-[65%] text-left pt-1 pl-1">
-                  <h3 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight leading-[0.9] drop-shadow-md">
+                {/* Card Left Text Overlay */}
+                <div className="relative z-20 space-y-3 max-w-[70%] text-left pt-1 pl-1">
+                  <h3 className="font-display text-3xl sm:text-4xl font-extrabold uppercase tracking-tight leading-[0.88] drop-shadow-md">
                     <span className="block text-white">{word1}</span>
                     {word2 && <span className="block text-primary">{word2}</span>}
                   </h3>
-                  <div className="inline-block bg-background/90 border border-border/80 px-2.5 py-0.5 label-mono text-[10px] font-extrabold text-foreground uppercase tracking-wider rounded-none">
+                  <div className="inline-block bg-zinc-900/90 border border-zinc-700/60 px-3 py-1 label-mono text-[11px] font-extrabold text-white uppercase tracking-widest rounded-none backdrop-blur-sm">
                     {card.count}
                   </div>
-                  <p className="text-[11px] text-muted-foreground font-sans line-clamp-2 leading-relaxed pt-0.5">
+                  <p className="text-[11px] sm:text-xs text-zinc-400 font-sans line-clamp-2 leading-relaxed pt-0.5 max-w-[240px]">
                     {card.description}
                   </p>
                 </div>
 
                 {/* Bottom Button */}
                 <div className="relative z-20 pt-4 pl-1 pb-1">
-                  <span className="inline-flex items-center gap-1.5 border border-border/80 bg-background/80 px-3.5 py-2 label-mono text-[10px] font-bold text-foreground uppercase tracking-wider backdrop-blur-md transition-all group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground">
-                    EXPLORE <ArrowRight className="h-3 w-3" />
+                  <span className="inline-flex items-center gap-2 border border-zinc-700/70 bg-zinc-900/90 px-4 py-2 label-mono text-[11px] font-bold text-white uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground">
+                    EXPLORE <ArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </div>
               </Link>
@@ -173,7 +177,7 @@ export function AestheticCollections() {
               <Link
                 to={card.link}
                 params={card.params}
-                className="group relative flex min-h-[380px] sm:min-h-[420px] flex-col justify-between overflow-hidden rounded-none border border-border/80 bg-surface p-8 lg:p-10 transition-all duration-500 hover:border-primary/50"
+                className="group relative flex min-h-[380px] sm:min-h-[420px] flex-col justify-between overflow-hidden rounded-none border border-zinc-800/80 bg-black p-8 lg:p-10 transition-all duration-500 hover:border-primary/50"
               >
                 {/* Background Image with Dark Left-to-Right Fade */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
@@ -181,29 +185,33 @@ export function AestheticCollections() {
                     src={card.image}
                     alt={card.title}
                     loading="lazy"
-                    className="h-full w-full object-cover opacity-90 transition-all duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover opacity-95 group-hover:scale-105"
+                    style={{ transition: 'transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 via-45% to-transparent z-10" />
+                  <div 
+                    className="absolute inset-0 z-10" 
+                    style={{ background: 'linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 25%, transparent 45%)' }} 
+                  />
                 </div>
 
-                {/* Card Content Top (Safe margins from card walls) */}
-                <div className="relative z-20 space-y-3.5 text-left max-w-sm">
+                {/* Card Content Top */}
+                <div className="relative z-20 space-y-4 text-left max-w-sm">
                   <h3 className="font-display text-4xl lg:text-5xl font-black uppercase tracking-tight leading-[0.88] drop-shadow-md">
-                    <span className="block text-foreground">{word1}</span>
+                    <span className="block text-white">{word1}</span>
                     {word2 && <span className="block text-primary">{word2}</span>}
                   </h3>
-                  <div className="inline-block rounded-none bg-background/90 px-3 py-1 label-mono text-xs font-bold text-foreground border border-border/60 backdrop-blur-md">
+                  <div className="inline-block rounded-none bg-zinc-900/90 px-3.5 py-1.5 label-mono text-xs font-bold text-white border border-zinc-700/60 backdrop-blur-md tracking-widest uppercase">
                     {card.count}
                   </div>
-                  <p className="text-xs sm:text-sm text-muted-foreground/90 font-sans max-w-xs leading-relaxed pt-1">
+                  <p className="text-xs sm:text-sm text-zinc-400 font-sans max-w-[260px] leading-relaxed pt-1">
                     {card.description}
                   </p>
                 </div>
 
                 {/* Card Action Bottom */}
                 <div className="relative z-20 pt-6">
-                  <span className="inline-flex items-center gap-2 rounded-none border border-border/80 bg-background/80 px-5 py-2.5 label-mono text-xs font-bold text-foreground uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground group-hover:translate-x-1">
-                    EXPLORE <ArrowRight className="h-3.5 w-3.5" />
+                  <span className="inline-flex items-center gap-2.5 rounded-none border border-zinc-700/70 bg-zinc-900/90 px-6 py-3 label-mono text-xs font-bold text-white uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground group-hover:translate-x-1">
+                    EXPLORE <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>
               </Link>

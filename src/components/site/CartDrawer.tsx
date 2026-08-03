@@ -162,7 +162,8 @@ export function CartDrawer() {
                                 src={p.images[0]}
                                 alt={p.title}
                                 loading="lazy"
-                                className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                                className="h-full w-full object-cover hover:scale-105"
+                                style={{ transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
                               />
                             </Link>
                             <p className="mt-2 text-xs font-semibold uppercase leading-snug break-words">
