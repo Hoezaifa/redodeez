@@ -75,14 +75,16 @@ function formatCurrency(amount: number): string {
 
 // ─── HTML Template ────────────────────────────────────────────────────────────
 
-export function buildOrderEmailHtml(order: OrderData): string {
-  const isCustom =
-    order.orderType === "custom" || order.items.some((i) => i.isCustom);
+export function buildOrderEmailHtml(order: any): string {
+  const o = order || {};
+  const itemsList = Array.isArray(o.items) ? o.items : [];
+  const isCustom = o.orderType === "custom" || itemsList.some((i: any) => i && i.isCustom);
   const label = isCustom ? "NEW CUSTOM ORDER" : "NEW ORDER";
-  const { date, time } = formatDate(order.createdAt);
+  const { date, time } = formatDate(o.createdAt);
 
-  const itemRows = order.items
-    .map((item) => {
+  const itemRows = itemsList
+    .map((item: any) => {
+      if (!item) return "";
       const title = item.isCustom
         ? `🎨 ${esc(item.blankItem || item.title)}`
         : esc(item.title);
@@ -98,11 +100,11 @@ export function buildOrderEmailHtml(order: OrderData): string {
 
       return `<tr>
         <td style="padding:4px 0;font-size:14px;color:#18181b;">
-          <strong>${title}</strong> ×${item.qty}
+          <strong>${title}</strong> ×${item.qty || 1}
           ${meta ? `<br/><span style="font-size:12px;color:#71717a;">${meta}</span>` : ""}
         </td>
         <td style="padding:4px 0;font-size:14px;color:#18181b;text-align:right;white-space:nowrap;">
-          ${formatCurrency(item.price * item.qty)}
+          ${formatCurrency((item.price || 0) * (item.qty || 1))}
         </td>
       </tr>`;
     })
@@ -130,7 +132,7 @@ export function buildOrderEmailHtml(order: OrderData): string {
       <td style="text-align:right;font-size:13px;color:#71717a;">${date} · ${time}</td>
     </tr>
     <tr>
-      <td colspan="2" style="font-size:18px;font-weight:800;color:#18181b;padding-top:2px;">#${esc(order.orderId)}</td>
+      <td colspan="2" style="font-size:18px;font-weight:800;color:#18181b;padding-top:2px;">#${esc(o.orderId || "N/A")}</td>
     </tr>
   </table>
 </td></tr>
@@ -140,9 +142,9 @@ ${HR_HTML}
 <!-- Customer -->
 <tr><td style="padding:0 28px;">
   <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Customer</p>
-  <p style="margin:0;font-size:15px;font-weight:700;color:#18181b;">${esc(order.name)}</p>
-  <p style="margin:2px 0 0;font-size:13px;color:#52525b;">📱 ${esc(order.phone)}</p>
-  ${order.email ? `<p style="margin:2px 0 0;font-size:13px;color:#52525b;">✉️ ${esc(order.email)}</p>` : ""}
+  <p style="margin:0;font-size:15px;font-weight:700;color:#18181b;">${esc(o.name || "N/A")}</p>
+  <p style="margin:2px 0 0;font-size:13px;color:#52525b;">📱 ${esc(o.phone || "N/A")}</p>
+  ${o.email ? `<p style="margin:2px 0 0;font-size:13px;color:#52525b;">✉️ ${esc(o.email)}</p>` : ""}
 </td></tr>
 
 ${HR_HTML}
@@ -162,19 +164,19 @@ ${HR_HTML}
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
     <tr>
       <td style="font-size:13px;color:#71717a;padding:3px 0;">Subtotal</td>
-      <td style="font-size:13px;color:#18181b;text-align:right;padding:3px 0;">${formatCurrency(order.subtotal)}</td>
+      <td style="font-size:13px;color:#18181b;text-align:right;padding:3px 0;">${formatCurrency(o.subtotal || 0)}</td>
     </tr>
     <tr>
       <td style="font-size:13px;color:#71717a;padding:3px 0;">Shipping</td>
-      <td style="font-size:13px;color:#18181b;text-align:right;padding:3px 0;">${order.shipping === 0 ? "FREE" : formatCurrency(order.shipping)}</td>
+      <td style="font-size:13px;color:#18181b;text-align:right;padding:3px 0;">${(o.shipping || 0) === 0 ? "FREE" : formatCurrency(o.shipping)}</td>
     </tr>
-    ${order.discount ? `<tr>
+    ${o.discount ? `<tr>
       <td style="font-size:13px;color:#71717a;padding:3px 0;">Discount</td>
-      <td style="font-size:13px;color:#dc2626;text-align:right;padding:3px 0;">-${formatCurrency(order.discount)}</td>
+      <td style="font-size:13px;color:#dc2626;text-align:right;padding:3px 0;">-${formatCurrency(o.discount)}</td>
     </tr>` : ""}
     <tr>
       <td style="font-size:16px;font-weight:800;color:#18181b;padding:8px 0 0;">Total</td>
-      <td style="font-size:16px;font-weight:800;color:#18181b;text-align:right;padding:8px 0 0;">${formatCurrency(order.total)}</td>
+      <td style="font-size:16px;font-weight:800;color:#18181b;text-align:right;padding:8px 0 0;">${formatCurrency(o.total || 0)}</td>
     </tr>
   </table>
 </td></tr>
@@ -184,7 +186,7 @@ ${HR_HTML}
 <!-- Payment -->
 <tr><td style="padding:0 28px;">
   <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Payment</p>
-  <p style="margin:0;font-size:14px;font-weight:600;color:#18181b;">${esc(order.paymentMethod)}</p>
+  <p style="margin:0;font-size:14px;font-weight:600;color:#18181b;">${esc(o.paymentMethod || "N/A")}</p>
 </td></tr>
 
 ${HR_HTML}
@@ -192,15 +194,15 @@ ${HR_HTML}
 <!-- Delivery Address -->
 <tr><td style="padding:0 28px;">
   <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Delivery Address</p>
-  <p style="margin:0;font-size:14px;color:#18181b;">${esc(order.city)}</p>
-  <p style="margin:2px 0 0;font-size:13px;color:#52525b;">${esc(order.address)}</p>
+  <p style="margin:0;font-size:14px;color:#18181b;">${esc(o.city || "N/A")}</p>
+  <p style="margin:2px 0 0;font-size:13px;color:#52525b;">${esc(o.address || "N/A")}</p>
 </td></tr>
 
-${order.notes ? `${HR_HTML}
+${o.notes ? `${HR_HTML}
 <!-- Notes -->
 <tr><td style="padding:0 28px;">
   <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Customer Notes</p>
-  <p style="margin:0;font-size:14px;color:#52525b;font-style:italic;">${esc(order.notes)}</p>
+  <p style="margin:0;font-size:14px;color:#52525b;font-style:italic;">${esc(o.notes)}</p>
 </td></tr>` : ""}
 
 ${HR_HTML}
@@ -224,14 +226,16 @@ ${HR_HTML}
 
 // ─── Plain Text Template ──────────────────────────────────────────────────────
 
-export function buildOrderEmailPlainText(order: OrderData): string {
-  const isCustom =
-    order.orderType === "custom" || order.items.some((i) => i.isCustom);
+export function buildOrderEmailPlainText(order: any): string {
+  const o = order || {};
+  const itemsList = Array.isArray(o.items) ? o.items : [];
+  const isCustom = o.orderType === "custom" || itemsList.some((i: any) => i && i.isCustom);
   const label = isCustom ? "NEW CUSTOM ORDER" : "NEW ORDER";
-  const { date, time } = formatDate(order.createdAt);
+  const { date, time } = formatDate(o.createdAt);
 
-  const itemLines = order.items
-    .map((item) => {
+  const itemLines = itemsList
+    .map((item: any) => {
+      if (!item) return "";
       const title = item.isCustom
         ? `🎨 ${item.blankItem || item.title}`
         : item.title;
@@ -242,7 +246,7 @@ export function buildOrderEmailPlainText(order: OrderData): string {
       ]
         .filter(Boolean)
         .join(" · ");
-      return `  ${title} ×${item.qty} — ${formatCurrency(item.price * item.qty)}${meta ? `\n    ${meta}` : ""}`;
+      return `  ${title} ×${item.qty || 1} — ${formatCurrency((item.price || 0) * (item.qty || 1))}${meta ? `\n    ${meta}` : ""}`;
     })
     .join("\n");
 
@@ -252,16 +256,16 @@ export function buildOrderEmailPlainText(order: OrderData): string {
     label,
     HR_PLAIN,
     "",
-    `Order: #${order.orderId}`,
+    `Order: #${o.orderId || "N/A"}`,
     `Date:  ${date} · ${time}`,
     "",
     HR_PLAIN,
     "Customer",
     HR_PLAIN,
     "",
-    order.name,
-    `Phone: ${order.phone}`,
-    order.email ? `Email: ${order.email}` : "",
+    o.name || "N/A",
+    `Phone: ${o.phone || "N/A"}`,
+    o.email ? `Email: ${o.email}` : "",
     "",
     HR_PLAIN,
     "Products",
@@ -270,24 +274,24 @@ export function buildOrderEmailPlainText(order: OrderData): string {
     itemLines,
     "",
     HR_PLAIN,
-    `Subtotal:  ${formatCurrency(order.subtotal)}`,
-    `Shipping:  ${order.shipping === 0 ? "FREE" : formatCurrency(order.shipping)}`,
-    order.discount ? `Discount:  -${formatCurrency(order.discount)}` : "",
-    `Total:     ${formatCurrency(order.total)}`,
+    `Subtotal:  ${formatCurrency(o.subtotal || 0)}`,
+    `Shipping:  ${(o.shipping || 0) === 0 ? "FREE" : formatCurrency(o.shipping)}`,
+    o.discount ? `Discount:  -${formatCurrency(o.discount)}` : "",
+    `Total:     ${formatCurrency(o.total || 0)}`,
     HR_PLAIN,
     "",
-    `Payment: ${order.paymentMethod}`,
+    `Payment: ${o.paymentMethod || "N/A"}`,
     "",
     HR_PLAIN,
     "Delivery Address",
     HR_PLAIN,
     "",
-    order.city,
-    order.address,
+    o.city || "N/A",
+    o.address || "N/A",
   ];
 
-  if (order.notes) {
-    parts.push("", HR_PLAIN, "Customer Notes", HR_PLAIN, "", order.notes);
+  if (o.notes) {
+    parts.push("", HR_PLAIN, "Customer Notes", HR_PLAIN, "", o.notes);
   }
 
   parts.push(
@@ -304,9 +308,10 @@ export function buildOrderEmailPlainText(order: OrderData): string {
 
 // ─── Subject Line ─────────────────────────────────────────────────────────────
 
-export function buildOrderEmailSubject(order: OrderData): string {
-  const isCustom =
-    order.orderType === "custom" || order.items.some((i) => i.isCustom);
+export function buildOrderEmailSubject(order: any): string {
+  const o = order || {};
+  const itemsList = Array.isArray(o.items) ? o.items : [];
+  const isCustom = o.orderType === "custom" || itemsList.some((i: any) => i && i.isCustom);
   const prefix = isCustom ? "🎨" : "🛒";
-  return `${prefix} New Order #${order.orderId} — Rs ${order.total.toLocaleString()}`;
+  return `${prefix} New Order #${o.orderId || "N/A"} — Rs ${(o.total || 0).toLocaleString()}`;
 }

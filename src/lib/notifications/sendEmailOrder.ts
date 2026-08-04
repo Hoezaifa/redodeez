@@ -119,11 +119,14 @@ function delay(ms: number): Promise<void> {
  * shipping updates, and cancellation emails without API changes.
  */
 export async function sendOrderEmailNotification(
-  order: OrderData,
+  order: any,
 ): Promise<boolean> {
+  const o = order || {};
+  const orderIdStr = o.orderId || "unknown";
+
   if (!isConfigured()) {
     console.log(
-      `[Email] Skipped — SMTP not configured (order ${order.orderId})`,
+      `[Email] Skipped — SMTP not configured (order ${orderIdStr})`,
     );
     return false;
   }
@@ -132,14 +135,14 @@ export async function sendOrderEmailNotification(
 
   // Attempt 1
   try {
-    await trySend(order);
+    await trySend(o);
     console.log(
-      `[Email] ✅ Sent — order ${order.orderId} at ${timestamp}`,
+      `[Email] ✅ Sent — order ${orderIdStr} at ${timestamp}`,
     );
     return true;
   } catch (err: any) {
     console.warn(
-      `[Email] ⚠️ Attempt 1 failed — order ${order.orderId} at ${timestamp}: ${err.message || err}`,
+      `[Email] ⚠️ Attempt 1 failed — order ${orderIdStr} at ${timestamp}: ${err.message || err}`,
     );
   }
 
@@ -150,14 +153,14 @@ export async function sendOrderEmailNotification(
   try {
     // Reset transporter in case of stale connection
     _transporter = null;
-    await trySend(order);
+    await trySend(o);
     console.log(
-      `[Email] ✅ Sent (retry) — order ${order.orderId} at ${timestamp}`,
+      `[Email] ✅ Sent (retry) — order ${orderIdStr} at ${timestamp}`,
     );
     return true;
   } catch (err: any) {
     console.error(
-      `[Email] ❌ Failed — order ${order.orderId} at ${timestamp}: ${err.message || err}`,
+      `[Email] ❌ Failed — order ${orderIdStr} at ${timestamp}: ${err.message || err}`,
     );
     return false;
   }
