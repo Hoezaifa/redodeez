@@ -64,7 +64,7 @@ export function OrdersView({
           o.orderId.toLowerCase().includes(q) ||
           o.name.toLowerCase().includes(q) ||
           o.phone.includes(q) ||
-          o.email.toLowerCase().includes(q) ||
+          (o.email || "").toLowerCase().includes(q) ||
           o.city.toLowerCase().includes(q) ||
           o.items.some((i) => i.title.toLowerCase().includes(q)) ||
           (o.trackingNumber || "").toLowerCase().includes(q) ||

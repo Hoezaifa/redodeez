@@ -42,7 +42,7 @@ function buildEmailHtml(order: any): string {
 <tr><td style="background:#18181b;padding:24px 28px;"><h1 style="margin:0;font-size:20px;font-weight:800;color:#fff;letter-spacing:2px;">DEEZ PRINTS</h1><p style="margin:6px 0 0;font-size:13px;font-weight:700;color:#f97316;letter-spacing:1px;">${label}</p></td></tr>
 <tr><td style="padding:20px 28px 0;"><table width="100%"><tr><td style="font-size:13px;color:#71717a;">Order</td><td style="text-align:right;font-size:13px;color:#71717a;">${date} · ${time}</td></tr><tr><td colspan="2" style="font-size:18px;font-weight:800;color:#18181b;padding-top:2px;">#${escHtml(o.orderId || "N/A")}</td></tr></table></td></tr>
 ${HR}
-<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Customer</p><p style="margin:0;font-size:15px;font-weight:700;color:#18181b;">${escHtml(o.name || "N/A")}</p><p style="margin:2px 0 0;font-size:13px;color:#52525b;">📱 ${escHtml(o.phone || "N/A")}</p>${o.email ? `<p style="margin:2px 0 0;font-size:13px;color:#52525b;">✉️ ${escHtml(o.email)}</p>` : ""}</td></tr>
+<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Customer</p><p style="margin:0;font-size:15px;font-weight:700;color:#18181b;">${escHtml(o.name || "N/A")}</p><p style="margin:2px 0 0;font-size:13px;color:#52525b;">📱 ${escHtml(o.phone || "N/A")}</p>${o?.email ? `<p style="margin:2px 0 0;font-size:13px;color:#52525b;">✉️ ${escHtml(o.email)}</p>` : ""}</td></tr>
 ${HR}
 <tr><td style="padding:0 28px;"><p style="margin:0 0 8px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Products</p><table width="100%">${itemRows}</table></td></tr>
 ${HR}
@@ -63,7 +63,7 @@ function buildEmailPlainText(order: any): string {
   const SEP = "────────────────────────────────";
   const items = (o.items || []).map((i: any) => i ? `  ${i.title || "Item"} ×${i.qty || 1} — ${fmtCurrency((i.price || 0) * (i.qty || 1))}` : "").join("\n");
   return [SEP, "DEEZ PRINTS", `Order #${o.orderId || "N/A"}`, SEP, "",
-    `Customer: ${o.name || "N/A"}`, `Phone: ${o.phone || "N/A"}`, o.email ? `Email: ${o.email}` : "", "",
+    `Customer: ${o.name || "N/A"}`, `Phone: ${o.phone || "N/A"}`, o?.email ? `Email: ${o.email}` : "", "",
     SEP, "Products", SEP, "", items, "",
     SEP, `Subtotal: ${fmtCurrency(o.subtotal || 0)}`, `Shipping: ${(o.shipping || 0) === 0 ? "FREE" : fmtCurrency(o.shipping)}`,
     `Total: ${fmtCurrency(o.total || 0)}`, SEP, "",

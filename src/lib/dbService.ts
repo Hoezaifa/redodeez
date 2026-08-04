@@ -1,5 +1,6 @@
 import { prisma } from "../lib/db";
 import type { StoredOrder, OrderStatus, AdminSettings, StatusHistoryEntry } from "../lib/ordersStore";
+import { sendOrderEmailNotification } from "./notifications/sendEmailOrder";
 
 export async function getOrdersFromDb(): Promise<StoredOrder[]> {
   try {
@@ -138,6 +139,10 @@ export async function saveOrderToDb(order: StoredOrder): Promise<StoredOrder> {
       orderId: order.orderId,
       details: { total: order.total, itemsCount: order.items.length },
     },
+  });
+
+  sendOrderEmailNotification(order).catch((err) => {
+    console.error("[dbService] Failed to dispatch admin email:", err);
   });
 
   return order;

@@ -6,6 +6,7 @@
 
 import { getPrismaClient } from "@/lib/db";
 import type { StoredOrder, OrderItem, OrderStatus, StatusHistoryEntry, AdminSettings } from "@/lib/ordersStore";
+import { sendOrderEmailNotification } from "@/lib/notifications/sendEmailOrder";
 
 const DEFAULT_SETTINGS: AdminSettings = {
   telegramBotToken: "8851777111:AAHEWoRMMes229DTTljUDT5SiDFV-fU-iwM",
@@ -226,7 +227,16 @@ export async function saveOrderToDb(order: StoredOrder): Promise<StoredOrder> {
       include: { customer: true, items: true },
     });
 
-    return mapDbToStoredOrder(fullOrder);
+    const savedOrder = mapDbToStoredOrder(fullOrder);
+
+    // Send admin email notification for new orders
+    if (!existingOrder) {
+      sendOrderEmailNotification(savedOrder).catch((err) => {
+        console.error("[dbService] Failed to dispatch admin email:", err);
+      });
+    }
+
+    return savedOrder;
   });
 }
 
