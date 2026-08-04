@@ -142,9 +142,9 @@ ${HR_HTML}
 <!-- Customer -->
 <tr><td style="padding:0 28px;">
   <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Customer</p>
-  <p style="margin:0;font-size:15px;font-weight:700;color:#18181b;">${esc(o.name || "N/A")}</p>
-  <p style="margin:2px 0 0;font-size:13px;color:#52525b;">📱 ${esc(o.phone || "N/A")}</p>
-  ${o.email ? `<p style="margin:2px 0 0;font-size:13px;color:#52525b;">✉️ ${esc(o.email)}</p>` : ""}
+  <p style="margin:0;font-size:15px;font-weight:700;color:#18181b;">${esc(o?.name || "N/A")}</p>
+  <p style="margin:2px 0 0;font-size:13px;color:#52525b;">📱 ${esc(o?.phone || "N/A")}</p>
+  ${o?.email ? `<p style="margin:2px 0 0;font-size:13px;color:#52525b;">✉️ ${esc(o.email)}</p>` : ""}
 </td></tr>
 
 ${HR_HTML}
@@ -263,9 +263,9 @@ export function buildOrderEmailPlainText(order: any): string {
     "Customer",
     HR_PLAIN,
     "",
-    o.name || "N/A",
-    `Phone: ${o.phone || "N/A"}`,
-    o.email ? `Email: ${o.email}` : "",
+    o?.name || "N/A",
+    `Phone: ${o?.phone || "N/A"}`,
+    o?.email ? `Email: ${o.email}` : "",
     "",
     HR_PLAIN,
     "Products",
