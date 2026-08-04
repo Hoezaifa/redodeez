@@ -6,6 +6,7 @@
  */
 import type { IncomingMessage, ServerResponse } from "http";
 import { neon } from "@neondatabase/serverless";
+import { sendOrderEmailNotification } from "./email";
 
 // ─── Database Connection ─────────────────────────────────────────────────────
 
@@ -319,6 +320,16 @@ export default async function handler(
       }
       if (!body.order) return sendJson(400, { ok: false, error: "Missing order" });
       const saved = await saveOneOrder(body.order);
+
+      // Send email notification after successful DB insert.
+      // Awaited so Vercel doesn't kill the lambda before it completes.
+      // Order is already committed — email errors are caught internally.
+      try {
+        await sendOrderEmailNotification(saved);
+      } catch (err) {
+        console.error("[Orders API] Email notification error:", err);
+      }
+
       return sendJson(200, { ok: true, order: saved });
     }
 
