@@ -6,7 +6,131 @@
  */
 import type { IncomingMessage, ServerResponse } from "http";
 import { neon } from "@neondatabase/serverless";
-import { sendOrderEmailNotification } from "./email";
+import nodemailer from "nodemailer";
+
+// ─── Email Notification (inlined — Vercel bundles each api/ file as isolated lambda) ──
+
+function escHtml(text: string | undefined | null): string {
+  if (!text) return "";
+  return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function fmtCurrency(amount: number): string {
+  return `Rs ${amount.toLocaleString()}`;
+}
+
+function buildEmailHtml(order: any): string {
+  const isCustom = order.orderType === "custom" || (order.items || []).some((i: any) => i.isCustom);
+  const label = isCustom ? "NEW CUSTOM ORDER" : "NEW ORDER";
+  const d = order.createdAt ? new Date(order.createdAt) : new Date();
+  const date = d.toLocaleDateString("en-PK", { day: "2-digit", month: "short", year: "numeric" });
+  const time = d.toLocaleTimeString("en-PK", { hour: "numeric", minute: "2-digit", hour12: true });
+  const HR = `<tr><td style="padding:12px 0;"><hr style="border:none;border-top:1px solid #e4e4e7;margin:0;" /></td></tr>`;
+
+  const itemRows = (order.items || []).map((item: any) => {
+    const title = item.isCustom ? `🎨 ${escHtml(item.blankItem || item.title)}` : escHtml(item.title);
+    const meta = [item.size ? `Size: ${escHtml(item.size)}` : "", item.color ? `Color: ${escHtml(item.color)}` : ""].filter(Boolean).join(" · ");
+    return `<tr><td style="padding:4px 0;font-size:14px;color:#18181b;"><strong>${title}</strong> ×${item.qty || 1}${meta ? `<br/><span style="font-size:12px;color:#71717a;">${meta}</span>` : ""}</td><td style="padding:4px 0;font-size:14px;color:#18181b;text-align:right;white-space:nowrap;">${fmtCurrency((item.price || 0) * (item.qty || 1))}</td></tr>`;
+  }).join("");
+
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/></head>
+<body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 0;"><tr><td align="center">
+<table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;max-width:560px;width:100%;">
+<tr><td style="background:#18181b;padding:24px 28px;"><h1 style="margin:0;font-size:20px;font-weight:800;color:#fff;letter-spacing:2px;">DEEZ PRINTS</h1><p style="margin:6px 0 0;font-size:13px;font-weight:700;color:#f97316;letter-spacing:1px;">${label}</p></td></tr>
+<tr><td style="padding:20px 28px 0;"><table width="100%"><tr><td style="font-size:13px;color:#71717a;">Order</td><td style="text-align:right;font-size:13px;color:#71717a;">${date} · ${time}</td></tr><tr><td colspan="2" style="font-size:18px;font-weight:800;color:#18181b;padding-top:2px;">#${escHtml(order.orderId)}</td></tr></table></td></tr>
+${HR}
+<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Customer</p><p style="margin:0;font-size:15px;font-weight:700;color:#18181b;">${escHtml(order.name)}</p><p style="margin:2px 0 0;font-size:13px;color:#52525b;">📱 ${escHtml(order.phone)}</p>${order.email ? `<p style="margin:2px 0 0;font-size:13px;color:#52525b;">✉️ ${escHtml(order.email)}</p>` : ""}</td></tr>
+${HR}
+<tr><td style="padding:0 28px;"><p style="margin:0 0 8px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Products</p><table width="100%">${itemRows}</table></td></tr>
+${HR}
+<tr><td style="padding:0 28px;"><table width="100%"><tr><td style="font-size:13px;color:#71717a;padding:3px 0;">Subtotal</td><td style="font-size:13px;color:#18181b;text-align:right;">${fmtCurrency(order.subtotal || 0)}</td></tr><tr><td style="font-size:13px;color:#71717a;padding:3px 0;">Shipping</td><td style="font-size:13px;color:#18181b;text-align:right;">${(order.shipping || 0) === 0 ? "FREE" : fmtCurrency(order.shipping)}</td></tr>${order.discount ? `<tr><td style="font-size:13px;color:#71717a;">Discount</td><td style="font-size:13px;color:#dc2626;text-align:right;">-${fmtCurrency(order.discount)}</td></tr>` : ""}<tr><td style="font-size:16px;font-weight:800;color:#18181b;padding:8px 0 0;">Total</td><td style="font-size:16px;font-weight:800;color:#18181b;text-align:right;padding:8px 0 0;">${fmtCurrency(order.total || 0)}</td></tr></table></td></tr>
+${HR}
+<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Payment</p><p style="margin:0;font-size:14px;font-weight:600;color:#18181b;">${escHtml(order.paymentMethod)}</p></td></tr>
+${HR}
+<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Delivery Address</p><p style="margin:0;font-size:14px;color:#18181b;">${escHtml(order.city)}</p><p style="margin:2px 0 0;font-size:13px;color:#52525b;">${escHtml(order.address)}</p></td></tr>
+${order.notes ? `${HR}<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Notes</p><p style="margin:0;font-size:14px;color:#52525b;font-style:italic;">${escHtml(order.notes)}</p></td></tr>` : ""}
+${HR}
+<tr><td style="padding:0 28px 24px;" align="center"><a href="https://deezprints.store/admin" style="display:inline-block;background:#18181b;color:#fff;font-size:13px;font-weight:700;text-decoration:none;padding:10px 24px;border-radius:8px;">Open Admin Dashboard</a></td></tr>
+<tr><td style="background:#fafafa;padding:16px 28px;text-align:center;"><p style="margin:0;font-size:11px;color:#a1a1aa;">Deez Prints — Streetwear. No limits.</p></td></tr>
+</table></td></tr></table></body></html>`;
+}
+
+function buildEmailPlainText(order: any): string {
+  const SEP = "────────────────────────────────";
+  const items = (order.items || []).map((i: any) => `  ${i.title} ×${i.qty || 1} — ${fmtCurrency((i.price || 0) * (i.qty || 1))}`).join("\n");
+  return [SEP, "DEEZ PRINTS", `Order #${order.orderId}`, SEP, "",
+    `Customer: ${order.name}`, `Phone: ${order.phone}`, order.email ? `Email: ${order.email}` : "", "",
+    SEP, "Products", SEP, "", items, "",
+    SEP, `Subtotal: ${fmtCurrency(order.subtotal || 0)}`, `Shipping: ${(order.shipping || 0) === 0 ? "FREE" : fmtCurrency(order.shipping)}`,
+    `Total: ${fmtCurrency(order.total || 0)}`, SEP, "",
+    `Payment: ${order.paymentMethod}`, `City: ${order.city}`, `Address: ${order.address}`,
+    order.notes ? `Notes: ${order.notes}` : "", "",
+    "Admin: https://deezprints.store/admin"].filter(l => l !== undefined).join("\n");
+}
+
+let _smtpTransporter: any = null;
+
+async function sendOrderEmailNotification(order: any): Promise<boolean> {
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  const adminEmail = process.env.ADMIN_EMAIL;
+
+  if (!user || !pass || !adminEmail) {
+    console.log(`[Email] Skipped — SMTP not configured (order ${order.orderId})`);
+    return false;
+  }
+
+  if (!_smtpTransporter) {
+    _smtpTransporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || "smtp.gmail.com",
+      port: parseInt(process.env.SMTP_PORT || "465", 10),
+      secure: process.env.SMTP_SECURE !== "false",
+      auth: { user, pass },
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 10_000,
+    });
+  }
+
+  const isCustom = order.orderType === "custom" || (order.items || []).some((i: any) => i.isCustom);
+  const mailOptions = {
+    from: `"Deez Prints" <${user}>`,
+    to: adminEmail,
+    subject: `${isCustom ? "🎨" : "🛒"} New Order #${order.orderId} — Rs ${(order.total || 0).toLocaleString()}`,
+    text: buildEmailPlainText(order),
+    html: buildEmailHtml(order),
+  };
+
+  // Attempt 1
+  try {
+    await _smtpTransporter.sendMail(mailOptions);
+    console.log(`[Email] ✅ Sent — order ${order.orderId}`);
+    return true;
+  } catch (err: any) {
+    console.warn(`[Email] ⚠️ Attempt 1 failed — ${order.orderId}: ${err.message || err}`);
+  }
+
+  // Retry after 3s with fresh transporter
+  await new Promise((r) => setTimeout(r, 3000));
+  try {
+    _smtpTransporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || "smtp.gmail.com",
+      port: parseInt(process.env.SMTP_PORT || "465", 10),
+      secure: process.env.SMTP_SECURE !== "false",
+      auth: { user, pass },
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 10_000,
+    });
+    await _smtpTransporter.sendMail(mailOptions);
+    console.log(`[Email] ✅ Sent (retry) — order ${order.orderId}`);
+    return true;
+  } catch (err: any) {
+    console.error(`[Email] ❌ Failed — ${order.orderId}: ${err.message || err}`);
+    return false;
+  }
+}
 
 // ─── Database Connection ─────────────────────────────────────────────────────
 
