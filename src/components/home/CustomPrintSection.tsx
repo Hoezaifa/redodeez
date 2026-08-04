@@ -14,7 +14,7 @@ import {
 import { Reveal } from "@/components/motion/Reveal";
 import { site, whatsappLink } from "@/data/site";
 
-const CUSTOM_IMAGE = "/assets/custom_print_mockup.png";
+const CUSTOM_IMAGE = "/assets/custom_print_mockup.webp";
 
 export function CustomPrintSection() {
   return (
