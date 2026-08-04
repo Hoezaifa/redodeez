@@ -16,6 +16,8 @@ interface OrderItem {
   isCustom?: boolean;
   placement?: string;
   blankItem?: string;
+  frontArtworkUrl?: string;
+  backArtworkUrl?: string;
 }
 
 interface OrderData {
@@ -98,10 +100,19 @@ export function buildOrderEmailHtml(order: any): string {
         .filter(Boolean)
         .join(" · ");
 
+      const artworkLinks: string[] = [];
+      if (item.isCustom && item.frontArtworkUrl?.startsWith("http")) {
+        artworkLinks.push(`<a href="${esc(item.frontArtworkUrl)}" style="color:#f97316;text-decoration:underline;font-size:12px;">📎 Front Artwork</a>`);
+      }
+      if (item.isCustom && item.backArtworkUrl?.startsWith("http")) {
+        artworkLinks.push(`<a href="${esc(item.backArtworkUrl)}" style="color:#f97316;text-decoration:underline;font-size:12px;">📎 Back Artwork</a>`);
+      }
+
       return `<tr>
         <td style="padding:4px 0;font-size:14px;color:#18181b;">
           <strong>${title}</strong> ×${item.qty || 1}
           ${meta ? `<br/><span style="font-size:12px;color:#71717a;">${meta}</span>` : ""}
+          ${artworkLinks.length ? `<br/>${artworkLinks.join(" &nbsp; ")}` : ""}
         </td>
         <td style="padding:4px 0;font-size:14px;color:#18181b;text-align:right;white-space:nowrap;">
           ${formatCurrency((item.price || 0) * (item.qty || 1))}
@@ -209,7 +220,7 @@ ${HR_HTML}
 
 <!-- Admin Link -->
 <tr><td style="padding:0 28px 24px;" align="center">
-  <a href="https://deezprints.store/admin" style="display:inline-block;background:#18181b;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;padding:10px 24px;border-radius:8px;letter-spacing:0.5px;">Open Admin Dashboard</a>
+  <a href="https://deezus.vercel.app/admin" style="display:inline-block;background:#18181b;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;padding:10px 24px;border-radius:8px;letter-spacing:0.5px;">Open Admin Dashboard</a>
 </td></tr>
 
 <!-- Footer -->
@@ -246,7 +257,10 @@ export function buildOrderEmailPlainText(order: any): string {
       ]
         .filter(Boolean)
         .join(" · ");
-      return `  ${title} ×${item.qty || 1} — ${formatCurrency((item.price || 0) * (item.qty || 1))}${meta ? `\n    ${meta}` : ""}`;
+      const artLinks: string[] = [];
+      if (item.isCustom && item.frontArtworkUrl?.startsWith("http")) artLinks.push(`    Front Artwork: ${item.frontArtworkUrl}`);
+      if (item.isCustom && item.backArtworkUrl?.startsWith("http")) artLinks.push(`    Back Artwork: ${item.backArtworkUrl}`);
+      return `  ${title} ×${item.qty || 1} — ${formatCurrency((item.price || 0) * (item.qty || 1))}${meta ? `\n    ${meta}` : ""}${artLinks.length ? `\n${artLinks.join("\n")}` : ""}`;
     })
     .join("\n");
 
@@ -298,7 +312,7 @@ export function buildOrderEmailPlainText(order: any): string {
     "",
     HR_PLAIN,
     "",
-    "Admin: https://deezprints.store/admin",
+    "Admin: https://deezus.vercel.app/admin",
     "",
     "Deez Prints — Streetwear. No limits.",
   );

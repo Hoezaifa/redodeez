@@ -34,28 +34,27 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
         >
           {primary ? (
             <>
-              <motion.img
+              <img
                 src={primary}
                 alt={product.title}
                 width={400}
                 height={500}
                 loading="lazy"
-                style={{ viewTransitionName: `product-img-${product.id}` }}
-                className="absolute inset-0 h-full w-full object-cover"
-                animate={{ scale: hover ? 1.05 : 1, opacity: hover && alt !== primary ? 0 : 1 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                style={{ viewTransitionName: `product-img-${product.id}`, transition: 'scale 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease' }}
+                className={cn(
+                  "absolute inset-0 h-full w-full object-cover group-hover:scale-[1.06]",
+                  alt !== primary && "group-hover:opacity-0",
+                )}
               />
               {alt !== primary && (
-                <motion.img
+                <img
                   src={alt}
                   alt={product.title}
                   width={400}
                   height={500}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover"
-                  initial={false}
-                  animate={{ opacity: hover ? 1 : 0, scale: hover ? 1.05 : 1.1 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute inset-0 h-full w-full object-cover opacity-0 scale-[1.08] group-hover:opacity-100 group-hover:scale-[1.06]"
+                  style={{ transition: 'scale 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease' }}
                 />
               )}
             </>

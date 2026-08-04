@@ -168,7 +168,7 @@ function Home() {
                 alt={p.title}
                 loading="lazy"
                 className="h-full w-full object-cover group-hover:scale-105"
-                style={{ transition: 'transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+                style={{ transition: 'scale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
               />
               <span className="absolute inset-0 grid place-items-center bg-background/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                 <ArrowUpRight className="h-6 w-6" />
