@@ -39,15 +39,66 @@ export function whatsappLink(message: string) {
 
 export const paymentMethods = ["Meezan Bank Transfer", "Easypaisa / JazzCash / Zindigi"];
 
+export const aestheticSlugs = [
+  "anime-archive",
+  "comic-universe",
+  "minimal-drops",
+  "cinema-collection",
+  "art-drop",
+  "street-aesthetic",
+];
+
 export type Collection = {
   slug: string;
   name: string;
   blurb: string;
   image: string;
-  match: (p: { category: string; subcategory: string }) => boolean;
+  match: (p: { category: string; subcategory: string; aesthetic?: string }) => boolean;
 };
 
 export const collections: Collection[] = [
+  {
+    slug: "anime-archive",
+    name: "Anime Archive",
+    blurb: "Iconic anime graphics inspired by classics and new-gen legends.",
+    image: "/assets/collections/anime_archive_v3.png",
+    match: (p) => p.aesthetic === "anime-archive",
+  },
+  {
+    slug: "comic-universe",
+    name: "Comic Universe",
+    blurb: "Marvel, DC, Comics, Superheroes.",
+    image: "/assets/collections/comic_universe.png",
+    match: (p) => p.aesthetic === "comic-universe",
+  },
+  {
+    slug: "minimal-drops",
+    name: "Minimal Drops",
+    blurb: "Small chest prints, clean graphics, typography, symbols, understated everyday wear.",
+    image: "/assets/collections/minimal_drops.png",
+    match: (p) => p.aesthetic === "minimal-drops",
+  },
+  {
+    slug: "cinema-collection",
+    name: "Cinema Collection",
+    blurb: "Iconic films, unforgettable characters, and legendary moments brought to life.",
+    image: "/assets/collections/cinema_collection.jpg",
+    match: (p) => p.aesthetic === "cinema-collection",
+  },
+  {
+    slug: "art-drop",
+    name: "Art Drop",
+    blurb: "Experimental artwork, surreal graphics and limited releases.",
+    image: "/assets/collections/art_drop.png",
+    match: (p) => p.aesthetic === "art-drop",
+  },
+  {
+    slug: "street-aesthetic",
+    name: "Street Aesthetic",
+    blurb: "Bold typography, street energy and new everyday statements.",
+    image: "/assets/collections/street_aesthetic.png",
+    match: (p) => p.aesthetic === "street-aesthetic",
+  },
   {
     slug: "drop-shoulder",
     name: "Drop Shoulder",

@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { products } from "@/data/products";
-import { collections, site } from "@/data/site";
+import { collections, site, aestheticSlugs } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { cn } from "@/lib/utils";
@@ -40,6 +40,14 @@ function CollectionPage() {
   const { slug, name, blurb } = Route.useLoaderData();
   const [sort, setSort] = useState("featured");
   const [priceDir, setPriceDir] = useState<"asc" | "desc">("asc");
+
+  const isAesthetic = aestheticSlugs.includes(slug);
+  const filterableCollections = useMemo(() => {
+    if (isAesthetic) {
+      return collections.filter((c) => aestheticSlugs.includes(c.slug));
+    }
+    return collections.filter((c) => !aestheticSlugs.includes(c.slug));
+  }, [isAesthetic]);
 
   const items = useMemo(() => {
     const c = collections.find((x) => x.slug === slug)!;
@@ -79,7 +87,7 @@ function CollectionPage() {
       {/* Filters + Sort — sticky */}
       <div className="sticky top-0 z-30 -mx-5 mt-10 bg-background/95 px-5 backdrop-blur-md md:-mx-10 md:px-10 xl:-mx-14 xl:px-14">
         <div className="flex flex-wrap items-center gap-2 border-y border-border py-4">
-          {collections.map((c) => (
+          {filterableCollections.map((c) => (
             <Link
               key={c.slug}
               to="/collections/$slug"

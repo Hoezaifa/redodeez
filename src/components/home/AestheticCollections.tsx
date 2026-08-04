@@ -20,7 +20,7 @@ const aestheticCards: AestheticCard[] = [
     description: "Iconic anime graphics inspired by classics and new-gen legends.",
     image: "/assets/collections/anime_archive_v3.png",
     link: "/collections/$slug",
-    params: { slug: "t-shirts" },
+    params: { slug: "anime-archive" },
   },
   {
     id: "comic-universe",
@@ -29,7 +29,7 @@ const aestheticCards: AestheticCard[] = [
     description: "Marvel, DC, Comics, Superheroes.",
     image: "/assets/collections/comic_universe.png",
     link: "/collections/$slug",
-    params: { slug: "graphic" },
+    params: { slug: "comic-universe" },
   },
   {
     id: "minimal-drops",
@@ -38,7 +38,7 @@ const aestheticCards: AestheticCard[] = [
     description: "Small chest prints, clean graphics, typography, symbols, understated everyday wear.",
     image: "/assets/collections/minimal_drops.png",
     link: "/collections/$slug",
-    params: { slug: "t-shirts" },
+    params: { slug: "minimal-drops" },
   },
   {
     id: "cinema-collection",
@@ -47,7 +47,7 @@ const aestheticCards: AestheticCard[] = [
     description: "Iconic films, unforgettable characters, and legendary moments brought to life.",
     image: "/assets/collections/cinema_collection.jpg",
     link: "/collections/$slug",
-    params: { slug: "t-shirts" },
+    params: { slug: "cinema-collection" },
   },
   {
     id: "art-drop",
@@ -56,7 +56,7 @@ const aestheticCards: AestheticCard[] = [
     description: "Experimental artwork, surreal graphics and limited releases.",
     image: "/assets/collections/art_drop.png",
     link: "/collections/$slug",
-    params: { slug: "wall-art" },
+    params: { slug: "art-drop" },
   },
   {
     id: "street-aesthetic",
@@ -65,7 +65,7 @@ const aestheticCards: AestheticCard[] = [
     description: "Bold typography, street energy and new everyday statements.",
     image: "/assets/collections/street_aesthetic.png",
     link: "/collections/$slug",
-    params: { slug: "drop-shoulder" },
+    params: { slug: "street-aesthetic" },
   },
 ];
 
