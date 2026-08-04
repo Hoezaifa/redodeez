@@ -482,6 +482,6 @@ export default async function handler(
     return sendJson(405, { ok: false, error: "Method not allowed" });
   } catch (err: any) {
     console.error("Orders API Error:", err);
-    return sendJson(500, { ok: false, error: err.message || "Server error" });
+    return sendJson(500, { ok: false, error: err.message || "Server error", stack: err.stack, name: err.name });
   }
 }
