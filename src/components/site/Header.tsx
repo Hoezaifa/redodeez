@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useState, useEffect } from "react";
-import { Search, User, Heart, ShoppingBag, Menu, X, Check } from "lucide-react";
+import { Search, Heart, ShoppingBag, Menu, X, Check } from "lucide-react";
 import { LOGO_URL, navLinks, collections } from "@/data/site";
 import { useCart } from "@/lib/cart";
 import { SearchModal } from "@/components/site/SearchModal";
@@ -119,13 +119,7 @@ export function Header() {
               >
                 <Search className="h-[18px] w-[18px]" />
               </button>
-              <Link
-                to="/account"
-                aria-label="Account"
-                className="hidden hover:text-primary active:scale-95 transition-transform sm:block"
-              >
-                <User className="h-[18px] w-[18px]" />
-              </Link>
+
               <Link
                 to="/wishlist"
                 aria-label="Wishlist"
