@@ -25,8 +25,30 @@ const DEFAULT_SETTINGS: AdminSettings = {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function mapDbToStoredOrder(dbOrder: any): StoredOrder {
-  const customer = dbOrder.customer || {};
-  const rawItems = dbOrder.items || [];
+  if (!dbOrder) {
+    return {
+      orderId: "",
+      name: "",
+      email: "",
+      phone: "",
+      city: "",
+      address: "",
+      paymentMethod: "COD",
+      orderType: "normal",
+      items: [],
+      subtotal: 0,
+      shipping: 0,
+      discount: 0,
+      total: 0,
+      status: "Pending",
+      statusHistory: [],
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+  }
+
+  const customer = dbOrder?.customer || {};
+  const rawItems = dbOrder?.items || [];
 
   const items: OrderItem[] = rawItems.map((i: any) => ({
     id: i.id,
@@ -42,30 +64,30 @@ function mapDbToStoredOrder(dbOrder: any): StoredOrder {
     blankItem: i.blankItem || undefined,
   }));
 
-  const history = Array.isArray(dbOrder.statusHistory)
+  const history = Array.isArray(dbOrder?.statusHistory)
     ? (dbOrder.statusHistory as StatusHistoryEntry[])
-    : [{ status: dbOrder.status as OrderStatus, date: dbOrder.createdAt?.toISOString() || new Date().toISOString() }];
+    : [{ status: (dbOrder?.status || "Pending") as OrderStatus, date: dbOrder?.createdAt ? (typeof dbOrder.createdAt === "string" ? dbOrder.createdAt : dbOrder.createdAt.toISOString()) : new Date().toISOString() }];
 
   return {
-    orderId: dbOrder.orderId,
-    name: customer.name || "",
-    email: customer.email || "",
-    phone: customer.phone || "",
-    city: customer.city || "",
-    address: customer.address || "",
-    notes: dbOrder.notes || undefined,
-    paymentMethod: dbOrder.paymentMethod,
-    orderType: (dbOrder.orderType as "normal" | "custom") || "normal",
+    orderId: dbOrder?.orderId || "",
+    name: customer?.name || "",
+    email: customer?.email || "",
+    phone: customer?.phone || "",
+    city: customer?.city || "",
+    address: customer?.address || "",
+    notes: dbOrder?.notes || undefined,
+    paymentMethod: dbOrder?.paymentMethod || "COD",
+    orderType: (dbOrder?.orderType as "normal" | "custom") || "normal",
     items,
-    subtotal: dbOrder.subtotal,
-    shipping: dbOrder.shipping,
-    discount: dbOrder.discount || 0,
-    total: dbOrder.total,
-    status: dbOrder.status as OrderStatus,
+    subtotal: dbOrder?.subtotal || 0,
+    shipping: dbOrder?.shipping || 0,
+    discount: dbOrder?.discount || 0,
+    total: dbOrder?.total || 0,
+    status: (dbOrder?.status || "Pending") as OrderStatus,
     statusHistory: history,
-    trackingNumber: dbOrder.trackingNumber || undefined,
-    createdAt: dbOrder.createdAt?.toISOString() || new Date().toISOString(),
-    updatedAt: dbOrder.updatedAt?.toISOString() || new Date().toISOString(),
+    trackingNumber: dbOrder?.trackingNumber || undefined,
+    createdAt: dbOrder?.createdAt ? (typeof dbOrder.createdAt === "string" ? dbOrder.createdAt : dbOrder.createdAt.toISOString()) : new Date().toISOString(),
+    updatedAt: dbOrder?.updatedAt ? (typeof dbOrder.updatedAt === "string" ? dbOrder.updatedAt : dbOrder.updatedAt.toISOString()) : new Date().toISOString(),
   };
 }
 
