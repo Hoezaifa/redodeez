@@ -113,30 +113,42 @@ export async function getOrdersFromDb(): Promise<StoredOrder[]> {
 }
 
 export async function saveOrderToDb(order: StoredOrder): Promise<StoredOrder> {
+  if (!order || typeof order !== "object") {
+    console.error("Invalid order object passed to saveOrderToDb:", order);
+    throw new Error("Invalid order data");
+  }
+
   const prisma = getPrismaClient();
+
+  const phone = order.phone || order.orderId || "00000000000";
+  const name = order.name || "Guest Customer";
+  const email = order.email || null;
+  const city = order.city || "";
+  const address = order.address || "";
+  const orderId = order.orderId || `DP-${Date.now()}`;
 
   return await prisma.$transaction(async (tx) => {
     // 1. Upsert customer by phone
     const customer = await tx.customer.upsert({
-      where: { phone: order.phone },
+      where: { phone },
       update: {
-        name: order.name,
-        email: order.email || null,
-        city: order.city,
-        address: order.address,
+        name,
+        email,
+        city,
+        address,
       },
       create: {
-        phone: order.phone,
-        name: order.name,
-        email: order.email || null,
-        city: order.city,
-        address: order.address,
+        phone,
+        name,
+        email,
+        city,
+        address,
       },
     });
 
     // 2. Check if order exists
     const existingOrder = await tx.order.findUnique({
-      where: { orderId: order.orderId },
+      where: { orderId },
     });
 
     if (existingOrder) {
@@ -148,32 +160,32 @@ export async function saveOrderToDb(order: StoredOrder): Promise<StoredOrder> {
 
     // 3. Upsert order
     const createdOrUpdatedOrder = await tx.order.upsert({
-      where: { orderId: order.orderId },
+      where: { orderId },
       update: {
         customerId: customer.id,
         notes: order.notes || null,
-        paymentMethod: order.paymentMethod,
-        orderType: order.orderType,
-        subtotal: order.subtotal,
-        shipping: order.shipping,
+        paymentMethod: order.paymentMethod || "COD",
+        orderType: order.orderType || "normal",
+        subtotal: order.subtotal || 0,
+        shipping: order.shipping || 0,
         discount: order.discount || 0,
-        total: order.total,
-        status: order.status,
+        total: order.total || 0,
+        status: order.status || "Pending",
         statusHistory: (order.statusHistory || []) as any,
         trackingNumber: order.trackingNumber || null,
         updatedAt: new Date(),
       },
       create: {
-        orderId: order.orderId,
+        orderId,
         customerId: customer.id,
         notes: order.notes || null,
-        paymentMethod: order.paymentMethod,
-        orderType: order.orderType,
-        subtotal: order.subtotal,
-        shipping: order.shipping,
+        paymentMethod: order.paymentMethod || "COD",
+        orderType: order.orderType || "normal",
+        subtotal: order.subtotal || 0,
+        shipping: order.shipping || 0,
         discount: order.discount || 0,
-        total: order.total,
-        status: order.status,
+        total: order.total || 0,
+        status: order.status || "Pending",
         statusHistory: (order.statusHistory || []) as any,
         trackingNumber: order.trackingNumber || null,
         createdAt: order.createdAt ? new Date(order.createdAt) : new Date(),

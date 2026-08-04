@@ -269,44 +269,67 @@ async function getAllOrders() {
 }
 
 async function saveOneOrder(order: any) {
+  if (!order || typeof order !== "object") {
+    throw new Error("Invalid order data passed to saveOneOrder");
+  }
+
   await ensureMigration();
 
+  const phone = order.phone || order.orderId || "00000000000";
+  const name = order.name || "Guest Customer";
+  const email = order.email || null;
+  const city = order.city || "";
+  const address = order.address || "";
+  const orderId = order.orderId || `DP-${Date.now()}`;
+
   // Upsert customer (don't update name — each order stores its own snapshot)
-  const existing = await sql`SELECT id FROM customers WHERE phone = ${order.phone} LIMIT 1`;
+  const existing = await sql`SELECT id FROM customers WHERE phone = ${phone} LIMIT 1`;
   let customerId: string;
 
   if (existing.length > 0) {
     customerId = existing[0].id;
     // Only update email if provided (don't overwrite name/city/address)
+    if (email) {
+      await sql`UPDATE customers SET email = ${email}, "updatedAt" = NOW() WHERE id = ${customerId}`;
+    }
   } else {
     const newId = crypto.randomUUID();
-    await sql`INSERT INTO customers (id, phone, name, email, city, address, "createdAt", "updatedAt") VALUES (${newId}, ${order.phone}, ${order.name}, ${order.email || null}, ${order.city}, ${order.address}, NOW(), NOW())`;
+    await sql`INSERT INTO customers (id, phone, name, email, city, address, "createdAt", "updatedAt") VALUES (${newId}, ${phone}, ${name}, ${email}, ${city}, ${address}, NOW(), NOW())`;
     customerId = newId;
   }
 
-  const statusHistory = JSON.stringify(order.statusHistory || [{ status: order.status, date: new Date().toISOString() }]);
+  const statusHistory = JSON.stringify(order.statusHistory || [{ status: order.status || "Pending", date: new Date().toISOString() }]);
   const createdAt = order.createdAt ? new Date(order.createdAt) : new Date();
 
   // Upsert order — with per-order customer snapshot
-  const existingOrder = await sql`SELECT id FROM orders WHERE "orderId" = ${order.orderId} LIMIT 1`;
+  const existingOrder = await sql`SELECT id FROM orders WHERE "orderId" = ${orderId} LIMIT 1`;
 
   let dbOrderId: string;
   if (existingOrder.length > 0) {
     dbOrderId = existingOrder[0].id;
-    await sql`UPDATE orders SET status = ${order.status}, "statusHistory" = ${statusHistory}::jsonb, notes = ${order.notes || null}, "trackingNumber" = ${order.trackingNumber || null}, "paymentMethod" = ${order.paymentMethod}, subtotal = ${order.subtotal}, shipping = ${order.shipping}, discount = ${order.discount}, total = ${order.total}, "customerName" = ${order.name}, "customerPhone" = ${order.phone}, "customerEmail" = ${order.email || null}, "customerCity" = ${order.city}, "customerAddress" = ${order.address}, "updatedAt" = NOW() WHERE id = ${dbOrderId}`;
+    await sql`UPDATE orders SET status = ${order.status || "Pending"}, "statusHistory" = ${statusHistory}::jsonb, notes = ${order.notes || null}, "trackingNumber" = ${order.trackingNumber || null}, "paymentMethod" = ${order.paymentMethod || "COD"}, subtotal = ${order.subtotal || 0}, shipping = ${order.shipping || 0}, discount = ${order.discount || 0}, total = ${order.total || 0}, "customerName" = ${name}, "customerPhone" = ${phone}, "customerEmail" = ${email}, "customerCity" = ${city}, "customerAddress" = ${address}, "updatedAt" = NOW() WHERE id = ${dbOrderId}`;
   } else {
     dbOrderId = crypto.randomUUID();
-    await sql`INSERT INTO orders (id, "orderId", "customerId", notes, "paymentMethod", "orderType", subtotal, shipping, discount, total, status, "statusHistory", "trackingNumber", "customerName", "customerPhone", "customerEmail", "customerCity", "customerAddress", "createdAt", "updatedAt") VALUES (${dbOrderId}, ${order.orderId}, ${customerId}, ${order.notes || null}, ${order.paymentMethod}, ${order.orderType || "normal"}, ${order.subtotal}, ${order.shipping}, ${order.discount || 0}, ${order.total}, ${order.status || "Pending"}, ${statusHistory}::jsonb, ${order.trackingNumber || null}, ${order.name}, ${order.phone}, ${order.email || null}, ${order.city}, ${order.address}, ${createdAt.toISOString()}::timestamptz, NOW())`;
+    await sql`INSERT INTO orders (id, "orderId", "customerId", notes, "paymentMethod", "orderType", subtotal, shipping, discount, total, status, "statusHistory", "trackingNumber", "customerName", "customerPhone", "customerEmail", "customerCity", "customerAddress", "createdAt", "updatedAt") VALUES (${dbOrderId}, ${orderId}, ${customerId}, ${order.notes || null}, ${order.paymentMethod || "COD"}, ${order.orderType || "normal"}, ${order.subtotal || 0}, ${order.shipping || 0}, ${order.discount || 0}, ${order.total || 0}, ${order.status || "Pending"}, ${statusHistory}::jsonb, ${order.trackingNumber || null}, ${name}, ${phone}, ${email}, ${city}, ${address}, ${createdAt.toISOString()}::timestamptz, NOW())`;
   }
 
   // Re-create items
   await sql`DELETE FROM order_items WHERE "orderId" = ${dbOrderId}`;
   for (const item of (order.items || [])) {
+    if (!item) continue;
     const itemId = crypto.randomUUID();
-    await sql`INSERT INTO order_items (id, "orderId", title, size, color, qty, price, "isCustom", "frontArtworkUrl", "backArtworkUrl", placement, "blankItem", "createdAt") VALUES (${itemId}, ${dbOrderId}, ${item.title}, ${item.size || null}, ${item.color || null}, ${item.qty || 1}, ${item.price}, ${item.isCustom || false}, ${item.frontArtworkUrl || null}, ${item.backArtworkUrl || null}, ${item.placement || null}, ${item.blankItem || null}, NOW())`;
+    await sql`INSERT INTO order_items (id, "orderId", title, size, color, qty, price, "isCustom", "frontArtworkUrl", "backArtworkUrl", placement, "blankItem", "createdAt") VALUES (${itemId}, ${dbOrderId}, ${item.title || "Item"}, ${item.size || null}, ${item.color || null}, ${item.qty || 1}, ${item.price || 0}, ${item.isCustom || false}, ${item.frontArtworkUrl || null}, ${item.backArtworkUrl || null}, ${item.placement || null}, ${item.blankItem || null}, NOW())`;
   }
 
-  return order;
+  return {
+    ...order,
+    orderId,
+    name,
+    phone,
+    email: email || undefined,
+    city,
+    address,
+  };
 }
 
 async function updateOrderStatus(orderId: string, status: string, note?: string) {

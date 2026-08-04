@@ -51,51 +51,63 @@ export async function getOrdersFromDb(): Promise<StoredOrder[]> {
 }
 
 export async function saveOrderToDb(order: StoredOrder): Promise<StoredOrder> {
+  if (!order || typeof order !== "object") {
+    console.error("Invalid order object passed to saveOrderToDb:", order);
+    throw new Error("Invalid order data");
+  }
+
+  const phone = order.phone || order.orderId || "00000000000";
+  const name = order.name || "Guest Customer";
+  const email = order.email || null;
+  const city = order.city || "";
+  const address = order.address || "";
+  const orderId = order.orderId || `DP-${Date.now()}`;
+
   const customer = await prisma.customer.upsert({
-    where: { phone: order.phone },
+    where: { phone },
     update: {
-      name: order.name,
-      email: order.email || null,
-      city: order.city,
-      address: order.address,
+      name,
+      email,
+      city,
+      address,
     },
     create: {
-      name: order.name,
-      phone: order.phone,
-      email: order.email || null,
-      city: order.city,
-      address: order.address,
+      name,
+      phone,
+      email,
+      city,
+      address,
     },
   });
 
   const statusHistory = order.statusHistory || [
-    { status: order.status, date: new Date().toISOString() },
+    { status: order.status || "Pending", date: new Date().toISOString() },
   ];
 
   const dbOrder = await prisma.order.upsert({
-    where: { orderId: order.orderId },
+    where: { orderId },
     update: {
-      status: order.status,
+      status: order.status || "Pending",
       statusHistory: JSON.parse(JSON.stringify(statusHistory)),
       notes: order.notes || null,
       trackingNumber: order.trackingNumber || null,
-      paymentMethod: order.paymentMethod,
-      subtotal: order.subtotal,
-      shipping: order.shipping,
-      discount: order.discount,
-      total: order.total,
+      paymentMethod: order.paymentMethod || "COD",
+      subtotal: order.subtotal || 0,
+      shipping: order.shipping || 0,
+      discount: order.discount || 0,
+      total: order.total || 0,
     },
     create: {
-      orderId: order.orderId,
+      orderId,
       customerId: customer.id,
       notes: order.notes || null,
-      paymentMethod: order.paymentMethod,
-      orderType: order.orderType,
-      subtotal: order.subtotal,
-      shipping: order.shipping,
-      discount: order.discount,
-      total: order.total,
-      status: order.status,
+      paymentMethod: order.paymentMethod || "COD",
+      orderType: order.orderType || "normal",
+      subtotal: order.subtotal || 0,
+      shipping: order.shipping || 0,
+      discount: order.discount || 0,
+      total: order.total || 0,
+      status: order.status || "Pending",
       statusHistory: JSON.parse(JSON.stringify(statusHistory)),
       trackingNumber: order.trackingNumber || null,
       createdAt: order.createdAt ? new Date(order.createdAt) : new Date(),
