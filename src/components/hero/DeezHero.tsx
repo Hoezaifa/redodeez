@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { Search, User, ShoppingBag, ChevronDown, ArrowRight, Menu, X } from "lucide-react";
+import { Search, ShoppingBag, ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import heroModel from "@/assets/hero-model.jpg";
 import { useCart } from "@/lib/cart";
@@ -122,17 +122,6 @@ function Navbar({ scrolled, onOpenSearch }: { scrolled: boolean; onOpenSearch: (
             <Search className="h-[17px] w-[17px]" strokeWidth={2} />
           </button>
 
-          {/* Divider */}
-          <span className="mx-0.5 h-4 w-px bg-white/[0.12]" aria-hidden />
-
-          {/* Account */}
-          <Link
-            to="/account"
-            aria-label="Account"
-            className="flex h-9 w-9 items-center justify-center rounded-none text-white/60 transition-colors duration-200 hover:text-white hover:bg-white/[0.06]"
-          >
-            <User className="h-[17px] w-[17px]" strokeWidth={2} />
-          </Link>
 
           {/* Cart */}
           <button
