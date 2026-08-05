@@ -31,8 +31,21 @@ function buildEmailHtml(order: any): string {
   const itemRows = (o.items || []).map((item: any) => {
     if (!item) return "";
     const title = item.isCustom ? `🎨 ${escHtml(item.blankItem || item.title)}` : escHtml(item.title);
-    const meta = [item.size ? `Size: ${escHtml(item.size)}` : "", item.color ? `Color: ${escHtml(item.color)}` : ""].filter(Boolean).join(" · ");
-    return `<tr><td style="padding:4px 0;font-size:14px;color:#18181b;"><strong>${title}</strong> ×${item.qty || 1}${meta ? `<br/><span style="font-size:12px;color:#71717a;">${meta}</span>` : ""}</td><td style="padding:4px 0;font-size:14px;color:#18181b;text-align:right;white-space:nowrap;">${fmtCurrency((item.price || 0) * (item.qty || 1))}</td></tr>`;
+    const meta = [
+      item.size ? `Size: ${escHtml(item.size)}` : "",
+      item.color ? `Color: ${escHtml(item.color)}` : "",
+      item.isCustom && item.placement ? `Placement: ${escHtml(item.placement)}` : "",
+    ].filter(Boolean).join(" · ");
+
+    const artworkLinks: string[] = [];
+    if (item.isCustom && item.frontArtworkUrl?.startsWith("http")) {
+      artworkLinks.push(`<a href="${escHtml(item.frontArtworkUrl)}" style="color:#f97316;text-decoration:underline;font-weight:700;font-size:12px;">📎 Front Artwork</a>`);
+    }
+    if (item.isCustom && item.backArtworkUrl?.startsWith("http")) {
+      artworkLinks.push(`<a href="${escHtml(item.backArtworkUrl)}" style="color:#f97316;text-decoration:underline;font-weight:700;font-size:12px;">📎 Back Artwork</a>`);
+    }
+
+    return `<tr><td style="padding:4px 0;font-size:14px;color:#18181b;"><strong>${title}</strong> ×${item.qty || 1}${meta ? `<br/><span style="font-size:12px;color:#71717a;">${meta}</span>` : ""}${artworkLinks.length ? `<br/><span style="margin-top:2px;display:inline-block;">${artworkLinks.join(" &nbsp; ")}</span>` : ""}</td><td style="padding:4px 0;font-size:14px;color:#18181b;text-align:right;white-space:nowrap;">${fmtCurrency((item.price || 0) * (item.qty || 1))}</td></tr>`;
   }).join("");
 
   return `<!DOCTYPE html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/></head>
@@ -53,7 +66,7 @@ ${HR}
 <tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Delivery Address</p><p style="margin:0;font-size:14px;color:#18181b;">${escHtml(o.city || "N/A")}</p><p style="margin:2px 0 0;font-size:13px;color:#52525b;">${escHtml(o.address || "N/A")}</p></td></tr>
 ${o.notes ? `${HR}<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Notes</p><p style="margin:0;font-size:14px;color:#52525b;font-style:italic;">${escHtml(o.notes)}</p></td></tr>` : ""}
 ${HR}
-<tr><td style="padding:0 28px 24px;" align="center"><a href="https://deezprints.store/admin" style="display:inline-block;background:#18181b;color:#fff;font-size:13px;font-weight:700;text-decoration:none;padding:10px 24px;border-radius:8px;">Open Admin Dashboard</a></td></tr>
+<tr><td style="padding:0 28px 24px;" align="center"><a href="https://deezus.vercel.app/admin" style="display:inline-block;background:#18181b;color:#fff;font-size:13px;font-weight:700;text-decoration:none;padding:10px 24px;border-radius:8px;">Open Admin Dashboard</a></td></tr>
 <tr><td style="background:#fafafa;padding:16px 28px;text-align:center;"><p style="margin:0;font-size:11px;color:#a1a1aa;">Deez Prints — Streetwear. No limits.</p></td></tr>
 </table></td></tr></table></body></html>`;
 }
@@ -61,7 +74,20 @@ ${HR}
 function buildEmailPlainText(order: any): string {
   const o = order || {};
   const SEP = "────────────────────────────────";
-  const items = (o.items || []).map((i: any) => i ? `  ${i.title || "Item"} ×${i.qty || 1} — ${fmtCurrency((i.price || 0) * (i.qty || 1))}` : "").join("\n");
+  const items = (o.items || []).map((i: any) => {
+    if (!i) return "";
+    const title = i.isCustom ? `🎨 ${i.blankItem || i.title}` : (i.title || "Item");
+    const meta = [
+      i.size ? `Size: ${i.size}` : "",
+      i.color ? `Color: ${i.color}` : "",
+      i.isCustom && i.placement ? `Placement: ${i.placement}` : "",
+    ].filter(Boolean).join(" · ");
+    const artLinks: string[] = [];
+    if (i.isCustom && i.frontArtworkUrl?.startsWith("http")) artLinks.push(`    Front Artwork: ${i.frontArtworkUrl}`);
+    if (i.isCustom && i.backArtworkUrl?.startsWith("http")) artLinks.push(`    Back Artwork: ${i.backArtworkUrl}`);
+    return `  ${title} ×${i.qty || 1} — ${fmtCurrency((i.price || 0) * (i.qty || 1))}${meta ? `\n    ${meta}` : ""}${artLinks.length ? `\n${artLinks.join("\n")}` : ""}`;
+  }).filter(Boolean).join("\n");
+
   return [SEP, "DEEZ PRINTS", `Order #${o.orderId || "N/A"}`, SEP, "",
     `Customer: ${o.name || "N/A"}`, `Phone: ${o.phone || "N/A"}`, o?.email ? `Email: ${o.email}` : "", "",
     SEP, "Products", SEP, "", items, "",
@@ -69,7 +95,7 @@ function buildEmailPlainText(order: any): string {
     `Total: ${fmtCurrency(o.total || 0)}`, SEP, "",
     `Payment: ${o.paymentMethod || "N/A"}`, `City: ${o.city || "N/A"}`, `Address: ${o.address || "N/A"}`,
     o.notes ? `Notes: ${o.notes}` : "", "",
-    "Admin: https://deezprints.store/admin"].filter(l => l !== undefined).join("\n");
+    "Admin: https://deezus.vercel.app/admin"].filter(l => l !== undefined).join("\n");
 }
 
 let _smtpTransporter: any = null;
