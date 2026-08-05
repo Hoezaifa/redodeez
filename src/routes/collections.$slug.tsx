@@ -61,7 +61,7 @@ function CollectionPage() {
   }, [slug, sort, priceDir]);
 
   return (
-    <div className="edge py-14 md:py-20">
+    <div className="edge pt-4 pb-6 md:py-20">
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", url: "/" },
@@ -69,7 +69,7 @@ function CollectionPage() {
           { name, url: `/collections/${slug}` },
         ])}
       />
-      <nav aria-label="Breadcrumb" className="label-mono text-muted-foreground">
+      <nav aria-label="Breadcrumb" className="label-mono text-xs md:text-sm text-muted-foreground">
         <Link to="/" className="hover:text-primary">
           Home
         </Link>{" "}
@@ -80,12 +80,12 @@ function CollectionPage() {
         / <span className="text-foreground">{name}</span>
       </nav>
 
-      <div className="mt-8">
+      <div className="mt-3 md:mt-8">
         <SectionHeading eyebrow={`${items.length} pieces`} title={name} sub={blurb} />
       </div>
 
       {/* Filters + Sort — sticky */}
-      <div className="sticky top-0 z-30 -mx-5 mt-10 bg-background/95 px-5 backdrop-blur-md md:-mx-10 md:px-10 xl:-mx-14 xl:px-14">
+      <div className="sticky top-0 z-30 -mx-5 mt-3 md:mt-10 bg-background/95 px-5 backdrop-blur-md md:-mx-10 md:px-10 xl:-mx-14 xl:px-14">
         <div className="flex flex-wrap items-center gap-2 border-y border-border py-4">
           {filterableCollections.map((c) => (
             <Link

@@ -104,9 +104,9 @@ export function SectionHeading({
       viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      {eyebrow && <p className="label-mono text-primary">{eyebrow}</p>}
-      <h1 className="display-lg mt-4 whitespace-pre-line">{title}</h1>
-      {sub && <p className="mt-5 max-w-xl text-sm text-muted-foreground">{sub}</p>}
+      {eyebrow && <p className="label-mono text-primary text-xs md:text-sm">{eyebrow}</p>}
+      <h1 className="display-lg mt-1.5 md:mt-4 whitespace-pre-line">{title}</h1>
+      {sub && <p className="mt-2 md:mt-5 max-w-xl text-xs md:text-sm text-muted-foreground leading-relaxed">{sub}</p>}
     </motion.div>
   );
 }
