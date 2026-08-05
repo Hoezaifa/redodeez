@@ -2,7 +2,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useState, useEffect } from "react";
 import { Search, Heart, ShoppingBag, Menu, X, Check } from "lucide-react";
-import { LOGO_URL, navLinks, collections } from "@/data/site";
+import { LOGO_URL, navLinks } from "@/data/site";
 import { useCart } from "@/lib/cart";
 import { SearchModal } from "@/components/site/SearchModal";
 import { formatPrice } from "@/lib/format";
@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const { count, setDrawerOpen, wishlist, lastAdded, dismissToast } = useCart();
   const [open, setOpen] = useState(false);
-  const [shopOpen, setShopOpen] = useState(false);
+
   const [hidden, setHidden] = useState(false);
   const [solid, setSolid] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -30,7 +30,7 @@ export function Header() {
   useMotionValueEvent(scrollY, "change", (y) => {
     const prev = scrollY.getPrevious() ?? 0;
     setSolid(y > 24);
-    setHidden(y > prev && y > 240 && !shopOpen);
+    setHidden(y > prev && y > 240);
   });
 
   return (
@@ -40,7 +40,6 @@ export function Header() {
         animate={{ y: hidden ? "-100%" : 0 }}
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="fixed inset-x-0 top-0 z-50"
-        onMouseLeave={() => setShopOpen(false)}
       >
         <div className="hidden overflow-hidden border-b border-border bg-background md:block">
           <div className="flex whitespace-nowrap py-2">
@@ -67,7 +66,7 @@ export function Header() {
         <div
           className={cn(
             "edge relative border-b transition-colors duration-500",
-            solid || shopOpen
+            solid
               ? "border-border bg-background/95 backdrop-blur-md"
               : "border-transparent bg-linear-to-b from-background/80 to-transparent",
           )}
@@ -86,7 +85,6 @@ export function Header() {
                 return (
                   <div
                     key={l.to}
-                    onMouseEnter={() => setShopOpen(l.label === "Shop")}
                     className="relative py-5"
                   >
                     <Link
@@ -231,42 +229,7 @@ export function Header() {
           </AnimatePresence>
         </div>
 
-        {/* Mega Menu Dropdown */}
-        <AnimatePresence>
-          {shopOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="overflow-hidden border-b border-border bg-background/95 backdrop-blur-md"
-            >
-              <div className="edge py-8 grid grid-cols-4 gap-8">
-                {collections.map((c) => (
-                  <Link
-                    key={c.slug}
-                    to="/collections/$slug"
-                    params={{ slug: c.slug }}
-                    onClick={() => setShopOpen(false)}
-                    className="group flex flex-col gap-3"
-                  >
-                    <div className="aspect-[4/3] overflow-hidden bg-surface rounded">
-                      <img
-                        src={c.image}
-                        alt={c.name}
-                        className="h-full w-full object-cover group-hover:scale-105"
-                        style={{ transition: 'scale 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
-                      />
-                    </div>
-                    <span className="font-display text-sm font-extrabold uppercase group-hover:text-primary transition-colors">
-                      {c.name}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
       </motion.header>
 
       {/* Mobile Drawer Menu */}
