@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { products } from "@/data/products";
 import { collections, site } from "@/data/site";
@@ -30,10 +30,32 @@ const sortOptions = [
   { id: "name", label: "A–Z", icon: null },
 ] as const;
 
+/* How many collection chips to show before the "+More" button (mobile only) */
+const VISIBLE_COUNT = 3;
+
 function ShopAll() {
   const [cat, setCat] = useState<string>("all");
   const [sort, setSort] = useState<string>("featured");
   const [priceDir, setPriceDir] = useState<"asc" | "desc">("asc");
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    if (!moreOpen) return;
+    function handleClick(e: MouseEvent) {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setMoreOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [moreOpen]);
+
+  const visibleCollections = collections.slice(0, VISIBLE_COUNT);
+  const overflowCollections = collections.slice(VISIBLE_COUNT);
+  // Check if the currently active category is hidden inside "+More"
+  const activeInOverflow = overflowCollections.some((c) => c.slug === cat);
 
   const list = useMemo(() => {
     const c = collections.find((x) => x.slug === cat);
@@ -44,7 +66,7 @@ function ShopAll() {
     }
     if (sort === "name") sorted.sort((a, b) => a.title.localeCompare(b.title));
     if (sort === "featured") sorted.sort((a, b) => b.images.length - a.images.length);
-    if (sort === "newest") sorted.sort((a, b) => b.rating - a.rating); // proxy for newest
+    if (sort === "newest") sorted.sort((a, b) => b.rating - a.rating);
     return sorted;
   }, [cat, sort, priceDir]);
 
@@ -54,6 +76,10 @@ function ShopAll() {
     { label: `Ships in ${site.deliveryTime}` },
     { label: "Secure Payments" },
   ];
+
+  const chipBase = "chip-glow shrink-0 px-4 py-2 label-mono whitespace-nowrap";
+  const chipActive = "bg-primary text-primary-foreground chip-glow-active";
+  const chipInactive = "border border-border hover:border-primary hover:text-primary";
 
   return (
     <div className="edge py-14 md:py-20">
@@ -77,67 +103,167 @@ function ShopAll() {
 
       {/* Filters + Sort — sticky */}
       <div className="sticky top-0 z-30 -mx-5 mt-10 bg-background/95 px-5 backdrop-blur-md md:-mx-10 md:px-10 xl:-mx-14 xl:px-14">
-        <div className="flex flex-wrap items-center gap-2 border-y border-border py-4">
-          {/* Category chips */}
-          <button
-            type="button"
-            onClick={() => setCat("all")}
-            className={cn(
-              "chip-glow px-4 py-2 label-mono",
-              cat === "all"
-                ? "bg-primary text-primary-foreground chip-glow-active"
-                : "border border-border hover:border-primary hover:text-primary",
-            )}
-          >
-            All
-          </button>
-          {collections.map((c) => (
-            <button
-              key={c.slug}
-              type="button"
-              onClick={() => setCat(c.slug)}
-              className={cn(
-                "chip-glow px-4 py-2 label-mono",
-                cat === c.slug
-                  ? "bg-primary text-primary-foreground chip-glow-active"
-                  : "border border-border hover:border-primary hover:text-primary",
-              )}
-            >
-              {c.name}
-            </button>
-          ))}
+        <div className="border-y border-border py-3 md:py-4 space-y-2 md:space-y-0">
 
-          {/* Sort */}
-          <div className="ml-auto flex items-center gap-1">
-            {sortOptions.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => {
-                  if (s.id === "price" && sort === "price") {
-                    setPriceDir((d) => (d === "asc" ? "desc" : "asc"));
-                  } else {
-                    setSort(s.id);
-                  }
-                }}
-                className={cn(
-                  "flex items-center gap-1 px-3 py-2 label-mono transition-all duration-300",
-                  sort === s.id ? "text-primary" : "text-muted-foreground hover:text-foreground",
-                )}
-              >
-                {s.label}
-                {s.id === "price" && sort === "price" && (
-                  <ChevronDown
+          {/* ---- MOBILE layout: chips row + sort row ---- */}
+          <div className="md:hidden">
+            {/* Chips row: scrollable area + fixed +More button */}
+            <div className="flex items-center gap-1.5">
+              {/* Scrollable chips */}
+              <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none min-w-0 flex-1">
+                <button
+                  type="button"
+                  onClick={() => { setCat("all"); setMoreOpen(false); }}
+                  className={cn(chipBase, "text-[10px] px-3 py-1.5", cat === "all" ? chipActive : chipInactive)}
+                >
+                  All
+                </button>
+                {visibleCollections.map((c) => (
+                  <button
+                    key={c.slug}
+                    type="button"
+                    onClick={() => { setCat(c.slug); setMoreOpen(false); }}
+                    className={cn(chipBase, "text-[10px] px-3 py-1.5", cat === c.slug ? chipActive : chipInactive)}
+                  >
+                    {c.name}
+                  </button>
+                ))}
+              </div>
+
+              {/* +More button — outside the scroll container so dropdown isn't clipped */}
+              {overflowCollections.length > 0 && (
+                <div ref={moreRef} className="relative shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setMoreOpen((v) => !v)}
                     className={cn(
-                      "h-3 w-3 transition-transform duration-300",
-                      priceDir === "desc" && "rotate-180",
+                      chipBase,
+                      "text-[10px] px-3 py-1.5 flex items-center gap-1",
+                      activeInOverflow ? chipActive : chipInactive,
                     )}
-                  />
-                )}
-                {s.id === "featured" && sort === "featured" && <ChevronDown className="h-3 w-3" />}
-              </button>
-            ))}
+                  >
+                    {activeInOverflow
+                      ? collections.find((c) => c.slug === cat)?.name
+                      : `+${overflowCollections.length}`}
+                    <ChevronDown
+                      className={cn(
+                        "h-3 w-3 transition-transform duration-300",
+                        moreOpen && "rotate-180",
+                      )}
+                    />
+                  </button>
+
+                  {moreOpen && (
+                    <div className="absolute right-0 top-full mt-2 min-w-[200px] border border-border bg-surface/95 backdrop-blur-md shadow-xl z-50 rounded-sm">
+                      {overflowCollections.map((c) => (
+                        <button
+                          key={c.slug}
+                          type="button"
+                          onClick={() => { setCat(c.slug); setMoreOpen(false); }}
+                          className={cn(
+                            "block w-full text-left px-4 py-3 label-mono transition-colors",
+                            cat === c.slug
+                              ? "bg-primary/15 text-primary"
+                              : "text-foreground hover:bg-elevated hover:text-primary",
+                          )}
+                        >
+                          {c.name}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Sort row */}
+            <div className="flex items-center gap-1 mt-2 border-t border-border/50 pt-2">
+              {sortOptions.map((s) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => {
+                    if (s.id === "price" && sort === "price") {
+                      setPriceDir((d) => (d === "asc" ? "desc" : "asc"));
+                    } else {
+                      setSort(s.id);
+                    }
+                  }}
+                  className={cn(
+                    "flex items-center gap-1 px-3 py-1.5 label-mono text-[10px] transition-all duration-300",
+                    sort === s.id ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  {s.label}
+                  {s.id === "price" && sort === "price" && (
+                    <ChevronDown
+                      className={cn(
+                        "h-3 w-3 transition-transform duration-300",
+                        priceDir === "desc" && "rotate-180",
+                      )}
+                    />
+                  )}
+                  {s.id === "featured" && sort === "featured" && <ChevronDown className="h-3 w-3" />}
+                </button>
+              ))}
+            </div>
           </div>
+
+          {/* ---- DESKTOP: single row with all chips + sort ---- */}
+          <div className="hidden md:flex items-center gap-2">
+            <div className="flex items-center gap-2 overflow-x-auto scrollbar-none">
+              <button
+                type="button"
+                onClick={() => setCat("all")}
+                className={cn(chipBase, cat === "all" ? chipActive : chipInactive)}
+              >
+                All
+              </button>
+              {collections.map((c) => (
+                <button
+                  key={c.slug}
+                  type="button"
+                  onClick={() => setCat(c.slug)}
+                  className={cn(chipBase, cat === c.slug ? chipActive : chipInactive)}
+                >
+                  {c.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Sort */}
+            <div className="ml-auto flex items-center gap-1 shrink-0">
+              {sortOptions.map((s) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => {
+                    if (s.id === "price" && sort === "price") {
+                      setPriceDir((d) => (d === "asc" ? "desc" : "asc"));
+                    } else {
+                      setSort(s.id);
+                    }
+                  }}
+                  className={cn(
+                    "flex items-center gap-1 px-3 py-2 label-mono transition-all duration-300",
+                    sort === s.id ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  {s.label}
+                  {s.id === "price" && sort === "price" && (
+                    <ChevronDown
+                      className={cn(
+                        "h-3 w-3 transition-transform duration-300",
+                        priceDir === "desc" && "rotate-180",
+                      )}
+                    />
+                  )}
+                  {s.id === "featured" && sort === "featured" && <ChevronDown className="h-3 w-3" />}
+                </button>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
 
