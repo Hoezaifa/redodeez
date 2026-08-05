@@ -8,6 +8,7 @@ import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { ProductZoomImage } from "@/components/shop/ProductZoomImage";
+import { SizeChart } from "@/components/shop/SizeChart";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema, breadcrumbSchema } from "@/lib/structuredData";
@@ -47,8 +48,8 @@ export const Route = createFileRoute("/products/$productId")({
 });
 
 /* ─── Expandable Accordion Component ──────────────────────── */
-function AccordionItem({ title, children }: { title: string; children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
+function AccordionItem({ title, children, defaultOpen = false }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
   return (
     <div className="border-b border-border py-4">
       <button
@@ -95,12 +96,23 @@ function ProductPage() {
   ];
 
   const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
-  const availableSizes = isTapestry ? ['24"x36"', '36"x48"', '48"x60"'] : ALL_SIZES;
+  const isDropShoulder =
+    product.subcategory === "drop-shoulder" ||
+    product.subcategory === "acid-wash" ||
+    product.title.toLowerCase().includes("drop shoulder") ||
+    product.title.toLowerCase().includes("acid wash");
+
+  const availableSizes = isTapestry
+    ? ['24"x36"', '36"x48"', '48"x60"']
+    : isDropShoulder
+    ? ["S", "M", "L", "XL"]
+    : ALL_SIZES;
 
   const [size, setSize] = useState<string>(isTapestry ? '36"x48"' : "");
   const [qty, setQty] = useState(1);
   const [active, setActive] = useState(0);
   const [err, setErr] = useState(false);
+  const [showSizeChart, setShowSizeChart] = useState(false);
 
   const needsSize = product.category !== "accessories" && product.subcategory !== "tapestries";
   const wished = wishlist.includes(product.id);
@@ -266,9 +278,19 @@ function ProductPage() {
                 <p className="label-mono uppercase text-xs text-muted-foreground font-bold">
                   Select Size
                 </p>
-                <Link to="/faq" className="label-mono text-xs text-primary hover:underline">
-                  Size Guide
-                </Link>
+                <button
+                  type="button"
+                  onClick={() => setShowSizeChart((prev) => !prev)}
+                  className="label-mono text-xs text-primary hover:underline flex items-center gap-1 cursor-pointer font-bold"
+                >
+                  <span>Size Chart</span>
+                  <ChevronDown
+                    className={cn(
+                      "h-3.5 w-3.5 transition-transform duration-200",
+                      showSizeChart && "rotate-180"
+                    )}
+                  />
+                </button>
               </div>
               <div className="flex flex-wrap gap-2">
                 {availableSizes.map((s) => (
@@ -295,6 +317,21 @@ function ProductPage() {
                   Please select a size to proceed
                 </p>
               )}
+
+              {/* Inline Size Chart Table when toggled */}
+              <AnimatePresence>
+                {showSizeChart && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="overflow-hidden mt-3"
+                  >
+                    <SizeChart isDropShoulder={isDropShoulder} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           )}
 
@@ -367,6 +404,12 @@ function ProductPage() {
 
           {/* Expandable Accordion Sections */}
           <div className="pt-6">
+            {needsSize && (
+              <AccordionItem title="Size Chart (Inches)" defaultOpen={true}>
+                <SizeChart isDropShoulder={isDropShoulder} className="mt-1" />
+              </AccordionItem>
+            )}
+
             <AccordionItem title="Materials & Details">{getMaterialsText()}</AccordionItem>
 
             <AccordionItem title="Shipping Information">
