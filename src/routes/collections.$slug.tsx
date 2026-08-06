@@ -61,7 +61,7 @@ function CollectionPage() {
   }, [slug, sort, priceDir]);
 
   return (
-    <div className="edge pt-4 pb-6 md:py-20">
+    <div className="edge pt-20 pb-6 md:py-20">
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", url: "/" },

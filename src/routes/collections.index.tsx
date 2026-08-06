@@ -82,7 +82,7 @@ function ShopAll() {
   const chipInactive = "border border-border hover:border-primary hover:text-primary";
 
   return (
-    <div className="edge pt-4 pb-6 md:py-20">
+    <div className="edge pt-20 pb-6 md:py-20">
       <SectionHeading
         eyebrow={`${products.length} pieces`}
         title={"Shop\neverything"}
