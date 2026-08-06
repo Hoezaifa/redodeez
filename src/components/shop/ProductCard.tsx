@@ -1,16 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { useState } from "react";
 import { Heart, Plus } from "lucide-react";
 import type { Product } from "@/data/products";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
-import { sizes as ALL_SIZES } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
   const { add, wishlist, toggleWish } = useCart();
-  const [hover, setHover] = useState(false);
   const wished = wishlist.includes(product.id);
   const primary = product.images[0];
   const alt = product.images[1] ?? primary;
@@ -22,9 +19,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-6% 0px" }}
       transition={{ duration: 0.5, delay: (index % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      className="group relative flex flex-col transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_12px_40px_-8px_rgba(0,0,0,0.35)]"
+      className="group relative flex flex-col transition-transform duration-700 ease-out hover:-translate-y-1"
     >
       <div className="relative w-full overflow-hidden bg-surface aspect-[4/5]">
         <Link
@@ -41,7 +36,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
                 height={500}
                 loading="lazy"
                 className={cn(
-                  "absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:scale-105",
+                  "absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-out transform-gpu group-hover:scale-108",
                   alt !== primary && "group-hover:opacity-0",
                 )}
               />
@@ -52,7 +47,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
                   width={400}
                   height={500}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover opacity-0 scale-105 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:opacity-100 group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-1000 ease-out transform-gpu group-hover:opacity-100 group-hover:scale-108"
                 />
               )}
             </>
@@ -62,12 +57,12 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             </div>
           )}
 
-          <div className="absolute left-0 top-0 flex flex-col items-start gap-px p-3">
+          <div className="absolute left-0 top-0 flex flex-col items-start gap-px p-3 z-10">
             {isNew && (
-              <span className="bg-primary px-2 py-1 label-mono text-primary-foreground">New</span>
+              <span className="bg-primary px-2 py-1 label-mono text-primary-foreground text-[10px]">New</span>
             )}
             {product.subcategory === "acid-wash" && (
-              <span className="bg-background/80 px-2 py-1 label-mono text-foreground">1 of 1</span>
+              <span className="bg-background/80 px-2 py-1 label-mono text-foreground text-[10px]">1 of 1</span>
             )}
           </div>
         </Link>
@@ -77,7 +72,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           type="button"
           aria-label={wished ? "Remove from wishlist" : "Add to wishlist"}
           onClick={() => toggleWish(product.id)}
-          className="absolute right-3 top-3 z-10 grid h-8 w-8 sm:h-9 sm:w-9 place-items-center bg-background/70 backdrop-blur-sm transition-colors hover:text-primary active:scale-90"
+          className="absolute right-3 top-3 z-10 grid h-8 w-8 place-items-center bg-background/70 backdrop-blur-sm transition-colors hover:text-primary active:scale-90"
         >
           <Heart
             className={cn(
@@ -87,7 +82,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           />
         </button>
 
-        {/* Quick Add '+' button bottom right of image */}
+        {/* Quick Add '+' button bottom right */}
         <button
           type="button"
           aria-label="Quick Add"
@@ -101,43 +96,13 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
               qty: 1,
             })
           }
-          className="absolute right-2.5 bottom-2.5 z-10 grid h-8 w-8 sm:h-9 sm:w-9 place-items-center rounded-none bg-white text-black shadow-md transition-transform duration-300 hover:scale-110 active:scale-90"
+          className="absolute right-2.5 bottom-2.5 z-10 grid h-8 w-8 place-items-center bg-white text-black shadow-md transition-all duration-300 hover:scale-110 active:scale-90"
         >
-          <Plus className="h-4 w-4 sm:h-5 sm:w-5 stroke-[2.5]" />
+          <Plus className="h-4 w-4 stroke-[2.5]" />
         </button>
-
-        {/* Quick size selector desktop hover */}
-        <motion.div
-          initial={false}
-          animate={{ y: hover ? 0 : 14, opacity: hover ? 1 : 0 }}
-          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="pointer-events-none absolute inset-x-0 bottom-0 hidden px-2 pb-2.5 md:block z-20"
-        >
-          <div className="pointer-events-auto flex items-stretch justify-center gap-px bg-background/90 backdrop-blur-sm">
-            {ALL_SIZES.map((s) => (
-              <button
-                key={s}
-                type="button"
-                onClick={() =>
-                  add({
-                    productId: product.id,
-                    title: product.title,
-                    price: product.price,
-                    image: primary,
-                    size: s,
-                    qty: 1,
-                  })
-                }
-                className="flex-1 py-2 label-mono text-xs transition-colors hover:bg-primary hover:text-primary-foreground"
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        </motion.div>
       </div>
 
-      {/* Card Details — matching deezprints.store placement & layout */}
+      {/* Card Details */}
       <div className="flex flex-col gap-1 py-3 text-left">
         <p className="label-mono text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider">
           {product.subcategory.replace(/-/g, " ")}
