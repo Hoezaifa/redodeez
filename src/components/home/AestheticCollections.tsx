@@ -130,7 +130,7 @@ export function AestheticCollections() {
                     src={card.image}
                     alt={card.title}
                     loading="lazy"
-                    className="h-full w-full object-cover object-right opacity-95 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:scale-105"
+                    className="h-full w-full object-cover object-right opacity-95 transition-transform duration-1000 ease-out transform-gpu group-hover:scale-110"
                   />
                   <div 
                     className="absolute inset-0 z-10" 
@@ -184,7 +184,7 @@ export function AestheticCollections() {
                     src={card.image}
                     alt={card.title}
                     loading="lazy"
-                    className="h-full w-full object-cover opacity-95 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:scale-105"
+                    className="h-full w-full object-cover opacity-95 transition-transform duration-1000 ease-out transform-gpu group-hover:scale-110"
                   />
                   <div 
                     className="absolute inset-0 z-10" 

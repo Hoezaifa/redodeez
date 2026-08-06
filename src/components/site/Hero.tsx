@@ -105,10 +105,10 @@ export function CollectionsStrip() {
                   src={c.image}
                   alt={c.name}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-1000 ease-out transform-gpu group-hover:scale-110"
                 />
               </div>
-              <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent opacity-90 transition-opacity duration-700 group-hover:opacity-75" />
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-6">
                 <div className="min-w-0">
                   <span className="label-mono text-[10px] text-primary tracking-widest uppercase">
