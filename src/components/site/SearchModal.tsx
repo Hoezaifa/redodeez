@@ -144,8 +144,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                           <img
                             src={p.images[0]}
                             alt={p.title}
-                            className="h-full w-full object-cover group-hover:scale-105"
-                            style={{ transition: 'scale 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+                            className="h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:scale-105"
                           />
                         )}
                       </div>

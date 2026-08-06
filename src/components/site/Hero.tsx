@@ -105,8 +105,7 @@ export function CollectionsStrip() {
                   src={c.image}
                   alt={c.name}
                   loading="lazy"
-                  className="h-full w-full object-cover group-hover:scale-[1.06]"
-                  style={{ transition: 'scale 0.9s cubic-bezier(0.16, 1, 0.3, 1)' }}
+                  className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:scale-105"
                 />
               </div>
               <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent opacity-90" />

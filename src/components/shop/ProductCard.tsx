@@ -40,9 +40,8 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
                 width={400}
                 height={500}
                 loading="lazy"
-                style={{ viewTransitionName: `product-img-${product.id}`, transition: 'scale 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease' }}
                 className={cn(
-                  "absolute inset-0 h-full w-full object-cover group-hover:scale-[1.06]",
+                  "absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:scale-105",
                   alt !== primary && "group-hover:opacity-0",
                 )}
               />
@@ -53,8 +52,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
                   width={400}
                   height={500}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover opacity-0 scale-[1.08] group-hover:opacity-100 group-hover:scale-[1.06]"
-                  style={{ transition: 'scale 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease' }}
+                  className="absolute inset-0 h-full w-full object-cover opacity-0 scale-105 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:opacity-100 group-hover:scale-105"
                 />
               )}
             </>
