@@ -105,11 +105,11 @@ export function CollectionsStrip() {
                   src={c.image}
                   alt={c.name}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-1000 ease-out transform-gpu group-hover:scale-110"
+                  className="h-full w-full object-cover img-zoom group-hover:scale-105"
                 />
               </div>
-              <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent opacity-90 transition-opacity duration-700 group-hover:opacity-75" />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-6">
+              <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent opacity-90 transition-opacity duration-700 group-hover:opacity-75 pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-6 pointer-events-none">
                 <div className="min-w-0">
                   <span className="label-mono text-[10px] text-primary tracking-widest uppercase">
                     Featured Drop
@@ -121,7 +121,7 @@ export function CollectionsStrip() {
                     {c.blurb}
                   </p>
                 </div>
-                <span className="grid h-10 w-10 shrink-0 place-items-center bg-primary text-primary-foreground transition-transform duration-500 group-hover:translate-x-1">
+                <span className="grid h-10 w-10 shrink-0 place-items-center bg-primary text-primary-foreground transition-transform duration-500 group-hover:translate-x-1 pointer-events-auto">
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </div>

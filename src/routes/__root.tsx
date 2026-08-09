@@ -5,6 +5,8 @@ import {
   createRootRouteWithContext,
   useRouter,
   useLocation,
+  useMatches,
+  ScrollRestoration,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -143,21 +145,30 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const location = useLocation();
-  const isHome = location.pathname === "/";
-  const isAdmin = location.pathname.startsWith("/admin");
-  const prevPath = useRef(location.pathname);
+  const matches = useMatches();
 
-  // Instant scroll-to-top on every route change
+  const activeMatch = matches[matches.length - 1];
+  const activePath = activeMatch?.pathname ?? location.pathname;
+
+  const isHome = activeMatch ? activeMatch.id === "/" : location.pathname === "/";
+  const isAdmin = activeMatch
+    ? activeMatch.id === "/admin" || activeMatch.id.startsWith("/admin")
+    : location.pathname.startsWith("/admin");
+
+  const prevPath = useRef(activePath);
+
+  // Scroll-to-top only after active route change has committed
   useEffect(() => {
-    if (prevPath.current !== location.pathname) {
+    if (prevPath.current !== activePath) {
       window.scrollTo(0, 0);
-      prevPath.current = location.pathname;
+      prevPath.current = activePath;
     }
-  }, [location.pathname]);
+  }, [activePath]);
 
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
+        <ScrollRestoration />
         {!isAdmin && <JsonLd data={organizationSchema()} />}
         {!isAdmin && <JsonLd data={websiteSchema()} />}
         {!isHome && !isAdmin && <Header />}

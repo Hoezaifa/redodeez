@@ -116,16 +116,16 @@ export function AestheticCollections() {
                     src={card.image}
                     alt={card.title}
                     loading="lazy"
-                    className="h-full w-full object-cover object-right opacity-95 transition-transform duration-1000 ease-out transform-gpu group-hover:scale-110"
+                    className="h-full w-full object-cover object-right opacity-95 img-zoom group-hover:scale-105"
                   />
                   <div 
-                    className="absolute inset-0 z-10" 
+                    className="absolute inset-0 z-10 pointer-events-none" 
                     style={{ background: 'linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 25%, transparent 45%)' }} 
                   />
                 </div>
 
                 {/* Card Left Text Overlay */}
-                <div className="relative z-20 space-y-3 max-w-[70%] text-left pt-1 pl-1">
+                <div className="relative z-20 space-y-3 max-w-[70%] text-left pt-1 pl-1 pointer-events-none">
                   <h3 className="font-display text-3xl sm:text-4xl font-extrabold uppercase tracking-tight leading-[0.88] drop-shadow-md">
                     <span className="block text-white">{word1}</span>
                     {word2 && <span className="block text-primary">{word2}</span>}
@@ -139,7 +139,7 @@ export function AestheticCollections() {
                 </div>
 
                 {/* Bottom Button */}
-                <div className="relative z-20 pt-4 pl-1 pb-1">
+                <div className="relative z-20 pt-4 pl-1 pb-1 pointer-events-none">
                   <span className="inline-flex items-center gap-2 border border-zinc-700/70 bg-zinc-900/90 px-4 py-2 label-mono text-[11px] font-bold text-white uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground">
                     EXPLORE <ArrowRight className="h-3.5 w-3.5" />
                   </span>
@@ -161,7 +161,7 @@ export function AestheticCollections() {
                 src={MOCKUP_IMG}
                 alt="Custom Print"
                 loading="lazy"
-                className="h-full w-full object-cover object-center opacity-60 transition-transform duration-1000 ease-out transform-gpu group-hover:scale-105"
+                className="h-full w-full object-cover object-center opacity-60 img-zoom group-hover:scale-105"
               />
               {/* Dark overlay — lighter to let the banner show */}
               <div
@@ -242,16 +242,16 @@ export function AestheticCollections() {
                       src={card.image}
                       alt={card.title}
                       loading="lazy"
-                      className="h-full w-full object-cover opacity-95 transition-transform duration-1000 ease-out transform-gpu group-hover:scale-110"
+                      className="h-full w-full object-cover opacity-95 img-zoom group-hover:scale-105"
                     />
                     <div 
-                      className="absolute inset-0 z-10" 
+                      className="absolute inset-0 z-10 pointer-events-none" 
                       style={{ background: 'linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 25%, transparent 45%)' }} 
                     />
                   </div>
 
                   {/* Card Content Top */}
-                  <div className="relative z-20 space-y-4 text-left max-w-sm">
+                  <div className="relative z-20 space-y-4 text-left max-w-sm pointer-events-none">
                     <h3 className="font-display text-4xl lg:text-5xl font-black uppercase tracking-tight leading-[0.88] drop-shadow-md">
                       <span className="block text-white">{word1}</span>
                       {word2 && <span className="block text-primary">{word2}</span>}
@@ -265,7 +265,7 @@ export function AestheticCollections() {
                   </div>
 
                   {/* Card Action Bottom */}
-                  <div className="relative z-20 pt-6">
+                  <div className="relative z-20 pt-6 pointer-events-none">
                     <span className="inline-flex items-center gap-2.5 rounded-none border border-zinc-700/70 bg-zinc-900/90 px-6 py-3 label-mono text-xs font-bold text-white uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground group-hover:translate-x-1">
                       EXPLORE <ArrowRight className="h-4 w-4" />
                     </span>
@@ -288,7 +288,7 @@ export function AestheticCollections() {
                 src={MOCKUP_IMG}
                 alt="Custom Print Banner"
                 loading="lazy"
-                className="h-full w-full object-cover object-center opacity-70 transition-transform duration-1000 ease-out transform-gpu group-hover:scale-105"
+                className="h-full w-full object-cover object-center opacity-70 img-zoom group-hover:scale-105"
               />
               {/* Dark gradient — strong on left for text readability, fading to let image show on right */}
               <div

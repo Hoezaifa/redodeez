@@ -36,7 +36,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
                 height={500}
                 loading="lazy"
                 className={cn(
-                  "absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-out transform-gpu group-hover:scale-108",
+                  "absolute inset-0 h-full w-full object-cover img-zoom group-hover:scale-105",
                   alt !== primary && "group-hover:opacity-0",
                 )}
               />
@@ -47,7 +47,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
                   width={400}
                   height={500}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-1000 ease-out transform-gpu group-hover:opacity-100 group-hover:scale-108"
+                  className="absolute inset-0 h-full w-full object-cover opacity-0 img-zoom group-hover:opacity-100 group-hover:scale-105"
                 />
               )}
             </>
@@ -57,7 +57,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             </div>
           )}
 
-          <div className="absolute left-0 top-0 flex flex-col items-start gap-px p-3 z-10">
+          <div className="absolute left-0 top-0 flex flex-col items-start gap-px p-3 z-10 pointer-events-none">
             {isNew && (
               <span className="bg-primary px-2 py-1 label-mono text-primary-foreground text-[10px]">New</span>
             )}
