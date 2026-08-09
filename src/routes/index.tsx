@@ -70,9 +70,9 @@ function Home() {
       />
       */}
 
-      {/* Custom printing */}
+      {/* Hidden: Old custom printing section — kept for potential future use */}
+      {/*
       <section className="border-t border-border bg-surface relative overflow-hidden">
-        {/* Continuous Horizontal Moving Marquee Banner */}
         <div className="overflow-hidden border-b border-border bg-background py-3.5">
           <div className="flex whitespace-nowrap">
             <div className="flex animate-marquee">
@@ -98,6 +98,7 @@ function Home() {
 
         <CustomPrintSection />
       </section>
+      */}
 
       <ProductRow
         eyebrow="Wall art"
