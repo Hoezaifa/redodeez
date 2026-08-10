@@ -522,17 +522,12 @@ function CustomPrint() {
                     type="button"
                     onClick={() => handleSelectBase(b.id)}
                     className={cn(
-                      "relative flex items-center gap-3.5 border rounded-lg p-3 text-left transition-all cursor-pointer",
+                      "relative flex items-center justify-between border rounded-lg p-3.5 text-left transition-all cursor-pointer",
                       selected
                         ? "border-primary bg-zinc-900/90 shadow-md shadow-primary/5"
                         : "border-zinc-800/80 bg-zinc-900/30 hover:border-zinc-700 hover:bg-zinc-900/60",
                     )}
                   >
-                    {/* Thumbnail Image */}
-                    <div className="h-12 w-12 rounded-md bg-zinc-950 overflow-hidden border border-zinc-800 shrink-0">
-                      <img src={b.image} alt={b.label} className="h-full w-full object-cover" />
-                    </div>
-
                     <div className="flex-1 min-w-0">
                       <span className="font-display font-black text-xs uppercase tracking-wider text-white block">
                         {b.label}
@@ -542,9 +537,9 @@ function CustomPrint() {
                       </span>
                     </div>
 
-                    {/* Active checkmark badge top right */}
+                    {/* Active checkmark badge right */}
                     {selected && (
-                      <span className="grid h-5 w-5 place-items-center rounded-full bg-primary text-black shrink-0">
+                      <span className="grid h-5 w-5 place-items-center rounded-full bg-primary text-black shrink-0 ml-3">
                         <Check className="h-3 w-3 stroke-[3]" />
                       </span>
                     )}
