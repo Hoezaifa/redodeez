@@ -230,25 +230,18 @@ function CustomPrint() {
                     type="button"
                     onClick={() => handleSelectBase(b.id)}
                     className={cn(
-                      "flex items-center gap-2.5 p-2.5 rounded-lg border transition-all text-left cursor-pointer",
+                      "flex flex-col justify-center px-3 py-2.5 rounded-lg border transition-all text-center cursor-pointer",
                       selected
                         ? "border-primary bg-primary/10 text-white font-bold shadow-sm"
                         : "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-zinc-700 hover:text-white",
                     )}
                   >
-                    <img
-                      src={b.image}
-                      alt={b.label}
-                      className="h-8 w-8 rounded object-cover shrink-0 border border-zinc-800"
-                    />
-                    <div className="min-w-0 flex-1">
-                      <span className="font-display font-black text-[11px] uppercase tracking-wider block truncate text-white">
-                        {b.label}
-                      </span>
-                      <span className="text-[9px] text-zinc-400 block truncate font-sans">
-                        {b.isClothing ? "Apparel" : "Wall Art"}
-                      </span>
-                    </div>
+                    <span className="font-display font-black text-[11px] uppercase tracking-wider block truncate text-white">
+                      {b.label}
+                    </span>
+                    <span className="text-[9px] text-zinc-400 block truncate font-sans mt-0.5">
+                      {b.isClothing ? "Apparel" : "Wall Art"}
+                    </span>
                   </button>
                 );
               })}
