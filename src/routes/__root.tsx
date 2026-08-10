@@ -171,7 +171,7 @@ function RootComponent() {
         <ScrollRestoration />
         {!isAdmin && <JsonLd data={organizationSchema()} />}
         {!isAdmin && <JsonLd data={websiteSchema()} />}
-        {!isHome && !isAdmin && <Header />}
+        {!isAdmin && <Header />}
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <main id="main-content" className={isAdmin ? "" : "min-h-screen overflow-x-hidden"}>
           <Outlet />

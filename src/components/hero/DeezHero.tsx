@@ -1,36 +1,10 @@
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
-import { useEffect, useRef, useState } from "react";
-import { Search, ShoppingBag, ChevronDown, ArrowRight, Menu, X } from "lucide-react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import heroModel from "@/assets/hero-model.jpg";
-import { useCart } from "@/lib/cart";
-import { LOGO_URL } from "@/data/site";
-import { SearchModal } from "@/components/site/SearchModal";
 
 /* ─── Constants ─────────────────────────────────────────────── */
-
-const navLinks = [
-  {
-    name: "T-SHIRTS",
-    href: "/collections/t-shirts",
-    subcategories: [
-      { name: "Regular Fit", href: "/collections/regular" },
-      { name: "Drop Shoulder", href: "/collections/drop-shoulder" },
-      { name: "Acid Wash", href: "/collections/acid-wash" },
-    ],
-  },
-  { name: "HOODIES", href: "/collections/hoodies" },
-  {
-    name: "ACCESSORIES",
-    href: "/collections/accessories",
-    subcategories: [
-      { name: "Mugs", href: "/collections/mugs" },
-      { name: "Tapestries", href: "/collections/tapestries" },
-    ],
-  },
-  { name: "CUSTOM PRINT", href: "/custom-print" },
-  { name: "ABOUT", href: "/about" },
-];
 
 const features = [
   "Oversized Fits",
@@ -41,187 +15,6 @@ const features = [
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
-
-/* ─── Navbar ─────────────────────────────────────────────────── */
-
-function Navbar({ scrolled, onOpenSearch }: { scrolled: boolean; onOpenSearch: () => void }) {
-  const { count, setDrawerOpen } = useCart();
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  return (
-    <header
-      className={`sticky top-0 z-40 w-full transition-all duration-500 ${
-        scrolled
-          ? "bg-[color:var(--ink-0)]/95 backdrop-blur-lg border-b border-white/[0.08] shadow-[0_1px_0_rgba(255,255,255,0.04)]"
-          : "bg-[color:var(--ink-0)] border-b border-white/[0.05]"
-      }`}
-    >
-      <div className="mx-auto flex h-[62px] max-w-[1440px] items-center justify-between gap-6 px-6 md:px-10">
-        {/* Logo image */}
-        <Link
-          to="/"
-          aria-label="Deez Prints — Home"
-          className="flex items-center shrink-0 active:scale-95 transition-transform"
-        >
-          <img src={LOGO_URL} alt="Deez Prints" className="h-7 w-auto md:h-8" />
-        </Link>
-
-        {/* Center nav matching original deezprints.store */}
-        <nav aria-label="Primary" className="hidden items-center justify-center gap-2 lg:flex flex-1">
-          {navLinks.map((item) => (
-            <div
-              key={item.name}
-              className="relative group"
-              onMouseEnter={() => setOpenDropdown(item.name)}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <Link
-                to={item.href}
-                className="relative z-10 inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white/70 transition-colors duration-300 hover:text-white whitespace-nowrap"
-              >
-                {item.name}
-                {item.subcategories && (
-                  <ChevronDown
-                    className="h-3 w-3 text-white/50 transition-transform duration-300 group-hover:rotate-180 group-hover:text-white"
-                    strokeWidth={2.5}
-                  />
-                )}
-              </Link>
-
-              {/* Hover Highlight Pill */}
-              <span className="absolute inset-0 bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 -z-0" />
-
-              {/* Dropdown matching original deezprints.store */}
-              {item.subcategories && openDropdown === item.name && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-zinc-950/95 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.8)] z-50 p-2">
-                  {item.subcategories.map((sub) => (
-                    <Link
-                      key={sub.name}
-                      to={sub.href}
-                      className="block px-3.5 py-2.5 text-xs font-semibold text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-all"
-                    >
-                      {sub.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
-
-        {/* Right — icon-only actions */}
-        <div className="ml-auto flex items-center gap-1 shrink-0">
-          {/* Search */}
-          <button
-            type="button"
-            onClick={onOpenSearch}
-            aria-label="Search"
-            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-none text-white/60 transition-colors duration-200 hover:text-white hover:bg-white/[0.06] active:scale-90"
-          >
-            <Search className="h-[17px] w-[17px]" strokeWidth={2} />
-          </button>
-
-
-          {/* Cart */}
-          <button
-            type="button"
-            aria-label={`Cart — ${count} item${count !== 1 ? "s" : ""}`}
-            onClick={() => setDrawerOpen(true)}
-            className="relative flex h-9 w-9 cursor-pointer items-center justify-center rounded-none text-white/60 transition-colors duration-200 hover:text-white hover:bg-white/[0.06]"
-          >
-            <ShoppingBag className="h-[17px] w-[17px]" strokeWidth={2} />
-            {count > 0 && (
-              <span className="absolute right-0.5 top-0.5 grid h-[15px] w-[15px] place-items-center rounded-full bg-[color:var(--accent)] text-[8px] font-black leading-none text-black">
-                {count}
-              </span>
-            )}
-          </button>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            type="button"
-            aria-label="Menu"
-            onClick={() => setMenuOpen(true)}
-            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-none text-white/60 transition-colors duration-200 hover:text-white hover:bg-white/[0.06] lg:hidden"
-          >
-            <Menu className="h-[18px] w-[18px]" strokeWidth={2} />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Slide-Out Menu Drawer */}
-      <AnimatePresence>
-        {menuOpen && (
-          <div className="fixed inset-0 z-50 lg:hidden">
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMenuOpen(false)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-md"
-            />
-
-            {/* Menu Panel */}
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 280 }}
-              className="fixed top-0 left-0 h-full w-[85vw] max-w-xs bg-zinc-950 border-r border-white/10 p-6 flex flex-col justify-between overflow-y-auto shadow-2xl"
-            >
-              <div className="space-y-6">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <img src={LOGO_URL} alt="Deez Prints" className="h-6 w-auto" />
-                  <button
-                    onClick={() => setMenuOpen(false)}
-                    className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
-                  >
-                    <X className="h-5 w-5" />
-                  </button>
-                </div>
-
-                <nav className="flex flex-col space-y-1">
-                  {navLinks.map((item) => (
-                    <div key={item.name} className="py-1 border-b border-white/5">
-                      <Link
-                        to={item.href}
-                        onClick={() => setMenuOpen(false)}
-                        className="block text-sm font-extrabold uppercase tracking-wider text-zinc-200 hover:text-orange-500 py-1.5"
-                      >
-                        {item.name}
-                      </Link>
-                      {item.subcategories && (
-                        <div className="pl-3 py-1 space-y-1">
-                          {item.subcategories.map((sub) => (
-                            <Link
-                              key={sub.name}
-                              to={sub.href}
-                              onClick={() => setMenuOpen(false)}
-                              className="block text-xs font-semibold text-zinc-400 hover:text-white py-1"
-                            >
-                              • {sub.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </nav>
-              </div>
-
-              <div className="pt-6 border-t border-white/10 space-y-2 text-xs text-zinc-400">
-                <p className="font-bold text-white uppercase tracking-wider">Karachi Print Studio</p>
-                <p>Oversized streetwear & custom prints delivered across Pakistan.</p>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-    </header>
-  );
-}
 
 /* ─── Geometric Accent Lines (SVG overlay) ───────────────────── */
 
@@ -285,18 +78,9 @@ function AccentLines() {
 /* ─── Main Hero Export ───────────────────────────────────────── */
 
 export function DeezHero() {
-  const [scrolled, setScrolled] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], [0, 55]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const lineVariants = {
     hidden: { y: "108%", opacity: 0 },
@@ -308,17 +92,13 @@ export function DeezHero() {
   };
 
   return (
-    <>
-      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
-      <div
-        ref={ref}
-        className="relative min-h-screen overflow-hidden bg-[color:var(--ink-0)] text-white"
-      >
-        <Navbar scrolled={scrolled} onOpenSearch={() => setSearchOpen(true)} />
-
-        {/* ── Hero canvas ── */}
-        {/* ── MOBILE HERO (< md) ── */}
-        <div className="flex flex-col md:hidden bg-[color:var(--ink-0)] text-white">
+    <div
+      ref={ref}
+      className="relative min-h-screen overflow-hidden bg-[color:var(--ink-0)] text-white"
+    >
+      {/* ── Hero canvas ── */}
+      {/* ── MOBILE HERO (< md) ── */}
+      <div className="flex flex-col md:hidden bg-[color:var(--ink-0)] text-white pt-16">
           {/* Photography Frame */}
           <div className="relative w-full aspect-[4/5] max-h-[460px] overflow-hidden bg-[color:var(--ink-0)]">
             <img
@@ -591,8 +371,7 @@ export function DeezHero() {
           </div>
         </div>
       </div>
-    </>
-  );
+    );
 }
 
 export default DeezHero;
