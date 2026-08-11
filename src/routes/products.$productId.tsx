@@ -96,14 +96,17 @@ function ProductPage() {
   ];
 
   const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
+  const isAcidWash =
+    product.subcategory === "acid-wash" ||
+    product.title.toLowerCase().includes("acid wash");
   const isDropShoulder =
     product.subcategory === "drop-shoulder" ||
-    product.subcategory === "acid-wash" ||
-    product.title.toLowerCase().includes("drop shoulder") ||
-    product.title.toLowerCase().includes("acid wash");
+    product.title.toLowerCase().includes("drop shoulder");
 
   const availableSizes = isTapestry
     ? ['24"x36"', '36"x48"', '48"x60"']
+    : isAcidWash
+    ? ["S", "M", "L"]
     : isDropShoulder
     ? ["S", "M", "L", "XL"]
     : ALL_SIZES;

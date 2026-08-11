@@ -82,6 +82,7 @@ const bases = [
 ];
 
 const clothingSizes = ["S", "M", "L", "XL", "XXL"];
+const acidWashSizes = ["S", "M", "L"];
 const tapestrySizes = ["3x2 ft", "4x3 ft", "5x3 ft", "6x4 ft"];
 
 const colorOptions = [
@@ -93,6 +94,12 @@ const colorOptions = [
   { id: "dark-green", name: "Dark Green", colorHex: "#14532d" },
   { id: "beige", name: "Beige", colorHex: "#d6c0b3" },
   { id: "vintage-gray", name: "Vintage Gray", colorHex: "#52525b" },
+];
+
+const acidWashColorOptions = [
+  { id: "black", name: "Black", colorHex: "#0a0a0a" },
+  { id: "grey", name: "Grey", colorHex: "#52525b" },
+  { id: "maroon", name: "Maroon", colorHex: "#6b1d2f" },
 ];
 
 interface UploadedFile {
@@ -120,7 +127,10 @@ function CustomPrint() {
 
   const selectedBase = bases.find((b) => b.id === base)!;
   const isClothing = selectedBase.isClothing;
+  const isAcidWash = base === "acid-wash";
   const maxAllowedFiles = isClothing ? 2 : 1;
+  const availableClothingSizes = isAcidWash ? acidWashSizes : clothingSizes;
+  const availableColors = isAcidWash ? acidWashColorOptions : colorOptions;
   const currentSize = isClothing ? clothingSize : tapestrySize;
   const placementText = !isClothing
     ? "Wall Print"
@@ -132,6 +142,11 @@ function CustomPrint() {
     setBase(newBaseId);
     if (newBaseId === "tapestry" && files.length > 1) {
       setFiles((prev) => prev.slice(0, 1));
+    }
+    // Auto-reset size/color when switching to acid-wash
+    if (newBaseId === "acid-wash") {
+      if (!acidWashSizes.includes(clothingSize)) setClothingSize("L");
+      if (!acidWashColorOptions.some((c) => c.name === color)) setColor("Black");
     }
   }
 
@@ -555,7 +570,7 @@ function CustomPrint() {
               2. SELECT COLOR
             </label>
             <div className="flex flex-wrap gap-2">
-              {colorOptions.map((c) => {
+              {availableColors.map((c) => {
                 const selected = color === c.name;
                 return (
                   <button
@@ -586,8 +601,8 @@ function CustomPrint() {
               3. SELECT SIZE
             </label>
             {isClothing ? (
-              <div className="grid grid-cols-5 gap-2">
-                {clothingSizes.map((s) => {
+              <div className={`grid gap-2 ${isAcidWash ? "grid-cols-3" : "grid-cols-5"}`}>
+                {availableClothingSizes.map((s) => {
                   const selected = clothingSize === s;
                   return (
                     <button

@@ -180,7 +180,7 @@ export const faqs = [
   {
     q: "What sizes are available and how do drop-shoulder tees fit?",
     category: "Sizing",
-    a: "Our sizes range from S to XXL. Drop shoulder and acid wash tees feature a relaxed, luxury streetwear oversized fit with heavy 240+ GSM cotton. If you prefer a regular tailored fit, we recommend sizing down.",
+    a: "Our sizes range from S to XXL. Drop shoulder tees are available in S–XL, and acid wash tees in S–L. Both feature a relaxed, luxury streetwear oversized fit with heavy 240+ GSM cotton. Acid wash tees are available in Black, Grey, and Maroon. If you prefer a regular tailored fit, we recommend sizing down.",
   },
   {
     q: "Where are Deez Prints garments manufactured?",
