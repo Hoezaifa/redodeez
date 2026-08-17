@@ -3,6 +3,14 @@ import type {} from "@tanstack/react-start";
 import { SITE_URL } from "@/data/site";
 import { getProducts } from "@/data/products";
 
+function toAbsoluteImageUrl(url: string): string {
+  if (!url) return "";
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url;
+  }
+  return `${SITE_URL}${url.startsWith("/") ? "" : "/"}${url}`;
+}
+
 export const Route = createFileRoute("/products-feed.xml")({
   server: {
     handlers: {
@@ -12,7 +20,8 @@ export const Route = createFileRoute("/products-feed.xml")({
 
         const items = activeProducts.map((p) => {
           const productUrl = `${SITE_URL}/products/${p.id}`;
-          const primaryImage = p.images[0] ?? "";
+          const uniqueImages = Array.from(new Set((p.images || []).map(toAbsoluteImageUrl).filter(Boolean)));
+          const primaryImage = uniqueImages[0] ?? "";
           const subcatLabel = p.subcategory.replace(/-/g, " ");
           const description =
             p.description ||
@@ -25,7 +34,7 @@ export const Route = createFileRoute("/products-feed.xml")({
             `      <description>${escapeXml(description)}</description>`,
             `      <link>${escapeXml(productUrl)}</link>`,
             `      <g:image_link>${escapeXml(primaryImage)}</g:image_link>`,
-            ...p.images.slice(1, 10).map((img) => `      <g:additional_image_link>${escapeXml(img)}</g:additional_image_link>`),
+            ...uniqueImages.slice(1, 10).map((img) => `      <g:additional_image_link>${escapeXml(img)}</g:additional_image_link>`),
             `      <g:price>${p.price} PKR</g:price>`,
             `      <g:condition>new</g:condition>`,
             `      <g:availability>in_stock</g:availability>`,

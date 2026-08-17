@@ -11,6 +11,14 @@ interface SitemapEntry {
   images?: Array<{ url: string; title?: string }>;
 }
 
+function toAbsoluteImageUrl(url: string): string {
+  if (!url) return "";
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url;
+  }
+  return `${SITE_URL}${url.startsWith("/") ? "" : "/"}${url}`;
+}
+
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
@@ -39,15 +47,28 @@ export const Route = createFileRoute("/sitemap.xml")({
             changefreq: "weekly" as const,
             priority: "0.8",
           })),
-          ...activeProducts.map((p) => ({
-            path: `/products/${p.id}`,
-            changefreq: "weekly" as const,
-            priority: "0.8",
-            images: p.images.slice(0, 3).map((imgUrl) => ({
-              url: imgUrl,
-              title: `${p.title} — Deez Prints`,
-            })),
-          })),
+          ...activeProducts.map((p) => {
+            const seen = new Set<string>();
+            const images: Array<{ url: string; title: string }> = [];
+
+            for (const rawUrl of p.images) {
+              const absUrl = toAbsoluteImageUrl(rawUrl);
+              if (absUrl && !seen.has(absUrl)) {
+                seen.add(absUrl);
+                images.push({
+                  url: absUrl,
+                  title: `${p.title} — Deez Prints`,
+                });
+              }
+            }
+
+            return {
+              path: `/products/${p.id}`,
+              changefreq: "weekly" as const,
+              priority: "0.8",
+              images,
+            };
+          }),
         ];
 
         const urls = entries.map((e) => {

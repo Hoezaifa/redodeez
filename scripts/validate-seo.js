@@ -67,11 +67,12 @@ check("structuredData.ts uses SITE_URL and has NO fabricated aggregateRating pro
   return usesSiteUrl && noFakeRating;
 });
 
-// 5. sitemap[.]xml.ts uses SITE_URL and includes image schema
-check("sitemap route uses SITE_URL and includes Google image sitemap schema", () => {
+// 5. sitemap[.]xml.ts uses SITE_URL, converts images to absolute URLs, and includes image schema
+check("sitemap route uses SITE_URL, converts images to absolute URLs, and includes Google image sitemap schema", () => {
   const content = fs.readFileSync(path.join(rootDir, "src/routes/sitemap[.]xml.ts"), "utf8");
   return (
     content.includes("SITE_URL") &&
+    content.includes("toAbsoluteImageUrl") &&
     !content.includes("request.headers.get") &&
     content.includes("http://www.google.com/schemas/sitemap-image/1.1")
   );
