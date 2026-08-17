@@ -1,4 +1,4 @@
-import { prisma } from "../lib/db";
+import { prisma, getNeonSql } from "../lib/db";
 import type { StoredOrder, OrderStatus, AdminSettings, StatusHistoryEntry } from "../lib/ordersStore";
 import { sendOrderEmailNotification } from "./notifications/sendEmailOrder";
 
@@ -382,15 +382,28 @@ export type ProductOverrideData = {
 
 export async function getProductOverridesFromDb(): Promise<Record<string, ProductOverrideData>> {
   try {
-    const rows = await prisma.productOverride.findMany();
+    const sql = getNeonSql();
+    const rows = await sql`
+      SELECT id, data FROM product_overrides;
+    `;
     const result: Record<string, ProductOverrideData> = {};
     for (const row of rows) {
-      result[row.id] = row.data as ProductOverrideData;
+      result[row.id as string] = row.data as ProductOverrideData;
     }
     return result;
   } catch (err) {
-    console.error("Error fetching product overrides from DB:", err);
-    return {};
+    console.warn("Neon HTTP fetch failed, trying Prisma fallback:", err);
+    try {
+      const rows = await prisma.productOverride.findMany();
+      const result: Record<string, ProductOverrideData> = {};
+      for (const row of rows) {
+        result[row.id] = row.data as ProductOverrideData;
+      }
+      return result;
+    } catch (fallbackErr) {
+      console.error("Error fetching product overrides from DB:", fallbackErr);
+      return {};
+    }
   }
 }
 
@@ -399,15 +412,34 @@ export async function saveProductOverrideToDb(
   data: ProductOverrideData
 ): Promise<{ ok: boolean; data?: ProductOverrideData; error?: string }> {
   try {
-    const row = await prisma.productOverride.upsert({
-      where: { id: productId },
-      update: { data: data as any },
-      create: { id: productId, data: data as any },
-    });
-    return { ok: true, data: row.data as ProductOverrideData };
+    const sql = getNeonSql();
+    await sql`
+      CREATE TABLE IF NOT EXISTS product_overrides (
+        id TEXT PRIMARY KEY,
+        data JSONB NOT NULL,
+        "updatedAt" TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+      );
+    `;
+    await sql`
+      INSERT INTO product_overrides (id, data, "updatedAt")
+      VALUES (${productId}, ${JSON.stringify(data)}, NOW())
+      ON CONFLICT (id) DO UPDATE
+      SET data = EXCLUDED.data, "updatedAt" = NOW();
+    `;
+    return { ok: true, data };
   } catch (err: any) {
-    console.error("Error saving product override to DB:", err);
-    return { ok: false, error: err?.message || "Unknown error" };
+    console.warn("Neon HTTP save failed, trying Prisma fallback:", err);
+    try {
+      const row = await prisma.productOverride.upsert({
+        where: { id: productId },
+        update: { data: data as any },
+        create: { id: productId, data: data as any },
+      });
+      return { ok: true, data: row.data as ProductOverrideData };
+    } catch (fallbackErr: any) {
+      console.error("Error saving product override to DB:", fallbackErr);
+      return { ok: false, error: fallbackErr?.message || "Unknown error" };
+    }
   }
 }
 
@@ -415,13 +447,21 @@ export async function deleteProductOverrideFromDb(
   productId: string
 ): Promise<{ ok: boolean; error?: string }> {
   try {
-    await prisma.productOverride.delete({ where: { id: productId } });
+    const sql = getNeonSql();
+    await sql`
+      DELETE FROM product_overrides WHERE id = ${productId};
+    `;
     return { ok: true };
   } catch (err: any) {
-    // If it doesn't exist, that's fine
-    if (err?.code === "P2025") return { ok: true };
-    console.error("Error deleting product override from DB:", err);
-    return { ok: false, error: err?.message || "Unknown error" };
+    console.warn("Neon HTTP delete failed, trying Prisma fallback:", err);
+    try {
+      await prisma.productOverride.delete({ where: { id: productId } });
+      return { ok: true };
+    } catch (fallbackErr: any) {
+      if (fallbackErr?.code === "P2025") return { ok: true };
+      console.error("Error deleting product override from DB:", fallbackErr);
+      return { ok: false, error: fallbackErr?.message || "Unknown error" };
+    }
   }
 }
 
