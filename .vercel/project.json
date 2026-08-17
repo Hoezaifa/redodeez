@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_iNSn4OL9f8KKfg8CaynHMhBsx4pB",
+  "orgId": "team_6eWLVgE7s38CqHAQArMR4TlS",
+  "projectName": "deez-prints-main",
+  "settings": {
+    "createdAt": 1785435552091,
+    "framework": "vite",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "22.x"
+  }
+}
