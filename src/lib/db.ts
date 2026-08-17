@@ -4,11 +4,10 @@ import pg from "pg";
 import fs from "node:fs";
 import path from "node:path";
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined;
-};
+const DEFAULT_DB_URL =
+  "postgresql://neondb_owner:npg_XELBlR3dY0bZ@ep-young-night-axlldcs2-pooler.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require";
 
-function getDbUrl(): string {
+function resolveDbUrl(): string {
   if (process.env.DATABASE_URL) return process.env.DATABASE_URL;
   try {
     const envPath = path.resolve(process.cwd(), ".env");
@@ -28,25 +27,34 @@ function getDbUrl(): string {
   } catch {
     /* ignore */
   }
-  return "postgresql://neondb_owner:npg_XELBlR3dY0bZ@ep-young-night-axlldcs2-pooler.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require";
+  return DEFAULT_DB_URL;
 }
 
+// Guarantee process.env.DATABASE_URL is set at module load time
+const activeDbUrl = resolveDbUrl();
+process.env.DATABASE_URL = activeDbUrl;
+process.env.DIRECT_URL = activeDbUrl.replace("-pooler", "");
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined;
+};
+
 export function getPrismaClient(): PrismaClient {
-  if (globalForPrisma.prisma && (globalForPrisma.prisma as any).productOverride) {
+  if (globalForPrisma.prisma) {
     return globalForPrisma.prisma;
   }
 
-  const url = getDbUrl();
-  process.env.DATABASE_URL = url;
-  process.env.DIRECT_URL = url.replace("-pooler", "");
+  const pool = new pg.Pool({
+    connectionString: activeDbUrl,
+    ssl: { rejectUnauthorized: false },
+    max: 10,
+    idleTimeoutMillis: 30000,
+  });
 
-  const pool = new pg.Pool({ connectionString: url });
   const adapter = new PrismaPg(pool);
   const client = new PrismaClient({ adapter });
 
-  if (process.env.NODE_ENV !== "production") {
-    globalForPrisma.prisma = client;
-  }
+  globalForPrisma.prisma = client;
   return client;
 }
 
