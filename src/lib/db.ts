@@ -1,4 +1,6 @@
 import { PrismaClient } from "@prisma/client";
+import { PrismaNeon } from "@prisma/adapter-neon";
+import { neon } from "@neondatabase/serverless";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -38,7 +40,9 @@ export function getPrismaClient(): PrismaClient {
   process.env.DATABASE_URL = url;
   process.env.DIRECT_URL = url.replace("-pooler", "");
 
-  const client = new PrismaClient();
+  const sql = neon(url);
+  const adapter = new PrismaNeon(sql);
+  const client = new PrismaClient({ adapter });
 
   if (process.env.NODE_ENV !== "production") {
     globalForPrisma.prisma = client;
