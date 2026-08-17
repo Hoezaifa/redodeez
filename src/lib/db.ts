@@ -1,7 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { PrismaPg } from "@prisma/adapter-pg";
 import { neon } from "@neondatabase/serverless";
-import pg from "pg";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -31,7 +29,6 @@ function resolveDbUrl(): string {
   return DEFAULT_DB_URL;
 }
 
-// Guarantee process.env.DATABASE_URL is set at module load time
 export const activeDbUrl = resolveDbUrl();
 process.env.DATABASE_URL = activeDbUrl;
 process.env.DIRECT_URL = activeDbUrl.replace("-pooler", "");
@@ -48,17 +45,7 @@ export function getPrismaClient(): PrismaClient {
   if (globalForPrisma.prisma) {
     return globalForPrisma.prisma;
   }
-
-  const pool = new pg.Pool({
-    connectionString: activeDbUrl,
-    ssl: { rejectUnauthorized: false },
-    max: 10,
-    idleTimeoutMillis: 30000,
-  });
-
-  const adapter = new PrismaPg(pool);
-  const client = new PrismaClient({ adapter });
-
+  const client = new PrismaClient();
   globalForPrisma.prisma = client;
   return client;
 }
