@@ -1,13 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useRef, useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { products } from "@/data/products";
-import { collections, site } from "@/data/site";
+import { getProducts, type Product } from "@/data/products";
+import { collections, site, SITE_URL } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/collections/")({
+  loader: async () => {
+    const allProducts = await getProducts();
+    return { allProducts };
+  },
   head: () => ({
     meta: [
       { title: "Shop All — Deez Prints Streetwear Catalogue" },
@@ -18,7 +22,10 @@ export const Route = createFileRoute("/collections/")({
       },
       { property: "og:title", content: "Shop All — Deez Prints" },
       { property: "og:description", content: "Every tee, hoodie, jersey and print in one place." },
+      { property: "og:url", content: `${SITE_URL}/collections` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/collections` }],
   }),
   component: ShopAll,
 });
@@ -34,6 +41,7 @@ const sortOptions = [
 const VISIBLE_COUNT = 3;
 
 function ShopAll() {
+  const { allProducts } = Route.useLoaderData();
   const [cat, setCat] = useState<string>("all");
   const [sort, setSort] = useState<string>("featured");
   const [priceDir, setPriceDir] = useState<"asc" | "desc">("asc");
@@ -59,7 +67,7 @@ function ShopAll() {
 
   const list = useMemo(() => {
     const c = collections.find((x) => x.slug === cat);
-    const filtered = c ? products.filter((p) => c.match(p)) : products;
+    const filtered = c ? allProducts.filter((p) => c.match(p)) : allProducts;
     const sorted = [...filtered];
     if (sort === "price") {
       sorted.sort((a, b) => (priceDir === "asc" ? a.price - b.price : b.price - a.price));
@@ -68,10 +76,10 @@ function ShopAll() {
     if (sort === "featured") sorted.sort((a, b) => b.images.length - a.images.length);
     if (sort === "newest") sorted.sort((a, b) => b.rating - a.rating);
     return sorted;
-  }, [cat, sort, priceDir]);
+  }, [cat, sort, priceDir, allProducts]);
 
   const stats = [
-    { label: `${products.length} Products` },
+    { label: `${allProducts.length} Products` },
     { label: `${collections.length} Collections` },
     { label: `Ships in ${site.deliveryTime}` },
     { label: "Secure Payments" },
@@ -84,7 +92,7 @@ function ShopAll() {
   return (
     <div className="edge pt-20 pb-6 md:py-20">
       <SectionHeading
-        eyebrow={`${products.length} pieces`}
+        eyebrow={`${allProducts.length} pieces`}
         title={"Shop\neverything"}
         sub="Curated collections inspired by anime, street culture and oversized silhouettes. Premium cotton. Printed in Karachi."
       />

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { MessageSquare, Mail, MapPin, Clock, HelpCircle, RefreshCw, Truck, ArrowRight, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/shop/ProductRow";
-import { site, whatsappLink } from "@/data/site";
+import { site, whatsappLink, SITE_URL } from "@/data/site";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 
 export const Route = createFileRoute("/support")({
@@ -19,7 +19,10 @@ export const Route = createFileRoute("/support")({
         property: "og:description",
         content: "Customer support, order help, WhatsApp assistance, and policies.",
       },
+      { property: "og:url", content: `${SITE_URL}/support` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/support` }],
   }),
   component: SupportPage,
 });

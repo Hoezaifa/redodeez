@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { SITE_URL } from "@/data/site";
 import {
   Outlet,
   Link,
@@ -91,6 +92,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and wall art. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: "Deez Prints" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
@@ -103,11 +106,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         property: "og:image",
-        content: "https://deezus.vercel.app/assets/hero/hero-typography.svg",
+        content: `${SITE_URL}/assets/hero/hero-typography.svg`,
       },
       {
         name: "twitter:image",
-        content: "https://deezus.vercel.app/assets/hero/hero-typography.svg",
+        content: `${SITE_URL}/assets/hero/hero-typography.svg`,
       },
     ],
     links: [

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/shop/ProductRow";
-import { paymentMethods, site } from "@/data/site";
+import { paymentMethods, site, SITE_URL } from "@/data/site";
 import { Truck, Clock, ShieldCheck, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/shipping")({
@@ -17,7 +17,10 @@ export const Route = createFileRoute("/shipping")({
         property: "og:description",
         content: "Flat Rs. 200 nationwide shipping, 3–5 working days delivery.",
       },
+      { property: "og:url", content: `${SITE_URL}/shipping` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/shipping` }],
   }),
   component: Shipping,
 });

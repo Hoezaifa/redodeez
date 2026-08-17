@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Building2, Smartphone, Wallet, ShieldCheck, CheckCircle2, Copy, CreditCard, Banknote } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/shop/ProductRow";
-import { bankDetails, paymentMethods, whatsappLink } from "@/data/site";
+import { bankDetails, paymentMethods, whatsappLink, SITE_URL } from "@/data/site";
 import { useState } from "react";
 
 export const Route = createFileRoute("/payments")({
@@ -19,7 +19,10 @@ export const Route = createFileRoute("/payments")({
         property: "og:description",
         content: "Pay securely via Meezan Bank, Easypaisa, JazzCash, or Card.",
       },
+      { property: "og:url", content: `${SITE_URL}/payments` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/payments` }],
   }),
   component: PaymentsPage,
 });

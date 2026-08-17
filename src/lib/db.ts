@@ -30,7 +30,7 @@ function getDbUrl(): string {
 }
 
 export function getPrismaClient(): PrismaClient {
-  if (globalForPrisma.prisma) {
+  if (globalForPrisma.prisma && (globalForPrisma.prisma as any).productOverride) {
     return globalForPrisma.prisma;
   }
 
@@ -46,4 +46,13 @@ export function getPrismaClient(): PrismaClient {
   return client;
 }
 
-export const prisma = getPrismaClient();
+export const prisma = new Proxy({} as PrismaClient, {
+  get(_target, prop) {
+    const client = getPrismaClient();
+    const val = (client as any)[prop];
+    if (typeof val === "function") {
+      return val.bind(client);
+    }
+    return val;
+  },
+});

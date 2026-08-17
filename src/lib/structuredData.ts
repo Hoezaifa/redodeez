@@ -1,13 +1,13 @@
 /**
  * JSON-LD Structured Data Generators for Deez Prints
  * Covers: Organization, WebSite + SearchAction, Product, BreadcrumbList, FAQPage
+ *
+ * All public URLs use the centralized SITE_URL from site.ts.
+ * Never uses window.location.origin or request Host for canonical URLs.
  */
 
-import { site, paymentMethods } from "@/data/site";
+import { site, SITE_URL } from "@/data/site";
 import type { Product } from "@/data/products";
-
-// Shared base URL — will be empty in dev, set by host in production
-const SITE_URL = typeof window !== "undefined" ? window.location.origin : "";
 
 /** Organization schema — appears in Google Knowledge Panel */
 export function organizationSchema() {
@@ -54,6 +54,18 @@ export function websiteSchema() {
   };
 }
 
+/**
+ * Generate a natural description for a product based on available data.
+ * Uses product.description if present, otherwise constructs from title + subcategory.
+ */
+function productDescription(product: Product): string {
+  if (product.description) return product.description;
+
+  const subcatLabel = product.subcategory.replace(/-/g, " ");
+  const categoryLabel = product.category === "accessories" ? "" : " streetwear";
+  return `${product.title} — premium ${subcatLabel}${categoryLabel} by Deez Prints. Printed in Karachi, delivered across Pakistan.`;
+}
+
 /** Product schema for individual product pages */
 export function productSchema(product: Product) {
   const url = `${SITE_URL}/products/${product.id}`;
@@ -61,8 +73,9 @@ export function productSchema(product: Product) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.title,
-    description: `${product.title} — premium streetwear by Deez Prints`,
+    description: productDescription(product),
     image: product.images.length > 0 ? product.images : undefined,
+    url,
     sku: product.id,
     brand: {
       "@type": "Brand",
@@ -107,13 +120,7 @@ export function productSchema(product: Product) {
         },
       },
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5",
-      reviewCount: "1",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    // aggregateRating intentionally omitted — no verified review system exists
   };
 }
 

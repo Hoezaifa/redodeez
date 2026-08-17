@@ -1,16 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SITE_URL } from "@/data/site";
+import { useMemo } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight, Instagram, Star } from "lucide-react";
 import { Hero, TickerRule, CollectionsStrip } from "@/components/site/Hero";
 import { ProductRow } from "@/components/shop/ProductRow";
-import { products } from "@/data/products";
+import { getProducts, type Product } from "@/data/products";
 import { CUSTOM_IMAGE, collections, site, whatsappLink } from "@/data/site";
 import { Reveal } from "@/components/motion/Reveal";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { AestheticCollections } from "@/components/home/AestheticCollections";
 import { CustomPrintSection } from "@/components/home/CustomPrintSection";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/")({"loader": async () => {
+    const allProducts = await getProducts();
+    return { allProducts };
+  },
   head: () => ({
     meta: [
       { title: "Deez Prints — Premium Streetwear & Custom Printing in Pakistan" },
@@ -28,19 +33,27 @@ export const Route = createFileRoute("/")({
         content:
           "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and wall art. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
       },
+      { property: "og:url", content: `${SITE_URL}/` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Home,
 });
 
-const withImages = products.filter((p) => p.images.length > 0);
-const latest = withImages.filter((p) => p.subcategory === "drop-shoulder").slice(0, 4);
-const best = withImages.filter((p) => ["graphic", "regular"].includes(p.subcategory)).slice(0, 4);
-const wallArt = products.filter((p) => ["tapestries", "flags"].includes(p.subcategory)).slice(0, 4);
-const accessories = products.filter((p) => p.category === "accessories" && p.images.length > 0);
-
 function Home() {
+  const { allProducts } = Route.useLoaderData();
+
+  const { withImages, latest, wallArt, accessories } = useMemo(() => {
+    const imgs = allProducts.filter((p) => p.images.length > 0);
+    return {
+      withImages: imgs,
+      latest: imgs.filter((p) => p.subcategory === "drop-shoulder").slice(0, 4),
+      wallArt: allProducts.filter((p) => ["tapestries", "flags"].includes(p.subcategory)).slice(0, 4),
+      accessories: allProducts.filter((p) => p.category === "accessories" && p.images.length > 0),
+    };
+  }, [allProducts]);
+
   return (
     <>
       <Hero />

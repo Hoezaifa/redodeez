@@ -369,3 +369,59 @@ export async function generateNextOrderIdFromDb(): Promise<string> {
   const nextNum = countToday + 1;
   return `${todayPrefix}${String(nextNum).padStart(5, "0")}`;
 }
+
+// ─── Product Overrides ─────────────────────────────────────────────────────────
+
+export type ProductOverrideData = {
+  title?: string;
+  price?: number;
+  description?: string;
+  sizes?: string[];
+  colors?: string[];
+};
+
+export async function getProductOverridesFromDb(): Promise<Record<string, ProductOverrideData>> {
+  try {
+    const rows = await prisma.productOverride.findMany();
+    const result: Record<string, ProductOverrideData> = {};
+    for (const row of rows) {
+      result[row.id] = row.data as ProductOverrideData;
+    }
+    return result;
+  } catch (err) {
+    console.error("Error fetching product overrides from DB:", err);
+    return {};
+  }
+}
+
+export async function saveProductOverrideToDb(
+  productId: string,
+  data: ProductOverrideData
+): Promise<{ ok: boolean; data?: ProductOverrideData; error?: string }> {
+  try {
+    const row = await prisma.productOverride.upsert({
+      where: { id: productId },
+      update: { data: data as any },
+      create: { id: productId, data: data as any },
+    });
+    return { ok: true, data: row.data as ProductOverrideData };
+  } catch (err: any) {
+    console.error("Error saving product override to DB:", err);
+    return { ok: false, error: err?.message || "Unknown error" };
+  }
+}
+
+export async function deleteProductOverrideFromDb(
+  productId: string
+): Promise<{ ok: boolean; error?: string }> {
+  try {
+    await prisma.productOverride.delete({ where: { id: productId } });
+    return { ok: true };
+  } catch (err: any) {
+    // If it doesn't exist, that's fine
+    if (err?.code === "P2025") return { ok: true };
+    console.error("Error deleting product override from DB:", err);
+    return { ok: false, error: err?.message || "Unknown error" };
+  }
+}
+

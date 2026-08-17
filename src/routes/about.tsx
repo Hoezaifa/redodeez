@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { site, usps, HERO_IMAGE, whatsappLink } from "@/data/site";
+import { site, usps, HERO_IMAGE, whatsappLink, SITE_URL } from "@/data/site";
 import { Reveal } from "@/components/motion/Reveal";
 
 export const Route = createFileRoute("/about")({
@@ -17,7 +17,10 @@ export const Route = createFileRoute("/about")({
       { property: "og:description", content: "A Karachi print studio for bold, wearable ideas." },
       { property: "og:image", content: HERO_IMAGE },
       { name: "twitter:image", content: HERO_IMAGE },
+      { property: "og:url", content: `${SITE_URL}/about` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
   }),
   component: About,
 });

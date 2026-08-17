@@ -220,7 +220,7 @@ ${HR_HTML}
 
 <!-- Admin Link -->
 <tr><td style="padding:0 28px 24px;" align="center">
-  <a href="https://deezus.vercel.app/admin" style="display:inline-block;background:#18181b;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;padding:10px 24px;border-radius:8px;letter-spacing:0.5px;">Open Admin Dashboard</a>
+  <a href="https://www.deezprints.store/admin" style="display:inline-block;background:#18181b;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;padding:10px 24px;border-radius:8px;letter-spacing:0.5px;">Open Admin Dashboard</a>
 </td></tr>
 
 <!-- Footer -->
@@ -312,7 +312,7 @@ export function buildOrderEmailPlainText(order: any): string {
     "",
     HR_PLAIN,
     "",
-    "Admin: https://deezus.vercel.app/admin",
+    "Admin: https://www.deezprints.store/admin",
     "",
     "Deez Prints — Streetwear. No limits.",
   );

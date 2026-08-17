@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import { SectionHeading } from "@/components/shop/ProductRow";
-import { faqs } from "@/data/site";
+import { faqs, SITE_URL } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqPageSchema } from "@/lib/structuredData";
@@ -18,7 +18,10 @@ export const Route = createFileRoute("/faq")({
       },
       { property: "og:title", content: "FAQ — Deez Prints" },
       { property: "og:description", content: "Delivery, payments, exchanges and sizing answered." },
+      { property: "og:url", content: `${SITE_URL}/faq` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/faq` }],
   }),
   component: Faq,
 });

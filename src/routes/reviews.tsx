@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Star, CheckCircle2, MapPin, MessageSquare } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/shop/ProductRow";
-import { site, whatsappLink } from "@/data/site";
+import { site, whatsappLink, SITE_URL } from "@/data/site";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 
 export const Route = createFileRoute("/reviews")({
@@ -19,7 +19,10 @@ export const Route = createFileRoute("/reviews")({
         property: "og:description",
         content: "Rated 4.9/5 by 500+ verified streetwear buyers in Pakistan.",
       },
+      { property: "og:url", content: `${SITE_URL}/reviews` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/reviews` }],
   }),
   component: ReviewsPage,
 });

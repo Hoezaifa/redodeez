@@ -4,5 +4,6 @@ Disallow: /cart
 Disallow: /checkout
 Disallow: /wishlist
 Disallow: /account
+Disallow: /admin
 
-Sitemap: /sitemap.xml
+Sitemap: https://www.deezprints.store/sitemap.xml

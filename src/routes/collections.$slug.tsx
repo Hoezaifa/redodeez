@@ -1,8 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { products } from "@/data/products";
-import { collections, site, aestheticSlugs } from "@/data/site";
+import { getProducts, type Product } from "@/data/products";
+import { collections, site, aestheticSlugs, SITE_URL } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { cn } from "@/lib/utils";
@@ -10,10 +10,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/structuredData";
 
 export const Route = createFileRoute("/collections/$slug")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const collection = collections.find((c) => c.slug === params.slug);
     if (!collection) throw notFound();
-    return { slug: collection.slug, name: collection.name, blurb: collection.blurb };
+    const allProducts = await getProducts();
+    return { slug: collection.slug, name: collection.name, blurb: collection.blurb, allProducts };
   },
   head: ({ loaderData }) => ({
     meta: [
@@ -24,8 +25,10 @@ export const Route = createFileRoute("/collections/$slug")({
       },
       { property: "og:title", content: `${loaderData?.name ?? "Collection"} — Deez Prints` },
       { property: "og:description", content: loaderData?.blurb ?? "Deez Prints collection." },
+      { property: "og:url", content: `${SITE_URL}/collections/${loaderData?.slug ?? ""}` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
-    links: [{ rel: "canonical", href: `/collections/${loaderData?.slug ?? ""}` }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/collections/${loaderData?.slug ?? ""}` }],
   }),
   component: CollectionPage,
 });
@@ -37,7 +40,7 @@ const sortOptions = [
 ] as const;
 
 function CollectionPage() {
-  const { slug, name, blurb } = Route.useLoaderData();
+  const { slug, name, blurb, allProducts } = Route.useLoaderData();
   const [sort, setSort] = useState("featured");
   const [priceDir, setPriceDir] = useState<"asc" | "desc">("asc");
 
@@ -51,14 +54,14 @@ function CollectionPage() {
 
   const items = useMemo(() => {
     const c = collections.find((x) => x.slug === slug)!;
-    const list = products.filter((p) => c.match(p));
+    const list = allProducts.filter((p) => c.match(p));
     if (sort === "price") {
       list.sort((a, b) => (priceDir === "asc" ? a.price - b.price : b.price - a.price));
     }
     if (sort === "name") list.sort((a, b) => a.title.localeCompare(b.title));
     if (sort === "featured") list.sort((a, b) => b.images.length - a.images.length);
     return list;
-  }, [slug, sort, priceDir]);
+  }, [slug, sort, priceDir, allProducts]);
 
   return (
     <div className="edge pt-20 pb-6 md:py-20">

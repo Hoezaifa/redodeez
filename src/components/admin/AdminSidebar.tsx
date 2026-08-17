@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { LayoutDashboard, Package, BarChart3, Send, Settings, LogOut, Lock, Menu, X } from "lucide-react";
+import { LayoutDashboard, Package, ShoppingBag, BarChart3, Send, Settings, LogOut, Lock, Menu, X } from "lucide-react";
 import { logoutAdmin } from "@/lib/ordersStore";
 import { motion, AnimatePresence } from "motion/react";
 
-export type AdminView = "dashboard" | "orders" | "analytics" | "telegram" | "settings";
+export type AdminView = "dashboard" | "orders" | "products" | "analytics" | "telegram" | "settings";
 
 const nav: { id: AdminView; label: string; icon: typeof LayoutDashboard }[] = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
   { id: "orders", label: "Orders", icon: Package },
+  { id: "products", label: "Products", icon: ShoppingBag },
   { id: "analytics", label: "Analytics", icon: BarChart3 },
   { id: "telegram", label: "Telegram", icon: Send },
   { id: "settings", label: "Settings", icon: Settings },

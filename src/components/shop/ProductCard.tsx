@@ -31,7 +31,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             <>
               <img
                 src={primary}
-                alt={product.title}
+                alt={`Deez Prints ${product.title} — ${product.subcategory.replace(/-/g, " ")}`}
                 width={400}
                 height={500}
                 loading="lazy"
@@ -43,7 +43,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
               {alt !== primary && (
                 <img
                   src={alt}
-                  alt={product.title}
+                  alt={`Deez Prints ${product.title} detail view — ${product.subcategory.replace(/-/g, " ")}`}
                   width={400}
                   height={500}
                   loading="lazy"

@@ -13,6 +13,7 @@ import { AdminLogin } from "@/components/admin/AdminLogin";
 import { AdminSidebar, type AdminView } from "@/components/admin/AdminSidebar";
 import { DashboardView } from "@/components/admin/DashboardView";
 import { OrdersView } from "@/components/admin/OrdersView";
+import { ProductsView } from "@/components/admin/ProductsView";
 import { AnalyticsView } from "@/components/admin/AnalyticsView";
 import { TelegramView } from "@/components/admin/TelegramView";
 import { SettingsView } from "@/components/admin/SettingsView";
@@ -74,6 +75,7 @@ function AdminPage() {
           />
         )}
         {view === "orders" && <OrdersView orders={orders} onRefresh={refresh} />}
+        {view === "products" && <ProductsView />}
         {view === "analytics" && <AnalyticsView analytics={analytics} orders={orders} />}
         {view === "telegram" && <TelegramView />}
         {view === "settings" && <SettingsView />}

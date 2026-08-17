@@ -20,6 +20,7 @@ import { Route as CustomPrintRouteImport } from './routes/custom-print'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PaymentsRouteImport } from './routes/payments'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProductsFeedDotxmlRouteImport } from './routes/products-feed[.]xml'
 import { Route as ReturnsRouteImport } from './routes/returns'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ShippingRouteImport } from './routes/shipping'
@@ -85,6 +86,11 @@ const PaymentsRoute = PaymentsRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsFeedDotxmlRoute = ProductsFeedDotxmlRouteImport.update({
+  id: '/products-feed.xml',
+  path: '/products-feed.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReturnsRoute = ReturnsRouteImport.update({
@@ -155,6 +161,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/payments': typeof PaymentsRoute
   '/privacy': typeof PrivacyRoute
+  '/products-feed.xml': typeof ProductsFeedDotxmlRoute
   '/returns': typeof ReturnsRoute
   '/reviews': typeof ReviewsRoute
   '/shipping': typeof ShippingRoute
@@ -179,6 +186,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/payments': typeof PaymentsRoute
   '/privacy': typeof PrivacyRoute
+  '/products-feed.xml': typeof ProductsFeedDotxmlRoute
   '/returns': typeof ReturnsRoute
   '/reviews': typeof ReviewsRoute
   '/shipping': typeof ShippingRoute
@@ -204,6 +212,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/payments': typeof PaymentsRoute
   '/privacy': typeof PrivacyRoute
+  '/products-feed.xml': typeof ProductsFeedDotxmlRoute
   '/returns': typeof ReturnsRoute
   '/reviews': typeof ReviewsRoute
   '/shipping': typeof ShippingRoute
@@ -230,6 +239,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/payments'
     | '/privacy'
+    | '/products-feed.xml'
     | '/returns'
     | '/reviews'
     | '/shipping'
@@ -254,6 +264,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/payments'
     | '/privacy'
+    | '/products-feed.xml'
     | '/returns'
     | '/reviews'
     | '/shipping'
@@ -278,6 +289,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/payments'
     | '/privacy'
+    | '/products-feed.xml'
     | '/returns'
     | '/reviews'
     | '/shipping'
@@ -303,6 +315,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   PaymentsRoute: typeof PaymentsRoute
   PrivacyRoute: typeof PrivacyRoute
+  ProductsFeedDotxmlRoute: typeof ProductsFeedDotxmlRoute
   ReturnsRoute: typeof ReturnsRoute
   ReviewsRoute: typeof ReviewsRoute
   ShippingRoute: typeof ShippingRoute
@@ -393,6 +406,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products-feed.xml': {
+      id: '/products-feed.xml'
+      path: '/products-feed.xml'
+      fullPath: '/products-feed.xml'
+      preLoaderRoute: typeof ProductsFeedDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/returns': {
@@ -487,6 +507,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   PaymentsRoute: PaymentsRoute,
   PrivacyRoute: PrivacyRoute,
+  ProductsFeedDotxmlRoute: ProductsFeedDotxmlRoute,
   ReturnsRoute: ReturnsRoute,
   ReviewsRoute: ReviewsRoute,
   ShippingRoute: ShippingRoute,

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SITE_URL } from "@/data/site";
 import { SectionHeading } from "@/components/shop/ProductRow";
 
 export const Route = createFileRoute("/privacy")({
@@ -6,7 +7,9 @@ export const Route = createFileRoute("/privacy")({
     meta: [
       { title: "Privacy Policy — Deez Prints" },
       { name: "description", content: "Privacy policy and data protection terms for Deez Prints customers." },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/privacy` }],
   }),
   component: PrivacyPage,
 });

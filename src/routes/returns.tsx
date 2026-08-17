@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/shop/ProductRow";
-import { site, whatsappLink } from "@/data/site";
+import { site, whatsappLink, SITE_URL } from "@/data/site";
 import { AlertCircle, RefreshCw, ShieldCheck, Truck } from "lucide-react";
 
 export const Route = createFileRoute("/returns")({
@@ -14,7 +14,10 @@ export const Route = createFileRoute("/returns")({
       },
       { property: "og:title", content: "Returns & Exchange Policy — Deez Prints" },
       { property: "og:description", content: "7-day exchange policy on size issues and defects." },
+      { property: "og:url", content: `${SITE_URL}/returns` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/returns` }],
   }),
   component: Returns,
 });

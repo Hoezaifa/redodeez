@@ -2,8 +2,8 @@ import { createFileRoute, Link, useNavigate, notFound } from "@tanstack/react-ro
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Heart, Minus, Plus, ShoppingCart, ArrowRight, ChevronDown } from "lucide-react";
-import { products } from "@/data/products";
-import { site, sizes as ALL_SIZES, whatsappLink } from "@/data/site";
+import { getProducts, type Product } from "@/data/products";
+import { site, sizes as ALL_SIZES, whatsappLink, SITE_URL } from "@/data/site";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -14,10 +14,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema, breadcrumbSchema } from "@/lib/structuredData";
 
 export const Route = createFileRoute("/products/$productId")({
-  loader: ({ params }) => {
-    const product = products.find((p) => p.id === params.productId);
+  loader: async ({ params }) => {
+    const allProducts = await getProducts();
+    const product = allProducts.find((p) => p.id === params.productId);
     if (!product) throw notFound();
-    return { product };
+    return { product, allProducts };
   },
   head: ({ loaderData }) => {
     const p = loaderData?.product;
@@ -34,6 +35,10 @@ export const Route = createFileRoute("/products/$productId")({
           property: "og:description",
           content: `${formatPrice(p?.price ?? 0)} · Premium print by Deez Prints.`,
         },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: `${SITE_URL}/products/${p?.id ?? ""}` },
+        { property: "og:site_name", content: "Deez Prints" },
+        { name: "twitter:card", content: "summary_large_image" },
         ...(img
           ? [
               { property: "og:image", content: img },
@@ -41,7 +46,7 @@ export const Route = createFileRoute("/products/$productId")({
             ]
           : []),
       ],
-      links: [{ rel: "canonical", href: `/products/${p?.id ?? ""}` }],
+      links: [{ rel: "canonical", href: `${SITE_URL}/products/${p?.id ?? ""}` }],
     };
   },
   component: ProductPage,
@@ -85,7 +90,7 @@ function AccordionItem({ title, children, defaultOpen = false }: { title: string
 }
 
 function ProductPage() {
-  const { product } = Route.useLoaderData();
+  const { product, allProducts } = Route.useLoaderData();
   const navigate = useNavigate();
   const { add, wishlist, toggleWish } = useCart();
 
@@ -103,7 +108,10 @@ function ProductPage() {
     product.subcategory === "drop-shoulder" ||
     product.title.toLowerCase().includes("drop shoulder");
 
-  const availableSizes = isTapestry
+  // Use product-level sizes override if available, otherwise fall back to category defaults
+  const availableSizes = product.sizes
+    ? product.sizes
+    : isTapestry
     ? ['24"x36"', '36"x48"', '48"x60"']
     : isAcidWash
     ? ["S", "M", "L"]
@@ -117,9 +125,9 @@ function ProductPage() {
   const [err, setErr] = useState(false);
   const [showSizeChart, setShowSizeChart] = useState(false);
 
-  const needsSize = product.category !== "accessories" && product.subcategory !== "tapestries";
+  const needsSize = product.category !== "accessories" && product.subcategory !== "tapestries" && availableSizes.length > 0;
   const wished = wishlist.includes(product.id);
-  const related = products
+  const related = allProducts
     .filter((p) => p.id !== product.id && p.category === product.category && p.images.length)
     .slice(0, 4);
 
@@ -210,7 +218,7 @@ function ProductPage() {
               images={product.images}
               activeIndex={active}
               onIndexChange={setActive}
-              alt={product.title}
+              alt={`Deez Prints ${product.title} — ${product.subcategory.replace(/-/g, " ")} view ${active + 1}`}
             />
           ) : (
             <div className="relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-none grid place-items-center">
@@ -233,7 +241,12 @@ function ProductPage() {
                       : "border-border hover:border-primary/50 opacity-70 hover:opacity-100",
                   )}
                 >
-                  <img src={src} alt="" loading="lazy" className="h-full w-full object-cover p-0" />
+                  <img
+                    src={src}
+                    alt={`Deez Prints ${product.title} photo ${i + 1}`}
+                    loading="lazy"
+                    className="h-full w-full object-cover p-0"
+                  />
                 </button>
               ))}
             </div>
@@ -273,6 +286,13 @@ function ProductPage() {
               </div>
             </div>
           </div>
+
+          {/* Product Description — only shown if set via admin */}
+          {product.description && (
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {product.description}
+            </p>
+          )}
 
           {/* Size Selector */}
           {needsSize && (

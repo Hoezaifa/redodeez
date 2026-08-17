@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { site, whatsappLink } from "@/data/site";
+import { site, whatsappLink, SITE_URL } from "@/data/site";
 import { SectionHeading } from "@/components/shop/ProductRow";
 
 export const Route = createFileRoute("/trust")({
@@ -36,7 +36,10 @@ export const Route = createFileRoute("/trust")({
         content:
           "240+ GSM heavyweight blanks, HD printing, fast delivery across Pakistan, and 100% satisfaction guarantee.",
       },
+      { property: "og:url", content: `${SITE_URL}/trust` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/trust` }],
   }),
   component: TrustPage,
 });

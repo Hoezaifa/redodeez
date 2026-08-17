@@ -13,7 +13,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { products } from "@/data/products";
-import { whatsappLink } from "@/data/site";
+import { whatsappLink, SITE_URL } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 import { useNavigate } from "@tanstack/react-router";
@@ -35,7 +35,10 @@ export const Route = createFileRoute("/custom-print")({
         content:
           "Custom prints on premium blanks and tapestries. Fast nationwide delivery in 3–5 days.",
       },
+      { property: "og:url", content: `${SITE_URL}/custom-print` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/custom-print` }],
   }),
   component: CustomPrint,
 });

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SITE_URL } from "@/data/site";
 import { SectionHeading } from "@/components/shop/ProductRow";
 
 export const Route = createFileRoute("/terms")({
@@ -6,7 +7,9 @@ export const Route = createFileRoute("/terms")({
     meta: [
       { title: "Terms of Service — Deez Prints" },
       { name: "description", content: "Terms of service and store rules for Deez Prints." },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/terms` }],
   }),
   component: TermsPage,
 });

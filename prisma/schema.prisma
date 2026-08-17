@@ -41,6 +41,14 @@ model Order {
   updatedAt      DateTime    @updatedAt
   items          OrderItem[]
 
+  // Legacy columns — still in production DB, kept to prevent prisma db push from dropping them.
+  // App reads customer data via the Customer relation above.
+  customerName    String?
+  customerPhone   String?
+  customerEmail   String?
+  customerCity    String?
+  customerAddress String?
+
   @@index([status])
   @@index([createdAt])
   @@index([orderId])
@@ -95,4 +103,12 @@ model ActivityLog {
 
   @@index([createdAt])
   @@map("activity_logs")
+}
+
+model ProductOverride {
+  id        String   @id // product id e.g. "kanye-yeezus-shirt"
+  data      Json     // { title?, price?, description?, sizes?, colors? }
+  updatedAt DateTime @updatedAt
+
+  @@map("product_overrides")
 }

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin, Clock, Instagram } from "lucide-react";
 import { SectionHeading } from "@/components/shop/ProductRow";
-import { site, whatsappLink } from "@/data/site";
+import { site, whatsappLink, SITE_URL } from "@/data/site";
 import { useState } from "react";
 
 export const Route = createFileRoute("/contact")({
@@ -15,7 +15,10 @@ export const Route = createFileRoute("/contact")({
       },
       { property: "og:title", content: "Contact — Deez Prints" },
       { property: "og:description", content: "Reach the Deez Prints studio in Karachi." },
+      { property: "og:url", content: `${SITE_URL}/contact` },
+      { property: "og:site_name", content: "Deez Prints" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contact` }],
   }),
   component: Contact,
 });

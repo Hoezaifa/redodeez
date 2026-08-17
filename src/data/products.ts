@@ -9,6 +9,16 @@ export type Product = {
   colors: string[];
   rating: number;
   aesthetic?: string;
+  description?: string;
+  sizes?: string[];
+};
+
+export type ProductOverrideData = {
+  title?: string;
+  price?: number;
+  description?: string;
+  sizes?: string[];
+  colors?: string[];
 };
 
 export const products: Product[] = [
@@ -1359,3 +1369,67 @@ export const products: Product[] = [
   },
 ];
 
+// ─── Product Override Merge ────────────────────────────────────────────────────
+
+/**
+ * Merge a map of database overrides onto the static products array.
+ * Returns a new array — does NOT mutate the original.
+ */
+export function mergeOverrides(
+  base: Product[],
+  overrides: Record<string, ProductOverrideData>
+): Product[] {
+  if (!overrides || Object.keys(overrides).length === 0) return base;
+  return base.map((p) => {
+    const ov = overrides[p.id];
+    if (!ov) return p;
+    return {
+      ...p,
+      ...(ov.title !== undefined && { title: ov.title }),
+      ...(ov.price !== undefined && { price: ov.price }),
+      ...(ov.description !== undefined && { description: ov.description }),
+      ...(ov.sizes !== undefined && { sizes: ov.sizes }),
+      ...(ov.colors !== undefined && { colors: ov.colors }),
+    };
+  });
+}
+
+import { getProductOverridesFn } from "@/lib/productFunctions";
+
+/**
+ * Fetch product overrides from the DB.
+ * Works from both client-side and during SSR.
+ * Returns a record keyed by product ID.
+ */
+export async function fetchProductOverrides(): Promise<Record<string, ProductOverrideData>> {
+  try {
+    const overrides = await getProductOverridesFn();
+    if (overrides && typeof overrides === "object") {
+      return overrides;
+    }
+  } catch (err) {
+    console.warn("getProductOverridesFn error, trying fallback:", err);
+  }
+
+  try {
+    if (typeof window === "undefined") {
+      const { getProductOverridesFromDb } = await import("@/lib/dbService");
+      return await getProductOverridesFromDb();
+    }
+    const res = await fetch("/api/products");
+    if (!res.ok) return {};
+    const json = await res.json();
+    return json.ok ? json.overrides : {};
+  } catch {
+    return {};
+  }
+}
+
+/**
+ * Get the full product list with DB overrides applied.
+ * This is the primary function all product-consuming code should use.
+ */
+export async function getProducts(): Promise<Product[]> {
+  const overrides = await fetchProductOverrides();
+  return mergeOverrides(products, overrides);
+}
