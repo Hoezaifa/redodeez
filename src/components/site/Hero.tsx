@@ -40,7 +40,7 @@ export function CollectionsStrip() {
   const activeImages = useRef<Record<string, string>>({
     "t-shirts": "/campaign/regular_tees_user.jpg",
     "drop-shoulder": "/campaign/drop_shoulder_user.jpg",
-    "acid-wash": "/campaign/acid_wash_user.png",
+    "acid-wash": "/assets/collections/acid_wash_cover.webp",
   });
 
   const featuredCollections = [
