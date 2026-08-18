@@ -117,7 +117,7 @@ export const collections: Collection[] = [
     slug: "acid-wash",
     name: "Acid Wash",
     blurb: "Hand-washed. No two identical.",
-    image: `${CDN}/v1773086650/spiderAcidF_m4jkna.webp`,
+    image: "/assets/collections/acid_wash_cover.webp",
     match: (p) => p.subcategory === "acid-wash",
   },
   {
