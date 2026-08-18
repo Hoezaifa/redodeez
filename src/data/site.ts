@@ -125,7 +125,7 @@ export const collections: Collection[] = [
     name: "Regular Tees",
     blurb: "The everyday staple, printed loud.",
     image: `${CDN}/v1772739461/white_ber_bztrq9.webp`,
-    match: (p) => p.category === "t-shirts",
+    match: (p) => p.category === "t-shirts" && ["regular", "graphic"].includes(p.subcategory),
   },
   {
     slug: "hoodies",
