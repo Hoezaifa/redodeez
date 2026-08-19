@@ -23,12 +23,15 @@ export const Route = createFileRoute("/products/$productId")({
   head: ({ loaderData }) => {
     const p = loaderData?.product;
     const img = p?.images[0];
+    const isTapestryMeta = p?.subcategory === "tapestries" || p?.subcategory === "flags";
     return {
       meta: [
         { title: `${p?.title ?? "Product"} — Deez Prints` },
         {
           name: "description",
-          content: `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. Premium print, oversized fit. Delivered across Pakistan in 3–5 working days.`,
+          content: isTapestryMeta
+            ? `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. High-definition digital sublimation printed satin wall tapestry. Delivered across Pakistan in 3–5 working days.`
+            : `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. Premium print, oversized fit. Delivered across Pakistan in 3–5 working days.`,
         },
         { property: "og:title", content: `${p?.title ?? "Product"} — Deez Prints` },
         {
@@ -164,6 +167,17 @@ function ProductPage() {
 
   // Material helpers matching old site PDP
   const getMaterialsText = () => {
+    if (product.subcategory === "tapestries" || product.subcategory === "flags") {
+      return (
+        <ul className="list-disc list-inside space-y-1">
+          <li>Material: Premium High-Density Satin Fabric (Smooth, Soft & Durable)</li>
+          <li>Printing: High-Definition Digital Sublimation Printing (Ultra-vibrant, edge-to-edge color)</li>
+          <li>Hanging & Setup: Reinforced Brass Metal Grommets at corners for effortless wall mounting</li>
+          <li>Care & Maintenance: Machine washable, fade-resistant, wrinkle-free drape</li>
+          <li>Usage: Premium Wall Art & Room Aesthetic Decor (Decorative Tapestry — Non-apparel)</li>
+        </ul>
+      );
+    }
     if (product.subcategory === "mugs") {
       return (
         <ul className="list-disc list-inside space-y-1">
@@ -453,11 +467,20 @@ function ProductPage() {
             </AccordionItem>
 
             <AccordionItem title="Care Instructions">
-              <ul className="list-disc list-inside space-y-1">
-                <li>Hand wash inside out with cold water</li>
-                <li>Iron inside out on low heat</li>
-                <li>Do not bleach or dry clean</li>
-              </ul>
+              {isTapestry ? (
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Machine wash on gentle cycle or hand wash with mild detergent</li>
+                  <li>Hang dry or tumble dry on low heat</li>
+                  <li>Steam or iron on low heat (reverse side) to smooth out packing folds</li>
+                  <li>Do not bleach</li>
+                </ul>
+              ) : (
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Hand wash inside out with cold water</li>
+                  <li>Iron inside out on low heat</li>
+                  <li>Do not bleach or dry clean</li>
+                </ul>
+              )}
             </AccordionItem>
           </div>
         </div>
