@@ -2,7 +2,8 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import heroModel from "@/assets/hero-model.jpg";
+import heroDesktop from "@/assets/hero-desktop.png";
+import heroMobile from "@/assets/hero-mobile.png";
 
 /* ─── Constants ─────────────────────────────────────────────── */
 
@@ -102,7 +103,7 @@ export function DeezHero() {
           {/* Photography Frame */}
           <div className="relative w-full aspect-[4/5] max-h-[460px] overflow-hidden bg-[color:var(--ink-0)]">
             <img
-              src={heroModel}
+              src={heroMobile}
               alt="Model wearing an oversized Deez Prints graphic tee"
               width={800}
               height={1000}
@@ -186,7 +187,7 @@ export function DeezHero() {
             className="pointer-events-none absolute inset-0"
           >
             <img
-              src={heroModel}
+              src={heroDesktop}
               alt="Model wearing an oversized Deez Prints graphic tee"
               width={1600}
               height={1200}
