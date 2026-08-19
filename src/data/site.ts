@@ -138,7 +138,7 @@ export const collections: Collection[] = [
     slug: "wall-art",
     name: "Wall Art",
     blurb: "Tapestries for your space.",
-    image: `${CDN}/v1773597161/tapestry_hr14wa.webp`,
+    image: "/assets/products/tapestries/berserk_eclipse_tapestry.webp",
     match: (p) => ["tapestries", "flags"].includes(p.subcategory),
   },
   {

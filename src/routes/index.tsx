@@ -63,12 +63,12 @@ function Home() {
       <AestheticCollections />
 
       <ProductRow
-        eyebrow="Latest drops"
-        title={"Just\nlanded"}
-        items={latest}
-        ctaLabel="View all drops"
+        eyebrow="Wall art"
+        title={"Make your\nspace yours"}
+        items={wallArt}
+        ctaLabel="Explore wall art"
         ctaTo="/collections/$slug"
-        ctaParams={{ slug: "drop-shoulder" }}
+        ctaParams={{ slug: "wall-art" }}
       />
 
       {/* Hidden: Loved by the cult / Best sellers section */}
@@ -114,12 +114,12 @@ function Home() {
       */}
 
       <ProductRow
-        eyebrow="Wall art"
-        title={"Make your\nspace yours"}
-        items={wallArt}
-        ctaLabel="Explore wall art"
+        eyebrow="Latest drops"
+        title={"Just\nlanded"}
+        items={latest}
+        ctaLabel="View all drops"
         ctaTo="/collections/$slug"
-        ctaParams={{ slug: "wall-art" }}
+        ctaParams={{ slug: "drop-shoulder" }}
       />
 
       <ProductRow
