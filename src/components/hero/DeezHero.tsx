@@ -101,19 +101,19 @@ export function DeezHero() {
       {/* ── MOBILE HERO (< md) ── */}
       <div className="flex flex-col md:hidden bg-[color:var(--ink-0)] text-white pt-16">
           {/* Photography Frame */}
-          <div className="relative w-full aspect-[4/5] max-h-[460px] overflow-hidden bg-[color:var(--ink-0)]">
+          <div className="relative w-full aspect-[4/5] max-h-[480px] overflow-hidden bg-[color:var(--ink-0)]">
             <img
               src={heroMobile}
               alt="Model wearing an oversized Deez Prints graphic tee"
-              width={800}
-              height={1000}
-              className="h-full w-full object-cover object-[50%_15%]"
+              width={853}
+              height={1150}
+              className="h-full w-full object-cover object-top"
               fetchPriority="high"
             />
             {/* Top vignette under navbar */}
-            <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[color:var(--ink-0)] to-transparent opacity-80" />
+            <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[color:var(--ink-0)] to-transparent opacity-70" />
             {/* Bottom smooth fade into dark text panel */}
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent via-[color:var(--ink-0)]/70 to-[color:var(--ink-0)]" />
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-[color:var(--ink-0)]" />
           </div>
 
           {/* Text & CTAs Content Block */}
