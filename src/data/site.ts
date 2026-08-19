@@ -110,7 +110,7 @@ export const collections: Collection[] = [
     slug: "drop-shoulder",
     name: "Drop Shoulder",
     blurb: "Oversized cuts, heavyweight cotton.",
-    image: `${CDN}/v1772883554/berserkdropf_bed9qx.webp`,
+    image: "/assets/collections/drop_shoulder_cover.webp",
     match: (p) => p.subcategory === "drop-shoulder",
   },
   {
