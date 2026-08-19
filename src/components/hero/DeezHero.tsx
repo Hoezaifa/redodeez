@@ -191,7 +191,7 @@ export function DeezHero() {
               alt="Model wearing an oversized Deez Prints graphic tee"
               width={1600}
               height={1200}
-              className="h-full w-full object-cover object-[70%_15%] md:object-[68%_15%]"
+              className="h-full w-full object-cover object-[70%_15%] md:object-[74%_15%] md:translate-x-6"
               fetchPriority="high"
             />
 
