@@ -110,14 +110,14 @@ export const collections: Collection[] = [
     slug: "drop-shoulder",
     name: "Drop Shoulder",
     blurb: "Oversized cuts, heavyweight cotton.",
-    image: "/assets/collections/drop_shoulder_cover.webp",
+    image: "/assets/collections/drop_shoulder_cover_v2.webp",
     match: (p) => p.subcategory === "drop-shoulder",
   },
   {
     slug: "acid-wash",
     name: "Acid Wash",
     blurb: "Hand-washed. No two identical.",
-    image: "/assets/collections/acid_wash_cover.webp",
+    image: "/assets/collections/acid_wash_cover_v2.webp",
     match: (p) => p.subcategory === "acid-wash",
   },
   {
