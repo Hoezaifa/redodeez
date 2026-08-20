@@ -1443,3 +1443,56 @@ export async function getProducts(): Promise<Product[]> {
   const overrides = await fetchProductOverrides();
   return mergeOverrides(products, overrides);
 }
+
+export type ProductWithTimestamp = Product & {
+  lastmod: string;
+};
+
+/**
+ * Get products with accurate update timestamps (lastmod) for sitemap generation.
+ */
+export async function getProductsWithTimestamps(): Promise<ProductWithTimestamp[]> {
+  let dbMetadata: Record<string, { data: ProductOverrideData; updatedAt?: string }> = {};
+
+  try {
+    if (typeof window === "undefined") {
+      const { getProductOverridesWithMetadataFromDb } = await import("@/lib/dbService");
+      dbMetadata = await getProductOverridesWithMetadataFromDb();
+    }
+  } catch (err) {
+    console.warn("Failed to fetch product overrides with metadata:", err);
+  }
+
+  // Fallback timestamp for base catalog products
+  let baseCatalogLastMod = new Date().toISOString();
+  if (typeof window === "undefined") {
+    try {
+      const fs = await import("node:fs");
+      const path = await import("node:path");
+      const filePath = path.resolve(process.cwd(), "src/data/products.ts");
+      if (fs.existsSync(filePath)) {
+        baseCatalogLastMod = fs.statSync(filePath).mtime.toISOString();
+      }
+    } catch {
+      /* fallback */
+    }
+  }
+
+  const overridesMap: Record<string, ProductOverrideData> = {};
+  for (const [id, meta] of Object.entries(dbMetadata)) {
+    if (meta && meta.data) {
+      overridesMap[id] = meta.data;
+    }
+  }
+
+  const merged = mergeOverrides(products, overridesMap);
+
+  return merged.map((p) => {
+    const meta = dbMetadata[p.id];
+    const lastmod = meta?.updatedAt || baseCatalogLastMod;
+    return {
+      ...p,
+      lastmod,
+    };
+  });
+}

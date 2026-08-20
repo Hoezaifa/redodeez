@@ -3,7 +3,7 @@
  * Change this single value to migrate the canonical domain in the future.
  * Do NOT use window.location.origin or request Host headers for SEO URLs.
  */
-export const SITE_URL = "https://www.deezprints.store";
+export const SITE_URL = "https://deezprints.store";
 
 export const LOGO_URL = "/assets/hero/hero-typography.svg";
 export const LOGO_PNG = "/assets/logo.png";

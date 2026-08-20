@@ -1,13 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { collections, SITE_URL } from "@/data/site";
-import { getProducts } from "@/data/products";
+import { getProductsWithTimestamps } from "@/data/products";
 
 interface SitemapEntry {
   path: string;
-  lastmod?: string;
-  changefreq?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
-  priority?: string;
+  lastmod: string;
   images?: Array<{ url: string; title?: string }>;
 }
 
@@ -16,36 +14,63 @@ function toAbsoluteImageUrl(url: string): string {
   if (url.startsWith("http://") || url.startsWith("https://")) {
     return url;
   }
-  return `${SITE_URL}${url.startsWith("/") ? "" : "/"}${url}`;
+  const cleanPath = url.startsWith("/") ? url : `/${url}`;
+  return `${SITE_URL}${cleanPath}`;
+}
+
+function getSiteMtime(): string {
+  if (typeof window === "undefined") {
+    try {
+      const fs = require("node:fs");
+      const path = require("node:path");
+      const siteFilePath = path.resolve(process.cwd(), "src/data/site.ts");
+      if (fs.existsSync(siteFilePath)) {
+        return fs.statSync(siteFilePath).mtime.toISOString();
+      }
+    } catch {
+      /* fallback */
+    }
+  }
+  return new Date().toISOString();
 }
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const allProducts = await getProducts();
-        // Only index products that have images
-        const activeProducts = allProducts.filter((p) => p.images && p.images.length > 0);
+        const allProducts = await getProductsWithTimestamps();
+        const siteLastMod = getSiteMtime();
+
+        // Only index products that are published and have at least one image
+        const activeProducts = allProducts.filter(
+          (p) => p.images && p.images.length > 0 && (p as any).published !== false
+        );
+
+        const staticPaths = [
+          "/",
+          "/collections",
+          "/custom-print",
+          "/about",
+          "/reviews",
+          "/trust",
+          "/contact",
+          "/faq",
+          "/shipping",
+          "/returns",
+          "/support",
+          "/payments",
+          "/privacy",
+          "/terms",
+        ];
 
         const entries: SitemapEntry[] = [
-          { path: "/", changefreq: "daily", priority: "1.0" },
-          { path: "/collections", changefreq: "daily", priority: "0.9" },
-          { path: "/custom-print", changefreq: "weekly", priority: "0.9" },
-          { path: "/about", changefreq: "monthly", priority: "0.6" },
-          { path: "/reviews", changefreq: "weekly", priority: "0.7" },
-          { path: "/trust", changefreq: "monthly", priority: "0.6" },
-          { path: "/contact", changefreq: "monthly", priority: "0.5" },
-          { path: "/faq", changefreq: "monthly", priority: "0.6" },
-          { path: "/shipping", changefreq: "monthly", priority: "0.5" },
-          { path: "/returns", changefreq: "monthly", priority: "0.5" },
-          { path: "/support", changefreq: "monthly", priority: "0.5" },
-          { path: "/payments", changefreq: "monthly", priority: "0.4" },
-          { path: "/privacy", changefreq: "yearly", priority: "0.3" },
-          { path: "/terms", changefreq: "yearly", priority: "0.3" },
+          ...staticPaths.map((path) => ({
+            path,
+            lastmod: siteLastMod,
+          })),
           ...collections.map((c) => ({
             path: `/collections/${c.slug}`,
-            changefreq: "weekly" as const,
-            priority: "0.8",
+            lastmod: siteLastMod,
           })),
           ...activeProducts.map((p) => {
             const seen = new Set<string>();
@@ -64,8 +89,7 @@ export const Route = createFileRoute("/sitemap.xml")({
 
             return {
               path: `/products/${p.id}`,
-              changefreq: "weekly" as const,
-              priority: "0.8",
+              lastmod: p.lastmod || siteLastMod,
               images,
             };
           }),
@@ -85,9 +109,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           return [
             `  <url>`,
             `    <loc>${escapeXml(loc)}</loc>`,
-            e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
-            e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
-            e.priority ? `    <priority>${e.priority}</priority>` : null,
+            `    <lastmod>${e.lastmod}</lastmod>`,
             imageXml,
             `  </url>`,
           ]

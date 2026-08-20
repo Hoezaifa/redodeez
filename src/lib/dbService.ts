@@ -380,6 +380,44 @@ export type ProductOverrideData = {
   colors?: string[];
 };
 
+export type ProductOverrideWithMetadata = {
+  data: ProductOverrideData;
+  updatedAt?: string;
+};
+
+export async function getProductOverridesWithMetadataFromDb(): Promise<Record<string, ProductOverrideWithMetadata>> {
+  try {
+    const sql = getNeonSql();
+    const rows = await sql`
+      SELECT id, data, "updatedAt" FROM product_overrides;
+    `;
+    const result: Record<string, ProductOverrideWithMetadata> = {};
+    for (const row of rows) {
+      result[row.id as string] = {
+        data: row.data as ProductOverrideData,
+        updatedAt: row.updatedAt ? new Date(row.updatedAt as any).toISOString() : undefined,
+      };
+    }
+    return result;
+  } catch (err) {
+    console.warn("Neon HTTP fetch failed, trying Prisma fallback:", err);
+    try {
+      const rows = await prisma.productOverride.findMany();
+      const result: Record<string, ProductOverrideWithMetadata> = {};
+      for (const row of rows) {
+        result[row.id] = {
+          data: row.data as ProductOverrideData,
+          updatedAt: row.updatedAt ? row.updatedAt.toISOString() : undefined,
+        };
+      }
+      return result;
+    } catch (fallbackErr) {
+      console.error("Error fetching product overrides with metadata from DB:", fallbackErr);
+      return {};
+    }
+  }
+}
+
 export async function getProductOverridesFromDb(): Promise<Record<string, ProductOverrideData>> {
   try {
     const sql = getNeonSql();
