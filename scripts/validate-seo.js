@@ -24,9 +24,9 @@ function check(description, fn) {
 console.log("\n=== DEEZ PRINTS SEO VALIDATION SUITE ===\n");
 
 // 1. SITE_URL constant defined in site.ts
-check("SITE_URL constant is set to https://www.deezprints.store in site.ts", () => {
+check("SITE_URL constant is set to https://deezprints.store in site.ts", () => {
   const content = fs.readFileSync(path.join(rootDir, "src/data/site.ts"), "utf8");
-  return content.includes('export const SITE_URL = "https://www.deezprints.store"');
+  return content.includes('export const SITE_URL = "https://deezprints.store"');
 });
 
 // 2. Zero instances of deezus.vercel.app across src/ and api/
@@ -55,7 +55,7 @@ check("robots.txt blocks /admin and references absolute sitemap URL", () => {
   const content = fs.readFileSync(path.join(rootDir, "public/robots.txt"), "utf8");
   return (
     content.includes("Disallow: /admin") &&
-    content.includes("Sitemap: https://www.deezprints.store/sitemap.xml")
+    content.includes("Sitemap: https://deezprints.store/sitemap.xml")
   );
 });
 
