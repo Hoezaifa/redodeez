@@ -33,8 +33,21 @@ export const Route = createFileRoute("/")({"loader": async () => {
         content:
           "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and wall art. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
       },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:site_name", content: "Deez Prints" },
+      { property: "og:image", content: `${SITE_URL}/og-image.png` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@deez_prints" },
+      { name: "twitter:title", content: "Deez Prints — Premium Streetwear & Custom Printing in Pakistan" },
+      {
+        name: "twitter:description",
+        content:
+          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and wall art. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/og-image.png` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),

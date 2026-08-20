@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Heart, Minus, Plus, ShoppingCart, ArrowRight, ChevronDown } from "lucide-react";
 import { getProducts, type Product } from "@/data/products";
-import { site, sizes as ALL_SIZES, whatsappLink, SITE_URL } from "@/data/site";
+import { site, sizes as ALL_SIZES, whatsappLink, SITE_URL, toAbsoluteImageUrl } from "@/data/site";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -22,34 +22,34 @@ export const Route = createFileRoute("/products/$productId")({
   },
   head: ({ loaderData }) => {
     const p = loaderData?.product;
-    const img = p?.images[0];
+    const rawImg = p?.images[0];
+    const absoluteImgUrl = toAbsoluteImageUrl(rawImg);
     const isTapestryMeta = p?.subcategory === "tapestries" || p?.subcategory === "flags";
+    const desc = isTapestryMeta
+      ? `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. High-definition digital sublimation printed satin wall tapestry. Delivered across Pakistan in 3–5 working days.`
+      : `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. Premium print, oversized fit. Delivered across Pakistan in 3–5 working days.`;
+    const title = `${p?.title ?? "Product"} — Deez Prints`;
+    const url = `${SITE_URL}/products/${p?.id ?? ""}`;
+
     return {
       meta: [
-        { title: `${p?.title ?? "Product"} — Deez Prints` },
-        {
-          name: "description",
-          content: isTapestryMeta
-            ? `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. High-definition digital sublimation printed satin wall tapestry. Delivered across Pakistan in 3–5 working days.`
-            : `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. Premium print, oversized fit. Delivered across Pakistan in 3–5 working days.`,
-        },
-        { property: "og:title", content: `${p?.title ?? "Product"} — Deez Prints` },
-        {
-          property: "og:description",
-          content: `${formatPrice(p?.price ?? 0)} · Premium print by Deez Prints.`,
-        },
+        { title },
+        { name: "description", content: desc },
+        { property: "og:title", content: `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}` },
+        { property: "og:description", content: desc },
         { property: "og:type", content: "product" },
-        { property: "og:url", content: `${SITE_URL}/products/${p?.id ?? ""}` },
+        { property: "og:url", content: url },
         { property: "og:site_name", content: "Deez Prints" },
+        { property: "og:image", content: absoluteImgUrl },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
         { name: "twitter:card", content: "summary_large_image" },
-        ...(img
-          ? [
-              { property: "og:image", content: img },
-              { name: "twitter:image", content: img },
-            ]
-          : []),
+        { name: "twitter:site", content: "@deez_prints" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: absoluteImgUrl },
       ],
-      links: [{ rel: "canonical", href: `${SITE_URL}/products/${p?.id ?? ""}` }],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   component: ProductPage,

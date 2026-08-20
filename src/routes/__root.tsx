@@ -106,11 +106,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         property: "og:image",
-        content: `${SITE_URL}/assets/hero/hero-typography.svg`,
+        content: `${SITE_URL}/og-image.png`,
+      },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@deez_prints" },
+      {
+        name: "twitter:title",
+        content: "Deez Prints — Premium Streetwear & Custom Printing in Pakistan",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and wall art. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
       },
       {
         name: "twitter:image",
-        content: `${SITE_URL}/assets/hero/hero-typography.svg`,
+        content: `${SITE_URL}/og-image.png`,
       },
     ],
     links: [

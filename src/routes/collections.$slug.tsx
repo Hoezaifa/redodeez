@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { getProducts, type Product } from "@/data/products";
-import { collections, site, aestheticSlugs, SITE_URL } from "@/data/site";
+import { collections, site, aestheticSlugs, SITE_URL, toAbsoluteImageUrl } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { cn } from "@/lib/utils";
@@ -16,20 +16,36 @@ export const Route = createFileRoute("/collections/$slug")({
     const allProducts = await getProducts();
     return { slug: collection.slug, name: collection.name, blurb: collection.blurb, allProducts };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData?.name ?? "Collection"} — Deez Prints` },
-      {
-        name: "description",
-        content: `${loaderData?.blurb ?? "Deez Prints collection."} Shop the ${loaderData?.name ?? ""} collection with nationwide delivery in 3–5 working days.`,
-      },
-      { property: "og:title", content: `${loaderData?.name ?? "Collection"} — Deez Prints` },
-      { property: "og:description", content: loaderData?.blurb ?? "Deez Prints collection." },
-      { property: "og:url", content: `${SITE_URL}/collections/${loaderData?.slug ?? ""}` },
-      { property: "og:site_name", content: "Deez Prints" },
-    ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/collections/${loaderData?.slug ?? ""}` }],
-  }),
+  head: ({ loaderData }) => {
+    const name = loaderData?.name ?? "Collection";
+    const blurb = loaderData?.blurb ?? "Deez Prints collection.";
+    const collectionObj = collections.find((c) => c.slug === loaderData?.slug);
+    const absoluteImgUrl = toAbsoluteImageUrl(collectionObj?.image);
+    const url = `${SITE_URL}/collections/${loaderData?.slug ?? ""}`;
+    const title = `${name} Collection — Deez Prints`;
+    const desc = `${blurb} Shop the ${name} collection with nationwide delivery in 3–5 working days.`;
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: url },
+        { property: "og:site_name", content: "Deez Prints" },
+        { property: "og:image", content: absoluteImgUrl },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: "@deez_prints" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: absoluteImgUrl },
+      ],
+      links: [{ rel: "canonical", href: url }],
+    };
+  },
   component: CollectionPage,
 });
 

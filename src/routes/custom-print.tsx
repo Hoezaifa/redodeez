@@ -35,8 +35,21 @@ export const Route = createFileRoute("/custom-print")({
         content:
           "Custom prints on premium blanks and tapestries. Fast nationwide delivery in 3–5 days.",
       },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/custom-print` },
       { property: "og:site_name", content: "Deez Prints" },
+      { property: "og:image", content: `${SITE_URL}/assets/custom_print_mockup.png` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@deez_prints" },
+      { name: "twitter:title", content: "Custom Printing — Deez Prints" },
+      {
+        name: "twitter:description",
+        content:
+          "Custom prints on premium blanks and tapestries. Fast nationwide delivery in 3–5 days.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/assets/custom_print_mockup.png` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/custom-print` }],
   }),
