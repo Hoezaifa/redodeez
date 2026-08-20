@@ -38,7 +38,7 @@ export const bankDetails = {
 };
 
 export function toAbsoluteImageUrl(path?: string | null): string {
-  if (!path) return `${SITE_URL}/og-image.png`;
+  if (!path) return `${SITE_URL}/og-image.jpg`;
   if (path.startsWith("http://") || path.startsWith("https://")) return path;
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   return `${SITE_URL}${cleanPath}`;

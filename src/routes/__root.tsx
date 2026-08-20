@@ -106,11 +106,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         property: "og:image",
-        content: `${SITE_URL}/og-image.png`,
+        content: `${SITE_URL}/og-image.jpg`,
+      },
+      {
+        property: "og:image:secure_url",
+        content: `${SITE_URL}/og-image.jpg`,
       },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:type", content: "image/jpeg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@deez_prints" },
       {
@@ -124,7 +128,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         name: "twitter:image",
-        content: `${SITE_URL}/og-image.png`,
+        content: `${SITE_URL}/og-image.jpg`,
       },
     ],
     links: [
