@@ -304,7 +304,11 @@ function Checkout() {
                 {completedOrder.items.map((item, idx) => (
                   <div key={idx} className="flex items-center justify-between text-zinc-800">
                     <span className="truncate pr-2 max-w-[220px]">
-                      • {item.title} {item.size ? `(${item.size})` : ""} × {item.qty}
+                      • {item.title}{" "}
+                      {[item.size, item.color].filter(Boolean).length
+                        ? `(${[item.size, item.color].filter(Boolean).join(" / ")})`
+                        : ""}{" "}
+                      × {item.qty}
                     </span>
                     <span className="font-mono font-semibold shrink-0">
                       Rs. {(item.price * item.qty).toLocaleString()}
@@ -643,7 +647,11 @@ function Checkout() {
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-bold text-white truncate uppercase">{item.title}</p>
-                    {item.size && <p className="text-[11px] text-zinc-400">{item.size}</p>}
+                    {(item.size || item.color) && (
+                      <p className="text-[11px] text-zinc-400">
+                        {[item.size, item.color].filter(Boolean).join(" / ")}
+                      </p>
+                    )}
                   </div>
                   <span className="text-xs font-bold text-white font-mono shrink-0">
                     Rs. {(item.price * item.qty).toLocaleString()}

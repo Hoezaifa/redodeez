@@ -3,7 +3,20 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Heart, Minus, Plus, ShoppingCart, ArrowRight, ChevronDown } from "lucide-react";
 import { getProducts, type Product } from "@/data/products";
-import { site, sizes as ALL_SIZES, whatsappLink, SITE_URL, toAbsoluteImageUrl } from "@/data/site";
+import {
+  site,
+  sizes as ALL_SIZES,
+  whatsappLink,
+  SITE_URL,
+  toAbsoluteImageUrl,
+  ACID_WASH_SIZES,
+  ACID_WASH_COLORS,
+  REGULAR_TEE_SIZES,
+  REGULAR_TEE_COLORS,
+  DROP_SHOULDER_SIZES,
+  DROP_SHOULDER_COLORS,
+  COLOR_HEX_MAP,
+} from "@/data/site";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -111,55 +124,83 @@ function ProductPage() {
     product.subcategory === "drop-shoulder" ||
     product.title.toLowerCase().includes("drop shoulder");
 
-  // Use product-level sizes override if available, otherwise fall back to category defaults
-  const availableSizes = product.sizes
-    ? product.sizes
-    : isTapestry
-    ? ['24"x36"', '36"x48"', '48"x60"']
+  // Sizes are always enforced by category — no per-product overrides for apparel
+  const availableSizes = isTapestry
+    ? product.sizes || ['24"x36"', '36"x48"', '48"x60"']
     : isAcidWash
-    ? ["S", "M", "L"]
+    ? [...ACID_WASH_SIZES]
     : isDropShoulder
-    ? ["S", "M", "L", "XL"]
-    : ALL_SIZES;
+    ? [...DROP_SHOULDER_SIZES]
+    : [...REGULAR_TEE_SIZES];
+
+  // Colors are always the full category list — images are just showcases,
+  // customers can pick any color available in the category
+  const availableColors: string[] =
+    isTapestry || product.category === "accessories" || product.subcategory === "mugs"
+    ? []
+    : isAcidWash
+    ? [...ACID_WASH_COLORS]
+    : isDropShoulder
+    ? [...DROP_SHOULDER_COLORS]
+    : [...REGULAR_TEE_COLORS];
 
   const [size, setSize] = useState<string>(isTapestry ? '36"x48"' : "");
+  const [selectedColor, setSelectedColor] = useState<string>(availableColors[0] || "");
   const [qty, setQty] = useState(1);
   const [active, setActive] = useState(0);
   const [err, setErr] = useState(false);
+  const [colorErr, setColorErr] = useState(false);
   const [showSizeChart, setShowSizeChart] = useState(false);
 
-  const needsSize = product.category !== "accessories" && product.subcategory !== "tapestries" && availableSizes.length > 0;
+  const needsSize = product.category !== "accessories" && product.subcategory !== "tapestries" && product.subcategory !== "mugs" && availableSizes.length > 0;
+  const needsColor = availableColors.length > 0;
   const wished = wishlist.includes(product.id);
   const related = allProducts
     .filter((p) => p.id !== product.id && p.category === product.category && p.images.length)
     .slice(0, 4);
 
   function handleAdd() {
+    let hasError = false;
     if (needsSize && !size) {
       setErr(true);
-      return;
+      hasError = true;
     }
+    if (needsColor && !selectedColor) {
+      setColorErr(true);
+      hasError = true;
+    }
+    if (hasError) return;
+
     add({
       productId: product.id,
       title: product.title,
       price: product.price,
       image: product.images[0] ?? "",
       size: size || undefined,
+      color: selectedColor || undefined,
       qty,
     });
   }
 
   function handleBuyNow() {
+    let hasError = false;
     if (needsSize && !size) {
       setErr(true);
-      return;
+      hasError = true;
     }
+    if (needsColor && !selectedColor) {
+      setColorErr(true);
+      hasError = true;
+    }
+    if (hasError) return;
+
     add({
       productId: product.id,
       title: product.title,
       price: product.price,
       image: product.images[0] ?? "",
       size: size || undefined,
+      color: selectedColor || undefined,
       qty,
     });
     navigate({ to: "/checkout" });
@@ -365,10 +406,53 @@ function ProductPage() {
                     transition={{ duration: 0.25 }}
                     className="overflow-hidden mt-3"
                   >
-                    <SizeChart isDropShoulder={isDropShoulder} />
+                    <SizeChart isDropShoulder={isDropShoulder} isAcidWash={isAcidWash} />
                   </motion.div>
                 )}
               </AnimatePresence>
+            </div>
+          )}
+
+          {/* Color Selector */}
+          {needsColor && (
+            <div>
+              <p className="label-mono uppercase text-xs text-muted-foreground font-bold mb-2">
+                Select Color: <span className="text-foreground">{selectedColor || "Select a color"}</span>
+              </p>
+              <div className="flex flex-wrap gap-2.5">
+                {availableColors.map((c) => {
+                  const hex = COLOR_HEX_MAP[c] || "#52525b";
+                  const isSelected = selectedColor === c;
+                  return (
+                    <button
+                      key={c}
+                      type="button"
+                      onClick={() => {
+                        setSelectedColor(c);
+                        setColorErr(false);
+                      }}
+                      title={c}
+                      className={cn(
+                        "flex items-center gap-2 px-3 py-2 border rounded-none text-xs font-mono transition-all duration-200 cursor-pointer active:scale-95",
+                        isSelected
+                          ? "border-primary bg-primary/10 text-primary font-bold ring-1 ring-primary"
+                          : "border-border bg-surface text-muted-foreground hover:border-primary/50 hover:text-foreground"
+                      )}
+                    >
+                      <span
+                        className="w-3.5 h-3.5 rounded-full border border-white/20 shrink-0"
+                        style={{ backgroundColor: hex }}
+                      />
+                      <span>{c}</span>
+                    </button>
+                  );
+                })}
+              </div>
+              {colorErr && (
+                <p className="mt-2 label-mono text-xs text-destructive">
+                  Please select a color to proceed
+                </p>
+              )}
             </div>
           )}
 

@@ -192,9 +192,9 @@ export const faqs = [
     a: "Upload your artwork on our /custom-print page or send your high-res design to us on WhatsApp (+92 327 2487127). Our studio team will prepare a digital mockup for approval before printing.",
   },
   {
-    q: "What sizes are available and how do drop-shoulder tees fit?",
+    q: "What sizes and colors are available?",
     category: "Sizing",
-    a: "Our sizes range from S to XXL. Drop shoulder tees are available in S–XL, and acid wash tees in S–L. Both feature a relaxed, luxury streetwear oversized fit with heavy 240+ GSM cotton. Acid wash tees are available in Black, Grey, and Maroon. If you prefer a regular tailored fit, we recommend sizing down.",
+    a: "Acid Wash tees are available in Black, Grey, and Maroon (Sizes: S, M, L). Drop Shoulder tees come in Black, White, Grey, Red, Blue, Army Green, Beige, and Brown (Sizes: S, M, L, XL, XXL). Regular Tees come in Black, Charcoal, White, Steel Grey, Navy Blue, Army Green, Red, Beige, and Brown (Sizes: S, M, L, XL, XXL).",
   },
   {
     q: "Where are Deez Prints garments manufactured?",
@@ -214,6 +214,50 @@ export const faqs = [
 ];
 
 export const sizes = ["S", "M", "L", "XL", "XXL"];
+
+/* ─── Sitewide Color & Size Specifications ──────────────────── */
+export const ACID_WASH_SIZES = ["S", "M", "L"] as const;
+export const ACID_WASH_COLORS = ["Black", "Grey", "Maroon"] as const;
+
+export const REGULAR_TEE_SIZES = ["S", "M", "L", "XL", "XXL"] as const;
+export const REGULAR_TEE_COLORS = [
+  "Black",
+  "Charcoal",
+  "White",
+  "Steel Grey",
+  "Navy Blue",
+  "Army Green",
+  "Red",
+  "Beige",
+  "Brown",
+] as const;
+
+export const DROP_SHOULDER_SIZES = ["S", "M", "L", "XL", "XXL"] as const;
+export const DROP_SHOULDER_COLORS = [
+  "Black",
+  "White",
+  "Grey",
+  "Red",
+  "Blue",
+  "Army Green",
+  "Beige",
+  "Brown",
+] as const;
+
+export const COLOR_HEX_MAP: Record<string, string> = {
+  Black: "#0a0a0a",
+  Charcoal: "#363636",
+  White: "#ffffff",
+  "Steel Grey": "#71717a",
+  "Navy Blue": "#1e3a8a",
+  "Army Green": "#3f4e38",
+  Red: "#dc2626",
+  Beige: "#d6c0b3",
+  Brown: "#5c3d2e",
+  Grey: "#52525b",
+  Maroon: "#6b1d2f",
+  Blue: "#2563eb",
+};
 
 export const usps = [
   { title: "Premium Quality", body: "Top-notch fabric & prints" },

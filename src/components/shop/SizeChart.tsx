@@ -1,32 +1,46 @@
 import { cn } from "@/lib/utils";
 
 type SizeChartProps = {
-  isDropShoulder: boolean;
+  isDropShoulder?: boolean;
+  isAcidWash?: boolean;
   className?: string;
 };
 
-export function SizeChart({ isDropShoulder, className }: SizeChartProps) {
-  const chartData = isDropShoulder
+export function SizeChart({ isDropShoulder, isAcidWash, className }: SizeChartProps) {
+  const chartData = isAcidWash
     ? [
-        { size: "Small", chest: '21"', length: '27"' },
-        { size: "Medium", chest: '22"', length: '28"' },
-        { size: "Large", chest: '23"', length: '29"' },
+        { size: "Small (S)", chest: '19"', length: '26"' },
+        { size: "Medium (M)", chest: '20"', length: '27"' },
+        { size: "Large (L)", chest: '21"', length: '28"' },
+      ]
+    : isDropShoulder
+    ? [
+        { size: "Small (S)", chest: '21"', length: '27"' },
+        { size: "Medium (M)", chest: '22"', length: '28"' },
+        { size: "Large (L)", chest: '23"', length: '29"' },
         { size: "XL", chest: '24"', length: '30"' },
+        { size: "XXL", chest: '25"', length: '31"' },
       ]
     : [
-        { size: "Small", chest: '19"', length: '26"' },
-        { size: "Medium", chest: '20"', length: '27"' },
-        { size: "Large", chest: '21"', length: '28"' },
+        { size: "Small (S)", chest: '19"', length: '26"' },
+        { size: "Medium (M)", chest: '20"', length: '27"' },
+        { size: "Large (L)", chest: '21"', length: '28"' },
         { size: "XL", chest: '22"', length: '29"' },
         { size: "XXL", chest: '23"', length: '30"' },
       ];
+
+  const title = isAcidWash
+    ? "Acid Wash Fit Size Chart"
+    : isDropShoulder
+    ? "Drop Shoulder Size Chart"
+    : "Regular Fit Size Chart";
 
   return (
     <div className={cn("border border-border bg-surface/60 p-3.5 sm:p-4 rounded-none", className)}>
       <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-border/80">
         <div>
           <span className="label-mono text-xs font-bold uppercase tracking-wider text-primary">
-            {isDropShoulder ? "Drop Shoulder Size Chart" : "Regular Fit Size Chart"}
+            {title}
           </span>
           <p className="text-[11px] text-muted-foreground mt-0.5">
             Measurements in inches (Armpit to Armpit)

@@ -101,15 +101,27 @@ const clothingSizes = ["S", "M", "L", "XL", "XXL"];
 const acidWashSizes = ["S", "M", "L"];
 const tapestrySizes = ["3x2 ft", "4x3 ft", "5x3 ft", "6x4 ft"];
 
-const colorOptions = [
+const regularTeeColorOptions = [
+  { id: "black", name: "Black", colorHex: "#0a0a0a" },
+  { id: "charcoal", name: "Charcoal", colorHex: "#363636" },
+  { id: "white", name: "White", colorHex: "#ffffff" },
+  { id: "steel-grey", name: "Steel Grey", colorHex: "#71717a" },
+  { id: "navy-blue", name: "Navy Blue", colorHex: "#1e3a8a" },
+  { id: "army-green", name: "Army Green", colorHex: "#3f4e38" },
+  { id: "red", name: "Red", colorHex: "#dc2626" },
+  { id: "beige", name: "Beige", colorHex: "#d6c0b3" },
+  { id: "brown", name: "Brown", colorHex: "#5c3d2e" },
+];
+
+const dropShoulderColorOptions = [
   { id: "black", name: "Black", colorHex: "#0a0a0a" },
   { id: "white", name: "White", colorHex: "#ffffff" },
-  { id: "off-white", name: "Off White", colorHex: "#f5f5dc" },
+  { id: "grey", name: "Grey", colorHex: "#52525b" },
   { id: "red", name: "Red", colorHex: "#dc2626" },
-  { id: "navy", name: "Navy", colorHex: "#1e3a8a" },
-  { id: "dark-green", name: "Dark Green", colorHex: "#14532d" },
+  { id: "blue", name: "Blue", colorHex: "#2563eb" },
+  { id: "army-green", name: "Army Green", colorHex: "#3f4e38" },
   { id: "beige", name: "Beige", colorHex: "#d6c0b3" },
-  { id: "vintage-gray", name: "Vintage Gray", colorHex: "#52525b" },
+  { id: "brown", name: "Brown", colorHex: "#5c3d2e" },
 ];
 
 const acidWashColorOptions = [
@@ -130,7 +142,7 @@ function CustomPrint() {
   const { add } = useCart();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [base, setBase] = useState(bases[0].id);
-  const [color, setColor] = useState(colorOptions[0].name);
+  const [color, setColor] = useState(dropShoulderColorOptions[0].name);
 
   const [clothingSize, setClothingSize] = useState("L");
   const [tapestrySize, setTapestrySize] = useState("4x3 ft");
@@ -144,9 +156,14 @@ function CustomPrint() {
   const selectedBase = bases.find((b) => b.id === base)!;
   const isClothing = selectedBase.isClothing;
   const isAcidWash = base === "acid-wash";
+  const isDropShoulder = base === "drop-shoulder";
   const maxAllowedFiles = isClothing ? 2 : 1;
   const availableClothingSizes = isAcidWash ? acidWashSizes : clothingSizes;
-  const availableColors = isAcidWash ? acidWashColorOptions : colorOptions;
+  const availableColors = isAcidWash
+    ? acidWashColorOptions
+    : isDropShoulder
+    ? dropShoulderColorOptions
+    : regularTeeColorOptions;
   const currentSize = isClothing ? clothingSize : tapestrySize;
   const placementText = !isClothing
     ? "Wall Print"
@@ -159,10 +176,19 @@ function CustomPrint() {
     if (newBaseId === "tapestry" && files.length > 1) {
       setFiles((prev) => prev.slice(0, 1));
     }
-    // Auto-reset size/color when switching to acid-wash
-    if (newBaseId === "acid-wash") {
-      if (!acidWashSizes.includes(clothingSize)) setClothingSize("L");
-      if (!acidWashColorOptions.some((c) => c.name === color)) setColor("Black");
+    const targetSizes = newBaseId === "acid-wash" ? acidWashSizes : clothingSizes;
+    const targetColors =
+      newBaseId === "acid-wash"
+        ? acidWashColorOptions
+        : newBaseId === "drop-shoulder"
+        ? dropShoulderColorOptions
+        : regularTeeColorOptions;
+
+    if (!targetSizes.includes(clothingSize)) {
+      setClothingSize(targetSizes[0]);
+    }
+    if (!targetColors.some((c) => c.name === color)) {
+      setColor(targetColors[0].name);
     }
   }
 
