@@ -7,16 +7,16 @@ const robotsContent = fs.readFileSync(path.join(process.cwd(), 'public/robots.tx
 const sitemapContent = fs.readFileSync(path.join(process.cwd(), 'src/routes/sitemap[.]xml.ts'), 'utf-8');
 
 console.log('=== 1. Checking Canonical Domain in src/data/site.ts ===');
-if (siteTsContent.includes('export const SITE_URL = "https://deezprints.store";')) {
-  console.log('✅ SITE_URL is correctly set to https://deezprints.store');
+if (siteTsContent.includes('export const SITE_URL = "https://deezprints.com";')) {
+  console.log('✅ SITE_URL is correctly set to https://deezprints.com');
 } else {
   console.error('❌ SITE_URL is incorrect!');
   process.exit(1);
 }
 
 console.log('\n=== 2. Checking public/robots.txt ===');
-if (robotsContent.includes('Sitemap: https://deezprints.store/sitemap.xml')) {
-  console.log('✅ robots.txt correctly references https://deezprints.store/sitemap.xml');
+if (robotsContent.includes('Sitemap: https://deezprints.com/sitemap.xml')) {
+  console.log('✅ robots.txt correctly references https://deezprints.com/sitemap.xml');
 } else {
   console.error('❌ robots.txt missing correct sitemap directive!');
   process.exit(1);

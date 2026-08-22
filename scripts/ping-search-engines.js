@@ -1,7 +1,7 @@
 import https from "https";
 import http from "http";
 
-const sitemapUrl = "https://deezprints.store/sitemap.xml";
+const sitemapUrl = "https://deezprints.com/sitemap.xml";
 
 const pingTargets = [
   { name: "Google Ping", url: `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}` },

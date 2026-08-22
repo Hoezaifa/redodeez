@@ -66,7 +66,7 @@ ${HR}
 <tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Delivery Address</p><p style="margin:0;font-size:14px;color:#18181b;">${escHtml(o.city || "N/A")}</p><p style="margin:2px 0 0;font-size:13px;color:#52525b;">${escHtml(o.address || "N/A")}</p></td></tr>
 ${o.notes ? `${HR}<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Notes</p><p style="margin:0;font-size:14px;color:#52525b;font-style:italic;">${escHtml(o.notes)}</p></td></tr>` : ""}
 ${HR}
-<tr><td style="padding:0 28px 24px;" align="center"><a href="https://deezprints.store/admin" style="display:inline-block;background:#18181b;color:#fff;font-size:13px;font-weight:700;text-decoration:none;padding:10px 24px;border-radius:8px;">Open Admin Dashboard</a></td></tr>
+<tr><td style="padding:0 28px 24px;" align="center"><a href="https://deezprints.com/admin" style="display:inline-block;background:#18181b;color:#fff;font-size:13px;font-weight:700;text-decoration:none;padding:10px 24px;border-radius:8px;">Open Admin Dashboard</a></td></tr>
 <tr><td style="background:#fafafa;padding:16px 28px;text-align:center;"><p style="margin:0;font-size:11px;color:#a1a1aa;">Deez Prints — Streetwear. No limits.</p></td></tr>
 </table></td></tr></table></body></html>`;
 }
@@ -95,7 +95,7 @@ function buildEmailPlainText(order: any): string {
     `Total: ${fmtCurrency(o.total || 0)}`, SEP, "",
     `Payment: ${o.paymentMethod || "N/A"}`, `City: ${o.city || "N/A"}`, `Address: ${o.address || "N/A"}`,
     o.notes ? `Notes: ${o.notes}` : "", "",
-    "Admin: https://deezprints.store/admin"].filter(l => l !== undefined).join("\n");
+    "Admin: https://deezprints.com/admin"].filter(l => l !== undefined).join("\n");
 }
 
 let _smtpTransporter: any = null;

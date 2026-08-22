@@ -1,4 +1,4 @@
-// Real catalog scraped from deezprints.store. Do not invent products.
+// Real catalog sourced from deezprints.com. Do not invent products.
 export type Product = {
   id: string;
   title: string;
