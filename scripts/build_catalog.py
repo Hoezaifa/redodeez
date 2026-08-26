@@ -1,7 +1,7 @@
 """
 Generate final src/data/products.ts with authentic imported products,
 correct filename mapping, aesthetic fields (Anime Archive, etc.), clean grouping,
-and diverse showcase cover images (mix of colors and front/back mockups).
+and diverse graphic showcase & hover cover images (filtering out blank fabric mockups).
 """
 import os
 import re
@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 
 MANIFEST_PATH = Path(r"D:\DEEZ SHIT\outputs\upload_manifest.json")
+BLANK_KEYS_PATH = Path(r"d:\redo deez\deez-prints-main\scripts\blank_keys.json")
 OUTPUT_TS = Path(r"d:\redo deez\deez-prints-main\src\data\products.ts")
 
 KNOWN_COLORS = {
@@ -320,6 +321,13 @@ def build_ts_catalog():
         
     with open(MANIFEST_PATH, 'r') as f:
         manifest = json.load(f)
+
+    blank_keys = set()
+    if BLANK_KEYS_PATH.exists():
+        with open(BLANK_KEYS_PATH, 'r') as f:
+            blank_keys = set(json.load(f))
+
+    url_to_key = {v: k for k, v in manifest.items()}
         
     cat_mapping = {
         'regular': 'regular',
@@ -348,6 +356,13 @@ def build_ts_catalog():
     # Target color rotation sequence for diverse storefront grid presentation
     color_rotation = ['Black', 'Black', 'Grey', 'Beige', 'Blue', 'White']
     
+    def get_color_from_fn(key):
+        fn = key.split('/')[-1].lower()
+        for c in ['black', 'beige', 'grey', 'gray', 'white', 'blue', 'maroon', 'red', 'olive', 'sand']:
+            if c in fn:
+                return c.capitalize()
+        return 'Black'
+
     for i, ((subcat, design), colors_data) in enumerate(sorted(products_grouped.items())):
         pid = f"dp-{subcat}-{design}"
         title = format_title(design, subcat)
@@ -355,44 +370,81 @@ def build_ts_catalog():
         colors = list(colors_data.keys())
         aesthetic = get_aesthetic(design)
         
-        images = []
+        raw_images = []
         for color, sides in colors_data.items():
             if 'front' in sides:
-                images.append(sides['front'])
+                raw_images.append(sides['front'])
             if 'back' in sides:
-                images.append(sides['back'])
-                
-        # Dynamically select showcase cover image (images[0]) to vary colors & front/back views
-        if images:
-            target_color = color_rotation[i % len(color_rotation)]
-            prefer_back = (i % 2 == 1) # Alternate between front and back views
-            
-            img_info = []
-            for idx, img_url in enumerate(images):
-                fn = img_url.split('/')[-1].lower()
-                c = 'Black' if 'black' in fn else ('Beige' if 'beige' in fn else ('Grey' if 'grey' in fn else ('Blue' if 'blue' in fn else ('White' if 'white' in fn else 'Other'))))
-                s = 'back' if '-back' in fn else 'front'
-                img_info.append((idx, c, s))
-                
-            matches = [info for info in img_info if info[1] == target_color]
-            best_idx = 0
-            if matches:
-                if prefer_back:
-                    back_m = [m for m in matches if m[2] == 'back']
-                    best_idx = back_m[0][0] if back_m else matches[0][0]
-                else:
-                    front_m = [m for m in matches if m[2] == 'front']
-                    best_idx = front_m[0][0] if front_m else matches[0][0]
+                raw_images.append(sides['back'])
+
+        # Separate graphic artwork mockups from plain fabric mockups
+        graphic_images = [u for u in raw_images if url_to_key.get(u, '') not in blank_keys]
+        blank_images = [u for u in raw_images if url_to_key.get(u, '') in blank_keys]
+        
+        if not graphic_images:
+            graphic_images = list(raw_images)
+
+        target_color = color_rotation[i % len(color_rotation)]
+        prefer_back = (i % 2 == 1)
+        
+        img_info = []
+        for idx, img_url in enumerate(graphic_images):
+            key = url_to_key.get(img_url, '')
+            c = get_color_from_fn(key)
+            s = 'back' if '-back' in key else 'front'
+            img_info.append((idx, img_url, c, s, key))
+
+        # 1. Choose Showcase Cover Image (images[0]) — MUST BE GRAPHIC
+        matches = [info for info in img_info if info[2] == target_color]
+        if matches:
+            if prefer_back:
+                back_m = [m for m in matches if m[3] == 'back']
+                showcase_info = back_m[0] if back_m else matches[0]
             else:
-                if prefer_back:
-                    back_all = [info for info in img_info if info[2] == 'back']
-                    best_idx = back_all[0][0] if back_all else (i % len(images))
+                front_m = [m for m in matches if m[3] == 'front']
+                showcase_info = front_m[0] if front_m else matches[0]
+        else:
+            if prefer_back:
+                back_all = [info for info in img_info if info[3] == 'back']
+                showcase_info = back_all[0] if back_all else img_info[i % len(img_info)]
+            else:
+                showcase_info = img_info[i % len(img_info)]
+
+        showcase_url = showcase_info[1]
+        c0, s0 = showcase_info[2], showcase_info[3]
+
+        # 2. Choose Hover Image (images[1]) — MUST BE GRAPHIC, PREFER OPPOSITE SIDE OF DIFFERENT COLOR
+        hover_candidates = [info for info in img_info if info[1] != showcase_url]
+        hover_url = None
+        if hover_candidates:
+            # Priority 1: Opposite view side AND Different color
+            p1 = [info for info in hover_candidates if info[3] != s0 and info[2] != c0]
+            if p1:
+                hover_url = p1[0][1]
+            else:
+                # Priority 2: Opposite view side (same color)
+                p2 = [info for info in hover_candidates if info[3] != s0]
+                if p2:
+                    hover_url = p2[0][1]
                 else:
-                    best_idx = (i % len(images))
-                    
-            # Reorder images list so selected showcase image is at index 0
-            cover_img = images.pop(best_idx)
-            images.insert(0, cover_img)
+                    # Priority 3: Different color (same side)
+                    p3 = [info for info in hover_candidates if info[2] != c0]
+                    if p3:
+                        hover_url = p3[0][1]
+                    else:
+                        hover_url = hover_candidates[0][1]
+
+        final_images = [showcase_url]
+        if hover_url and hover_url != showcase_url:
+            final_images.append(hover_url)
+
+        for img in graphic_images:
+            if img not in final_images:
+                final_images.append(img)
+
+        for img in blank_images:
+            if img not in final_images:
+                final_images.append(img)
                 
         all_products.append({
             'id': pid,
@@ -400,7 +452,7 @@ def build_ts_catalog():
             'price': price,
             'category': 't-shirts',
             'subcategory': subcat,
-            'images': images,
+            'images': final_images,
             'colors': colors,
             'rating': 5,
             'aesthetic': aesthetic
