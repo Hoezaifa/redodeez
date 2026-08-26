@@ -86,7 +86,7 @@ export function ProductZoomImage({
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       className={cn(
-        "relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-none group transition-all duration-300 select-none",
+        "relative aspect-square overflow-hidden border border-border bg-surface rounded-none group transition-all duration-300 select-none",
         isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"
       )}
     >

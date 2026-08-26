@@ -247,7 +247,7 @@ function ProductPage() {
               alt={`Deez Prints ${product.title} — ${product.subcategory.replace(/-/g, " ")} view ${active + 1}`}
             />
           ) : (
-            <div className="relative aspect-square md:aspect-4/5 overflow-hidden border border-border bg-surface rounded-none grid place-items-center">
+            <div className="relative aspect-square overflow-hidden border border-border bg-surface rounded-none grid place-items-center">
               <span className="display-md text-muted-foreground">{product.title}</span>
             </div>
           )}
