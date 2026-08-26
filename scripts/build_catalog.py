@@ -1,6 +1,7 @@
 """
 Generate final src/data/products.ts with authentic imported products,
-correct filename mapping, aesthetic fields (Anime Archive, etc.), and clean grouping.
+correct filename mapping, aesthetic fields (Anime Archive, etc.), clean grouping,
+and diverse showcase cover images (mix of colors and front/back mockups).
 """
 import os
 import re
@@ -344,7 +345,10 @@ def build_ts_catalog():
         
     all_products = []
     
-    for (subcat, design), colors_data in sorted(products_grouped.items()):
+    # Target color rotation sequence for diverse storefront grid presentation
+    color_rotation = ['Black', 'Black', 'Grey', 'Beige', 'Blue', 'White']
+    
+    for i, ((subcat, design), colors_data) in enumerate(sorted(products_grouped.items())):
         pid = f"dp-{subcat}-{design}"
         title = format_title(design, subcat)
         price = SUBCAT_PRICES.get(subcat, 2500)
@@ -357,6 +361,38 @@ def build_ts_catalog():
                 images.append(sides['front'])
             if 'back' in sides:
                 images.append(sides['back'])
+                
+        # Dynamically select showcase cover image (images[0]) to vary colors & front/back views
+        if images:
+            target_color = color_rotation[i % len(color_rotation)]
+            prefer_back = (i % 2 == 1) # Alternate between front and back views
+            
+            img_info = []
+            for idx, img_url in enumerate(images):
+                fn = img_url.split('/')[-1].lower()
+                c = 'Black' if 'black' in fn else ('Beige' if 'beige' in fn else ('Grey' if 'grey' in fn else ('Blue' if 'blue' in fn else ('White' if 'white' in fn else 'Other'))))
+                s = 'back' if '-back' in fn else 'front'
+                img_info.append((idx, c, s))
+                
+            matches = [info for info in img_info if info[1] == target_color]
+            best_idx = 0
+            if matches:
+                if prefer_back:
+                    back_m = [m for m in matches if m[2] == 'back']
+                    best_idx = back_m[0][0] if back_m else matches[0][0]
+                else:
+                    front_m = [m for m in matches if m[2] == 'front']
+                    best_idx = front_m[0][0] if front_m else matches[0][0]
+            else:
+                if prefer_back:
+                    back_all = [info for info in img_info if info[2] == 'back']
+                    best_idx = back_all[0][0] if back_all else (i % len(images))
+                else:
+                    best_idx = (i % len(images))
+                    
+            # Reorder images list so selected showcase image is at index 0
+            cover_img = images.pop(best_idx)
+            images.insert(0, cover_img)
                 
         all_products.append({
             'id': pid,
