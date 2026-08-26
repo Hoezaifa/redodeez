@@ -1,5 +1,6 @@
 """
-Generate final src/data/products.ts with authentic imported products and accessories.
+Generate final src/data/products.ts with authentic imported products,
+correct filename mapping, aesthetic fields (Anime Archive, etc.), and clean grouping.
 """
 import os
 import re
@@ -31,6 +32,85 @@ KNOWN_COLORS = {
     'purple': 'Purple',
 }
 
+# Explicit file remapping rules for misnamed raw files or typo stems
+EXPLICIT_REMAP = {
+    # In drops: madara-beige & madara-white & tachi-whtie are actually ITACHI
+    'drops/madara-beige-back': ('drops', 'itachi', 'Beige', 'back'),
+    'drops/madara-beige-front': ('drops', 'itachi', 'Beige', 'front'),
+    'drops/madara-white-back': ('drops', 'itachi', 'White', 'back'),
+    'drops/madara-white-front': ('drops', 'itachi', 'White', 'front'),
+    'drops/madara-blue-back': ('drops', 'itachi', 'Blue', 'back'),
+    'drops/tachi-whtie-back': ('drops', 'itachi', 'White', 'back'),
+    'drops/tachi-whtie-front': ('drops', 'itachi', 'White', 'front'),
+    'drops/luffty-1-beige-back': ('drops', 'luffy-1', 'Beige', 'back'),
+    'drops/luffty-1-beige-front': ('drops', 'luffy-1', 'Beige', 'front'),
+    'drops/madara-blackl-back': ('drops', 'madara', 'Black', 'back'),
+    'drops/madara-blackl-front': ('drops', 'madara', 'Black', 'front'),
+    'drops/naruto-2-grye-front': ('drops', 'naruto-2', 'Grey', 'front'),
+    'drops/peter-blyue-back': ('drops', 'peter', 'Blue', 'back'),
+    'drops/peter-blyue-front': ('drops', 'peter', 'Blue', 'front'),
+    'drops/regularssss-back': ('drops', 'regular-series', 'Black', 'back'),
+    'drops/regularssss-front': ('drops', 'regular-series', 'Black', 'front'),
+    'acid/aizen-gre-back': ('acid', 'aizen', 'Grey', 'back'),
+    'acid/aizen-gre-front': ('acid', 'aizen', 'Grey', 'front'),
+    'acid/berserk2--black-back': ('acid', 'berserk-2', 'Black', 'back'),
+    'acid/berserk2--black-front': ('acid', 'berserk-2', 'Black', 'front'),
+    'acid/dbz-2-blkac-back': ('acid', 'dbz-2', 'Black', 'back'),
+    'acid/dbz-2-blkac-front': ('acid', 'dbz-2', 'Black', 'front'),
+    'acid/eyes-blackkk-back': ('acid', 'eyes', 'Black', 'back'),
+    'acid/eyes-blackkk-front': ('acid', 'eyes', 'Black', 'front'),
+    'acid/luffy-4-greyt-front': ('acid', 'luffy-4', 'Grey', 'front'),
+    'acid/naruto-1-b;ack-back': ('acid', 'naruto-1', 'Black', 'back'),
+    'acid/naruto-1-b;ack-front': ('acid', 'naruto-1', 'Black', 'front'),
+    'acid/sakuna-black-back': ('acid', 'sukuna', 'Black', 'back'),
+    'acid/sakuna-black-front': ('acid', 'sukuna', 'Black', 'front'),
+    'acid/solo1-black-back': ('acid', 'solo-1', 'Black', 'back'),
+    'acid/solo1-black-front': ('acid', 'solo-1', 'Black', 'front'),
+    'acid/solo2--grey-front': ('acid', 'solo-2', 'Grey', 'front'),
+    'regular/baby-whiet-back': ('regular', 'baby', 'White', 'back'),
+    'regular/baby-whiet-front': ('regular', 'baby', 'White', 'front'),
+    'regular/berserkbeige-back': ('regular', 'berserk', 'Beige', 'back'),
+    'regular/berserkbeige-front': ('regular', 'berserk', 'Beige', 'front'),
+    'regular/berserkwhte-back': ('regular', 'berserk', 'White', 'back'),
+    'regular/berserkwhte-front': ('regular', 'berserk', 'White', 'front'),
+    'regular/dbz2-black-back': ('regular', 'dbz-2', 'Black', 'back'),
+    'regular/dbz2-black-front': ('regular', 'dbz-2', 'Black', 'front'),
+    'regular/eye-balck-back': ('regular', 'eye', 'Black', 'back'),
+    'regular/eye-balck-front': ('regular', 'eye', 'Black', 'front'),
+    'regular/fuckbeige-back': ('regular', 'fuck', 'Beige', 'back'),
+    'regular/fuckbeige-front': ('regular', 'fuck', 'Beige', 'front'),
+    'regular/fuckblack-back': ('regular', 'fuck', 'Black', 'back'),
+    'regular/fuckblack-front': ('regular', 'fuck', 'Black', 'front'),
+    'regular/goodfellasblack-back': ('regular', 'goodfellas', 'Black', 'back'),
+    'regular/goodfellasblack-front': ('regular', 'goodfellas', 'Black', 'front'),
+    'regular/Ichigo-beige-back': ('regular', 'ichigo', 'Beige', 'back'),
+    'regular/Ichigo-beige-front': ('regular', 'ichigo', 'Beige', 'front'),
+    'regular/Ichigo-black-back': ('regular', 'ichigo', 'Black', 'back'),
+    'regular/Ichigo-black-front': ('regular', 'ichigo', 'Black', 'front'),
+    'regular/Ichigo-white-back': ('regular', 'ichigo', 'White', 'back'),
+    'regular/Ichigo-white-front': ('regular', 'ichigo', 'White', 'front'),
+    'regular/luffy2-black-back': ('regular', 'luffy-2', 'Black', 'back'),
+    'regular/luffy2-black-front': ('regular', 'luffy-2', 'Black', 'front'),
+    'regular/naruto3-white-back': ('regular', 'naruto-3', 'White', 'back'),
+    'regular/naruto3-white-front': ('regular', 'naruto-3', 'White', 'front'),
+    'regular/responsibilty-beige-back': ('regular', 'responsibility', 'Beige', 'back'),
+    'regular/responsibilty-beige-front': ('regular', 'responsibility', 'Beige', 'front'),
+    'regular/sakunga-beige-back': ('regular', 'sukuna', 'Beige', 'back'),
+    'regular/sakunga-beige-front': ('regular', 'sukuna', 'Beige', 'front'),
+    'regular/solo1-beige-back': ('regular', 'solo-1', 'Beige', 'back'),
+    'regular/solo1-beige-front': ('regular', 'solo-1', 'Beige', 'front'),
+    'regular/solo2-black-back': ('regular', 'solo-2', 'Black', 'back'),
+    'regular/solo2-black-front': ('regular', 'solo-2', 'Black', 'front'),
+    'regular/uchiha1beige-back': ('regular', 'uchiha-1', 'Beige', 'back'),
+    'regular/uchiha1beige-front': ('regular', 'uchiha-1', 'Beige', 'front'),
+    'regular/uchiha1black-back': ('regular', 'uchiha-1', 'Black', 'back'),
+    'regular/uchiha1black-front': ('regular', 'uchiha-1', 'Black', 'front'),
+    'regular/uchiha1white-back': ('regular', 'uchiha-1', 'White', 'back'),
+    'regular/uchiha1white-front': ('regular', 'uchiha-1', 'White', 'front'),
+    'regular/yamoto1-black-back': ('regular', 'yamoto-1', 'Black', 'back'),
+    'regular/yamoto1-black-front': ('regular', 'yamoto-1', 'Black', 'front'),
+}
+
 DESIGN_TYPO_MAP = {
     'solo1': 'solo-1',
     'solo2': 'solo-2',
@@ -48,6 +128,13 @@ DESIGN_TYPO_MAP = {
     'madara-blackl': 'madara',
     'peter-blyue': 'peter',
     'eyes-blackkk': 'eyes',
+    'uchiha1': 'uchiha-1',
+    'yamoto1': 'yamoto-1',
+    'dbz2': 'dbz-2',
+    'luffy2': 'luffy-2',
+    'naruto3': 'naruto-3',
+    'sakunga': 'sukuna',
+    'responsibilty': 'responsibility',
 }
 
 SUBCAT_PRICES = {
@@ -62,7 +149,35 @@ SUBCAT_LABELS = {
     'acid-wash': 'ACID WASH TEE',
 }
 
-def parse_filename(stem):
+ANIME_KEYWORDS = {
+    'aizen', 'ace', 'anime', 'animeshoot', 'arise', 'berserk', 'bleach', 'bluelock',
+    'chainsaw', 'curse', 'dbz', 'eye', 'eyes', 'ichigo', 'isagi', 'itachi', 'kaijin',
+    'konichiwa', 'luffy', 'madara', 'mob', 'mobland', 'naruto', 'sakuna', 'sukuna',
+    'shoot', 'solo', 'titan', 'tujiro', 'uchiha', 'yamoto', 'zoro', 'vagabond'
+}
+
+COMIC_KEYWORDS = {'batman', 'dark-knight', 'horn', 'horns'}
+CINEMA_KEYWORDS = {'goodfellas', 'peter'}
+
+def get_aesthetic(design_id):
+    d = design_id.lower()
+    for kw in ANIME_KEYWORDS:
+        if kw in d:
+            return "anime-archive"
+    for kw in COMIC_KEYWORDS:
+        if kw in d:
+            return "comic-universe"
+    for kw in CINEMA_KEYWORDS:
+        if kw in d:
+            return "cinema-collection"
+    return "minimal-drops"
+
+def parse_filename(cat_folder, stem):
+    manifest_key = f"{cat_folder}/{stem}"
+    if manifest_key in EXPLICIT_REMAP:
+        rem = EXPLICIT_REMAP[manifest_key]
+        return rem[1], rem[2], rem[3]
+
     side = 'front'
     if stem.endswith('-back'):
         side = 'back'
@@ -138,7 +253,8 @@ AUTHENTIC_ACCESSORIES = [
             "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773596802/mug_collection_gntc3f.webp"
         ],
         "colors": ["White"],
-        "rating": 5
+        "rating": 5,
+        "aesthetic": "anime-archive"
     },
     {
         "id": "tapestry-berserk-eclipse",
@@ -148,7 +264,8 @@ AUTHENTIC_ACCESSORIES = [
         "subcategory": "tapestries",
         "images": ["/assets/products/tapestries/berserk_eclipse_tapestry.webp"],
         "colors": [],
-        "rating": 5
+        "rating": 5,
+        "aesthetic": "anime-archive"
     },
     {
         "id": "tapestry-cyber-city",
@@ -158,7 +275,8 @@ AUTHENTIC_ACCESSORIES = [
         "subcategory": "tapestries",
         "images": ["/assets/products/tapestries/cyber_city_night_tapestry.webp"],
         "colors": [],
-        "rating": 5
+        "rating": 5,
+        "aesthetic": "art-drop"
     },
     {
         "id": "tapestry-manga-panel",
@@ -168,7 +286,8 @@ AUTHENTIC_ACCESSORIES = [
         "subcategory": "tapestries",
         "images": ["/assets/products/tapestries/itachi_manga_panel_tapestry.webp"],
         "colors": [],
-        "rating": 5
+        "rating": 5,
+        "aesthetic": "anime-archive"
     },
     {
         "id": "tapestry-rick-and-morty",
@@ -188,7 +307,8 @@ AUTHENTIC_ACCESSORIES = [
         "subcategory": "tapestries",
         "images": ["/assets/products/tapestries/vagabond_tapestry.webp"],
         "colors": [],
-        "rating": 5
+        "rating": 5,
+        "aesthetic": "anime-archive"
     }
 ]
 
@@ -212,7 +332,7 @@ def build_ts_catalog():
         cat_folder, stem = manifest_key.split('/', 1)
         subcat = cat_mapping.get(cat_folder, 'regular')
         
-        design, color, side = parse_filename(stem)
+        design, color, side = parse_filename(cat_folder, stem)
         
         pkey = (subcat, design)
         if pkey not in products_grouped:
@@ -224,12 +344,12 @@ def build_ts_catalog():
         
     all_products = []
     
-    # Process apparel products
     for (subcat, design), colors_data in sorted(products_grouped.items()):
         pid = f"dp-{subcat}-{design}"
         title = format_title(design, subcat)
         price = SUBCAT_PRICES.get(subcat, 2500)
         colors = list(colors_data.keys())
+        aesthetic = get_aesthetic(design)
         
         images = []
         for color, sides in colors_data.items():
@@ -246,10 +366,10 @@ def build_ts_catalog():
             'subcategory': subcat,
             'images': images,
             'colors': colors,
-            'rating': 5
+            'rating': 5,
+            'aesthetic': aesthetic
         })
         
-    # Append authentic accessories
     all_products.extend(AUTHENTIC_ACCESSORIES)
     
     print(f"Total products ready for export: {len(all_products)}")
@@ -267,6 +387,7 @@ def generate_ts_file(products):
   colors?: string[];
   description?: string;
   rating?: number;
+  aesthetic?: string;
 }
 
 export interface ProductOverrideData {
@@ -275,6 +396,7 @@ export interface ProductOverrideData {
   description?: string;
   sizes?: string[];
   colors?: string[];
+  aesthetic?: string;
 }
 
 export const products: Product[] = ''' + json.dumps(products, indent=2) + ''';
@@ -300,6 +422,7 @@ export function mergeOverrides(
       ...(ov.description !== undefined && { description: ov.description }),
       ...(ov.sizes !== undefined && { sizes: ov.sizes }),
       ...(ov.colors !== undefined && { colors: ov.colors }),
+      ...(ov.aesthetic !== undefined && { aesthetic: ov.aesthetic }),
     };
   });
 }
@@ -328,7 +451,6 @@ export async function fetchProductOverrides(): Promise<Record<string, ProductOve
     }
     const res = await fetch("/api/products");
     if (!res.ok) return {};
-    const json = await res.json();
     return json.ok ? json.overrides : {};
   } catch {
     return {};

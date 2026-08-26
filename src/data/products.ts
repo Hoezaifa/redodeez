@@ -9,6 +9,7 @@ export interface Product {
   colors?: string[];
   description?: string;
   rating?: number;
+  aesthetic?: string;
 }
 
 export interface ProductOverrideData {
@@ -17,6 +18,7 @@ export interface ProductOverrideData {
   description?: string;
   sizes?: string[];
   colors?: string[];
+  aesthetic?: string;
 }
 
 export const products: Product[] = [
@@ -36,7 +38,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-baby",
@@ -56,7 +59,8 @@ export const products: Product[] = [
       "Grey",
       "Maroon"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-acid-wash-batman",
@@ -71,7 +75,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-acid-wash-berserk",
@@ -86,7 +91,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-berserk-2",
@@ -101,7 +107,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-berserk-3",
@@ -116,7 +123,8 @@ export const products: Product[] = [
     "colors": [
       "Maroon"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-bleach",
@@ -130,7 +138,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-bluelock",
@@ -148,7 +157,8 @@ export const products: Product[] = [
       "Black",
       "Maroon"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-chainsaw",
@@ -166,7 +176,8 @@ export const products: Product[] = [
       "Black",
       "Maroon"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-chainsaw-2",
@@ -186,7 +197,8 @@ export const products: Product[] = [
       "Grey",
       "Maroon"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-curse",
@@ -200,7 +212,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-dark-knight",
@@ -217,7 +230,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-acid-wash-dbz-1",
@@ -232,7 +246,8 @@ export const products: Product[] = [
     "colors": [
       "Maroon"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-dbz-2",
@@ -241,27 +256,16 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770121/deez-prints/acid/dbz-2-blkac-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770118/deez-prints/acid/dbz-2-blkac-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770124/deez-prints/acid/dbz-2-grey-front.jpg"
     ],
     "colors": [
+      "Black",
       "Grey"
     ],
-    "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-dbz-2-blkac",
-    "title": "DBZ 2 BLKAC ACID WASH TEE",
-    "price": 3200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770121/deez-prints/acid/dbz-2-blkac-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770118/deez-prints/acid/dbz-2-blkac-back.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-dbz-3",
@@ -282,7 +286,8 @@ export const products: Product[] = [
       "Grey",
       "Maroon"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-dbz-4",
@@ -302,7 +307,8 @@ export const products: Product[] = [
       "Grey",
       "Maroon"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-dbz-5",
@@ -319,7 +325,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-dbz-6",
@@ -336,7 +343,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-dbz-7",
@@ -350,7 +358,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-evil",
@@ -367,7 +376,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-acid-wash-eye",
@@ -381,7 +391,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-eyes",
@@ -398,7 +409,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-fire",
@@ -415,7 +427,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-acid-wash-goodfellas",
@@ -429,7 +442,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-acid-wash-hands",
@@ -444,7 +458,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-acid-wash-horns",
@@ -461,7 +476,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-acid-wash-kaijin",
@@ -476,7 +492,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-konichiwa",
@@ -491,7 +508,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-luffy-1",
@@ -509,7 +527,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-luffy-2",
@@ -526,7 +545,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-luffy-3",
@@ -540,7 +560,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-luffy-4",
@@ -550,26 +571,15 @@ export const products: Product[] = [
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770267/deez-prints/acid/luffy-4-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770264/deez-prints/acid/luffy-4-black-back.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-luffy-4-greyt",
-    "title": "LUFFY 4 GREYT ACID WASH TEE",
-    "price": 3200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770264/deez-prints/acid/luffy-4-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770270/deez-prints/acid/luffy-4-greyt-front.jpg"
     ],
     "colors": [
-      "Black"
+      "Black",
+      "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-madara",
@@ -586,7 +596,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-mobland",
@@ -603,7 +614,8 @@ export const products: Product[] = [
       "Grey",
       "Maroon"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-naruto-1",
@@ -620,7 +632,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-naruto-2",
@@ -637,7 +650,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-naruto-3",
@@ -652,7 +666,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-naruto-4",
@@ -669,7 +684,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-naruto-5",
@@ -687,7 +703,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-peter",
@@ -705,7 +722,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-acid-wash-shoot",
@@ -719,7 +737,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-solo-1",
@@ -734,7 +753,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-solo-2",
@@ -751,7 +771,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-speed",
@@ -768,7 +789,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-acid-wash-sukuna",
@@ -785,7 +807,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-titan",
@@ -799,7 +822,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-yamoto",
@@ -816,7 +840,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-zoro-1",
@@ -834,7 +859,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-zoro-2",
@@ -848,7 +874,8 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-zoro-3",
@@ -865,7 +892,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-ace",
@@ -886,7 +914,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-aizen",
@@ -907,7 +936,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-arise",
@@ -927,7 +957,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-baby",
@@ -950,7 +981,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-batman-grye",
@@ -964,7 +996,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-drop-shoulder-berserk-2",
@@ -979,7 +1012,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-berserk-black-1",
@@ -994,7 +1028,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-bleach",
@@ -1015,7 +1050,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-bluelock",
@@ -1035,7 +1071,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-chainsaw-1",
@@ -1052,7 +1089,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-chainsaw-1-blyue",
@@ -1067,7 +1105,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-chainsaw-2",
@@ -1088,7 +1127,8 @@ export const products: Product[] = [
       "Black",
       "Blue"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-curse",
@@ -1106,7 +1146,8 @@ export const products: Product[] = [
       "Beige",
       "Blue"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-curse-whtie",
@@ -1121,7 +1162,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-dark-knight",
@@ -1141,7 +1183,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-drop-shoulder-dbz-1",
@@ -1158,7 +1201,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-dbz-2",
@@ -1179,7 +1223,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-dbz-3",
@@ -1200,7 +1245,8 @@ export const products: Product[] = [
       "Beige",
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-dbz-4",
@@ -1223,7 +1269,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-dbz-5",
@@ -1246,7 +1293,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-dbz-6",
@@ -1267,7 +1315,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-evil",
@@ -1290,7 +1339,8 @@ export const products: Product[] = [
       "Blue",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-eye",
@@ -1308,7 +1358,8 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-fire",
@@ -1328,7 +1379,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-fire-bleu",
@@ -1343,7 +1395,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-fuckoff",
@@ -1360,7 +1413,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-goodfellas",
@@ -1381,7 +1435,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-drop-shoulder-hands",
@@ -1396,7 +1451,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-head",
@@ -1411,7 +1467,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-horn",
@@ -1435,7 +1492,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-drop-shoulder-itachi",
@@ -1444,16 +1502,22 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769590/deez-prints/drops/itachi-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769586/deez-prints/drops/itachi-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769708/deez-prints/drops/madara-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769704/deez-prints/drops/madara-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769595/deez-prints/drops/itachi-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769592/deez-prints/drops/itachi-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769592/deez-prints/drops/itachi-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769716/deez-prints/drops/madara-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769928/deez-prints/drops/tachi-whtie-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769925/deez-prints/drops/tachi-whtie-back.jpg"
     ],
     "colors": [
       "Beige",
-      "Black"
+      "Black",
+      "Blue",
+      "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-kaijin",
@@ -1474,7 +1538,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-konichiwa",
@@ -1491,7 +1556,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-luffy-1",
@@ -1515,7 +1581,8 @@ export const products: Product[] = [
       "Blue",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-luffy-2",
@@ -1533,7 +1600,8 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-luffy-3",
@@ -1554,7 +1622,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-madara",
@@ -1563,24 +1632,18 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769708/deez-prints/drops/madara-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769704/deez-prints/drops/madara-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769713/deez-prints/drops/madara-blackl-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769710/deez-prints/drops/madara-blackl-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769720/deez-prints/drops/madara-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769716/deez-prints/drops/madara-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769723/deez-prints/drops/madara-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769728/deez-prints/drops/madara-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769725/deez-prints/drops/madara-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769723/deez-prints/drops/madara-grey-front.jpg"
     ],
     "colors": [
-      "Beige",
       "Black",
       "Blue",
-      "Grey",
-      "White"
+      "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-mobland",
@@ -1600,7 +1663,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-naruto",
@@ -1620,7 +1684,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-naruto-2",
@@ -1631,11 +1696,11 @@ export const products: Product[] = [
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769756/deez-prints/drops/naruto-2-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769754/deez-prints/drops/naruto-2-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769775/deez-prints/drops/naruto-2-grye-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769762/deez-prints/drops/naruto-2-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769760/deez-prints/drops/naruto-2-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769769/deez-prints/drops/naruto-2-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769766/deez-prints/drops/naruto-2-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769772/deez-prints/drops/naruto-2-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769775/deez-prints/drops/naruto-2-grye-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769781/deez-prints/drops/naruto-2-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769778/deez-prints/drops/naruto-2-white-back.jpg"
     ],
@@ -1646,7 +1711,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-naruto-3",
@@ -1666,7 +1732,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-naruto-4",
@@ -1689,7 +1756,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-peter",
@@ -1698,15 +1766,19 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769842/deez-prints/drops/peter-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769839/deez-prints/drops/peter-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769848/deez-prints/drops/peter-blyue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769845/deez-prints/drops/peter-blyue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769851/deez-prints/drops/peter-grey-front.jpg"
     ],
     "colors": [
       "Black",
+      "Blue",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-drop-shoulder-regular-series",
@@ -1721,7 +1793,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-shoot",
@@ -1742,7 +1815,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-solo-1",
@@ -1763,7 +1837,8 @@ export const products: Product[] = [
       "White",
       "Beige"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-speed",
@@ -1786,7 +1861,8 @@ export const products: Product[] = [
       "Blue",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-sukuna",
@@ -1804,22 +1880,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
-  },
-  {
-    "id": "dp-drop-shoulder-tachi-whtie",
-    "title": "TACHI WHTIE DROP SHOULDER TEE",
-    "price": 2900,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769928/deez-prints/drops/tachi-whtie-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769925/deez-prints/drops/tachi-whtie-back.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-titan",
@@ -1840,7 +1902,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-yamoto",
@@ -1864,7 +1927,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-zoro",
@@ -1887,7 +1951,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-zoro-2",
@@ -1905,7 +1970,8 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-ace-1",
@@ -1925,7 +1991,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-aizen",
@@ -1945,7 +2012,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-anime1",
@@ -1966,7 +2034,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-animeshoot",
@@ -1984,7 +2053,8 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-baby",
@@ -2002,7 +2072,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-batman1",
@@ -2020,7 +2091,8 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-regular-berserk",
@@ -2041,7 +2113,8 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-berserk-2",
@@ -2056,7 +2129,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-bleach",
@@ -2079,7 +2153,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-chainsaw-1",
@@ -2100,7 +2175,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-chainsaw-2",
@@ -2117,7 +2193,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-chinese",
@@ -2132,7 +2209,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-dbz-1",
@@ -2152,7 +2230,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-dbz-2",
@@ -2162,12 +2241,16 @@ export const products: Product[] = [
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768584/deez-prints/regular/dbz-2-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768581/deez-prints/regular/dbz-2-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768581/deez-prints/regular/dbz-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768664/deez-prints/regular/dbz2-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768661/deez-prints/regular/dbz2-black-back.jpg"
     ],
     "colors": [
-      "White"
+      "White",
+      "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-dbz-3",
@@ -2182,7 +2265,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-dbz-4",
@@ -2202,7 +2286,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-dbz-5",
@@ -2223,7 +2308,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-dbz-6",
@@ -2241,7 +2327,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-dbz-7",
@@ -2259,7 +2346,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-dbz-8",
@@ -2279,22 +2367,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-dbz2",
-    "title": "DBZ2 REGULAR OVERSIZED TEE",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768664/deez-prints/regular/dbz2-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768661/deez-prints/regular/dbz2-black-back.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-dream",
@@ -2309,7 +2383,8 @@ export const products: Product[] = [
     "colors": [
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-eye",
@@ -2318,31 +2393,20 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768676/deez-prints/regular/eye-balck-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768673/deez-prints/regular/eye-balck-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768681/deez-prints/regular/eye-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768678/deez-prints/regular/eye-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768687/deez-prints/regular/eyewhite-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768684/deez-prints/regular/eyewhite-back.jpg"
     ],
     "colors": [
+      "Black",
       "Beige",
       "White"
     ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-eye-balck",
-    "title": "EYE BALCK REGULAR OVERSIZED TEE",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768676/deez-prints/regular/eye-balck-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768673/deez-prints/regular/eye-balck-back.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-fire",
@@ -2359,7 +2423,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-fuck",
@@ -2379,7 +2444,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-goodfellas",
@@ -2399,7 +2465,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-regular-hands",
@@ -2417,7 +2484,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-ichigo",
@@ -2438,7 +2506,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-isagi-1",
@@ -2458,7 +2527,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-kaijin",
@@ -2479,7 +2549,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-knight",
@@ -2502,7 +2573,8 @@ export const products: Product[] = [
       "Blue",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-luffy-1",
@@ -2520,7 +2592,8 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-luffy-2",
@@ -2529,12 +2602,16 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768825/deez-prints/regular/luffy-2-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768825/deez-prints/regular/luffy-2-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768854/deez-prints/regular/luffy2-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768852/deez-prints/regular/luffy2-black-back.jpg"
     ],
     "colors": [
-      "Grey"
+      "Grey",
+      "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-luffy-3",
@@ -2552,7 +2629,8 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-luffy-4",
@@ -2570,22 +2648,8 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-luffy2",
-    "title": "LUFFY2 REGULAR OVERSIZED TEE",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768854/deez-prints/regular/luffy2-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768852/deez-prints/regular/luffy2-black-back.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-madara-1",
@@ -2608,7 +2672,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-mob",
@@ -2626,7 +2691,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-naruto-1",
@@ -2644,7 +2710,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-naruto-2",
@@ -2661,7 +2728,8 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-naruto-3",
@@ -2671,27 +2739,16 @@ export const products: Product[] = [
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768914/deez-prints/regular/naruto-3-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768911/deez-prints/regular/naruto-3-beige-back.jpg"
-    ],
-    "colors": [
-      "Beige"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-naruto3",
-    "title": "NARUTO3 REGULAR OVERSIZED TEE",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768911/deez-prints/regular/naruto-3-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768919/deez-prints/regular/naruto3-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768917/deez-prints/regular/naruto3-white-back.jpg"
     ],
     "colors": [
+      "Beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-responsibility",
@@ -2703,43 +2760,17 @@ export const products: Product[] = [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768925/deez-prints/regular/responsibility-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768922/deez-prints/regular/responsibility-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768931/deez-prints/regular/responsibilitywhite-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768928/deez-prints/regular/responsibilitywhite-back.jpg"
-    ],
-    "colors": [
-      "Black",
-      "White"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-responsibilty",
-    "title": "RESPONSIBILTY REGULAR OVERSIZED TEE",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768928/deez-prints/regular/responsibilitywhite-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768937/deez-prints/regular/responsibilty-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768934/deez-prints/regular/responsibilty-beige-back.jpg"
     ],
     "colors": [
+      "Black",
+      "White",
       "Beige"
     ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-sakunga",
-    "title": "SAKUNGA REGULAR OVERSIZED TEE",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768954/deez-prints/regular/sakunga-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768951/deez-prints/regular/sakunga-beige-back.jpg"
-    ],
-    "colors": [
-      "Beige"
-    ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-solo-1",
@@ -2760,7 +2791,8 @@ export const products: Product[] = [
       "White",
       "Beige"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-solo-2",
@@ -2781,7 +2813,8 @@ export const products: Product[] = [
       "White",
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-speed",
@@ -2799,7 +2832,8 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-sukuna",
@@ -2822,7 +2856,8 @@ export const products: Product[] = [
       "Beige",
       "Grey"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-tujiro",
@@ -2837,7 +2872,30 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-uchiha-1",
+    "title": "UCHIHA 1 REGULAR OVERSIZED TEE",
+    "price": 2500,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769080/deez-prints/regular/uchiha1beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769078/deez-prints/regular/uchiha1beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769087/deez-prints/regular/uchiha1black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769083/deez-prints/regular/uchiha1black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769092/deez-prints/regular/uchiha1white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769090/deez-prints/regular/uchiha1white-back.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "Black",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-uchiha-2",
@@ -2858,7 +2916,8 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-uchiha-3",
@@ -2876,7 +2935,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-uchiha-4",
@@ -2894,7 +2954,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-uchiha-5",
@@ -2911,28 +2972,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-uchiha1",
-    "title": "UCHIHA1 REGULAR OVERSIZED TEE",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769080/deez-prints/regular/uchiha1beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769078/deez-prints/regular/uchiha1beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769087/deez-prints/regular/uchiha1black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769083/deez-prints/regular/uchiha1black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769092/deez-prints/regular/uchiha1white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769090/deez-prints/regular/uchiha1white-back.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "Black",
-      "White"
-    ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-yamoto-1",
@@ -2943,28 +2984,17 @@ export const products: Product[] = [
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769098/deez-prints/regular/yamoto-1-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769096/deez-prints/regular/yamoto-1-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769101/deez-prints/regular/yamoto-1-grey-front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "Grey"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-yamoto1",
-    "title": "YAMOTO1 REGULAR OVERSIZED TEE",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769101/deez-prints/regular/yamoto-1-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769108/deez-prints/regular/yamoto1-Black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769105/deez-prints/regular/yamoto1-Black-back.jpg"
     ],
     "colors": [
+      "Beige",
+      "Grey",
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-zoro-1",
@@ -2984,7 +3014,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-zoro-2",
@@ -3004,7 +3035,8 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "mug-white",
@@ -3049,7 +3081,8 @@ export const products: Product[] = [
     "colors": [
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "tapestry-berserk-eclipse",
@@ -3061,7 +3094,8 @@ export const products: Product[] = [
       "/assets/products/tapestries/berserk_eclipse_tapestry.webp"
     ],
     "colors": [],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "tapestry-cyber-city",
@@ -3073,7 +3107,8 @@ export const products: Product[] = [
       "/assets/products/tapestries/cyber_city_night_tapestry.webp"
     ],
     "colors": [],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "art-drop"
   },
   {
     "id": "tapestry-manga-panel",
@@ -3085,7 +3120,8 @@ export const products: Product[] = [
       "/assets/products/tapestries/itachi_manga_panel_tapestry.webp"
     ],
     "colors": [],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "tapestry-rick-and-morty",
@@ -3109,7 +3145,8 @@ export const products: Product[] = [
       "/assets/products/tapestries/vagabond_tapestry.webp"
     ],
     "colors": [],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   }
 ];
 
@@ -3134,6 +3171,7 @@ export function mergeOverrides(
       ...(ov.description !== undefined && { description: ov.description }),
       ...(ov.sizes !== undefined && { sizes: ov.sizes }),
       ...(ov.colors !== undefined && { colors: ov.colors }),
+      ...(ov.aesthetic !== undefined && { aesthetic: ov.aesthetic }),
     };
   });
 }
@@ -3162,7 +3200,6 @@ export async function fetchProductOverrides(): Promise<Record<string, ProductOve
     }
     const res = await fetch("/api/products");
     if (!res.ok) return {};
-    const json = await res.json();
     return json.ok ? json.overrides : {};
   } catch {
     return {};
