@@ -17,7 +17,7 @@ const aestheticCards: AestheticCard[] = [
   {
     id: "anime-archive",
     title: "ANIME ARCHIVE",
-    count: "48+ DESIGNS",
+    count: "AUTHENTIC DROPS",
     description: "Iconic anime graphics inspired by classics and new-gen legends.",
     image: "/assets/collections/anime_archive_v3.webp",
     link: "/collections/$slug",
@@ -26,7 +26,7 @@ const aestheticCards: AestheticCard[] = [
   {
     id: "comic-universe",
     title: "COMIC UNIVERSE",
-    count: "28+ DESIGNS",
+    count: "AUTHENTIC DROPS",
     description: "Marvel, DC, Comics, Superheroes.",
     image: "/assets/collections/comic_universe.webp",
     link: "/collections/$slug",
@@ -35,7 +35,7 @@ const aestheticCards: AestheticCard[] = [
   {
     id: "minimal-drops",
     title: "MINIMAL DROPS",
-    count: "35+ DESIGNS",
+    count: "AUTHENTIC DROPS",
     description: "Small chest prints, clean graphics, typography, symbols, understated everyday wear.",
     image: "/assets/collections/minimal_drops.webp",
     link: "/collections/$slug",
@@ -44,7 +44,7 @@ const aestheticCards: AestheticCard[] = [
   {
     id: "cinema-collection",
     title: "CINEMA COLLECTION",
-    count: "24+ DESIGNS",
+    count: "AUTHENTIC DROPS",
     description: "Iconic films, unforgettable characters, and legendary moments brought to life.",
     image: "/assets/collections/cinema_collection.webp",
     link: "/collections/$slug",

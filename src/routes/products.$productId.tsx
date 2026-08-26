@@ -2,6 +2,8 @@ import { createFileRoute, Link, useNavigate, notFound } from "@tanstack/react-ro
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Heart, Minus, Plus, ShoppingCart, ArrowRight, ChevronDown } from "lucide-react";
+import { AccordionItem } from "@/components/shop/AccordionItem";
+import { ApparelAccordion } from "@/components/shop/ApparelAccordion";
 import { getProducts, type Product } from "@/data/products";
 import {
   site,
@@ -68,41 +70,10 @@ export const Route = createFileRoute("/products/$productId")({
   component: ProductPage,
 });
 
-/* ─── Expandable Accordion Component ──────────────────────── */
-function AccordionItem({ title, children, defaultOpen = false }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
-  const [open, setOpen] = useState(defaultOpen);
-  return (
-    <div className="border-b border-border py-4">
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between text-left label-mono transition-colors hover:text-primary"
-      >
-        <span className="font-semibold">{title}</span>
-        <ChevronDown
-          className={cn(
-            "h-4 w-4 text-muted-foreground transition-transform duration-300",
-            open && "rotate-180 text-primary",
-          )}
-        />
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="overflow-hidden"
-          >
-            <div className="pt-3 text-xs md:text-sm text-muted-foreground leading-relaxed">
-              {children}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
+/* ─── Helper: is this an apparel product? ────────────────── */
+const APPAREL_CATEGORIES = new Set(["t-shirts", "hoodies"]);
+function isApparelProduct(p: { category: string; subcategory: string }) {
+  return APPAREL_CATEGORIES.has(p.category);
 }
 
 function ProductPage() {
@@ -342,12 +313,6 @@ function ProductPage() {
             </div>
           </div>
 
-          {/* Product Description — only shown if set via admin */}
-          {product.description && (
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {product.description}
-            </p>
-          )}
 
           {/* Size Selector */}
           {needsSize && (
@@ -523,50 +488,51 @@ function ProductPage() {
             </button>
           </div>
 
-          {/* Expandable Accordion Sections */}
-          <div className="pt-6">
-            {needsSize && (
-              <AccordionItem title="Size Chart (Inches)" defaultOpen={true}>
-                <SizeChart isDropShoulder={isDropShoulder} className="mt-1" />
+          {/* ── Apparel Accordion (shared sections) ────────── */}
+          {isApparelProduct(product) && (
+            <ApparelAccordion product={product} />
+          )}
+
+          {/* ── Non-Apparel Accordion (tapestries, mugs, etc.) ── */}
+          {!isApparelProduct(product) && (
+            <div className="mt-8 border-t border-border/60">
+              <AccordionItem title="Materials & Details">{getMaterialsText()}</AccordionItem>
+
+              <AccordionItem title="Shipping Information">
+                <p>
+                  Standard delivery time is 3-5 working days across Pakistan, and 2-4 working days for
+                  Karachi. You will receive an instant order notification & confirmation update.
+                </p>
               </AccordionItem>
-            )}
 
-            <AccordionItem title="Materials & Details">{getMaterialsText()}</AccordionItem>
+              <AccordionItem title="Refund & Exchange">
+                <p className="mb-2">
+                  We replace any defective or damaged products immediately upon delivery.
+                </p>
+                <p>
+                  For size adjustments or support, contact our team via WhatsApp or email at{" "}
+                  <span className="text-primary font-mono">deezprints69@gmail.com</span>.
+                </p>
+              </AccordionItem>
 
-            <AccordionItem title="Shipping Information">
-              <p>
-                Standard delivery time is 3-5 working days across Pakistan, and 2-4 working days for
-                Karachi. You will receive an instant order notification & confirmation update.
-              </p>
-            </AccordionItem>
-
-            <AccordionItem title="Refund & Exchange">
-              <p className="mb-2">
-                We replace any defective or damaged products immediately upon delivery.
-              </p>
-              <p>
-                For size adjustments or support, contact our team via WhatsApp or email at{" "}
-                <span className="text-primary font-mono">deezprints69@gmail.com</span>.
-              </p>
-            </AccordionItem>
-
-            <AccordionItem title="Care Instructions">
-              {isTapestry ? (
-                <ul className="list-disc list-inside space-y-1">
-                  <li>Machine wash on gentle cycle or hand wash with mild detergent</li>
-                  <li>Hang dry or tumble dry on low heat</li>
-                  <li>Steam or iron on low heat (reverse side) to smooth out packing folds</li>
-                  <li>Do not bleach</li>
-                </ul>
-              ) : (
-                <ul className="list-disc list-inside space-y-1">
-                  <li>Hand wash inside out with cold water</li>
-                  <li>Iron inside out on low heat</li>
-                  <li>Do not bleach or dry clean</li>
-                </ul>
-              )}
-            </AccordionItem>
-          </div>
+              <AccordionItem title="Care Instructions">
+                {isTapestry ? (
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Machine wash on gentle cycle or hand wash with mild detergent</li>
+                    <li>Hang dry or tumble dry on low heat</li>
+                    <li>Steam or iron on low heat (reverse side) to smooth out packing folds</li>
+                    <li>Do not bleach</li>
+                  </ul>
+                ) : (
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Hand wash inside out with cold water</li>
+                    <li>Iron inside out on low heat</li>
+                    <li>Do not bleach or dry clean</li>
+                  </ul>
+                )}
+              </AccordionItem>
+            </div>
+          )}
         </div>
       </div>
 
