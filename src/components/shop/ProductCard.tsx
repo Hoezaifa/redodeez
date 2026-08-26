@@ -36,7 +36,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
                 height={500}
                 loading="lazy"
                 className={cn(
-                  "absolute inset-0 h-full w-full object-cover img-zoom group-hover:scale-105",
+                  "absolute inset-0 h-full w-full object-cover img-zoom group-hover:scale-110 group-hover:-rotate-2",
                   alt !== primary && "group-hover:opacity-0",
                 )}
               />
@@ -47,7 +47,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
                   width={400}
                   height={500}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover opacity-0 img-zoom group-hover:opacity-100 group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover opacity-0 img-zoom group-hover:opacity-100 group-hover:scale-110 group-hover:-rotate-2"
                 />
               )}
             </>

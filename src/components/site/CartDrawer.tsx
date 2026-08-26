@@ -162,7 +162,7 @@ export function CartDrawer() {
                                 src={p.images[0]}
                                 alt={p.title}
                                 loading="lazy"
-                                className="h-full w-full object-cover img-zoom hover:scale-105"
+                                className="h-full w-full object-cover img-zoom hover:scale-110 hover:-rotate-2"
                               />
                             </Link>
                             <p className="mt-2 text-xs font-semibold uppercase leading-snug break-words">
