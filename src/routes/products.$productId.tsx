@@ -395,6 +395,20 @@ function ProductPage() {
                       onClick={() => {
                         setSelectedColor(c);
                         setColorErr(false);
+                        if (product.images.length) {
+                          const colorLower = c.toLowerCase().replace(/\s+/g, "");
+                          const foundIdx = product.images.findIndex((img) => {
+                            const imgLower = img.toLowerCase();
+                            return (
+                              imgLower.includes(`-${colorLower}-`) ||
+                              imgLower.includes(`-${colorLower}.`) ||
+                              imgLower.includes(colorLower)
+                            );
+                          });
+                          if (foundIdx !== -1) {
+                            setActive(foundIdx);
+                          }
+                        }
                       }}
                       title={c}
                       className={cn(
