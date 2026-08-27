@@ -354,7 +354,7 @@ def build_ts_catalog():
     all_products = []
     
     # Target color rotation sequence for diverse storefront grid presentation
-    color_rotation = ['Black', 'Black', 'Grey', 'Beige', 'Blue', 'White']
+    color_rotation_list = ['Black', 'Beige', 'Grey', 'White', 'Blue', 'Sand', 'Maroon']
     
     def get_color_from_fn(key):
         fn = key.split('/')[-1].lower()
@@ -362,6 +362,10 @@ def build_ts_catalog():
             if c in fn:
                 return c.capitalize()
         return 'Black'
+
+    last_color = None
+    last_side = None
+    color_rot_idx = 0
 
     for i, ((subcat, design), colors_data) in enumerate(sorted(products_grouped.items())):
         pid = f"dp-{subcat}-{design}"
@@ -384,9 +388,6 @@ def build_ts_catalog():
         if not graphic_images:
             graphic_images = list(raw_images)
 
-        target_color = color_rotation[i % len(color_rotation)]
-        prefer_back = (i % 2 == 1)
-        
         img_info = []
         for idx, img_url in enumerate(graphic_images):
             key = url_to_key.get(img_url, '')
@@ -395,23 +396,40 @@ def build_ts_catalog():
             img_info.append((idx, img_url, c, s, key))
 
         # 1. Choose Showcase Cover Image (images[0]) — MUST BE GRAPHIC
-        matches = [info for info in img_info if info[2] == target_color]
-        if matches:
-            if prefer_back:
-                back_m = [m for m in matches if m[3] == 'back']
-                showcase_info = back_m[0] if back_m else matches[0]
+        available_colors = set(info[2] for info in img_info)
+        
+        chosen_color = None
+        # Find next available color in rotation list that is distinct from last_color
+        for offset in range(len(color_rotation_list)):
+            candidate_color = color_rotation_list[(color_rot_idx + offset) % len(color_rotation_list)]
+            if candidate_color in available_colors:
+                if candidate_color != last_color or len(available_colors) == 1:
+                    chosen_color = candidate_color
+                    color_rot_idx = (color_rot_idx + offset + 1) % len(color_rotation_list)
+                    break
+        
+        if not chosen_color:
+            chosen_color = list(available_colors)[0]
+
+        cand = [info for info in img_info if info[2] == chosen_color]
+
+        # Prefer opposite side of last_side if available
+        if last_side:
+            opp_side = 'back' if last_side == 'front' else 'front'
+            opp_cands = [info for info in cand if info[3] == opp_side]
+            if opp_cands:
+                showcase_info = opp_cands[0]
             else:
-                front_m = [m for m in matches if m[3] == 'front']
-                showcase_info = front_m[0] if front_m else matches[0]
+                showcase_info = cand[0]
         else:
-            if prefer_back:
-                back_all = [info for info in img_info if info[3] == 'back']
-                showcase_info = back_all[0] if back_all else img_info[i % len(img_info)]
-            else:
-                showcase_info = img_info[i % len(img_info)]
+            showcase_info = cand[0]
 
         showcase_url = showcase_info[1]
         c0, s0 = showcase_info[2], showcase_info[3]
+
+        last_color = c0
+        last_side = s0
+        color_rot_idx += 1
 
         # 2. Choose Hover Image (images[1]) — MUST BE GRAPHIC, PREFER OPPOSITE SIDE OF DIFFERENT COLOR
         hover_candidates = [info for info in img_info if info[1] != showcase_url]
