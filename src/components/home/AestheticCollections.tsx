@@ -124,7 +124,7 @@ export function AestheticCollections() {
                     alt={card.title}
                     loading="lazy"
                     className={cn(
-                      "h-full w-full object-cover object-right opacity-95 img-zoom group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-500",
+                      "h-full w-full object-cover object-right opacity-95 img-zoom",
                       isSoon && "grayscale-[30%] opacity-80"
                     )}
                   />
@@ -182,7 +182,7 @@ export function AestheticCollections() {
                 src={MOCKUP_IMG}
                 alt="Custom Print"
                 loading="lazy"
-                className="h-full w-full object-cover object-center opacity-60 img-zoom group-hover:scale-110 group-hover:-rotate-2"
+                className="h-full w-full object-cover object-center opacity-60 img-zoom"
               />
               {/* Dark overlay — lighter to let the banner show */}
               <div
@@ -265,7 +265,7 @@ export function AestheticCollections() {
                       alt={card.title}
                       loading="lazy"
                       className={cn(
-                        "h-full w-full object-cover opacity-95 img-zoom group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-500",
+                        "h-full w-full object-cover opacity-95 img-zoom",
                         isSoon && "grayscale-[30%] opacity-80"
                       )}
                     />
@@ -324,7 +324,7 @@ export function AestheticCollections() {
                 src={MOCKUP_IMG}
                 alt="Custom Print Banner"
                 loading="lazy"
-                className="h-full w-full object-cover object-center opacity-70 img-zoom group-hover:scale-110 group-hover:-rotate-2"
+                className="h-full w-full object-cover object-center opacity-70 img-zoom"
               />
               {/* Dark gradient — strong on left for text readability, fading to let image show on right */}
               <div

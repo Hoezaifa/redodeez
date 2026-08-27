@@ -196,7 +196,7 @@ function Home() {
                 src={p.images[0]}
                 alt={p.title}
                 loading="lazy"
-                className="h-full w-full object-cover img-zoom group-hover:scale-110 group-hover:-rotate-2"
+                className="h-full w-full object-cover img-zoom"
               />
               <span className="absolute inset-0 grid place-items-center bg-background/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none">
                 <ArrowUpRight className="h-6 w-6" />

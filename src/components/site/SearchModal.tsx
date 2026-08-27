@@ -144,7 +144,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                           <img
                             src={p.images[0]}
                             alt={p.title}
-                            className="h-full w-full object-cover img-zoom group-hover:scale-110 group-hover:-rotate-2"
+                            className="h-full w-full object-cover img-zoom"
                           />
                         )}
                       </div>

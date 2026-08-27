@@ -250,9 +250,23 @@
   animation: marquee-x 32s linear infinite;
 }
 
-@utility img-zoom {
-  transition: scale 700ms cubic-bezier(0.16, 1, 0.3, 1), rotate 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1), opacity 700ms cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: scale, rotate, transform;
+@layer utilities {
+  .img-zoom {
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transform: scale(1) rotate(0deg) translateZ(0) !important;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .group:hover .img-zoom,
+  .group\/card:hover .img-zoom,
+  a:hover .img-zoom,
+  button:hover .img-zoom,
+  article:hover .img-zoom,
+  figure:hover .img-zoom,
+  .img-zoom:hover {
+    transform: scale(1.1) rotate(-2deg) translateZ(0) !important;
+  }
 }
 
 /* ---------- polish-pass additions ---------- */

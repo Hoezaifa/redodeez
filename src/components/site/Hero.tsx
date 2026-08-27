@@ -105,7 +105,7 @@ export function CollectionsStrip() {
                   src={c.image}
                   alt={c.name}
                   loading="lazy"
-                  className="h-full w-full object-cover img-zoom group-hover:scale-110 group-hover:-rotate-2"
+                  className="h-full w-full object-cover img-zoom"
                 />
               </div>
               <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent opacity-90 transition-opacity duration-700 group-hover:opacity-75 pointer-events-none" />
