@@ -275,7 +275,7 @@ function ShopAll() {
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-10">
+      <div className="mt-8 grid grid-cols-2 gap-2.5 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-10">
         {list.map((p, i) => (
           <ProductCard key={p.id} product={p} index={i} />
         ))}

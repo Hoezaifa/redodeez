@@ -360,7 +360,7 @@ function Checkout() {
         {suggested.length > 0 && (
           <div className="mt-16 border-t border-white/10 pt-10">
             <h2 className="text-xl font-bold uppercase mb-6">You might also like</h2>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-4">
               {suggested.map((p, i) => (
                 <ProductCard key={p.id} product={p} index={i} />
               ))}
