@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Heart, ShoppingCart, Clock } from "lucide-react";
+import { Heart, ShoppingCart } from "lucide-react";
 import type { Product } from "@/data/products";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
@@ -13,17 +13,10 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
   const alt = product.images[1] ?? primary;
   const isNew = index < 4;
 
-  const isComingSoon = Boolean(
-    product.aesthetic &&
-    product.aesthetic !== "anime-archive" &&
-    product.category !== "accessories"
-  );
-
   const subcategoryLabel = product.subcategory.replace(/-/g, " ").toUpperCase();
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (isComingSoon) return;
     add({
       productId: product.id,
       title: product.title,
@@ -58,9 +51,8 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
                 height={625}
                 loading="lazy"
                 className={cn(
-                  "absolute inset-0 h-full w-full object-cover img-zoom group-hover:scale-105 transition-transform duration-500",
-                  alt !== primary && "group-hover:opacity-0",
-                  isComingSoon && "opacity-80 grayscale-[20%]"
+                  "absolute inset-0 h-full w-full object-cover img-zoom group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-500",
+                  alt !== primary && "group-hover:opacity-0"
                 )}
               />
               {alt !== primary && (
@@ -70,7 +62,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
                   width={500}
                   height={625}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover opacity-0 img-zoom group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  className="absolute inset-0 h-full w-full object-cover opacity-0 img-zoom group-hover:opacity-100 group-hover:scale-110 group-hover:-rotate-2 transition-all duration-500"
                 />
               )}
             </>
@@ -82,23 +74,15 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
 
           {/* Badges Top-Left */}
           <div className="absolute left-2.5 top-2.5 sm:left-3 sm:top-3 flex flex-col items-start gap-1 z-10 pointer-events-none">
-            {isComingSoon ? (
-              <span className="bg-amber-500 text-black px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-md">
-                COMING SOON
+            {isNew && (
+              <span className="bg-[#FF4D00] px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm">
+                New
               </span>
-            ) : (
-              <>
-                {isNew && (
-                  <span className="bg-[#FF4D00] px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm">
-                    New
-                  </span>
-                )}
-                {product.subcategory === "acid-wash" && (
-                  <span className="bg-black/85 backdrop-blur-sm border border-white/10 px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider shadow-sm">
-                    1 of 1
-                  </span>
-                )}
-              </>
+            )}
+            {product.subcategory === "acid-wash" && (
+              <span className="bg-black/85 backdrop-blur-sm border border-white/10 px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                1 of 1
+              </span>
             )}
           </div>
         </Link>
@@ -135,26 +119,20 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           </Link>
         </div>
 
-        {/* Price row — with cart button or Coming Soon badge */}
+        {/* Price row — with cart button */}
         <div className="flex items-center justify-between mt-1.5 sm:mt-2">
           <p className="font-sans font-bold text-sm sm:text-base text-white tracking-tight">
             {formatPrice(product.price)}
           </p>
 
-          {isComingSoon ? (
-            <span className="inline-flex items-center gap-1 px-2 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 label-mono text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider rounded-sm">
-              <Clock className="w-3 h-3 shrink-0" /> SOON
-            </span>
-          ) : (
-            <button
-              type="button"
-              aria-label="Quick Add to Cart"
-              onClick={handleQuickAdd}
-              className="grid h-8 w-8 sm:h-9 sm:w-9 place-items-center border border-neutral-700 bg-neutral-900/90 text-white transition-all active:scale-90 hover:border-white/40 hover:bg-neutral-800 shadow-sm"
-            >
-              <ShoppingCart className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[1.8]" />
-            </button>
-          )}
+          <button
+            type="button"
+            aria-label="Quick Add to Cart"
+            onClick={handleQuickAdd}
+            className="grid h-8 w-8 sm:h-9 sm:w-9 place-items-center border border-neutral-700 bg-neutral-900/90 text-white transition-all active:scale-90 hover:border-white/40 hover:bg-neutral-800 shadow-sm"
+          >
+            <ShoppingCart className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[1.8]" />
+          </button>
         </div>
       </div>
     </motion.article>

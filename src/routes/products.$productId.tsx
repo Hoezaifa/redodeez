@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Heart, Minus, Plus, ShoppingCart, ArrowRight, ChevronDown, Clock } from "lucide-react";
+import { Heart, Minus, Plus, ShoppingCart, ArrowRight, ChevronDown } from "lucide-react";
 import { AccordionItem } from "@/components/shop/AccordionItem";
 import { ApparelAccordion } from "@/components/shop/ApparelAccordion";
 import { getProducts, type Product } from "@/data/products";
@@ -80,8 +80,6 @@ function ProductPage() {
   const { product, allProducts } = Route.useLoaderData();
   const navigate = useNavigate();
   const { add, wishlist, toggleWish } = useCart();
-
-  const isComingSoon = Boolean(product.aesthetic && product.aesthetic !== "anime-archive" && product.category !== "accessories");
 
   const breadcrumbs = [
     { name: "Home", url: "/" },
@@ -293,30 +291,10 @@ function ProductPage() {
               <span className="font-display text-3xl font-black text-foreground">
                 {formatPrice(product.price)}
               </span>
-              {isComingSoon ? (
-                <span className="text-xs label-mono text-amber-400 border border-amber-500/40 bg-amber-500/10 px-2.5 py-1 rounded-none font-bold">
-                  COMING SOON
-                </span>
-              ) : (
-                <span className="text-xs label-mono text-primary border border-primary/30 bg-primary/10 px-2.5 py-1 rounded-none">
-                  BEST SELLER
-                </span>
-              )}
+              <span className="text-xs label-mono text-primary border border-primary/30 bg-primary/10 px-2.5 py-1 rounded-none">
+                BEST SELLER
+              </span>
             </div>
-
-            {isComingSoon && (
-              <div className="p-4 bg-amber-500/10 border border-amber-500/30 rounded-none flex items-start gap-3 mt-4">
-                <Clock className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                <div>
-                  <p className="label-mono text-amber-400 font-extrabold text-xs uppercase tracking-widest">
-                    UNRELEASED COLLECTION ITEM
-                  </p>
-                  <p className="text-xs text-neutral-300 font-sans mt-1">
-                    This piece belongs to an upcoming aesthetic drop and is not yet available for purchase.
-                  </p>
-                </div>
-              </div>
-            )}
 
             {/* Trust Indicators (Square Badges) from old site */}
             <div className="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-xs text-muted-foreground font-medium border-y border-border py-3">
@@ -334,7 +312,6 @@ function ProductPage() {
               </div>
             </div>
           </div>
-
 
           {/* Size Selector */}
           {needsSize && (
@@ -484,38 +461,25 @@ function ProductPage() {
           </div>
 
           {/* Action Buttons (Add to Cart + Buy Now) */}
-          {isComingSoon ? (
-            <div className="pt-4">
-              <button
-                type="button"
-                disabled
-                className="w-full flex items-center justify-center gap-2 border border-amber-500/40 bg-amber-500/10 text-amber-400 px-6 py-4 label-mono text-sm font-extrabold uppercase tracking-wider cursor-not-allowed rounded-none"
-              >
-                <Clock className="h-4 w-4" />
-                <span>COLLECTION DROP COMING SOON</span>
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4">
-              <button
-                type="button"
-                onClick={handleAdd}
-                className="flex items-center justify-center gap-2 border border-border-strong bg-surface hover:bg-elevated px-6 py-4 label-mono text-sm font-bold transition-all rounded-none cursor-pointer"
-              >
-                <ShoppingCart className="h-4 w-4 text-primary" />
-                <span>Add to Cart</span>
-              </button>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4">
+            <button
+              type="button"
+              onClick={handleAdd}
+              className="flex items-center justify-center gap-2 border border-border-strong bg-surface hover:bg-elevated px-6 py-4 label-mono text-sm font-bold transition-all rounded-none cursor-pointer"
+            >
+              <ShoppingCart className="h-4 w-4 text-primary" />
+              <span>Add to Cart</span>
+            </button>
 
-              <button
-                type="button"
-                onClick={handleBuyNow}
-                className="flex items-center justify-center gap-2 bg-primary hover:bg-foreground hover:text-background text-primary-foreground px-6 py-4 label-mono text-sm font-bold transition-all rounded-none shadow-lg cursor-pointer"
-              >
-                <span>Buy Now</span>
-                <ArrowRight className="h-4 w-4" />
-              </button>
-            </div>
-          )}
+            <button
+              type="button"
+              onClick={handleBuyNow}
+              className="flex items-center justify-center gap-2 bg-primary hover:bg-foreground hover:text-background text-primary-foreground px-6 py-4 label-mono text-sm font-bold transition-all rounded-none shadow-lg cursor-pointer"
+            >
+              <span>Buy Now</span>
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
 
           {/* Wishlist & WhatsApp Buttons */}
           <div className="flex items-center gap-3">
