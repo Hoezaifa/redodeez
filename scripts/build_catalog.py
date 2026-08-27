@@ -364,8 +364,8 @@ def build_ts_catalog():
         return 'Black'
 
     last_color = None
-    last_side = None
     color_rot_idx = 0
+    used_colors_in_row = []
 
     for i, ((subcat, design), colors_data) in enumerate(sorted(products_grouped.items())):
         pid = f"dp-{subcat}-{design}"
@@ -395,72 +395,92 @@ def build_ts_catalog():
             s = 'back' if '-back' in key else 'front'
             img_info.append((idx, img_url, c, s, key))
 
-        # 1. Choose Showcase Cover Image (images[0]) — MUST BE GRAPHIC
-        available_colors = set(info[2] for info in img_info)
+        # 1. Choose Showcase Cover Image (images[0]) — MUST BE FRONT VIEW
+        # Reset row color tracker after every 4 items
+        if len(used_colors_in_row) >= 4:
+            used_colors_in_row = []
+
+        front_info = []
+        all_info = []
+        for color, sides in colors_data.items():
+            if 'front' in sides:
+                front_info.append((sides['front'], color, 'front', url_to_key.get(sides['front'], '')))
+            if 'back' in sides:
+                all_info.append((sides['back'], color, 'back', url_to_key.get(sides['back'], '')))
+            if 'front' in sides:
+                all_info.append((sides['front'], color, 'front', url_to_key.get(sides['front'], '')))
+
+        if not front_info:
+            front_info = all_info
+
+        available_front_colors = set(info[1] for info in front_info)
         
         chosen_color = None
-        # Find next available color in rotation list that is distinct from last_color
+        # Find next available color in rotation list that hasn't been used in current 4-item row block
         for offset in range(len(color_rotation_list)):
             candidate_color = color_rotation_list[(color_rot_idx + offset) % len(color_rotation_list)]
-            if candidate_color in available_colors:
-                if candidate_color != last_color or len(available_colors) == 1:
+            if candidate_color in available_front_colors:
+                if candidate_color not in used_colors_in_row:
                     chosen_color = candidate_color
                     color_rot_idx = (color_rot_idx + offset + 1) % len(color_rotation_list)
                     break
         
+        # Fallback if all available colors were used in this row
         if not chosen_color:
-            chosen_color = list(available_colors)[0]
+            for candidate_color in color_rotation_list:
+                if candidate_color in available_front_colors and candidate_color not in used_colors_in_row:
+                    chosen_color = candidate_color
+                    break
+        if not chosen_color:
+            for candidate_color in color_rotation_list:
+                if candidate_color in available_front_colors:
+                    chosen_color = candidate_color
+                    break
+        if not chosen_color:
+            chosen_color = list(available_front_colors)[0]
 
-        cand = [info for info in img_info if info[2] == chosen_color]
+        cand = [info for info in front_info if info[1] == chosen_color]
+        showcase_info = cand[0] if cand else front_info[0]
 
-        # Prefer opposite side of last_side if available
-        if last_side:
-            opp_side = 'back' if last_side == 'front' else 'front'
-            opp_cands = [info for info in cand if info[3] == opp_side]
-            if opp_cands:
-                showcase_info = opp_cands[0]
-            else:
-                showcase_info = cand[0]
-        else:
-            showcase_info = cand[0]
-
-        showcase_url = showcase_info[1]
-        c0, s0 = showcase_info[2], showcase_info[3]
+        showcase_url = showcase_info[0]
+        c0, s0 = showcase_info[1], showcase_info[2]
 
         last_color = c0
-        last_side = s0
-        color_rot_idx += 1
+        used_colors_in_row.append(c0)
 
-        # 2. Choose Hover Image (images[1]) — MUST BE GRAPHIC, PREFER OPPOSITE SIDE OF DIFFERENT COLOR
-        hover_candidates = [info for info in img_info if info[1] != showcase_url]
+        # 2. Choose Hover Image (images[1]) — PREFER BACK VIEW OF DIFFERENT COLOR
+        hover_candidates = [info for info in all_info if info[0] != showcase_url]
         hover_url = None
         if hover_candidates:
-            # Priority 1: Opposite view side AND Different color
-            p1 = [info for info in hover_candidates if info[3] != s0 and info[2] != c0]
+            # Priority 1: Back view side AND Different color
+            p1 = [info for info in hover_candidates if info[2] == 'back' and info[1] != c0]
             if p1:
-                hover_url = p1[0][1]
+                hover_url = p1[0][0]
             else:
-                # Priority 2: Opposite view side (same color)
-                p2 = [info for info in hover_candidates if info[3] != s0]
+                # Priority 2: Back view side (same color)
+                p2 = [info for info in hover_candidates if info[2] == 'back']
                 if p2:
-                    hover_url = p2[0][1]
+                    hover_url = p2[0][0]
                 else:
-                    # Priority 3: Different color (same side)
-                    p3 = [info for info in hover_candidates if info[2] != c0]
+                    # Priority 3: Different color (any side)
+                    p3 = [info for info in hover_candidates if info[1] != c0]
                     if p3:
-                        hover_url = p3[0][1]
+                        hover_url = p3[0][0]
                     else:
-                        hover_url = hover_candidates[0][1]
+                        hover_url = hover_candidates[0][0]
 
         final_images = [showcase_url]
         if hover_url and hover_url != showcase_url:
             final_images.append(hover_url)
 
-        for img in graphic_images:
-            if img not in final_images:
+        # Add remaining graphic and blank images for PDP gallery
+        for info in all_info:
+            img = info[0]
+            if img not in final_images and url_to_key.get(img, '') not in blank_keys:
                 final_images.append(img)
 
-        for img in blank_images:
+        for info in all_info:
+            img = info[0]
             if img not in final_images:
                 final_images.append(img)
                 
