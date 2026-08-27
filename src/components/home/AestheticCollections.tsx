@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Upload, Printer, Shirt, Globe } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { LOGO_URL } from "@/data/site";
+import { cn } from "@/lib/utils";
 
 interface AestheticCard {
   id: string;
