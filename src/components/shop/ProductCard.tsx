@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Heart, Plus, ShoppingCart } from "lucide-react";
+import { Heart, ShoppingCart } from "lucide-react";
 import type { Product } from "@/data/products";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
@@ -99,46 +99,38 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             )}
           />
         </button>
-
-        {/* Quick Add '+' Button Bottom-Right — desktop only */}
-        <button
-          type="button"
-          aria-label="Quick Add"
-          onClick={handleQuickAdd}
-          className="hidden sm:grid absolute right-3 bottom-3 z-10 h-9 w-9 place-items-center bg-white text-black shadow-lg transition-all duration-200 hover:bg-neutral-200 hover:scale-105 active:scale-95"
-        >
-          <Plus className="h-4.5 w-4.5 stroke-[2.5]" />
-        </button>
       </div>
 
       {/* Details Container Bottom */}
-      <div className="flex flex-col gap-0.5 sm:gap-1 p-3 sm:p-4 bg-[#0a0a0c] border-t border-neutral-800/80 text-left">
-        <p className="label-mono text-[10px] sm:text-[11px] font-bold text-neutral-400 uppercase tracking-widest">
-          {subcategoryLabel}
-        </p>
+      <div className="flex flex-col gap-0.5 sm:gap-1 p-3 sm:p-4 bg-[#0a0a0c] border-t border-neutral-800/80 text-left flex-1 justify-between">
+        <div className="flex flex-col gap-0.5 sm:gap-1">
+          <p className="label-mono text-[10px] sm:text-[11px] font-bold text-neutral-400 uppercase tracking-widest">
+            {subcategoryLabel}
+          </p>
 
-        <Link
-          to="/products/$productId"
-          params={{ productId: product.id }}
-          className="font-sans text-xs sm:text-sm font-black uppercase leading-snug tracking-tight text-white line-clamp-1 hover:text-primary transition-colors"
-        >
-          {product.title}
-        </Link>
+          <Link
+            to="/products/$productId"
+            params={{ productId: product.id }}
+            className="font-sans text-xs sm:text-sm font-black uppercase leading-snug tracking-tight text-white line-clamp-1 hover:text-primary transition-colors"
+          >
+            {product.title}
+          </Link>
+        </div>
 
-        {/* Price row — with cart button on mobile */}
-        <div className="flex items-center justify-between mt-1 sm:mt-1.5">
+        {/* Price row — with cart button on desktop & mobile */}
+        <div className="flex items-center justify-between mt-1.5 sm:mt-2">
           <p className="font-sans font-bold text-sm sm:text-base text-white tracking-tight">
             {formatPrice(product.price)}
           </p>
 
-          {/* Cart button — mobile only, replaces the image-overlay + button */}
+          {/* Cart button — sitewide (mobile + desktop) */}
           <button
             type="button"
-            aria-label="Quick Add"
+            aria-label="Quick Add to Cart"
             onClick={handleQuickAdd}
-            className="sm:hidden grid h-8 w-8 place-items-center border border-neutral-700 bg-neutral-900 text-white transition-all active:scale-90 hover:border-neutral-500"
+            className="grid h-8 w-8 sm:h-9 sm:w-9 place-items-center border border-neutral-700 bg-neutral-900/90 text-white transition-all active:scale-90 hover:border-white/40 hover:bg-neutral-800 shadow-sm"
           >
-            <ShoppingCart className="h-3.5 w-3.5 stroke-[2]" />
+            <ShoppingCart className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[1.8]" />
           </button>
         </div>
       </div>
