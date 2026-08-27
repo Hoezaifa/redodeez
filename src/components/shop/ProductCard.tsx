@@ -106,7 +106,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
       {/* Details Container Bottom */}
       <div className="flex flex-col gap-0.5 sm:gap-1 p-3 sm:p-4 bg-[#0a0a0c] border-t border-neutral-800/80 text-left flex-1 justify-between">
         <div className="flex flex-col gap-0.5 sm:gap-1">
-          <p className="label-mono text-[10px] sm:text-[11px] font-bold text-neutral-400 uppercase tracking-widest">
+          <p className="label-mono text-[10px] sm:text-[11px] font-extrabold text-primary uppercase tracking-widest">
             {subcategoryLabel}
           </p>
 
@@ -121,7 +121,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
 
         {/* Price row — with cart button */}
         <div className="flex items-center justify-between mt-1.5 sm:mt-2">
-          <p className="font-sans font-bold text-sm sm:text-base text-white tracking-tight">
+          <p className="font-sans font-bold text-sm sm:text-base text-primary tracking-tight">
             {formatPrice(product.price)}
           </p>
 
@@ -129,9 +129,9 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             type="button"
             aria-label="Quick Add to Cart"
             onClick={handleQuickAdd}
-            className="grid h-8 w-8 sm:h-9 sm:w-9 place-items-center border border-neutral-700 bg-neutral-900/90 text-white transition-all active:scale-90 hover:border-white/40 hover:bg-neutral-800 shadow-sm"
+            className="grid h-8 w-8 sm:h-9 sm:w-9 place-items-center border border-primary/40 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all active:scale-90 shadow-sm"
           >
-            <ShoppingCart className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[1.8]" />
+            <ShoppingCart className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[2]" />
           </button>
         </div>
       </div>
