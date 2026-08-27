@@ -11,6 +11,7 @@ interface AestheticCard {
   image: string;
   link: string;
   params?: Record<string, string>;
+  isAvailable?: boolean;
 }
 
 const aestheticCards: AestheticCard[] = [
@@ -22,33 +23,37 @@ const aestheticCards: AestheticCard[] = [
     image: "/assets/collections/anime_archive_v3.webp",
     link: "/collections/$slug",
     params: { slug: "anime-archive" },
+    isAvailable: true,
   },
   {
     id: "comic-universe",
     title: "COMIC UNIVERSE",
-    count: "AUTHENTIC DROPS",
+    count: "COMING SOON",
     description: "Marvel, DC, Comics, Superheroes.",
     image: "/assets/collections/comic_universe.webp",
     link: "/collections/$slug",
     params: { slug: "comic-universe" },
+    isAvailable: false,
   },
   {
     id: "minimal-drops",
     title: "MINIMAL DROPS",
-    count: "AUTHENTIC DROPS",
+    count: "COMING SOON",
     description: "Small chest prints, clean graphics, typography, symbols, understated everyday wear.",
     image: "/assets/collections/minimal_drops.webp",
     link: "/collections/$slug",
     params: { slug: "minimal-drops" },
+    isAvailable: false,
   },
   {
     id: "cinema-collection",
     title: "CINEMA COLLECTION",
-    count: "AUTHENTIC DROPS",
+    count: "COMING SOON",
     description: "Iconic films, unforgettable characters, and legendary moments brought to life.",
     image: "/assets/collections/cinema_collection.webp",
     link: "/collections/$slug",
     params: { slug: "cinema-collection" },
+    isAvailable: false,
   },
 ];
 
@@ -102,6 +107,7 @@ export function AestheticCollections() {
           const parts = card.title.split(" ");
           const word1 = parts[0];
           const word2 = parts.slice(1).join(" ");
+          const isSoon = card.isAvailable === false;
 
           return (
             <Reveal key={card.id} delay={index * 0.04}>
@@ -116,7 +122,10 @@ export function AestheticCollections() {
                     src={card.image}
                     alt={card.title}
                     loading="lazy"
-                    className="h-full w-full object-cover object-right opacity-95 img-zoom group-hover:scale-110 group-hover:-rotate-2"
+                    className={cn(
+                      "h-full w-full object-cover object-right opacity-95 img-zoom group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-500",
+                      isSoon && "grayscale-[30%] opacity-80"
+                    )}
                   />
                   <div 
                     className="absolute inset-0 z-10 pointer-events-none" 
@@ -130,7 +139,12 @@ export function AestheticCollections() {
                     <span className="block text-white">{word1}</span>
                     {word2 && <span className="block text-primary">{word2}</span>}
                   </h3>
-                  <div className="inline-block bg-zinc-900/90 border border-zinc-700/60 px-3 py-1 label-mono text-[11px] font-extrabold text-white uppercase tracking-widest rounded-none backdrop-blur-sm">
+                  <div className={cn(
+                    "inline-block px-3 py-1 label-mono text-[11px] font-extrabold uppercase tracking-widest rounded-none backdrop-blur-sm border",
+                    isSoon
+                      ? "bg-amber-500/20 border-amber-500/50 text-amber-400"
+                      : "bg-zinc-900/90 border-zinc-700/60 text-white"
+                  )}>
                     {card.count}
                   </div>
                   <p className="text-[11px] sm:text-xs text-zinc-400 font-sans line-clamp-2 leading-relaxed pt-0.5 max-w-[240px]">
@@ -140,9 +154,15 @@ export function AestheticCollections() {
 
                 {/* Bottom Button */}
                 <div className="relative z-20 pt-4 pl-1 pb-1 pointer-events-none">
-                  <span className="inline-flex items-center gap-2 border border-zinc-700/70 bg-zinc-900/90 px-4 py-2 label-mono text-[11px] font-bold text-white uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground">
-                    EXPLORE <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
+                  {isSoon ? (
+                    <span className="inline-flex items-center gap-2 border border-amber-500/40 bg-amber-500/10 px-4 py-2 label-mono text-[11px] font-bold text-amber-400 uppercase tracking-wider backdrop-blur-md">
+                      COMING SOON
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-2 border border-zinc-700/70 bg-zinc-900/90 px-4 py-2 label-mono text-[11px] font-bold text-white uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground">
+                      EXPLORE <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  )}
                 </div>
               </Link>
             </Reveal>
@@ -228,6 +248,7 @@ export function AestheticCollections() {
             const parts = card.title.split(" ");
             const word1 = parts[0];
             const word2 = parts.slice(1).join(" ");
+            const isSoon = card.isAvailable === false;
 
             return (
               <Reveal key={card.id} delay={index * 0.08}>
@@ -242,7 +263,10 @@ export function AestheticCollections() {
                       src={card.image}
                       alt={card.title}
                       loading="lazy"
-                      className="h-full w-full object-cover opacity-95 img-zoom group-hover:scale-110 group-hover:-rotate-2"
+                      className={cn(
+                        "h-full w-full object-cover opacity-95 img-zoom group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-500",
+                        isSoon && "grayscale-[30%] opacity-80"
+                      )}
                     />
                     <div 
                       className="absolute inset-0 z-10 pointer-events-none" 
@@ -256,7 +280,12 @@ export function AestheticCollections() {
                       <span className="block text-white">{word1}</span>
                       {word2 && <span className="block text-primary">{word2}</span>}
                     </h3>
-                    <div className="inline-block rounded-none bg-zinc-900/90 px-3.5 py-1.5 label-mono text-xs font-bold text-white border border-zinc-700/60 backdrop-blur-md tracking-widest uppercase">
+                    <div className={cn(
+                      "inline-block rounded-none px-3.5 py-1.5 label-mono text-xs font-bold border backdrop-blur-md tracking-widest uppercase",
+                      isSoon
+                        ? "bg-amber-500/20 border-amber-500/50 text-amber-400"
+                        : "bg-zinc-900/90 border-zinc-700/60 text-white"
+                    )}>
                       {card.count}
                     </div>
                     <p className="text-xs sm:text-sm text-zinc-400 font-sans max-w-[260px] leading-relaxed pt-1">
@@ -266,9 +295,15 @@ export function AestheticCollections() {
 
                   {/* Card Action Bottom */}
                   <div className="relative z-20 pt-6 pointer-events-none">
-                    <span className="inline-flex items-center gap-2.5 rounded-none border border-zinc-700/70 bg-zinc-900/90 px-6 py-3 label-mono text-xs font-bold text-white uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground group-hover:translate-x-1">
-                      EXPLORE <ArrowRight className="h-4 w-4" />
-                    </span>
+                    {isSoon ? (
+                      <span className="inline-flex items-center gap-2.5 rounded-none border border-amber-500/40 bg-amber-500/10 px-6 py-3 label-mono text-xs font-bold text-amber-400 uppercase tracking-wider backdrop-blur-md">
+                        COMING SOON
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-2.5 rounded-none border border-zinc-700/70 bg-zinc-900/90 px-6 py-3 label-mono text-xs font-bold text-white uppercase tracking-wider backdrop-blur-md transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground group-hover:translate-x-1">
+                        EXPLORE <ArrowRight className="h-4 w-4" />
+                      </span>
+                    )}
                   </div>
                 </Link>
               </Reveal>

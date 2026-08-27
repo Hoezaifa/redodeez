@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Clock } from "lucide-react";
 import { getProducts, type Product } from "@/data/products";
 import { collections, site, aestheticSlugs, SITE_URL, toAbsoluteImageUrl } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -61,6 +61,8 @@ function CollectionPage() {
   const [priceDir, setPriceDir] = useState<"asc" | "desc">("asc");
 
   const isAesthetic = aestheticSlugs.includes(slug);
+  const isComingSoonCollection = slug !== "anime-archive" && (slug === "comic-universe" || slug === "minimal-drops" || slug === "cinema-collection" || slug === "art-drop" || slug === "street-aesthetic");
+
   const filterableCollections = useMemo(() => {
     if (isAesthetic) {
       return collections.filter((c) => aestheticSlugs.includes(c.slug));
@@ -102,6 +104,22 @@ function CollectionPage() {
       <div className="mt-3 md:mt-8">
         <SectionHeading eyebrow={`${items.length} pieces`} title={name} sub={blurb} />
       </div>
+
+      {isComingSoonCollection && (
+        <div className="mt-4 p-4 md:p-6 bg-amber-500/10 border border-amber-500/30 rounded-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <p className="label-mono text-amber-400 font-extrabold text-xs uppercase tracking-widest flex items-center gap-1.5">
+              <Clock className="w-4 h-4" /> DROP COMING SOON
+            </p>
+            <h3 className="font-display text-lg md:text-xl font-bold text-white uppercase mt-1">
+              This collection universe is currently in development
+            </h3>
+            <p className="text-xs md:text-sm text-neutral-400 font-sans mt-0.5">
+              Designs below are previews. Stay tuned — ordering will unlock as soon as the collection drops!
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Filters + Sort — sticky */}
       <div className="sticky top-0 z-30 -mx-5 mt-3 md:mt-10 bg-background/95 px-5 backdrop-blur-md md:-mx-10 md:px-10 xl:-mx-14 xl:px-14">
