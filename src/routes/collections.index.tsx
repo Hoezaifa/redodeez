@@ -74,7 +74,7 @@ function ShopAll() {
     }
     if (sort === "name") sorted.sort((a, b) => a.title.localeCompare(b.title));
     if (sort === "featured") sorted.sort((a, b) => b.images.length - a.images.length);
-    if (sort === "newest") sorted.sort((a, b) => b.rating - a.rating);
+    if (sort === "newest") sorted.sort((a, b) => (b.rating ?? 5) - (a.rating ?? 5));
     return sorted;
   }, [cat, sort, priceDir, allProducts]);
 

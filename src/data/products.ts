@@ -1507,13 +1507,11 @@ export const products: Product[] = [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769708/deez-prints/drops/madara-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769928/deez-prints/drops/tachi-whtie-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769592/deez-prints/drops/itachi-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769716/deez-prints/drops/madara-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769925/deez-prints/drops/tachi-whtie-back.jpg"
     ],
     "colors": [
       "Beige",
       "Black",
-      "Blue",
       "White"
     ],
     "rating": 5,
@@ -1567,18 +1565,44 @@ export const products: Product[] = [
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769665/deez-prints/drops/luffy-1-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769645/deez-prints/drops/luffy-1-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769651/deez-prints/drops/luffy-1-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769662/deez-prints/drops/luffy-1-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769668/deez-prints/drops/luffy-1-grey-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769662/deez-prints/drops/luffy-1-blue-back.jpg"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-drop-shoulder-luffy-4",
+    "title": "LUFFY 4 DROP SHOULDER TEE",
+    "price": 2900,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769648/deez-prints/drops/luffy-1-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769645/deez-prints/drops/luffy-1-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769654/deez-prints/drops/luffy-1-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769671/deez-prints/drops/luffy-1-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769651/deez-prints/drops/luffy-1-black-back.jpg"
     ],
     "colors": [
       "Beige",
-      "Black",
-      "Blue",
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-drop-shoulder-luffy-5",
+    "title": "LUFFY 5 DROP SHOULDER TEE",
+    "price": 2900,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769671/deez-prints/drops/luffy-1-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769668/deez-prints/drops/luffy-1-grey-back.jpg"
+    ],
+    "colors": [
       "Grey"
     ],
     "rating": 5,
@@ -1633,6 +1657,7 @@ export const products: Product[] = [
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769720/deez-prints/drops/madara-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769716/deez-prints/drops/madara-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769710/deez-prints/drops/madara-blackl-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769713/deez-prints/drops/madara-blackl-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769723/deez-prints/drops/madara-grey-front.jpg"
@@ -1975,7 +2000,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-ace-1",
-    "title": "ACE 1 REGULAR OVERSIZED TEE",
+    "title": "ACE 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -1996,7 +2021,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-aizen",
-    "title": "AIZEN REGULAR OVERSIZED TEE",
+    "title": "AIZEN REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2017,7 +2042,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-anime1",
-    "title": "ANIME1 REGULAR OVERSIZED TEE",
+    "title": "ANIME1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2039,7 +2064,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-animeshoot",
-    "title": "ANIMESHOOT REGULAR OVERSIZED TEE",
+    "title": "ANIMESHOOT REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2058,7 +2083,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-baby",
-    "title": "BABY REGULAR OVERSIZED TEE",
+    "title": "BABY REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2077,7 +2102,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-batman1",
-    "title": "BATMAN1 REGULAR OVERSIZED TEE",
+    "title": "BATMAN1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2096,20 +2121,17 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-berserk",
-    "title": "BERSERK REGULAR OVERSIZED TEE",
+    "title": "BERSERK REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768505/deez-prints/regular/berserkbeige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768490/deez-prints/regular/berserk-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768511/deez-prints/regular/berserkwhte-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768493/deez-prints/regular/berserk-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768502/deez-prints/regular/berserkbeige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768508/deez-prints/regular/berserkwhte-back.jpg"
     ],
     "colors": [
-      "Black",
       "Beige",
       "White"
     ],
@@ -2118,13 +2140,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-berserk-2",
-    "title": "BERSERK 2 REGULAR OVERSIZED TEE",
+    "title": "BERSERK 2 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768499/deez-prints/regular/berserk2black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768496/deez-prints/regular/berserk2black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768493/deez-prints/regular/berserk-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768490/deez-prints/regular/berserk-black-back.jpg"
     ],
     "colors": [
       "Black"
@@ -2134,7 +2156,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-bleach",
-    "title": "BLEACH REGULAR OVERSIZED TEE",
+    "title": "BLEACH REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2158,7 +2180,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-chainsaw-1",
-    "title": "CHAINSAW 1 REGULAR OVERSIZED TEE",
+    "title": "CHAINSAW 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2180,7 +2202,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-chainsaw-2",
-    "title": "CHAINSAW 2 REGULAR OVERSIZED TEE",
+    "title": "CHAINSAW 2 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2198,7 +2220,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-chinese",
-    "title": "CHINESE REGULAR OVERSIZED TEE",
+    "title": "CHINESE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2214,7 +2236,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-1",
-    "title": "DBZ 1 REGULAR OVERSIZED TEE",
+    "title": "DBZ 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2235,7 +2257,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-2",
-    "title": "DBZ 2 REGULAR OVERSIZED TEE",
+    "title": "DBZ 2 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2254,7 +2276,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-3",
-    "title": "DBZ 3 REGULAR OVERSIZED TEE",
+    "title": "DBZ 3 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2270,7 +2292,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-4",
-    "title": "DBZ 4 REGULAR OVERSIZED TEE",
+    "title": "DBZ 4 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2291,7 +2313,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-5",
-    "title": "DBZ 5 REGULAR OVERSIZED TEE",
+    "title": "DBZ 5 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2313,7 +2335,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-6",
-    "title": "DBZ 6 REGULAR OVERSIZED TEE",
+    "title": "DBZ 6 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2332,7 +2354,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-7",
-    "title": "DBZ 7 REGULAR OVERSIZED TEE",
+    "title": "DBZ 7 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2351,7 +2373,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-8",
-    "title": "DBZ 8 REGULAR OVERSIZED TEE",
+    "title": "DBZ 8 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2372,7 +2394,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dream",
-    "title": "DREAM REGULAR OVERSIZED TEE",
+    "title": "DREAM REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2388,7 +2410,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-eye",
-    "title": "EYE REGULAR OVERSIZED TEE",
+    "title": "EYE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2410,7 +2432,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-fire",
-    "title": "FIRE REGULAR OVERSIZED TEE",
+    "title": "FIRE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2428,7 +2450,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-fuck",
-    "title": "FUCK REGULAR OVERSIZED TEE",
+    "title": "FUCK REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2449,7 +2471,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-goodfellas",
-    "title": "GOODFELLAS REGULAR OVERSIZED TEE",
+    "title": "GOODFELLAS REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2470,7 +2492,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-hands",
-    "title": "HANDS REGULAR OVERSIZED TEE",
+    "title": "HANDS REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2489,7 +2511,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-ichigo",
-    "title": "ICHIGO REGULAR OVERSIZED TEE",
+    "title": "ICHIGO REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2511,7 +2533,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-isagi-1",
-    "title": "ISAGI 1 REGULAR OVERSIZED TEE",
+    "title": "ISAGI 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2532,7 +2554,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-kaijin",
-    "title": "KAIJIN REGULAR OVERSIZED TEE",
+    "title": "KAIJIN REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2554,7 +2576,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-knight",
-    "title": "KNIGHT REGULAR OVERSIZED TEE",
+    "title": "KNIGHT REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2578,7 +2600,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-luffy-1",
-    "title": "LUFFY 1 REGULAR OVERSIZED TEE",
+    "title": "LUFFY 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2597,7 +2619,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-luffy-2",
-    "title": "LUFFY 2 REGULAR OVERSIZED TEE",
+    "title": "LUFFY 2 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2615,7 +2637,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-luffy-3",
-    "title": "LUFFY 3 REGULAR OVERSIZED TEE",
+    "title": "LUFFY 3 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2634,7 +2656,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-luffy-4",
-    "title": "LUFFY 4 REGULAR OVERSIZED TEE",
+    "title": "LUFFY 4 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2653,7 +2675,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-madara-1",
-    "title": "MADARA 1 REGULAR OVERSIZED TEE",
+    "title": "MADARA 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2677,7 +2699,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-mob",
-    "title": "MOB REGULAR OVERSIZED TEE",
+    "title": "MOB REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2696,7 +2718,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-naruto-1",
-    "title": "NARUTO 1 REGULAR OVERSIZED TEE",
+    "title": "NARUTO 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2715,7 +2737,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-naruto-2",
-    "title": "NARUTO 2 REGULAR OVERSIZED TEE",
+    "title": "NARUTO 2 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2733,7 +2755,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-naruto-3",
-    "title": "NARUTO 3 REGULAR OVERSIZED TEE",
+    "title": "NARUTO 3 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2752,7 +2774,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-responsibility",
-    "title": "RESPONSIBILITY REGULAR OVERSIZED TEE",
+    "title": "RESPONSIBILITY REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2774,7 +2796,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-solo-1",
-    "title": "SOLO 1 REGULAR OVERSIZED TEE",
+    "title": "SOLO 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2796,7 +2818,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-solo-2",
-    "title": "SOLO 2 REGULAR OVERSIZED TEE",
+    "title": "SOLO 2 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2818,7 +2840,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-speed",
-    "title": "SPEED REGULAR OVERSIZED TEE",
+    "title": "SPEED REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2837,31 +2859,44 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-sukuna",
-    "title": "SUKUNA REGULAR OVERSIZED TEE",
+    "title": "SUKUNA REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769015/deez-prints/regular/sukunagrey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768939/deez-prints/regular/sakuna-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769009/deez-prints/regular/sukuna-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769012/deez-prints/regular/sukuna-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769003/deez-prints/regular/sukuna-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769006/deez-prints/regular/sukuna-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768942/deez-prints/regular/sakuna-blue-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769006/deez-prints/regular/sukuna-beige-front.jpg"
     ],
     "colors": [
-      "Blue",
-      "White",
       "Beige",
-      "Grey"
+      "Grey",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-titan",
+    "title": "TITAN REGULAR TEE",
+    "price": 2500,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768942/deez-prints/regular/sakuna-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768939/deez-prints/regular/sakuna-blue-back.jpg"
+    ],
+    "colors": [
+      "Blue"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-tujiro",
-    "title": "TUJIRO REGULAR OVERSIZED TEE",
+    "title": "TUJIRO REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2877,7 +2912,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-1",
-    "title": "UCHIHA 1 REGULAR OVERSIZED TEE",
+    "title": "UCHIHA 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2899,7 +2934,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-2",
-    "title": "UCHIHA 2 REGULAR OVERSIZED TEE",
+    "title": "UCHIHA 2 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2921,7 +2956,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-3",
-    "title": "UCHIHA 3 REGULAR OVERSIZED TEE",
+    "title": "UCHIHA 3 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2940,7 +2975,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-4",
-    "title": "UCHIHA 4 REGULAR OVERSIZED TEE",
+    "title": "UCHIHA 4 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2959,7 +2994,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-5",
-    "title": "UCHIHA 5 REGULAR OVERSIZED TEE",
+    "title": "UCHIHA 5 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2977,7 +3012,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-yamoto-1",
-    "title": "YAMOTO 1 REGULAR OVERSIZED TEE",
+    "title": "YAMOTO 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2998,7 +3033,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-zoro-1",
-    "title": "ZORO 1 REGULAR OVERSIZED TEE",
+    "title": "ZORO 1 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -3019,7 +3054,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-zoro-2",
-    "title": "ZORO 2 REGULAR OVERSIZED TEE",
+    "title": "ZORO 2 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -3200,7 +3235,8 @@ export async function fetchProductOverrides(): Promise<Record<string, ProductOve
     }
     const res = await fetch("/api/products");
     if (!res.ok) return {};
-    return json.ok ? json.overrides : {};
+    const data = await res.json();
+    return data.ok ? data.overrides : {};
   } catch {
     return {};
   }

@@ -41,11 +41,17 @@ EXPLICIT_REMAP = {
     'drops/madara-beige-front': ('drops', 'itachi', 'Beige', 'front'),
     'drops/madara-white-back': ('drops', 'itachi', 'White', 'back'),
     'drops/madara-white-front': ('drops', 'itachi', 'White', 'front'),
-    'drops/madara-blue-back': ('drops', 'itachi', 'Blue', 'back'),
+    'drops/madara-blue-back': ('drops', 'madara', 'Blue', 'back'),
     'drops/tachi-whtie-back': ('drops', 'itachi', 'White', 'back'),
     'drops/tachi-whtie-front': ('drops', 'itachi', 'White', 'front'),
-    'drops/luffty-1-beige-back': ('drops', 'luffy-1', 'Beige', 'back'),
-    'drops/luffty-1-beige-front': ('drops', 'luffy-1', 'Beige', 'front'),
+    'drops/luffty-1-beige-back': ('drops', 'luffy-4', 'Beige', 'back'),
+    'drops/luffty-1-beige-front': ('drops', 'luffy-4', 'Beige', 'front'),
+    'drops/luffy-1-beige-back': ('drops', 'luffy-4', 'Beige', 'back'),
+    'drops/luffy-1-beige-front': ('drops', 'luffy-4', 'Beige', 'front'),
+    'drops/luffy-1-black-back': ('drops', 'luffy-4', 'Black', 'back'),
+    'drops/luffy-1-black-front': ('drops', 'luffy-4', 'Black', 'front'),
+    'drops/luffy-1-grey-back': ('drops', 'luffy-5', 'Grey', 'back'),
+    'drops/luffy-1-grey-front': ('drops', 'luffy-5', 'Grey', 'front'),
     'drops/madara-blackl-back': ('drops', 'madara', 'Black', 'back'),
     'drops/madara-blackl-front': ('drops', 'madara', 'Black', 'front'),
     'drops/naruto-2-grye-front': ('drops', 'naruto-2', 'Grey', 'front'),
@@ -146,7 +152,7 @@ SUBCAT_PRICES = {
 }
 
 SUBCAT_LABELS = {
-    'regular': 'REGULAR OVERSIZED TEE',
+    'regular': 'REGULAR TEE',
     'drop-shoulder': 'DROP SHOULDER TEE',
     'acid-wash': 'ACID WASH TEE',
 }
