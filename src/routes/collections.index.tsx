@@ -90,7 +90,7 @@ function ShopAll() {
   const chipInactive = "border border-border hover:border-primary hover:text-primary";
 
   return (
-    <div className="edge pt-20 pb-6 md:py-20">
+    <div className="edge pt-14 pb-6 md:pt-16 md:pb-10">
       <SectionHeading
         eyebrow={`${allProducts.length} pieces`}
         title={"Shop\neverything"}
@@ -98,7 +98,7 @@ function ShopAll() {
       />
 
       {/* Stats strip — single line horizontal scroll on mobile, flex row on desktop */}
-      <div className="mt-3 md:mt-8 flex items-center gap-2.5 md:gap-6 overflow-x-auto scrollbar-none whitespace-nowrap -mx-5 px-5 md:mx-0 md:px-0 py-0.5">
+      <div className="mt-2 md:mt-4 flex items-center gap-2.5 md:gap-6 overflow-x-auto scrollbar-none whitespace-nowrap -mx-5 px-5 md:mx-0 md:px-0 py-0.5">
         {stats.map((s, i) => (
           <span key={s.label} className="flex items-center gap-2 md:gap-3 label-mono text-[10px] md:text-xs text-muted-foreground shrink-0 uppercase tracking-wider">
             {s.label}
@@ -110,7 +110,7 @@ function ShopAll() {
       </div>
 
       {/* Filters + Sort — sticky */}
-      <div className="sticky top-0 z-30 -mx-5 mt-3 md:mt-10 bg-background/95 px-5 backdrop-blur-md md:-mx-10 md:px-10 xl:-mx-14 xl:px-14">
+      <div className="sticky top-0 z-30 -mx-5 mt-2 md:mt-5 bg-background/95 px-5 backdrop-blur-md md:-mx-10 md:px-10 xl:-mx-14 xl:px-14">
         <div className="border-y border-border py-3 md:py-4 space-y-2 md:space-y-0">
 
           {/* ---- MOBILE layout: chips row + sort row ---- */}
@@ -275,7 +275,7 @@ function ShopAll() {
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-2.5 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-10">
+      <div className="mt-4 md:mt-6 grid grid-cols-2 gap-2.5 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-8">
         {list.map((p, i) => (
           <ProductCard key={p.id} product={p} index={i} />
         ))}

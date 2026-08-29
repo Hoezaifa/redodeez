@@ -158,8 +158,8 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.04em;
-  line-height: 0.86;
-  font-size: clamp(2.25rem, 6.5vw, 5.5rem);
+  line-height: 0.88;
+  font-size: clamp(1.75rem, 4.5vw, 3.5rem);
 }
 
 @utility display-md {
@@ -167,8 +167,8 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.035em;
-  line-height: 0.9;
-  font-size: clamp(1.75rem, 3.6vw, 3rem);
+  line-height: 0.92;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 @utility outline-type {

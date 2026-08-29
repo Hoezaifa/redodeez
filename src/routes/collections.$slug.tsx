@@ -82,7 +82,7 @@ function CollectionPage() {
   }, [slug, sort, priceDir, allProducts]);
 
   return (
-    <div className="edge pt-20 pb-6 md:py-20">
+    <div className="edge pt-14 pb-6 md:pt-16 md:pb-10">
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", url: "/" },
@@ -90,7 +90,7 @@ function CollectionPage() {
           { name, url: `/collections/${slug}` },
         ])}
       />
-      <nav aria-label="Breadcrumb" className="label-mono text-xs md:text-sm text-muted-foreground">
+      <nav aria-label="Breadcrumb" className="label-mono text-[10px] md:text-xs text-muted-foreground">
         <Link to="/" className="hover:text-primary">
           Home
         </Link>{" "}
@@ -101,7 +101,7 @@ function CollectionPage() {
         / <span className="text-foreground">{name}</span>
       </nav>
 
-      <div className="mt-3 md:mt-8">
+      <div className="mt-1.5 md:mt-3">
         <SectionHeading eyebrow={`${items.length} pieces`} title={name} sub={blurb} />
       </div>
 
@@ -122,8 +122,8 @@ function CollectionPage() {
       )}
 
       {/* Filters + Sort — sticky */}
-      <div className="sticky top-0 z-30 -mx-5 mt-3 md:mt-10 bg-background/95 px-5 backdrop-blur-md md:-mx-10 md:px-10 xl:-mx-14 xl:px-14">
-        <div className="flex flex-wrap items-center gap-2 border-y border-border py-4">
+      <div className="sticky top-0 z-30 -mx-5 mt-2 md:mt-5 bg-background/95 px-5 backdrop-blur-md md:-mx-10 md:px-10 xl:-mx-14 xl:px-14">
+        <div className="flex flex-wrap items-center gap-2 border-y border-border py-2.5 md:py-3">
           {filterableCollections.map((c) => (
             <Link
               key={c.slug}
@@ -174,7 +174,7 @@ function CollectionPage() {
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-2.5 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-10">
+      <div className="mt-4 md:mt-6 grid grid-cols-2 gap-2.5 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-8">
         {items.map((p, i) => (
           <ProductCard key={p.id} product={p} index={i} />
         ))}
