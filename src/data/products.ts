@@ -2924,12 +2924,15 @@ export const products: Product[] = [
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769015/deez-prints/regular/sukunagrey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768939/deez-prints/regular/sakuna-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768945/deez-prints/regular/sakuna-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768951/deez-prints/regular/sakunga-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768942/deez-prints/regular/sakuna-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768948/deez-prints/regular/sakuna-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768954/deez-prints/regular/sakunga-beige-front.jpg"
     ],
     "colors": [
+      "Blue",
       "White",
       "Beige",
       "Grey"
@@ -2945,14 +2948,11 @@ export const products: Product[] = [
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769012/deez-prints/regular/sukuna-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768939/deez-prints/regular/sakuna-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769003/deez-prints/regular/sukuna-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769006/deez-prints/regular/sukuna-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769009/deez-prints/regular/sukuna-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768942/deez-prints/regular/sakuna-blue-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769009/deez-prints/regular/sukuna-white-back.jpg"
     ],
     "colors": [
-      "Blue",
       "Beige",
       "White"
     ],
