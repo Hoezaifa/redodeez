@@ -11,6 +11,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { AestheticCollections } from "@/components/home/AestheticCollections";
 import { CustomPrintSection } from "@/components/home/CustomPrintSection";
+import { CampaignCarousel } from "@/components/home/CampaignCarousel";
 
 export const Route = createFileRoute("/")({"loader": async () => {
     const allProducts = await getProducts();
@@ -59,10 +60,12 @@ export const Route = createFileRoute("/")({"loader": async () => {
 function Home() {
   const { allProducts } = Route.useLoaderData();
 
-  const { withImages, latest, wallArt, accessories } = useMemo(() => {
+  const { withImages, acidWash, regularTees, latest, wallArt, accessories } = useMemo(() => {
     const imgs = allProducts.filter((p) => p.images.length > 0);
     return {
       withImages: imgs,
+      acidWash: imgs.filter((p) => p.subcategory === "acid-wash").slice(0, 4),
+      regularTees: imgs.filter((p) => ["regular", "graphic"].includes(p.subcategory)).slice(0, 4),
       latest: imgs.filter((p) => p.subcategory === "drop-shoulder").slice(0, 4),
       wallArt: allProducts.filter((p) => ["tapestries", "flags"].includes(p.subcategory)).slice(0, 4),
       accessories: allProducts.filter((p) => p.category === "accessories" && p.images.length > 0),
@@ -77,6 +80,39 @@ function Home() {
       {/* Browse by Aesthetic Collections Section */}
       <AestheticCollections />
 
+      {/* Acid Wash Section */}
+      <ProductRow
+        eyebrow="Acid Wash"
+        title={"Vintage\nHeavyweight"}
+        items={acidWash}
+        ctaLabel="Shop acid wash"
+        ctaTo="/collections/$slug"
+        ctaParams={{ slug: "acid-wash" }}
+      />
+
+      {/* Regular Tees Section */}
+      <ProductRow
+        eyebrow="Regular Tees"
+        title={"Everyday\nEssentials"}
+        items={regularTees}
+        ctaLabel="Shop regular tees"
+        ctaTo="/collections/$slug"
+        ctaParams={{ slug: "t-shirts" }}
+      />
+
+      {/* Drop Shoulder Section */}
+      <ProductRow
+        eyebrow="Drop Shoulder"
+        title={"Oversized\nSilhouettes"}
+        items={latest}
+        ctaLabel="View all drops"
+        ctaTo="/collections/$slug"
+        ctaParams={{ slug: "drop-shoulder" }}
+      />
+
+      {/* NEW FULL-WIDTH MOVING CAMPAIGN CAROUSEL */}
+      <CampaignCarousel />
+
       <ProductRow
         eyebrow="Wall art"
         title={"Make your\nspace yours"}
@@ -84,57 +120,6 @@ function Home() {
         ctaLabel="Explore wall art"
         ctaTo="/collections/$slug"
         ctaParams={{ slug: "wall-art" }}
-      />
-
-      {/* Hidden: Loved by the cult / Best sellers section */}
-      {/* 
-      <ProductRow
-        eyebrow="Best sellers"
-        title={"Loved by\nthe cult"}
-        items={best}
-        ctaLabel="Shop best sellers"
-        ctaTo="/collections/$slug"
-        ctaParams={{ slug: "t-shirts" }}
-      />
-      */}
-
-      {/* Hidden: Old custom printing section — kept for potential future use */}
-      {/*
-      <section className="border-t border-border bg-surface relative overflow-hidden">
-        <div className="overflow-hidden border-b border-border bg-background py-3.5">
-          <div className="flex whitespace-nowrap">
-            <div className="flex animate-marquee">
-              {Array.from({ length: 4 }).map((_, k) => (
-                <div key={k} className="flex shrink-0">
-                  {[
-                    "YOUR DESIGN. NO LIMITS.",
-                    "PREMIUM DTF & SUBLIMATION",
-                    "CUSTOM PRINTING",
-                    "FAST DELIVERY",
-                    "NO MINIMUM ORDER",
-                  ].map((t) => (
-                    <span key={t} className="flex items-center gap-8 px-8 label-mono text-white/80">
-                      {t}
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                    </span>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <CustomPrintSection />
-      </section>
-      */}
-
-      <ProductRow
-        eyebrow="Latest drops"
-        title={"Just\nlanded"}
-        items={latest}
-        ctaLabel="View all drops"
-        ctaTo="/collections/$slug"
-        ctaParams={{ slug: "drop-shoulder" }}
       />
 
       <ProductRow

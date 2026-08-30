@@ -57,10 +57,10 @@ export const Route = createFileRoute("/custom-print")({
 });
 
 // Thumbnails and dynamic prices from catalog products
-const regTeeProduct = products.find((p) => p.subcategory === "oversized") ?? products[0];
+const regTeeProduct = products.find((p) => (p.subcategory as string) === "oversized") ?? products[0];
 const dropProduct = products.find((p) => p.title.toLowerCase().includes("drop")) ?? products[1];
 const acidProduct = products.find((p) => p.subcategory === "acid-wash") ?? products[2];
-const tapestryProduct = products.find((p) => p.category === "wall-art") ?? products[3];
+const tapestryProduct = products.find((p) => (p.category as string) === "wall-art") ?? products[3];
 
 const bases = [
   {
