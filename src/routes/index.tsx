@@ -77,6 +77,9 @@ function Home() {
       <Hero />
       <CollectionsStrip />
 
+      {/* FULL-WIDTH MOVING CAMPAIGN CAROUSEL */}
+      <CampaignCarousel />
+
       {/* Browse by Aesthetic Collections Section */}
       <AestheticCollections />
 
@@ -110,8 +113,7 @@ function Home() {
         ctaParams={{ slug: "drop-shoulder" }}
       />
 
-      {/* NEW FULL-WIDTH MOVING CAMPAIGN CAROUSEL */}
-      <CampaignCarousel />
+
 
       <ProductRow
         eyebrow="Wall art"
