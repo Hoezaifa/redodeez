@@ -50,10 +50,6 @@ export function DeezHero() {
             className="h-full w-full object-cover object-[75%_20%]"
             fetchPriority="high"
           />
-          {/* Top vignette under navbar */}
-          <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[color:var(--ink-0)] to-transparent opacity-70" />
-          {/* Bottom smooth fade into dark text panel */}
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-[color:var(--ink-0)]" />
         </div>
 
         {/* Text & CTAs Content Block */}
@@ -130,32 +126,6 @@ export function DeezHero() {
             height={1200}
             className="h-full w-full object-cover object-[82%_25%] md:object-[82%_20%] md:translate-x-0"
             fetchPriority="high"
-          />
-
-          {/* Seamless dark gradient overlay (left to right) — removes all sharp box boundaries */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(90deg, 
-                #0a0a0a 0%, 
-                #0a0a0a 28%, 
-                rgba(10, 10, 10, 0.95) 42%, 
-                rgba(10, 10, 10, 0.78) 58%, 
-                rgba(10, 10, 10, 0.48) 72%, 
-                rgba(10, 10, 10, 0.18) 88%, 
-                transparent 100%)`,
-            }}
-          />
-          {/* Top and bottom subtle vignettes for header and footer blend */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: `linear-gradient(180deg, 
-                rgba(10, 10, 10, 0.5) 0%, 
-                transparent 18%, 
-                transparent 82%, 
-                rgba(10, 10, 10, 0.75) 100%)`,
-            }}
           />
         </motion.div>
 
