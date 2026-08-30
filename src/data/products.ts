@@ -2924,18 +2924,37 @@ export const products: Product[] = [
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769015/deez-prints/regular/sukunagrey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768939/deez-prints/regular/sakuna-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769009/deez-prints/regular/sukuna-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768945/deez-prints/regular/sakuna-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768951/deez-prints/regular/sakunga-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768948/deez-prints/regular/sakuna-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768954/deez-prints/regular/sakunga-beige-front.jpg"
+    ],
+    "colors": [
+      "White",
+      "Beige",
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-sukuna-2",
+    "title": "SUKUNA 2 REGULAR TEE",
+    "price": 2500,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769012/deez-prints/regular/sukuna-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768939/deez-prints/regular/sakuna-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769003/deez-prints/regular/sukuna-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769006/deez-prints/regular/sukuna-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769009/deez-prints/regular/sukuna-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768942/deez-prints/regular/sakuna-blue-front.jpg"
     ],
     "colors": [
       "Blue",
-      "White",
       "Beige",
-      "Grey"
+      "White"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -2985,12 +3004,12 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769039/deez-prints/regular/uchiha-2-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769033/deez-prints/regular/uchiha-2-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769023/deez-prints/regular/uchiha-2-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769026/deez-prints/regular/uchiha-2-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769030/deez-prints/regular/uchiha-2-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769033/deez-prints/regular/uchiha-2-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769036/deez-prints/regular/uchiha-2-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769036/deez-prints/regular/uchiha-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769039/deez-prints/regular/uchiha-2-white-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -3026,10 +3045,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769060/deez-prints/regular/uchiha-4-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769063/deez-prints/regular/uchiha-4-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769066/deez-prints/regular/uchiha-4-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769056/deez-prints/regular/uchiha-4-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769066/deez-prints/regular/uchiha-4-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769063/deez-prints/regular/uchiha-4-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769060/deez-prints/regular/uchiha-4-black-front.jpg"
     ],
     "colors": [
       "Black",
@@ -3084,11 +3103,11 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769122/deez-prints/regular/zoro-1-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769116/deez-prints/regular/zoro-1-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769110/deez-prints/regular/zoro-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769113/deez-prints/regular/zoro-1-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769119/deez-prints/regular/zoro-1-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769116/deez-prints/regular/zoro-1-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769122/deez-prints/regular/zoro-1-white-front.jpg"
     ],
     "colors": [
       "Black",
@@ -3105,11 +3124,11 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769130/deez-prints/regular/zoro-2-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769137/deez-prints/regular/zoro-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769140/deez-prints/regular/zoro-2-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769126/deez-prints/regular/zoro-2-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769133/deez-prints/regular/zoro-2-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769140/deez-prints/regular/zoro-2-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769137/deez-prints/regular/zoro-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769130/deez-prints/regular/zoro-2-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769133/deez-prints/regular/zoro-2-grey-front.jpg"
     ],
     "colors": [
       "Beige",
