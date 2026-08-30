@@ -34,16 +34,20 @@ KNOWN_COLORS = {
     'purple': 'Purple',
 }
 
-# Explicit file remapping rules for misnamed raw files or typo stems
 EXPLICIT_REMAP = {
-    # In drops: madara-beige is MADARA
-    'drops/madara-beige-back': ('drops', 'madara', 'Beige', 'back'),
-    'drops/madara-beige-front': ('drops', 'madara', 'Beige', 'front'),
-    'drops/madara-white-back': ('drops', 'itachi', 'White', 'back'),
-    'drops/madara-white-front': ('drops', 'itachi', 'White', 'front'),
+    # In drops: madara-beige, madara-blackl, madara-grey, madara-white are ITACHI RED MOON (itachi-2)
+    # Only madara-blue is MADARA ARMOR
+    'drops/madara-beige-back': ('drops', 'itachi-2', 'Beige', 'back'),
+    'drops/madara-beige-front': ('drops', 'itachi-2', 'Beige', 'front'),
+    'drops/madara-blackl-back': ('drops', 'itachi-2', 'Black', 'back'),
+    'drops/madara-blackl-front': ('drops', 'itachi-2', 'Black', 'front'),
+    'drops/madara-grey-front': ('drops', 'itachi-2', 'Grey', 'front'),
+    'drops/madara-white-back': ('drops', 'itachi-2', 'White', 'back'),
+    'drops/madara-white-front': ('drops', 'itachi-2', 'White', 'front'),
     'drops/madara-blue-back': ('drops', 'madara', 'Blue', 'back'),
-    'drops/tachi-whtie-back': ('drops', 'itachi', 'White', 'back'),
-    'drops/tachi-whtie-front': ('drops', 'itachi', 'White', 'front'),
+    'drops/madara-blue-front': ('drops', 'madara', 'Blue', 'front'),
+    'drops/tachi-whtie-back': ('drops', 'itachi-2', 'White', 'back'),
+    'drops/tachi-whtie-front': ('drops', 'itachi-2', 'White', 'front'),
     'drops/luffty-1-beige-back': ('drops', 'luffy-1', 'Beige', 'back'),
     'drops/luffty-1-beige-front': ('drops', 'luffy-1', 'Beige', 'front'),
     'drops/luffy-1-beige-back': ('drops', 'luffy-1', 'Beige', 'back'),
@@ -52,8 +56,6 @@ EXPLICIT_REMAP = {
     'drops/luffy-1-black-front': ('drops', 'luffy-1', 'Black', 'front'),
     'drops/luffy-1-grey-back': ('drops', 'luffy-1', 'Grey', 'back'),
     'drops/luffy-1-grey-front': ('drops', 'luffy-1', 'Grey', 'front'),
-    'drops/madara-blackl-back': ('drops', 'madara', 'Black', 'back'),
-    'drops/madara-blackl-front': ('drops', 'madara', 'Black', 'front'),
     'drops/naruto-2-grye-front': ('drops', 'naruto-2', 'Grey', 'front'),
     'drops/naruto-2-beige-back': ('drops', 'naruto-5', 'Beige', 'back'),
     'drops/naruto-2-beige-front': ('drops', 'naruto-5', 'Beige', 'front'),

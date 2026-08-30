@@ -1519,13 +1519,34 @@ export const products: Product[] = [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769595/deez-prints/drops/itachi-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769586/deez-prints/drops/itachi-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769590/deez-prints/drops/itachi-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769592/deez-prints/drops/itachi-black-back.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-drop-shoulder-itachi-2",
+    "title": "ITACHI 2 DROP SHOULDER TEE",
+    "price": 2900,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769708/deez-prints/drops/madara-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769710/deez-prints/drops/madara-blackl-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769704/deez-prints/drops/madara-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769713/deez-prints/drops/madara-blackl-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769928/deez-prints/drops/tachi-whtie-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769592/deez-prints/drops/itachi-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769723/deez-prints/drops/madara-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769925/deez-prints/drops/tachi-whtie-back.jpg"
     ],
     "colors": [
       "Beige",
       "Black",
+      "Grey",
       "White"
     ],
     "rating": 5,
@@ -1538,10 +1559,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769608/deez-prints/drops/kaijin-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769598/deez-prints/drops/kaijin-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769601/deez-prints/drops/kaijin-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769604/deez-prints/drops/kaijin-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769598/deez-prints/drops/kaijin-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769608/deez-prints/drops/kaijin-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769611/deez-prints/drops/kaijin-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769614/deez-prints/drops/kaijin-white-front.jpg"
     ],
@@ -1560,9 +1581,9 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769634/deez-prints/drops/konichiwa-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769630/deez-prints/drops/konichiwa-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769627/deez-prints/drops/konichiwa-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769630/deez-prints/drops/konichiwa-black-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769634/deez-prints/drops/konichiwa-grey-front.jpg"
     ],
     "colors": [
       "Black",
@@ -1578,13 +1599,13 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769665/deez-prints/drops/luffy-1-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769645/deez-prints/drops/luffy-1-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769648/deez-prints/drops/luffy-1-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769651/deez-prints/drops/luffy-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769645/deez-prints/drops/luffy-1-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769662/deez-prints/drops/luffy-1-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769668/deez-prints/drops/luffy-1-grey-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769648/deez-prints/drops/luffy-1-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769654/deez-prints/drops/luffy-1-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769665/deez-prints/drops/luffy-1-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769671/deez-prints/drops/luffy-1-grey-front.jpg"
     ],
     "colors": [
@@ -1603,10 +1624,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769677/deez-prints/drops/luffy-2-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769680/deez-prints/drops/luffy-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769683/deez-prints/drops/luffy-2-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769674/deez-prints/drops/luffy-2-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769683/deez-prints/drops/luffy-2-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769680/deez-prints/drops/luffy-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769677/deez-prints/drops/luffy-2-beige-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -1622,10 +1643,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769701/deez-prints/drops/luffy-3-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769695/deez-prints/drops/luffy-3-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769686/deez-prints/drops/luffy-3-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769689/deez-prints/drops/luffy-3-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769695/deez-prints/drops/luffy-3-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769701/deez-prints/drops/luffy-3-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769692/deez-prints/drops/luffy-3-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769698/deez-prints/drops/luffy-3-white-back.jpg"
     ],
@@ -1644,19 +1665,11 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769713/deez-prints/drops/madara-blackl-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769704/deez-prints/drops/madara-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769708/deez-prints/drops/madara-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769710/deez-prints/drops/madara-blackl-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769720/deez-prints/drops/madara-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769716/deez-prints/drops/madara-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769723/deez-prints/drops/madara-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769716/deez-prints/drops/madara-blue-back.jpg"
     ],
     "colors": [
-      "Beige",
-      "Black",
-      "Blue",
-      "Grey"
+      "Blue"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -1668,11 +1681,11 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769743/deez-prints/drops/mobland-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769732/deez-prints/drops/mobland-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769735/deez-prints/drops/mobland-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769747/deez-prints/drops/mobland-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769743/deez-prints/drops/mobland-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769750/deez-prints/drops/mobland-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769747/deez-prints/drops/mobland-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769732/deez-prints/drops/mobland-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -1689,10 +1702,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769833/deez-prints/drops/naruto-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769824/deez-prints/drops/naruto-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769831/deez-prints/drops/naruto-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769827/deez-prints/drops/naruto-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769831/deez-prints/drops/naruto-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769824/deez-prints/drops/naruto-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769833/deez-prints/drops/naruto-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769836/deez-prints/drops/naruto-grey-front.jpg"
     ],
     "colors": [
@@ -1710,11 +1723,11 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769769/deez-prints/drops/naruto-2-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769775/deez-prints/drops/naruto-2-grye-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769760/deez-prints/drops/naruto-2-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769766/deez-prints/drops/naruto-2-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769762/deez-prints/drops/naruto-2-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769775/deez-prints/drops/naruto-2-grye-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769769/deez-prints/drops/naruto-2-blue-front.jpg"
     ],
     "colors": [
       "Black",
@@ -1932,11 +1945,11 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769939/deez-prints/drops/titan-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769931/deez-prints/drops/titan-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769936/deez-prints/drops/titan-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769942/deez-prints/drops/titan-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769934/deez-prints/drops/titan-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769936/deez-prints/drops/titan-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769931/deez-prints/drops/titan-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769942/deez-prints/drops/titan-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769939/deez-prints/drops/titan-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769945/deez-prints/drops/titan-white-front.jpg"
     ],
     "colors": [
@@ -2064,12 +2077,12 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768448/deez-prints/regular/anime1blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768454/deez-prints/regular/anime1white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768439/deez-prints/regular/anime1beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768442/deez-prints/regular/anime1beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768445/deez-prints/regular/anime1blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768451/deez-prints/regular/anime1white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768454/deez-prints/regular/anime1white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768448/deez-prints/regular/anime1blue-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -2105,10 +2118,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768476/deez-prints/regular/baby-whiet-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768468/deez-prints/regular/baby-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768470/deez-prints/regular/baby-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768473/deez-prints/regular/baby-whiet-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768473/deez-prints/regular/baby-whiet-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768476/deez-prints/regular/baby-whiet-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768468/deez-prints/regular/baby-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -2351,11 +2364,11 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768621/deez-prints/regular/dbz-5-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768607/deez-prints/regular/dbz-5-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768612/deez-prints/regular/dbz-5-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768618/deez-prints/regular/dbz-5-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768610/deez-prints/regular/dbz-5-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768612/deez-prints/regular/dbz-5-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768607/deez-prints/regular/dbz-5-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768618/deez-prints/regular/dbz-5-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768621/deez-prints/regular/dbz-5-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768615/deez-prints/regular/dbz-5-black-front.jpg"
     ],
     "colors": [
@@ -2373,10 +2386,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768627/deez-prints/regular/dbz-6-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768629/deez-prints/regular/dbz-6-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768632/deez-prints/regular/dbz-6-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768624/deez-prints/regular/dbz-6-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768632/deez-prints/regular/dbz-6-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768629/deez-prints/regular/dbz-6-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768627/deez-prints/regular/dbz-6-black-front.jpg"
     ],
     "colors": [
       "Black",
@@ -2750,10 +2763,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768886/deez-prints/regular/mob-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768878/deez-prints/regular/mob-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768881/deez-prints/regular/mob-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768883/deez-prints/regular/mob-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768883/deez-prints/regular/mob-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768886/deez-prints/regular/mob-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768878/deez-prints/regular/mob-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -2769,10 +2782,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768893/deez-prints/regular/naruto-1-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768896/deez-prints/regular/naruto-1-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768899/deez-prints/regular/naruto-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768890/deez-prints/regular/naruto-1-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768899/deez-prints/regular/naruto-1-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768896/deez-prints/regular/naruto-1-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768893/deez-prints/regular/naruto-1-black-front.jpg"
     ],
     "colors": [
       "Black",
@@ -2788,9 +2801,9 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768908/deez-prints/regular/naruto-2-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768905/deez-prints/regular/naruto-2-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768902/deez-prints/regular/naruto-2-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768905/deez-prints/regular/naruto-2-black-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768908/deez-prints/regular/naruto-2-grey-front.jpg"
     ],
     "colors": [
       "Black",
@@ -2806,10 +2819,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768919/deez-prints/regular/naruto3-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768911/deez-prints/regular/naruto-3-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768914/deez-prints/regular/naruto-3-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768917/deez-prints/regular/naruto3-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768917/deez-prints/regular/naruto3-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768911/deez-prints/regular/naruto-3-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768919/deez-prints/regular/naruto3-white-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -2847,12 +2860,12 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768983/deez-prints/regular/solo1-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768965/deez-prints/regular/solo-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768957/deez-prints/regular/solo-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768962/deez-prints/regular/solo-1-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768981/deez-prints/regular/solo1-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768960/deez-prints/regular/solo-1-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768965/deez-prints/regular/solo-1-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768983/deez-prints/regular/solo1-beige-front.jpg"
     ],
     "colors": [
       "Black",
@@ -2869,12 +2882,12 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768977/deez-prints/regular/solo-2-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768968/deez-prints/regular/solo-2-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768971/deez-prints/regular/solo-2-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768974/deez-prints/regular/solo-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768968/deez-prints/regular/solo-2-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768977/deez-prints/regular/solo-2-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768986/deez-prints/regular/solo2-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768989/deez-prints/regular/solo2-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768971/deez-prints/regular/solo-2-blue-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768989/deez-prints/regular/solo2-black-front.jpg"
     ],
     "colors": [
       "Blue",
@@ -3050,11 +3063,11 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769108/deez-prints/regular/yamoto1-Black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769096/deez-prints/regular/yamoto-1-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769105/deez-prints/regular/yamoto1-Black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769098/deez-prints/regular/yamoto-1-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769101/deez-prints/regular/yamoto-1-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769105/deez-prints/regular/yamoto1-Black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769096/deez-prints/regular/yamoto-1-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769101/deez-prints/regular/yamoto-1-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769108/deez-prints/regular/yamoto1-Black-front.jpg"
     ],
     "colors": [
       "Beige",
