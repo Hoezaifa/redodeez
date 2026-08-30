@@ -676,7 +676,487 @@ export async function getProductsWithTimestamps(): Promise<ProductWithTimestamp[
         f.write(ts_code)
     print(f"Successfully written updated products catalog to {OUTPUT_TS}")
 
+LEGACY_PRODUCTS = [
+    {
+        "id": "kanye-yeezus-shirt",
+        "title": "SCARLET BLOOM TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "graphic",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772652301/Gemini_Generated_Image_ox19ckox19ckox19_sfssfg.png",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772651794/rose1_fg88h0.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772651795/backrose1_iqatfb.webp"
+        ],
+        "colors": [],
+        "rating": 5
+    },
+    {
+        "id": "breakout-tee",
+        "title": "BREAKOUT TEE",
+        "price": 1500,
+        "category": "t-shirts",
+        "subcategory": "graphic",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773255816/breakoutvariations_birjvm.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738506/breakb_zkkch0.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738506/break2_bnjlfy.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773255816/breakoutvariations_birjvm.webp"
+        ],
+        "colors": [],
+        "rating": 5
+    },
+    {
+        "id": "berserk-tee",
+        "title": "BERSERK TEE",
+        "price": 1800,
+        "category": "t-shirts",
+        "subcategory": "graphic",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/bersk_B_yzgt10.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/berserk_Bb_dsrns9.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739462/whtieb_mewjvg.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/white_ber_bztrq9.webp"
+        ],
+        "colors": [],
+        "rating": 4
+    },
+    {
+        "id": "tshirt-reg-5",
+        "title": "SPIDERVERSE TEE",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "regular",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737932/sppiderf_aqsefr.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737932/sppiderb_srlaq3.webp"
+        ],
+        "colors": [
+            "Black",
+            "White",
+            "Olive",
+            "Sand"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "sample-v1",
+        "title": "CIGAR CURSE",
+        "price": 1800,
+        "category": "t-shirts",
+        "subcategory": "regular",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1771522535/sample-v1.jpg",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1771522535/sample-v2_xuxtfn.jpg"
+        ],
+        "colors": [
+            "Black",
+            "White",
+            "Blue",
+            "Red"
+        ],
+        "rating": 4
+    },
+    {
+        "id": "tshirt-reg-2",
+        "title": "DIVINE TEE",
+        "price": 2500,
+        "category": "t-shirts",
+        "subcategory": "regular",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738656/divin_en7ejg.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738656/div_uzioib.webp"
+        ],
+        "colors": [
+            "Black"
+        ],
+        "rating": 4
+    },
+    {
+        "id": "tshirt-reg-3",
+        "title": "LCNST TEE",
+        "price": 2500,
+        "category": "t-shirts",
+        "subcategory": "regular",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883234/lcsntregF_g3cnas.webp"
+        ],
+        "colors": [
+            "Black"
+        ],
+        "rating": 4
+    },
+    {
+        "id": "tshirt-reg-4",
+        "title": "SNAKE TEE",
+        "price": 2500,
+        "category": "t-shirts",
+        "subcategory": "regular",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883233/snakeREGF_ezwmpp.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772909295/whitesnakeREGF_qczni7.webp"
+        ],
+        "colors": [
+            "Black"
+        ],
+        "rating": 4
+    },
+    {
+        "id": "tshirt-reg-6",
+        "title": "ABSTRACT WINGS TEE",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "regular",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737955/calligraphyf_i50rtp.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737946/wingsback_ojdcgx.webp"
+        ],
+        "colors": [
+            "Black"
+        ],
+        "rating": 4
+    },
+    {
+        "id": "tshirt-reg-7",
+        "title": "FERRARI TEE",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "regular",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908159/regferrariFblack_kpig1e.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908160/regferrariBblack_wgsjpf.webp"
+        ],
+        "colors": [
+            "Black"
+        ],
+        "rating": 4
+    },
+    {
+        "id": "tshirt-acid-9",
+        "title": "SPIDERVERSE ACID WASH TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "acid-wash",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/spiderAcidBack_dlpk7d.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086650/spiderAcidF_m4jkna.webp"
+        ],
+        "colors": [
+            "Acid Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-acid-1",
+        "title": "BERSERK WARRIOR ACID WASH TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "acid-wash",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/AcidBerB_hlqkml.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidBerF_csztus.webp"
+        ],
+        "colors": [
+            "Acid Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-acid-2",
+        "title": "DIVINE ACID WASH TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "acid-wash",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/DivineAcidF_xi1lrp.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/DivineAcidB_k4xqvo.webp"
+        ],
+        "colors": [
+            "Acid Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-acid-3",
+        "title": "PUNK IS DEAD ACID WASH TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "acid-wash",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/PunkAcidF_rz3omv.webp"
+        ],
+        "colors": [
+            "Acid Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-acid-4",
+        "title": "BERSERK SKULL BLADE ACID WASH TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "acid-wash",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidBerserkEmbossF_izdjez.webp"
+        ],
+        "colors": [
+            "Acid Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-acid-5",
+        "title": "FERRARI ACID WASH TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "acid-wash",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidFerrariF_wlx5yi.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidFerrariB_oechir.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773506363/ferari_model_mzzxev.webp"
+        ],
+        "colors": [
+            "Acid Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-acid-6",
+        "title": "KNIGHTFALL ACID WASH TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "acid-wash",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085757/AcidKnioghtF_smiizk.webp"
+        ],
+        "colors": [
+            "Acid Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-acid-7",
+        "title": "ABSTRACT WINGS ACID WASH TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "acid-wash",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085757/AcidWingsF_nb80ux.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086408/acidwingsB_kejkg1.webp"
+        ],
+        "colors": [
+            "Acid Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-acid-8",
+        "title": "BERSERK ACID WASH TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "acid-wash",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085752/BerserkAcidB_pow8mm.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/BerserkAcidF_x9zx9m.webp"
+        ],
+        "colors": [
+            "Acid Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-acid-10",
+        "title": "BREAKOUT ACID WASH TEE",
+        "price": 3200,
+        "category": "t-shirts",
+        "subcategory": "acid-wash",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086685/breakoutAcid_dp04ei.webp"
+        ],
+        "colors": [
+            "Acid Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-1",
+        "title": "BERSERK DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772898857/berserkdropwF_kacpml.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772898857/berserkdropwb_ap83rw.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883554/berserkdropf_bed9qx.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883553/berserkdropb_ktediz.webp"
+        ],
+        "colors": [
+            "Black",
+            "White"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-2",
+        "title": "DIVINE DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883558/divinedropf_rdsrbr.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883558/divinedropb_gr0u8g.webp"
+        ],
+        "colors": [
+            "Black",
+            "beige",
+            "White"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-3",
+        "title": "PUNK IS DEAD DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883545/punkdropf_wrggcm.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772884578/punkdropfWHITE_o74ukj.webp"
+        ],
+        "colors": [
+            "Black",
+            "White"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-4",
+        "title": "LCNST DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772884869/LCNSTWHITE_gully7.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883562/lcsntDropF_tlpen9.webp"
+        ],
+        "colors": [
+            "Black",
+            "White"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-5",
+        "title": "TBSM CALM DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772904108/tbsmcalmDropf_l9ue5n.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772904108/tbsmcalmb_iycg6e.webp"
+        ],
+        "colors": [
+            "White"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-6",
+        "title": "TBSM ENCORE DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772904108/tbsmencoreDropf_zg7rey.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772904108/tbsmencoreb_qb39e5.webp"
+        ],
+        "colors": [
+            "Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-7",
+        "title": "PUNISH DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772904108/whiteskulldropf_wvd5fg.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772904109/whiteskulldropb_vubnr2.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772904108/blackskulldropf_flp7ma.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772904109/blackskulldropb_yq9f2b.webp"
+        ],
+        "colors": [
+            "Black",
+            "White"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-8",
+        "title": "FERRARI DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908159/ferrariFblack_vnhkw1.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908160/ferrariBblack_ofgzyq.webp"
+        ],
+        "colors": [
+            "Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-9",
+        "title": "TBSM DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908159/whitesmdropF_tfl5vw.webp"
+        ],
+        "colors": [
+            "Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-10",
+        "title": "ABSTRACT WINGS DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773255990/wingsdropF_shnexu.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773255989/wingsdropb_uzek1d.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773255893/wingsvariations_u6b8p5.webp"
+        ],
+        "colors": [
+            "Black"
+        ],
+        "rating": 5
+    },
+    {
+        "id": "tshirt-drop-11",
+        "title": "SNAKE DRP SHLDR",
+        "price": 2900,
+        "category": "t-shirts",
+        "subcategory": "drop-shoulder",
+        "images": [
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772909295/whitesnakeDropF_choivf.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883546/snakeDropF_t9bwzi.webp",
+            "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773256442/snakevariations_f1h87f.webp"
+        ],
+        "colors": [
+            "Black"
+        ],
+        "rating": 5
+    }
+]
+
 if __name__ == '__main__':
     prods = build_ts_catalog()
     if prods:
-        generate_ts_file(prods)
+        generate_ts_file(prods + LEGACY_PRODUCTS)
