@@ -55,6 +55,10 @@ EXPLICIT_REMAP = {
     'drops/madara-blackl-back': ('drops', 'madara', 'Black', 'back'),
     'drops/madara-blackl-front': ('drops', 'madara', 'Black', 'front'),
     'drops/naruto-2-grye-front': ('drops', 'naruto-2', 'Grey', 'front'),
+    'drops/naruto-2-beige-back': ('drops', 'naruto-5', 'Beige', 'back'),
+    'drops/naruto-2-beige-front': ('drops', 'naruto-5', 'Beige', 'front'),
+    'drops/naruto-2-white-back': ('drops', 'naruto-5', 'White', 'back'),
+    'drops/naruto-2-white-front': ('drops', 'naruto-5', 'White', 'front'),
     'drops/peter-blyue-back': ('drops', 'peter', 'Blue', 'back'),
     'drops/peter-blyue-front': ('drops', 'peter', 'Blue', 'front'),
     'drops/regularssss-back': ('drops', 'regular-series', 'Black', 'back'),
@@ -583,6 +587,7 @@ export async function fetchProductOverrides(): Promise<Record<string, ProductOve
     }
     const res = await fetch("/api/products");
     if (!res.ok) return {};
+    const json = await res.json();
     return json.ok ? json.overrides : {};
   } catch {
     return {};
