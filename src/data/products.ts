@@ -2030,13 +2030,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-ace-1",
-    "title": "ACE 1 REGULAR TEE",
+    "title": "FIRE FIST ACE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768414/deez-prints/regular/ace-1-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768420/deez-prints/regular/ace-1-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768414/deez-prints/regular/ace-1-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768411/deez-prints/regular/ace-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768422/deez-prints/regular/ace-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768417/deez-prints/regular/ace-1-grey-front.jpg"
@@ -2072,13 +2072,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-anime1",
-    "title": "ANIME1 REGULAR TEE",
+    "title": "CHOSO BLOODLINE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768454/deez-prints/regular/anime1white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768439/deez-prints/regular/anime1beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768454/deez-prints/regular/anime1white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768442/deez-prints/regular/anime1beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768445/deez-prints/regular/anime1blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768451/deez-prints/regular/anime1white-back.jpg",
@@ -2094,13 +2094,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-animeshoot",
-    "title": "ANIMESHOOT REGULAR TEE",
+    "title": "KANEKI REAPER REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768459/deez-prints/regular/animeshootbeige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768462/deez-prints/regular/animeshootwhite-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768459/deez-prints/regular/animeshootbeige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768457/deez-prints/regular/animeshootbeige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768465/deez-prints/regular/animeshootwhite-front.jpg"
     ],
@@ -2113,15 +2113,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-baby",
-    "title": "BABY REGULAR TEE",
+    "title": "CUPID VINTAGE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768470/deez-prints/regular/baby-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768473/deez-prints/regular/baby-whiet-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768476/deez-prints/regular/baby-whiet-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768468/deez-prints/regular/baby-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768476/deez-prints/regular/baby-whiet-front.jpg"
     ],
     "colors": [
       "Black",
@@ -2132,13 +2130,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-batman1",
-    "title": "BATMAN1 REGULAR TEE",
+    "title": "BATMAN NOIR REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768482/deez-prints/regular/batman1beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768484/deez-prints/regular/batman1white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768482/deez-prints/regular/batman1beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768479/deez-prints/regular/batman1beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768487/deez-prints/regular/batman1white-front.jpg"
     ],
@@ -2151,13 +2149,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-berserk",
-    "title": "BERSERK REGULAR TEE",
+    "title": "GUTS BRAND OF SACRIFICE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768493/deez-prints/regular/berserk-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768490/deez-prints/regular/berserk-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768490/deez-prints/regular/berserk-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768493/deez-prints/regular/berserk-black-front.jpg"
     ],
     "colors": [
       "Black"
@@ -2167,13 +2165,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-berserk-2",
-    "title": "BERSERK 2 REGULAR TEE",
+    "title": "GUTS BERSERKER ARMOR REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768499/deez-prints/regular/berserk2black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768496/deez-prints/regular/berserk2black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768496/deez-prints/regular/berserk2black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768499/deez-prints/regular/berserk2black-front.jpg"
     ],
     "colors": [
       "Black"
@@ -2183,15 +2181,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-berserk-3",
-    "title": "BERSERK 3 REGULAR TEE",
+    "title": "GUTS BERSERKER REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768505/deez-prints/regular/berserkbeige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768508/deez-prints/regular/berserkwhte-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768511/deez-prints/regular/berserkwhte-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768502/deez-prints/regular/berserkbeige-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768505/deez-prints/regular/berserkbeige-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -2207,12 +2203,12 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768526/deez-prints/regular/bleach-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768529/deez-prints/regular/bleach-whte-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768514/deez-prints/regular/bleach-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768526/deez-prints/regular/bleach-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768517/deez-prints/regular/bleach-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768520/deez-prints/regular/bleach-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768523/deez-prints/regular/bleach-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768529/deez-prints/regular/bleach-whte-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768533/deez-prints/regular/bleach-whte-front.jpg"
     ],
     "colors": [
@@ -2226,13 +2222,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-chainsaw-1",
-    "title": "CHAINSAW 1 REGULAR TEE",
+    "title": "CHAINSAW MAN REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768550/deez-prints/regular/chainsaw-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768535/deez-prints/regular/chainsaw-1-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768550/deez-prints/regular/chainsaw-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768538/deez-prints/regular/chainsaw-1-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768541/deez-prints/regular/chainsaw-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768544/deez-prints/regular/chainsaw-1-black-front.jpg",
@@ -2248,13 +2244,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-chainsaw-2",
-    "title": "CHAINSAW 2 REGULAR TEE",
+    "title": "DENJI CHAINSAW REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768555/deez-prints/regular/chainsaw-2-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768553/deez-prints/regular/chainsaw-2-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768555/deez-prints/regular/chainsaw-2-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768558/deez-prints/regular/chainsaw-2-grey-front.jpg"
     ],
     "colors": [
@@ -2266,13 +2262,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-chinese",
-    "title": "CHINESE REGULAR TEE",
+    "title": "ROCKSTAR TOKYO REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768564/deez-prints/regular/chinese-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768561/deez-prints/regular/chinese-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768564/deez-prints/regular/chinese-black-front.jpg"
     ],
     "colors": [
       "Black"
@@ -2282,7 +2277,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-1",
-    "title": "DBZ 1 REGULAR TEE",
+    "title": "MAJIN VEGETA REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2302,33 +2297,14 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-dbz-2",
-    "title": "DBZ 2 REGULAR TEE",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768584/deez-prints/regular/dbz-2-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768661/deez-prints/regular/dbz2-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768581/deez-prints/regular/dbz-2-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768664/deez-prints/regular/dbz2-black-front.jpg"
-    ],
-    "colors": [
-      "White",
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-regular-dbz-3",
-    "title": "DBZ 3 REGULAR TEE",
+    "title": "VEGETA SUPER SAIYAN REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768590/deez-prints/regular/dbz-3-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768587/deez-prints/regular/dbz-3-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768587/deez-prints/regular/dbz-3-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768590/deez-prints/regular/dbz-3-black-front.jpg"
     ],
     "colors": [
       "Black"
@@ -2338,7 +2314,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-4",
-    "title": "DBZ 4 REGULAR TEE",
+    "title": "MAJIN VEGETA RAGE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2359,13 +2335,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-5",
-    "title": "DBZ 5 REGULAR TEE",
+    "title": "GOKU RAGE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768610/deez-prints/regular/dbz-5-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768612/deez-prints/regular/dbz-5-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768610/deez-prints/regular/dbz-5-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768607/deez-prints/regular/dbz-5-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768618/deez-prints/regular/dbz-5-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768621/deez-prints/regular/dbz-5-white-front.jpg",
@@ -2381,13 +2357,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-6",
-    "title": "DBZ 6 REGULAR TEE",
+    "title": "GOKU SHENRON REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768632/deez-prints/regular/dbz-6-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768624/deez-prints/regular/dbz-6-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768632/deez-prints/regular/dbz-6-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768629/deez-prints/regular/dbz-6-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768627/deez-prints/regular/dbz-6-black-front.jpg"
     ],
@@ -2400,13 +2376,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-7",
-    "title": "DBZ 7 REGULAR TEE",
+    "title": "GOKU RONIN REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768638/deez-prints/regular/dbz-7-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768641/deez-prints/regular/dbz-7-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768638/deez-prints/regular/dbz-7-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768635/deez-prints/regular/dbz-7-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768644/deez-prints/regular/dbz-7-white-front.jpg"
     ],
@@ -2419,7 +2395,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dbz-8",
-    "title": "DBZ 8 REGULAR TEE",
+    "title": "GOKU BLACK REBELLION REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2440,13 +2416,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-dream",
-    "title": "DREAM REGULAR TEE",
+    "title": "LIVE THE DREAM REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768670/deez-prints/regular/dreamwhite-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768667/deez-prints/regular/dreamwhite-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768670/deez-prints/regular/dreamwhite-front.jpg"
     ],
     "colors": [
       "White"
@@ -2455,32 +2430,14 @@ export const products: Product[] = [
     "aesthetic": "minimal-drops"
   },
   {
-    "id": "dp-regular-eye",
-    "title": "EYE REGULAR TEE",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768676/deez-prints/regular/eye-balck-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768673/deez-prints/regular/eye-balck-back.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-regular-eye-2",
-    "title": "EYE 2 REGULAR TEE",
+    "title": "GOJO SATORU REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768681/deez-prints/regular/eye-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768684/deez-prints/regular/eyewhite-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768687/deez-prints/regular/eyewhite-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768678/deez-prints/regular/eye-beige-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768687/deez-prints/regular/eyewhite-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -2491,7 +2448,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-fire",
-    "title": "FIRE REGULAR TEE",
+    "title": "MAKI OZE FIREPOWER REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2509,15 +2466,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-fuck",
-    "title": "FUCK REGULAR TEE",
+    "title": "FUCK OFF REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768708/deez-prints/regular/fuckblack-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768699/deez-prints/regular/fuckbeige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768705/deez-prints/regular/fuckblack-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768702/deez-prints/regular/fuckbeige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768711/deez-prints/regular/fuckgrey-front.jpg"
     ],
     "colors": [
@@ -2536,10 +2491,8 @@ export const products: Product[] = [
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768717/deez-prints/regular/goodfellas-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768719/deez-prints/regular/goodfellasblack-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768723/deez-prints/regular/goodfellasblack-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768726/deez-prints/regular/goodfellasgrey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768714/deez-prints/regular/goodfellas-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768726/deez-prints/regular/goodfellasgrey-front.jpg"
     ],
     "colors": [
       "White",
@@ -2551,13 +2504,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-hands",
-    "title": "HANDS REGULAR TEE",
+    "title": "KURAPIKA RAGE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768732/deez-prints/regular/hands-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768734/deez-prints/regular/hands-grey-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768732/deez-prints/regular/hands-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768729/deez-prints/regular/hands-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768738/deez-prints/regular/hands-grey-front.jpg"
     ],
@@ -2570,13 +2523,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-ichigo",
-    "title": "ICHIGO REGULAR TEE",
+    "title": "ICHIGO HOLLOW REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768744/deez-prints/regular/Ichigo-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768747/deez-prints/regular/Ichigo-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768744/deez-prints/regular/Ichigo-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768741/deez-prints/regular/Ichigo-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768753/deez-prints/regular/Ichigo-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768749/deez-prints/regular/Ichigo-black-front.jpg",
@@ -2592,7 +2545,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-isagi-1",
-    "title": "ISAGI 1 REGULAR TEE",
+    "title": "ISAGI YOICHI REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2613,13 +2566,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-kaijin",
-    "title": "KAIJIN REGULAR TEE",
+    "title": "GAROU KAIJIN REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768790/deez-prints/regular/kaijin-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768774/deez-prints/regular/kaijin-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768790/deez-prints/regular/kaijin-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768777/deez-prints/regular/kaijin-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768780/deez-prints/regular/kaijin-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768784/deez-prints/regular/kaijin-blue-front.jpg",
@@ -2640,9 +2593,9 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768808/deez-prints/regular/knight-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768792/deez-prints/regular/knight-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768798/deez-prints/regular/knight-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768792/deez-prints/regular/knight-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768808/deez-prints/regular/knight-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768801/deez-prints/regular/knight-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768805/deez-prints/regular/knight-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768795/deez-prints/regular/knight-beige-front.jpg",
@@ -2659,7 +2612,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-luffy-1",
-    "title": "LUFFY 1 REGULAR TEE",
+    "title": "LUFFY GEAR 5 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2678,7 +2631,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-luffy-2",
-    "title": "LUFFY 2 REGULAR TEE",
+    "title": "LUFFY GEAR 5 REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2696,13 +2649,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-luffy-3",
-    "title": "LUFFY 3 REGULAR TEE",
+    "title": "LUFFY STRAW HAT REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768837/deez-prints/regular/luffy-3-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768829/deez-prints/regular/luffy-3-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768837/deez-prints/regular/luffy-3-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768834/deez-prints/regular/luffy-3-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768832/deez-prints/regular/luffy-3-beige-front.jpg"
     ],
@@ -2715,15 +2668,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-luffy-4",
-    "title": "LUFFY 4 REGULAR TEE",
+    "title": "LUFFY FREEDOM REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768843/deez-prints/regular/luffy-4-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768846/deez-prints/regular/luffy-4-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768849/deez-prints/regular/luffy-4-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768840/deez-prints/regular/luffy-4-beige-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768849/deez-prints/regular/luffy-4-white-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -2758,15 +2709,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-mob",
-    "title": "MOB REGULAR TEE",
+    "title": "OUTLAW REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768881/deez-prints/regular/mob-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768883/deez-prints/regular/mob-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768886/deez-prints/regular/mob-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768878/deez-prints/regular/mob-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768886/deez-prints/regular/mob-white-front.jpg"
     ],
     "colors": [
       "Black",
@@ -2777,13 +2726,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-naruto-1",
-    "title": "NARUTO 1 REGULAR TEE",
+    "title": "NARUTO EYES REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768899/deez-prints/regular/naruto-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768890/deez-prints/regular/naruto-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768899/deez-prints/regular/naruto-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768896/deez-prints/regular/naruto-1-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768893/deez-prints/regular/naruto-1-black-front.jpg"
     ],
@@ -2796,13 +2745,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-naruto-2",
-    "title": "NARUTO 2 REGULAR TEE",
+    "title": "NARUTO SHADOW REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768905/deez-prints/regular/naruto-2-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768902/deez-prints/regular/naruto-2-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768905/deez-prints/regular/naruto-2-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768908/deez-prints/regular/naruto-2-grey-front.jpg"
     ],
     "colors": [
@@ -2814,13 +2763,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-naruto-3",
-    "title": "NARUTO 3 REGULAR TEE",
+    "title": "ITACHI AKATSUKI REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768914/deez-prints/regular/naruto-3-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768917/deez-prints/regular/naruto3-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768914/deez-prints/regular/naruto-3-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768911/deez-prints/regular/naruto-3-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768919/deez-prints/regular/naruto3-white-front.jpg"
     ],
@@ -2833,13 +2782,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-responsibility",
-    "title": "RESPONSIBILITY REGULAR TEE",
+    "title": "PETER PARKER GREAT POWER REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768925/deez-prints/regular/responsibility-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768928/deez-prints/regular/responsibilitywhite-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768931/deez-prints/regular/responsibilitywhite-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768934/deez-prints/regular/responsibilty-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768922/deez-prints/regular/responsibility-black-back.jpg",
@@ -2855,13 +2803,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-solo-1",
-    "title": "SOLO 1 REGULAR TEE",
+    "title": "SOLO LEVELING SHADOW REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768965/deez-prints/regular/solo-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768957/deez-prints/regular/solo-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768965/deez-prints/regular/solo-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768962/deez-prints/regular/solo-1-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768981/deez-prints/regular/solo1-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768960/deez-prints/regular/solo-1-black-front.jpg",
@@ -2877,13 +2825,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-solo-2",
-    "title": "SOLO 2 REGULAR TEE",
+    "title": "SOLO LEVELING ARISE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768971/deez-prints/regular/solo-2-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768974/deez-prints/regular/solo-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768971/deez-prints/regular/solo-2-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768968/deez-prints/regular/solo-2-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768977/deez-prints/regular/solo-2-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768986/deez-prints/regular/solo2-black-back.jpg",
@@ -2899,15 +2847,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-speed",
-    "title": "SPEED REGULAR TEE",
+    "title": "FORMULA SPEED REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768995/deez-prints/regular/speed-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768998/deez-prints/regular/speed-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769000/deez-prints/regular/speed-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768992/deez-prints/regular/speed-beige-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769000/deez-prints/regular/speed-white-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -2923,7 +2869,6 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769015/deez-prints/regular/sukunagrey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768939/deez-prints/regular/sakuna-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768945/deez-prints/regular/sakuna-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768951/deez-prints/regular/sakunga-beige-back.jpg",
@@ -2942,13 +2887,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-sukuna-2",
-    "title": "SUKUNA 2 REGULAR TEE",
+    "title": "SUKUNA CURSED REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769012/deez-prints/regular/sukuna-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769003/deez-prints/regular/sukuna-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769012/deez-prints/regular/sukuna-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769006/deez-prints/regular/sukuna-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769009/deez-prints/regular/sukuna-white-back.jpg"
     ],
@@ -2961,13 +2906,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-tujiro",
-    "title": "TUJIRO REGULAR TEE",
+    "title": "TANJIRO KAMADO REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769021/deez-prints/regular/tujiro-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769018/deez-prints/regular/tujiro-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769021/deez-prints/regular/tujiro-black-front.jpg"
     ],
     "colors": [
       "Black"
@@ -2977,17 +2921,14 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-1",
-    "title": "UCHIHA 1 REGULAR TEE",
+    "title": "MADARA UCHIHA REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769080/deez-prints/regular/uchiha1beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769083/deez-prints/regular/uchiha1black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769087/deez-prints/regular/uchiha1black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769092/deez-prints/regular/uchiha1white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769078/deez-prints/regular/uchiha1beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769090/deez-prints/regular/uchiha1white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769092/deez-prints/regular/uchiha1white-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -2999,7 +2940,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-2",
-    "title": "UCHIHA 2 REGULAR TEE",
+    "title": "ITACHI UCHIHA REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -3021,15 +2962,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-3",
-    "title": "UCHIHA 3 REGULAR TEE",
+    "title": "ITACHI AKATSUKI REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769046/deez-prints/regular/uchiha-3-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769050/deez-prints/regular/uchiha-3-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769043/deez-prints/regular/uchiha-3-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769053/deez-prints/regular/uchiha-3-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769043/deez-prints/regular/uchiha-3-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -3040,13 +2979,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-4",
-    "title": "UCHIHA 4 REGULAR TEE",
+    "title": "ITACHI ECLIPSE REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769066/deez-prints/regular/uchiha-4-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769056/deez-prints/regular/uchiha-4-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769066/deez-prints/regular/uchiha-4-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769063/deez-prints/regular/uchiha-4-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769060/deez-prints/regular/uchiha-4-black-front.jpg"
     ],
@@ -3059,7 +2998,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-5",
-    "title": "UCHIHA 5 REGULAR TEE",
+    "title": "ITACHI AKATSUKI REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -3077,13 +3016,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-yamoto-1",
-    "title": "YAMOTO 1 REGULAR TEE",
+    "title": "YAMAMOTO INFERNO REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769098/deez-prints/regular/yamoto-1-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769105/deez-prints/regular/yamoto1-Black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769098/deez-prints/regular/yamoto-1-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769096/deez-prints/regular/yamoto-1-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769101/deez-prints/regular/yamoto-1-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769108/deez-prints/regular/yamoto1-Black-front.jpg"
@@ -3098,7 +3037,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-zoro-1",
-    "title": "ZORO 1 REGULAR TEE",
+    "title": "ZORO RONIN REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -3119,13 +3058,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-zoro-2",
-    "title": "ZORO 2 REGULAR TEE",
+    "title": "ZORO BUSHIDO REGULAR TEE",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769140/deez-prints/regular/zoro-2-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769126/deez-prints/regular/zoro-2-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769140/deez-prints/regular/zoro-2-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769137/deez-prints/regular/zoro-2-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769130/deez-prints/regular/zoro-2-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769133/deez-prints/regular/zoro-2-grey-front.jpg"
@@ -3309,24 +3248,6 @@ export const products: Product[] = [
       "Sand"
     ],
     "rating": 5
-  },
-  {
-    "id": "sample-v1",
-    "title": "CIGAR CURSE",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1771522535/sample-v1.jpg",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1771522535/sample-v2_xuxtfn.jpg"
-    ],
-    "colors": [
-      "Black",
-      "White",
-      "Blue",
-      "Red"
-    ],
-    "rating": 4
   },
   {
     "id": "tshirt-reg-2",
