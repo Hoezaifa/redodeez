@@ -911,13 +911,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-ace",
-    "title": "ACE DROP SHOULDER TEE",
+    "title": "Fire Fist Ace Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769146/deez-prints/drops/ace-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769148/deez-prints/drops/ace-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769146/deez-prints/drops/ace-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769143/deez-prints/drops/ace-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769154/deez-prints/drops/ace-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769157/deez-prints/drops/ace-white-front.jpg",
@@ -955,7 +955,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-arise",
-    "title": "ARISE DROP SHOULDER TEE",
+    "title": "Solo Leveling Arise Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -976,18 +976,15 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-baby",
-    "title": "BABY DROP SHOULDER TEE",
+    "title": "Cupid Vintage Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769196/deez-prints/drops/baby-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769199/deez-prints/drops/baby-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769202/deez-prints/drops/baby-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769205/deez-prints/drops/baby-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769210/deez-prints/drops/baby-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769193/deez-prints/drops/baby-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769207/deez-prints/drops/baby-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769210/deez-prints/drops/baby-white-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -1000,7 +997,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-batman-grye",
-    "title": "BATMAN GRYE DROP SHOULDER TEE",
+    "title": "Batman Noir Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1015,7 +1012,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-berserk-2",
-    "title": "BERSERK 2 DROP SHOULDER TEE",
+    "title": "Guts Brand of Sacrifice Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1031,7 +1028,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-berserk-black-1",
-    "title": "BERSERK BLACK 1 DROP SHOULDER TEE",
+    "title": "Guts Berserker Armor Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1052,8 +1049,8 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769230/deez-prints/drops/bleach-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769233/deez-prints/drops/bleach-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769230/deez-prints/drops/bleach-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769227/deez-prints/drops/bleach-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769236/deez-prints/drops/bleach-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769239/deez-prints/drops/bleach-white-back.jpg",
@@ -1090,13 +1087,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-chainsaw-1",
-    "title": "CHAINSAW 1 DROP SHOULDER TEE",
+    "title": "Denji Chainsaw Man Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769264/deez-prints/drops/chainsaw-1-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769261/deez-prints/drops/chainsaw-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769264/deez-prints/drops/chainsaw-1-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769273/deez-prints/drops/chainsaw-1-grey-front.jpg"
     ],
     "colors": [
@@ -1107,30 +1104,14 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-drop-shoulder-chainsaw-1-blyue",
-    "title": "CHAINSAW 1 BLYUE DROP SHOULDER TEE",
-    "price": 2900,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769270/deez-prints/drops/chainsaw-1-blyue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769267/deez-prints/drops/chainsaw-1-blyue-back.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-drop-shoulder-chainsaw-2",
-    "title": "CHAINSAW 2 DROP SHOULDER TEE",
+    "title": "Chainsawman Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769279/deez-prints/drops/chainsaw-2-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769283/deez-prints/drops/chainsaw-2-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769279/deez-prints/drops/chainsaw-2-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769276/deez-prints/drops/chainsaw-2-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769287/deez-prints/drops/chainsaw-2-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769291/deez-prints/drops/chainsaw2-blue-back.jpg",
@@ -1146,7 +1127,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-curse",
-    "title": "CURSE DROP SHOULDER TEE",
+    "title": "Choso Bloodline Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1165,13 +1146,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-curse-whtie",
-    "title": "CURSE WHTIE DROP SHOULDER TEE",
+    "title": "Sukuna Cursed Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769313/deez-prints/drops/curse-whtie-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769310/deez-prints/drops/curse-whtie-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769310/deez-prints/drops/curse-whtie-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769313/deez-prints/drops/curse-whtie-front.jpg"
     ],
     "colors": [
       "Black"
@@ -1202,7 +1183,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-dbz-1",
-    "title": "DBZ 1 DROP SHOULDER TEE",
+    "title": "Vegeta Super Saiyan Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1220,7 +1201,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-dbz-2",
-    "title": "DBZ 2 DROP SHOULDER TEE",
+    "title": "Majin Vegeta 1.0 Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1242,13 +1223,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-dbz-3",
-    "title": "DBZ 3 DROP SHOULDER TEE",
+    "title": "Goku Rage Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769383/deez-prints/drops/dbz-3-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769332/deez-prints/drops/dbz--3-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769383/deez-prints/drops/dbz-3-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769335/deez-prints/drops/dbz--3-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769372/deez-prints/drops/dbz-3-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769379/deez-prints/drops/dbz-3-black-back.jpg",
@@ -1264,7 +1245,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-dbz-4",
-    "title": "DBZ 4 DROP SHOULDER TEE",
+    "title": "Goku Shenron Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1288,13 +1269,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-dbz-5",
-    "title": "DBZ 5 DROP SHOULDER TEE",
+    "title": "Goku Ronin Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769435/deez-prints/drops/dbz-5-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769412/deez-prints/drops/dbz-5-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769435/deez-prints/drops/dbz-5-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769421/deez-prints/drops/dbz-5-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769424/deez-prints/drops/dbz-5-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769431/deez-prints/drops/dbz-5-white-back.jpg",
@@ -1312,13 +1293,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-dbz-6",
-    "title": "DBZ 6 DROP SHOULDER TEE",
+    "title": "Goku Black Rebellion Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769449/deez-prints/drops/dbz-6-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769438/deez-prints/drops/dbz-6-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769449/deez-prints/drops/dbz-6-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769441/deez-prints/drops/dbz-6-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769445/deez-prints/drops/dbz-6-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769452/deez-prints/drops/dbz-6-white-back.jpg",
@@ -1334,18 +1315,15 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-evil",
-    "title": "EVIL DROP SHOULDER TEE",
+    "title": "See No Evil Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769470/deez-prints/drops/evil-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769459/deez-prints/drops/evil-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769461/deez-prints/drops/evil-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769476/deez-prints/drops/evil-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769479/deez-prints/drops/evil-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769467/deez-prints/drops/evil-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769473/deez-prints/drops/evil-blue-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769479/deez-prints/drops/evil-grey-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -1358,15 +1336,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-eye",
-    "title": "EYE DROP SHOULDER TEE",
+    "title": "Living the Dream Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769486/deez-prints/drops/eye-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769489/deez-prints/drops/eye-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769493/deez-prints/drops/eye-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769483/deez-prints/drops/eye-beige-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769493/deez-prints/drops/eye-white-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -1398,13 +1374,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-fire-bleu",
-    "title": "FIRE BLEU DROP SHOULDER TEE",
+    "title": "Maki Oze Firepower Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769512/deez-prints/drops/fire-bleu-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769509/deez-prints/drops/fire-bleu-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769509/deez-prints/drops/fire-bleu-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769512/deez-prints/drops/fire-bleu-front.jpg"
     ],
     "colors": [
       "Black"
@@ -1419,7 +1395,6 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769522/deez-prints/drops/fuckoff-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769519/deez-prints/drops/fuckoff-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769525/deez-prints/drops/fuckoff-grey-front.jpg"
     ],
@@ -1438,11 +1413,8 @@ export const products: Product[] = [
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769531/deez-prints/drops/goodfellas-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769534/deez-prints/drops/goodfellas-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769538/deez-prints/drops/goodfellas-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769544/deez-prints/drops/goodfellas-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769528/deez-prints/drops/goodfellas-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769541/deez-prints/drops/goodfellas-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769544/deez-prints/drops/goodfellas-white-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -1454,13 +1426,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-hands",
-    "title": "HANDS DROP SHOULDER TEE",
+    "title": "Kurapika Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769551/deez-prints/drops/hands-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769547/deez-prints/drops/hands-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769547/deez-prints/drops/hands-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769551/deez-prints/drops/hands-black-front.jpg"
     ],
     "colors": [
       "Black"
@@ -1470,13 +1442,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-head",
-    "title": "HEAD DROP SHOULDER TEE",
+    "title": "Tanjiro Kamado Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769559/deez-prints/drops/head-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769555/deez-prints/drops/head-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769559/deez-prints/drops/head-black-front.jpg"
     ],
     "colors": [
       "Black"
@@ -1486,13 +1457,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-horn",
-    "title": "HORN DROP SHOULDER TEE",
+    "title": "Ichigo Hollow Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769583/deez-prints/drops/horn-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769561/deez-prints/drops/horn-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769583/deez-prints/drops/horn-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769567/deez-prints/drops/horn-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769574/deez-prints/drops/horn-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769580/deez-prints/drops/horn-white-back.jpg",
@@ -1517,9 +1488,7 @@ export const products: Product[] = [
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769595/deez-prints/drops/itachi-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769586/deez-prints/drops/itachi-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769590/deez-prints/drops/itachi-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769592/deez-prints/drops/itachi-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769590/deez-prints/drops/itachi-beige-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -1530,16 +1499,15 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-itachi-2",
-    "title": "ITACHI 2 DROP SHOULDER TEE",
+    "title": "Itachi Eclipse Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769708/deez-prints/drops/madara-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769710/deez-prints/drops/madara-blackl-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769708/deez-prints/drops/madara-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769704/deez-prints/drops/madara-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769713/deez-prints/drops/madara-blackl-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769928/deez-prints/drops/tachi-whtie-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769723/deez-prints/drops/madara-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769925/deez-prints/drops/tachi-whtie-back.jpg"
     ],
@@ -1554,13 +1522,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-kaijin",
-    "title": "KAIJIN DROP SHOULDER TEE",
+    "title": "Garou Kaijin Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769608/deez-prints/drops/kaijin-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769598/deez-prints/drops/kaijin-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769608/deez-prints/drops/kaijin-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769601/deez-prints/drops/kaijin-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769604/deez-prints/drops/kaijin-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769611/deez-prints/drops/kaijin-white-back.jpg",
@@ -1576,13 +1544,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-konichiwa",
-    "title": "KONICHIWA DROP SHOULDER TEE",
+    "title": "Rockstar Tokyo Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769630/deez-prints/drops/konichiwa-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769627/deez-prints/drops/konichiwa-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769634/deez-prints/drops/konichiwa-grey-front.jpg"
     ],
     "colors": [
@@ -1594,13 +1561,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-luffy-1",
-    "title": "LUFFY 1 DROP SHOULDER TEE",
+    "title": "Luffy Gear 5 Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769648/deez-prints/drops/luffy-1-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769651/deez-prints/drops/luffy-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769648/deez-prints/drops/luffy-1-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769645/deez-prints/drops/luffy-1-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769662/deez-prints/drops/luffy-1-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769668/deez-prints/drops/luffy-1-grey-back.jpg",
@@ -1619,7 +1586,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-luffy-2",
-    "title": "LUFFY 2 DROP SHOULDER TEE",
+    "title": "Luffy Straw Hat Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1638,17 +1605,14 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-luffy-3",
-    "title": "LUFFY 3 DROP SHOULDER TEE",
+    "title": "Luffy Freedom Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769695/deez-prints/drops/luffy-3-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769686/deez-prints/drops/luffy-3-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769689/deez-prints/drops/luffy-3-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769701/deez-prints/drops/luffy-3-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769692/deez-prints/drops/luffy-3-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769698/deez-prints/drops/luffy-3-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769701/deez-prints/drops/luffy-3-white-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -1660,13 +1624,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-madara",
-    "title": "MADARA DROP SHOULDER TEE",
+    "title": "Madara Uchiha Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769720/deez-prints/drops/madara-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769716/deez-prints/drops/madara-blue-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769720/deez-prints/drops/madara-blue-front.jpg"
     ],
     "colors": [
       "Blue"
@@ -1676,7 +1639,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-mobland",
-    "title": "MOBLAND DROP SHOULDER TEE",
+    "title": "Outlaw Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1697,13 +1660,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-naruto",
-    "title": "NARUTO DROP SHOULDER TEE",
+    "title": "Naruto Eyes Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769827/deez-prints/drops/naruto-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769831/deez-prints/drops/naruto-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769827/deez-prints/drops/naruto-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769824/deez-prints/drops/naruto-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769833/deez-prints/drops/naruto-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769836/deez-prints/drops/naruto-grey-front.jpg"
@@ -1718,7 +1681,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-naruto-2",
-    "title": "NARUTO 2 DROP SHOULDER TEE",
+    "title": "Madara 1 Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1757,7 +1720,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-naruto-4",
-    "title": "NARUTO 4 DROP SHOULDER TEE",
+    "title": "Itachi Uchiha Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1781,7 +1744,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-naruto-5",
-    "title": "NARUTO 5 DROP SHOULDER TEE",
+    "title": "Itachi Akatsuki Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1800,7 +1763,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-naruto-6",
-    "title": "NARUTO 6 DROP SHOULDER TEE",
+    "title": "Itachi Akatsuki Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1837,7 +1800,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-regular-series",
-    "title": "REGULAR SERIES DROP SHOULDER TEE",
+    "title": "Garou Kaijin Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1853,7 +1816,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-shoot",
-    "title": "SHOOT DROP SHOULDER TEE",
+    "title": "Kaneki Reaper Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1875,13 +1838,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-solo-1",
-    "title": "SOLO 1 DROP SHOULDER TEE",
+    "title": "Solo Leveling Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769884/deez-prints/drops/solo-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769876/deez-prints/drops/solo-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769884/deez-prints/drops/solo-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769882/deez-prints/drops/solo-1-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769887/deez-prints/drops/solo1-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769878/deez-prints/drops/solo-1-black-front.jpg",
@@ -1897,18 +1860,15 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-speed",
-    "title": "SPEED DROP SHOULDER TEE",
+    "title": "Formula Speed Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769908/deez-prints/drops/speed-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769893/deez-prints/drops/speed-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769896/deez-prints/drops/speed-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769902/deez-prints/drops/speed-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769910/deez-prints/drops/speed-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769899/deez-prints/drops/speed-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769905/deez-prints/drops/speed-blue-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769910/deez-prints/drops/speed-grey-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -1921,13 +1881,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-sukuna",
-    "title": "SUKUNA DROP SHOULDER TEE",
+    "title": "Sukuna Cursed Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769922/deez-prints/drops/sukuna-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769914/deez-prints/drops/sukuna-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769922/deez-prints/drops/sukuna-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769917/deez-prints/drops/sukuna-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769919/deez-prints/drops/sukuna-white-back.jpg"
     ],
@@ -1940,13 +1900,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-titan",
-    "title": "TITAN DROP SHOULDER TEE",
+    "title": "Sukuna Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769934/deez-prints/drops/titan-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769936/deez-prints/drops/titan-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769934/deez-prints/drops/titan-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769931/deez-prints/drops/titan-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769942/deez-prints/drops/titan-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769939/deez-prints/drops/titan-blue-front.jpg",
@@ -1962,13 +1922,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-yamoto",
-    "title": "YAMOTO DROP SHOULDER TEE",
+    "title": "Yamoto Inferno Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769956/deez-prints/drops/yamoto-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769948/deez-prints/drops/yamoto-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769956/deez-prints/drops/yamoto-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769953/deez-prints/drops/yamoto-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769959/deez-prints/drops/yamoto-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769965/deez-prints/drops/yamoto-white-back.jpg",
@@ -1987,7 +1947,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-zoro",
-    "title": "ZORO DROP SHOULDER TEE",
+    "title": "Zoro Ronin Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -2011,13 +1971,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-zoro-2",
-    "title": "ZORO 2 DROP SHOULDER TEE",
+    "title": "Zoro Bushido Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769979/deez-prints/drops/zoro-2-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769971/deez-prints/drops/zoro-2-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769979/deez-prints/drops/zoro-2-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769976/deez-prints/drops/zoro-2-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769974/deez-prints/drops/zoro-2-beige-front.jpg"
     ],
@@ -3472,7 +3432,7 @@ export const products: Product[] = [
   },
   {
     "id": "tshirt-drop-1",
-    "title": "BERSERK DRP SHLDR",
+    "title": "Berserk Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -3569,7 +3529,7 @@ export const products: Product[] = [
   },
   {
     "id": "tshirt-drop-7",
-    "title": "PUNISH DRP SHLDR",
+    "title": "Punish Drop Shoulder Tee",
     "price": 2900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
