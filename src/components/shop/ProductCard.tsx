@@ -73,18 +73,13 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           )}
 
           {/* Badges Top-Left */}
-          <div className="absolute left-2.5 top-2.5 sm:left-3 sm:top-3 flex flex-col items-start gap-1 z-10 pointer-events-none">
-            {isNew && (
+          {isNew && (
+            <div className="absolute left-2.5 top-2.5 sm:left-3 sm:top-3 flex flex-col items-start gap-1 z-10 pointer-events-none">
               <span className="bg-[#FF4D00] px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm">
                 New
               </span>
-            )}
-            {product.subcategory === "acid-wash" && (
-              <span className="hidden sm:inline-block bg-black/85 backdrop-blur-sm border border-white/10 px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider shadow-sm">
-                1 of 1
-              </span>
-            )}
-          </div>
+            </div>
+          )}
         </Link>
 
         {/* Wishlist Button Top-Right */}
