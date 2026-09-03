@@ -80,7 +80,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
               </span>
             )}
             {product.subcategory === "acid-wash" && (
-              <span className="bg-black/85 backdrop-blur-sm border border-white/10 px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider shadow-sm">
+              <span className="hidden sm:inline-block bg-black/85 backdrop-blur-sm border border-white/10 px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider shadow-sm">
                 1 of 1
               </span>
             )}
