@@ -25,14 +25,14 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-aizen",
     "title": "AIZEN ACID WASH TEE",
-    "price": 3200,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770010/deez-prints/acid/aizen-gre-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770004/deez-prints/acid/aizen-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770007/deez-prints/acid/aizen-gre-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770002/deez-prints/acid/aizen-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770010/deez-prints/acid/aizen-gre-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770002/deez-prints/acid/aizen-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -43,16 +43,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-baby",
-    "title": "BABY ACID WASH TEE",
-    "price": 3200,
+    "title": "Cupid Vintage Acid Wash Tee",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770019/deez-prints/acid/baby-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770013/deez-prints/acid/baby-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770016/deez-prints/acid/baby-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770025/deez-prints/acid/baby-maroon-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770022/deez-prints/acid/baby-maroon-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770016/deez-prints/acid/baby-black-front.jpg"
     ],
     "colors": [
       "Black",
@@ -65,12 +62,12 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-batman",
     "title": "BATMAN ACID WASH TEE",
-    "price": 3200,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770031/deez-prints/acid/batman-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770028/deez-prints/acid/batman-grey-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770028/deez-prints/acid/batman-grey-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770031/deez-prints/acid/batman-grey-front.jpg"
     ],
     "colors": [
       "Grey"
@@ -80,13 +77,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-berserk",
-    "title": "BERSERK ACID WASH TEE",
-    "price": 3200,
+    "title": "Guts Brand of Sacrifice Acid Wash Tee",
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770049/deez-prints/acid/berserk-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770046/deez-prints/acid/berserk-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770046/deez-prints/acid/berserk-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770049/deez-prints/acid/berserk-black-front.jpg"
     ],
     "colors": [
       "Black"
@@ -102,7 +99,7 @@ export const products: Product[] = [
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770055/deez-prints/acid/berserk2--black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770052/deez-prints/acid/berserk2--black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770043/deez-prints/acid/berserk-3-maroon-front.jpg"
     ],
     "colors": [
       "Black"
@@ -111,25 +108,9 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-berserk-3",
-    "title": "BERSERK 3 ACID WASH TEE",
-    "price": 3200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770043/deez-prints/acid/berserk-3-maroon-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770040/deez-prints/acid/berserk-3-maroon-back.jpg"
-    ],
-    "colors": [
-      "Maroon"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-acid-wash-bleach",
     "title": "BLEACH ACID WASH TEE",
-    "price": 3200,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -144,7 +125,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-bluelock",
     "title": "BLUELOCK ACID WASH TEE",
-    "price": 3200,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -162,14 +143,14 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-chainsaw",
-    "title": "CHAINSAW ACID WASH TEE",
-    "price": 3200,
+    "title": "Denji Chainsawman Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770084/deez-prints/acid/chainsaw-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770090/deez-prints/acid/chainsaw-maroon-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770081/deez-prints/acid/chainsaw-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770084/deez-prints/acid/chainsaw-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770087/deez-prints/acid/chainsaw-maroon-back.jpg"
     ],
     "colors": [
@@ -181,15 +162,15 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-chainsaw-2",
-    "title": "CHAINSAW 2 ACID WASH TEE",
-    "price": 3200,
+    "title": "Chainsawman Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770079/deez-prints/acid/chainsaw-2-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770075/deez-prints/acid/chainsaw-2-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770094/deez-prints/acid/chainsaw2-maroon-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770073/deez-prints/acid/chainsaw-2-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770079/deez-prints/acid/chainsaw-2-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770096/deez-prints/acid/chainsaw2-maroon-front.jpg"
     ],
     "colors": [
@@ -202,8 +183,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-curse",
-    "title": "CURSE ACID WASH TEE",
-    "price": 3200,
+    "title": "Choso Bloodline Acid Wash Tee",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -218,13 +199,13 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-dark-knight",
     "title": "DARK KNIGHT ACID WASH TEE",
-    "price": 3200,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770108/deez-prints/acid/darknight-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770105/deez-prints/acid/dark-night-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770102/deez-prints/acid/dark-night-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770108/deez-prints/acid/darknight-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770102/deez-prints/acid/dark-night-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -235,13 +216,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-dbz-1",
-    "title": "DBZ 1 ACID WASH TEE",
-    "price": 3200,
+    "title": "Majin Vegeta Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770115/deez-prints/acid/dbz-1-maroon-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770111/deez-prints/acid/dbz-1-maroon-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770111/deez-prints/acid/dbz-1-maroon-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770115/deez-prints/acid/dbz-1-maroon-front.jpg"
     ],
     "colors": [
       "Maroon"
@@ -251,8 +232,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-dbz-2",
-    "title": "DBZ 2 ACID WASH TEE",
-    "price": 3200,
+    "title": "Vegeta Super Saiyan Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -269,8 +250,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-dbz-3",
-    "title": "DBZ 3 ACID WASH TEE",
-    "price": 3200,
+    "title": "Majin Vegeta 2.0 Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -291,8 +272,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-dbz-4",
-    "title": "DBZ 4 ACID WASH TEE",
-    "price": 3200,
+    "title": "DBZ Goku Rage Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -312,14 +293,14 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-dbz-5",
-    "title": "DBZ 5 ACID WASH TEE",
-    "price": 3200,
+    "title": "Goku Shenron Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770166/deez-prints/acid/dbz-5-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770163/deez-prints/acid/dbz-5-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770160/deez-prints/acid/dbz-5-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770166/deez-prints/acid/dbz-5-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770160/deez-prints/acid/dbz-5-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -330,8 +311,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-dbz-6",
-    "title": "DBZ 6 ACID WASH TEE",
-    "price": 3200,
+    "title": "Goku Ronin Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -348,8 +329,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-dbz-7",
-    "title": "DBZ 7 ACID WASH TEE",
-    "price": 3200,
+    "title": "Goku Black Rebellion Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -363,13 +344,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-evil",
-    "title": "EVIL ACID WASH TEE",
-    "price": 3200,
+    "title": "See No Evil Acid Wash Tee",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770186/deez-prints/acid/evil-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770184/deez-prints/acid/evil-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770180/deez-prints/acid/evil-grey-front.jpg"
     ],
     "colors": [
@@ -381,8 +361,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-eye",
-    "title": "EYE ACID WASH TEE",
-    "price": 3200,
+    "title": "Living the Dream Acid Wash Tee",
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -396,8 +376,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-eyes",
-    "title": "EYES ACID WASH TEE",
-    "price": 3200,
+    "title": "Gojo Satoru Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -414,14 +394,14 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-fire",
-    "title": "FIRE ACID WASH TEE",
-    "price": 3200,
+    "title": "Maki Oze Firepower Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770207/deez-prints/acid/fire-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770204/deez-prints/acid/fire-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770201/deez-prints/acid/fire-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770207/deez-prints/acid/fire-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770201/deez-prints/acid/fire-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -433,7 +413,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-goodfellas",
     "title": "GOODFELLAS ACID WASH TEE",
-    "price": 3200,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -447,13 +427,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-hands",
-    "title": "HANDS ACID WASH TEE",
-    "price": 3200,
+    "title": "Kurapika Rage Acid Wash Tee",
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770216/deez-prints/acid/hands-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770213/deez-prints/acid/hands-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770213/deez-prints/acid/hands-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770216/deez-prints/acid/hands-black-front.jpg"
     ],
     "colors": [
       "Black"
@@ -463,8 +443,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-horns",
-    "title": "HORNS ACID WASH TEE",
-    "price": 3200,
+    "title": "Ichigo Hollow Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -481,8 +461,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-kaijin",
-    "title": "KAIJIN ACID WASH TEE",
-    "price": 3200,
+    "title": "Garou Kaijin Acid Wash Tee",
+    "price": 2800,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -497,8 +477,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-konichiwa",
-    "title": "KONICHIWA ACID WASH TEE",
-    "price": 3200,
+    "title": "Rockstar Tokyo Acid Wash Tee",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -513,8 +493,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-luffy-1",
-    "title": "LUFFY 1 ACID WASH TEE",
-    "price": 3200,
+    "title": "Luffy Gear 5 Acid Wash Tee",
+    "price": 2300,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -532,8 +512,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-luffy-2",
-    "title": "LUFFY 2 ACID WASH TEE",
-    "price": 3200,
+    "title": "Luffy Gear 5 2.0 Acid Wash Tee",
+    "price": 2300,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -550,8 +530,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-luffy-3",
-    "title": "LUFFY 3 ACID WASH TEE",
-    "price": 3200,
+    "title": "Luffy Straw Hat Acid Wash Tee",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -565,8 +545,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-luffy-4",
-    "title": "LUFFY 4 ACID WASH TEE",
-    "price": 3200,
+    "title": "Luffy Freedom Acid Wash Tee",
+    "price": 2100,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -583,13 +563,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-madara",
-    "title": "MADARA ACID WASH TEE",
-    "price": 3200,
+    "title": "Madara Uchiha Acid Wash Tee",
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770276/deez-prints/acid/madara-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770273/deez-prints/acid/madara-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770279/deez-prints/acid/madara-grey-front.jpg"
     ],
     "colors": [
@@ -601,13 +580,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-mobland",
-    "title": "MOBLAND ACID WASH TEE",
-    "price": 3200,
+    "title": "Outlaw Acid Wash Tee",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770282/deez-prints/acid/mobland-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770285/deez-prints/acid/mobland-maroon-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770288/deez-prints/acid/mobland-maroon-front.jpg"
     ],
     "colors": [
@@ -619,14 +597,14 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-naruto-1",
-    "title": "NARUTO 1 ACID WASH TEE",
-    "price": 3200,
+    "title": "Naruto Eyes Acid Wash Tee",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770297/deez-prints/acid/naruto-1-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770294/deez-prints/acid/naruto-1-b_ack-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770291/deez-prints/acid/naruto-1-b_ack-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770297/deez-prints/acid/naruto-1-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770291/deez-prints/acid/naruto-1-b_ack-back.jpg"
     ],
     "colors": [
       "Black",
@@ -637,14 +615,14 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-naruto-2",
-    "title": "NARUTO 2 ACID WASH TEE",
-    "price": 3200,
+    "title": "Madara 1 Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770306/deez-prints/acid/naruto-2-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770303/deez-prints/acid/naruto-2-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770300/deez-prints/acid/naruto-2-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770306/deez-prints/acid/naruto-2-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770300/deez-prints/acid/naruto-2-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -655,8 +633,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-naruto-3",
-    "title": "NARUTO 3 ACID WASH TEE",
-    "price": 3200,
+    "title": "Itachi Uchiha Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -671,14 +649,14 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-naruto-4",
-    "title": "NARUTO 4 ACID WASH TEE",
-    "price": 3200,
+    "title": "Itachi Eclipse Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770322/deez-prints/acid/naruto-4-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770318/deez-prints/acid/naruto-4-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770315/deez-prints/acid/naruto-4-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770322/deez-prints/acid/naruto-4-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770315/deez-prints/acid/naruto-4-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -689,8 +667,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-naruto-5",
-    "title": "NARUTO 5 ACID WASH TEE",
-    "price": 3200,
+    "title": "Naruto 3 Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -708,15 +686,15 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-peter",
-    "title": "PETER ACID WASH TEE",
-    "price": 3200,
+    "title": "Peter Parker Great Power Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770346/deez-prints/acid/peter-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770340/deez-prints/acid/peter-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770343/deez-prints/acid/peter-grey-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770337/deez-prints/acid/peter-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770346/deez-prints/acid/peter-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770337/deez-prints/acid/peter-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -727,8 +705,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-sakuna",
-    "title": "SAKUNA ACID WASH TEE",
-    "price": 3200,
+    "title": "Sukuna Cursed Acid Wash Tee",
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -742,8 +720,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-shoot",
-    "title": "SHOOT ACID WASH TEE",
-    "price": 3200,
+    "title": "Kaneki Reaper Acid Wash Tee",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -757,13 +735,13 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-solo-1",
-    "title": "SOLO 1 ACID WASH TEE",
-    "price": 3200,
+    "title": "Solo Leveling Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770367/deez-prints/acid/solo1-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770364/deez-prints/acid/solo1-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770364/deez-prints/acid/solo1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770367/deez-prints/acid/solo1-black-front.jpg"
     ],
     "colors": [
       "Black"
@@ -773,14 +751,14 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-solo-2",
-    "title": "SOLO 2 ACID WASH TEE",
-    "price": 3200,
+    "title": "Arise Solo Leveling Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770370/deez-prints/acid/solo2--grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770361/deez-prints/acid/solo-2-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770358/deez-prints/acid/solo-2-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770370/deez-prints/acid/solo2--grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770358/deez-prints/acid/solo-2-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -791,8 +769,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-speed",
-    "title": "SPEED ACID WASH TEE",
-    "price": 3200,
+    "title": "Formula Speed Drop Shoulder Tee",
+    "price": 2100,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -809,13 +787,12 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-sukuna",
-    "title": "SUKUNA ACID WASH TEE",
-    "price": 3200,
+    "title": "Sukuna Cursed Acid Wash Tee",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770382/deez-prints/acid/sukuna-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770349/deez-prints/acid/sakuna-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770382/deez-prints/acid/sukuna-grey-front.jpg"
     ],
     "colors": [
       "Black",
@@ -827,7 +804,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-titan",
     "title": "TITAN ACID WASH TEE",
-    "price": 3200,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -841,14 +818,14 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-yamoto",
-    "title": "YAMOTO ACID WASH TEE",
-    "price": 3200,
+    "title": "Yamoto Inferno Acid Wash Tee",
+    "price": 2500,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770393/deez-prints/acid/yamoto-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770390/deez-prints/acid/yamoto-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770388/deez-prints/acid/yamoto-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770393/deez-prints/acid/yamoto-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770388/deez-prints/acid/yamoto-black-back.jpg"
     ],
     "colors": [
       "Black",
@@ -859,15 +836,16 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-zoro-1",
-    "title": "ZORO 1 ACID WASH TEE",
-    "price": 3200,
+    "title": "Zoro Ronin Acid Wash Tee",
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770405/deez-prints/acid/zoro-1-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770397/deez-prints/acid/zoro-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770402/deez-prints/acid/zoro-1-grey-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770400/deez-prints/acid/zoro-1-black-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770400/deez-prints/acid/zoro-1-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770408/deez-prints/acid/zoro-2-grey-front.jpg"
     ],
     "colors": [
       "Black",
@@ -877,24 +855,9 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-zoro-2",
-    "title": "ZORO 2 ACID WASH TEE",
-    "price": 3200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770408/deez-prints/acid/zoro-2-grey-front.jpg"
-    ],
-    "colors": [
-      "Grey"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-acid-wash-zoro-3",
-    "title": "ZORO 3 ACID WASH TEE",
-    "price": 3200,
+    "title": "Fire Fist Ace Acid Wash Tee",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -3286,7 +3249,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-acid-9",
     "title": "SPIDERVERSE ACID WASH TEE",
-    "price": 3200,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -3316,7 +3279,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-acid-2",
     "title": "DIVINE ACID WASH TEE",
-    "price": 3200,
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -3331,7 +3294,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-acid-3",
     "title": "PUNK IS DEAD ACID WASH TEE",
-    "price": 3200,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -3345,7 +3308,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-acid-4",
     "title": "BERSERK SKULL BLADE ACID WASH TEE",
-    "price": 3200,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -3359,7 +3322,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-acid-5",
     "title": "FERRARI ACID WASH TEE",
-    "price": 3200,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -3375,7 +3338,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-acid-6",
     "title": "KNIGHTFALL ACID WASH TEE",
-    "price": 3200,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -3404,7 +3367,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-acid-8",
     "title": "BERSERK ACID WASH TEE",
-    "price": 3200,
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -3419,7 +3382,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-acid-10",
     "title": "BREAKOUT ACID WASH TEE",
-    "price": 3200,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
