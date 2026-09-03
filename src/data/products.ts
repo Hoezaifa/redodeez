@@ -29,10 +29,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770007/deez-prints/acid/aizen-gre-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770002/deez-prints/acid/aizen-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770004/deez-prints/acid/aizen-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770010/deez-prints/acid/aizen-gre-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770007/deez-prints/acid/aizen-gre-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770010/deez-prints/acid/aizen-gre-front.jpg"
     ],
     "colors": [
       "Black",
@@ -129,10 +129,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770067/deez-prints/acid/bluelock-maroon-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770061/deez-prints/acid/bluelock-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770070/deez-prints/acid/bluelock-maroon-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770064/deez-prints/acid/bluelock-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770067/deez-prints/acid/bluelock-maroon-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770064/deez-prints/acid/bluelock-black-front.jpg"
     ],
     "colors": [
       "Black",
@@ -148,10 +148,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770087/deez-prints/acid/chainsaw-maroon-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770081/deez-prints/acid/chainsaw-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770090/deez-prints/acid/chainsaw-maroon-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770084/deez-prints/acid/chainsaw-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770087/deez-prints/acid/chainsaw-maroon-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770084/deez-prints/acid/chainsaw-black-front.jpg"
     ],
     "colors": [
       "Black",
@@ -255,9 +255,9 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770130/deez-prints/acid/dbz-3-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770136/deez-prints/acid/dbz-3-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770127/deez-prints/acid/dbz-3-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770130/deez-prints/acid/dbz-3-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770133/deez-prints/acid/dbz-3-grey-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770138/deez-prints/acid/dbz-3-maroon-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770141/deez-prints/acid/dbz-3-maroon-front.jpg"
@@ -277,8 +277,8 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770147/deez-prints/acid/dbz-4-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770154/deez-prints/acid/dbz-4-maroon-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770147/deez-prints/acid/dbz-4-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770144/deez-prints/acid/dbz-4-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770150/deez-prints/acid/dbz-4-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770157/deez-prints/acid/dbz-4-maroon-front.jpg"
@@ -498,8 +498,8 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770243/deez-prints/acid/luffy-1-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770246/deez-prints/acid/luffy-1-grey-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770243/deez-prints/acid/luffy-1-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770240/deez-prints/acid/luffy-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770249/deez-prints/acid/luffy-1-grey-front.jpg"
     ],
@@ -585,8 +585,8 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770282/deez-prints/acid/mobland-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770288/deez-prints/acid/mobland-maroon-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770288/deez-prints/acid/mobland-maroon-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770282/deez-prints/acid/mobland-grey-front.jpg"
     ],
     "colors": [
       "Grey",
@@ -672,10 +672,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770331/deez-prints/acid/naruto-5-grey-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770325/deez-prints/acid/naruto-5-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770334/deez-prints/acid/naruto-5-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770328/deez-prints/acid/naruto-5-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770331/deez-prints/acid/naruto-5-grey-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770328/deez-prints/acid/naruto-5-black-front.jpg"
     ],
     "colors": [
       "Black",
@@ -841,10 +841,10 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770402/deez-prints/acid/zoro-1-grey-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770397/deez-prints/acid/zoro-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770400/deez-prints/acid/zoro-1-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770405/deez-prints/acid/zoro-1-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770402/deez-prints/acid/zoro-1-grey-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770408/deez-prints/acid/zoro-2-grey-front.jpg"
     ],
     "colors": [
