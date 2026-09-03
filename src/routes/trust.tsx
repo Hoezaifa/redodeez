@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   Package,
   Award,
-  Star,
   RefreshCw,
   MessageSquare,
   Building2,
@@ -85,7 +84,7 @@ const trustSignals = [
 
 const stats = [
   { value: "10,000+", label: "Orders Delivered", sub: "Across Pakistan", icon: Package },
-  { value: "5,000+", label: "Happy Customers", sub: "4.9/5 Average Rating", icon: Star },
+  { value: "5,000+", label: "Happy Customers", sub: "Delivered Nationwide", icon: CheckCircle2 },
   { value: "6+ Years", label: "Printing Expertise", sub: "Est. Karachi Studio", icon: Award },
   { value: "100%", label: "Quality Guaranteed", sub: "7-Day Easy Exchange", icon: CheckCircle2 },
 ];

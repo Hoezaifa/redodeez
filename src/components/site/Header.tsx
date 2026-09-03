@@ -33,6 +33,9 @@ export function Header() {
     setHidden(y > prev && y > 240);
   });
 
+  const isHome = location.pathname === "/";
+  const isSolid = solid || !isHome;
+
   return (
     <>
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
@@ -66,8 +69,8 @@ export function Header() {
         <div
           className={cn(
             "edge relative border-b transition-colors duration-500",
-            solid
-              ? "border-border bg-background/95 backdrop-blur-md"
+            isSolid
+              ? "border-border/60 bg-background/95 backdrop-blur-md"
               : "border-transparent bg-linear-to-b from-background/80 to-transparent",
           )}
         >

@@ -4,7 +4,6 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronDown,
-  Star,
   ShoppingCart,
   Zap,
   ShieldCheck,
@@ -134,11 +133,6 @@ export function MobileProductDetail({
     setZoomPos({ x, y });
     setIsZoomed((prev) => !prev);
   };
-
-  /* ── Rating ────────────────────────────────── */
-
-  const rating = product.rating ?? 4.8;
-  const reviewCount = Math.floor(rating * 64);
 
   return (
     <div className="mobile-pdp pb-24">
@@ -296,25 +290,6 @@ export function MobileProductDetail({
           {product.title}
         </h1>
 
-        {/* Rating */}
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-0.5">
-            {[1, 2, 3, 4, 5].map((s) => (
-              <Star
-                key={s}
-                className={cn(
-                  "h-3.5 w-3.5",
-                  s <= Math.round(rating)
-                    ? "fill-amber-400 text-amber-400"
-                    : "fill-none text-muted-foreground/40"
-                )}
-              />
-            ))}
-          </div>
-          <span className="text-[13px] text-muted-foreground font-medium">
-            {rating.toFixed(1)} ({reviewCount} reviews)
-          </span>
-        </div>
 
         {/* Price */}
         <p className="text-2xl font-display font-black tracking-tight">

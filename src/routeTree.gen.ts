@@ -12,9 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AccountRouteImport } from './routes/account'
-import { Route as AdminRouteImport } from './routes/admin'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as CocnballsRouteImport } from './routes/cocnballs'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomPrintRouteImport } from './routes/custom-print'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -48,11 +48,6 @@ const AccountRoute = AccountRouteImport.update({
   path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CartRoute = CartRouteImport.update({
   id: '/cart',
   path: '/cart',
@@ -61,6 +56,11 @@ const CartRoute = CartRouteImport.update({
 const CheckoutRoute = CheckoutRouteImport.update({
   id: '/checkout',
   path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CocnballsRoute = CocnballsRouteImport.update({
+  id: '/cocnballs',
+  path: '/cocnballs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -153,9 +153,9 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
-  '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/cocnballs': typeof CocnballsRoute
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
   '/faq': typeof FaqRoute
@@ -178,9 +178,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
-  '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/cocnballs': typeof CocnballsRoute
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
   '/faq': typeof FaqRoute
@@ -204,9 +204,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
-  '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/cocnballs': typeof CocnballsRoute
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
   '/faq': typeof FaqRoute
@@ -231,9 +231,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/account'
-    | '/admin'
     | '/cart'
     | '/checkout'
+    | '/cocnballs'
     | '/contact'
     | '/custom-print'
     | '/faq'
@@ -256,9 +256,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/account'
-    | '/admin'
     | '/cart'
     | '/checkout'
+    | '/cocnballs'
     | '/contact'
     | '/custom-print'
     | '/faq'
@@ -281,9 +281,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/account'
-    | '/admin'
     | '/cart'
     | '/checkout'
+    | '/cocnballs'
     | '/contact'
     | '/custom-print'
     | '/faq'
@@ -307,9 +307,9 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AccountRoute: typeof AccountRoute
-  AdminRoute: typeof AdminRoute
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
+  CocnballsRoute: typeof CocnballsRoute
   ContactRoute: typeof ContactRoute
   CustomPrintRoute: typeof CustomPrintRoute
   FaqRoute: typeof FaqRoute
@@ -352,13 +352,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/cart': {
       id: '/cart'
       path: '/cart'
@@ -371,6 +364,13 @@ declare module '@tanstack/react-router' {
       path: '/checkout'
       fullPath: '/checkout'
       preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cocnballs': {
+      id: '/cocnballs'
+      path: '/cocnballs'
+      fullPath: '/cocnballs'
+      preLoaderRoute: typeof CocnballsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -499,9 +499,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AccountRoute: AccountRoute,
-  AdminRoute: AdminRoute,
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
+  CocnballsRoute: CocnballsRoute,
   ContactRoute: ContactRoute,
   CustomPrintRoute: CustomPrintRoute,
   FaqRoute: FaqRoute,

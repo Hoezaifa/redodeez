@@ -183,8 +183,8 @@ function RootComponent() {
 
   const isHome = activeMatch ? activeMatch.id === "/" : location.pathname === "/";
   const isAdmin = activeMatch
-    ? activeMatch.id === "/admin" || activeMatch.id.startsWith("/admin")
-    : location.pathname.startsWith("/admin");
+    ? activeMatch.id === "/cocnballs" || activeMatch.id.startsWith("/cocnballs")
+    : location.pathname.startsWith("/cocnballs");
 
   const prevPath = useRef(activePath);
 

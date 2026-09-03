@@ -4,7 +4,6 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronDown,
-  Star,
   ShoppingCart,
   Zap,
   Minus,
@@ -124,11 +123,6 @@ export function DesktopProductDetail({
     setZoomPos({ x, y });
     setIsZoomed((prev) => !prev);
   };
-
-  /* ── Rating ────────────────────────────────── */
-
-  const rating = product.rating ?? 4.8;
-  const reviewCount = Math.floor(rating * 64);
 
   return (
     <div className="grid grid-cols-2 gap-12 xl:gap-16">
@@ -268,29 +262,11 @@ export function DesktopProductDetail({
           {product.title}
         </h1>
 
-        {/* Price + Rating */}
-        <div className="flex items-center gap-5 flex-wrap">
+        {/* Price */}
+        <div>
           <span className="font-display text-2xl xl:text-3xl font-black text-foreground">
             {formatPrice(product.price)}
           </span>
-          <div className="flex items-center gap-1.5">
-            <div className="flex items-center gap-0.5">
-              {[1, 2, 3, 4, 5].map((s) => (
-                <Star
-                  key={s}
-                  className={cn(
-                    "h-3.5 w-3.5",
-                    s <= Math.round(rating)
-                      ? "fill-amber-400 text-amber-400"
-                      : "fill-none text-muted-foreground/40"
-                  )}
-                />
-              ))}
-            </div>
-            <span className="text-[13px] text-muted-foreground font-medium ml-1">
-              {rating.toFixed(1)} ({reviewCount} reviews)
-            </span>
-          </div>
         </div>
 
         {/* Stock + Delivery + Returns info bar */}

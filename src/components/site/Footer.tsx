@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Mail, MapPin, Lock, MessageSquare, ShieldCheck } from "lucide-react";
+import { Instagram, Mail, MapPin, MessageSquare, ShieldCheck } from "lucide-react";
 import { LOGO_URL, site, collections, paymentMethods, whatsappLink } from "@/data/site";
 
 export function Footer() {
@@ -110,11 +110,6 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/reviews" className="link-underline">
-                Customer Reviews
-              </Link>
-            </li>
-            <li>
               <Link to="/payments" className="link-underline">
                 Payment Methods
               </Link>
@@ -141,11 +136,6 @@ export function Footer() {
                 Refund Policy
               </Link>
             </li>
-            <li>
-              <Link to="/admin" className="link-underline flex items-center gap-1.5 pt-2 text-xs text-muted-foreground">
-                <Lock className="w-3 h-3 opacity-50" /> Admin Portal
-              </Link>
-            </li>
           </ul>
         </nav>
       </div>
@@ -162,19 +152,6 @@ export function Footer() {
         </Link>
       </div>
 
-      {/* Trust line */}
-      <div className="edge flex items-center justify-center gap-3 border-t border-border py-5">
-        <Link to="/reviews" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <span className="label-mono text-muted-foreground">Rated 4.9/5 by 500+ Verified Customers</span>
-          <span className="flex gap-0.5 text-primary" aria-label="5 out of 5 stars">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <svg key={i} className="h-3.5 w-3.5 fill-current" viewBox="0 0 20 20">
-                <path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-1.16z" />
-              </svg>
-            ))}
-          </span>
-        </Link>
-      </div>
 
       <div className="edge flex flex-col gap-2 border-t border-border py-6 md:flex-row md:items-center md:justify-between">
         <p className="label-mono text-muted-foreground">

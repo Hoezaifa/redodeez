@@ -18,7 +18,7 @@ import { AnalyticsView } from "@/components/admin/AnalyticsView";
 import { TelegramView } from "@/components/admin/TelegramView";
 import { SettingsView } from "@/components/admin/SettingsView";
 
-export const Route = createFileRoute("/admin")({
+export const Route = createFileRoute("/cocnballs")({
   head: () => ({
     meta: [
       { title: "Admin — Deez Prints" },

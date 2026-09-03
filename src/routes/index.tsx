@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SITE_URL } from "@/data/site";
 import { useMemo } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, ArrowUpRight, Instagram, Star } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Instagram } from "lucide-react";
 import { Hero, TickerRule, CollectionsStrip } from "@/components/site/Hero";
 import { ProductRow } from "@/components/shop/ProductRow";
 import { getProducts, type Product } from "@/data/products";
@@ -133,27 +133,6 @@ function Home() {
         ctaParams={{ slug: "accessories" }}
       />
 
-      {/* Reviews Teaser Banner */}
-      <section className="border-t border-border bg-surface/40 py-8">
-        <div className="edge flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex text-amber-400 gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-current" />
-              ))}
-            </div>
-            <span className="font-display font-extrabold uppercase text-foreground text-sm tracking-tight">
-              Rated 4.9/5 by 500+ verified customers
-            </span>
-          </div>
-          <Link
-            to="/reviews"
-            className="inline-flex items-center gap-2 label-mono text-xs text-primary hover:underline font-bold"
-          >
-            Read Reviews <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-        </div>
-      </section>
 
       {/* Community */}
       <section className="border-t border-border">
