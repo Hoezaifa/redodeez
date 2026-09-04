@@ -875,7 +875,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-ace",
     "title": "Fire Fist Ace Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -897,7 +897,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-aizen",
     "title": "AIZEN DROP SHOULDER TEE",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -919,7 +919,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-arise",
     "title": "Solo Leveling Arise Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -940,7 +940,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-baby",
     "title": "Cupid Vintage Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -961,7 +961,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-batman-grye",
     "title": "Batman Noir Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -976,7 +976,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-berserk-2",
     "title": "Guts Brand of Sacrifice Drop Shoulder Tee",
-    "price": 2900,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -992,7 +992,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-berserk-black-1",
     "title": "Guts Berserker Armor Drop Shoulder Tee",
-    "price": 2900,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1008,7 +1008,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-bleach",
     "title": "BLEACH DROP SHOULDER TEE",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1030,7 +1030,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-bluelock",
     "title": "BLUELOCK DROP SHOULDER TEE",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1051,7 +1051,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-chainsaw-1",
     "title": "Denji Chainsaw Man Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1069,7 +1069,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-chainsaw-2",
     "title": "Chainsawman Drop Shoulder Tee",
-    "price": 2900,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1091,7 +1091,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-curse",
     "title": "Choso Bloodline Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1110,7 +1110,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-curse-whtie",
     "title": "Sukuna Cursed Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1126,7 +1126,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-dark-knight",
     "title": "DARK KNIGHT DROP SHOULDER TEE",
-    "price": 2900,
+    "price": 1850,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1147,7 +1147,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-dbz-1",
     "title": "Vegeta Super Saiyan Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1165,7 +1165,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-dbz-2",
     "title": "Majin Vegeta 1.0 Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1187,7 +1187,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-dbz-3",
     "title": "Goku Rage Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1209,7 +1209,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-dbz-4",
     "title": "Goku Shenron Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1233,7 +1233,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-dbz-5",
     "title": "Goku Ronin Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1257,7 +1257,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-dbz-6",
     "title": "Goku Black Rebellion Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1279,7 +1279,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-evil",
     "title": "See No Evil Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1300,7 +1300,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-eye",
     "title": "Living the Dream Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1317,7 +1317,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-fire",
     "title": "FIRE DROP SHOULDER TEE",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1338,7 +1338,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-fire-bleu",
     "title": "Maki Oze Firepower Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1354,7 +1354,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-fuckoff",
     "title": "FUCKOFF DROP SHOULDER TEE",
-    "price": 2900,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1371,7 +1371,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-goodfellas",
     "title": "GOODFELLAS DROP SHOULDER TEE",
-    "price": 2900,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1390,7 +1390,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-hands",
     "title": "Kurapika Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1406,7 +1406,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-head",
     "title": "Tanjiro Kamado Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1421,7 +1421,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-horn",
     "title": "Ichigo Hollow Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1446,7 +1446,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-itachi",
     "title": "ITACHI DROP SHOULDER TEE",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1463,7 +1463,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-itachi-2",
     "title": "Itachi Eclipse Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1486,7 +1486,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-kaijin",
     "title": "Garou Kaijin Drop Shoulder Tee",
-    "price": 2900,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1508,7 +1508,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-konichiwa",
     "title": "Rockstar Tokyo Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1525,7 +1525,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-luffy-1",
     "title": "Luffy Gear 5 Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1550,7 +1550,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-luffy-2",
     "title": "Luffy Straw Hat Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1569,7 +1569,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-luffy-3",
     "title": "Luffy Freedom Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1588,7 +1588,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-madara",
     "title": "Madara Uchiha Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1603,7 +1603,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-mobland",
     "title": "Outlaw Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1624,7 +1624,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-naruto",
     "title": "Naruto Eyes Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1645,7 +1645,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-naruto-2",
     "title": "Madara 1 Drop Shoulder Tee",
-    "price": 2900,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1666,7 +1666,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-naruto-3",
     "title": "NARUTO 3 DROP SHOULDER TEE",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1684,7 +1684,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-naruto-4",
     "title": "Itachi Uchiha Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1708,7 +1708,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-naruto-5",
     "title": "Itachi Akatsuki Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1727,7 +1727,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-naruto-6",
     "title": "Itachi Akatsuki Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1743,7 +1743,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-peter",
     "title": "PETER DROP SHOULDER TEE",
-    "price": 2900,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1764,7 +1764,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-regular-series",
     "title": "Garou Kaijin Drop Shoulder Tee",
-    "price": 2900,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1780,7 +1780,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-shoot",
     "title": "Kaneki Reaper Drop Shoulder Tee",
-    "price": 2900,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1802,7 +1802,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-solo-1",
     "title": "Solo Leveling Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1824,7 +1824,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-speed",
     "title": "Formula Speed Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1845,7 +1845,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-sukuna",
     "title": "Sukuna Cursed Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1864,7 +1864,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-titan",
     "title": "Sukuna Drop Shoulder Tee",
-    "price": 2900,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1886,7 +1886,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-yamoto",
     "title": "Yamoto Inferno Drop Shoulder Tee",
-    "price": 2900,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1911,7 +1911,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-zoro",
     "title": "Zoro Ronin Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1935,7 +1935,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-zoro-2",
     "title": "Zoro Bushido Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1954,7 +1954,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-ace-1",
     "title": "FIRE FIST ACE REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -1975,7 +1975,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-aizen",
     "title": "AIZEN REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -1996,7 +1996,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-anime1",
     "title": "CHOSO BLOODLINE REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2018,7 +2018,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-animeshoot",
     "title": "KANEKI REAPER REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2037,7 +2037,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-baby",
     "title": "CUPID VINTAGE REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2054,7 +2054,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-batman1",
     "title": "BATMAN NOIR REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2073,7 +2073,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-berserk",
     "title": "GUTS BRAND OF SACRIFICE REGULAR TEE",
-    "price": 2500,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2089,7 +2089,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-berserk-2",
     "title": "GUTS BERSERKER ARMOR REGULAR TEE",
-    "price": 2500,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2105,7 +2105,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-berserk-3",
     "title": "GUTS BERSERKER REGULAR TEE",
-    "price": 2500,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2122,7 +2122,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-bleach",
     "title": "BLEACH REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2146,7 +2146,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-chainsaw-1",
     "title": "CHAINSAW MAN REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2168,7 +2168,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-chainsaw-2",
     "title": "DENJI CHAINSAW REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2186,7 +2186,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-chinese",
     "title": "ROCKSTAR TOKYO REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2201,7 +2201,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dbz-1",
     "title": "MAJIN VEGETA REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2222,7 +2222,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dbz-3",
     "title": "VEGETA SUPER SAIYAN REGULAR TEE",
-    "price": 2500,
+    "price": 1850,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2238,7 +2238,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dbz-4",
     "title": "MAJIN VEGETA RAGE REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2259,7 +2259,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dbz-5",
     "title": "GOKU RAGE REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2281,7 +2281,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dbz-6",
     "title": "GOKU SHENRON REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2300,7 +2300,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dbz-7",
     "title": "GOKU RONIN REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2319,7 +2319,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dbz-8",
     "title": "GOKU BLACK REBELLION REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2340,7 +2340,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dream",
     "title": "LIVE THE DREAM REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2355,7 +2355,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-eye-2",
     "title": "GOJO SATORU REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2372,7 +2372,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-fire",
     "title": "MAKI OZE FIREPOWER REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2390,7 +2390,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-fuck",
     "title": "FUCK OFF REGULAR TEE",
-    "price": 2500,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2409,7 +2409,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-goodfellas",
     "title": "GOODFELLAS REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2428,7 +2428,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-hands",
     "title": "KURAPIKA RAGE REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2447,7 +2447,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-ichigo",
     "title": "ICHIGO HOLLOW REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2469,7 +2469,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-isagi-1",
     "title": "ISAGI YOICHI REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2490,7 +2490,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-kaijin",
     "title": "GAROU KAIJIN REGULAR TEE",
-    "price": 2500,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2512,7 +2512,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-knight",
     "title": "KNIGHT REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2536,7 +2536,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-luffy-1",
     "title": "LUFFY GEAR 5 REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2555,7 +2555,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-luffy-2",
     "title": "LUFFY GEAR 5 REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2573,7 +2573,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-luffy-3",
     "title": "LUFFY STRAW HAT REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2592,7 +2592,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-luffy-4",
     "title": "LUFFY FREEDOM REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2609,7 +2609,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-madara-1",
     "title": "MADARA 1 REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2633,7 +2633,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-mob",
     "title": "OUTLAW REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2650,7 +2650,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-naruto-1",
     "title": "NARUTO EYES REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2669,7 +2669,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-naruto-2",
     "title": "NARUTO SHADOW REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2687,7 +2687,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-naruto-3",
     "title": "ITACHI AKATSUKI REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2706,7 +2706,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-responsibility",
     "title": "PETER PARKER GREAT POWER REGULAR TEE",
-    "price": 2500,
+    "price": 1850,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2727,7 +2727,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-solo-1",
     "title": "SOLO LEVELING SHADOW REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2749,7 +2749,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-solo-2",
     "title": "SOLO LEVELING ARISE REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2771,7 +2771,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-speed",
     "title": "FORMULA SPEED REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2788,7 +2788,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-sukuna",
     "title": "SUKUNA REGULAR TEE",
-    "price": 2500,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2811,7 +2811,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-sukuna-2",
     "title": "SUKUNA CURSED REGULAR TEE",
-    "price": 2500,
+    "price": 1850,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2830,7 +2830,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-tujiro",
     "title": "TANJIRO KAMADO REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2845,7 +2845,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-uchiha-1",
     "title": "MADARA UCHIHA REGULAR TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2864,7 +2864,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-uchiha-2",
     "title": "ITACHI UCHIHA REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2886,7 +2886,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-uchiha-3",
     "title": "ITACHI AKATSUKI REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2903,7 +2903,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-uchiha-4",
     "title": "ITACHI ECLIPSE REGULAR TEE",
-    "price": 2500,
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2922,7 +2922,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-uchiha-5",
     "title": "ITACHI AKATSUKI REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2940,7 +2940,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-yamoto-1",
     "title": "YAMAMOTO INFERNO REGULAR TEE",
-    "price": 2500,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2961,7 +2961,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-zoro-1",
     "title": "ZORO RONIN REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -2982,7 +2982,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-zoro-2",
     "title": "ZORO BUSHIDO REGULAR TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -3126,8 +3126,8 @@ export const products: Product[] = [
   },
   {
     "id": "breakout-tee",
-    "title": "BREAKOUT TEE",
-    "price": 1500,
+    "title": "Breakout Regular tee",
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "graphic",
     "images": [
@@ -3157,7 +3157,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-reg-5",
     "title": "SPIDERVERSE TEE",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -3175,7 +3175,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-reg-2",
     "title": "DIVINE TEE",
-    "price": 2500,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -3190,7 +3190,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-reg-3",
     "title": "LCNST TEE",
-    "price": 2500,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -3204,7 +3204,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-reg-4",
     "title": "SNAKE TEE",
-    "price": 2500,
+    "price": 1550,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -3219,7 +3219,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-reg-6",
     "title": "ABSTRACT WINGS TEE",
-    "price": 2900,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -3234,7 +3234,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-reg-7",
     "title": "FERRARI TEE",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
@@ -3396,7 +3396,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-1",
     "title": "Berserk Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -3414,7 +3414,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-2",
     "title": "DIVINE DRP SHLDR",
-    "price": 2900,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -3431,7 +3431,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-3",
     "title": "PUNK IS DEAD DRP SHLDR",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -3447,7 +3447,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-4",
     "title": "LCNST DRP SHLDR",
-    "price": 2900,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -3463,7 +3463,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-5",
     "title": "TBSM CALM DRP SHLDR",
-    "price": 2900,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -3478,7 +3478,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-6",
     "title": "TBSM ENCORE DRP SHLDR",
-    "price": 2900,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -3493,7 +3493,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-7",
     "title": "Punish Drop Shoulder Tee",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -3511,7 +3511,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-8",
     "title": "FERRARI DRP SHLDR",
-    "price": 2900,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -3526,7 +3526,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-9",
     "title": "TBSM DRP SHLDR",
-    "price": 2900,
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -3540,7 +3540,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-10",
     "title": "ABSTRACT WINGS DRP SHLDR",
-    "price": 2900,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -3556,7 +3556,7 @@ export const products: Product[] = [
   {
     "id": "tshirt-drop-11",
     "title": "SNAKE DRP SHLDR",
-    "price": 2900,
+    "price": 1400,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
