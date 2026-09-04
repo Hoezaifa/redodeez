@@ -138,6 +138,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-T9ZGB9XLM0",
+        async: true,
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-T9ZGB9XLM0');`,
+      },
+      {
         type: "text/javascript",
         children: `(function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -188,11 +198,16 @@ function RootComponent() {
 
   const prevPath = useRef(activePath);
 
-  // Scroll-to-top only after active route change has committed
+  // Scroll-to-top and Google Analytics route tracking after active route change
   useEffect(() => {
     if (prevPath.current !== activePath) {
       window.scrollTo(0, 0);
       prevPath.current = activePath;
+      if (typeof window !== "undefined" && "gtag" in window && typeof (window as unknown as { gtag: Function }).gtag === "function") {
+        (window as unknown as { gtag: Function }).gtag("config", "G-T9ZGB9XLM0", {
+          page_path: activePath,
+        });
+      }
     }
   }, [activePath]);
 
