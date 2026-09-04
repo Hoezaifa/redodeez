@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({"loader": async () => {
       {
         name: "description",
         content:
-          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and wall art. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
+          "Oversized drop-shoulder tees, acid wash, anime apparel, hoodies and wall art. Custom DTF t-shirt printing studio based in Karachi, delivering nationwide across Pakistan.",
       },
       {
         property: "og:title",
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({"loader": async () => {
       {
         property: "og:description",
         content:
-          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and wall art. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
+          "Oversized drop-shoulder tees, acid wash, anime apparel, hoodies and wall art. Custom DTF t-shirt printing studio based in Karachi, delivering nationwide across Pakistan.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/` },

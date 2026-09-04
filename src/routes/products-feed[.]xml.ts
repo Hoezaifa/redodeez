@@ -25,7 +25,7 @@ export const Route = createFileRoute("/products-feed.xml")({
           const subcatLabel = p.subcategory.replace(/-/g, " ");
           const description =
             p.description ||
-            `${p.title} — premium ${subcatLabel} streetwear by Deez Prints. Made and printed in Pakistan.`;
+            `${p.title} — ${subcatLabel} streetwear by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
 
           return [
             `    <item>`,

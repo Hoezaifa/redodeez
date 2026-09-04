@@ -46,7 +46,7 @@ export const Route = createFileRoute("/about")({
 /* ─── Benefits strip data ───────────────────────────────── */
 const benefits = [
   { icon: Award, label: "PREMIUM QUALITY", desc: "Top-notch fabric & long-lasting prints." },
-  { icon: Truck, label: "FAST DELIVERY", desc: "Nationwide delivery in 3–5 working days." },
+  { icon: Truck, label: "EXPRESS SHIPPING", desc: "Karachi Bykea & Nationwide Courier." },
   { icon: ShieldCheck, label: "SECURE PAYMENTS", desc: "Meezan, Easypaisa & JazzCash accepted." },
   { icon: RefreshCw, label: "EASY RETURNS", desc: "7-day exchange policy." },
   { icon: Scissors, label: "MADE TO ORDER", desc: "Every piece is printed just for you." },

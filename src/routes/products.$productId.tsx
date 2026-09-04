@@ -43,8 +43,8 @@ export const Route = createFileRoute("/products/$productId")({
     const absoluteImgUrl = toAbsoluteImageUrl(rawImg);
     const isTapestryMeta = p?.subcategory === "tapestries" || p?.subcategory === "flags";
     const desc = isTapestryMeta
-      ? `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. High-definition digital sublimation printed satin wall tapestry. Delivered across Pakistan in 3–5 working days.`
-      : `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. Premium print, oversized fit. Delivered across Pakistan in 3–5 working days.`;
+      ? `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. High-definition digital sublimation printed satin wall tapestry by Deez Prints. Made in Karachi, delivered across Pakistan.`
+      : `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. Premium graphic streetwear by Deez Prints. Orders take 2–3 working days to prepare before dispatch across Pakistan.`;
     const title = `${p?.title ?? "Product"} — Deez Prints`;
     const url = `${SITE_URL}/products/${p?.id ?? ""}`;
 
@@ -52,7 +52,7 @@ export const Route = createFileRoute("/products/$productId")({
       meta: [
         { title },
         { name: "description", content: desc },
-        { property: "og:title", content: `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}` },
+        { property: "og:title", content: `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)} | Deez Prints` },
         { property: "og:description", content: desc },
         { property: "og:type", content: "product" },
         { property: "og:url", content: url },
@@ -60,6 +60,11 @@ export const Route = createFileRoute("/products/$productId")({
         { property: "og:image", content: absoluteImgUrl },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
+        { property: "og:price:amount", content: String(p?.price ?? 0) },
+        { property: "og:price:currency", content: "PKR" },
+        { property: "product:price:amount", content: String(p?.price ?? 0) },
+        { property: "product:price:currency", content: "PKR" },
+        { property: "og:availability", content: "instock" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:site", content: "@deez_prints" },
         { name: "twitter:title", content: title },

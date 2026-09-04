@@ -23,7 +23,7 @@ export const Route = createFileRoute("/collections/$slug")({
     const absoluteImgUrl = toAbsoluteImageUrl(collectionObj?.image);
     const url = `${SITE_URL}/collections/${loaderData?.slug ?? ""}`;
     const title = `${name} Collection — Deez Prints`;
-    const desc = `${blurb} Shop the ${name} collection with nationwide delivery in 3–5 working days.`;
+    const desc = `${blurb} Shop ${name} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
 
     return {
       meta: [

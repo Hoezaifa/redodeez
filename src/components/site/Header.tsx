@@ -50,8 +50,8 @@ export function Header() {
               {Array.from({ length: 2 }).map((_, k) => (
                 <div key={k} className="flex shrink-0 gap-16">
                   {[
-                    "Flat Rs. 200 nationwide delivery",
-                    "Free shipping above Rs. 5,000",
+                    "Karachi delivery Rs. 200 via Bykea",
+                    "Nationwide Pakistan delivery Rs. 300 via Courier",
                     "Meezan, Easypaisa & JazzCash accepted",
                     "7-day exchange",
                     "Printed in Karachi",

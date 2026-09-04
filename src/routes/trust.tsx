@@ -27,13 +27,13 @@ export const Route = createFileRoute("/trust")({
       {
         name: "description",
         content:
-          "Discover why 5,000+ customers trust Deez Prints. Heavyweight 240+ GSM cotton, high-definition DTF & UV prints, fast nationwide shipping, and 7-day easy exchange.",
+          "Discover why customers trust Deez Prints. Premium cotton apparel, high-definition DTF & sublimation prints, Karachi & nationwide shipping, and 7-day easy exchange.",
       },
       { property: "og:title", content: "Why Trust Deez Prints — Karachi Studio" },
       {
         property: "og:description",
         content:
-          "240+ GSM heavyweight blanks, HD printing, fast delivery across Pakistan, and 100% satisfaction guarantee.",
+          "Premium streetwear blanks, HD printing, nationwide delivery across Pakistan, and 7-day easy exchange.",
       },
       { property: "og:url", content: `${SITE_URL}/trust` },
       { property: "og:site_name", content: "Deez Prints" },
@@ -46,9 +46,9 @@ export const Route = createFileRoute("/trust")({
 const trustSignals = [
   {
     icon: Truck,
-    title: "Fast Nationwide Shipping",
-    desc: "Delivered in 3–5 working days across 250+ cities in Pakistan with full tracking.",
-    badge: "TCS & Leopards Tracked",
+    title: "Nationwide Shipping",
+    desc: "Orders take 2–3 working days to prepare before dispatch. Karachi Rs. 200 via Bykea, Nationwide Rs. 300 via Courier.",
+    badge: "Bykea & Courier Services",
   },
   {
     icon: ShieldCheck,
@@ -58,21 +58,21 @@ const trustSignals = [
   },
   {
     icon: Sparkles,
-    title: "Premium DTF & UV Print Quality",
-    desc: "High-definition, stretch-resistant prints that won't crack or fade over 50+ washes.",
+    title: "Premium DTF & Sublimation Print Quality",
+    desc: "High-definition, durable prints that maintain vibrant detail.",
     badge: "HD Sharpness",
   },
   {
     icon: Shirt,
-    title: "Heavyweight Blanks",
-    desc: "240+ GSM combed cotton, premium fleece, and breathable oversized fits.",
-    badge: "Luxury Hand-feel",
+    title: "Quality Blanks",
+    desc: "Combed cotton, comfortable oversized fits, and hand-dyed acid wash pieces.",
+    badge: "Premium Fabric",
   },
   {
     icon: Scissors,
     title: "Made to Order Precision",
     desc: "Every single garment is individually printed and quality-inspected before dispatch.",
-    badge: "Handcrafted",
+    badge: "Printed in Karachi",
   },
   {
     icon: Headphones,
@@ -164,17 +164,17 @@ function TrustPage() {
       <div className="grid gap-8 lg:grid-cols-2">
         <Reveal className="border border-white/10 bg-surface/40 rounded-2xl p-8 space-y-4">
           <span className="label-mono text-primary">Fabric & Craft</span>
-          <h3 className="text-xl font-bold uppercase text-white">240+ GSM Heavyweight Blanks</h3>
+          <h3 className="text-xl font-bold uppercase text-white">Heavyweight Blanks</h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            We don&apos;t use cheap thin blanks. Every drop-shoulder tee and hoodie is produced with 100% combed cotton, fleece-backed warmth, and luxury hand-feel. Pre-shrunk to retain fit after washing.
+            We don&apos;t use cheap thin blanks. Drop-shoulder tees and hoodies are produced with quality combed cotton and fleece for long-lasting wear and comfort.
           </p>
         </Reveal>
 
         <Reveal delay={0.1} className="border border-white/10 bg-surface/40 rounded-2xl p-8 space-y-4">
           <span className="label-mono text-primary">Print Technology</span>
-          <h3 className="text-xl font-bold uppercase text-white">Industrial DTF & Sublimation</h3>
+          <h3 className="text-xl font-bold uppercase text-white">DTF &amp; Sublimation</h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Our Karachi studio utilizes industrial direct-to-film (DTF) and sublimation presses. Micro-detail fidelity, vibrant color saturation, and anti-cracking flexibility guaranteed for 50+ washes.
+            Our Karachi studio utilizes direct-to-film (DTF) and sublimation printing depending on the garment for crisp detail and long-lasting prints.
           </p>
         </Reveal>
       </div>

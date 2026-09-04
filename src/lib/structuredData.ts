@@ -9,24 +9,34 @@
 import { site, SITE_URL } from "@/data/site";
 import type { Product } from "@/data/products";
 
-/** Organization schema — appears in Google Knowledge Panel */
+/** Organization schema — appears in Google Knowledge Panel & Search Entities */
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Deez Prints",
+    alternateName: ["Deez", "Deez Prints Pakistan"],
     url: SITE_URL,
     logo: `${SITE_URL}/assets/logo/deez-logo.svg`,
     description:
-      "Premium streetwear and custom printing studio based in Karachi, Pakistan. Oversized tees, acid wash, hoodies, wall art, and more.",
+      "Pakistani streetwear and custom printing studio based in Karachi, Pakistan. Specializing in oversized drop-shoulder tees, vintage acid wash, anime graphic apparel, wall art tapestries, and custom DTF t-shirt printing.",
     email: site.email,
     telephone: site.whatsappNumber,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Karachi",
+      addressRegion: "Sindh",
       addressCountry: "PK",
     },
     sameAs: [site.instagram],
+    knowsAbout: [
+      "Streetwear",
+      "Graphic T-Shirts",
+      "Drop Shoulder Tees",
+      "Acid Wash Tees",
+      "Anime Apparel",
+      "Custom T-Shirt Printing",
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       telephone: site.whatsappNumber,
@@ -42,6 +52,7 @@ export function websiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Deez Prints",
+    alternateName: "Deez",
     url: SITE_URL,
     potentialAction: {
       "@type": "SearchAction",
@@ -63,7 +74,7 @@ function productDescription(product: Product): string {
 
   const subcatLabel = product.subcategory.replace(/-/g, " ");
   const categoryLabel = product.category === "accessories" ? "" : " streetwear";
-  return `${product.title} — premium ${subcatLabel}${categoryLabel} by Deez Prints. Printed in Karachi, delivered across Pakistan.`;
+  return `${product.title} — ${subcatLabel}${categoryLabel} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
 }
 
 /** Product schema for individual product pages */
@@ -92,33 +103,63 @@ export function productSchema(product: Product) {
         "@type": "Organization",
         name: "Deez Prints",
       },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingRate: {
-          "@type": "MonetaryAmount",
-          value: site.shippingFee,
-          currency: "PKR",
-        },
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: "PK",
-        },
-        deliveryTime: {
-          "@type": "ShippingDeliveryTime",
-          handlingTime: {
-            "@type": "QuantitativeValue",
-            minValue: 1,
-            maxValue: 2,
-            unitCode: "d",
+      shippingDetails: [
+        {
+          "@type": "OfferShippingDetails",
+          shippingRate: {
+            "@type": "MonetaryAmount",
+            value: 200,
+            currency: "PKR",
           },
-          transitTime: {
-            "@type": "QuantitativeValue",
-            minValue: 3,
-            maxValue: 5,
-            unitCode: "d",
+          shippingDestination: {
+            "@type": "DefinedRegion",
+            addressLocality: "Karachi",
+            addressCountry: "PK",
+          },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: {
+              "@type": "QuantitativeValue",
+              minValue: 2,
+              maxValue: 3,
+              unitCode: "d",
+            },
+            transitTime: {
+              "@type": "QuantitativeValue",
+              minValue: 1,
+              maxValue: 2,
+              unitCode: "d",
+            },
           },
         },
-      },
+        {
+          "@type": "OfferShippingDetails",
+          shippingRate: {
+            "@type": "MonetaryAmount",
+            value: 300,
+            currency: "PKR",
+          },
+          shippingDestination: {
+            "@type": "DefinedRegion",
+            addressCountry: "PK",
+          },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: {
+              "@type": "QuantitativeValue",
+              minValue: 2,
+              maxValue: 3,
+              unitCode: "d",
+            },
+            transitTime: {
+              "@type": "QuantitativeValue",
+              minValue: 2,
+              maxValue: 4,
+              unitCode: "d",
+            },
+          },
+        },
+      ],
     },
     // aggregateRating intentionally omitted — no verified review system exists
   };

@@ -194,11 +194,11 @@ export const faqs = [
   {
     q: "How long does delivery take?",
     category: "Shipping",
-    a: "Standard delivery time is 3 to 5 working days across 250+ cities in Pakistan. Orders placed before 1 PM are usually dispatched the same working day via TCS, Leopards, and M&P.",
+    a: "Orders take 2–3 working days to prepare at our Karachi studio before dispatch. Delivery time is additional and depends on your location (Bykea for Karachi, 2–4 days via courier for Nationwide Pakistan).",
   },
   {
     q: "What is your shipping fee?",
-    a: "We charge a flat nationwide delivery fee of Rs. 200. Orders above Rs. 5,000 qualify for FREE shipping automatically at checkout.",
+    a: "Karachi delivery is Rs. 200 (via Bykea) and Nationwide Pakistan delivery is Rs. 300 (via Courier). Shipping is added directly to your order total at checkout.",
     category: "Shipping",
   },
   {
@@ -286,7 +286,7 @@ export const COLOR_HEX_MAP: Record<string, string> = {
 
 export const usps = [
   { title: "Premium Quality", body: "Top-notch fabric & prints" },
-  { title: "Fast Delivery", body: "Nationwide, 3–5 working days" },
+  { title: "Fast Dispatch", body: "2–3 days prep before dispatch" },
   { title: "Secure Payments", body: "Meezan, Easypaisa & JazzCash" },
   { title: "Easy Returns", body: "7-day exchange policy" },
 ];

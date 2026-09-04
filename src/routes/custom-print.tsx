@@ -27,13 +27,13 @@ export const Route = createFileRoute("/custom-print")({
       {
         name: "description",
         content:
-          "Custom print Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Upload artwork and order custom streetwear across Pakistan.",
+          "Upload your artwork for custom DTF t-shirt printing on Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Made in Karachi, delivered nationwide across Pakistan.",
       },
-      { property: "og:title", content: "Custom Printing — Deez Prints" },
+      { property: "og:title", content: "Custom T-Shirt Printing Karachi & Pakistan — Deez Prints" },
       {
         property: "og:description",
         content:
-          "Custom prints on premium blanks and tapestries. Fast nationwide delivery in 3–5 days.",
+          "Upload your artwork for custom DTF t-shirt printing on Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Made in Karachi, delivered nationwide across Pakistan.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/custom-print` },
@@ -43,11 +43,11 @@ export const Route = createFileRoute("/custom-print")({
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@deez_prints" },
-      { name: "twitter:title", content: "Custom Printing — Deez Prints" },
+      { name: "twitter:title", content: "Custom T-Shirt Printing Karachi & Pakistan — Deez Prints" },
       {
         name: "twitter:description",
         content:
-          "Custom prints on premium blanks and tapestries. Fast nationwide delivery in 3–5 days.",
+          "Upload your artwork for custom DTF t-shirt printing on Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Made in Karachi, delivered nationwide across Pakistan.",
       },
       { name: "twitter:image", content: `${SITE_URL}/assets/custom_print_mockup.png` },
     ],
