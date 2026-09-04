@@ -37,6 +37,8 @@ model Order {
   status         String      @default("Pending") // Pending | Processing | Dispatched | Delivered | Cancelled
   statusHistory  Json        // Array of { status, date, note }
   trackingNumber String?
+  deliveryLocation String?   // e.g. "Karachi", "Nationwide Pakistan"
+  shippingMethod   String?   // e.g. "Bykea", "Courier"
   createdAt      DateTime    @default(now())
   updatedAt      DateTime    @updatedAt
   items          OrderItem[]

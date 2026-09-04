@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Check, Smartphone, Building2, Download, Share2, ArrowLeft, Banknote } from "lucide-react";
 import { toPng } from "html-to-image";
 import { useCart } from "@/lib/cart";
-import { bankDetails, whatsappLink, site } from "@/data/site";
+import { bankDetails, whatsappLink, site, SHIPPING_OPTIONS, type DeliveryLocation } from "@/data/site";
 import { sendOrderTelegramNotification } from "@/lib/sendTelegramOrder";
 import { saveOrder, generateOrderId, type StoredOrder } from "@/lib/ordersStore";
 import { products } from "@/data/products";
@@ -29,6 +29,7 @@ function Checkout() {
   const { lines, subtotal, clear } = useCart();
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [paymentMethod, setPaymentMethod] = useState<"easypaisa" | "meezan">("easypaisa");
+  const [deliveryLocation, setDeliveryLocation] = useState<DeliveryLocation>("karachi");
   const [placed, setPlaced] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -49,19 +50,13 @@ function Checkout() {
 
   const [completedOrder, setCompletedOrder] = useState<StoredOrder | null>(null);
 
-  const shippingCost = subtotal >= site.freeShippingThreshold ? 0 : site.shippingFee;
+  const shippingOption = SHIPPING_OPTIONS[deliveryLocation];
+  const shippingCost = shippingOption.fee;
   const total = lines.length ? subtotal + shippingCost : 0;
 
   const orderNumber = useMemo(() => generateOrderId(), []);
 
-  const deliveryDate = useMemo(() => {
-    const d1 = new Date();
-    d1.setDate(d1.getDate() + 3);
-    const d2 = new Date();
-    d2.setDate(d2.getDate() + 5);
-    const fmt = (d: Date) => d.toLocaleDateString("en-PK", { day: "numeric", month: "short" });
-    return `${fmt(d1)} – ${fmt(d2)}`;
-  }, []);
+  const shippingLabel = `${shippingOption.label} / ${shippingOption.method}`;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -118,6 +113,8 @@ function Checkout() {
       shipping: shippingCost,
       discount: 0,
       total,
+      deliveryLocation: shippingOption.label,
+      shippingMethod: shippingOption.method,
       orderType: hasCustomItems ? "custom" : "normal",
       status: "Pending",
       statusHistory: [{ status: "Pending", date: now }],
@@ -212,7 +209,7 @@ function Checkout() {
             </span>
             <span>•</span>
             <span>
-              Est. delivery <strong className="text-white">{deliveryDate}</strong>
+              Shipping — <strong className="text-white">{completedOrder.deliveryLocation || "Standard"} / {completedOrder.shippingMethod || "Courier"}</strong>
             </span>
           </div>
 
@@ -315,6 +312,22 @@ function Checkout() {
                     </span>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Receipt Totals Breakdown */}
+            <div className="py-3 border-b border-zinc-100 space-y-1.5 text-xs">
+              <div className="flex justify-between text-zinc-600">
+                <span>Subtotal</span>
+                <span className="font-mono font-semibold text-zinc-800">Rs. {completedOrder.subtotal.toLocaleString()}</span>
+              </div>
+              <div className="flex justify-between text-zinc-600">
+                <span>Shipping — {completedOrder.deliveryLocation || "Standard"} / {completedOrder.shippingMethod || "Courier"}</span>
+                <span className="font-mono font-semibold text-zinc-800">Rs. {completedOrder.shipping.toLocaleString()}</span>
+              </div>
+              <div className="flex justify-between pt-2 border-t border-zinc-200 text-zinc-900 font-bold text-sm">
+                <span>Total</span>
+                <span className="font-mono">Rs. {completedOrder.total.toLocaleString()}</span>
               </div>
             </div>
 
@@ -479,6 +492,38 @@ function Checkout() {
                     onChange={handleInputChange}
                     className="w-full bg-zinc-900/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-white/30 outline-none transition-colors"
                   />
+                </div>
+
+                {/* Delivery Location */}
+                <div className="space-y-3 pt-2">
+                  <h3 className="text-sm font-bold text-white">Delivery Location</h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {(Object.entries(SHIPPING_OPTIONS) as [DeliveryLocation, typeof SHIPPING_OPTIONS["karachi"]][]).map(([key, opt]) => (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => setDeliveryLocation(key)}
+                        className={`flex flex-col p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
+                          deliveryLocation === key
+                            ? "bg-zinc-800/90 border-orange-500 shadow-md"
+                            : "bg-zinc-900/40 border-white/10 hover:border-white/20"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between w-full mb-1">
+                          <span className="font-bold text-xs text-white">{opt.label}</span>
+                          <div className={`w-3.5 h-3.5 rounded-full border ${
+                            deliveryLocation === key
+                              ? "border-4 border-orange-500 bg-white"
+                              : "border-zinc-500"
+                          }`} />
+                        </div>
+                        <span className="text-[11px] text-zinc-400">Rs. {opt.fee} — {opt.method}</span>
+                      </button>
+                    ))}
+                  </div>
+                  <p className="text-[11px] text-amber-400/90 leading-relaxed bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2.5">
+                    ⏳ {site.orderPrepNotice}
+                  </p>
                 </div>
 
                 <button
@@ -669,9 +714,9 @@ function Checkout() {
                 </span>
               </div>
               <div className="flex justify-between text-zinc-400">
-                <span>Shipping</span>
+                <span>Shipping — {shippingLabel}</span>
                 <span className="text-white font-medium">
-                  {shippingCost === 0 ? "FREE" : `Rs. ${shippingCost}`}
+                  Rs. {shippingCost.toLocaleString()}
                 </span>
               </div>
             </div>

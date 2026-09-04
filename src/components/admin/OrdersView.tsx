@@ -470,7 +470,7 @@ function OrderDrawer({
               <span className="text-white font-mono">Rs {order.subtotal.toLocaleString()}</span>
             </div>
             <div className="flex justify-between text-zinc-400">
-              <span>Shipping</span>
+              <span>Shipping{order.deliveryLocation ? ` — ${order.deliveryLocation} / ${order.shippingMethod || "Courier"}` : ""}</span>
               <span className="text-white font-mono">Rs {order.shipping.toLocaleString()}</span>
             </div>
             {order.discount > 0 && (

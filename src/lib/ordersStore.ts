@@ -46,6 +46,8 @@ export interface StoredOrder {
   shipping: number;
   discount: number;
   total: number;
+  deliveryLocation?: string;
+  shippingMethod?: string;
   status: OrderStatus;
   statusHistory?: StatusHistoryEntry[];
   trackingNumber?: string;
@@ -416,7 +418,7 @@ export function exportCSV(): string {
   const headers = [
     "Order ID", "Date", "Name", "Email", "Phone", "City", "Address",
     "Payment Method", "Order Type", "Status", "Items", "Subtotal",
-    "Shipping", "Discount", "Total", "Tracking", "Notes",
+    "Shipping", "Delivery Location", "Shipping Method", "Discount", "Total", "Tracking", "Notes",
   ];
 
   const escapeCSV = (v: string) => {
@@ -440,6 +442,8 @@ export function exportCSV(): string {
     o.items.map((i) => `${i.title} x${i.qty}`).join("; "),
     String(o.subtotal),
     String(o.shipping),
+    o.deliveryLocation || "",
+    o.shippingMethod || "",
     String(o.discount),
     String(o.total),
     o.trackingNumber || "",

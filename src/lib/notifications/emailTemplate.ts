@@ -178,7 +178,7 @@ ${HR_HTML}
       <td style="font-size:13px;color:#18181b;text-align:right;padding:3px 0;">${formatCurrency(o.subtotal || 0)}</td>
     </tr>
     <tr>
-      <td style="font-size:13px;color:#71717a;padding:3px 0;">Shipping</td>
+      <td style="font-size:13px;color:#71717a;padding:3px 0;">Shipping${o.deliveryLocation ? ` — ${o.deliveryLocation} / ${o.shippingMethod || "Courier"}` : ""}</td>
       <td style="font-size:13px;color:#18181b;text-align:right;padding:3px 0;">${(o.shipping || 0) === 0 ? "FREE" : formatCurrency(o.shipping)}</td>
     </tr>
     ${o.discount ? `<tr>
@@ -289,7 +289,7 @@ export function buildOrderEmailPlainText(order: any): string {
     "",
     HR_PLAIN,
     `Subtotal:  ${formatCurrency(o.subtotal || 0)}`,
-    `Shipping:  ${(o.shipping || 0) === 0 ? "FREE" : formatCurrency(o.shipping)}`,
+    `Shipping${o.deliveryLocation ? ` (${o.deliveryLocation} / ${o.shippingMethod || "Courier"})` : ""}:  ${(o.shipping || 0) === 0 ? "FREE" : formatCurrency(o.shipping)}`,
     o.discount ? `Discount:  -${formatCurrency(o.discount)}` : "",
     `Total:     ${formatCurrency(o.total || 0)}`,
     HR_PLAIN,

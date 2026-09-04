@@ -22,6 +22,7 @@ export const site = {
   freeShippingThreshold: 5000,
   deliveryTime: "3–5 working days",
   couriers: "TCS, Leopards, M&P",
+  orderPrepNotice: "Orders take 2–3 working days to prepare before dispatch. Delivery time is additional and depends on your location.",
 };
 
 export const bankDetails = {
@@ -52,6 +53,30 @@ export function whatsappLink(message: string) {
 }
 
 export const paymentMethods = ["Meezan Bank Transfer", "Easypaisa / JazzCash / Zindigi"];
+
+/* ─── Shipping / Delivery Configuration ─────────────────────── */
+
+export type DeliveryLocation = "karachi" | "nationwide";
+
+export const SHIPPING_OPTIONS: Record<DeliveryLocation, {
+  label: string;
+  fee: number;
+  method: string;
+  description: string;
+}> = {
+  karachi: {
+    label: "Karachi",
+    fee: 200,
+    method: "Bykea",
+    description: "Karachi — Rs. 200 via Bykea",
+  },
+  nationwide: {
+    label: "Nationwide Pakistan",
+    fee: 300,
+    method: "Courier",
+    description: "Nationwide — Rs. 300 via Courier",
+  },
+};
 
 export const aestheticSlugs = [
   "anime-archive",

@@ -112,7 +112,7 @@ ${sep}
 <b>Payment:</b> ${esc(order.paymentMethod)}
 
 <b>Subtotal:</b>  Rs ${(order.subtotal || 0).toLocaleString()}
-<b>Shipping:</b>  Rs ${(order.shipping || 0).toLocaleString()}${order.discount ? `\n<b>Discount:</b>  -Rs ${order.discount.toLocaleString()}` : ""}
+<b>Shipping${order.deliveryLocation ? ` (${order.deliveryLocation} / ${order.shippingMethod || "Courier"})` : ""}:</b>  Rs ${(order.shipping || 0).toLocaleString()}${order.discount ? `\n<b>Discount:</b>  -Rs ${order.discount.toLocaleString()}` : ""}
 <b>Total:</b>     <b>Rs ${(order.total || 0).toLocaleString()}</b>
 ${sep}${order.notes ? `\n<b>Notes:</b> ${esc(order.notes)}` : ""}
 
@@ -138,7 +138,7 @@ ${sep}
 Payment: ${order.paymentMethod}
 
 Subtotal: Rs ${(order.subtotal || 0).toLocaleString()}
-Shipping: Rs ${(order.shipping || 0).toLocaleString()}${order.discount ? `\nDiscount: -Rs ${order.discount.toLocaleString()}` : ""}
+Shipping${order.deliveryLocation ? ` (${order.deliveryLocation} / ${order.shippingMethod || "Courier"})` : ""}: Rs ${(order.shipping || 0).toLocaleString()}${order.discount ? `\nDiscount: -Rs ${order.discount.toLocaleString()}` : ""}
 Total: Rs ${(order.total || 0).toLocaleString()}
 ${sep}${order.notes ? `\nNotes: ${order.notes}` : ""}
 

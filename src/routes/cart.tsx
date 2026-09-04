@@ -24,8 +24,6 @@ export const Route = createFileRoute("/cart")({
 
 function CartPage() {
   const { lines, setQty, remove, subtotal } = useCart();
-  const shippingCost = subtotal >= site.freeShippingThreshold ? 0 : site.shippingFee;
-  const total = lines.length ? subtotal + shippingCost : 0;
 
   return (
     <div className="edge py-14 md:py-20">
@@ -105,12 +103,15 @@ function CartPage() {
               </div>
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Shipping</dt>
-                <dd>{shippingCost === 0 ? "FREE" : formatPrice(shippingCost)}</dd>
+                <dd className="text-muted-foreground text-xs">from Rs. 200</dd>
               </div>
             </dl>
+            <p className="mt-3 text-[11px] text-amber-400/80 leading-relaxed">
+              ⏳ {site.orderPrepNotice}
+            </p>
             <div className="mt-5 flex items-center justify-between border-t border-border pt-5">
-              <span className="label-mono">Total</span>
-              <span className="font-display text-2xl font-extrabold">{formatPrice(total)}</span>
+              <span className="label-mono">Subtotal</span>
+              <span className="font-display text-2xl font-extrabold">{formatPrice(subtotal)}</span>
             </div>
             <Link
               to="/checkout"
@@ -119,7 +120,7 @@ function CartPage() {
               Checkout
             </Link>
             <p className="label-mono mt-4 text-muted-foreground">
-              {site.deliveryTime} · {site.couriers}
+              Karachi Rs. 200 · Nationwide Rs. 300
             </p>
           </aside>
         </div>

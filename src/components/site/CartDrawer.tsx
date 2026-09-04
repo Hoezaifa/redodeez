@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
-import { X, Minus, Plus, CheckCircle2 } from "lucide-react";
+import { X, Minus, Plus } from "lucide-react";
 import { useMemo } from "react";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
@@ -19,8 +19,7 @@ export function CartDrawer() {
       .slice(0, 3);
   }, [lines]);
 
-  const shippingLeft = site.freeShippingThreshold - subtotal;
-  const shippingProgress = Math.min(100, (subtotal / site.freeShippingThreshold) * 100);
+
 
   return (
     <AnimatePresence>
@@ -60,30 +59,11 @@ export function CartDrawer() {
               </div>
             ) : (
               <>
-                {/* Free shipping progress */}
+                {/* Shipping info */}
                 <div className="border-b border-border px-5 py-3">
-                  {shippingLeft > 0 ? (
-                    <>
-                      <p className="text-xs text-muted-foreground">
-                        <span className="text-primary font-semibold">
-                          {formatPrice(shippingLeft)}
-                        </span>{" "}
-                        away from free shipping
-                      </p>
-                      <div className="mt-2 h-1 w-full overflow-hidden bg-elevated">
-                        <motion.div
-                          className="h-full bg-primary"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${shippingProgress}%` }}
-                          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        />
-                      </div>
-                    </>
-                  ) : (
-                    <p className="flex items-center gap-2 text-xs text-primary font-semibold">
-                      <CheckCircle2 className="h-3.5 w-3.5" /> Free shipping unlocked!
-                    </p>
-                  )}
+                  <p className="text-xs text-muted-foreground">
+                    Shipping: <span className="text-primary font-semibold">Karachi Rs. 200</span> · <span className="text-primary font-semibold">Nationwide Rs. 300</span>
+                  </p>
                 </div>
 
                 <div className="flex-1 overflow-y-auto">
@@ -205,9 +185,7 @@ export function CartDrawer() {
                     </span>
                   </div>
                   <p className="label-mono mt-2 text-muted-foreground">
-                    {shippingLeft > 0
-                      ? `+ Rs. ${site.shippingFee} shipping · ${site.deliveryTime}`
-                      : `Free shipping · ${site.deliveryTime}`}
+                    Karachi Rs. 200 · Nationwide Rs. 300
                   </p>
                   <div className="mt-5 grid gap-2">
                     <Link
