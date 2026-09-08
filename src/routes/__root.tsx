@@ -130,6 +130,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "twitter:image",
         content: `${SITE_URL}/og-image.jpg`,
       },
+      {
+        name: "twitter:image:alt",
+        content: "Deez Prints — Premium Streetwear & Custom Printing in Pakistan",
+      },
+      {
+        property: "og:image:alt",
+        content: "Deez Prints — Premium Streetwear & Custom Printing in Pakistan",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

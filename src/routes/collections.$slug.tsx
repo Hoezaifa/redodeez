@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ChevronDown, Clock } from "lucide-react";
 import { getProducts, type Product } from "@/data/products";
-import { collections, site, aestheticSlugs, SITE_URL, toAbsoluteImageUrl } from "@/data/site";
+import { collections, site, aestheticSlugs, SITE_URL, toAbsoluteImageUrl, toOgImageUrl } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { cn } from "@/lib/utils";
@@ -21,6 +21,7 @@ export const Route = createFileRoute("/collections/$slug")({
     const blurb = loaderData?.blurb ?? "Deez Prints collection.";
     const collectionObj = collections.find((c) => c.slug === loaderData?.slug);
     const absoluteImgUrl = toAbsoluteImageUrl(collectionObj?.image);
+    const ogImgUrl = toOgImageUrl(collectionObj?.image);
     const url = `${SITE_URL}/collections/${loaderData?.slug ?? ""}`;
     const title = `${name} Collection — Deez Prints`;
     const desc = `${blurb} Shop ${name} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
@@ -34,14 +35,18 @@ export const Route = createFileRoute("/collections/$slug")({
         { property: "og:type", content: "website" },
         { property: "og:url", content: url },
         { property: "og:site_name", content: "Deez Prints" },
-        { property: "og:image", content: absoluteImgUrl },
+        { property: "og:image", content: ogImgUrl },
+        { property: "og:image:secure_url", content: ogImgUrl },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
+        { property: "og:image:type", content: "image/jpeg" },
+        { property: "og:image:alt", content: `${name} — Deez Prints` },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:site", content: "@deez_prints" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
-        { name: "twitter:image", content: absoluteImgUrl },
+        { name: "twitter:image", content: ogImgUrl },
+        { name: "twitter:image:alt", content: `${name} — Deez Prints` },
       ],
       links: [{ rel: "canonical", href: url }],
     };

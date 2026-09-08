@@ -11,6 +11,7 @@ import {
   whatsappLink,
   SITE_URL,
   toAbsoluteImageUrl,
+  toOgImageUrl,
   ACID_WASH_SIZES,
   ACID_WASH_COLORS,
   REGULAR_TEE_SIZES,
@@ -41,6 +42,7 @@ export const Route = createFileRoute("/products/$productId")({
     const p = loaderData?.product;
     const rawImg = p?.images[0];
     const absoluteImgUrl = toAbsoluteImageUrl(rawImg);
+    const ogImgUrl = toOgImageUrl(rawImg);
     const isTapestryMeta = p?.subcategory === "tapestries" || p?.subcategory === "flags";
     const desc = isTapestryMeta
       ? `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. High-definition digital sublimation printed satin wall tapestry by Deez Prints. Made in Karachi, delivered across Pakistan.`
@@ -57,9 +59,12 @@ export const Route = createFileRoute("/products/$productId")({
         { property: "og:type", content: "product" },
         { property: "og:url", content: url },
         { property: "og:site_name", content: "Deez Prints" },
-        { property: "og:image", content: absoluteImgUrl },
+        { property: "og:image", content: ogImgUrl },
+        { property: "og:image:secure_url", content: ogImgUrl },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
+        { property: "og:image:type", content: "image/jpeg" },
+        { property: "og:image:alt", content: p?.title ?? "Deez Prints Product" },
         { property: "og:price:amount", content: String(p?.price ?? 0) },
         { property: "og:price:currency", content: "PKR" },
         { property: "product:price:amount", content: String(p?.price ?? 0) },
@@ -69,7 +74,8 @@ export const Route = createFileRoute("/products/$productId")({
         { name: "twitter:site", content: "@deez_prints" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
-        { name: "twitter:image", content: absoluteImgUrl },
+        { name: "twitter:image", content: ogImgUrl },
+        { name: "twitter:image:alt", content: p?.title ?? "Deez Prints Product" },
       ],
       links: [{ rel: "canonical", href: url }],
     };

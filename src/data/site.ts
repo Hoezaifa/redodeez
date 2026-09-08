@@ -45,6 +45,33 @@ export function toAbsoluteImageUrl(path?: string | null): string {
   return `${SITE_URL}${cleanPath}`;
 }
 
+/**
+ * Returns a URL guaranteed to produce a 1200×630 JPEG suitable for OG/social previews.
+ *
+ * For Cloudinary images, injects transformation parameters (crop to fill + format jpeg).
+ * For local/static assets, returns them as-is (they should already be 1200×630).
+ * Falls back to the global og-image.jpg when no path is given.
+ */
+export function toOgImageUrl(path?: string | null): string {
+  const abs = toAbsoluteImageUrl(path);
+
+  // Detect Cloudinary URLs from either CDN account used in this project
+  const cloudinaryMatch = abs.match(
+    /^(https:\/\/res\.cloudinary\.com\/[^/]+\/image\/upload)(\/.*)?\/([^/]+)$/
+  );
+  if (cloudinaryMatch) {
+    const base = cloudinaryMatch[1];
+    // Strip any existing transformation segment and rebuild with OG transforms
+    const rest = cloudinaryMatch[0].replace(base, "");
+    // Remove existing transformation params (anything between /upload/ and the version or filename)
+    const withoutTransforms = rest.replace(/\/(?:[a-z_]+_[^/,]+,?)+(?=\/v\d|\/[^v])/, "");
+    // Inject: width 1200, height 630, crop fill, gravity auto, format jpg, quality auto
+    return `${base}/c_fill,w_1200,h_630,g_auto,f_jpg,q_auto${withoutTransforms}`;
+  }
+
+  return abs;
+}
+
 export function whatsappLink(message: string) {
   const text = encodeURIComponent(message);
   return site.whatsappNumber
