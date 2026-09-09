@@ -73,7 +73,14 @@ function ShopAll() {
       sorted.sort((a, b) => (priceDir === "asc" ? a.price - b.price : b.price - a.price));
     }
     if (sort === "name") sorted.sort((a, b) => a.title.localeCompare(b.title));
-    if (sort === "featured") sorted.sort((a, b) => b.images.length - a.images.length);
+    if (sort === "featured") {
+      const isShootCover = (p: Product) => (p.images[0]?.includes("/covers/") ? 1 : 0);
+      sorted.sort((a, b) => {
+        const coverDiff = isShootCover(b) - isShootCover(a);
+        if (coverDiff !== 0) return coverDiff;
+        return b.images.length - a.images.length;
+      });
+    }
     if (sort === "newest") sorted.sort((a, b) => (b.rating ?? 5) - (a.rating ?? 5));
     return sorted;
   }, [cat, sort, priceDir, allProducts]);

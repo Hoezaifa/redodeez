@@ -23,6 +23,223 @@ export interface ProductOverrideData {
 
 export const products: Product[] = [
   {
+    "id": "dp-acid-wash-zoro-2",
+    "title": "Zoro Bushido Acid Wash Tee",
+    "price": 2000,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788970863/deez-prints/covers/zoro_bushido_acid_wash_new.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770397/deez-prints/acid/zoro-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770400/deez-prints/acid/zoro-1-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770408/deez-prints/acid/zoro-2-grey-front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-dbz-1",
+    "title": "Majin Vegeta Acid Wash Tee",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788970867/deez-prints/covers/majin_vegeta_acid_wash_new.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788958669/deez-prints/covers/majin_vegeta_acid_wash_tee_front.png",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770111/deez-prints/acid/dbz-1-maroon-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770115/deez-prints/acid/dbz-1-maroon-front.jpg"
+    ],
+    "colors": [
+      "Maroon"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-yamoto",
+    "title": "Yamoto Inferno Acid Wash Tee",
+    "price": 2500,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788958466/deez-prints/covers/yamoto_inferno_black.png",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770390/deez-prints/acid/yamoto-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770393/deez-prints/acid/yamoto-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770388/deez-prints/acid/yamoto-black-back.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-drop-shoulder-baby",
+    "title": "Cupid Vintage Drop Shoulder Tee",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788970851/deez-prints/covers/cupid_vintage_white_new.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769196/deez-prints/drops/baby-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769202/deez-prints/drops/baby-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769205/deez-prints/drops/baby-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769210/deez-prints/drops/baby-white-front.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "Black",
+      "Grey",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "minimal-drops"
+  },
+  {
+    "id": "dp-acid-wash-evil",
+    "title": "See No Evil Acid Wash Tee",
+    "price": 2000,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788958717/deez-prints/covers/see_no_evil_acid_wash_tee.png",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770186/deez-prints/acid/evil-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770180/deez-prints/acid/evil-grey-front.jpg"
+    ],
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "minimal-drops"
+  },
+  {
+    "id": "dp-acid-wash-titan",
+    "title": "TITAN ACID WASH TEE",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788958781/deez-prints/covers/titan_acid_wash_tee.png",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770385/deez-prints/acid/titan-grey-front.jpg"
+    ],
+    "colors": [
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-speed",
+    "title": "Formula Speed Acid Wash Tee",
+    "price": 2100,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788970860/deez-prints/covers/formula_speed_acid_wash_new.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770379/deez-prints/acid/speed-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770376/deez-prints/acid/speed-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770373/deez-prints/acid/speed-grey-front.jpg"
+    ],
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "minimal-drops"
+  },
+  {
+    "id": "tshirt-acid-4",
+    "title": "BERSERK SKULL BLADE ACID WASH TEE",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788970854/deez-prints/covers/berserk_skull_blade_acid_wash_new.jpg",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidBerserkEmbossF_izdjez.webp"
+    ],
+    "colors": [
+      "Acid Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "tshirt-acid-9",
+    "title": "SPIDERVERSE ACID WASH TEE",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788958737/deez-prints/covers/spiderverse_acid_wash_tee.png",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/spiderAcidBack_dlpk7d.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086650/spiderAcidF_m4jkna.webp"
+    ],
+    "colors": [
+      "Acid Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-drop-shoulder-sukuna",
+    "title": "Sukuna Cursed Drop Shoulder Tee",
+    "price": 1900,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788970875/deez-prints/covers/sukuna_cursed_drop_shoulder_new.png",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769914/deez-prints/drops/sukuna-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769922/deez-prints/drops/sukuna-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769917/deez-prints/drops/sukuna-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769919/deez-prints/drops/sukuna-white-back.jpg"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-konichiwa",
+    "title": "Rockstar Tokyo Acid Wash Tee",
+    "price": 2000,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788958697/deez-prints/covers/rockstar_tokyo_acid_wash.png",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770237/deez-prints/acid/konichiwa-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770234/deez-prints/acid/konichiwa-black-back.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-baby",
+    "title": "CUPID VINTAGE REGULAR TEE",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788970857/deez-prints/covers/cupid_vintage_regular_black.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768470/deez-prints/regular/baby-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768476/deez-prints/regular/baby-whiet-front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "minimal-drops"
+  },
+  {
     "id": "dp-acid-wash-aizen",
     "title": "AIZEN ACID WASH TEE",
     "price": 2000,
@@ -215,22 +432,6 @@ export const products: Product[] = [
     "aesthetic": "comic-universe"
   },
   {
-    "id": "dp-acid-wash-dbz-1",
-    "title": "Majin Vegeta Acid Wash Tee",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770111/deez-prints/acid/dbz-1-maroon-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770115/deez-prints/acid/dbz-1-maroon-front.jpg"
-    ],
-    "colors": [
-      "Maroon"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-acid-wash-dbz-2",
     "title": "Vegeta Super Saiyan Acid Wash Tee",
     "price": 2200,
@@ -341,23 +542,6 @@ export const products: Product[] = [
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-evil",
-    "title": "See No Evil Acid Wash Tee",
-    "price": 2000,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770186/deez-prints/acid/evil-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770180/deez-prints/acid/evil-grey-front.jpg"
-    ],
-    "colors": [
-      "Grey",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-acid-wash-eye",
@@ -471,22 +655,6 @@ export const products: Product[] = [
     ],
     "colors": [
       "Grey"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-konichiwa",
-    "title": "Rockstar Tokyo Acid Wash Tee",
-    "price": 2000,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770237/deez-prints/acid/konichiwa-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770234/deez-prints/acid/konichiwa-black-back.jpg"
-    ],
-    "colors": [
-      "Black"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -768,24 +936,6 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-speed",
-    "title": "Formula Speed Drop Shoulder Tee",
-    "price": 2100,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770379/deez-prints/acid/speed-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770376/deez-prints/acid/speed-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770373/deez-prints/acid/speed-grey-front.jpg"
-    ],
-    "colors": [
-      "Grey",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
-  },
-  {
     "id": "dp-acid-wash-sukuna",
     "title": "Sukuna Cursed Acid Wash Tee",
     "price": 2000,
@@ -802,39 +952,6 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-titan",
-    "title": "TITAN ACID WASH TEE",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770385/deez-prints/acid/titan-grey-front.jpg"
-    ],
-    "colors": [
-      "Grey"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-yamoto",
-    "title": "Yamoto Inferno Acid Wash Tee",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770390/deez-prints/acid/yamoto-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770393/deez-prints/acid/yamoto-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770388/deez-prints/acid/yamoto-black-back.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Grey"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-acid-wash-zoro-1",
     "title": "Zoro Ronin Acid Wash Tee",
     "price": 2400,
@@ -842,13 +959,9 @@ export const products: Product[] = [
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770402/deez-prints/acid/zoro-1-grey-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770397/deez-prints/acid/zoro-1-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770400/deez-prints/acid/zoro-1-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770405/deez-prints/acid/zoro-1-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770408/deez-prints/acid/zoro-2-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770405/deez-prints/acid/zoro-1-grey-front.jpg"
     ],
     "colors": [
-      "Black",
       "Grey"
     ],
     "rating": 5,
@@ -936,27 +1049,6 @@ export const products: Product[] = [
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-drop-shoulder-baby",
-    "title": "Cupid Vintage Drop Shoulder Tee",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769196/deez-prints/drops/baby-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769202/deez-prints/drops/baby-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769205/deez-prints/drops/baby-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769210/deez-prints/drops/baby-white-front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "Black",
-      "Grey",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-batman-grye",
@@ -1843,25 +1935,6 @@ export const products: Product[] = [
     "aesthetic": "minimal-drops"
   },
   {
-    "id": "dp-drop-shoulder-sukuna",
-    "title": "Sukuna Cursed Drop Shoulder Tee",
-    "price": 1900,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769914/deez-prints/drops/sukuna-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769922/deez-prints/drops/sukuna-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769917/deez-prints/drops/sukuna-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769919/deez-prints/drops/sukuna-white-back.jpg"
-    ],
-    "colors": [
-      "Blue",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-drop-shoulder-titan",
     "title": "Sukuna Drop Shoulder Tee",
     "price": 2000,
@@ -2033,23 +2106,6 @@ export const products: Product[] = [
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-regular-baby",
-    "title": "CUPID VINTAGE REGULAR TEE",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768470/deez-prints/regular/baby-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768476/deez-prints/regular/baby-whiet-front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-batman1",
@@ -3247,21 +3303,6 @@ export const products: Product[] = [
     "rating": 4
   },
   {
-    "id": "tshirt-acid-9",
-    "title": "SPIDERVERSE ACID WASH TEE",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/spiderAcidBack_dlpk7d.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086650/spiderAcidF_m4jkna.webp"
-    ],
-    "colors": [
-      "Acid Black"
-    ],
-    "rating": 5
-  },
-  {
     "id": "tshirt-acid-1",
     "title": "BERSERK WARRIOR ACID WASH TEE",
     "price": 3200,
@@ -3299,20 +3340,6 @@ export const products: Product[] = [
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/PunkAcidF_rz3omv.webp"
-    ],
-    "colors": [
-      "Acid Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "tshirt-acid-4",
-    "title": "BERSERK SKULL BLADE ACID WASH TEE",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidBerserkEmbossF_izdjez.webp"
     ],
     "colors": [
       "Acid Black"
