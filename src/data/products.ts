@@ -3103,17 +3103,526 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "tapestry-berserk-eclipse",
+    "id": "tapestry-one-piece-gear-5-luffy-tapestry",
+    "title": "ONE PIECE GEAR 5 LUFFY TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/one_piece_gear_5_luffy_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "ONE PIECE GEAR 5 LUFFY TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-berserk-eclipse-tapestry",
     "title": "BERSERK ECLIPSE TAPESTRY",
-    "price": 1000,
+    "price": 3000,
     "category": "accessories",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/berserk_eclipse_tapestry.webp"
     ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "BERSERK ECLIPSE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-itachi-uchiha-sharingan-tapestry",
+    "title": "ITACHI UCHIHA SHARINGAN TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/itachi_uchiha_sharingan_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "ITACHI UCHIHA SHARINGAN TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-goku-kamehameha-tapestry",
+    "title": "GOKU KAMEHAMEHA TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/goku_kamehameha_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "GOKU KAMEHAMEHA TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-fight-club-tyler-durden-tapestry",
+    "title": "FIGHT CLUB TYLER DURDEN TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/fight_club_tyler_durden_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "art-drop",
+    "description": "FIGHT CLUB TYLER DURDEN TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-guts-brand-of-sacrifice-tapestry",
+    "title": "GUTS BRAND OF SACRIFICE TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/guts_brand_of_sacrifice_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "GUTS BRAND OF SACRIFICE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-spider-man-comic-tapestry",
+    "title": "SPIDER-MAN COMIC TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/spider-man_comic_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "art-drop",
+    "description": "SPIDER-MAN COMIC TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-breaking-bad-walter-white-jesse-tapestry",
+    "title": "BREAKING BAD WALTER WHITE JESSE TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/breaking_bad_walter_white_jesse_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "art-drop",
+    "description": "BREAKING BAD WALTER WHITE JESSE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-american-psycho-movie-poster-tapestry",
+    "title": "AMERICAN PSYCHO MOVIE POSTER TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/american_psycho_movie_poster_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "art-drop",
+    "description": "AMERICAN PSYCHO MOVIE POSTER TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-madara-uchiha-sharingan-tapestry",
+    "title": "MADARA UCHIHA SHARINGAN TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/madara_uchiha_sharingan_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "MADARA UCHIHA SHARINGAN TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-vegeta-super-saiyan-tapestry",
+    "title": "VEGETA SUPER SAIYAN TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/vegeta_super_saiyan_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "VEGETA SUPER SAIYAN TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-tanjiro-kamado-tapestry",
+    "title": "TANJIRO KAMADO TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/tanjiro_kamado_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "TANJIRO KAMADO TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-scarface-tony-montana-tapestry",
+    "title": "SCARFACE TONY MONTANA TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/scarface_tony_montana_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "art-drop",
+    "description": "SCARFACE TONY MONTANA TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-ultra-instinct-goku-energy-tapestry",
+    "title": "ULTRA INSTINCT GOKU ENERGY TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/ultra_instinct_goku_energy_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "ULTRA INSTINCT GOKU ENERGY TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-the-godfather-tapestry",
+    "title": "THE GODFATHER TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/the_godfather_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "art-drop",
+    "description": "THE GODFATHER TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-luffy-one-piece-tapestry",
+    "title": "LUFFY ONE PIECE TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/luffy_one_piece_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "LUFFY ONE PIECE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-guts-berserk-tapestry",
+    "title": "GUTS BERSERK TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/guts_berserk_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "GUTS BERSERK TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-american-psycho-bateman-portrait-tapestry",
+    "title": "AMERICAN PSYCHO BATEMAN PORTRAIT TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/american_psycho_bateman_portrait_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "art-drop",
+    "description": "AMERICAN PSYCHO BATEMAN PORTRAIT TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-dragon-ball-z-characters-tapestry",
+    "title": "DRAGON BALL Z CHARACTERS TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/dragon_ball_z_characters_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "DRAGON BALL Z CHARACTERS TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-goku-ultra-instinct-red-tapestry",
+    "title": "GOKU ULTRA INSTINCT RED TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/goku_ultra_instinct_red_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "GOKU ULTRA INSTINCT RED TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-itachi-uchiha-crows-tapestry",
+    "title": "ITACHI UCHIHA CROWS TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/itachi_uchiha_crows_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "ITACHI UCHIHA CROWS TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-vegeta-prince-of-saiyans-tapestry",
+    "title": "VEGETA PRINCE OF SAIYANS TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/vegeta_prince_of_saiyans_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "VEGETA PRINCE OF SAIYANS TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-goku-manga-collage-tapestry",
+    "title": "GOKU MANGA COLLAGE TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/goku_manga_collage_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "GOKU MANGA COLLAGE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-itachi-uchiha-akatsuki-tapestry",
+    "title": "ITACHI UCHIHA AKATSUKI TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/itachi_uchiha_akatsuki_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "ITACHI UCHIHA AKATSUKI TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-goku-dragon-ball-z-manga-tapestry",
+    "title": "GOKU DRAGON BALL Z MANGA TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/goku_dragon_ball_z_manga_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "GOKU DRAGON BALL Z MANGA TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-berserk-tapestry",
+    "title": "BERSERK TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/berserk_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "BERSERK TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-dragon-ball-z-goku-collage-tapestry",
+    "title": "DRAGON BALL Z GOKU COLLAGE TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/dragon_ball_z_goku_collage_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "DRAGON BALL Z GOKU COLLAGE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-goku-super-saiyan-tapestry",
+    "title": "GOKU SUPER SAIYAN TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/goku_super_saiyan_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "GOKU SUPER SAIYAN TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+  },
+  {
+    "id": "tapestry-goku-ultra-instinct-tapestry",
+    "title": "GOKU ULTRA INSTINCT TAPESTRY",
+    "price": 3000,
+    "category": "accessories",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/goku_ultra_instinct_tapestry.webp"
+    ],
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive",
+    "description": "GOKU ULTRA INSTINCT TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
   },
   {
     "id": "tapestry-cyber-city",
@@ -3126,7 +3635,12 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "art-drop"
+    "aesthetic": "art-drop",
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "description": "CYBER CITY NIGHT TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
   },
   {
     "id": "tapestry-manga-panel",
@@ -3139,7 +3653,12 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "description": "ITACHI MANGA PANEL TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
   },
   {
     "id": "tapestry-rick-and-morty",
@@ -3151,7 +3670,12 @@ export const products: Product[] = [
       "/assets/products/tapestries/rick_and_morty_tapestry.webp"
     ],
     "colors": [],
-    "rating": 5
+    "rating": 5,
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "description": "RICK & MORTY TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
   },
   {
     "id": "tapestry-vagabond",
@@ -3164,7 +3688,12 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "sizes": [
+      "Small (50 x 30)",
+      "Large (70 x 50)"
+    ],
+    "description": "VAGABOND TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
   },
   {
     "id": "kanye-yeezus-shirt",

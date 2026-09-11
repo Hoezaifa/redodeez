@@ -117,7 +117,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
         {/* Price row — with cart button */}
         <div className="flex items-center justify-between mt-1.5 sm:mt-2">
           <p className="font-sans font-bold text-sm sm:text-base text-primary tracking-tight">
-            {formatPrice(product.price)}
+            {product.subcategory === "tapestries" ? `From ${formatPrice(product.price)}` : formatPrice(product.price)}
           </p>
 
           <button

@@ -83,6 +83,10 @@ export function DesktopProductDetail({
   const currentSrc = product.images[carouselIdx] || product.images[0] || "";
   const hasMultipleImages = totalImages > 1;
 
+  const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
+  const isLargeTapestry = isTapestry && (size?.includes("70 x 50") || size?.toLowerCase().includes("large"));
+  const displayPrice = isLargeTapestry ? 4200 : product.price;
+
   /* ── Navigation ────────────────────────────── */
 
   const goToImage = useCallback(
@@ -263,10 +267,15 @@ export function DesktopProductDetail({
         </h1>
 
         {/* Price */}
-        <div>
+        <div className="flex items-baseline gap-2.5">
           <span className="font-display text-2xl xl:text-3xl font-black text-foreground">
-            {formatPrice(product.price)}
+            {formatPrice(displayPrice * qty)}
           </span>
+          {qty > 1 && (
+            <span className="text-xs font-mono text-muted-foreground font-semibold">
+              ({formatPrice(displayPrice)} each)
+            </span>
+          )}
         </div>
 
         {/* Stock + Delivery + Returns info bar */}
@@ -320,19 +329,21 @@ export function DesktopProductDetail({
               <p className="label-mono uppercase text-xs text-muted-foreground font-bold tracking-wider">
                 Select Size
               </p>
-              <button
-                type="button"
-                onClick={() => setShowSizeChart((prev: boolean) => !prev)}
-                className="label-mono text-xs text-primary hover:underline flex items-center gap-1 cursor-pointer font-bold tracking-wider"
-              >
-                <span>📐 Size Guide</span>
-                <ChevronDown
-                  className={cn(
-                    "h-3.5 w-3.5 transition-transform duration-200",
-                    showSizeChart && "rotate-180"
-                  )}
-                />
-              </button>
+              {product.subcategory !== "tapestries" && (
+                <button
+                  type="button"
+                  onClick={() => setShowSizeChart((prev: boolean) => !prev)}
+                  className="label-mono text-xs text-primary hover:underline flex items-center gap-1 cursor-pointer font-bold tracking-wider"
+                >
+                  <span>📐 Size Guide</span>
+                  <ChevronDown
+                    className={cn(
+                      "h-3.5 w-3.5 transition-transform duration-200",
+                      showSizeChart && "rotate-180"
+                    )}
+                  />
+                </button>
+              )}
             </div>
             <div className="flex flex-wrap gap-2.5">
               {availableSizes.map((s) => (
@@ -354,6 +365,13 @@ export function DesktopProductDetail({
                 </button>
               ))}
             </div>
+            {product.subcategory === "tapestries" && (
+              <p className="mt-2 text-xs text-muted-foreground label-mono">
+                {size?.includes("70 x 50") || size?.toLowerCase().includes("large")
+                  ? "* Note: Size is 70 x 50 inches or 50 x 70 inches depending on the design orientation (vertical vs. horizontal)."
+                  : "* Note: Size is 50 x 30 inches or 30 x 50 inches depending on the design orientation (vertical vs. horizontal)."}
+              </p>
+            )}
             {err && (
               <p className="mt-2 label-mono text-xs text-destructive">
                 Please select a size to proceed

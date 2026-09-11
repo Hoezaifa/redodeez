@@ -23,7 +23,7 @@ const SLIDES: CampaignSlide[] = [
     buttonText: "EXPLORE TEES",
     ctaTo: "/collections/$slug",
     ctaParams: { slug: "t-shirts" },
-    image: "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773571102/place_d2aqxn.webp",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970857/deez-prints/covers/cupid_vintage_regular_black.jpg",
   },
   {
     id: "drop-shoulder",
@@ -33,7 +33,7 @@ const SLIDES: CampaignSlide[] = [
     buttonText: "SHOP DROP SHOULDER",
     ctaTo: "/collections/$slug",
     ctaParams: { slug: "drop-shoulder" },
-    image: "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773574932/drp_btiwfr.webp",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970875/deez-prints/covers/sukuna_cursed_drop_shoulder_new.png",
   },
   {
     id: "acid-wash",
@@ -43,7 +43,17 @@ const SLIDES: CampaignSlide[] = [
     buttonText: "VIEW ACID WASH",
     ctaTo: "/collections/$slug",
     ctaParams: { slug: "acid-wash" },
-    image: "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773575788/acioddddd_byto0p.webp",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970863/deez-prints/covers/zoro_bushido_acid_wash_new.jpg",
+  },
+  {
+    id: "wall-art",
+    title1: "BUILT FOR",
+    title2: "YOUR SPACE",
+    description: "HIGH-DEFINITION SATIN. CORNER GROMMETS. STATEMENT ART.",
+    buttonText: "EXPLORE TAPESTRIES",
+    ctaTo: "/collections/$slug",
+    ctaParams: { slug: "wall-art" },
+    image: "/assets/products/tapestries/one_piece_gear_5_luffy_tapestry.webp",
   },
 ];
 

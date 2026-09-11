@@ -93,14 +93,14 @@ function Home() {
         ctaParams={{ slug: "acid-wash" }}
       />
 
-      {/* Regular Tees Section */}
+      {/* Wall Art / Tapestries Section */}
       <ProductRow
-        eyebrow="Regular Tees"
-        title={"Everyday\nEssentials"}
-        items={regularTees}
-        ctaLabel="Shop regular tees"
+        eyebrow="Wall art"
+        title={"Make your\nspace yours"}
+        items={wallArt}
+        ctaLabel="Explore wall art"
         ctaTo="/collections/$slug"
-        ctaParams={{ slug: "t-shirts" }}
+        ctaParams={{ slug: "wall-art" }}
       />
 
       {/* Drop Shoulder Section */}
@@ -113,15 +113,14 @@ function Home() {
         ctaParams={{ slug: "drop-shoulder" }}
       />
 
-
-
+      {/* Regular Tees Section */}
       <ProductRow
-        eyebrow="Wall art"
-        title={"Make your\nspace yours"}
-        items={wallArt}
-        ctaLabel="Explore wall art"
+        eyebrow="Regular Tees"
+        title={"Everyday\nEssentials"}
+        items={regularTees}
+        ctaLabel="Shop regular tees"
         ctaTo="/collections/$slug"
-        ctaParams={{ slug: "wall-art" }}
+        ctaParams={{ slug: "t-shirts" }}
       />
 
       <ProductRow

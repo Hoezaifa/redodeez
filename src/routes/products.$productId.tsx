@@ -110,7 +110,7 @@ function ProductPage() {
 
   // Sizes are always enforced by category — no per-product overrides for apparel
   const availableSizes = isTapestry
-    ? product.sizes || ['24"x36"', '36"x48"', '48"x60"']
+    ? product.sizes || ['Small (50 x 30)', 'Large (70 x 50)']
     : isAcidWash
     ? [...ACID_WASH_SIZES]
     : isDropShoulder
@@ -128,7 +128,7 @@ function ProductPage() {
     ? [...DROP_SHOULDER_COLORS]
     : [...REGULAR_TEE_COLORS];
 
-  const [size, setSize] = useState<string>(isTapestry ? '36"x48"' : "");
+  const [size, setSize] = useState<string>(isTapestry ? (product.sizes?.[0] || 'Small (50 x 30)') : "");
   const [selectedColor, setSelectedColor] = useState<string>(availableColors[0] || "");
   const [qty, setQty] = useState(1);
   const [active, setActive] = useState(0);
@@ -136,12 +136,18 @@ function ProductPage() {
   const [colorErr, setColorErr] = useState(false);
   const [showSizeChart, setShowSizeChart] = useState(false);
 
-  const needsSize = product.category !== "accessories" && product.subcategory !== "tapestries" && product.subcategory !== "mugs" && availableSizes.length > 0;
+  const needsSize =
+    (product.category !== "accessories" || isTapestry) &&
+    product.subcategory !== "mugs" &&
+    availableSizes.length > 0;
   const needsColor = availableColors.length > 0;
   const wished = wishlist.includes(product.id);
   const related = allProducts
     .filter((p) => p.id !== product.id && p.category === product.category && p.images.length)
     .slice(0, 4);
+
+  const isLargeTapestry = isTapestry && (size?.includes("70 x 50") || size?.toLowerCase().includes("large"));
+  const currentPrice = isLargeTapestry ? 4200 : product.price;
 
   function handleAdd() {
     let hasError = false;
@@ -158,7 +164,7 @@ function ProductPage() {
     add({
       productId: product.id,
       title: product.title,
-      price: product.price,
+      price: currentPrice,
       image: product.images[0] ?? "",
       size: size || undefined,
       color: selectedColor || undefined,
@@ -181,7 +187,7 @@ function ProductPage() {
     add({
       productId: product.id,
       title: product.title,
-      price: product.price,
+      price: currentPrice,
       image: product.images[0] ?? "",
       size: size || undefined,
       color: selectedColor || undefined,
@@ -195,6 +201,7 @@ function ProductPage() {
     if (product.subcategory === "tapestries" || product.subcategory === "flags") {
       return (
         <ul className="list-disc list-inside space-y-1">
+          <li>Dimensions: Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation — vertical or horizontal</li>
           <li>Material: Premium High-Density Satin Fabric (Smooth, Soft & Durable)</li>
           <li>Printing: High-Definition Digital Sublimation Printing (Ultra-vibrant, edge-to-edge color)</li>
           <li>Hanging & Setup: Reinforced Brass Metal Grommets at corners for effortless wall mounting</li>
@@ -258,6 +265,8 @@ function ProductPage() {
           setSelectedColor={setSelectedColor}
           size={size}
           setSize={setSize}
+          qty={qty}
+          setQty={setQty}
           err={err}
           setErr={setErr}
           colorErr={colorErr}

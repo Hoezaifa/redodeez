@@ -12,6 +12,8 @@ import {
   Maximize2,
   Minimize2,
   Info,
+  Minus,
+  Plus,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/data/products";
@@ -29,6 +31,8 @@ interface MobileProductDetailProps {
   setSelectedColor: (c: string) => void;
   size: string;
   setSize: (s: string) => void;
+  qty: number;
+  setQty: (v: number | ((q: number) => number)) => void;
   err: boolean;
   setErr: (v: boolean) => void;
   colorErr: boolean;
@@ -53,6 +57,8 @@ export function MobileProductDetail({
   setSelectedColor,
   size,
   setSize,
+  qty,
+  setQty,
   err,
   setErr,
   colorErr,
@@ -76,6 +82,10 @@ export function MobileProductDetail({
   const totalImages = product.images.length;
   const currentSrc = product.images[carouselIdx] || product.images[0] || "";
   const hasMultipleImages = totalImages > 1;
+
+  const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
+  const isLargeTapestry = isTapestry && (size?.includes("70 x 50") || size?.toLowerCase().includes("large"));
+  const displayPrice = isLargeTapestry ? 4200 : product.price;
 
   /* ── Navigation ────────────────────────────── */
 
@@ -292,9 +302,16 @@ export function MobileProductDetail({
 
 
         {/* Price */}
-        <p className="text-2xl font-display font-black tracking-tight">
-          {formatPrice(product.price)}
-        </p>
+        <div className="flex items-baseline gap-2">
+          <p className="text-2xl font-display font-black tracking-tight">
+            {formatPrice(displayPrice * qty)}
+          </p>
+          {qty > 1 && (
+            <span className="text-xs font-mono text-muted-foreground font-semibold">
+              ({formatPrice(displayPrice)} each)
+            </span>
+          )}
+        </div>
 
         {/* Stock + Delivery */}
         <div className="flex items-center gap-3 text-[12px] text-muted-foreground">
@@ -317,19 +334,21 @@ export function MobileProductDetail({
             <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-muted-foreground">
               Size: <span className="text-foreground font-bold">{size || "—"}</span>
             </p>
-            <button
-              type="button"
-              onClick={() => setShowSizeChart((prev: boolean) => !prev)}
-              className="flex items-center gap-1 text-[11px] font-mono font-semibold text-primary hover:underline cursor-pointer uppercase tracking-wider"
-            >
-              <span>📐 Size Guide</span>
-              <ChevronDown
-                className={cn(
-                  "h-3 w-3 transition-transform duration-200",
-                  showSizeChart && "rotate-180"
-                )}
-              />
-            </button>
+            {product.subcategory !== "tapestries" && (
+              <button
+                type="button"
+                onClick={() => setShowSizeChart((prev: boolean) => !prev)}
+                className="flex items-center gap-1 text-[11px] font-mono font-semibold text-primary hover:underline cursor-pointer uppercase tracking-wider"
+              >
+                <span>📐 Size Guide</span>
+                <ChevronDown
+                  className={cn(
+                    "h-3 w-3 transition-transform duration-200",
+                    showSizeChart && "rotate-180"
+                  )}
+                />
+              </button>
+            )}
           </div>
 
           <div className="flex flex-wrap gap-2.5">
@@ -353,6 +372,14 @@ export function MobileProductDetail({
             ))}
           </div>
 
+          {product.subcategory === "tapestries" && (
+            <p className="mt-2 text-xs text-muted-foreground font-mono">
+              {size?.includes("70 x 50") || size?.toLowerCase().includes("large")
+                ? "* Note: Size is 70 x 50 inches or 50 x 70 inches depending on design orientation (vertical vs. horizontal)."
+                : "* Note: Size is 50 x 30 inches or 30 x 50 inches depending on design orientation (vertical vs. horizontal)."}
+            </p>
+          )}
+
           {err && (
             <p className="mt-2 text-xs font-mono text-destructive">
               Please select a size to proceed
@@ -375,6 +402,32 @@ export function MobileProductDetail({
           </AnimatePresence>
         </div>
       )}
+
+      {/* ── Quantity Selector ───────────────────── */}
+      <div className="px-5 pt-4">
+        <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-2">
+          Quantity
+        </p>
+        <div className="flex items-center border border-border bg-surface rounded-sm w-fit">
+          <button
+            type="button"
+            aria-label="Decrease quantity"
+            onClick={() => setQty((q: number) => Math.max(1, q - 1))}
+            className="w-10 h-10 flex items-center justify-center hover:bg-elevated text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+          >
+            <Minus className="h-3.5 w-3.5" />
+          </button>
+          <span className="w-11 text-center font-mono text-sm font-bold border-x border-border">{qty}</span>
+          <button
+            type="button"
+            aria-label="Increase quantity"
+            onClick={() => setQty((q: number) => q + 1)}
+            className="w-10 h-10 flex items-center justify-center hover:bg-elevated text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+          >
+            <Plus className="h-3.5 w-3.5" />
+          </button>
+        </div>
+      </div>
 
       {/* ═══════════════════ ACTION BUTTONS ═══════════════════ */}
       <div className="px-5 pt-6 pb-2 grid grid-cols-2 gap-3">
