@@ -18,7 +18,17 @@ export const Route = createFileRoute("/products-feed.xml")({
         const allProducts = await getProducts();
         const activeProducts = allProducts.filter((p) => p.images && p.images.length > 0);
 
-        const items = activeProducts.map((p) => {
+        // Deduplicate by product ID
+        const seen = new Set<string>();
+        const uniqueProducts = activeProducts.filter((p) => {
+          if (seen.has(p.id)) return false;
+          seen.add(p.id);
+          return true;
+        });
+
+        const buildDate = new Date().toUTCString();
+
+        const items = uniqueProducts.map((p) => {
           const productUrl = `${SITE_URL}/products/${p.id}`;
           const uniqueImages = Array.from(new Set((p.images || []).map(toAbsoluteImageUrl).filter(Boolean)));
           const primaryImage = uniqueImages[0] ?? "";
@@ -27,12 +37,22 @@ export const Route = createFileRoute("/products-feed.xml")({
             p.description ||
             `${p.title} — ${subcatLabel} streetwear by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
 
+          // Guess image MIME type from URL
+          const imgLower = primaryImage.toLowerCase();
+          let imgMime = "image/jpeg";
+          if (imgLower.includes(".png")) imgMime = "image/png";
+          else if (imgLower.includes(".webp")) imgMime = "image/webp";
+
           return [
             `    <item>`,
-            `      <g:id>${escapeXml(p.id)}</g:id>`,
+            // ── Standard RSS 2.0 fields (Pinterest / generic readers) ──
             `      <title>${escapeXml(p.title)} — Deez Prints</title>`,
-            `      <description>${escapeXml(description)}</description>`,
             `      <link>${escapeXml(productUrl)}</link>`,
+            `      <guid isPermaLink="true">${escapeXml(productUrl)}</guid>`,
+            `      <description>${escapeXml(description)}</description>`,
+            `      <enclosure url="${escapeXml(primaryImage)}" type="${imgMime}" length="0" />`,
+            // ── Google Merchant Center fields ──
+            `      <g:id>${escapeXml(p.id)}</g:id>`,
             `      <g:image_link>${escapeXml(primaryImage)}</g:image_link>`,
             ...uniqueImages.slice(1, 10).map((img) => `      <g:additional_image_link>${escapeXml(img)}</g:additional_image_link>`),
             `      <g:price>${p.price} PKR</g:price>`,
@@ -52,7 +72,9 @@ export const Route = createFileRoute("/products-feed.xml")({
           `  <channel>`,
           `    <title>Deez Prints Product Feed</title>`,
           `    <link>${SITE_URL}</link>`,
-          `    <description>Official Google Merchant Center Product Feed for Deez Prints</description>`,
+          `    <description>Official product catalog feed for Deez Prints — premium streetwear and custom printing in Pakistan.</description>`,
+          `    <language>en</language>`,
+          `    <lastBuildDate>${buildDate}</lastBuildDate>`,
           ...items,
           `  </channel>`,
           `</rss>`,
@@ -60,7 +82,7 @@ export const Route = createFileRoute("/products-feed.xml")({
 
         return new Response(xml, {
           headers: {
-            "Content-Type": "application/xml; charset=utf-8",
+            "Content-Type": "application/rss+xml; charset=utf-8",
             "Cache-Control": "public, max-age=3600, s-maxage=86400",
           },
         });
