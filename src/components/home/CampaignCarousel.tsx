@@ -12,6 +12,7 @@ export interface CampaignSlide {
   ctaTo: string;
   ctaParams?: Record<string, string>;
   image: string;
+  imagePosition?: string;
 }
 
 const SLIDES: CampaignSlide[] = [
@@ -23,7 +24,8 @@ const SLIDES: CampaignSlide[] = [
     buttonText: "EXPLORE TEES",
     ctaTo: "/collections/$slug",
     ctaParams: { slug: "t-shirts" },
-    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970857/deez-prints/covers/cupid_vintage_regular_black.jpg",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788958599/deez-prints/covers/cupid_vintage_beige.png",
+    imagePosition: "object-[center_15%]",
   },
   {
     id: "drop-shoulder",
@@ -33,7 +35,8 @@ const SLIDES: CampaignSlide[] = [
     buttonText: "SHOP DROP SHOULDER",
     ctaTo: "/collections/$slug",
     ctaParams: { slug: "drop-shoulder" },
-    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970875/deez-prints/covers/sukuna_cursed_drop_shoulder_new.png",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788958761/deez-prints/covers/sukuna_cursed_drop_shoulder.png",
+    imagePosition: "object-[center_15%]",
   },
   {
     id: "acid-wash",
@@ -43,7 +46,8 @@ const SLIDES: CampaignSlide[] = [
     buttonText: "VIEW ACID WASH",
     ctaTo: "/collections/$slug",
     ctaParams: { slug: "acid-wash" },
-    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970863/deez-prints/covers/zoro_bushido_acid_wash_new.jpg",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788958809/deez-prints/covers/zoro_bushido_acid_wash.png",
+    imagePosition: "object-[center_15%]",
   },
   {
     id: "wall-art",
@@ -54,6 +58,7 @@ const SLIDES: CampaignSlide[] = [
     ctaTo: "/collections/$slug",
     ctaParams: { slug: "wall-art" },
     image: "/assets/products/tapestries/one_piece_gear_5_luffy_tapestry.webp",
+    imagePosition: "object-center",
   },
 ];
 
@@ -86,7 +91,7 @@ export function CampaignCarousel() {
       className="bg-[#050505] relative z-10 border-y border-border overflow-hidden"
       aria-label="Campaign Banner Carousel"
     >
-      <div className="relative w-full h-[420px] md:min-h-[500px]">
+      <div className="relative w-full h-[440px] sm:h-[480px] md:h-[540px] lg:h-[600px]">
         <AnimatePresence initial={false} mode="wait">
           <motion.div
             key={currentSlide}
@@ -101,12 +106,15 @@ export function CampaignCarousel() {
             className="absolute inset-0 cursor-grab active:cursor-grabbing"
           >
             {/* MOBILE: Full-bleed image with text overlay */}
-            <div className="md:hidden relative w-full h-full">
+            <div className="md:hidden relative w-full h-full overflow-hidden">
               <img
                 src={slide.image}
                 alt={slide.title2}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover object-top"
+                className={cn(
+                  "absolute inset-0 h-full w-full object-cover",
+                  slide.imagePosition || "object-top"
+                )}
               />
               {/* Strong bottom gradient for text legibility */}
               <div
@@ -147,13 +155,16 @@ export function CampaignCarousel() {
             {/* DESKTOP: Split layout (image left, text right) */}
             <div className="hidden md:flex md:flex-row md:items-stretch w-full h-full">
               {/* Left: Image */}
-              <div className="relative w-1/2 h-full">
-                <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10" />
+              <div className="relative w-1/2 h-full overflow-hidden bg-black">
+                <div className="absolute inset-y-0 right-0 w-36 bg-gradient-to-l from-[#050505] via-[#050505]/70 to-transparent z-10 pointer-events-none" />
                 <img
                   src={slide.image}
                   alt={slide.title2}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  className={cn(
+                    "absolute inset-0 h-full w-full object-cover",
+                    slide.imagePosition || "object-[center_15%]"
+                  )}
                 />
               </div>
 

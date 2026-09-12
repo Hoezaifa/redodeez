@@ -75,6 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "p:domain_verify", content: "224a4bde89bf6ae8a33af0493a310072" },
       { title: "Deez Prints — Premium Streetwear & Custom Printing in Pakistan" },
       {
         name: "description",
@@ -176,6 +177,7 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <meta name="p:domain_verify" content="224a4bde89bf6ae8a33af0493a310072" />
       </head>
       <body>
         <a
