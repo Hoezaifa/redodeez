@@ -62,7 +62,7 @@ export function CartDrawer() {
                 {/* Shipping info */}
                 <div className="border-b border-border px-5 py-3">
                   <p className="text-xs text-muted-foreground">
-                    Shipping: <span className="text-primary font-semibold">Karachi Rs. 200</span> · <span className="text-primary font-semibold">Nationwide Rs. 300</span>
+                    Shipping: <span className="text-primary font-semibold">Karachi Rs. 200</span> · <span className="text-primary font-semibold">Nationwide Rs. 450</span>
                   </p>
                 </div>
 
@@ -185,7 +185,7 @@ export function CartDrawer() {
                     </span>
                   </div>
                   <p className="label-mono mt-2 text-muted-foreground">
-                    Karachi Rs. 200 · Nationwide Rs. 300
+                    Karachi Rs. 200 · Nationwide Rs. 450
                   </p>
                   <div className="mt-5 grid gap-2">
                     <Link

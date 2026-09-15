@@ -51,7 +51,7 @@ export function Header() {
                 <div key={k} className="flex shrink-0 gap-16">
                   {[
                     "Karachi delivery Rs. 200 via Bykea",
-                    "Nationwide Pakistan delivery Rs. 300 via Courier",
+                    "Nationwide Pakistan delivery Rs. 450 via Courier",
                     "Meezan, Easypaisa & JazzCash accepted",
                     "7-day exchange",
                     "Printed in Karachi",

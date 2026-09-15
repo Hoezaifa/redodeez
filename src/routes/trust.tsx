@@ -47,7 +47,7 @@ const trustSignals = [
   {
     icon: Truck,
     title: "Nationwide Shipping",
-    desc: "Orders take 2–3 working days to prepare before dispatch. Karachi Rs. 200 via Bykea, Nationwide Rs. 300 via Courier.",
+    desc: "Orders take 2–3 working days to prepare before dispatch. Karachi Rs. 200 via Bykea, Nationwide Rs. 450 via Courier.",
     badge: "Bykea & Courier Services",
   },
   {

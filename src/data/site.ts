@@ -99,9 +99,9 @@ export const SHIPPING_OPTIONS: Record<DeliveryLocation, {
   },
   nationwide: {
     label: "Nationwide Pakistan",
-    fee: 300,
+    fee: 450,
     method: "Courier",
-    description: "Nationwide — Rs. 300 via Courier",
+    description: "Nationwide — Rs. 450 via Courier",
   },
 };
 
@@ -225,7 +225,7 @@ export const faqs = [
   },
   {
     q: "What is your shipping fee?",
-    a: "Karachi delivery is Rs. 200 (via Bykea) and Nationwide Pakistan delivery is Rs. 300 (via Courier). Shipping is added directly to your order total at checkout.",
+    a: "Karachi delivery is Rs. 200 (via Bykea) and Nationwide Pakistan delivery is Rs. 450 (via Courier). Shipping is added directly to your order total at checkout.",
     category: "Shipping",
   },
   {

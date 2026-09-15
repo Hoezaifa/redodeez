@@ -120,7 +120,7 @@ function CartPage() {
               Checkout
             </Link>
             <p className="label-mono mt-4 text-muted-foreground">
-              Karachi Rs. 200 · Nationwide Rs. 300
+              Karachi Rs. 200 · Nationwide Rs. 450
             </p>
           </aside>
         </div>

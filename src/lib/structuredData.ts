@@ -136,7 +136,7 @@ export function productSchema(product: Product) {
           "@type": "OfferShippingDetails",
           shippingRate: {
             "@type": "MonetaryAmount",
-            value: 300,
+            value: 450,
             currency: "PKR",
           },
           shippingDestination: {

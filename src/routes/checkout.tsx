@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Smartphone, Building2, Download, Share2, ArrowLeft, Banknote } from "lucide-react";
+import { Check, Smartphone, Building2, Download, Share2, ArrowLeft, Banknote, Info } from "lucide-react";
 import { toPng } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site, SHIPPING_OPTIONS, type DeliveryLocation } from "@/data/site";
@@ -652,6 +652,16 @@ function Checkout() {
                       </div>
                     )}
                   </button>
+                </div>
+
+                {/* Custom Order Advance Notice */}
+                <div className="flex items-start gap-3.5 p-4 rounded-xl bg-zinc-900/60 border border-white/10 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  <Info className="w-5 h-5 text-zinc-400 shrink-0 mt-0.5" />
+                  <p>
+                    Custom orders require a{" "}
+                    <span className="text-orange-500 font-semibold">Rs. 500 advance</span>{" "}
+                    to begin processing. The remaining balance is payable upon completion.
+                  </p>
                 </div>
 
                 <div className="flex gap-3 pt-2">

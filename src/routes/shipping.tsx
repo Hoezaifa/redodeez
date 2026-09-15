@@ -10,12 +10,12 @@ export const Route = createFileRoute("/shipping")({
       {
         name: "description",
         content:
-          "Karachi Rs. 200 via Bykea, Nationwide Pakistan Rs. 300 via Courier. Orders take 2–3 working days to prepare before dispatch.",
+          "Karachi Rs. 200 via Bykea, Nationwide Pakistan Rs. 450 via Courier. Orders take 2–3 working days to prepare before dispatch.",
       },
       { property: "og:title", content: "Shipping & Delivery Policy — Deez Prints" },
       {
         property: "og:description",
-        content: "Karachi Rs. 200 (Bykea), Nationwide Rs. 300 (Courier). 2–3 working days preparation time.",
+        content: "Karachi Rs. 200 (Bykea), Nationwide Rs. 450 (Courier). 2–3 working days preparation time.",
       },
       { property: "og:url", content: `${SITE_URL}/shipping` },
       { property: "og:site_name", content: "Deez Prints" },
@@ -34,7 +34,7 @@ function Shipping() {
         <div className="rounded-xl border border-white/10 bg-surface/50 p-6 space-y-2">
           <Truck className="w-6 h-6 text-primary" />
           <p className="text-sm font-mono text-muted-foreground uppercase">Shipping Rates</p>
-          <p className="text-xl font-bold text-foreground">Karachi Rs. 200 | Nationwide Rs. 300</p>
+          <p className="text-xl font-bold text-foreground">Karachi Rs. 200 | Nationwide Rs. 450</p>
           <p className="text-xs text-muted-foreground">
             Karachi via Bykea | Rest of Pakistan via Courier
           </p>
@@ -74,7 +74,7 @@ function Shipping() {
                 <strong className="text-foreground font-semibold">Karachi (Rs. 200):</strong> Delivered directly to your doorstep via Bykea local courier.
               </li>
               <li>
-                <strong className="text-foreground font-semibold">Nationwide Pakistan (Rs. 300):</strong> Dispatched via reliable courier services across all provinces.
+                <strong className="text-foreground font-semibold">Nationwide Pakistan (Rs. 450):</strong> Dispatched via reliable courier services across all provinces.
               </li>
             </ul>
           </div>
