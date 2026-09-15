@@ -38,9 +38,9 @@ export function TickerRule() {
 
 export function CollectionsStrip() {
   const activeImages = useRef<Record<string, string>>({
-    "t-shirts": "/campaign/regular_tees_user.jpg",
-    "drop-shoulder": "/assets/collections/drop_shoulder_cover_v2.webp",
-    "acid-wash": "/assets/collections/acid_wash_cover_v2.webp",
+    "t-shirts": "/assets/collections/regular_tees_cover_v3.jpg",
+    "drop-shoulder": "/assets/collections/drop_shoulder_cover_v3.jpg",
+    "acid-wash": "/assets/collections/acid_wash_cover_v3.jpg",
   });
 
   const featuredCollections = [
