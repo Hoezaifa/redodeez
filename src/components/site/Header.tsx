@@ -52,7 +52,7 @@ export function Header() {
                   {[
                     "Karachi delivery Rs. 200 via Bykea",
                     "Nationwide Pakistan delivery Rs. 450 via Courier",
-                    "Meezan, Easypaisa & JazzCash accepted",
+                    "Meezan, Easypaisa, JazzCash & Raast accepted",
                     "7-day exchange",
                     "Printed in Karachi",
                   ].map((t) => (

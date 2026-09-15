@@ -26,15 +26,34 @@ export const site = {
 };
 
 export const bankDetails = {
+  easypaisa: {
+    id: "easypaisa" as const,
+    title: "Easypaisa",
+    accountTitle: "MUHAMMAD HUZAIFA RIAZ",
+    accountNumber: "03272487127",
+    logo: "/assets/payment/easypaisa.svg",
+  },
+  jazzcash: {
+    id: "jazzcash" as const,
+    title: "JazzCash",
+    accountTitle: "MUHAMMAD HUZAIFA RIAZ",
+    accountNumber: "03272487127",
+    logo: "/assets/payment/jazzcash.svg",
+  },
+  raast: {
+    id: "raast" as const,
+    title: "Raast",
+    accountTitle: "MUHAMMAD HUZAIFA RIAZ",
+    accountNumber: "03272487127",
+    logo: "/assets/payment/raast.svg",
+  },
   meezan: {
+    id: "meezan" as const,
+    title: "Meezan Bank",
     bankName: "Meezan Bank",
     accountTitle: "MUHAMMAD HUZAIFA RIAZ",
     accountNumber: "01890110481675",
-  },
-  easypaisa: {
-    title: "Easypaisa / JazzCash / Zindigi",
-    accountTitle: "MUHAMMAD HUZAIFA RIAZ",
-    accountNumber: "03272487127",
+    logo: "/assets/payment/meezan.svg",
   },
 };
 
@@ -79,7 +98,7 @@ export function whatsappLink(message: string) {
     : `https://www.instagram.com/deez_prints/`;
 }
 
-export const paymentMethods = ["Meezan Bank Transfer", "Easypaisa / JazzCash / Zindigi"];
+export const paymentMethods = ["Easypaisa", "JazzCash", "Raast", "Meezan Bank"];
 
 /* ─── Shipping / Delivery Configuration ─────────────────────── */
 
@@ -216,7 +235,7 @@ export const faqs = [
   {
     q: "What payment methods do you accept?",
     category: "Payments",
-    a: "We accept Direct Bank Transfers (Meezan Bank IBAN & App) as well as Mobile Wallet transfers via Easypaisa, JazzCash, and Zindigi. Simply transfer the order total and upload your transaction reference or screenshot at checkout or via WhatsApp for instant verification.",
+    a: "We accept Direct Bank Transfers (Meezan Bank) as well as Mobile Wallet transfers via Easypaisa, JazzCash, and Raast. Simply transfer the order total and upload your transaction reference or screenshot at checkout or via WhatsApp for instant verification.",
   },
   {
     q: "How long does delivery take?",

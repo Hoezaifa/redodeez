@@ -12,7 +12,7 @@ export const Route = createFileRoute("/payments")({
       {
         name: "description",
         content:
-          "Official payment guide for Deez Prints. Supported methods include Visa/Mastercard (IBAN), Meezan Bank Direct, Easypaisa, JazzCash, Zindigi, and Cash on Delivery.",
+          "Official payment guide for Deez Prints. Supported methods include Visa/Mastercard (IBAN), Meezan Bank Direct, Easypaisa, JazzCash, and Raast.",
       },
       { property: "og:title", content: "Payment Methods — Deez Prints" },
       {
@@ -88,7 +88,7 @@ function PaymentsPage() {
           </div>
         </Reveal>
 
-        {/* Mobile Wallets (Easypaisa / JazzCash / Zindigi) */}
+        {/* Mobile Wallets (Easypaisa / JazzCash / Raast) */}
         <Reveal delay={0.08}>
           <div className="h-full bg-zinc-950 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-emerald-500/50 transition-colors">
             <div className="space-y-4">
@@ -96,7 +96,7 @@ function PaymentsPage() {
                 <Smartphone className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-white uppercase tracking-wide">
-                Easypaisa &amp; JazzCash
+                Easypaisa, JazzCash &amp; Raast
               </h3>
               <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
                 Send money directly from your mobile wallet application in seconds.
@@ -104,7 +104,7 @@ function PaymentsPage() {
 
               <div className="bg-zinc-900 border border-white/5 rounded-xl p-4 space-y-2 text-xs font-mono">
                 <div className="flex justify-between text-zinc-400">
-                  <span>Wallets:</span> <span className="text-white font-bold">Easypaisa / JazzCash / Zindigi</span>
+                  <span>Wallets:</span> <span className="text-white font-bold">Easypaisa / JazzCash / Raast</span>
                 </div>
                 <div className="flex justify-between text-zinc-400">
                   <span>Title:</span> <span className="text-white font-bold">{bankDetails.easypaisa.accountTitle}</span>

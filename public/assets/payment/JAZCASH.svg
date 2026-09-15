@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 812 833">
+  <!-- Generator: Adobe Illustrator 29.3.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 151)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st0" x="32.2" y="101.5" width="693.8" height="587.1"/>
+    </clipPath>
+  </defs>
+  <g class="st1">
+    <image width="1024" height="1024" transform="translate(-133.2 10.8)" xlink:href="../new-Jazzcash-logo.png"/>
+  </g>
+</svg>
