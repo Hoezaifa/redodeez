@@ -270,11 +270,13 @@ export async function saveOrder(order: StoredOrder): Promise<StoredOrder> {
   }
   notify();
 
-  // Save to Neon DB via /api/orders (non-blocking)
+  // Save to Neon DB via /api/orders (awaited so server-side email notification completes)
   if (typeof window !== "undefined") {
-    apiPost({ order }).catch((err) => {
-      console.warn("Background DB save warning:", err);
-    });
+    try {
+      await apiPost({ order });
+    } catch (err) {
+      console.warn("DB save warning:", err);
+    }
   }
 
   return order;
