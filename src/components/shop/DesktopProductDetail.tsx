@@ -267,7 +267,7 @@ export function DesktopProductDetail({
                       : "border-border opacity-65 hover:opacity-100 hover:border-border-strong"
                   )}
                 >
-                  <img src={img} alt={`View ${idx + 1}`} className="w-full h-full object-cover" />
+                  <img src={img} alt={`${product.title} — view ${idx + 1}`} className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
