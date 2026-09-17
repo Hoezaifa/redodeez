@@ -105,95 +105,62 @@ export function CampaignCarousel() {
             onDragEnd={handleDragEnd}
             className="absolute inset-0 cursor-grab active:cursor-grabbing"
           >
-            {/* MOBILE: Full-bleed image with text overlay */}
-            <div className="md:hidden relative w-full h-full overflow-hidden">
-              <img
-                src={slide.image}
-                alt={slide.title2}
-                loading="lazy"
-                className={cn(
-                  "absolute inset-0 h-full w-full object-cover",
-                  slide.imagePosition || "object-top"
-                )}
-              />
-              {/* Strong bottom gradient for text legibility */}
-              <div
-                className="absolute inset-0 z-10"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.85) 30%, rgba(5,5,5,0.3) 60%, rgba(0,0,0,0.1) 100%)",
-                }}
-              />
-              {/* Text overlay at bottom */}
-              <div className="absolute inset-x-0 bottom-0 z-20 p-5 pb-14">
-                <div className="text-primary font-bold tracking-widest mb-2 text-xs">
-                  - - -
-                </div>
-                <h2 className="font-display text-4xl font-bold uppercase leading-none mb-2">
-                  <span className="text-white block">{slide.title1}</span>
-                  <span className="text-primary block">{slide.title2}</span>
-                </h2>
-                <p className="text-[11px] text-zinc-400 font-bold tracking-wider uppercase leading-relaxed mb-4 max-w-[280px]">
-                  {slide.description}
-                </p>
-                <Link
-                  to={slide.ctaTo}
-                  params={slide.ctaParams}
-                  className="group inline-flex items-center justify-center px-5 py-2.5 font-bold text-white uppercase tracking-widest text-[10px] rounded-lg bg-white/10 border border-white/20 backdrop-blur-sm transition-all duration-300 active:scale-95"
-                >
-                  <span className="flex items-center gap-2">
-                    {slide.buttonText}
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </span>
-                </Link>
-              </div>
-            </div>
-
-            {/* DESKTOP: Split layout (image left, text right) */}
-            <div className="hidden md:flex md:flex-row md:items-stretch w-full h-full">
-              {/* Left: Image */}
-              <div className="relative w-1/2 h-full overflow-hidden bg-black">
-                <div className="absolute inset-y-0 right-0 w-36 bg-gradient-to-l from-[#050505] via-[#050505]/70 to-transparent z-10 pointer-events-none" />
+            {/* Unified Responsive Slide Tree */}
+            <div className="relative w-full h-full flex flex-col justify-end md:flex-row md:items-stretch overflow-hidden bg-black">
+              {/* Image Container: full-bleed on mobile, left half on desktop */}
+              <div className="absolute inset-0 md:relative md:w-1/2 md:h-full overflow-hidden bg-black">
                 <img
                   src={slide.image}
                   alt={slide.title2}
                   loading="lazy"
                   className={cn(
                     "absolute inset-0 h-full w-full object-cover",
-                    slide.imagePosition || "object-[center_15%]"
+                    slide.imagePosition || "object-top md:object-[center_15%]"
                   )}
                 />
+                {/* Mobile bottom gradient for text legibility */}
+                <div
+                  className="md:hidden absolute inset-0 z-10 pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.85) 30%, rgba(5,5,5,0.3) 60%, rgba(0,0,0,0.1) 100%)",
+                  }}
+                />
+                {/* Desktop edge fade into dark right half */}
+                <div className="hidden md:block absolute inset-y-0 right-0 w-36 bg-gradient-to-l from-[#050505] via-[#050505]/70 to-transparent z-10 pointer-events-none" />
               </div>
 
-              {/* Right: Content */}
-              <div className="relative z-20 w-1/2 p-16 flex flex-col justify-center">
-                <div className="text-primary font-bold tracking-widest mb-4">
+              {/* Content Container: bottom overlay on mobile, right half centered on desktop */}
+              <div className="absolute inset-x-0 bottom-0 z-20 p-5 pb-14 md:relative md:inset-auto md:w-1/2 md:p-12 lg:p-16 flex flex-col justify-end md:justify-center">
+                <div className="text-primary font-bold tracking-widest text-xs mb-2 md:mb-4">
                   - - -
                 </div>
-                <h2
-                  className="text-6xl lg:text-[5.5rem] tracking-wide font-bold uppercase leading-none mb-6"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
+                <h2 className="font-display text-4xl md:text-6xl lg:text-[5.5rem] font-bold uppercase leading-none mb-2 md:mb-6 tracking-tight md:tracking-wide">
                   <span className="text-white block">{slide.title1}</span>
                   <span className="text-primary block">{slide.title2}</span>
                 </h2>
-
-                <p className="text-sm text-zinc-400 font-bold tracking-wider mb-8 uppercase leading-relaxed max-w-sm">
+                <p className="text-[11px] md:text-sm text-zinc-400 font-bold tracking-wider uppercase leading-relaxed mb-4 md:mb-8 max-w-[280px] md:max-w-sm">
                   {slide.description}
                 </p>
-
                 <div className="flex">
                   <Link
                     to={slide.ctaTo}
                     params={slide.ctaParams}
-                    className="group relative inline-flex items-center justify-center px-6 py-3 font-bold text-white uppercase tracking-widest text-xs rounded-lg bg-[#141414] border border-white/10 transition-all duration-300 hover:bg-white hover:text-black hover:border-white"
+                    className="group relative inline-flex items-center justify-center px-5 py-2.5 md:px-6 md:py-3 font-bold text-white uppercase tracking-widest text-[10px] md:text-xs rounded-lg bg-white/10 md:bg-[#141414] border border-white/20 md:border-white/10 backdrop-blur-sm md:backdrop-blur-none transition-all duration-300 active:scale-95 md:hover:bg-white md:hover:text-black md:hover:border-white"
                   >
                     <span className="relative z-10 flex items-center gap-2">
                       {slide.buttonText}
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="w-3 h-3 md:w-3.5 md:h-3.5 transition-transform group-hover:translate-x-1"
+                      >
                         <path d="M5 12h14" />
                         <path d="m12 5 7 7-7 7" />
                       </svg>
