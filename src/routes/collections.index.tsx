@@ -60,13 +60,17 @@ function ShopAll() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [moreOpen]);
 
-  const visibleCollections = collections.slice(0, VISIBLE_COUNT);
-  const overflowCollections = collections.slice(VISIBLE_COUNT);
+  const nonEmptyCollections = useMemo(() => {
+    return collections.filter((c) => allProducts.some((p) => c.match(p)));
+  }, [allProducts]);
+
+  const visibleCollections = nonEmptyCollections.slice(0, VISIBLE_COUNT);
+  const overflowCollections = nonEmptyCollections.slice(VISIBLE_COUNT);
   // Check if the currently active category is hidden inside "+More"
   const activeInOverflow = overflowCollections.some((c) => c.slug === cat);
 
   const list = useMemo(() => {
-    const c = collections.find((x) => x.slug === cat);
+    const c = nonEmptyCollections.find((x) => x.slug === cat);
     const filtered = c ? allProducts.filter((p) => c.match(p)) : allProducts;
     const sorted = [...filtered];
     if (sort === "price") {
@@ -234,7 +238,7 @@ function ShopAll() {
               >
                 All
               </button>
-              {collections.map((c) => (
+              {nonEmptyCollections.map((c) => (
                 <button
                   key={c.slug}
                   type="button"

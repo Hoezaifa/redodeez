@@ -14,7 +14,14 @@ export const Route = createFileRoute("/collections/$slug")({
     const collection = collections.find((c) => c.slug === params.slug);
     if (!collection) throw notFound();
     const allProducts = await getProducts();
-    return { slug: collection.slug, name: collection.name, blurb: collection.blurb, allProducts };
+    const productCount = allProducts.filter((p) => collection.match(p)).length;
+    return {
+      slug: collection.slug,
+      name: collection.name,
+      blurb: collection.blurb,
+      allProducts,
+      productCount,
+    };
   },
   head: ({ loaderData }) => {
     const name = loaderData?.name ?? "Collection";
@@ -25,11 +32,13 @@ export const Route = createFileRoute("/collections/$slug")({
     const url = `${SITE_URL}/collections/${loaderData?.slug ?? ""}`;
     const title = `${name} Collection — Deez Prints`;
     const desc = `${blurb} Shop ${name} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
+    const isEmpty = (loaderData?.productCount ?? 0) === 0;
 
     return {
       meta: [
         { title },
         { name: "description", content: desc },
+        ...(isEmpty ? [{ name: "robots", content: "noindex,follow" }] : []),
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
