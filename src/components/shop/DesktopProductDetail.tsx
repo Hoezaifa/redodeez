@@ -14,9 +14,11 @@ import {
   ShieldCheck,
   Clock,
   Info,
+  RotateCcw,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/data/products";
+import { site } from "@/data/site";
 import { formatPrice } from "@/lib/format";
 import { SizeChart } from "@/components/shop/SizeChart";
 import { ApparelAccordion } from "@/components/shop/ApparelAccordion";
@@ -78,6 +80,7 @@ export function DesktopProductDetail({
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const containerRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const totalImages = product.images.length;
   const currentSrc = product.images[carouselIdx] || product.images[0] || "";
@@ -109,6 +112,22 @@ export function DesktopProductDetail({
     setIsZoomed(false);
   }, [hasMultipleImages, totalImages]);
 
+  /* ── Touch Swiping ─────────────────────────── */
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null) return;
+    const diffX = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(diffX) > 40) {
+      if (diffX < 0) handleNext();
+      else handlePrev();
+    }
+    touchStartX.current = null;
+  };
+
   /* ── Zoom ──────────────────────────────────── */
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -129,7 +148,7 @@ export function DesktopProductDetail({
   };
 
   return (
-    <div className="grid grid-cols-2 gap-12 xl:gap-16">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
       {/* ═══════════════════ LEFT COLUMN: IMAGE ═══════════════════ */}
       <div className="space-y-4">
         <div
@@ -137,8 +156,10 @@ export function DesktopProductDetail({
           onClick={handleToggleZoom}
           onMouseMove={handleMouseMove}
           onMouseLeave={() => setIsZoomed(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           className={cn(
-            "relative aspect-square overflow-hidden border border-border bg-surface rounded-none group select-none transition-all duration-300",
+            "relative aspect-[4/5] sm:aspect-square overflow-hidden border border-border bg-surface rounded-none group select-none transition-all duration-300",
             isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"
           )}
         >
@@ -262,7 +283,7 @@ export function DesktopProductDetail({
         </p>
 
         {/* Title */}
-        <h1 className="font-display font-black text-4xl xl:text-5xl tracking-tight leading-[0.92] uppercase">
+        <h1 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl xl:text-5xl tracking-tight leading-tight lg:leading-[0.92] uppercase">
           {product.title}
         </h1>
 
@@ -287,7 +308,7 @@ export function DesktopProductDetail({
           <span className="text-border-strong">|</span>
           <div className="flex items-center gap-1.5">
             <Truck className="h-3.5 w-3.5 text-muted-foreground/60" />
-            <span>Free delivery on orders above Rs. 8,000</span>
+            <span>Free delivery on orders above Rs. {site.freeShippingThreshold.toLocaleString()}</span>
           </div>
           <span className="text-border-strong">|</span>
           <div className="flex items-center gap-1.5">
@@ -442,8 +463,39 @@ export function DesktopProductDetail({
           </button>
         </div>
 
-        {/* ── Secure Checkout Badge ───────────────── */}
-        <div className="flex items-center justify-center gap-2 border border-border rounded-none py-3 text-xs text-muted-foreground font-mono">
+        {/* ── Mobile Trust Bar ───────────────────── */}
+        <div className="grid grid-cols-3 gap-2 border-t border-border pt-4 lg:hidden">
+          <div className="flex flex-col items-center text-center gap-1.5">
+            <ShieldCheck className="h-4 w-4 text-primary" />
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-foreground">
+              Premium Quality
+            </span>
+            <span className="text-[10px] text-muted-foreground leading-tight">
+              Built to last
+            </span>
+          </div>
+          <div className="flex flex-col items-center text-center gap-1.5">
+            <RotateCcw className="h-4 w-4 text-primary" />
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-foreground">
+              Easy Returns
+            </span>
+            <span className="text-[10px] text-muted-foreground leading-tight">
+              7 days return
+            </span>
+          </div>
+          <div className="flex flex-col items-center text-center gap-1.5">
+            <ShieldCheck className="h-4 w-4 text-primary" />
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-foreground">
+              Secure Payments
+            </span>
+            <span className="text-[10px] text-muted-foreground leading-tight">
+              100% secure checkout
+            </span>
+          </div>
+        </div>
+
+        {/* ── Desktop Secure Checkout Badge ───────────────── */}
+        <div className="hidden lg:flex items-center justify-center gap-2 border border-border rounded-none py-3 text-xs text-muted-foreground font-mono">
           <ShieldCheck className="h-4 w-4 text-emerald-500" />
           <span className="uppercase tracking-wider font-semibold">100% Secure Checkout</span>
           <ShieldCheck className="h-4 w-4 text-emerald-500 ml-auto" />
@@ -455,9 +507,25 @@ export function DesktopProductDetail({
         ) : (
           <div className="mt-8 border-t border-border/60">
             <AccordionItem title="Materials & Details">
-              {product.subcategory === "tapestries" || product.subcategory === "flags"
-                ? "100% High-definition digital sublimation printed satin wall tapestry with clean hemmed edges."
-                : "Premium quality materials with precision printing and durable finishing."}
+              {product.subcategory === "tapestries" || product.subcategory === "flags" ? (
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Dimensions: Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation — vertical or horizontal</li>
+                  <li>Material: Premium High-Density Satin Fabric (Smooth, Soft & Durable)</li>
+                  <li>Printing: High-Definition Digital Sublimation Printing (Ultra-vibrant, edge-to-edge color)</li>
+                  <li>Hanging & Setup: Reinforced Brass Metal Grommets at corners for effortless wall mounting</li>
+                  <li>Care & Maintenance: Machine washable, fade-resistant, wrinkle-free drape</li>
+                  <li>Usage: Premium Wall Art & Room Aesthetic Decor (Decorative Tapestry — Non-apparel)</li>
+                </ul>
+              ) : product.subcategory === "mugs" ? (
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Material: High-grade, heat-resistant Ceramic with Polymer Coating.</li>
+                  <li>Finish: High-gloss white for vibrant, full-color reproduction.</li>
+                  <li>Durability: Fade-resistant, scratch-resistant, built for daily use.</li>
+                  <li>Capacity: Standard 11oz (325ml).</li>
+                </ul>
+              ) : (
+                "Premium quality materials with precision printing and durable finishing."
+              )}
             </AccordionItem>
             <AccordionItem title="Shipping Information">
               <p>
@@ -480,3 +548,6 @@ export function DesktopProductDetail({
     </div>
   );
 }
+
+export { DesktopProductDetail as ProductDetail };
+

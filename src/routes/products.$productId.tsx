@@ -1,9 +1,6 @@
 import { createFileRoute, Link, useNavigate, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Heart, Minus, Plus, ShoppingCart, ArrowRight, ChevronDown } from "lucide-react";
-import { AccordionItem } from "@/components/shop/AccordionItem";
-import { ApparelAccordion } from "@/components/shop/ApparelAccordion";
 import { getProducts, type Product } from "@/data/products";
 import {
   site,
@@ -23,10 +20,8 @@ import {
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
 import { ProductCard } from "@/components/shop/ProductCard";
-import { ProductZoomImage } from "@/components/shop/ProductZoomImage";
 import { SizeChart } from "@/components/shop/SizeChart";
-import { MobileProductDetail } from "@/components/shop/MobileProductDetail";
-import { DesktopProductDetail } from "@/components/shop/DesktopProductDetail";
+import { ProductDetail } from "@/components/shop/DesktopProductDetail";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema, breadcrumbSchema } from "@/lib/structuredData";
@@ -82,12 +77,6 @@ export const Route = createFileRoute("/products/$productId")({
   },
   component: ProductPage,
 });
-
-/* ─── Helper: is this an apparel product? ────────────────── */
-const APPAREL_CATEGORIES = new Set(["t-shirts", "hoodies"]);
-function isApparelProduct(p: { category: string; subcategory: string }) {
-  return APPAREL_CATEGORIES.has(p.category);
-}
 
 function ProductPage() {
   const { product, allProducts } = Route.useLoaderData();
@@ -196,129 +185,9 @@ function ProductPage() {
     navigate({ to: "/checkout" });
   }
 
-  // Material helpers matching old site PDP
-  const getMaterialsText = () => {
-    if (product.subcategory === "tapestries" || product.subcategory === "flags") {
-      return (
-        <ul className="list-disc list-inside space-y-1">
-          <li>Dimensions: Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation — vertical or horizontal</li>
-          <li>Material: Premium High-Density Satin Fabric (Smooth, Soft & Durable)</li>
-          <li>Printing: High-Definition Digital Sublimation Printing (Ultra-vibrant, edge-to-edge color)</li>
-          <li>Hanging & Setup: Reinforced Brass Metal Grommets at corners for effortless wall mounting</li>
-          <li>Care & Maintenance: Machine washable, fade-resistant, wrinkle-free drape</li>
-          <li>Usage: Premium Wall Art & Room Aesthetic Decor (Decorative Tapestry — Non-apparel)</li>
-        </ul>
-      );
-    }
-    if (product.subcategory === "mugs") {
-      return (
-        <ul className="list-disc list-inside space-y-1">
-          <li>Material: High-grade, heat-resistant Ceramic with Polymer Coating.</li>
-          <li>Finish: High-gloss white for vibrant, full-color reproduction.</li>
-          <li>Durability: Fade-resistant, scratch-resistant, built for daily use.</li>
-          <li>Capacity: Standard 11oz (325ml).</li>
-        </ul>
-      );
-    }
-    if (product.category === "hoodies") {
-      return (
-        <ul className="list-disc list-inside space-y-1">
-          <li>High GSM Cotton Fleece Fabric for maximum winter warmth</li>
-          <li>DTF Prints — Washable and Super Long Lasting</li>
-          <li>Print/Design size varies proportionally per design</li>
-          <li>Color of hoodie and print might vary slightly from mockup</li>
-        </ul>
-      );
-    }
-    return (
-      <ul className="list-disc list-inside space-y-1">
-        <li>Heavyweight High GSM Premium Cotton Blend</li>
-        <li>Direct to Film (DTF) prints — ultra-durable and washable</li>
-        <li>Streetwear oversized fit designed for comfort</li>
-        <li>Precision stitching and long-lasting fabric structure</li>
-      </ul>
-    );
-  };
-
-  return (
-    <div className="pt-16 sm:pt-20 md:pt-28 pb-12 md:pb-16">
-      <JsonLd data={productSchema(product)} />
-      <JsonLd data={breadcrumbSchema(breadcrumbs)} />
-
-      {/* ═══════════════════════════════════════════════════════
-          MOBILE LAYOUT (< lg)
-          ═══════════════════════════════════════════════════════ */}
-      <div className="lg:hidden">
-        {/* Mobile Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="label-mono text-muted-foreground px-5 pb-3 pt-2">
-          <Link to="/" className="hover:text-primary">Home</Link>{" "}
-          /{" "}
-          <Link to="/collections" className="hover:text-primary">Shop</Link>{" "}
-          / <span className="text-foreground">{product.title}</span>
-        </nav>
-
-        <MobileProductDetail
-          product={product}
-          availableColors={availableColors}
-          availableSizes={availableSizes}
-          selectedColor={selectedColor}
-          setSelectedColor={setSelectedColor}
-          size={size}
-          setSize={setSize}
-          qty={qty}
-          setQty={setQty}
-          err={err}
-          setErr={setErr}
-          colorErr={colorErr}
-          setColorErr={setColorErr}
-          handleAdd={handleAdd}
-          handleBuyNow={handleBuyNow}
-          needsSize={needsSize}
-          needsColor={needsColor}
-          isDropShoulder={isDropShoulder}
-          isAcidWash={isAcidWash}
-          showSizeChart={showSizeChart}
-          setShowSizeChart={setShowSizeChart}
-        />
-
-        {/* Mobile: Apparel Accordion */}
-        {isApparelProduct(product) && (
-          <div className="px-5">
-            <ApparelAccordion product={product} />
-          </div>
-        )}
-
-        {/* Mobile: Non-Apparel Accordion */}
-        {!isApparelProduct(product) && (
-          <div className="px-5 mt-4">
-            <div className="border-t border-border/60">
-              <AccordionItem title="Materials & Details">{getMaterialsText()}</AccordionItem>
-              <AccordionItem title="Shipping Information">
-                <p>
-                  Standard delivery time is 3-5 working days across Pakistan, and 2-4 working days for
-                  Karachi. You will receive an instant order notification & confirmation update.
-                </p>
-              </AccordionItem>
-              <AccordionItem title="Refund & Exchange">
-                <p className="mb-2">
-                  We replace any defective or damaged products immediately upon delivery.
-                </p>
-                <p>
-                  For size adjustments or support, contact our team via WhatsApp or email at{" "}
-                  <span className="text-primary font-mono">deezprints69@gmail.com</span>.
-                </p>
-              </AccordionItem>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* ═══════════════════════════════════════════════════════
-          DESKTOP LAYOUT (>= lg)
-          ═══════════════════════════════════════════════════════ */}
-      <div className="hidden lg:block edge">
+      <div className="edge">
         {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="label-mono text-muted-foreground mb-8">
+        <nav aria-label="Breadcrumb" className="label-mono text-muted-foreground mb-6 lg:mb-8">
           <Link to="/" className="hover:text-primary">
             Home
           </Link>{" "}
@@ -329,7 +198,7 @@ function ProductPage() {
           / <span className="text-foreground">{product.title}</span>
         </nav>
 
-        <DesktopProductDetail
+        <ProductDetail
           product={product}
           availableColors={availableColors}
           availableSizes={availableSizes}
