@@ -34,6 +34,9 @@ export const Route = createFileRoute("/collections/$slug")({
     const desc = `${blurb} Shop ${name} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
     const isEmpty = (loaderData?.productCount ?? 0) === 0;
 
+    const rawCollectionImg = collectionObj?.image;
+    const isSelfHostedImg = rawCollectionImg?.startsWith("/assets/") || rawCollectionImg?.startsWith("/");
+
     return {
       meta: [
         { title },
@@ -46,9 +49,13 @@ export const Route = createFileRoute("/collections/$slug")({
         { property: "og:site_name", content: "Deez Prints" },
         { property: "og:image", content: ogImgUrl },
         { property: "og:image:secure_url", content: ogImgUrl },
-        { property: "og:image:width", content: "1200" },
-        { property: "og:image:height", content: "630" },
-        { property: "og:image:type", content: "image/jpeg" },
+        ...(!isSelfHostedImg
+          ? [
+              { property: "og:image:width", content: "1200" },
+              { property: "og:image:height", content: "630" },
+              { property: "og:image:type", content: "image/jpeg" },
+            ]
+          : []),
         { property: "og:image:alt", content: `${name} — Deez Prints` },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:site", content: "@deez_prints" },
