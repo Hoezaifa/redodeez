@@ -873,7 +873,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-sakuna",
-    "title": "Sukuna Cursed Acid Wash Tee",
+    "title": "Sukuna Cursed Acid Wash Tee - Dark Edition",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -937,7 +937,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-sukuna",
-    "title": "Sukuna Cursed Acid Wash Tee",
+    "title": "Sukuna Cursed Acid Wash Tee - Mineral Grey Edition",
     "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -1201,7 +1201,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-curse-whtie",
-    "title": "Sukuna Cursed Drop Shoulder Tee",
+    "title": "Sukuna Cursed Inscription Drop Shoulder Tee",
     "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1799,7 +1799,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-naruto-5",
-    "title": "Itachi Akatsuki Drop Shoulder Tee",
+    "title": "Itachi Akatsuki Drop Shoulder Tee - Edition II",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1818,7 +1818,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-naruto-6",
-    "title": "Itachi Akatsuki Drop Shoulder Tee",
+    "title": "Itachi Akatsuki Drop Shoulder Tee - Edition III",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1855,7 +1855,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-regular-series",
-    "title": "Garou Kaijin Drop Shoulder Tee",
+    "title": "Garou Kaijin Series Drop Shoulder Tee",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -2591,7 +2591,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-luffy-1",
-    "title": "LUFFY GEAR 5 REGULAR TEE",
+    "title": "LUFFY GEAR 5 REGULAR TEE - EDITION I",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2610,7 +2610,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-luffy-2",
-    "title": "LUFFY GEAR 5 REGULAR TEE",
+    "title": "LUFFY GEAR 5 REGULAR TEE - EDITION II",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2742,7 +2742,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-naruto-3",
-    "title": "ITACHI AKATSUKI REGULAR TEE",
+    "title": "ITACHI AKATSUKI REGULAR TEE - EDITION I",
     "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2941,7 +2941,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-3",
-    "title": "ITACHI AKATSUKI REGULAR TEE",
+    "title": "ITACHI AKATSUKI REGULAR TEE - EDITION II",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2977,7 +2977,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-uchiha-5",
-    "title": "ITACHI AKATSUKI REGULAR TEE",
+    "title": "ITACHI AKATSUKI REGULAR TEE - EDITION III",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
