@@ -37,10 +37,12 @@ if (!sitemapContent.includes('<priority>') && !sitemapContent.includes('<changef
   process.exit(1);
 }
 
-if (sitemapContent.includes('<lastmod>')) {
-  console.log('✅ <lastmod> tag is included for URLs!');
+const productsContent = fs.readFileSync(path.join(process.cwd(), 'src/data/products.ts'), 'utf-8');
+
+if (sitemapContent.includes('lastmodXml') && !sitemapContent.includes('new Date()') && !productsContent.includes('new Date().toISOString()')) {
+  console.log('✅ Conditional <lastmod> output supported without forced current-time fallback!');
 } else {
-  console.error('❌ Sitemap missing <lastmod> tags!');
+  console.error('❌ Sitemap or products logic contains forced new Date() fallback or lacks conditional lastmod output!');
   process.exit(1);
 }
 

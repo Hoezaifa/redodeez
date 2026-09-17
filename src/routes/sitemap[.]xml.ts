@@ -5,7 +5,7 @@ import { getProductsWithTimestamps } from "@/data/products";
 
 interface SitemapEntry {
   path: string;
-  lastmod: string;
+  lastmod?: string;
   images?: Array<{ url: string; title?: string }>;
 }
 
@@ -18,7 +18,7 @@ function toAbsoluteImageUrl(url: string): string {
   return `${SITE_URL}${cleanPath}`;
 }
 
-function getSiteMtime(): string {
+function getSiteMtime(): string | undefined {
   if (typeof window === "undefined") {
     try {
       const fs = require("node:fs");
@@ -31,7 +31,7 @@ function getSiteMtime(): string {
       /* fallback */
     }
   }
-  return new Date().toISOString();
+  return undefined;
 }
 
 export const Route = createFileRoute("/sitemap.xml")({
@@ -44,6 +44,11 @@ export const Route = createFileRoute("/sitemap.xml")({
         // Only index products that are published and have at least one image
         const activeProducts = allProducts.filter(
           (p) => p.images && p.images.length > 0 && (p as any).published !== false
+        );
+
+        // Only emit collections that have at least one matching active product
+        const activeCollections = collections.filter((c) =>
+          activeProducts.some((p) => c.match(p))
         );
 
         const staticPaths = [
@@ -65,11 +70,11 @@ export const Route = createFileRoute("/sitemap.xml")({
         const entries: SitemapEntry[] = [
           ...staticPaths.map((path) => ({
             path,
-            lastmod: siteLastMod,
+            ...(siteLastMod ? { lastmod: siteLastMod } : {}),
           })),
-          ...collections.map((c) => ({
+          ...activeCollections.map((c) => ({
             path: `/collections/${c.slug}`,
-            lastmod: siteLastMod,
+            ...(siteLastMod ? { lastmod: siteLastMod } : {}),
           })),
           ...activeProducts.map((p) => {
             const seen = new Set<string>();
@@ -88,7 +93,7 @@ export const Route = createFileRoute("/sitemap.xml")({
 
             return {
               path: `/products/${p.id}`,
-              lastmod: p.lastmod || siteLastMod,
+              ...(p.lastmod ? { lastmod: p.lastmod } : {}),
               images,
             };
           }),
@@ -96,6 +101,7 @@ export const Route = createFileRoute("/sitemap.xml")({
 
         const urls = entries.map((e) => {
           const loc = `${SITE_URL}${e.path}`;
+          const lastmodXml = e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null;
           const imageXml = e.images
             ? e.images
                 .map(
@@ -108,7 +114,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           return [
             `  <url>`,
             `    <loc>${escapeXml(loc)}</loc>`,
-            `    <lastmod>${e.lastmod}</lastmod>`,
+            lastmodXml,
             imageXml,
             `  </url>`,
           ]

@@ -4194,7 +4194,7 @@ export async function getProducts(): Promise<Product[]> {
 }
 
 export type ProductWithTimestamp = Product & {
-  lastmod: string;
+  lastmod?: string;
 };
 
 /**
@@ -4212,20 +4212,6 @@ export async function getProductsWithTimestamps(): Promise<ProductWithTimestamp[
     console.warn("Failed to fetch product overrides with metadata:", err);
   }
 
-  let baseCatalogLastMod = new Date().toISOString();
-  if (typeof window === "undefined") {
-    try {
-      const fs = await import("node:fs");
-      const path = await import("node:path");
-      const filePath = path.resolve(process.cwd(), "src/data/products.ts");
-      if (fs.existsSync(filePath)) {
-        baseCatalogLastMod = fs.statSync(filePath).mtime.toISOString();
-      }
-    } catch {
-      /* fallback */
-    }
-  }
-
   const overridesMap: Record<string, ProductOverrideData> = {};
   for (const [id, meta] of Object.entries(dbMetadata)) {
     if (meta && meta.data) {
@@ -4237,10 +4223,10 @@ export async function getProductsWithTimestamps(): Promise<ProductWithTimestamp[
 
   return merged.map((p) => {
     const meta = dbMetadata[p.id];
-    const lastmod = meta?.updatedAt || baseCatalogLastMod;
+    const lastmod = meta?.updatedAt;
     return {
       ...p,
-      lastmod,
+      ...(lastmod ? { lastmod } : {}),
     };
   });
 }
