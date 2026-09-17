@@ -17,7 +17,7 @@ export const Route = createFileRoute("/checkout")({
       {
         name: "description",
         content:
-          "Complete your Deez Prints order with Meezan Bank transfer, Easypaisa, or JazzCash.",
+          "Complete your Deez Prints order with Meezan Bank transfer, Easypaisa, JazzCash, or Raast.",
       },
       { name: "robots", content: "noindex, nofollow" },
     ],

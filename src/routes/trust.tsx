@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { site, whatsappLink, SITE_URL } from "@/data/site";
+import { site, whatsappLink, SITE_URL, SHIPPING_OPTIONS } from "@/data/site";
 import { SectionHeading } from "@/components/shop/ProductRow";
 
 export const Route = createFileRoute("/trust")({
@@ -47,7 +47,7 @@ const trustSignals = [
   {
     icon: Truck,
     title: "Nationwide Shipping",
-    desc: "Orders take 2–3 working days to prepare before dispatch. Karachi Rs. 200 via Bykea, Nationwide Rs. 450 via Courier.",
+    desc: `Orders take 2–3 working days to prepare before dispatch. Karachi Rs. ${SHIPPING_OPTIONS.karachi.fee} via ${SHIPPING_OPTIONS.karachi.method}, Nationwide Rs. ${SHIPPING_OPTIONS.nationwide.fee} via ${SHIPPING_OPTIONS.nationwide.method}.`,
     badge: "Bykea & Courier Services",
   },
   {

@@ -4,7 +4,7 @@ import { X, Minus, Plus } from "lucide-react";
 import { useMemo } from "react";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
-import { site } from "@/data/site";
+import { site, SHIPPING_OPTIONS } from "@/data/site";
 import { products } from "@/data/products";
 
 export function CartDrawer() {
@@ -62,7 +62,7 @@ export function CartDrawer() {
                 {/* Shipping info */}
                 <div className="border-b border-border px-5 py-3">
                   <p className="text-xs text-muted-foreground">
-                    Shipping: <span className="text-primary font-semibold">Karachi Rs. 200</span> · <span className="text-primary font-semibold">Nationwide Rs. 450</span>
+                    Shipping: <span className="text-primary font-semibold">Karachi Rs. {SHIPPING_OPTIONS.karachi.fee}</span> · <span className="text-primary font-semibold">Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}</span>
                   </p>
                 </div>
 
@@ -185,7 +185,7 @@ export function CartDrawer() {
                     </span>
                   </div>
                   <p className="label-mono mt-2 text-muted-foreground">
-                    Karachi Rs. 200 · Nationwide Rs. 450
+                    Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}
                   </p>
                   <div className="mt-5 grid gap-2">
                     <Link

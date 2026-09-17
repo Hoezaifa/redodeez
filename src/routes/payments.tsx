@@ -17,7 +17,7 @@ export const Route = createFileRoute("/payments")({
       { property: "og:title", content: "Payment Methods — Deez Prints" },
       {
         property: "og:description",
-        content: "Pay securely via Meezan Bank, Easypaisa, JazzCash, or Card.",
+        content: "Pay securely via Meezan Bank, Easypaisa, JazzCash, Raast, or Card.",
       },
       { property: "og:url", content: `${SITE_URL}/payments` },
       { property: "og:site_name", content: "Deez Prints" },
@@ -171,7 +171,7 @@ function PaymentsPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            ["01", "Select Method", "Choose Meezan Bank, Easypaisa, or JazzCash at checkout."],
+            ["01", "Select Method", "Choose Meezan Bank, Easypaisa, JazzCash, or Raast at checkout."],
             ["02", "Transfer Funds", "Transfer the exact order total using the account details above."],
             ["03", "Keep Receipt", "Save the transaction reference number or take a screenshot."],
             ["04", "Instant Confirm", "Enter reference at checkout or WhatsApp us for instant dispatch."],

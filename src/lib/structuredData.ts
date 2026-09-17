@@ -6,7 +6,7 @@
  * Never uses window.location.origin or request Host for canonical URLs.
  */
 
-import { site, SITE_URL } from "@/data/site";
+import { site, SITE_URL, SHIPPING_OPTIONS } from "@/data/site";
 import type { Product } from "@/data/products";
 
 /** Organization schema — appears in Google Knowledge Panel & Search Entities */
@@ -108,7 +108,7 @@ export function productSchema(product: Product) {
           "@type": "OfferShippingDetails",
           shippingRate: {
             "@type": "MonetaryAmount",
-            value: 200,
+            value: SHIPPING_OPTIONS.karachi.fee,
             currency: "PKR",
           },
           shippingDestination: {
@@ -136,7 +136,7 @@ export function productSchema(product: Product) {
           "@type": "OfferShippingDetails",
           shippingRate: {
             "@type": "MonetaryAmount",
-            value: 450,
+            value: SHIPPING_OPTIONS.nationwide.fee,
             currency: "PKR",
           },
           shippingDestination: {

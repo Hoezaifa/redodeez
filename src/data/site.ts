@@ -333,7 +333,7 @@ export const COLOR_HEX_MAP: Record<string, string> = {
 export const usps = [
   { title: "Premium Quality", body: "Top-notch fabric & prints" },
   { title: "Fast Dispatch", body: "2–3 days prep before dispatch" },
-  { title: "Secure Payments", body: "Meezan, Easypaisa & JazzCash" },
+  { title: "Secure Payments", body: "Meezan, Easypaisa, JazzCash & Raast" },
   { title: "Easy Returns", body: "7-day exchange policy" },
 ];
 

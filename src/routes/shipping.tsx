@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/shop/ProductRow";
-import { paymentMethods, site, SITE_URL } from "@/data/site";
+import { paymentMethods, site, SITE_URL, SHIPPING_OPTIONS } from "@/data/site";
 import { Truck, Clock, ShieldCheck, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/shipping")({
@@ -34,7 +34,7 @@ function Shipping() {
         <div className="rounded-xl border border-white/10 bg-surface/50 p-6 space-y-2">
           <Truck className="w-6 h-6 text-primary" />
           <p className="text-sm font-mono text-muted-foreground uppercase">Shipping Rates</p>
-          <p className="text-xl font-bold text-foreground">Karachi Rs. 200 | Nationwide Rs. 450</p>
+          <p className="text-xl font-bold text-foreground">Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} | Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}</p>
           <p className="text-xs text-muted-foreground">
             Karachi via Bykea | Rest of Pakistan via Courier
           </p>
@@ -71,10 +71,10 @@ function Shipping() {
             </p>
             <ul className="list-disc pl-5 text-muted-foreground space-y-2">
               <li>
-                <strong className="text-foreground font-semibold">Karachi (Rs. 200):</strong> Delivered directly to your doorstep via Bykea local courier.
+                <strong className="text-foreground font-semibold">Karachi (Rs. {SHIPPING_OPTIONS.karachi.fee}):</strong> Delivered directly to your doorstep via Bykea local courier.
               </li>
               <li>
-                <strong className="text-foreground font-semibold">Nationwide Pakistan (Rs. 450):</strong> Dispatched via reliable courier services across all provinces.
+                <strong className="text-foreground font-semibold">Nationwide Pakistan (Rs. {SHIPPING_OPTIONS.nationwide.fee}):</strong> Dispatched via reliable courier services across all provinces.
               </li>
             </ul>
           </div>

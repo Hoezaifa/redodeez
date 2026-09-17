@@ -2,7 +2,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useState, useEffect } from "react";
 import { Search, Heart, ShoppingBag, Menu, X, Check } from "lucide-react";
-import { LOGO_URL, navLinks } from "@/data/site";
+import { LOGO_URL, navLinks, SHIPPING_OPTIONS } from "@/data/site";
 import { useCart } from "@/lib/cart";
 import { SearchModal } from "@/components/site/SearchModal";
 import { formatPrice } from "@/lib/format";
@@ -50,8 +50,8 @@ export function Header() {
               {Array.from({ length: 2 }).map((_, k) => (
                 <div key={k} className="flex shrink-0 gap-16">
                   {[
-                    "Karachi delivery Rs. 200 via Bykea",
-                    "Nationwide Pakistan delivery Rs. 450 via Courier",
+                    `Karachi delivery Rs. ${SHIPPING_OPTIONS.karachi.fee} via ${SHIPPING_OPTIONS.karachi.method}`,
+                    `${SHIPPING_OPTIONS.nationwide.label} delivery Rs. ${SHIPPING_OPTIONS.nationwide.fee} via ${SHIPPING_OPTIONS.nationwide.method}`,
                     "Meezan, Easypaisa, JazzCash & Raast accepted",
                     "7-day exchange",
                     "Printed in Karachi",

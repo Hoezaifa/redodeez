@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Minus, Plus, X } from "lucide-react";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
-import { site } from "@/data/site";
+import { site, SHIPPING_OPTIONS } from "@/data/site";
 import { SectionHeading } from "@/components/shop/ProductRow";
 
 export const Route = createFileRoute("/cart")({
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/cart")({
       {
         name: "description",
         content:
-          "Review the pieces in your Deez Prints bag, adjust sizes and quantities, then check out with Meezan Bank, Easypaisa, or JazzCash.",
+          "Review the pieces in your Deez Prints bag, adjust sizes and quantities, then check out with Meezan Bank, Easypaisa, JazzCash, or Raast.",
       },
       { property: "og:title", content: "Your Bag — Deez Prints" },
       { property: "og:description", content: "Review your Deez Prints order before checkout." },
@@ -103,7 +103,7 @@ function CartPage() {
               </div>
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Shipping</dt>
-                <dd className="text-muted-foreground text-xs">from Rs. 200</dd>
+                <dd className="text-muted-foreground text-xs">from Rs. {SHIPPING_OPTIONS.karachi.fee}</dd>
               </div>
             </dl>
             <p className="mt-3 text-[11px] text-amber-400/80 leading-relaxed">
@@ -120,7 +120,7 @@ function CartPage() {
               Checkout
             </Link>
             <p className="label-mono mt-4 text-muted-foreground">
-              Karachi Rs. 200 · Nationwide Rs. 450
+              Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}
             </p>
           </aside>
         </div>
