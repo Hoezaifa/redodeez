@@ -72,10 +72,21 @@ export const Route = createFileRoute("/sitemap.xml")({
             path,
             ...(siteLastMod ? { lastmod: siteLastMod } : {}),
           })),
-          ...activeCollections.map((c) => ({
-            path: `/collections/${c.slug}`,
-            ...(siteLastMod ? { lastmod: siteLastMod } : {}),
-          })),
+          ...activeCollections.map((c) => {
+            const absUrl = toAbsoluteImageUrl(c.image);
+            return {
+              path: `/collections/${c.slug}`,
+              ...(siteLastMod ? { lastmod: siteLastMod } : {}),
+              images: absUrl
+                ? [
+                    {
+                      url: absUrl,
+                      title: c.name,
+                    },
+                  ]
+                : undefined,
+            };
+          }),
           ...activeProducts.map((p) => {
             const seen = new Set<string>();
             const images: Array<{ url: string; title: string }> = [];
