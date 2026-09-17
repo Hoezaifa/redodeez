@@ -22,10 +22,10 @@ if (robotsContent.includes('Sitemap: https://deezprints.com/sitemap.xml')) {
   process.exit(1);
 }
 
-if (robotsContent.includes('Disallow: /admin') && robotsContent.includes('Disallow: /cart') && robotsContent.includes('Disallow: /api/')) {
-  console.log('✅ robots.txt correctly excludes private/internal routes');
+if (robotsContent.includes('Disallow: /api/') && !robotsContent.includes('Disallow: /cart') && !robotsContent.includes('Disallow: /admin')) {
+  console.log('✅ robots.txt correctly excludes only /api/ (private routes use X-Robots-Tag instead)');
 } else {
-  console.error('❌ robots.txt missing disallow rules!');
+  console.error('❌ robots.txt has incorrect disallow rules! Should only disallow /api/');
   process.exit(1);
 }
 

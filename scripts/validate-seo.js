@@ -50,13 +50,18 @@ check("Zero references to deezus.vercel.app in src/ and api/", () => {
   return true;
 });
 
-// 3. robots.txt has absolute sitemap and /admin block
-check("robots.txt blocks /admin and references absolute sitemap URL", () => {
+// 3. robots.txt has absolute sitemap AND does NOT disallow crawlable private routes
+//    (private routes use HTML noindex + X-Robots-Tag instead of Disallow)
+check("robots.txt references absolute sitemap URL and does NOT disallow private routes", () => {
   const content = fs.readFileSync(path.join(rootDir, "public/robots.txt"), "utf8");
-  return (
-    content.includes("Disallow: /admin") &&
-    content.includes("Sitemap: https://deezprints.com/sitemap.xml")
-  );
+  const hasSitemap = content.includes("Sitemap: https://deezprints.com/sitemap.xml");
+  const hasApi = content.includes("Disallow: /api/");
+  const noCart = !content.includes("Disallow: /cart");
+  const noCheckout = !content.includes("Disallow: /checkout");
+  const noWishlist = !content.includes("Disallow: /wishlist");
+  const noAccount = !content.includes("Disallow: /account");
+  const noAdmin = !content.includes("Disallow: /admin");
+  return hasSitemap && hasApi && noCart && noCheckout && noWishlist && noAccount && noAdmin;
 });
 
 // 4. structuredData.ts uses SITE_URL and has no fake aggregateRating property
@@ -122,6 +127,21 @@ check("All main route files reference SITE_URL for canonical links", () => {
     if (!content.includes("SITE_URL")) {
       throw new Error(`Missing SITE_URL import or usage in ${f}`);
     }
+  }
+  return true;
+});
+
+// 9. vercel.json has X-Robots-Tag: noindex for private routes
+check("vercel.json adds X-Robots-Tag: noindex header for /cart, /checkout, /wishlist, /account", () => {
+  const content = fs.readFileSync(path.join(rootDir, "vercel.json"), "utf8");
+  const config = JSON.parse(content);
+  const headers = config.headers || [];
+  const privatePaths = ["/cart", "/checkout", "/wishlist", "/account"];
+  for (const p of privatePaths) {
+    const entry = headers.find((h) => h.source === p);
+    if (!entry) throw new Error(`Missing header entry for ${p}`);
+    const tag = entry.headers.find((h) => h.key === "X-Robots-Tag");
+    if (!tag || tag.value !== "noindex") throw new Error(`Missing or wrong X-Robots-Tag for ${p}`);
   }
   return true;
 });

@@ -17,7 +17,7 @@ export function organizationSchema() {
     name: "Deez Prints",
     alternateName: ["Deez", "Deez Prints Pakistan"],
     url: SITE_URL,
-    logo: `${SITE_URL}/assets/logo/deez-logo.svg`,
+    logo: `${SITE_URL}/assets/logo.svg`,
     description:
       "Pakistani streetwear and custom printing studio based in Karachi, Pakistan. Specializing in oversized drop-shoulder tees, vintage acid wash, anime graphic apparel, wall art tapestries, and custom DTF t-shirt printing.",
     email: site.email,

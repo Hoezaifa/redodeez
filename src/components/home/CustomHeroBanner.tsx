@@ -148,7 +148,7 @@ export function CustomHeroBanner() {
                   </Link>
                   <Link
                     to="/collections/$slug"
-                    params={{ slug: "graphic" }}
+                    params={{ slug: "t-shirts" }}
                     className="w-full sm:w-auto py-3.5 px-6 lg:px-7 bg-transparent border border-zinc-600 text-white font-mono font-black uppercase text-xs md:text-[11px] tracking-widest flex items-center justify-center gap-2.5 hover:border-primary hover:text-primary transition-colors active:scale-[0.98]"
                   >
                     See Examples <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />

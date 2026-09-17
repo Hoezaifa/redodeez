@@ -108,7 +108,7 @@ export function CustomPrintSection() {
 
                 <Link
                   to="/collections/$slug"
-                  params={{ slug: "graphic" }}
+                  params={{ slug: "t-shirts" }}
                   className="hidden md:flex w-full py-3.5 rounded-none bg-zinc-950 border border-white/10 text-white font-bold uppercase tracking-wider text-xs items-center justify-center gap-2 hover:border-primary/50 transition-colors active:scale-[0.99]"
                 >
                   SEE EXAMPLES <ArrowRight className="w-3.5 h-3.5 text-primary" />
