@@ -45,6 +45,8 @@ export const Route = createFileRoute("/products/$productId")({
     const title = `${p?.title ?? "Product"} — Deez Prints`;
     const url = `${SITE_URL}/products/${p?.id ?? ""}`;
 
+    const isSelfHostedImg = rawImg?.startsWith("/assets/") || rawImg?.startsWith("/");
+
     return {
       meta: [
         { title },
@@ -56,9 +58,13 @@ export const Route = createFileRoute("/products/$productId")({
         { property: "og:site_name", content: "Deez Prints" },
         { property: "og:image", content: ogImgUrl },
         { property: "og:image:secure_url", content: ogImgUrl },
-        { property: "og:image:width", content: "1200" },
-        { property: "og:image:height", content: "630" },
-        { property: "og:image:type", content: "image/jpeg" },
+        ...(!isSelfHostedImg
+          ? [
+              { property: "og:image:width", content: "1200" },
+              { property: "og:image:height", content: "630" },
+              { property: "og:image:type", content: "image/jpeg" },
+            ]
+          : []),
         { property: "og:image:alt", content: p?.title ?? "Deez Prints Product" },
         { property: "og:price:amount", content: String(p?.price ?? 0) },
         { property: "og:price:currency", content: "PKR" },
@@ -185,6 +191,19 @@ function ProductPage() {
     navigate({ to: "/checkout" });
   }
 
+  const offerRange = isTapestry && availableSizes.length > 1
+    ? {
+        lowPrice: product.price,
+        highPrice: 4200,
+        offerCount: availableSizes.length,
+      }
+    : undefined;
+
+  return (
+    <div className="pt-12 pb-8 md:pt-16 md:pb-12">
+      <JsonLd data={breadcrumbSchema(breadcrumbs)} />
+      <JsonLd data={productSchema(product, offerRange)} />
+
       <div className="edge">
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="label-mono text-muted-foreground mb-6 lg:mb-8">
@@ -221,7 +240,7 @@ function ProductPage() {
           showSizeChart={showSizeChart}
           setShowSizeChart={setShowSizeChart}
         />
-      </div>{/* end hidden lg:block */}
+      </div>
 
       {/* You Might Also Like */}
       {related.length > 0 && (

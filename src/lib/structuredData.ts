@@ -77,9 +77,103 @@ function productDescription(product: Product): string {
   return `${product.title} — ${subcatLabel}${categoryLabel} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
 }
 
+export interface OfferRange {
+  lowPrice: number;
+  highPrice: number;
+  offerCount: number;
+}
+
 /** Product schema for individual product pages */
-export function productSchema(product: Product) {
+export function productSchema(product: Product, offerRange?: OfferRange) {
   const url = `${SITE_URL}/products/${product.id}`;
+
+  const shippingDetails = [
+    {
+      "@type": "OfferShippingDetails",
+      shippingRate: {
+        "@type": "MonetaryAmount",
+        value: SHIPPING_OPTIONS.karachi.fee,
+        currency: "PKR",
+      },
+      shippingDestination: {
+        "@type": "DefinedRegion",
+        addressLocality: "Karachi",
+        addressCountry: "PK",
+      },
+      deliveryTime: {
+        "@type": "ShippingDeliveryTime",
+        handlingTime: {
+          "@type": "QuantitativeValue",
+          minValue: 2,
+          maxValue: 3,
+          unitCode: "d",
+        },
+        transitTime: {
+          "@type": "QuantitativeValue",
+          minValue: 1,
+          maxValue: 2,
+          unitCode: "d",
+        },
+      },
+    },
+    {
+      "@type": "OfferShippingDetails",
+      shippingRate: {
+        "@type": "MonetaryAmount",
+        value: SHIPPING_OPTIONS.nationwide.fee,
+        currency: "PKR",
+      },
+      shippingDestination: {
+        "@type": "DefinedRegion",
+        addressCountry: "PK",
+      },
+      deliveryTime: {
+        "@type": "ShippingDeliveryTime",
+        handlingTime: {
+          "@type": "QuantitativeValue",
+          minValue: 2,
+          maxValue: 3,
+          unitCode: "d",
+        },
+        transitTime: {
+          "@type": "QuantitativeValue",
+          minValue: 2,
+          maxValue: 4,
+          unitCode: "d",
+        },
+      },
+    },
+  ];
+
+  const offers = offerRange
+    ? {
+        "@type": "AggregateOffer",
+        url,
+        priceCurrency: "PKR",
+        lowPrice: offerRange.lowPrice,
+        highPrice: offerRange.highPrice,
+        offerCount: offerRange.offerCount,
+        availability: "https://schema.org/InStock",
+        seller: {
+          "@type": "Organization",
+          name: "Deez Prints",
+        },
+        shippingDetails,
+      }
+    : {
+        "@type": "Offer",
+        url,
+        priceCurrency: "PKR",
+        price: product.price,
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        seller: {
+          "@type": "Organization",
+          name: "Deez Prints",
+        },
+        shippingDetails,
+      };
+
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -92,75 +186,7 @@ export function productSchema(product: Product) {
       "@type": "Brand",
       name: "Deez Prints",
     },
-    offers: {
-      "@type": "Offer",
-      url,
-      priceCurrency: "PKR",
-      price: product.price,
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      seller: {
-        "@type": "Organization",
-        name: "Deez Prints",
-      },
-      shippingDetails: [
-        {
-          "@type": "OfferShippingDetails",
-          shippingRate: {
-            "@type": "MonetaryAmount",
-            value: SHIPPING_OPTIONS.karachi.fee,
-            currency: "PKR",
-          },
-          shippingDestination: {
-            "@type": "DefinedRegion",
-            addressLocality: "Karachi",
-            addressCountry: "PK",
-          },
-          deliveryTime: {
-            "@type": "ShippingDeliveryTime",
-            handlingTime: {
-              "@type": "QuantitativeValue",
-              minValue: 2,
-              maxValue: 3,
-              unitCode: "d",
-            },
-            transitTime: {
-              "@type": "QuantitativeValue",
-              minValue: 1,
-              maxValue: 2,
-              unitCode: "d",
-            },
-          },
-        },
-        {
-          "@type": "OfferShippingDetails",
-          shippingRate: {
-            "@type": "MonetaryAmount",
-            value: SHIPPING_OPTIONS.nationwide.fee,
-            currency: "PKR",
-          },
-          shippingDestination: {
-            "@type": "DefinedRegion",
-            addressCountry: "PK",
-          },
-          deliveryTime: {
-            "@type": "ShippingDeliveryTime",
-            handlingTime: {
-              "@type": "QuantitativeValue",
-              minValue: 2,
-              maxValue: 3,
-              unitCode: "d",
-            },
-            transitTime: {
-              "@type": "QuantitativeValue",
-              minValue: 2,
-              maxValue: 4,
-              unitCode: "d",
-            },
-          },
-        },
-      ],
-    },
+    offers,
     // aggregateRating intentionally omitted — no verified review system exists
   };
 }
