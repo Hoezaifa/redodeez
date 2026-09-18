@@ -76,6 +76,9 @@ function Shipping() {
               <li>
                 <strong className="text-foreground font-semibold">Nationwide Pakistan (Rs. {SHIPPING_OPTIONS.nationwide.fee}):</strong> Dispatched via reliable courier services across all provinces.
               </li>
+              <li>
+                <strong className="text-emerald-400 font-semibold">Free Delivery:</strong> All orders exceeding <strong className="text-foreground font-semibold">Rs. {site.freeShippingThreshold.toLocaleString()}</strong> qualify for complimentary free shipping nationwide.
+              </li>
             </ul>
           </div>
 

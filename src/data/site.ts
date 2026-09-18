@@ -10,6 +10,17 @@ export const LOGO_PNG = "/assets/logo.png";
 
 export const CDN = "https://res.cloudinary.com/dsjnjbsgi/image/upload";
 
+export const commercialConfig = {
+  shippingKarachiFee: 200,
+  shippingNationwideFee: 450,
+  freeShippingThreshold: 5000,
+  prepTime: "2–3 working days",
+  deliveryTimeKarachi: "2–4 working days",
+  deliveryTimeNationwide: "3–5 working days",
+  exchangeWindow: "7 days",
+  acceptedPaymentMethods: ["Meezan Bank", "Easypaisa", "JazzCash", "Raast"] as const,
+};
+
 export const site = {
   name: "Deez Prints",
   tagline: "Streetwear. Custom Prints. No limits.",
@@ -19,9 +30,14 @@ export const site = {
   whatsappNumber: "923272487127",
   hours: "Online store — available 24/7",
   shippingFee: 200,
+  shippingFeeNationwide: 450,
   freeShippingThreshold: 5000,
   deliveryTime: "3–5 working days",
-  couriers: "TCS, Leopards, M&P",
+  deliveryTimeKarachi: "2–4 working days",
+  deliveryTimeNationwide: "3–5 working days",
+  prepTime: "2–3 working days",
+  exchangeWindow: "7 days",
+  couriers: "TCS, Leopards, M&P, Bykea",
   orderPrepNotice: "Orders take 2–3 working days to prepare before dispatch. Delivery time is additional and depends on your location.",
 };
 
@@ -133,11 +149,14 @@ export const aestheticSlugs = [
   "street-aesthetic",
 ];
 
+export type CollectionStatus = "ACTIVE" | "COMING_SOON";
+
 export type Collection = {
   slug: string;
   name: string;
   blurb: string;
   image: string;
+  status: CollectionStatus;
   match: (p: { category: string; subcategory: string; aesthetic?: string }) => boolean;
 };
 
@@ -147,6 +166,7 @@ export const collections: Collection[] = [
     name: "Anime Archive",
     blurb: "Iconic anime graphics inspired by classics and new-gen legends.",
     image: "/assets/collections/anime_archive_v3.webp",
+    status: "ACTIVE",
     match: (p) => p.aesthetic === "anime-archive",
   },
   {
@@ -154,6 +174,7 @@ export const collections: Collection[] = [
     name: "Comic Universe",
     blurb: "Marvel, DC, Comics, Superheroes.",
     image: "/assets/collections/comic_universe.webp",
+    status: "ACTIVE",
     match: (p) => p.aesthetic === "comic-universe",
   },
   {
@@ -161,6 +182,7 @@ export const collections: Collection[] = [
     name: "Minimal Drops",
     blurb: "Small chest prints, clean graphics, typography, symbols, understated everyday wear.",
     image: "/assets/collections/minimal_drops.webp",
+    status: "ACTIVE",
     match: (p) => p.aesthetic === "minimal-drops",
   },
   {
@@ -168,6 +190,7 @@ export const collections: Collection[] = [
     name: "Cinema Collection",
     blurb: "Iconic films, unforgettable characters, and legendary moments brought to life.",
     image: "/assets/collections/cinema_collection.webp",
+    status: "ACTIVE",
     match: (p) => p.aesthetic === "cinema-collection",
   },
   {
@@ -175,6 +198,7 @@ export const collections: Collection[] = [
     name: "Art Drop",
     blurb: "Experimental artwork, surreal graphics and limited releases.",
     image: "/assets/collections/art_drop.webp",
+    status: "ACTIVE",
     match: (p) => p.aesthetic === "art-drop",
   },
   {
@@ -182,6 +206,7 @@ export const collections: Collection[] = [
     name: "Street Aesthetic",
     blurb: "Bold typography, street energy and new everyday statements.",
     image: "/assets/collections/street_aesthetic.webp",
+    status: "COMING_SOON",
     match: (p) => p.aesthetic === "street-aesthetic",
   },
   {
@@ -189,6 +214,7 @@ export const collections: Collection[] = [
     name: "Drop Shoulder",
     blurb: "Oversized cuts, heavyweight cotton.",
     image: "/assets/collections/drop_shoulder_cover_v3.jpg",
+    status: "ACTIVE",
     match: (p) => p.subcategory === "drop-shoulder",
   },
   {
@@ -196,6 +222,7 @@ export const collections: Collection[] = [
     name: "Acid Wash",
     blurb: "Hand-washed. No two identical.",
     image: "/assets/collections/acid_wash_cover_v3.jpg",
+    status: "ACTIVE",
     match: (p) => p.subcategory === "acid-wash",
   },
   {
@@ -203,6 +230,7 @@ export const collections: Collection[] = [
     name: "Regular Tees",
     blurb: "The everyday staple, printed loud.",
     image: "/assets/collections/regular_tees_cover_v3.jpg",
+    status: "ACTIVE",
     match: (p) => p.category === "t-shirts" && ["regular", "graphic"].includes(p.subcategory),
   },
   {
@@ -210,6 +238,7 @@ export const collections: Collection[] = [
     name: "Hoodies",
     blurb: "Fleece-backed, built for winter.",
     image: `${CDN}/v1771268359/deez-prints/assets/products/hoodies/kanye-west-hoodie-v1.jpg`,
+    status: "COMING_SOON",
     match: (p) => p.category === "hoodies",
   },
   {
@@ -217,6 +246,7 @@ export const collections: Collection[] = [
     name: "Tapestries",
     blurb: "High-definition satin wall tapestries for your space.",
     image: "/assets/products/tapestries/berserk_eclipse_tapestry.webp",
+    status: "ACTIVE",
     match: (p) => ["tapestries", "flags"].includes(p.subcategory),
   },
   {
@@ -224,6 +254,7 @@ export const collections: Collection[] = [
     name: "Accessories",
     blurb: "Premium ceramic mugs & lifestyle accessories.",
     image: `${CDN}/v1773596802/mug_collection_gntc3f.webp`,
+    status: "ACTIVE",
     match: (p) => p.category === "accessories",
   },
 ];
@@ -240,11 +271,11 @@ export const faqs = [
   {
     q: "How long does delivery take?",
     category: "Shipping",
-    a: "Orders take 2–3 working days to prepare at our Karachi studio before dispatch. Delivery time is additional and depends on your location (Bykea for Karachi, 2–4 days via courier for Nationwide Pakistan).",
+    a: "Orders take 2–3 working days to prepare at our Karachi studio before dispatch. Delivery time is additional and depends on your location (2–4 working days for Karachi via Bykea, 3–5 working days via Courier for Nationwide Pakistan).",
   },
   {
     q: "What is your shipping fee?",
-    a: "Karachi delivery is Rs. 200 (via Bykea) and Nationwide Pakistan delivery is Rs. 450 (via Courier). Shipping is added directly to your order total at checkout.",
+    a: "Karachi delivery is Rs. 200 (via Bykea) and Nationwide Pakistan delivery is Rs. 450 (via Courier). Orders over Rs. 5,000 qualify for FREE delivery nationwide.",
     category: "Shipping",
   },
   {

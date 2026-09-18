@@ -196,12 +196,17 @@ export function breadcrumbSchema(crumbs: Array<{ name: string; url: string }>) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: crumbs.map((crumb, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: crumb.name,
-      item: `${SITE_URL}${crumb.url}`,
-    })),
+    itemListElement: crumbs.map((crumb, i) => {
+      const itemUrl = crumb.url.startsWith("http://") || crumb.url.startsWith("https://")
+        ? crumb.url
+        : `${SITE_URL}${crumb.url.startsWith("/") ? "" : "/"}${crumb.url}`;
+      return {
+        "@type": "ListItem",
+        position: i + 1,
+        name: crumb.name,
+        item: itemUrl,
+      };
+    }),
   };
 }
 

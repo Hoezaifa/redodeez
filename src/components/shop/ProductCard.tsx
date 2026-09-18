@@ -6,12 +6,20 @@ import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
 import { cn } from "@/lib/utils";
 
-export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
+export function ProductCard({
+  product,
+  index = 0,
+  isComingSoon = false,
+}: {
+  product: Product;
+  index?: number;
+  isComingSoon?: boolean;
+}) {
   const { add, wishlist, toggleWish } = useCart();
   const wished = wishlist.includes(product.id);
   const primary = product.images[0];
   const alt = product.images[1] ?? primary;
-  const isNew = index < 4;
+  const isNew = !isComingSoon && index < 4;
 
   const subcategoryLabel = product.subcategory.replace(/-/g, " ").toUpperCase();
 
@@ -73,13 +81,19 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           )}
 
           {/* Badges Top-Left */}
-          {isNew && (
+          {isComingSoon ? (
+            <div className="absolute left-2.5 top-2.5 sm:left-3 sm:top-3 flex flex-col items-start gap-1 z-10 pointer-events-none">
+              <span className="bg-amber-500 px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-black text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm">
+                Preview
+              </span>
+            </div>
+          ) : isNew ? (
             <div className="absolute left-2.5 top-2.5 sm:left-3 sm:top-3 flex flex-col items-start gap-1 z-10 pointer-events-none">
               <span className="bg-[#FF4D00] px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm">
                 New
               </span>
             </div>
-          )}
+          ) : null}
         </Link>
 
         {/* Wishlist Button Top-Right */}
@@ -114,21 +128,32 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           </Link>
         </div>
 
-        {/* Price row — with cart button */}
-        <div className="flex items-center justify-between mt-1.5 sm:mt-2">
-          <p className="font-sans font-bold text-sm sm:text-base text-primary tracking-tight">
-            {product.subcategory === "tapestries" ? `From ${formatPrice(product.price)}` : formatPrice(product.price)}
-          </p>
+        {/* Price row — or Coming Soon status */}
+        {isComingSoon ? (
+          <div className="flex items-center justify-between mt-1.5 sm:mt-2">
+            <span className="font-mono text-xs text-neutral-400 uppercase tracking-wide">
+              {product.subcategory === "tapestries" ? `Est. ${formatPrice(product.price)}` : formatPrice(product.price)}
+            </span>
+            <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded font-bold">
+              Drop Soon
+            </span>
+          </div>
+        ) : (
+          <div className="flex items-center justify-between mt-1.5 sm:mt-2">
+            <p className="font-sans font-bold text-sm sm:text-base text-primary tracking-tight">
+              {product.subcategory === "tapestries" ? `From ${formatPrice(product.price)}` : formatPrice(product.price)}
+            </p>
 
-          <button
-            type="button"
-            aria-label="Quick Add to Cart"
-            onClick={handleQuickAdd}
-            className="grid h-8 w-8 sm:h-9 sm:w-9 place-items-center border border-primary/40 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all active:scale-90 shadow-sm"
-          >
-            <ShoppingCart className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[2]" />
-          </button>
-        </div>
+            <button
+              type="button"
+              aria-label="Quick Add to Cart"
+              onClick={handleQuickAdd}
+              className="grid h-8 w-8 sm:h-9 sm:w-9 place-items-center border border-primary/40 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all active:scale-90 shadow-sm"
+            >
+              <ShoppingCart className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[2]" />
+            </button>
+          </div>
+        )}
       </div>
     </motion.article>
   );

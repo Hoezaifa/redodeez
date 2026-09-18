@@ -19,6 +19,7 @@ export const Route = createFileRoute("/collections/$slug")({
       slug: collection.slug,
       name: collection.name,
       blurb: collection.blurb,
+      status: collection.status,
       allProducts,
       productCount,
     };
@@ -33,6 +34,8 @@ export const Route = createFileRoute("/collections/$slug")({
     const title = `${name} Collection — Deez Prints`;
     const desc = `${blurb} Shop ${name} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
     const isEmpty = (loaderData?.productCount ?? 0) === 0;
+    const isComingSoon = loaderData?.status === "COMING_SOON";
+    const shouldNoindex = isEmpty || isComingSoon;
 
     const rawCollectionImg = collectionObj?.image;
     const isSelfHostedImg = rawCollectionImg?.startsWith("/assets/") || rawCollectionImg?.startsWith("/");
@@ -41,7 +44,7 @@ export const Route = createFileRoute("/collections/$slug")({
       meta: [
         { title },
         { name: "description", content: desc },
-        ...(isEmpty ? [{ name: "robots", content: "noindex,follow" }] : []),
+        ...(shouldNoindex ? [{ name: "robots", content: "noindex,follow" }] : []),
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
@@ -77,12 +80,12 @@ const sortOptions = [
 ] as const;
 
 function CollectionPage() {
-  const { slug, name, blurb, allProducts } = Route.useLoaderData();
+  const { slug, name, blurb, status, allProducts } = Route.useLoaderData();
   const [sort, setSort] = useState("featured");
   const [priceDir, setPriceDir] = useState<"asc" | "desc">("asc");
 
   const isAesthetic = aestheticSlugs.includes(slug);
-  const isComingSoonCollection = slug !== "anime-archive" && (slug === "comic-universe" || slug === "minimal-drops" || slug === "cinema-collection" || slug === "art-drop" || slug === "street-aesthetic");
+  const isComingSoonCollection = status === "COMING_SOON";
 
   const filterableCollections = useMemo(() => {
     if (isAesthetic) {
@@ -197,7 +200,7 @@ function CollectionPage() {
 
       <div className="mt-4 md:mt-6 grid grid-cols-2 gap-2.5 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-8">
         {items.map((p, i) => (
-          <ProductCard key={p.id} product={p} index={i} />
+          <ProductCard key={p.id} product={p} index={i} isComingSoon={isComingSoonCollection} />
         ))}
       </div>
     </div>

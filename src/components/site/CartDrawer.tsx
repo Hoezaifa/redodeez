@@ -60,10 +60,16 @@ export function CartDrawer() {
             ) : (
               <>
                 {/* Shipping info */}
-                <div className="border-b border-border px-5 py-3">
-                  <p className="text-xs text-muted-foreground">
-                    Shipping: <span className="text-primary font-semibold">Karachi Rs. {SHIPPING_OPTIONS.karachi.fee}</span> · <span className="text-primary font-semibold">Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}</span>
-                  </p>
+                <div className="border-b border-border px-5 py-3 bg-surface/50">
+                  {subtotal >= site.freeShippingThreshold ? (
+                    <p className="text-xs text-emerald-400 font-bold">
+                      🎉 FREE Nationwide Delivery Unlocked!
+                    </p>
+                  ) : (
+                    <p className="text-xs text-muted-foreground">
+                      Shipping: <span className="text-primary font-semibold">Karachi Rs. {SHIPPING_OPTIONS.karachi.fee}</span> · <span className="text-primary font-semibold">Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}</span> <span className="text-[11px] block text-foreground/80 mt-0.5">Free above Rs. {site.freeShippingThreshold.toLocaleString()}</span>
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex-1 overflow-y-auto">
@@ -184,8 +190,10 @@ export function CartDrawer() {
                       {formatPrice(subtotal)}
                     </span>
                   </div>
-                  <p className="label-mono mt-2 text-muted-foreground">
-                    Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}
+                  <p className="label-mono mt-2 text-muted-foreground text-xs">
+                    {subtotal >= site.freeShippingThreshold
+                      ? "🎉 Qualified for FREE Delivery"
+                      : `Karachi Rs. ${SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. ${SHIPPING_OPTIONS.nationwide.fee}`}
                   </p>
                   <div className="mt-5 grid gap-2">
                     <Link

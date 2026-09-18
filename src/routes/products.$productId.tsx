@@ -89,19 +89,36 @@ function ProductPage() {
   const navigate = useNavigate();
   const { add, wishlist, toggleWish } = useCart();
 
-  const breadcrumbs = [
-    { name: "Home", url: "/" },
-    { name: "Shop", url: "/collections" },
-    { name: product.title, url: `/products/${product.id}` },
-  ];
-
-  const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
+  const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags" || product.category === "tapestries";
   const isAcidWash =
     product.subcategory === "acid-wash" ||
     product.title.toLowerCase().includes("acid wash");
   const isDropShoulder =
     product.subcategory === "drop-shoulder" ||
     product.title.toLowerCase().includes("drop shoulder");
+
+  const breadcrumbs = (() => {
+    const crumbs = [{ name: "Home", url: "/" }];
+    if (isTapestry) {
+      crumbs.push({ name: "Tapestries", url: "/collections/tapestries" });
+    } else if (product.category === "hoodies" || product.subcategory === "hoodies") {
+      crumbs.push({ name: "Hoodies", url: "/collections/hoodies" });
+    } else if (product.category === "accessories" || product.subcategory === "mugs") {
+      crumbs.push({ name: "Accessories", url: "/collections/accessories" });
+    } else if (product.category === "t-shirts") {
+      if (isDropShoulder) {
+        crumbs.push({ name: "Drop Shoulder", url: "/collections/drop-shoulder" });
+      } else if (isAcidWash) {
+        crumbs.push({ name: "Acid Wash", url: "/collections/acid-wash" });
+      } else {
+        crumbs.push({ name: "Regular Tees", url: "/collections/t-shirts" });
+      }
+    } else {
+      crumbs.push({ name: "Shop", url: "/collections" });
+    }
+    crumbs.push({ name: product.title, url: `/products/${product.id}` });
+    return crumbs;
+  })();
 
   // Sizes are always enforced by category — no per-product overrides for apparel
   const availableSizes = isTapestry
@@ -206,15 +223,22 @@ function ProductPage() {
 
       <div className="edge">
         {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="label-mono text-muted-foreground mb-6 lg:mb-8">
-          <Link to="/" className="hover:text-primary">
-            Home
-          </Link>{" "}
-          /{" "}
-          <Link to="/collections" className="hover:text-primary">
-            Shop
-          </Link>{" "}
-          / <span className="text-foreground">{product.title}</span>
+        <nav aria-label="Breadcrumb" className="label-mono text-muted-foreground mb-6 lg:mb-8 text-xs flex flex-wrap items-center gap-1.5">
+          {breadcrumbs.map((crumb, idx) => {
+            const isLast = idx === breadcrumbs.length - 1;
+            return (
+              <span key={crumb.url} className="inline-flex items-center gap-1.5">
+                {idx > 0 && <span className="text-muted-foreground/60">/</span>}
+                {isLast ? (
+                  <span className="text-foreground">{crumb.name}</span>
+                ) : (
+                  <Link to={crumb.url} className="hover:text-primary transition-colors">
+                    {crumb.name}
+                  </Link>
+                )}
+              </span>
+            );
+          })}
         </nav>
 
         <ProductDetail

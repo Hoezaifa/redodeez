@@ -12,12 +12,12 @@ export const Route = createFileRoute("/payments")({
       {
         name: "description",
         content:
-          "Official payment guide for Deez Prints. Supported methods include Visa/Mastercard (IBAN), Meezan Bank Direct, Easypaisa, JazzCash, and Raast.",
+          "Official payment guide for Deez Prints. Supported methods include Meezan Bank Direct Transfer, Easypaisa, JazzCash, and Raast Instant Pay.",
       },
       { property: "og:title", content: "Payment Methods — Deez Prints" },
       {
         property: "og:description",
-        content: "Pay securely via Meezan Bank, Easypaisa, JazzCash, Raast, or Card.",
+        content: "Pay securely via Meezan Bank, Easypaisa, JazzCash, or Raast.",
       },
       { property: "og:url", content: `${SITE_URL}/payments` },
       { property: "og:site_name", content: "Deez Prints" },
@@ -42,7 +42,7 @@ function PaymentsPage() {
       <SectionHeading
         eyebrow="Payment Options"
         title={"Supported\nPayment Methods"}
-        sub="Transparent, encrypted, and direct. Pay using bank transfer, mobile wallets, or card."
+        sub="Transparent, direct, and zero-fee. Pay using Meezan Bank transfer, Easypaisa, JazzCash, or Raast."
       />
 
       {/* Gateway Cards Grid */}
@@ -88,7 +88,7 @@ function PaymentsPage() {
           </div>
         </Reveal>
 
-        {/* Mobile Wallets (Easypaisa / JazzCash / Raast) */}
+        {/* Mobile Wallets (Easypaisa & JazzCash) */}
         <Reveal delay={0.08}>
           <div className="h-full bg-zinc-950 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-emerald-500/50 transition-colors">
             <div className="space-y-4">
@@ -96,15 +96,15 @@ function PaymentsPage() {
                 <Smartphone className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-white uppercase tracking-wide">
-                Easypaisa, JazzCash &amp; Raast
+                Easypaisa &amp; JazzCash
               </h3>
               <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                Send money directly from your mobile wallet application in seconds.
+                Send money directly from your Easypaisa or JazzCash mobile wallet in seconds.
               </p>
 
               <div className="bg-zinc-900 border border-white/5 rounded-xl p-4 space-y-2 text-xs font-mono">
                 <div className="flex justify-between text-zinc-400">
-                  <span>Wallets:</span> <span className="text-white font-bold">Easypaisa / JazzCash / Raast</span>
+                  <span>Wallets:</span> <span className="text-white font-bold">Easypaisa / JazzCash</span>
                 </div>
                 <div className="flex justify-between text-zinc-400">
                   <span>Title:</span> <span className="text-white font-bold">{bankDetails.easypaisa.accountTitle}</span>
@@ -129,34 +129,43 @@ function PaymentsPage() {
           </div>
         </Reveal>
 
-        {/* Visa / Mastercard & Cards */}
+        {/* Raast Instant Pay */}
         <Reveal delay={0.16}>
-          <div className="h-full bg-zinc-950 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-blue-500/50 transition-colors">
+          <div className="h-full bg-zinc-950 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-amber-500/50 transition-colors">
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center">
-                <CreditCard className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
+                <Wallet className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-white uppercase tracking-wide">
-                Visa &amp; Mastercard
+                Raast Instant Pay
               </h3>
               <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                Pay using any debit or credit card through bank transfer or online banking apps.
+                State Bank of Pakistan's instant payment system. Pay from any Pakistani bank app using our Raast ID.
               </p>
 
               <div className="bg-zinc-900 border border-white/5 rounded-xl p-4 space-y-2 text-xs font-mono">
                 <div className="flex justify-between text-zinc-400">
-                  <span>Cards Supported:</span> <span className="text-white font-bold">Visa / Mastercard / UnionPay</span>
+                  <span>Network:</span> <span className="text-white font-bold">SBP Raast System</span>
                 </div>
                 <div className="flex justify-between text-zinc-400">
-                  <span>Protection:</span> <span className="text-emerald-400 font-bold">3D Secure Verified</span>
+                  <span>Title:</span> <span className="text-white font-bold">{bankDetails.raast.accountTitle}</span>
                 </div>
-                <div className="flex justify-between text-zinc-400">
-                  <span>Verification:</span> <span className="text-white font-bold">Instant Reference</span>
+                <div className="flex justify-between text-zinc-400 items-center">
+                  <span>Raast ID:</span>
+                  <button
+                    onClick={() => copyToClipboard(bankDetails.raast.accountNumber, "raast")}
+                    className="flex items-center gap-1 text-amber-400 font-bold hover:underline"
+                  >
+                    {bankDetails.raast.accountNumber} <Copy className="w-3 h-3" />
+                  </button>
                 </div>
+                {copied === "raast" && (
+                  <p className="text-[10px] text-emerald-400 text-right">Copied to clipboard!</p>
+                )}
               </div>
             </div>
             <span className="text-[11px] font-mono text-zinc-500 bg-zinc-900/60 px-3 py-1.5 rounded border border-white/5 inline-block text-center">
-              Bank App Card Transfer
+              Zero Transaction Fee · Instant
             </span>
           </div>
         </Reveal>

@@ -103,9 +103,26 @@ function CartPage() {
               </div>
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Shipping</dt>
-                <dd className="text-muted-foreground text-xs">from Rs. {SHIPPING_OPTIONS.karachi.fee}</dd>
+                <dd className="text-xs">
+                  {subtotal >= site.freeShippingThreshold ? (
+                    <span className="text-emerald-400 font-bold font-mono">FREE</span>
+                  ) : (
+                    <span className="text-muted-foreground">from Rs. {SHIPPING_OPTIONS.karachi.fee}</span>
+                  )}
+                </dd>
               </div>
             </dl>
+            <div className="mt-4 p-3 rounded-lg border border-white/10 bg-background/50 text-xs">
+              {subtotal >= site.freeShippingThreshold ? (
+                <p className="text-emerald-400 font-bold">
+                  🎉 You unlocked FREE nationwide shipping!
+                </p>
+              ) : (
+                <p className="text-muted-foreground">
+                  Add <span className="text-primary font-bold">{formatPrice(site.freeShippingThreshold - subtotal)}</span> more for <span className="text-foreground font-bold">FREE delivery</span>
+                </p>
+              )}
+            </div>
             <p className="mt-3 text-[11px] text-amber-400/80 leading-relaxed">
               ⏳ {site.orderPrepNotice}
             </p>
@@ -119,8 +136,8 @@ function CartPage() {
             >
               Checkout
             </Link>
-            <p className="label-mono mt-4 text-muted-foreground">
-              Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}
+            <p className="label-mono mt-4 text-muted-foreground text-xs">
+              Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee} (FREE above Rs. {site.freeShippingThreshold.toLocaleString()})
             </p>
           </aside>
         </div>

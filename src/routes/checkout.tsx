@@ -50,7 +50,8 @@ function Checkout() {
   const [completedOrder, setCompletedOrder] = useState<StoredOrder | null>(null);
 
   const shippingOption = SHIPPING_OPTIONS[deliveryLocation];
-  const shippingCost = shippingOption.fee;
+  const isFreeShipping = subtotal >= site.freeShippingThreshold;
+  const shippingCost = isFreeShipping ? 0 : shippingOption.fee;
   const total = lines.length ? subtotal + shippingCost : 0;
 
   const orderNumber = useMemo(() => generateOrderId(), []);
@@ -499,7 +500,14 @@ function Checkout() {
 
                 {/* Delivery Location */}
                 <div className="space-y-3 pt-2">
-                  <h3 className="text-sm font-bold text-white">Delivery Location</h3>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-sm font-bold text-white">Delivery Location</h3>
+                    {isFreeShipping && (
+                      <span className="text-[11px] font-mono font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">
+                        FREE SHIPPING APPLIED
+                      </span>
+                    )}
+                  </div>
                   <div className="grid grid-cols-2 gap-3">
                     {(Object.entries(SHIPPING_OPTIONS) as [DeliveryLocation, typeof SHIPPING_OPTIONS["karachi"]][]).map(([key, opt]) => (
                       <button
@@ -520,7 +528,13 @@ function Checkout() {
                               : "border-zinc-500"
                           }`} />
                         </div>
-                        <span className="text-[11px] text-zinc-400">Rs. {opt.fee} — {opt.method}</span>
+                        <span className="text-[11px] text-zinc-400">
+                          {isFreeShipping ? (
+                            <span className="text-emerald-400 font-bold">FREE — {opt.method}</span>
+                          ) : (
+                            `Rs. ${opt.fee} — ${opt.method}`
+                          )}
+                        </span>
                       </button>
                     ))}
                   </div>
@@ -738,7 +752,11 @@ function Checkout() {
               <div className="flex justify-between text-zinc-400">
                 <span>Shipping — {shippingLabel}</span>
                 <span className="text-white font-medium">
-                  Rs. {shippingCost.toLocaleString()}
+                  {isFreeShipping ? (
+                    <span className="text-emerald-400 font-bold font-mono">FREE</span>
+                  ) : (
+                    `Rs. ${shippingCost.toLocaleString()}`
+                  )}
                 </span>
               </div>
             </div>

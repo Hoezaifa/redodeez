@@ -145,7 +145,7 @@ export function Footer() {
         <div className="flex items-center gap-2 text-muted-foreground">
           <ShieldCheck className="w-4 h-4 text-primary" />
           <span className="label-mono">Secure Payment Options:</span>
-          <span className="text-foreground font-medium">{paymentMethods.join(" · ")} · Visa / Mastercard</span>
+          <span className="text-foreground font-medium">{paymentMethods.join(" · ")}</span>
         </div>
         <Link to="/payments" className="label-mono text-primary hover:underline">
           View Payment Details →

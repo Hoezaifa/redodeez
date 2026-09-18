@@ -3117,6 +3117,7 @@ export const products: Product[] = [
     "price": 600,
     "category": "accessories",
     "subcategory": "mugs",
+    "description": "Classic high-gloss white ceramic mug featuring bold skull graphic artwork. 11oz capacity.",
     "images": [
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772897480/mug_sample_sfu1kd.webp"
     ],
@@ -3131,6 +3132,7 @@ export const products: Product[] = [
     "price": 1200,
     "category": "accessories",
     "subcategory": "mugs",
+    "description": "Dual-tone ceramic sublimation mug featuring vibrant colored interior and matching colored handle. Available in Red, Green, Black, and Blue.",
     "images": [
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773596802/mug_collection_gntc3f.webp"
     ],
@@ -3148,6 +3150,7 @@ export const products: Product[] = [
     "price": 2000,
     "category": "accessories",
     "subcategory": "mugs",
+    "description": "Premium anime manga panel ceramic mug wrapped in high-definition monochromatic comic artwork. Dishwasher and microwave safe.",
     "images": [
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773596802/mug_collection_gntc3f.webp"
     ],
