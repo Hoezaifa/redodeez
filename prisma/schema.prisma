@@ -108,7 +108,7 @@ model ActivityLog {
 }
 
 model ProductOverride {
-  id        String   @id // product id e.g. "kanye-yeezus-shirt"
+  id        String   @id // product id e.g. "scarlet-bloom-tee"
   data      Json     // { title?, price?, description?, sizes?, colors? }
   updatedAt DateTime @updatedAt
 

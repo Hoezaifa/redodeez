@@ -56,7 +56,7 @@ export const Route = createFileRoute("/collections/$slug")({
     const title = `${name} Collection — Deez Prints`;
     const desc = `${blurb} Shop ${name} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
     const isEmpty = (loaderData?.productCount ?? 0) === 0;
-    const isComingSoon = loaderData?.status === "COMING_SOON";
+    const isComingSoon = loaderData?.status === "COMING_SOON" || loaderData?.slug === "hoodies";
     const search = loaderData?.search;
     const isUtilitySort = Boolean(search?.sort || search?.dir);
     const shouldNoindex = isEmpty || isComingSoon || isUtilitySort;
@@ -124,7 +124,7 @@ function CollectionPage() {
   };
 
   const isAesthetic = aestheticSlugs.includes(slug);
-  const isComingSoonCollection = status === "COMING_SOON";
+  const isComingSoonCollection = status === "COMING_SOON" || slug === "hoodies";
 
   const filterableCollections = useMemo(() => {
     if (isAesthetic) {
@@ -165,7 +165,11 @@ function CollectionPage() {
       </nav>
 
       <div className="mt-1.5 md:mt-3">
-        <SectionHeading eyebrow={`${items.length} pieces`} title={name} sub={blurb} />
+        <SectionHeading
+          eyebrow={isComingSoonCollection && items.length === 0 ? "Coming Soon" : `${items.length} pieces`}
+          title={name}
+          sub={blurb}
+        />
       </div>
 
       {isComingSoonCollection && (
@@ -178,7 +182,9 @@ function CollectionPage() {
               This collection universe is currently in development
             </h3>
             <p className="text-xs md:text-sm text-neutral-400 font-sans mt-0.5">
-              Designs below are previews. Stay tuned — ordering will unlock as soon as the collection drops!
+              {items.length > 0
+                ? "Designs below are previews. Stay tuned — ordering will unlock as soon as the collection drops!"
+                : "Heavyweight hoodies and fleece drops are currently in development. Stay tuned — ordering will unlock as soon as the collection drops!"}
             </p>
           </div>
         </div>

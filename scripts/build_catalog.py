@@ -681,7 +681,7 @@ export async function getProductsWithTimestamps(): Promise<ProductWithTimestamp[
 
 LEGACY_PRODUCTS = [
     {
-        "id": "kanye-yeezus-shirt",
+        "id": "scarlet-bloom-tee",
         "title": "SCARLET BLOOM TEE",
         "price": 3200,
         "category": "t-shirts",
@@ -696,8 +696,8 @@ LEGACY_PRODUCTS = [
     },
     {
         "id": "breakout-tee",
-        "title": "BREAKOUT TEE",
-        "price": 1500,
+        "title": "Breakout Regular tee",
+        "price": 1750,
         "category": "t-shirts",
         "subcategory": "graphic",
         "images": [

@@ -46,4 +46,55 @@ if (sitemapContent.includes('lastmodXml') && !sitemapContent.includes('new Date(
   process.exit(1);
 }
 
+console.log('\n=== 4. Checking Sitemap Cache Policy ===');
+if (!sitemapContent.includes('s-maxage=86400')) {
+  console.log('✅ Stale 24-hour edge cache (s-maxage=86400) is removed!');
+} else {
+  console.error('❌ Sitemap still contains 24-hour edge cache (s-maxage=86400)!');
+  process.exit(1);
+}
+
+console.log('\n=== 5. Checking Catalogue Synchronization (Point 5 / B1) ===');
+// Extract all product IDs defined in the products array (matches both "id": "..." and id: "...")
+const idMatches = [...productsContent.matchAll(/"?id"?:\s*"([^"]+)"/g)].map((m) => m[1]);
+const uniqueIds = [...new Set(idMatches)];
+
+console.log(`Found ${uniqueIds.length} unique product IDs in src/data/products.ts`);
+
+if (uniqueIds.length === 224) {
+  console.log('✅ Exactly 224 products present in active catalogue!');
+} else {
+  console.error(`❌ Expected 224 products, but found ${uniqueIds.length}!`);
+  process.exit(1);
+}
+
+if (uniqueIds.includes('breakout-tee')) {
+  console.log('✅ breakout-tee present in catalogue!');
+} else {
+  console.error('❌ breakout-tee missing from catalogue!');
+  process.exit(1);
+}
+
+if (uniqueIds.includes('scarlet-bloom-tee')) {
+  console.log('✅ scarlet-bloom-tee present in catalogue!');
+} else {
+  console.error('❌ scarlet-bloom-tee missing from catalogue!');
+  process.exit(1);
+}
+
+if (!uniqueIds.includes('kanye-yeezus-shirt')) {
+  console.log('✅ Legacy kanye-yeezus-shirt successfully removed from catalogue!');
+} else {
+  console.error('❌ Legacy kanye-yeezus-shirt still present in catalogue!');
+  process.exit(1);
+}
+
+if (sitemapContent.includes('/products/${p.id}')) {
+  console.log('✅ Sitemap dynamically generates URLs from all active products!');
+} else {
+  console.error('❌ Sitemap does not dynamically generate URLs from product IDs!');
+  process.exit(1);
+}
+
 console.log('\n=== Sitemap Validation Passed Successfully! ===');
+

@@ -50,6 +50,16 @@
       "permanent": true
     },
     {
+      "source": "/products/kanye-yeezus-shirt",
+      "destination": "/products/scarlet-bloom-tee",
+      "permanent": true
+    },
+    {
+      "source": "/kanye-yeezus-shirt",
+      "destination": "/products/scarlet-bloom-tee",
+      "permanent": true
+    },
+    {
       "source": "/products/tshirt-acid-4",
       "destination": "/products/dp-acid-wash-berserk-skull-blade",
       "permanent": true

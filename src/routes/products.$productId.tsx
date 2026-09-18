@@ -28,6 +28,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema, breadcrumbSchema } from "@/lib/structuredData";
 
 const LEGACY_PRODUCT_SLUGS: Record<string, string> = {
+  "kanye-yeezus-shirt": "scarlet-bloom-tee",
   "tshirt-acid-4": "dp-acid-wash-berserk-skull-blade",
   "tshirt-acid-9": "dp-acid-wash-spiderverse",
   "tshirt-reg-5": "dp-regular-spiderverse",
@@ -93,7 +94,7 @@ export const Route = createFileRoute("/products/$productId")({
       meta: [
         { title },
         { name: "description", content: desc },
-        { property: "og:title", content: `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)} | Deez Prints` },
+        { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "product" },
         { property: "og:url", content: url },

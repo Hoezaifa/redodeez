@@ -236,8 +236,8 @@ export const collections: Collection[] = [
   {
     slug: "hoodies",
     name: "Hoodies",
-    blurb: "Fleece-backed, built for winter.",
-    image: `${CDN}/v1771268359/deez-prints/assets/products/hoodies/kanye-west-hoodie-v1.jpg`,
+    blurb: "Fleece-backed heavyweight drops in development. Drop coming soon.",
+    image: "/assets/collections/hoodies.jpg",
     status: "COMING_SOON",
     match: (p) => p.category === "hoodies",
   },

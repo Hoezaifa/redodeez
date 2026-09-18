@@ -3754,7 +3754,7 @@ export const products: Product[] = [
     "description": "VAGABOND TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
   },
   {
-    "id": "kanye-yeezus-shirt",
+    "id": "scarlet-bloom-tee",
     "title": "SCARLET BLOOM TEE",
     "price": 3200,
     "category": "t-shirts",

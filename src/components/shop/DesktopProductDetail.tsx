@@ -251,29 +251,32 @@ export function DesktopProductDetail({
           </div>
         )}
 
-        {/* MORE VIEWS Thumbnail Strip */}
+        {/* MORE VIEWS Thumbnail Strip (secondary views excluding cover) */}
         {hasMultipleImages && (
           <div className="pt-2">
             <div className="flex items-center gap-2.5 overflow-x-auto scrollbar-none pb-1">
-              {product.images.map((img, idx) => (
-                <button
-                  key={img + idx}
-                  type="button"
-                  onClick={() => goToImage(idx)}
-                  className={cn(
-                    "relative w-16 h-16 aspect-square overflow-hidden border transition-all duration-200 cursor-pointer bg-surface shrink-0",
-                    carouselIdx === idx
-                      ? "border-2 border-primary ring-1 ring-primary"
-                      : "border-border opacity-65 hover:opacity-100 hover:border-border-strong"
-                  )}
-                >
-                  <img
-                    src={img}
-                    alt={getProductImageAlt(product, img, idx, totalImages)}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
+              {product.images.slice(1).map((img, sliceIdx) => {
+                const originalIdx = sliceIdx + 1;
+                return (
+                  <button
+                    key={img + originalIdx}
+                    type="button"
+                    onClick={() => goToImage(originalIdx)}
+                    className={cn(
+                      "relative w-16 h-16 aspect-square overflow-hidden border transition-all duration-200 cursor-pointer bg-surface shrink-0",
+                      carouselIdx === originalIdx
+                        ? "border-2 border-primary ring-1 ring-primary"
+                        : "border-border opacity-65 hover:opacity-100 hover:border-border-strong"
+                    )}
+                  >
+                    <img
+                      src={img}
+                      alt={getProductImageAlt(product, img, originalIdx, totalImages)}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}
