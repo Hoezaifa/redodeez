@@ -31,6 +31,9 @@ import { Route as TrustRouteImport } from './routes/trust'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
 import { Route as CollectionsSlugRouteImport } from './routes/collections.$slug'
+import { Route as GuidesIndexRouteImport } from './routes/guides.index'
+import { Route as GuidesStreetwearPrintingAndCareRouteImport } from './routes/guides.streetwear-printing-and-care'
+import { Route as GuidesTapestryDecorGuideRouteImport } from './routes/guides.tapestry-decor-guide'
 import { Route as ProductsProductIdRouteImport } from './routes/products.$productId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -143,6 +146,23 @@ const CollectionsSlugRoute = CollectionsSlugRouteImport.update({
   path: '/collections/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidesIndexRoute = GuidesIndexRouteImport.update({
+  id: '/guides/',
+  path: '/guides/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesStreetwearPrintingAndCareRoute =
+  GuidesStreetwearPrintingAndCareRouteImport.update({
+    id: '/guides/streetwear-printing-and-care',
+    path: '/guides/streetwear-printing-and-care',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesTapestryDecorGuideRoute =
+  GuidesTapestryDecorGuideRouteImport.update({
+    id: '/guides/tapestry-decor-guide',
+    path: '/guides/tapestry-decor-guide',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProductsProductIdRoute = ProductsProductIdRouteImport.update({
   id: '/products/$productId',
   path: '/products/$productId',
@@ -171,8 +191,11 @@ export interface FileRoutesByFullPath {
   '/trust': typeof TrustRoute
   '/wishlist': typeof WishlistRoute
   '/collections/$slug': typeof CollectionsSlugRoute
+  '/guides/streetwear-printing-and-care': typeof GuidesStreetwearPrintingAndCareRoute
+  '/guides/tapestry-decor-guide': typeof GuidesTapestryDecorGuideRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/collections/': typeof CollectionsIndexRoute
+  '/guides/': typeof GuidesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -196,8 +219,11 @@ export interface FileRoutesByTo {
   '/trust': typeof TrustRoute
   '/wishlist': typeof WishlistRoute
   '/collections/$slug': typeof CollectionsSlugRoute
+  '/guides/streetwear-printing-and-care': typeof GuidesStreetwearPrintingAndCareRoute
+  '/guides/tapestry-decor-guide': typeof GuidesTapestryDecorGuideRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/collections': typeof CollectionsIndexRoute
+  '/guides': typeof GuidesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -222,8 +248,11 @@ export interface FileRoutesById {
   '/trust': typeof TrustRoute
   '/wishlist': typeof WishlistRoute
   '/collections/$slug': typeof CollectionsSlugRoute
+  '/guides/streetwear-printing-and-care': typeof GuidesStreetwearPrintingAndCareRoute
+  '/guides/tapestry-decor-guide': typeof GuidesTapestryDecorGuideRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/collections/': typeof CollectionsIndexRoute
+  '/guides/': typeof GuidesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -249,8 +278,11 @@ export interface FileRouteTypes {
     | '/trust'
     | '/wishlist'
     | '/collections/$slug'
+    | '/guides/streetwear-printing-and-care'
+    | '/guides/tapestry-decor-guide'
     | '/products/$productId'
     | '/collections/'
+    | '/guides/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -274,8 +306,11 @@ export interface FileRouteTypes {
     | '/trust'
     | '/wishlist'
     | '/collections/$slug'
+    | '/guides/streetwear-printing-and-care'
+    | '/guides/tapestry-decor-guide'
     | '/products/$productId'
     | '/collections'
+    | '/guides'
   id:
     | '__root__'
     | '/'
@@ -299,8 +334,11 @@ export interface FileRouteTypes {
     | '/trust'
     | '/wishlist'
     | '/collections/$slug'
+    | '/guides/streetwear-printing-and-care'
+    | '/guides/tapestry-decor-guide'
     | '/products/$productId'
     | '/collections/'
+    | '/guides/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -325,8 +363,11 @@ export interface RootRouteChildren {
   TrustRoute: typeof TrustRoute
   WishlistRoute: typeof WishlistRoute
   CollectionsSlugRoute: typeof CollectionsSlugRoute
+  GuidesStreetwearPrintingAndCareRoute: typeof GuidesStreetwearPrintingAndCareRoute
+  GuidesTapestryDecorGuideRoute: typeof GuidesTapestryDecorGuideRoute
   ProductsProductIdRoute: typeof ProductsProductIdRoute
   CollectionsIndexRoute: typeof CollectionsIndexRoute
+  GuidesIndexRoute: typeof GuidesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -485,6 +526,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CollectionsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/': {
+      id: '/guides/'
+      path: '/guides'
+      fullPath: '/guides/'
+      preLoaderRoute: typeof GuidesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/streetwear-printing-and-care': {
+      id: '/guides/streetwear-printing-and-care'
+      path: '/guides/streetwear-printing-and-care'
+      fullPath: '/guides/streetwear-printing-and-care'
+      preLoaderRoute: typeof GuidesStreetwearPrintingAndCareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/tapestry-decor-guide': {
+      id: '/guides/tapestry-decor-guide'
+      path: '/guides/tapestry-decor-guide'
+      fullPath: '/guides/tapestry-decor-guide'
+      preLoaderRoute: typeof GuidesTapestryDecorGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/$productId': {
       id: '/products/$productId'
       path: '/products/$productId'
@@ -517,8 +579,11 @@ const rootRouteChildren: RootRouteChildren = {
   TrustRoute: TrustRoute,
   WishlistRoute: WishlistRoute,
   CollectionsSlugRoute: CollectionsSlugRoute,
+  GuidesStreetwearPrintingAndCareRoute: GuidesStreetwearPrintingAndCareRoute,
+  GuidesTapestryDecorGuideRoute: GuidesTapestryDecorGuideRoute,
   ProductsProductIdRoute: ProductsProductIdRoute,
   CollectionsIndexRoute: CollectionsIndexRoute,
+  GuidesIndexRoute: GuidesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

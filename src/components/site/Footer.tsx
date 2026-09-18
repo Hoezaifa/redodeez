@@ -114,6 +114,21 @@ export function Footer() {
                 Payment Methods
               </Link>
             </li>
+            <li>
+              <Link to={"/guides" as any} className="link-underline font-semibold text-primary">
+                Studio Guides
+              </Link>
+            </li>
+            <li>
+              <Link to={"/guides/tapestry-decor-guide" as any} className="link-underline">
+                Tapestry & Decor Guide
+              </Link>
+            </li>
+            <li>
+              <Link to={"/guides/streetwear-printing-and-care" as any} className="link-underline">
+                DTF Printing & Care
+              </Link>
+            </li>
           </ul>
         </nav>
 

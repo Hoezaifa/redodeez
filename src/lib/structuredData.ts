@@ -207,7 +207,15 @@ export function productSchema(product: Product, offerRange?: OfferRange) {
       "@type": "Brand",
       name: "Deez Prints",
     },
-    category: product.category,
+    category: isTapestry
+      ? "Home & Decor > Wall Art > Tapestries"
+      : product.category === "t-shirts"
+      ? `Apparel > T-Shirts > ${product.subcategory === "drop-shoulder" ? "Drop Shoulder" : product.subcategory === "acid-wash" ? "Acid Wash" : "Regular Tees"}`
+      : product.category === "hoodies"
+      ? "Apparel > Hoodies"
+      : product.category === "accessories"
+      ? "Accessories > Drinkware > Mugs"
+      : product.category,
     material,
     ...(product.colors && product.colors.length > 0 ? { color: product.colors[0] } : {}),
     offers,

@@ -119,7 +119,7 @@ export function ApparelAccordion({ product }: ApparelAccordionProps) {
             <strong className="text-foreground font-semibold">Delivery Time:</strong> 1–2 business days for Karachi, 2–4 business days nationwide across Pakistan via tracked couriers.
           </p>
           <p>
-            <strong className="text-foreground font-semibold">Free Nationwide Shipping:</strong> Automatically applied at checkout on all orders of Rs. 5,000 or more (standard flat rate is Rs. 150 Karachi / Rs. 250 Nationwide).
+            <strong className="text-foreground font-semibold">Free Nationwide Shipping:</strong> Automatically applied at checkout on all orders of Rs. 5,000 or more (standard flat rate is Rs. 200 Karachi / Rs. 450 Nationwide).
           </p>
           <p>
             <strong className="text-foreground font-semibold">7-Day Hassle-Free Exchange:</strong> If you receive the wrong size or encounter any manufacturing defect, contact us within 7 days of delivery for a swift replacement.

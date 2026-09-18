@@ -65,6 +65,9 @@ export const Route = createFileRoute("/sitemap.xml")({
           "/payments",
           "/privacy",
           "/terms",
+          "/guides",
+          "/guides/tapestry-decor-guide",
+          "/guides/streetwear-printing-and-care",
         ];
 
         const entries: SitemapEntry[] = [

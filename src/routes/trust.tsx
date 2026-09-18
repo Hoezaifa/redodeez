@@ -47,7 +47,7 @@ const trustSignals = [
   {
     icon: Truck,
     title: "Nationwide Shipping",
-    desc: `Orders take 2–3 working days to prepare before dispatch. Karachi Rs. ${SHIPPING_OPTIONS.karachi.fee} via ${SHIPPING_OPTIONS.karachi.method}, Nationwide Rs. ${SHIPPING_OPTIONS.nationwide.fee} via ${SHIPPING_OPTIONS.nationwide.method}.`,
+    desc: `Orders take 2–3 working days to prepare before dispatch. Karachi Rs. ${SHIPPING_OPTIONS.karachi.fee} via ${SHIPPING_OPTIONS.karachi.method}, Nationwide Rs. ${SHIPPING_OPTIONS.nationwide.fee} via ${SHIPPING_OPTIONS.nationwide.method}. Free delivery on orders over Rs. 5,000.`,
     badge: "Bykea & Courier Services",
   },
   {

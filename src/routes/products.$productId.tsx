@@ -152,12 +152,11 @@ function ProductPage() {
     } else if (product.category === "accessories" || product.subcategory === "mugs") {
       crumbs.push({ name: "Accessories", url: "/collections/accessories" });
     } else if (product.category === "t-shirts") {
+      crumbs.push({ name: "T-Shirts", url: "/collections/t-shirts" });
       if (isDropShoulder) {
         crumbs.push({ name: "Drop Shoulder", url: "/collections/drop-shoulder" });
       } else if (isAcidWash) {
         crumbs.push({ name: "Acid Wash", url: "/collections/acid-wash" });
-      } else {
-        crumbs.push({ name: "Regular Tees", url: "/collections/t-shirts" });
       }
     } else {
       crumbs.push({ name: "Shop", url: "/collections" });

@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ChevronDown, Clock } from "lucide-react";
 import { getProducts, type Product } from "@/data/products";
@@ -25,6 +25,13 @@ export const Route = createFileRoute("/collections/$slug")({
   },
   loaderDeps: ({ search: { sort, dir } }) => ({ sort, dir }),
   loader: async ({ params, deps }) => {
+    if (params.slug === "wall-art") {
+      throw redirect({
+        to: "/collections/$slug",
+        params: { slug: "tapestries" },
+        statusCode: 301,
+      });
+    }
     const collection = collections.find((c) => c.slug === params.slug);
     if (!collection) throw notFound();
     const allProducts = await getProducts();
@@ -61,7 +68,7 @@ export const Route = createFileRoute("/collections/$slug")({
       meta: [
         { title },
         { name: "description", content: desc },
-        ...(shouldNoindex ? [{ name: "robots", content: "noindex,follow" }] : []),
+        ...(shouldNoindex ? [{ name: "robots", content: "noindex, follow" }] : []),
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
