@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { Search, X, ArrowRight, Tag } from "lucide-react";
 import { products, type Product } from "@/data/products";
 import { formatPrice } from "@/lib/format";
+import { trackEvent } from "@/lib/analytics";
 
 const QUICK_TAGS = ["Hoodies", "Acid Wash", "T-Shirts", "Mugs", "Drop Shoulder", "Tapestries"];
 
@@ -47,16 +48,98 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [open, onClose]);
 
-  const results: Product[] = query.trim()
-    ? products
-        .filter(
-          (p) =>
-            p.title.toLowerCase().includes(query.toLowerCase()) ||
-            p.category.toLowerCase().includes(query.toLowerCase()) ||
-            p.subcategory.toLowerCase().includes(query.toLowerCase()),
-        )
-        .slice(0, 8)
-    : [];
+  const queryLower = query.trim().toLowerCase();
+  const queryTokens = queryLower.split(/\s+/).filter(Boolean);
+
+  // Suggested category/page destinations
+  const suggestedPage = useMemo(() => {
+    if (!queryLower) return null;
+    if (queryLower.includes("custom") || queryLower.includes("print")) {
+      return {
+        title: "Custom Printing Studio",
+        desc: "Upload your own high-res artwork for DTF printing on tees & hoodies",
+        to: "/custom-print",
+      };
+    }
+    if (queryLower.includes("tapestr") || queryLower.includes("wall art") || queryLower.includes("flag")) {
+      return {
+        title: "Tapestries Collection",
+        desc: "Browse 33 high-definition satin wall tapestries & aesthetic decor",
+        to: "/collections/tapestries",
+      };
+    }
+    if (queryLower.includes("hoodie")) {
+      return {
+        title: "Hoodies Collection",
+        desc: "Oversized heavyweight streetwear hoodies with thermal brushed interior",
+        to: "/collections/hoodies",
+      };
+    }
+    if (queryLower.includes("acid")) {
+      return {
+        title: "Acid Wash Collection",
+        desc: "Vintage mineral acid wash graphic tees",
+        to: "/collections/acid-wash",
+      };
+    }
+    if (queryLower.includes("drop") || queryLower.includes("shoulder")) {
+      return {
+        title: "Drop Shoulder Collection",
+        desc: "240+ GSM oversized drop-shoulder graphic tees",
+        to: "/collections/drop-shoulder",
+      };
+    }
+    return null;
+  }, [queryLower]);
+
+  const results: Product[] = useMemo(() => {
+    if (!queryLower || queryTokens.length === 0) return [];
+
+    return products
+      .filter((p) => {
+        const titleL = p.title.toLowerCase();
+        const catL = p.category.toLowerCase();
+        const subcatL = p.subcategory.toLowerCase();
+        const aestheticL = (p.aesthetic || "").toLowerCase();
+        const descL = (p.description || "").toLowerCase();
+
+        // Synonym expansion
+        const isOnePieceQuery = queryLower.includes("one piece");
+        if (isOnePieceQuery && (titleL.includes("luffy") || titleL.includes("zoro") || titleL.includes("gear 5"))) {
+          return true;
+        }
+
+        const isHoodieQuery = queryLower.includes("hoodie");
+        if (isHoodieQuery && (catL.includes("hoodie") || subcatL.includes("hoodie"))) {
+          return true;
+        }
+
+        const isTapestryQuery = queryLower.includes("tapestr") || queryLower.includes("wall art");
+        if (isTapestryQuery && (catL === "tapestries" || subcatL === "tapestries" || subcatL === "flags")) {
+          return true;
+        }
+
+        // Match tokens against searchable fields
+        return queryTokens.every(
+          (t) =>
+            titleL.includes(t) ||
+            catL.includes(t) ||
+            subcatL.includes(t) ||
+            aestheticL.includes(t) ||
+            descL.includes(t)
+        );
+      })
+      .slice(0, 8);
+  }, [queryLower, queryTokens]);
+
+  // Track search analytics with 600ms debounce
+  useEffect(() => {
+    if (!queryLower || queryLower.length < 2) return;
+    const timer = setTimeout(() => {
+      trackEvent.search(queryLower, results.length);
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [queryLower, results.length]);
 
   return (
     <AnimatePresence>
@@ -128,6 +211,28 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                 </div>
               ) : results.length > 0 ? (
                 <div className="grid gap-2">
+                  {suggestedPage && (
+                    <div className="mb-2">
+                      <p className="text-xs font-mono uppercase tracking-widest text-orange-400 font-bold mb-1">
+                        Featured Destination
+                      </p>
+                      <Link
+                        to={suggestedPage.to as any}
+                        onClick={onClose}
+                        className="group flex items-center justify-between p-3 rounded-lg bg-orange-500/10 border border-orange-500/30 hover:border-orange-500/60 transition-colors"
+                      >
+                        <div>
+                          <p className="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">
+                            {suggestedPage.title}
+                          </p>
+                          <p className="text-xs text-white/60 font-mono mt-0.5">
+                            {suggestedPage.desc}
+                          </p>
+                        </div>
+                        <ArrowRight className="h-4 w-4 text-orange-400 group-hover:translate-x-1 transition-transform shrink-0 ml-3" />
+                      </Link>
+                    </div>
+                  )}
                   <p className="text-xs font-mono uppercase tracking-widest text-white/40 mb-1">
                     Products ({results.length})
                   </p>
@@ -165,12 +270,32 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                     </Link>
                   ))}
                 </div>
+              ) : suggestedPage ? (
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-widest text-orange-400 font-bold mb-2">
+                    Matching Destination
+                  </p>
+                  <Link
+                    to={suggestedPage.to as any}
+                    onClick={onClose}
+                    className="group flex items-center justify-between p-3 rounded-lg bg-orange-500/10 border border-orange-500/30 hover:border-orange-500/60 transition-colors"
+                  >
+                    <div>
+                      <p className="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">
+                        {suggestedPage.title}
+                      </p>
+                      <p className="text-xs text-white/60 font-mono mt-0.5">
+                        {suggestedPage.desc}
+                      </p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-orange-400 group-hover:translate-x-1 transition-transform shrink-0 ml-3" />
+                  </Link>
+                </div>
               ) : (
                 <div className="py-8 text-center text-white/50">
                   <p className="text-sm">No products matching &ldquo;{query}&rdquo;</p>
                   <p className="text-xs text-white/30 mt-1">
-                    Try searching for &apos;hoodie&apos;, &apos;t-shirt&apos;, or &apos;acid
-                    wash&apos;.
+                    Try searching for &apos;hoodie&apos;, &apos;t-shirt&apos;, &apos;tapestry&apos;, or &apos;custom print&apos;.
                   </p>
                 </div>
               )}

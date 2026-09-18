@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export type CartLine = {
   id: string;
@@ -105,6 +106,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         size: line.size,
         timestamp: Date.now(),
       });
+      trackEvent.addToCart(line);
     };
     return {
       lines,

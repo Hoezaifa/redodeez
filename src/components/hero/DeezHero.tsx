@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import heroDesktop from "@/assets/sample-test-hero.png";
+import heroDesktop from "@/assets/deez-prints-streetwear-hero.webp";
 
 /* ─── Constants ─────────────────────────────────────────────── */
 

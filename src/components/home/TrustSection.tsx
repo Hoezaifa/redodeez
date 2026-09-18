@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { site, whatsappLink } from "@/data/site";
+import { trackEvent } from "@/lib/analytics";
 import { Link } from "@tanstack/react-router";
 
 /* ─── Data Arrays ────────────────────────────────────────────── */
@@ -266,6 +267,7 @@ export function TrustSection() {
                   href={whatsappLink("Hi! I have a question about my Deez Prints order.")}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => trackEvent.whatsappClick("trust_section")}
                   className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-colors"
                 >
                   <MessageSquare className="w-4 h-4" /> WhatsApp Us Now

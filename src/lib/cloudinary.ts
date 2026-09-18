@@ -5,13 +5,48 @@
  * 2. Anonymous Free Image Host (tmpfiles.org)
  * 3. Canvas Compressed Image Data URL (low-res fallback to keep memory tiny)
  */
+const MAX_UPLOAD_SIZE = 25 * 1024 * 1024; // 25 MB
+const ALLOWED_MIME_TYPES = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/svg+xml",
+  "image/avif",
+]);
+
+function sanitizeSvgContent(svgText: string): string {
+  return svgText
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+    .replace(/\bon\w+\s*=\s*(?:["'][^"']*["']|[^\s>]+)/gi, "")
+    .replace(/href\s*=\s*["']javascript:[^"']*["']/gi, "");
+}
+
 export async function uploadArtworkToCloudinary(file: File): Promise<string> {
+  if (file.size > MAX_UPLOAD_SIZE) {
+    throw new Error("File exceeds the 25MB maximum upload limit.");
+  }
+
+  const isImageMime = ALLOWED_MIME_TYPES.has(file.type) || file.type.startsWith("image/");
+  if (!isImageMime) {
+    throw new Error("Invalid file format. Only JPG, PNG, WebP, and SVG images are accepted.");
+  }
+
+  let uploadPayload: Blob | File = file;
+  if (file.type === "image/svg+xml" || file.name.toLowerCase().endsWith(".svg")) {
+    try {
+      const text = await file.text();
+      uploadPayload = new Blob([sanitizeSvgContent(text)], { type: "image/svg+xml" });
+    } catch {
+      uploadPayload = file;
+    }
+  }
+
   // Tier 1: Try Cloudinary
   try {
     const cloudName = "dsjnjbsgi";
     const uploadPreset = "deez_prints";
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("file", uploadPayload, file.name);
     formData.append("upload_preset", uploadPreset);
 
     const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {

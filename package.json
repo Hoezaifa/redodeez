@@ -12,7 +12,9 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "catalog:qa": "tsx scripts/catalog-qa.ts",
+    "test:seo": "node scripts/validate-seo.js && node scripts/validate-sitemap.js"
   },
   "dependencies": {
     "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
@@ -56,6 +58,7 @@
     "prettier": "^3.7.3",
     "prisma": "^7.9.1",
     "sharp": "^0.35.3",
+    "tsx": "^4.23.13",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^8.0.16"

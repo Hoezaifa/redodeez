@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 import {
   Upload,
   X,
@@ -153,6 +154,10 @@ function CustomPrint() {
   const [notes, setNotes] = useState("");
   const [isUploading, setIsUploading] = useState(false);
 
+  useEffect(() => {
+    trackEvent.customPrintStarted(base);
+  }, []);
+
   const selectedBase = bases.find((b) => b.id === base)!;
   const isClothing = selectedBase.isClothing;
   const isAcidWash = base === "acid-wash";
@@ -193,7 +198,23 @@ function CustomPrint() {
   }
 
   function handleFilesAdded(newFilesList: FileList | File[]) {
-    const array = Array.from(newFilesList).slice(0, maxAllowedFiles - files.length);
+    const rawArray = Array.from(newFilesList);
+    const validArray: File[] = [];
+
+    for (const f of rawArray) {
+      if (f.size > 25 * 1024 * 1024) {
+        alert(`"${f.name}" exceeds the 25MB file size limit.`);
+        continue;
+      }
+      if (!f.type.startsWith("image/") && !/\.(png|jpe?g|webp|svg)$/i.test(f.name)) {
+        alert(`"${f.name}" is not a supported image format. Please upload PNG, JPG, WebP, or SVG.`);
+        continue;
+      }
+      validArray.push(f);
+    }
+
+    const availableSlots = maxAllowedFiles - files.length;
+    const array = validArray.slice(0, availableSlots);
     if (array.length === 0) return;
 
     const newUploaded: UploadedFile[] = array.map((file) => ({
@@ -204,6 +225,7 @@ function CustomPrint() {
     }));
 
     setFiles((prev) => [...prev, ...newUploaded].slice(0, maxAllowedFiles));
+    trackEvent.uploadStarted(array.length);
   }
 
   function removeFile(index: number) {

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState, useRef } from "react";
+import { useMemo, useState, useRef, useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, Smartphone, Building2, Download, Share2, ArrowLeft, Banknote, Info } from "lucide-react";
 import { toPng } from "html-to-image";
@@ -53,6 +54,12 @@ function Checkout() {
   const isFreeShipping = subtotal >= site.freeShippingThreshold;
   const shippingCost = isFreeShipping ? 0 : shippingOption.fee;
   const total = lines.length ? subtotal + shippingCost : 0;
+
+  useEffect(() => {
+    if (lines.length > 0) {
+      trackEvent.beginCheckout(lines, total);
+    }
+  }, []);
 
   const orderNumber = useMemo(() => generateOrderId(), []);
 
@@ -132,6 +139,13 @@ function Checkout() {
     setCompletedOrder(orderData);
     setPlaced(true);
     setStep(3);
+
+    trackEvent.purchase({
+      orderId: orderData.orderId,
+      total: orderData.total,
+      items: orderData.items,
+      shipping: orderData.shipping,
+    });
 
     // Send Telegram notification (includes artwork images if custom order)
     try {
@@ -360,6 +374,7 @@ function Checkout() {
             href={whatsappLink(whatsappMessage)}
             target="_blank"
             rel="noreferrer"
+            onClick={() => trackEvent.whatsappClick("checkout_receipt")}
             className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold uppercase text-xs tracking-wider py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md text-center cursor-pointer"
           >
             <Share2 className="h-4 w-4" />

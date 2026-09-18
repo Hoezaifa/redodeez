@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate, notFound, redirect } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { motion, AnimatePresence } from "motion/react";
 import { getProducts, type Product } from "@/data/products";
 import {
@@ -129,6 +130,10 @@ function ProductPage() {
   const { product, allProducts } = Route.useLoaderData();
   const navigate = useNavigate();
   const { add, wishlist, toggleWish } = useCart();
+
+  useEffect(() => {
+    trackEvent.viewItem(product);
+  }, [product.id]);
 
   const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags" || product.category === "tapestries";
   const isAcidWash =
@@ -310,8 +315,18 @@ function ProductPage() {
       {/* You Might Also Like */}
       {related.length > 0 && (
         <section className="mt-16 lg:mt-24 border-t border-border pt-8 lg:pt-12 edge">
-          <h2 className="display-md">You might also like</h2>
-          <div className="mt-6 lg:mt-8 grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-x-4 md:gap-y-10">
+          <div className="flex items-baseline justify-between gap-4 flex-wrap mb-6 lg:mb-8">
+            <h2 className="display-md">You might also like</h2>
+            {breadcrumbs.length >= 2 && (
+              <Link
+                to={breadcrumbs[breadcrumbs.length - 2].url as any}
+                className="label-mono text-xs text-primary hover:underline font-semibold"
+              >
+                View all in {breadcrumbs[breadcrumbs.length - 2].name} →
+              </Link>
+            )}
+          </div>
+          <div className="grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-x-4 md:gap-y-10">
             {related.map((p, i) => (
               <ProductCard key={p.id} product={p} index={i} />
             ))}
