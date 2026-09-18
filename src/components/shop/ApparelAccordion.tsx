@@ -73,15 +73,58 @@ type ApparelAccordionProps = {
 export function ApparelAccordion({ product }: ApparelAccordionProps) {
   return (
     <div className="apparel-accordion mt-8 border-t border-border/60">
-      {/* ── Section 1: Product Description ─────────────────── */}
-      <AccordionItem title="Product Description">
-        {product.description ? (
-          <p>{product.description}</p>
-        ) : (
-          <p className="italic text-muted-foreground/60">
-            Product description coming soon.
+      {/* ── Section 1: Product Details & Fabric ────────────────── */}
+      <AccordionItem title="Product Details & Fabric">
+        <div className="space-y-3">
+          {product.description && <p className="leading-relaxed">{product.description}</p>}
+          <ul className="list-disc list-inside space-y-1.5 text-[13px] sm:text-sm text-muted-foreground font-mono">
+            {product.subcategory === "drop-shoulder" && (
+              <>
+                <li><strong className="text-foreground">Fabric:</strong> 100% Combed Compact Cotton (Heavyweight 240+ GSM)</li>
+                <li><strong className="text-foreground">Fit:</strong> Modern oversized silhouette with dropped shoulder seams and ribbed collar</li>
+                <li><strong className="text-foreground">Print:</strong> Commercial Direct-to-Film (DTF) high-resolution graphic print</li>
+              </>
+            )}
+            {product.subcategory === "acid-wash" && (
+              <>
+                <li><strong className="text-foreground">Fabric:</strong> 100% Premium Cotton with individual mineral acid-wash finish</li>
+                <li><strong className="text-foreground">Fit:</strong> Relaxed streetwear vintage fit with reinforced twin-needle stitching</li>
+                <li><strong className="text-foreground">Print:</strong> Industrial DTF print engineered for longevity through dozens of washes</li>
+              </>
+            )}
+            {product.subcategory === "regular" && (
+              <>
+                <li><strong className="text-foreground">Fabric:</strong> 100% Ring-Spun Cotton (180–200 GSM breathable jersey)</li>
+                <li><strong className="text-foreground">Fit:</strong> Standard regular everyday streetwear fit</li>
+                <li><strong className="text-foreground">Print:</strong> High-definition digital textile print</li>
+              </>
+            )}
+            {product.category === "hoodies" && (
+              <>
+                <li><strong className="text-foreground">Fabric:</strong> Heavyweight Cotton-Poly Blend Fleece with brushed thermal interior</li>
+                <li><strong className="text-foreground">Fit:</strong> Oversized comfort fit with double-layered hood & kangaroo pocket</li>
+                <li><strong className="text-foreground">Print:</strong> Precision DTF back and chest graphic</li>
+              </>
+            )}
+            <li><strong className="text-foreground">Production:</strong> Custom made-to-order in Karachi, Pakistan</li>
+            <li><strong className="text-foreground">Preparation Time:</strong> 2–3 business days before courier dispatch</li>
+          </ul>
+        </div>
+      </AccordionItem>
+
+      {/* ── Section 2: Shipping & 7-Day Exchange Policy ───────── */}
+      <AccordionItem title="Shipping & 7-Day Exchange Policy">
+        <div className="space-y-3 text-[13px] sm:text-sm text-muted-foreground">
+          <p>
+            <strong className="text-foreground font-semibold">Delivery Time:</strong> 1–2 business days for Karachi, 2–4 business days nationwide across Pakistan via tracked couriers.
           </p>
-        )}
+          <p>
+            <strong className="text-foreground font-semibold">Free Nationwide Shipping:</strong> Automatically applied at checkout on all orders of Rs. 5,000 or more (standard flat rate is Rs. 150 Karachi / Rs. 250 Nationwide).
+          </p>
+          <p>
+            <strong className="text-foreground font-semibold">7-Day Hassle-Free Exchange:</strong> If you receive the wrong size or encounter any manufacturing defect, contact us within 7 days of delivery for a swift replacement.
+          </p>
+        </div>
       </AccordionItem>
 
       {/* ── Section 2: Size Cheat Sheet ────────────────────── */}

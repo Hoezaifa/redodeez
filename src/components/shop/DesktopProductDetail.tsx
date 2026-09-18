@@ -16,7 +16,7 @@ import {
   Info,
   RotateCcw,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, getProductImageAlt } from "@/lib/utils";
 import type { Product } from "@/data/products";
 import { site } from "@/data/site";
 import { formatPrice } from "@/lib/format";
@@ -173,7 +173,7 @@ export function DesktopProductDetail({
             <motion.img
               key={currentSrc}
               src={currentSrc}
-              alt={`${product.title} — view ${carouselIdx + 1}`}
+              alt={getProductImageAlt(product, currentSrc, carouselIdx, totalImages)}
               initial={{ opacity: 0 }}
               animate={{
                 opacity: 1,
@@ -267,7 +267,11 @@ export function DesktopProductDetail({
                       : "border-border opacity-65 hover:opacity-100 hover:border-border-strong"
                   )}
                 >
-                  <img src={img} alt={`${product.title} — view ${idx + 1}`} className="w-full h-full object-cover" />
+                  <img
+                    src={img}
+                    alt={getProductImageAlt(product, img, idx, totalImages)}
+                    className="w-full h-full object-cover"
+                  />
                 </button>
               ))}
             </div>

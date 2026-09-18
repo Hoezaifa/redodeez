@@ -209,7 +209,7 @@ export const products: Product[] = [
     "aesthetic": "minimal-drops"
   },
   {
-    "id": "tshirt-acid-4",
+    "id": "dp-acid-wash-berserk-skull-blade",
     "title": "BERSERK SKULL BLADE ACID WASH TEE",
     "price": 2200,
     "category": "t-shirts",
@@ -224,7 +224,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-acid-9",
+    "id": "dp-acid-wash-spiderverse",
     "title": "SPIDERVERSE ACID WASH TEE",
     "price": 2200,
     "category": "t-shirts",
@@ -3798,7 +3798,7 @@ export const products: Product[] = [
     "rating": 4
   },
   {
-    "id": "tshirt-reg-5",
+    "id": "dp-regular-spiderverse",
     "title": "SPIDERVERSE TEE",
     "price": 1800,
     "category": "t-shirts",
@@ -3816,7 +3816,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-reg-2",
+    "id": "dp-regular-divine",
     "title": "DIVINE TEE",
     "price": 1800,
     "category": "t-shirts",
@@ -3831,7 +3831,7 @@ export const products: Product[] = [
     "rating": 4
   },
   {
-    "id": "tshirt-reg-3",
+    "id": "dp-regular-lcnst",
     "title": "LCNST TEE",
     "price": 1750,
     "category": "t-shirts",
@@ -3845,7 +3845,7 @@ export const products: Product[] = [
     "rating": 4
   },
   {
-    "id": "tshirt-reg-4",
+    "id": "dp-regular-snake",
     "title": "SNAKE TEE",
     "price": 1550,
     "category": "t-shirts",
@@ -3860,7 +3860,7 @@ export const products: Product[] = [
     "rating": 4
   },
   {
-    "id": "tshirt-reg-6",
+    "id": "dp-regular-abstract-wings",
     "title": "ABSTRACT WINGS TEE",
     "price": 1750,
     "category": "t-shirts",
@@ -3875,7 +3875,7 @@ export const products: Product[] = [
     "rating": 4
   },
   {
-    "id": "tshirt-reg-7",
+    "id": "dp-regular-ferrari",
     "title": "FERRARI TEE",
     "price": 1800,
     "category": "t-shirts",
@@ -3890,7 +3890,7 @@ export const products: Product[] = [
     "rating": 4
   },
   {
-    "id": "tshirt-acid-1",
+    "id": "dp-acid-wash-berserk-warrior",
     "title": "BERSERK WARRIOR ACID WASH TEE",
     "price": 3200,
     "category": "t-shirts",
@@ -3905,7 +3905,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-acid-2",
+    "id": "dp-acid-wash-divine",
     "title": "DIVINE ACID WASH TEE",
     "price": 2400,
     "category": "t-shirts",
@@ -3920,7 +3920,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-acid-3",
+    "id": "dp-acid-wash-punk-is-dead",
     "title": "PUNK IS DEAD ACID WASH TEE",
     "price": 2000,
     "category": "t-shirts",
@@ -3934,7 +3934,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-acid-5",
+    "id": "dp-acid-wash-ferrari",
     "title": "FERRARI ACID WASH TEE",
     "price": 2200,
     "category": "t-shirts",
@@ -3950,7 +3950,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-acid-6",
+    "id": "dp-acid-wash-knightfall",
     "title": "KNIGHTFALL ACID WASH TEE",
     "price": 1800,
     "category": "t-shirts",
@@ -3964,7 +3964,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-acid-7",
+    "id": "dp-acid-wash-abstract-wings",
     "title": "ABSTRACT WINGS ACID WASH TEE",
     "price": 3200,
     "category": "t-shirts",
@@ -3979,7 +3979,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-acid-8",
+    "id": "dp-acid-wash-berserk-classic",
     "title": "BERSERK ACID WASH TEE",
     "price": 2400,
     "category": "t-shirts",
@@ -3994,7 +3994,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-acid-10",
+    "id": "dp-acid-wash-breakout",
     "title": "BREAKOUT ACID WASH TEE",
     "price": 1800,
     "category": "t-shirts",
@@ -4008,7 +4008,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-1",
+    "id": "dp-drop-shoulder-berserk",
     "title": "Berserk Drop Shoulder Tee",
     "price": 1800,
     "category": "t-shirts",
@@ -4026,7 +4026,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-2",
+    "id": "dp-drop-shoulder-divine",
     "title": "DIVINE DRP SHLDR",
     "price": 1950,
     "category": "t-shirts",
@@ -4043,7 +4043,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-3",
+    "id": "dp-drop-shoulder-punk-is-dead",
     "title": "PUNK IS DEAD DRP SHLDR",
     "price": 1800,
     "category": "t-shirts",
@@ -4059,7 +4059,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-4",
+    "id": "dp-drop-shoulder-lcnst",
     "title": "LCNST DRP SHLDR",
     "price": 1900,
     "category": "t-shirts",
@@ -4075,7 +4075,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-5",
+    "id": "dp-drop-shoulder-tbsm-calm",
     "title": "TBSM CALM DRP SHLDR",
     "price": 1900,
     "category": "t-shirts",
@@ -4090,7 +4090,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-6",
+    "id": "dp-drop-shoulder-tbsm-encore",
     "title": "TBSM ENCORE DRP SHLDR",
     "price": 1900,
     "category": "t-shirts",
@@ -4105,7 +4105,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-7",
+    "id": "dp-drop-shoulder-punish",
     "title": "Punish Drop Shoulder Tee",
     "price": 1800,
     "category": "t-shirts",
@@ -4123,7 +4123,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-8",
+    "id": "dp-drop-shoulder-ferrari",
     "title": "FERRARI DRP SHLDR",
     "price": 1950,
     "category": "t-shirts",
@@ -4138,7 +4138,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-9",
+    "id": "dp-drop-shoulder-tbsm",
     "title": "TBSM DRP SHLDR",
     "price": 1750,
     "category": "t-shirts",
@@ -4152,7 +4152,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-10",
+    "id": "dp-drop-shoulder-abstract-wings",
     "title": "ABSTRACT WINGS DRP SHLDR",
     "price": 1800,
     "category": "t-shirts",
@@ -4168,7 +4168,7 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tshirt-drop-11",
+    "id": "dp-drop-shoulder-snake",
     "title": "SNAKE DRP SHLDR",
     "price": 1400,
     "category": "t-shirts",

@@ -2,31 +2,321 @@
   "redirects": [
     {
       "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "deezprints.store" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "deezprints.store"
+        }
+      ],
       "destination": "https://deezprints.com/:path",
       "permanent": true
     },
     {
       "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.deezprints.store" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.deezprints.store"
+        }
+      ],
       "destination": "https://deezprints.com/:path",
       "permanent": true
     },
     {
       "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "deezus.vercel.app" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "deezus.vercel.app"
+        }
+      ],
       "destination": "https://deezprints.com/:path",
       "permanent": true
     },
     {
       "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.deezprints.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.deezprints.com"
+        }
+      ],
       "destination": "https://deezprints.com/:path",
       "permanent": true
     },
     {
       "source": "/collections/wall-art",
       "destination": "/collections/tapestries",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-acid-4",
+      "destination": "/products/dp-acid-wash-berserk-skull-blade",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-acid-4",
+      "destination": "/products/dp-acid-wash-berserk-skull-blade",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-acid-9",
+      "destination": "/products/dp-acid-wash-spiderverse",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-acid-9",
+      "destination": "/products/dp-acid-wash-spiderverse",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-reg-5",
+      "destination": "/products/dp-regular-spiderverse",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-reg-5",
+      "destination": "/products/dp-regular-spiderverse",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-reg-2",
+      "destination": "/products/dp-regular-divine",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-reg-2",
+      "destination": "/products/dp-regular-divine",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-reg-3",
+      "destination": "/products/dp-regular-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-reg-3",
+      "destination": "/products/dp-regular-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-reg-4",
+      "destination": "/products/dp-regular-snake",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-reg-4",
+      "destination": "/products/dp-regular-snake",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-reg-6",
+      "destination": "/products/dp-regular-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-reg-6",
+      "destination": "/products/dp-regular-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-reg-7",
+      "destination": "/products/dp-regular-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-reg-7",
+      "destination": "/products/dp-regular-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-acid-1",
+      "destination": "/products/dp-acid-wash-berserk-warrior",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-acid-1",
+      "destination": "/products/dp-acid-wash-berserk-warrior",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-acid-2",
+      "destination": "/products/dp-acid-wash-divine",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-acid-2",
+      "destination": "/products/dp-acid-wash-divine",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-acid-3",
+      "destination": "/products/dp-acid-wash-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-acid-3",
+      "destination": "/products/dp-acid-wash-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-acid-5",
+      "destination": "/products/dp-acid-wash-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-acid-5",
+      "destination": "/products/dp-acid-wash-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-acid-6",
+      "destination": "/products/dp-acid-wash-knightfall",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-acid-6",
+      "destination": "/products/dp-acid-wash-knightfall",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-acid-7",
+      "destination": "/products/dp-acid-wash-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-acid-7",
+      "destination": "/products/dp-acid-wash-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-acid-8",
+      "destination": "/products/dp-acid-wash-berserk-classic",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-acid-8",
+      "destination": "/products/dp-acid-wash-berserk-classic",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-acid-10",
+      "destination": "/products/dp-acid-wash-breakout",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-acid-10",
+      "destination": "/products/dp-acid-wash-breakout",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-1",
+      "destination": "/products/dp-drop-shoulder-berserk",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-1",
+      "destination": "/products/dp-drop-shoulder-berserk",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-2",
+      "destination": "/products/dp-drop-shoulder-divine",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-2",
+      "destination": "/products/dp-drop-shoulder-divine",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-3",
+      "destination": "/products/dp-drop-shoulder-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-3",
+      "destination": "/products/dp-drop-shoulder-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-4",
+      "destination": "/products/dp-drop-shoulder-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-4",
+      "destination": "/products/dp-drop-shoulder-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-5",
+      "destination": "/products/dp-drop-shoulder-tbsm-calm",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-5",
+      "destination": "/products/dp-drop-shoulder-tbsm-calm",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-6",
+      "destination": "/products/dp-drop-shoulder-tbsm-encore",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-6",
+      "destination": "/products/dp-drop-shoulder-tbsm-encore",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-7",
+      "destination": "/products/dp-drop-shoulder-punish",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-7",
+      "destination": "/products/dp-drop-shoulder-punish",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-8",
+      "destination": "/products/dp-drop-shoulder-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-8",
+      "destination": "/products/dp-drop-shoulder-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-9",
+      "destination": "/products/dp-drop-shoulder-tbsm",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-9",
+      "destination": "/products/dp-drop-shoulder-tbsm",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-10",
+      "destination": "/products/dp-drop-shoulder-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-10",
+      "destination": "/products/dp-drop-shoulder-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/products/tshirt-drop-11",
+      "destination": "/products/dp-drop-shoulder-snake",
+      "permanent": true
+    },
+    {
+      "source": "/tshirt-drop-11",
+      "destination": "/products/dp-drop-shoulder-snake",
       "permanent": true
     }
   ],
@@ -75,27 +365,38 @@
     {
       "source": "/cart",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
       ]
     },
     {
       "source": "/checkout",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
       ]
     },
     {
       "source": "/wishlist",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
       ]
     },
     {
       "source": "/account",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
       ]
     }
   ]
 }
-

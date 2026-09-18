@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate, notFound, redirect } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { getProducts, type Product } from "@/data/products";
@@ -22,12 +22,49 @@ import { useCart } from "@/lib/cart";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { SizeChart } from "@/components/shop/SizeChart";
 import { ProductDetail } from "@/components/shop/DesktopProductDetail";
-import { cn } from "@/lib/utils";
+import { cn, getProductImageAlt } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema, breadcrumbSchema } from "@/lib/structuredData";
 
+const LEGACY_PRODUCT_SLUGS: Record<string, string> = {
+  "tshirt-acid-4": "dp-acid-wash-berserk-skull-blade",
+  "tshirt-acid-9": "dp-acid-wash-spiderverse",
+  "tshirt-reg-5": "dp-regular-spiderverse",
+  "tshirt-reg-2": "dp-regular-divine",
+  "tshirt-reg-3": "dp-regular-lcnst",
+  "tshirt-reg-4": "dp-regular-snake",
+  "tshirt-reg-6": "dp-regular-abstract-wings",
+  "tshirt-reg-7": "dp-regular-ferrari",
+  "tshirt-acid-1": "dp-acid-wash-berserk-warrior",
+  "tshirt-acid-2": "dp-acid-wash-divine",
+  "tshirt-acid-3": "dp-acid-wash-punk-is-dead",
+  "tshirt-acid-5": "dp-acid-wash-ferrari",
+  "tshirt-acid-6": "dp-acid-wash-knightfall",
+  "tshirt-acid-7": "dp-acid-wash-abstract-wings",
+  "tshirt-acid-8": "dp-acid-wash-berserk-classic",
+  "tshirt-acid-10": "dp-acid-wash-breakout",
+  "tshirt-drop-1": "dp-drop-shoulder-berserk",
+  "tshirt-drop-2": "dp-drop-shoulder-divine",
+  "tshirt-drop-3": "dp-drop-shoulder-punk-is-dead",
+  "tshirt-drop-4": "dp-drop-shoulder-lcnst",
+  "tshirt-drop-5": "dp-drop-shoulder-tbsm-calm",
+  "tshirt-drop-6": "dp-drop-shoulder-tbsm-encore",
+  "tshirt-drop-7": "dp-drop-shoulder-punish",
+  "tshirt-drop-8": "dp-drop-shoulder-ferrari",
+  "tshirt-drop-9": "dp-drop-shoulder-tbsm",
+  "tshirt-drop-10": "dp-drop-shoulder-abstract-wings",
+  "tshirt-drop-11": "dp-drop-shoulder-snake",
+};
+
 export const Route = createFileRoute("/products/$productId")({
   loader: async ({ params }) => {
+    if (LEGACY_PRODUCT_SLUGS[params.productId]) {
+      throw redirect({
+        to: "/products/$productId",
+        params: { productId: LEGACY_PRODUCT_SLUGS[params.productId] },
+        statusCode: 301,
+      });
+    }
     const allProducts = await getProducts();
     const product = allProducts.find((p) => p.id === params.productId);
     if (!product) throw notFound();
@@ -39,13 +76,17 @@ export const Route = createFileRoute("/products/$productId")({
     const absoluteImgUrl = toAbsoluteImageUrl(rawImg);
     const ogImgUrl = toOgImageUrl(rawImg);
     const isTapestryMeta = p?.subcategory === "tapestries" || p?.subcategory === "flags";
-    const desc = isTapestryMeta
-      ? `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. High-definition digital sublimation printed satin wall tapestry by Deez Prints. Made in Karachi, delivered across Pakistan.`
-      : `${p?.title ?? "Product"} — ${formatPrice(p?.price ?? 0)}. Premium graphic streetwear by Deez Prints. Orders take 2–3 working days to prepare before dispatch across Pakistan.`;
-    const title = `${p?.title ?? "Product"} — Deez Prints`;
+    const subcatLabel = p?.subcategory ? p.subcategory.replace(/-/g, " ") : "streetwear";
+    const desc = p?.description
+      ? `${p.title} (${formatPrice(p.price)}): ${p.description}. Custom made in Karachi, delivered across Pakistan.`
+      : isTapestryMeta
+        ? `${p?.title ?? "Product"} (${formatPrice(p?.price ?? 0)}) — High-definition digital sublimation printed satin wall tapestry by Deez Prints. Made in Karachi, delivered across Pakistan.`
+        : `${p?.title ?? "Product"} (${formatPrice(p?.price ?? 0)}) — Premium ${subcatLabel} graphic apparel by Deez Prints. 100% cotton, DTF printed in Karachi. Dispatched across Pakistan.`;
+    const title = `${p?.title ?? "Product"} | ${subcatLabel.toUpperCase()} — Deez Prints`;
     const url = `${SITE_URL}/products/${p?.id ?? ""}`;
 
     const isSelfHostedImg = rawImg?.startsWith("/assets/") || rawImg?.startsWith("/");
+    const imageAlt = p ? getProductImageAlt(p, rawImg, 0, p.images.length) : "Deez Prints Product";
 
     return {
       meta: [
@@ -65,7 +106,7 @@ export const Route = createFileRoute("/products/$productId")({
               { property: "og:image:type", content: "image/jpeg" },
             ]
           : []),
-        { property: "og:image:alt", content: p?.title ?? "Deez Prints Product" },
+        { property: "og:image:alt", content: imageAlt },
         { property: "og:price:amount", content: String(p?.price ?? 0) },
         { property: "og:price:currency", content: "PKR" },
         { property: "product:price:amount", content: String(p?.price ?? 0) },
@@ -76,7 +117,7 @@ export const Route = createFileRoute("/products/$productId")({
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
         { name: "twitter:image", content: ogImgUrl },
-        { name: "twitter:image:alt", content: p?.title ?? "Deez Prints Product" },
+        { name: "twitter:image:alt", content: imageAlt },
       ],
       links: [{ rel: "canonical", href: url }],
     };

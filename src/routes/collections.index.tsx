@@ -7,26 +7,58 @@ import { ProductCard } from "@/components/shop/ProductCard";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { cn } from "@/lib/utils";
 
+interface CollectionsSearchParams {
+  page?: number;
+  sort?: "featured" | "newest" | "price" | "name";
+  dir?: "asc" | "desc";
+  cat?: string;
+}
+
+const PAGE_SIZE = 24;
+
 export const Route = createFileRoute("/collections/")({
-  loader: async () => {
-    const allProducts = await getProducts();
-    return { allProducts };
+  validateSearch: (search: Record<string, unknown>): CollectionsSearchParams => {
+    return {
+      page: search.page ? Math.max(1, Number(search.page)) : undefined,
+      sort: ["featured", "newest", "price", "name"].includes(search.sort as string)
+        ? (search.sort as any)
+        : undefined,
+      dir: search.dir === "desc" || search.dir === "asc" ? search.dir : undefined,
+      cat: typeof search.cat === "string" && search.cat.trim().length > 0 ? search.cat.trim() : undefined,
+    };
   },
-  head: () => ({
-    meta: [
-      { title: "Shop All — Deez Prints Streetwear Catalogue" },
-      {
-        name: "description",
-        content:
-          "Browse every Deez Prints piece: drop shoulder tees, acid wash, hoodies, jerseys, tapestries and accessories. Filter by category and price.",
-      },
-      { property: "og:title", content: "Shop All — Deez Prints" },
-      { property: "og:description", content: "Every tee, hoodie, jersey and print in one place." },
-      { property: "og:url", content: `${SITE_URL}/collections` },
-      { property: "og:site_name", content: "Deez Prints" },
-    ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/collections` }],
-  }),
+  loaderDeps: ({ search: { page, sort, dir, cat } }) => ({ page, sort, dir, cat }),
+  loader: async ({ deps }) => {
+    const allProducts = await getProducts();
+    return { allProducts, search: deps };
+  },
+  head: ({ loaderData }) => {
+    const search = loaderData?.search;
+    const isUtilityOrPaginated = Boolean(
+      search?.sort || search?.dir || (search?.cat && search.cat !== "all") || (search?.page && search.page > 1)
+    );
+    const pageTitle =
+      search?.page && search.page > 1
+        ? `Shop All (Page ${search.page}) — Deez Prints Streetwear Catalogue`
+        : "Shop All — Deez Prints Streetwear Catalogue";
+
+    return {
+      meta: [
+        { title: pageTitle },
+        {
+          name: "description",
+          content:
+            "Browse every Deez Prints piece: drop shoulder tees, acid wash, hoodies, jerseys, tapestries and accessories. Filter by category and price.",
+        },
+        ...(isUtilityOrPaginated ? [{ name: "robots", content: "noindex, follow" }] : []),
+        { property: "og:title", content: pageTitle },
+        { property: "og:description", content: "Every tee, hoodie, jersey and print in one place." },
+        { property: "og:url", content: `${SITE_URL}/collections` },
+        { property: "og:site_name", content: "Deez Prints" },
+      ],
+      links: [{ rel: "canonical", href: `${SITE_URL}/collections` }],
+    };
+  },
   component: ShopAll,
 });
 
@@ -42,9 +74,14 @@ const VISIBLE_COUNT = 3;
 
 function ShopAll() {
   const { allProducts } = Route.useLoaderData();
-  const [cat, setCat] = useState<string>("all");
-  const [sort, setSort] = useState<string>("featured");
-  const [priceDir, setPriceDir] = useState<"asc" | "desc">("asc");
+  const search = Route.useSearch();
+  const navigate = Route.useNavigate();
+
+  const cat = search.cat || "all";
+  const sort = search.sort || "featured";
+  const priceDir = search.dir || "asc";
+  const currentPageParam = search.page || 1;
+
   const [moreOpen, setMoreOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement>(null);
 
@@ -87,7 +124,49 @@ function ShopAll() {
     }
     if (sort === "newest") sorted.sort((a, b) => (b.rating ?? 5) - (a.rating ?? 5));
     return sorted;
-  }, [cat, sort, priceDir, allProducts]);
+  }, [cat, sort, priceDir, allProducts, nonEmptyCollections]);
+
+  // Deterministic pagination calculations
+  const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  const currentPage = Math.min(Math.max(1, currentPageParam), totalPages);
+  const paginatedList = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return list.slice(start, start + PAGE_SIZE);
+  }, [list, currentPage]);
+
+  const handleCategoryChange = (newCat: string) => {
+    setMoreOpen(false);
+    navigate({
+      search: (prev) => ({
+        ...prev,
+        cat: newCat === "all" ? undefined : newCat,
+        page: undefined, // Reset to page 1 on category switch
+      }),
+    });
+  };
+
+  const handleSortChange = (newSort: "featured" | "newest" | "price" | "name") => {
+    if (newSort === "price" && sort === "price") {
+      const nextDir = priceDir === "asc" ? "desc" : "asc";
+      navigate({
+        search: (prev) => ({
+          ...prev,
+          sort: "price",
+          dir: nextDir,
+          page: undefined,
+        }),
+      });
+    } else {
+      navigate({
+        search: (prev) => ({
+          ...prev,
+          sort: newSort === "featured" ? undefined : newSort,
+          dir: undefined,
+          page: undefined,
+        }),
+      });
+    }
+  };
 
   const stats = [
     { label: `${allProducts.length} Products` },
@@ -132,7 +211,7 @@ function ShopAll() {
               <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none min-w-0 flex-1">
                 <button
                   type="button"
-                  onClick={() => { setCat("all"); setMoreOpen(false); }}
+                  onClick={() => handleCategoryChange("all")}
                   className={cn(chipBase, "text-[10px] px-3 py-1.5", cat === "all" ? chipActive : chipInactive)}
                 >
                   All
@@ -141,7 +220,7 @@ function ShopAll() {
                   <button
                     key={c.slug}
                     type="button"
-                    onClick={() => { setCat(c.slug); setMoreOpen(false); }}
+                    onClick={() => handleCategoryChange(c.slug)}
                     className={cn(chipBase, "text-[10px] px-3 py-1.5", cat === c.slug ? chipActive : chipInactive)}
                   >
                     {c.name}
@@ -178,7 +257,7 @@ function ShopAll() {
                         <button
                           key={c.slug}
                           type="button"
-                          onClick={() => { setCat(c.slug); setMoreOpen(false); }}
+                          onClick={() => handleCategoryChange(c.slug)}
                           className={cn(
                             "block w-full text-left px-4 py-3 label-mono transition-colors",
                             cat === c.slug
@@ -201,13 +280,7 @@ function ShopAll() {
                 <button
                   key={s.id}
                   type="button"
-                  onClick={() => {
-                    if (s.id === "price" && sort === "price") {
-                      setPriceDir((d) => (d === "asc" ? "desc" : "asc"));
-                    } else {
-                      setSort(s.id);
-                    }
-                  }}
+                  onClick={() => handleSortChange(s.id as any)}
                   className={cn(
                     "flex items-center gap-1 px-3 py-1.5 label-mono text-[10px] transition-all duration-300",
                     sort === s.id ? "text-primary" : "text-muted-foreground hover:text-foreground",
@@ -233,7 +306,7 @@ function ShopAll() {
             <div className="flex items-center gap-2 overflow-x-auto scrollbar-none">
               <button
                 type="button"
-                onClick={() => setCat("all")}
+                onClick={() => handleCategoryChange("all")}
                 className={cn(chipBase, cat === "all" ? chipActive : chipInactive)}
               >
                 All
@@ -242,7 +315,7 @@ function ShopAll() {
                 <button
                   key={c.slug}
                   type="button"
-                  onClick={() => setCat(c.slug)}
+                  onClick={() => handleCategoryChange(c.slug)}
                   className={cn(chipBase, cat === c.slug ? chipActive : chipInactive)}
                 >
                   {c.name}
@@ -256,13 +329,7 @@ function ShopAll() {
                 <button
                   key={s.id}
                   type="button"
-                  onClick={() => {
-                    if (s.id === "price" && sort === "price") {
-                      setPriceDir((d) => (d === "asc" ? "desc" : "asc"));
-                    } else {
-                      setSort(s.id);
-                    }
-                  }}
+                  onClick={() => handleSortChange(s.id as any)}
                   className={cn(
                     "flex items-center gap-1 px-3 py-2 label-mono transition-all duration-300",
                     sort === s.id ? "text-primary" : "text-muted-foreground hover:text-foreground",
@@ -286,8 +353,23 @@ function ShopAll() {
         </div>
       </div>
 
+      {/* Active page item count indicator */}
+      {list.length > 0 && (
+        <div className="mt-4 flex items-center justify-between text-xs label-mono text-muted-foreground">
+          <span>
+            Showing {(currentPage - 1) * PAGE_SIZE + 1}–{Math.min(currentPage * PAGE_SIZE, list.length)} of {list.length} pieces
+          </span>
+          {totalPages > 1 && (
+            <span>
+              Page {currentPage} of {totalPages}
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* Paginated Product Grid */}
       <div className="mt-4 md:mt-6 grid grid-cols-2 gap-2.5 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-8">
-        {list.map((p, i) => (
+        {paginatedList.map((p, i) => (
           <ProductCard key={p.id} product={p} index={i} />
         ))}
       </div>
@@ -299,6 +381,80 @@ function ShopAll() {
             Reset
           </Link>
         </p>
+      )}
+
+      {/* Crawlable Pagination Controls */}
+      {totalPages > 1 && (
+        <nav
+          aria-label="Catalogue pagination"
+          className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border pt-6"
+        >
+          <p className="label-mono text-xs text-muted-foreground order-2 sm:order-1">
+            Page <span className="text-foreground font-semibold">{currentPage}</span> of{" "}
+            <span className="text-foreground font-semibold">{totalPages}</span>
+          </p>
+
+          <div className="flex items-center gap-1.5 order-1 sm:order-2 flex-wrap justify-center">
+            {currentPage > 1 && (
+              <Link
+                to="/collections"
+                search={{
+                  ...search,
+                  page: currentPage - 1 === 1 ? undefined : currentPage - 1,
+                }}
+                className="px-3 py-1.5 label-mono text-xs border border-border hover:border-primary hover:text-primary transition-colors rounded-sm"
+              >
+                ← Prev
+              </Link>
+            )}
+
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => {
+              if (totalPages > 7) {
+                if (p !== 1 && p !== totalPages && Math.abs(p - currentPage) > 2) {
+                  if (p === 2 || p === totalPages - 1) {
+                    return (
+                      <span key={p} className="px-1 text-muted-foreground text-xs">
+                        …
+                      </span>
+                    );
+                  }
+                  return null;
+                }
+              }
+              return (
+                <Link
+                  key={p}
+                  to="/collections"
+                  search={{
+                    ...search,
+                    page: p === 1 ? undefined : p,
+                  }}
+                  className={cn(
+                    "min-w-[34px] h-[34px] flex items-center justify-center label-mono text-xs border transition-colors rounded-sm",
+                    p === currentPage
+                      ? "bg-primary text-primary-foreground border-primary font-bold shadow-sm"
+                      : "border-border hover:border-primary hover:text-primary"
+                  )}
+                >
+                  {p}
+                </Link>
+              );
+            })}
+
+            {currentPage < totalPages && (
+              <Link
+                to="/collections"
+                search={{
+                  ...search,
+                  page: currentPage + 1,
+                }}
+                className="px-3 py-1.5 label-mono text-xs border border-border hover:border-primary hover:text-primary transition-colors rounded-sm"
+              >
+                Next →
+              </Link>
+            )}
+          </div>
+        </nav>
       )}
     </div>
   );

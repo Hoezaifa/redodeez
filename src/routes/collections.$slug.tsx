@@ -9,8 +9,22 @@ import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/structuredData";
 
+interface CollectionSlugSearchParams {
+  sort?: "featured" | "price" | "name";
+  dir?: "asc" | "desc";
+}
+
 export const Route = createFileRoute("/collections/$slug")({
-  loader: async ({ params }) => {
+  validateSearch: (search: Record<string, unknown>): CollectionSlugSearchParams => {
+    return {
+      sort: ["featured", "price", "name"].includes(search.sort as string)
+        ? (search.sort as any)
+        : undefined,
+      dir: search.dir === "desc" || search.dir === "asc" ? search.dir : undefined,
+    };
+  },
+  loaderDeps: ({ search: { sort, dir } }) => ({ sort, dir }),
+  loader: async ({ params, deps }) => {
     const collection = collections.find((c) => c.slug === params.slug);
     if (!collection) throw notFound();
     const allProducts = await getProducts();
@@ -22,6 +36,7 @@ export const Route = createFileRoute("/collections/$slug")({
       status: collection.status,
       allProducts,
       productCount,
+      search: deps,
     };
   },
   head: ({ loaderData }) => {
@@ -35,7 +50,9 @@ export const Route = createFileRoute("/collections/$slug")({
     const desc = `${blurb} Shop ${name} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
     const isEmpty = (loaderData?.productCount ?? 0) === 0;
     const isComingSoon = loaderData?.status === "COMING_SOON";
-    const shouldNoindex = isEmpty || isComingSoon;
+    const search = loaderData?.search;
+    const isUtilitySort = Boolean(search?.sort || search?.dir);
+    const shouldNoindex = isEmpty || isComingSoon || isUtilitySort;
 
     const rawCollectionImg = collectionObj?.image;
     const isSelfHostedImg = rawCollectionImg?.startsWith("/assets/") || rawCollectionImg?.startsWith("/");
@@ -81,8 +98,23 @@ const sortOptions = [
 
 function CollectionPage() {
   const { slug, name, blurb, status, allProducts } = Route.useLoaderData();
-  const [sort, setSort] = useState("featured");
-  const [priceDir, setPriceDir] = useState<"asc" | "desc">("asc");
+  const search = Route.useSearch();
+  const navigate = Route.useNavigate();
+  const sort = search.sort || "featured";
+  const priceDir = search.dir || "asc";
+
+  const handleSortChange = (newSort: "featured" | "price" | "name") => {
+    if (newSort === "price" && sort === "price") {
+      const nextDir = priceDir === "asc" ? "desc" : "asc";
+      navigate({
+        search: () => ({ sort: "price", dir: nextDir }),
+      });
+    } else {
+      navigate({
+        search: () => ({ sort: newSort === "featured" ? undefined : newSort, dir: undefined }),
+      });
+    }
+  };
 
   const isAesthetic = aestheticSlugs.includes(slug);
   const isComingSoonCollection = status === "COMING_SOON";
@@ -170,13 +202,7 @@ function CollectionPage() {
               <button
                 key={s.id}
                 type="button"
-                onClick={() => {
-                  if (s.id === "price" && sort === "price") {
-                    setPriceDir((d) => (d === "asc" ? "desc" : "asc"));
-                  } else {
-                    setSort(s.id);
-                  }
-                }}
+                onClick={() => handleSortChange(s.id as any)}
                 className={cn(
                   "flex items-center gap-1 px-3 py-2 label-mono transition-all duration-300",
                   sort === s.id ? "text-primary" : "text-muted-foreground hover:text-foreground",

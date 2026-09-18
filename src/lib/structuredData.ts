@@ -6,7 +6,7 @@
  * Never uses window.location.origin or request Host for canonical URLs.
  */
 
-import { site, SITE_URL, SHIPPING_OPTIONS } from "@/data/site";
+import { site, SITE_URL, SHIPPING_OPTIONS, toAbsoluteImageUrl } from "@/data/site";
 import type { Product } from "@/data/products";
 
 /** Organization schema — appears in Google Knowledge Panel & Search Entities */
@@ -87,6 +87,17 @@ export interface OfferRange {
 export function productSchema(product: Product, offerRange?: OfferRange) {
   const url = `${SITE_URL}/products/${product.id}`;
 
+  const merchantReturnPolicy = {
+    "@type": "MerchantReturnPolicy",
+    applicableCountry: "PK",
+    returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+    merchantReturnDays: 7,
+    returnMethod: "https://schema.org/ReturnByMail",
+    returnFees: "https://schema.org/FreeReturn",
+    refundType: "https://schema.org/ExchangeRefund",
+    url: `${SITE_URL}/returns`,
+  };
+
   const shippingDetails = [
     {
       "@type": "OfferShippingDetails",
@@ -154,10 +165,12 @@ export function productSchema(product: Product, offerRange?: OfferRange) {
         highPrice: offerRange.highPrice,
         offerCount: offerRange.offerCount,
         availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
         seller: {
           "@type": "Organization",
           name: "Deez Prints",
         },
+        hasMerchantReturnPolicy: merchantReturnPolicy,
         shippingDetails,
       }
     : {
@@ -171,21 +184,32 @@ export function productSchema(product: Product, offerRange?: OfferRange) {
           "@type": "Organization",
           name: "Deez Prints",
         },
+        hasMerchantReturnPolicy: merchantReturnPolicy,
         shippingDetails,
       };
+
+  const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
+  const material = isTapestry ? "High-Density Satin Fabric" : "100% Cotton";
+
+  const absoluteImages = product.images.length > 0
+    ? product.images.map((img) => toAbsoluteImageUrl(img))
+    : undefined;
 
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.title,
     description: productDescription(product),
-    image: product.images.length > 0 ? product.images : undefined,
+    image: absoluteImages,
     url,
     sku: product.id,
     brand: {
       "@type": "Brand",
       name: "Deez Prints",
     },
+    category: product.category,
+    material,
+    ...(product.colors && product.colors.length > 0 ? { color: product.colors[0] } : {}),
     offers,
     // aggregateRating intentionally omitted — no verified review system exists
   };
