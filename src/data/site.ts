@@ -213,9 +213,9 @@ export const collections: Collection[] = [
     match: (p) => p.category === "hoodies",
   },
   {
-    slug: "wall-art",
-    name: "Wall Art",
-    blurb: "Tapestries for your space.",
+    slug: "tapestries",
+    name: "Tapestries",
+    blurb: "High-definition satin wall tapestries for your space.",
     image: "/assets/products/tapestries/berserk_eclipse_tapestry.webp",
     match: (p) => ["tapestries", "flags"].includes(p.subcategory),
   },
@@ -340,7 +340,7 @@ export const usps = [
 export const navLinks = [
   { label: "Shop", to: "/collections" },
   { label: "Custom Print", to: "/custom-print" },
-  { label: "Wall Art", to: "/collections/wall-art" },
+  { label: "Tapestries", to: "/collections/tapestries" },
   { label: "Accessories", to: "/collections/accessories" },
   { label: "About", to: "/about" },
 ];

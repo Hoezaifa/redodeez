@@ -73,7 +73,7 @@ function productDescription(product: Product): string {
   if (product.description) return product.description;
 
   const subcatLabel = product.subcategory.replace(/-/g, " ");
-  const categoryLabel = product.category === "accessories" ? "" : " streetwear";
+  const categoryLabel = product.category === "accessories" || product.category === "tapestries" ? "" : " streetwear";
   return `${product.title} — ${subcatLabel}${categoryLabel} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
 }
 

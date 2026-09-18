@@ -60,7 +60,7 @@ export const Route = createFileRoute("/custom-print")({
 const regTeeProduct = products.find((p) => (p.subcategory as string) === "oversized") ?? products[0];
 const dropProduct = products.find((p) => p.title.toLowerCase().includes("drop")) ?? products[1];
 const acidProduct = products.find((p) => p.subcategory === "acid-wash") ?? products[2];
-const tapestryProduct = products.find((p) => (p.category as string) === "wall-art") ?? products[3];
+const tapestryProduct = products.find((p) => p.subcategory === "tapestries" || p.subcategory === "flags") ?? products[3];
 
 const bases = [
   {
@@ -297,7 +297,7 @@ function CustomPrint() {
                       {b.label}
                     </span>
                     <span className="text-[9px] text-zinc-400 block truncate font-sans mt-0.5">
-                      {b.isClothing ? "Apparel" : "Wall Art"}
+                      {b.isClothing ? "Apparel" : "Tapestry"}
                     </span>
                   </button>
                 );
@@ -422,7 +422,7 @@ function CustomPrint() {
                           </button>
                         </div>
                         <p className="mt-2 text-[10px] font-mono text-zinc-400 truncate max-w-full">
-                          {isClothing ? `Design ${idx + 1}: ` : "Wall Art: "}
+                          {isClothing ? `Design ${idx + 1}: ` : "Tapestry: "}
                           {fileObj.name}
                         </p>
                       </div>

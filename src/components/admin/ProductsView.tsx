@@ -97,7 +97,7 @@ export function ProductsView() {
     { id: "drop-shoulder", label: "Drop Shlder", filter: (p: Product) => p.subcategory === "drop-shoulder" },
     { id: "acid-wash", label: "Acid", filter: (p: Product) => p.subcategory === "acid-wash" },
     { id: "hoodies", label: "Hoodies", filter: (p: Product) => p.subcategory === "hoodies" },
-    { id: "wall-art", label: "Wall Art", filter: (p: Product) => ["tapestries", "flags"].includes(p.subcategory) },
+    { id: "tapestries", label: "Tapestries", filter: (p: Product) => ["tapestries", "flags"].includes(p.subcategory) },
     { id: "accessories", label: "Accessories", filter: (p: Product) => p.category === "accessories" },
     { id: "overridden", label: `Edited (${overriddenCount})`, filter: (p: Product) => Boolean(overrides[p.id]) },
     { id: "all", label: "All Products", filter: () => true },

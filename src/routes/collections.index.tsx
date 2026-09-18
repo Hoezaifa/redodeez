@@ -18,7 +18,7 @@ export const Route = createFileRoute("/collections/")({
       {
         name: "description",
         content:
-          "Browse every Deez Prints piece: drop shoulder tees, acid wash, hoodies, jerseys, wall art and accessories. Filter by category and price.",
+          "Browse every Deez Prints piece: drop shoulder tees, acid wash, hoodies, jerseys, tapestries and accessories. Filter by category and price.",
       },
       { property: "og:title", content: "Shop All — Deez Prints" },
       { property: "og:description", content: "Every tee, hoodie, jersey and print in one place." },

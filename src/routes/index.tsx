@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({"loader": async () => {
       {
         name: "description",
         content:
-          "Oversized drop-shoulder tees, acid wash, anime apparel, hoodies and wall art. Custom DTF t-shirt printing studio based in Karachi, delivering nationwide across Pakistan.",
+          "Oversized drop-shoulder tees, acid wash, anime apparel, hoodies and tapestries. Custom DTF t-shirt printing studio based in Karachi, delivering nationwide across Pakistan.",
       },
       {
         property: "og:title",
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({"loader": async () => {
       {
         property: "og:description",
         content:
-          "Oversized drop-shoulder tees, acid wash, anime apparel, hoodies and wall art. Custom DTF t-shirt printing studio based in Karachi, delivering nationwide across Pakistan.",
+          "Oversized drop-shoulder tees, acid wash, anime apparel, hoodies and tapestries. Custom DTF t-shirt printing studio based in Karachi, delivering nationwide across Pakistan.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/` },
@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({"loader": async () => {
       {
         name: "twitter:description",
         content:
-          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and wall art. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
+          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and tapestries. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
       },
       { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
     ],
@@ -93,14 +93,14 @@ function Home() {
         ctaParams={{ slug: "acid-wash" }}
       />
 
-      {/* Wall Art / Tapestries Section */}
+      {/* Tapestries Section */}
       <ProductRow
-        eyebrow="Wall art"
+        eyebrow="Tapestries"
         title={"Make your\nspace yours"}
         items={wallArt}
-        ctaLabel="Explore wall art"
+        ctaLabel="Explore tapestries"
         ctaTo="/collections/$slug"
-        ctaParams={{ slug: "wall-art" }}
+        ctaParams={{ slug: "tapestries" }}
       />
 
       {/* Drop Shoulder Section */}

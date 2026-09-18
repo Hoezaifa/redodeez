@@ -23,6 +23,11 @@
       "has": [{ "type": "host", "value": "www.deezprints.com" }],
       "destination": "https://deezprints.com/:path",
       "permanent": true
+    },
+    {
+      "source": "/collections/wall-art",
+      "destination": "/collections/tapestries",
+      "permanent": true
     }
   ],
   "headers": [

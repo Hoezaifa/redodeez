@@ -2,7 +2,7 @@ export interface Product {
   id: string;
   title: string;
   price: number;
-  category: "t-shirts" | "accessories" | "hoodies" | "jerseys";
+  category: "t-shirts" | "accessories" | "hoodies" | "jerseys" | "tapestries";
   subcategory: "regular" | "graphic" | "drop-shoulder" | "acid-wash" | "mugs" | "flags" | "tapestries" | "wristbands" | "badges" | "wallet-cards" | "keychains" | "magnets" | "notebooks" | "gift-boxes" | "hoodies" | "jerseys";
   images: string[];
   sizes?: string[];
@@ -10,7 +10,62 @@ export interface Product {
   description?: string;
   rating?: number;
   aesthetic?: string;
+  productType?: string;
+  style?: string;
 }
+
+/* ─── Three-Axis Taxonomy Helper ────────────────────────────── */
+
+export type ProductType = "t-shirt" | "hoodie" | "jersey" | "tapestry" | "flag" | "mug" | "accessory";
+export type ProductStyle = "regular" | "drop-shoulder" | "acid-wash" | "graphic" | null;
+export type ProductTheme = string | null;
+
+export interface ProductDimensions {
+  productType: ProductType;
+  style: ProductStyle;
+  theme: ProductTheme;
+}
+
+/**
+ * Derives the three-axis taxonomy (productType / style / theme) from
+ * a product's existing category, subcategory, and aesthetic fields.
+ *
+ * This is a pure derivation function — no product data is mutated.
+ */
+export function deriveProductDimensions(p: Product): ProductDimensions {
+  // Product type — what the physical item IS
+  const typeMap: Record<string, ProductType> = {
+    "hoodies": "hoodie",
+    "jerseys": "jersey",
+    "tapestries": "tapestry",
+    "flags": "flag",
+    "mugs": "mug",
+  };
+
+  let productType: ProductType;
+  if (typeMap[p.subcategory]) {
+    productType = typeMap[p.subcategory];
+  } else if (p.category === "accessories") {
+    productType = "accessory";
+  } else {
+    productType = "t-shirt";
+  }
+
+  // Style — apparel fit/treatment variant (only meaningful for t-shirts)
+  const styleMap: Record<string, ProductStyle> = {
+    "drop-shoulder": "drop-shoulder",
+    "acid-wash": "acid-wash",
+    "graphic": "graphic",
+    "regular": "regular",
+  };
+  const style: ProductStyle = styleMap[p.subcategory] ?? null;
+
+  // Theme — design universe / aesthetic
+  const theme: ProductTheme = p.aesthetic ?? null;
+
+  return { productType, style, theme };
+}
+
 
 export interface ProductOverrideData {
   title?: string;
@@ -3106,7 +3161,7 @@ export const products: Product[] = [
     "id": "tapestry-one-piece-gear-5-luffy-tapestry",
     "title": "ONE PIECE GEAR 5 LUFFY TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/one_piece_gear_5_luffy_tapestry.webp"
@@ -3124,7 +3179,7 @@ export const products: Product[] = [
     "id": "tapestry-berserk-eclipse-tapestry",
     "title": "BERSERK ECLIPSE TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/berserk_eclipse_tapestry.webp"
@@ -3142,7 +3197,7 @@ export const products: Product[] = [
     "id": "tapestry-itachi-uchiha-sharingan-tapestry",
     "title": "ITACHI UCHIHA SHARINGAN TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/itachi_uchiha_sharingan_tapestry.webp"
@@ -3160,7 +3215,7 @@ export const products: Product[] = [
     "id": "tapestry-goku-kamehameha-tapestry",
     "title": "GOKU KAMEHAMEHA TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/goku_kamehameha_tapestry.webp"
@@ -3178,7 +3233,7 @@ export const products: Product[] = [
     "id": "tapestry-fight-club-tyler-durden-tapestry",
     "title": "FIGHT CLUB TYLER DURDEN TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/fight_club_tyler_durden_tapestry.webp"
@@ -3196,7 +3251,7 @@ export const products: Product[] = [
     "id": "tapestry-guts-brand-of-sacrifice-tapestry",
     "title": "GUTS BRAND OF SACRIFICE TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/guts_brand_of_sacrifice_tapestry.webp"
@@ -3214,7 +3269,7 @@ export const products: Product[] = [
     "id": "tapestry-spider-man-comic-tapestry",
     "title": "SPIDER-MAN COMIC TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/spider-man_comic_tapestry.webp"
@@ -3232,7 +3287,7 @@ export const products: Product[] = [
     "id": "tapestry-breaking-bad-walter-white-jesse-tapestry",
     "title": "BREAKING BAD WALTER WHITE JESSE TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/breaking_bad_walter_white_jesse_tapestry.webp"
@@ -3250,7 +3305,7 @@ export const products: Product[] = [
     "id": "tapestry-american-psycho-movie-poster-tapestry",
     "title": "AMERICAN PSYCHO MOVIE POSTER TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/american_psycho_movie_poster_tapestry.webp"
@@ -3268,7 +3323,7 @@ export const products: Product[] = [
     "id": "tapestry-madara-uchiha-sharingan-tapestry",
     "title": "MADARA UCHIHA SHARINGAN TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/madara_uchiha_sharingan_tapestry.webp"
@@ -3286,7 +3341,7 @@ export const products: Product[] = [
     "id": "tapestry-vegeta-super-saiyan-tapestry",
     "title": "VEGETA SUPER SAIYAN TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/vegeta_super_saiyan_tapestry.webp"
@@ -3304,7 +3359,7 @@ export const products: Product[] = [
     "id": "tapestry-tanjiro-kamado-tapestry",
     "title": "TANJIRO KAMADO TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/tanjiro_kamado_tapestry.webp"
@@ -3322,7 +3377,7 @@ export const products: Product[] = [
     "id": "tapestry-scarface-tony-montana-tapestry",
     "title": "SCARFACE TONY MONTANA TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/scarface_tony_montana_tapestry.webp"
@@ -3340,7 +3395,7 @@ export const products: Product[] = [
     "id": "tapestry-ultra-instinct-goku-energy-tapestry",
     "title": "ULTRA INSTINCT GOKU ENERGY TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/ultra_instinct_goku_energy_tapestry.webp"
@@ -3358,7 +3413,7 @@ export const products: Product[] = [
     "id": "tapestry-the-godfather-tapestry",
     "title": "THE GODFATHER TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/the_godfather_tapestry.webp"
@@ -3376,7 +3431,7 @@ export const products: Product[] = [
     "id": "tapestry-luffy-one-piece-tapestry",
     "title": "LUFFY ONE PIECE TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/luffy_one_piece_tapestry.webp"
@@ -3394,7 +3449,7 @@ export const products: Product[] = [
     "id": "tapestry-guts-berserk-tapestry",
     "title": "GUTS BERSERK TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/guts_berserk_tapestry.webp"
@@ -3412,7 +3467,7 @@ export const products: Product[] = [
     "id": "tapestry-american-psycho-bateman-portrait-tapestry",
     "title": "AMERICAN PSYCHO BATEMAN PORTRAIT TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/american_psycho_bateman_portrait_tapestry.webp"
@@ -3430,7 +3485,7 @@ export const products: Product[] = [
     "id": "tapestry-dragon-ball-z-characters-tapestry",
     "title": "DRAGON BALL Z CHARACTERS TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/dragon_ball_z_characters_tapestry.webp"
@@ -3448,7 +3503,7 @@ export const products: Product[] = [
     "id": "tapestry-goku-ultra-instinct-red-tapestry",
     "title": "GOKU ULTRA INSTINCT RED TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/goku_ultra_instinct_red_tapestry.webp"
@@ -3466,7 +3521,7 @@ export const products: Product[] = [
     "id": "tapestry-itachi-uchiha-crows-tapestry",
     "title": "ITACHI UCHIHA CROWS TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/itachi_uchiha_crows_tapestry.webp"
@@ -3484,7 +3539,7 @@ export const products: Product[] = [
     "id": "tapestry-vegeta-prince-of-saiyans-tapestry",
     "title": "VEGETA PRINCE OF SAIYANS TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/vegeta_prince_of_saiyans_tapestry.webp"
@@ -3502,7 +3557,7 @@ export const products: Product[] = [
     "id": "tapestry-goku-manga-collage-tapestry",
     "title": "GOKU MANGA COLLAGE TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/goku_manga_collage_tapestry.webp"
@@ -3520,7 +3575,7 @@ export const products: Product[] = [
     "id": "tapestry-itachi-uchiha-akatsuki-tapestry",
     "title": "ITACHI UCHIHA AKATSUKI TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/itachi_uchiha_akatsuki_tapestry.webp"
@@ -3538,7 +3593,7 @@ export const products: Product[] = [
     "id": "tapestry-goku-dragon-ball-z-manga-tapestry",
     "title": "GOKU DRAGON BALL Z MANGA TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/goku_dragon_ball_z_manga_tapestry.webp"
@@ -3556,7 +3611,7 @@ export const products: Product[] = [
     "id": "tapestry-berserk-tapestry",
     "title": "BERSERK TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/berserk_tapestry.webp"
@@ -3574,7 +3629,7 @@ export const products: Product[] = [
     "id": "tapestry-dragon-ball-z-goku-collage-tapestry",
     "title": "DRAGON BALL Z GOKU COLLAGE TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/dragon_ball_z_goku_collage_tapestry.webp"
@@ -3592,7 +3647,7 @@ export const products: Product[] = [
     "id": "tapestry-goku-super-saiyan-tapestry",
     "title": "GOKU SUPER SAIYAN TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/goku_super_saiyan_tapestry.webp"
@@ -3610,7 +3665,7 @@ export const products: Product[] = [
     "id": "tapestry-goku-ultra-instinct-tapestry",
     "title": "GOKU ULTRA INSTINCT TAPESTRY",
     "price": 3000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/goku_ultra_instinct_tapestry.webp"
@@ -3628,7 +3683,7 @@ export const products: Product[] = [
     "id": "tapestry-cyber-city",
     "title": "CYBER CITY NIGHT TAPESTRY",
     "price": 2000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/cyber_city_night_tapestry.webp"
@@ -3646,7 +3701,7 @@ export const products: Product[] = [
     "id": "tapestry-manga-panel",
     "title": "ITACHI MANGA PANEL TAPESTRY",
     "price": 2100,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/itachi_manga_panel_tapestry.webp"
@@ -3664,7 +3719,7 @@ export const products: Product[] = [
     "id": "tapestry-rick-and-morty",
     "title": "RICK & MORTY TAPESTRY",
     "price": 2000,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/rick_and_morty_tapestry.webp"
@@ -3681,7 +3736,7 @@ export const products: Product[] = [
     "id": "tapestry-vagabond",
     "title": "VAGABOND TAPESTRY",
     "price": 2100,
-    "category": "accessories",
+    "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
       "/assets/products/tapestries/vagabond_tapestry.webp"
