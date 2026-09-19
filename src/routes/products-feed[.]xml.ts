@@ -72,13 +72,13 @@ export const Route = createFileRoute("/products-feed.xml")({
                   `      <g:age_group>adult</g:age_group>`,
                   `      <g:gender>unisex</g:gender>`,
                   `      <g:size>S, M, L, XL</g:size>`,
-                  `      <g:item_group_id>${escapeXml(designKey)}</g:item_group_id>`,
+                  `      <g:item_group_id>${escapeXml(p.id)}</g:item_group_id>`,
                 ]
               : []),
             `      <g:shipping>`,
             `        <g:country>PK</g:country>`,
             `        <g:service>Standard Courier</g:service>`,
-            `        <g:price>450 PKR</g:price>`,
+            `        <g:price>${p.price >= 5000 ? 0 : 450} PKR</g:price>`,
             `      </g:shipping>`,
             `    </item>`,
           ]
