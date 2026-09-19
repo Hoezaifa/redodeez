@@ -18,6 +18,7 @@ import { Route as CocnballsRouteImport } from './routes/cocnballs'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomPrintRouteImport } from './routes/custom-print'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as OpenaiProductsFeedDotjsonRouteImport } from './routes/openai-products-feed[.]json'
 import { Route as PaymentsRouteImport } from './routes/payments'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductsFeedDotxmlRouteImport } from './routes/products-feed[.]xml'
@@ -81,6 +82,12 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OpenaiProductsFeedDotjsonRoute =
+  OpenaiProductsFeedDotjsonRouteImport.update({
+    id: '/openai-products-feed.json',
+    path: '/openai-products-feed.json',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PaymentsRoute = PaymentsRouteImport.update({
   id: '/payments',
   path: '/payments',
@@ -179,6 +186,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
   '/faq': typeof FaqRoute
+  '/openai-products-feed.json': typeof OpenaiProductsFeedDotjsonRoute
   '/payments': typeof PaymentsRoute
   '/privacy': typeof PrivacyRoute
   '/products-feed.xml': typeof ProductsFeedDotxmlRoute
@@ -207,6 +215,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
   '/faq': typeof FaqRoute
+  '/openai-products-feed.json': typeof OpenaiProductsFeedDotjsonRoute
   '/payments': typeof PaymentsRoute
   '/privacy': typeof PrivacyRoute
   '/products-feed.xml': typeof ProductsFeedDotxmlRoute
@@ -236,6 +245,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
   '/faq': typeof FaqRoute
+  '/openai-products-feed.json': typeof OpenaiProductsFeedDotjsonRoute
   '/payments': typeof PaymentsRoute
   '/privacy': typeof PrivacyRoute
   '/products-feed.xml': typeof ProductsFeedDotxmlRoute
@@ -266,6 +276,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-print'
     | '/faq'
+    | '/openai-products-feed.json'
     | '/payments'
     | '/privacy'
     | '/products-feed.xml'
@@ -294,6 +305,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-print'
     | '/faq'
+    | '/openai-products-feed.json'
     | '/payments'
     | '/privacy'
     | '/products-feed.xml'
@@ -322,6 +334,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-print'
     | '/faq'
+    | '/openai-products-feed.json'
     | '/payments'
     | '/privacy'
     | '/products-feed.xml'
@@ -351,6 +364,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CustomPrintRoute: typeof CustomPrintRoute
   FaqRoute: typeof FaqRoute
+  OpenaiProductsFeedDotjsonRoute: typeof OpenaiProductsFeedDotjsonRoute
   PaymentsRoute: typeof PaymentsRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductsFeedDotxmlRoute: typeof ProductsFeedDotxmlRoute
@@ -433,6 +447,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/openai-products-feed.json': {
+      id: '/openai-products-feed.json'
+      path: '/openai-products-feed.json'
+      fullPath: '/openai-products-feed.json'
+      preLoaderRoute: typeof OpenaiProductsFeedDotjsonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/payments': {
@@ -567,6 +588,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CustomPrintRoute: CustomPrintRoute,
   FaqRoute: FaqRoute,
+  OpenaiProductsFeedDotjsonRoute: OpenaiProductsFeedDotjsonRoute,
   PaymentsRoute: PaymentsRoute,
   PrivacyRoute: PrivacyRoute,
   ProductsFeedDotxmlRoute: ProductsFeedDotxmlRoute,

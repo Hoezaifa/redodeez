@@ -120,7 +120,7 @@ export const Route = createFileRoute("/sitemap.xml")({
             ? e.images
                 .map(
                   (img) =>
-                    `    <image:image>\n      <image:loc>${escapeXml(img.url)}</image:loc>\n      <image:title>${escapeXml(img.title ?? "")}</image:title>\n    </image:image>`,
+                    `    <image:image>\n      <image:loc>${escapeXml(img.url)}</image:loc>\n    </image:image>`,
                 )
                 .join("\n")
             : null;

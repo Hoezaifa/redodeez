@@ -19,6 +19,7 @@ import {
   COLOR_HEX_MAP,
 } from "@/data/site";
 import { formatPrice } from "@/lib/format";
+import { productMeta } from "@/lib/seoMeta";
 import { useCart } from "@/lib/cart";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { SizeChart } from "@/components/shop/SizeChart";
@@ -77,18 +78,9 @@ export const Route = createFileRoute("/products/$productId")({
     const rawImg = p?.images[0];
     const absoluteImgUrl = toAbsoluteImageUrl(rawImg);
     const ogImgUrl = toOgImageUrl(rawImg);
-    const isTapestryMeta = p?.subcategory === "tapestries" || p?.subcategory === "flags";
-    const subcatLabel = p?.subcategory ? p.subcategory.replace(/-/g, " ") : "streetwear";
-    // Avoid "graphic graphic apparel" when subcategory is already "graphic"
-    const apparelDescriptor = subcatLabel === "graphic"
-      ? "Premium graphic apparel"
-      : `Premium ${subcatLabel} apparel`;
-    const desc = p?.description
-      ? `${p.title} (${formatPrice(p.price)}): ${p.description}. Custom made in Karachi, delivered across Pakistan.`
-      : isTapestryMeta
-        ? `${p?.title ?? "Product"} (${formatPrice(p?.price ?? 0)}) — High-definition digital sublimation printed satin wall tapestry by Deez Prints. Made in Karachi, delivered across Pakistan.`
-        : `${p?.title ?? "Product"} (${formatPrice(p?.price ?? 0)}) — ${apparelDescriptor} by Deez Prints. 100% cotton, DTF printed in Karachi. Dispatched across Pakistan.`;
-    const title = `${p?.title ?? "Product"} | ${subcatLabel.toUpperCase()} — Deez Prints`;
+    const { title, description: desc } = p
+      ? productMeta(p)
+      : { title: "Product | Deez Prints", description: "Deez Prints product." };
     const url = `${SITE_URL}/products/${p?.id ?? ""}`;
 
     const isSelfHostedImg = rawImg?.startsWith("/assets/") || rawImg?.startsWith("/");

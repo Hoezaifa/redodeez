@@ -95,7 +95,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Zoro Bushido Acid Wash Tee is a acid wash graphic release from Deez Prints, showcasing Zoro from One Piece artwork. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-dbz-1",
@@ -113,7 +114,8 @@ export const products: Product[] = [
       "Maroon"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the Majin Vegeta Acid Wash Tee highlights Vegeta from Dragon Ball visuals in a distinct acid wash profile. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-yamoto",
@@ -132,7 +134,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Yamoto Inferno Acid Wash Tee brings authentic Yamoto Inferno Acid Wash Tee detailing to a carefully finished acid wash silhouette. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-baby",
@@ -154,7 +157,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Featuring high-definition Cupid Vintage Drop Shoulder Tee artwork, the Cupid Vintage Drop Shoulder Tee is crafted for everyday durability and statement comfort. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-evil",
@@ -172,7 +176,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Deez Prints presents the See No Evil Acid Wash Tee, combining custom See No Evil Acid Wash Tee imagery with a dedicated acid wash cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-titan",
@@ -188,7 +193,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the TITAN ACID WASH TEE features detailed TITAN ACID WASH TEE graphics across a specialized garment build. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-speed",
@@ -207,7 +213,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "The Formula Speed Acid Wash Tee delivers bold Formula Speed Acid Wash Tee artwork tailored directly on our signature acid wash blank. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-berserk-skull-blade",
@@ -222,7 +229,8 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Inspired by Guts from Berserk, the BERSERK SKULL BLADE ACID WASH TEE showcases precise graphic execution on an authentic streetwear cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-spiderverse",
@@ -238,7 +246,8 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "SPIDERVERSE ACID WASH TEE is a acid wash graphic release from Deez Prints, showcasing Marvel graphic artwork. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-sukuna",
@@ -258,7 +267,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the Sukuna Cursed Drop Shoulder Tee highlights Sukuna from Jujutsu Kaisen visuals in a distinct drop shoulder profile. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-konichiwa",
@@ -275,7 +285,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Rockstar Tokyo Acid Wash Tee brings authentic Rockstar Tokyo Acid Wash Tee detailing to a carefully finished acid wash silhouette. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-baby",
@@ -293,7 +304,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Featuring high-definition CUPID VINTAGE REGULAR TEE artwork, the CUPID VINTAGE REGULAR TEE is crafted for everyday durability and statement comfort. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-aizen",
@@ -312,7 +324,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the AIZEN ACID WASH TEE, combining custom Aizen from Bleach imagery with a dedicated acid wash cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-baby",
@@ -330,7 +343,8 @@ export const products: Product[] = [
       "Maroon"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Engineered for casual styling, the Cupid Vintage Acid Wash Tee features detailed Cupid Vintage Acid Wash Tee graphics across a specialized garment build. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-batman",
@@ -346,7 +360,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "comic-universe"
+    "aesthetic": "comic-universe",
+    "description": "The BATMAN ACID WASH TEE delivers bold Batman from DC artwork tailored directly on our signature acid wash blank. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-berserk",
@@ -362,7 +377,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Guts from Berserk, the Guts Brand of Sacrifice Acid Wash Tee showcases precise graphic execution on an authentic streetwear cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-berserk-2",
@@ -378,7 +394,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "BERSERK 2 ACID WASH TEE is a acid wash graphic release from Deez Prints, showcasing Berserk graphic artwork. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-bleach",
@@ -393,7 +410,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the BLEACH ACID WASH TEE highlights Bleach graphic visuals in a distinct acid wash profile. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-bluelock",
@@ -412,7 +430,8 @@ export const products: Product[] = [
       "Maroon"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The BLUELOCK ACID WASH TEE brings authentic Blue Lock graphic detailing to a carefully finished acid wash silhouette. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-chainsaw",
@@ -431,7 +450,8 @@ export const products: Product[] = [
       "Maroon"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Denji from Chainsaw Man artwork, the Denji Chainsawman Acid Wash Tee is crafted for everyday durability and statement comfort. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-chainsaw-2",
@@ -452,7 +472,8 @@ export const products: Product[] = [
       "Maroon"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the Chainsawman Acid Wash Tee, combining custom Denji from Chainsaw Man imagery with a dedicated acid wash cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-curse",
@@ -467,7 +488,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the Choso Bloodline Acid Wash Tee features detailed Choso from Jujutsu Kaisen graphics across a specialized garment build. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-dark-knight",
@@ -485,7 +507,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "comic-universe"
+    "aesthetic": "comic-universe",
+    "description": "The DARK KNIGHT ACID WASH TEE delivers bold Batman from DC artwork tailored directly on our signature acid wash blank. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-dbz-2",
@@ -503,7 +526,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Vegeta from Dragon Ball, the Vegeta Super Saiyan Acid Wash Tee showcases precise graphic execution on an authentic streetwear cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-dbz-3",
@@ -525,7 +549,8 @@ export const products: Product[] = [
       "Maroon"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Majin Vegeta 2.0 Acid Wash Tee is a acid wash graphic release from Deez Prints, showcasing Vegeta from Dragon Ball artwork. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-dbz-4",
@@ -546,7 +571,8 @@ export const products: Product[] = [
       "Maroon"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the DBZ Goku Rage Acid Wash Tee highlights Goku from Dragon Ball visuals in a distinct acid wash profile. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-dbz-5",
@@ -564,7 +590,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Goku Shenron Acid Wash Tee brings authentic Goku from Dragon Ball detailing to a carefully finished acid wash silhouette. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-dbz-6",
@@ -582,7 +609,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Goku from Dragon Ball artwork, the Goku Ronin Acid Wash Tee is crafted for everyday durability and statement comfort. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-dbz-7",
@@ -597,7 +625,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the Goku Black Rebellion Acid Wash Tee, combining custom Goku from Dragon Ball imagery with a dedicated acid wash cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-eye",
@@ -612,7 +641,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the Living the Dream Acid Wash Tee features detailed Living the Dream Acid Wash Tee graphics across a specialized garment build. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-eyes",
@@ -630,7 +660,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Gojo Satoru Acid Wash Tee delivers bold Gojo from Jujutsu Kaisen artwork tailored directly on our signature acid wash blank. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-fire",
@@ -648,7 +679,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Inspired by Maki from Jujutsu Kaisen, the Maki Oze Firepower Acid Wash Tee showcases precise graphic execution on an authentic streetwear cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-goodfellas",
@@ -663,7 +695,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "cinema-collection"
+    "aesthetic": "cinema-collection",
+    "description": "GOODFELLAS ACID WASH TEE is a acid wash graphic release from Deez Prints, showcasing Cinema graphic artwork. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-hands",
@@ -679,7 +712,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Designed for streetwear enthusiasts, the Kurapika Rage Acid Wash Tee highlights Kurapika from Hunter x Hunter visuals in a distinct acid wash profile. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-horns",
@@ -697,7 +731,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "comic-universe"
+    "aesthetic": "comic-universe",
+    "description": "The Ichigo Hollow Acid Wash Tee brings authentic Ichigo from Bleach detailing to a carefully finished acid wash silhouette. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-kaijin",
@@ -713,7 +748,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Garou from One Punch Man artwork, the Garou Kaijin Acid Wash Tee is crafted for everyday durability and statement comfort. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-luffy-1",
@@ -732,7 +768,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the Luffy Gear 5 Acid Wash Tee, combining custom Luffy from One Piece imagery with a dedicated acid wash cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-luffy-2",
@@ -750,7 +787,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the Luffy Gear 5 2.0 Acid Wash Tee features detailed Luffy from One Piece graphics across a specialized garment build. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-luffy-3",
@@ -765,7 +803,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Luffy Straw Hat Acid Wash Tee delivers bold Luffy from One Piece artwork tailored directly on our signature acid wash blank. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-luffy-4",
@@ -783,7 +822,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Luffy from One Piece, the Luffy Freedom Acid Wash Tee showcases precise graphic execution on an authentic streetwear cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-madara",
@@ -800,7 +840,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Madara Uchiha Acid Wash Tee is a acid wash graphic release from Deez Prints, showcasing Madara from Naruto artwork. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-mobland",
@@ -817,7 +858,8 @@ export const products: Product[] = [
       "Maroon"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the Outlaw Acid Wash Tee highlights Outlaw Acid Wash Tee visuals in a distinct acid wash profile. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-naruto-1",
@@ -835,7 +877,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Naruto Eyes Acid Wash Tee brings authentic Naruto from Naruto detailing to a carefully finished acid wash silhouette. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-naruto-2",
@@ -853,7 +896,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Madara from Naruto artwork, the Madara 1 Acid Wash Tee is crafted for everyday durability and statement comfort. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-naruto-3",
@@ -869,7 +913,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the Itachi Uchiha Acid Wash Tee, combining custom Itachi from Naruto imagery with a dedicated acid wash cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-naruto-4",
@@ -887,7 +932,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the Itachi Eclipse Acid Wash Tee features detailed Itachi from Naruto graphics across a specialized garment build. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-naruto-5",
@@ -906,7 +952,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Naruto 3 Acid Wash Tee delivers bold Naruto from Naruto artwork tailored directly on our signature acid wash blank. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-peter",
@@ -925,7 +972,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "cinema-collection"
+    "aesthetic": "cinema-collection",
+    "description": "Inspired by Spider-Man from Marvel, the Peter Parker Great Power Acid Wash Tee showcases precise graphic execution on an authentic streetwear cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-sakuna",
@@ -940,7 +988,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Sukuna Cursed Acid Wash Tee - Dark Edition is a acid wash graphic release from Deez Prints, showcasing Sukuna from Jujutsu Kaisen artwork. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-shoot",
@@ -955,7 +1004,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the Kaneki Reaper Acid Wash Tee highlights Kaneki from Tokyo Ghoul visuals in a distinct acid wash profile. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-solo-1",
@@ -971,7 +1021,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Solo Leveling Acid Wash Tee brings authentic Solo Leveling Acid Wash Tee detailing to a carefully finished acid wash silhouette. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-solo-2",
@@ -989,7 +1040,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Arise Solo Leveling Acid Wash Tee artwork, the Arise Solo Leveling Acid Wash Tee is crafted for everyday durability and statement comfort. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-sukuna",
@@ -1005,7 +1057,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the Sukuna Cursed Acid Wash Tee - Mineral Grey Edition, combining custom Sukuna from Jujutsu Kaisen imagery with a dedicated acid wash cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-zoro-1",
@@ -1021,7 +1074,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the Zoro Ronin Acid Wash Tee features detailed Zoro from One Piece graphics across a specialized garment build. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-zoro-3",
@@ -1039,7 +1093,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Fire Fist Ace Acid Wash Tee delivers bold Zoro from One Piece artwork tailored directly on our signature acid wash blank. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-ace",
@@ -1061,7 +1116,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Ace from One Piece, the Fire Fist Ace Drop Shoulder Tee showcases precise graphic execution on an authentic streetwear cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-aizen",
@@ -1083,7 +1139,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "AIZEN DROP SHOULDER TEE is a drop shoulder graphic release from Deez Prints, showcasing Aizen from Bleach artwork. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-arise",
@@ -1104,7 +1161,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the Solo Leveling Arise Drop Shoulder Tee highlights Solo Leveling Arise Drop Shoulder Tee visuals in a distinct drop shoulder profile. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-batman-grye",
@@ -1119,7 +1177,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "comic-universe"
+    "aesthetic": "comic-universe",
+    "description": "The Batman Noir Drop Shoulder Tee brings authentic Batman from DC detailing to a carefully finished drop shoulder silhouette. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-berserk-2",
@@ -1135,7 +1194,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Guts from Berserk artwork, the Guts Brand of Sacrifice Drop Shoulder Tee is crafted for everyday durability and statement comfort. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-berserk-black-1",
@@ -1151,7 +1211,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the Guts Berserker Armor Drop Shoulder Tee, combining custom Guts from Berserk imagery with a dedicated drop shoulder cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-bleach",
@@ -1173,7 +1234,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the BLEACH DROP SHOULDER TEE features detailed Bleach graphic graphics across a specialized garment build. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-bluelock",
@@ -1194,7 +1256,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The BLUELOCK DROP SHOULDER TEE delivers bold Blue Lock graphic artwork tailored directly on our signature drop shoulder blank. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-chainsaw-1",
@@ -1212,7 +1275,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Denji from Chainsaw Man, the Denji Chainsaw Man Drop Shoulder Tee showcases precise graphic execution on an authentic streetwear cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-chainsaw-2",
@@ -1234,7 +1298,8 @@ export const products: Product[] = [
       "Blue"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Chainsawman Drop Shoulder Tee is a drop shoulder graphic release from Deez Prints, showcasing Denji from Chainsaw Man artwork. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-curse",
@@ -1253,7 +1318,8 @@ export const products: Product[] = [
       "Blue"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the Choso Bloodline Drop Shoulder Tee highlights Choso from Jujutsu Kaisen visuals in a distinct drop shoulder profile. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-curse-whtie",
@@ -1269,7 +1335,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Sukuna Cursed Inscription Drop Shoulder Tee brings authentic Sukuna from Jujutsu Kaisen detailing to a carefully finished drop shoulder silhouette. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-dark-knight",
@@ -1290,7 +1357,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "comic-universe"
+    "aesthetic": "comic-universe",
+    "description": "Featuring high-definition Batman from DC artwork, the DARK KNIGHT DROP SHOULDER TEE is crafted for everyday durability and statement comfort. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-dbz-1",
@@ -1308,7 +1376,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the Vegeta Super Saiyan Drop Shoulder Tee, combining custom Vegeta from Dragon Ball imagery with a dedicated drop shoulder cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-dbz-2",
@@ -1330,7 +1399,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the Majin Vegeta 1.0 Drop Shoulder Tee features detailed Vegeta from Dragon Ball graphics across a specialized garment build. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-dbz-3",
@@ -1352,7 +1422,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Goku Rage Drop Shoulder Tee delivers bold Goku from Dragon Ball artwork tailored directly on our signature drop shoulder blank. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-dbz-4",
@@ -1376,7 +1447,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Goku from Dragon Ball, the Goku Shenron Drop Shoulder Tee showcases precise graphic execution on an authentic streetwear cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-dbz-5",
@@ -1400,7 +1472,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Goku Ronin Drop Shoulder Tee is a drop shoulder graphic release from Deez Prints, showcasing Goku from Dragon Ball artwork. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-dbz-6",
@@ -1422,7 +1495,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the Goku Black Rebellion Drop Shoulder Tee highlights Goku from Dragon Ball visuals in a distinct drop shoulder profile. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-evil",
@@ -1443,7 +1517,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "The See No Evil Drop Shoulder Tee brings authentic See No Evil Drop Shoulder Tee detailing to a carefully finished drop shoulder silhouette. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-eye",
@@ -1460,7 +1535,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Living the Dream Drop Shoulder Tee artwork, the Living the Dream Drop Shoulder Tee is crafted for everyday durability and statement comfort. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-fire",
@@ -1481,7 +1557,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Deez Prints presents the FIRE DROP SHOULDER TEE, combining custom FIRE DROP SHOULDER TEE imagery with a dedicated drop shoulder cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-fire-bleu",
@@ -1497,7 +1574,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Engineered for casual styling, the Maki Oze Firepower Drop Shoulder Tee features detailed Maki from Jujutsu Kaisen graphics across a specialized garment build. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-fuckoff",
@@ -1514,7 +1592,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "The FUCKOFF DROP SHOULDER TEE delivers bold FUCKOFF DROP SHOULDER TEE artwork tailored directly on our signature drop shoulder blank. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-goodfellas",
@@ -1533,7 +1612,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "cinema-collection"
+    "aesthetic": "cinema-collection",
+    "description": "Inspired by Cinema graphic, the GOODFELLAS DROP SHOULDER TEE showcases precise graphic execution on an authentic streetwear cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-hands",
@@ -1549,7 +1629,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Kurapika Drop Shoulder Tee is a drop shoulder graphic release from Deez Prints, showcasing Kurapika from Hunter x Hunter artwork. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-head",
@@ -1564,7 +1645,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Designed for streetwear enthusiasts, the Tanjiro Kamado Drop Shoulder Tee highlights Tanjiro from Demon Slayer visuals in a distinct drop shoulder profile. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-horn",
@@ -1589,7 +1671,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "comic-universe"
+    "aesthetic": "comic-universe",
+    "description": "The Ichigo Hollow Drop Shoulder Tee brings authentic Ichigo from Bleach detailing to a carefully finished drop shoulder silhouette. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-itachi",
@@ -1606,7 +1689,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Itachi from Naruto artwork, the ITACHI DROP SHOULDER TEE is crafted for everyday durability and statement comfort. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-itachi-2",
@@ -1629,7 +1713,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the Itachi Eclipse Drop Shoulder Tee, combining custom Itachi from Naruto imagery with a dedicated drop shoulder cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-kaijin",
@@ -1651,7 +1736,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the Garou Kaijin Drop Shoulder Tee features detailed Garou from One Punch Man graphics across a specialized garment build. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-konichiwa",
@@ -1668,7 +1754,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Rockstar Tokyo Drop Shoulder Tee delivers bold Rockstar Tokyo Drop Shoulder Tee artwork tailored directly on our signature drop shoulder blank. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-luffy-1",
@@ -1693,7 +1780,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Luffy from One Piece, the Luffy Gear 5 Drop Shoulder Tee showcases precise graphic execution on an authentic streetwear cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-luffy-2",
@@ -1712,7 +1800,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Luffy Straw Hat Drop Shoulder Tee is a drop shoulder graphic release from Deez Prints, showcasing Luffy from One Piece artwork. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-luffy-3",
@@ -1731,7 +1820,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the Luffy Freedom Drop Shoulder Tee highlights Luffy from One Piece visuals in a distinct drop shoulder profile. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-madara",
@@ -1746,7 +1836,8 @@ export const products: Product[] = [
       "Blue"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Madara Uchiha Drop Shoulder Tee brings authentic Madara from Naruto detailing to a carefully finished drop shoulder silhouette. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-mobland",
@@ -1767,7 +1858,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Outlaw Drop Shoulder Tee artwork, the Outlaw Drop Shoulder Tee is crafted for everyday durability and statement comfort. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-naruto",
@@ -1788,7 +1880,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the Naruto Eyes Drop Shoulder Tee, combining custom Naruto from Naruto imagery with a dedicated drop shoulder cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-naruto-2",
@@ -1809,7 +1902,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the Madara 1 Drop Shoulder Tee features detailed Madara from Naruto graphics across a specialized garment build. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-naruto-3",
@@ -1827,7 +1921,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The NARUTO 3 DROP SHOULDER TEE delivers bold Naruto from Naruto artwork tailored directly on our signature drop shoulder blank. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-naruto-4",
@@ -1851,7 +1946,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Itachi from Naruto, the Itachi Uchiha Drop Shoulder Tee showcases precise graphic execution on an authentic streetwear cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-naruto-5",
@@ -1870,7 +1966,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Itachi Akatsuki Drop Shoulder Tee - Edition II is a drop shoulder graphic release from Deez Prints, showcasing Itachi from Naruto artwork. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-naruto-6",
@@ -1886,7 +1983,8 @@ export const products: Product[] = [
       "Beige"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the Itachi Akatsuki Drop Shoulder Tee - Edition III highlights Itachi from Naruto visuals in a distinct drop shoulder profile. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-peter",
@@ -1907,7 +2005,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "cinema-collection"
+    "aesthetic": "cinema-collection",
+    "description": "The PETER DROP SHOULDER TEE brings authentic PETER DROP SHOULDER TEE detailing to a carefully finished drop shoulder silhouette. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-regular-series",
@@ -1923,7 +2022,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Featuring high-definition Garou from One Punch Man artwork, the Garou Kaijin Series Drop Shoulder Tee is crafted for everyday durability and statement comfort. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-shoot",
@@ -1945,7 +2045,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the Kaneki Reaper Drop Shoulder Tee, combining custom Kaneki from Tokyo Ghoul imagery with a dedicated drop shoulder cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-solo-1",
@@ -1967,7 +2068,8 @@ export const products: Product[] = [
       "Beige"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the Solo Leveling Drop Shoulder Tee features detailed Solo Leveling Drop Shoulder Tee graphics across a specialized garment build. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-speed",
@@ -1988,7 +2090,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "The Formula Speed Drop Shoulder Tee delivers bold Formula Speed Drop Shoulder Tee artwork tailored directly on our signature drop shoulder blank. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-titan",
@@ -2010,7 +2113,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Sukuna from Jujutsu Kaisen, the Sukuna Drop Shoulder Tee showcases precise graphic execution on an authentic streetwear cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-yamoto",
@@ -2035,7 +2139,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Yamoto Inferno Drop Shoulder Tee is a drop shoulder graphic release from Deez Prints, showcasing Yamoto Inferno Drop Shoulder Tee artwork. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-zoro",
@@ -2059,7 +2164,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the Zoro Ronin Drop Shoulder Tee highlights Zoro from One Piece visuals in a distinct drop shoulder profile. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-zoro-2",
@@ -2078,7 +2184,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The Zoro Bushido Drop Shoulder Tee brings authentic Zoro from One Piece detailing to a carefully finished drop shoulder silhouette. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-ace-1",
@@ -2099,7 +2206,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Ace from One Piece artwork, the FIRE FIST ACE REGULAR TEE is crafted for everyday durability and statement comfort. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-aizen",
@@ -2120,7 +2228,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the AIZEN REGULAR TEE, combining custom Aizen from Bleach imagery with a dedicated regular cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-anime1",
@@ -2142,7 +2251,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the CHOSO BLOODLINE REGULAR TEE features detailed Choso from Jujutsu Kaisen graphics across a specialized garment build. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-animeshoot",
@@ -2161,7 +2271,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The KANEKI REAPER REGULAR TEE delivers bold Kaneki from Tokyo Ghoul artwork tailored directly on our signature regular blank. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-batman1",
@@ -2180,7 +2291,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "comic-universe"
+    "aesthetic": "comic-universe",
+    "description": "Inspired by Batman from DC, the BATMAN NOIR REGULAR TEE showcases precise graphic execution on an authentic streetwear cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-berserk",
@@ -2196,7 +2308,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "GUTS BRAND OF SACRIFICE REGULAR TEE is a regular graphic release from Deez Prints, showcasing Guts from Berserk artwork. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-berserk-2",
@@ -2212,7 +2325,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the GUTS BERSERKER ARMOR REGULAR TEE highlights Guts from Berserk visuals in a distinct regular profile. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-berserk-3",
@@ -2229,7 +2343,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The GUTS BERSERKER REGULAR TEE brings authentic Guts from Berserk detailing to a carefully finished regular silhouette. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-bleach",
@@ -2253,7 +2368,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Bleach graphic artwork, the BLEACH REGULAR TEE is crafted for everyday durability and statement comfort. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-chainsaw-1",
@@ -2275,7 +2391,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the CHAINSAW MAN REGULAR TEE, combining custom Denji from Chainsaw Man imagery with a dedicated regular cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-chainsaw-2",
@@ -2293,7 +2410,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the DENJI CHAINSAW REGULAR TEE features detailed Denji from Chainsaw Man graphics across a specialized garment build. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-chinese",
@@ -2308,7 +2426,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "The ROCKSTAR TOKYO REGULAR TEE delivers bold ROCKSTAR TOKYO REGULAR TEE artwork tailored directly on our signature regular blank. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-dbz-1",
@@ -2329,7 +2448,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Vegeta from Dragon Ball, the MAJIN VEGETA REGULAR TEE showcases precise graphic execution on an authentic streetwear cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-dbz-3",
@@ -2345,7 +2465,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "VEGETA SUPER SAIYAN REGULAR TEE is a regular graphic release from Deez Prints, showcasing Vegeta from Dragon Ball artwork. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-dbz-4",
@@ -2366,7 +2487,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the MAJIN VEGETA RAGE REGULAR TEE highlights Vegeta from Dragon Ball visuals in a distinct regular profile. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-dbz-5",
@@ -2388,7 +2510,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The GOKU RAGE REGULAR TEE brings authentic Goku from Dragon Ball detailing to a carefully finished regular silhouette. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-dbz-6",
@@ -2407,7 +2530,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Goku from Dragon Ball artwork, the GOKU SHENRON REGULAR TEE is crafted for everyday durability and statement comfort. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-dbz-7",
@@ -2426,7 +2550,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the GOKU RONIN REGULAR TEE, combining custom Goku from Dragon Ball imagery with a dedicated regular cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-dbz-8",
@@ -2447,7 +2572,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the GOKU BLACK REBELLION REGULAR TEE features detailed Goku from Dragon Ball graphics across a specialized garment build. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-dream",
@@ -2462,7 +2588,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "The LIVE THE DREAM REGULAR TEE delivers bold LIVE THE DREAM REGULAR TEE artwork tailored directly on our signature regular blank. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-eye-2",
@@ -2479,7 +2606,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Gojo from Jujutsu Kaisen, the GOJO SATORU REGULAR TEE showcases precise graphic execution on an authentic streetwear cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-fire",
@@ -2497,7 +2625,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "MAKI OZE FIREPOWER REGULAR TEE is a regular graphic release from Deez Prints, showcasing Maki from Jujutsu Kaisen artwork. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-fuck",
@@ -2516,7 +2645,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Designed for streetwear enthusiasts, the FUCK OFF REGULAR TEE highlights FUCK OFF REGULAR TEE visuals in a distinct regular profile. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-goodfellas",
@@ -2535,7 +2665,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "cinema-collection"
+    "aesthetic": "cinema-collection",
+    "description": "The GOODFELLAS REGULAR TEE brings authentic Cinema graphic detailing to a carefully finished regular silhouette. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-hands",
@@ -2554,7 +2685,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Featuring high-definition Kurapika from Hunter x Hunter artwork, the KURAPIKA RAGE REGULAR TEE is crafted for everyday durability and statement comfort. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-ichigo",
@@ -2576,7 +2708,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the ICHIGO HOLLOW REGULAR TEE, combining custom Ichigo from Bleach imagery with a dedicated regular cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-isagi-1",
@@ -2597,7 +2730,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the ISAGI YOICHI REGULAR TEE features detailed Isagi from Blue Lock graphics across a specialized garment build. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-kaijin",
@@ -2619,7 +2753,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The GAROU KAIJIN REGULAR TEE delivers bold Garou from One Punch Man artwork tailored directly on our signature regular blank. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-knight",
@@ -2643,7 +2778,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Inspired by KNIGHT REGULAR TEE, the KNIGHT REGULAR TEE showcases precise graphic execution on an authentic streetwear cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-luffy-1",
@@ -2662,7 +2798,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "LUFFY GEAR 5 REGULAR TEE - EDITION I is a regular graphic release from Deez Prints, showcasing Luffy from One Piece artwork. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-luffy-2",
@@ -2680,7 +2817,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the LUFFY GEAR 5 REGULAR TEE - EDITION II highlights Luffy from One Piece visuals in a distinct regular profile. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-luffy-3",
@@ -2699,7 +2837,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The LUFFY STRAW HAT REGULAR TEE brings authentic Luffy from One Piece detailing to a carefully finished regular silhouette. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-luffy-4",
@@ -2716,7 +2855,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Luffy from One Piece artwork, the LUFFY FREEDOM REGULAR TEE is crafted for everyday durability and statement comfort. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-madara-1",
@@ -2740,7 +2880,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the MADARA 1 REGULAR TEE, combining custom Madara from Naruto imagery with a dedicated regular cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-mob",
@@ -2757,7 +2898,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the OUTLAW REGULAR TEE features detailed OUTLAW REGULAR TEE graphics across a specialized garment build. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-naruto-1",
@@ -2776,7 +2918,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The NARUTO EYES REGULAR TEE delivers bold Naruto from Naruto artwork tailored directly on our signature regular blank. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-naruto-2",
@@ -2794,7 +2937,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Naruto from Naruto, the NARUTO SHADOW REGULAR TEE showcases precise graphic execution on an authentic streetwear cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-naruto-3",
@@ -2813,7 +2957,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "ITACHI AKATSUKI REGULAR TEE - EDITION I is a regular graphic release from Deez Prints, showcasing Itachi from Naruto artwork. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-responsibility",
@@ -2834,7 +2979,8 @@ export const products: Product[] = [
       "Beige"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Designed for streetwear enthusiasts, the PETER PARKER GREAT POWER REGULAR TEE highlights Spider-Man from Marvel visuals in a distinct regular profile. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-solo-1",
@@ -2856,7 +3002,8 @@ export const products: Product[] = [
       "Beige"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The SOLO LEVELING SHADOW REGULAR TEE brings authentic SOLO LEVELING SHADOW REGULAR TEE detailing to a carefully finished regular silhouette. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-solo-2",
@@ -2878,7 +3025,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition SOLO LEVELING ARISE REGULAR TEE artwork, the SOLO LEVELING ARISE REGULAR TEE is crafted for everyday durability and statement comfort. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-speed",
@@ -2895,7 +3043,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "minimal-drops",
+    "description": "Deez Prints presents the FORMULA SPEED REGULAR TEE, combining custom FORMULA SPEED REGULAR TEE imagery with a dedicated regular cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-sukuna",
@@ -2918,7 +3067,8 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the SUKUNA REGULAR TEE features detailed Sukuna from Jujutsu Kaisen graphics across a specialized garment build. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-sukuna-2",
@@ -2937,7 +3087,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The SUKUNA CURSED REGULAR TEE delivers bold Sukuna from Jujutsu Kaisen artwork tailored directly on our signature regular blank. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-tujiro",
@@ -2952,7 +3103,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Tanjiro from Demon Slayer, the TANJIRO KAMADO REGULAR TEE showcases precise graphic execution on an authentic streetwear cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-uchiha-1",
@@ -2971,7 +3123,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "MADARA UCHIHA REGULAR TEE is a regular graphic release from Deez Prints, showcasing Madara from Naruto artwork. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-uchiha-2",
@@ -2993,7 +3146,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Designed for streetwear enthusiasts, the ITACHI UCHIHA REGULAR TEE highlights Itachi from Naruto visuals in a distinct regular profile. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-uchiha-3",
@@ -3010,7 +3164,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The ITACHI AKATSUKI REGULAR TEE - EDITION II brings authentic Itachi from Naruto detailing to a carefully finished regular silhouette. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-uchiha-4",
@@ -3029,7 +3184,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Featuring high-definition Itachi from Naruto artwork, the ITACHI ECLIPSE REGULAR TEE is crafted for everyday durability and statement comfort. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-uchiha-5",
@@ -3047,7 +3203,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Deez Prints presents the ITACHI AKATSUKI REGULAR TEE - EDITION III, combining custom Itachi from Naruto imagery with a dedicated regular cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-yamoto-1",
@@ -3068,7 +3225,8 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Engineered for casual styling, the YAMAMOTO INFERNO REGULAR TEE features detailed YAMAMOTO INFERNO REGULAR TEE graphics across a specialized garment build. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-zoro-1",
@@ -3089,7 +3247,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "The ZORO RONIN REGULAR TEE delivers bold Zoro from One Piece artwork tailored directly on our signature regular blank. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-zoro-2",
@@ -3110,7 +3269,8 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "anime-archive",
+    "description": "Inspired by Zoro from One Piece, the ZORO BUSHIDO REGULAR TEE showcases precise graphic execution on an authentic streetwear cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "mug-white",
@@ -3118,7 +3278,7 @@ export const products: Product[] = [
     "price": 600,
     "category": "accessories",
     "subcategory": "mugs",
-    "description": "Classic high-gloss white ceramic mug featuring bold skull graphic artwork. 11oz capacity.",
+    "description": "SKULL CERAMIC MUG is a mug graphic release from Deez Prints, showcasing SKULL CERAMIC MUG artwork. Crafted from premium 11 oz white ceramic with a glossy finish and an ergonomic handle, perfect for daily coffee, tea, and desk display. Heat-pressed with high-resolution sublimation ink in Karachi, resulting in a scratch-resistant graphic surface that holds clarity through regular hand washing. Microwave safe; gentle hand washing with non-abrasive sponge is recommended to preserve high-gloss luster. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window.",
     "images": [
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772897480/mug_sample_sfu1kd.webp"
     ],
@@ -3133,7 +3293,7 @@ export const products: Product[] = [
     "price": 1200,
     "category": "accessories",
     "subcategory": "mugs",
-    "description": "Dual-tone ceramic sublimation mug featuring vibrant colored interior and matching colored handle. Available in Red, Green, Black, and Blue.",
+    "description": "Designed for streetwear enthusiasts, the SUBLIMATION MUG (INNER + HANDLE COLORED) highlights SUBLIMATION MUG (INNER + HANDLE COLORED) visuals in a distinct mug profile. Crafted from premium 11 oz white ceramic with a glossy finish and an ergonomic handle, perfect for daily coffee, tea, and desk display. Heat-pressed with high-resolution sublimation ink in Karachi, resulting in a scratch-resistant graphic surface that holds clarity through regular hand washing. Microwave safe; gentle hand washing with non-abrasive sponge is recommended to preserve high-gloss luster. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window.",
     "images": [
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773596802/mug_collection_gntc3f.webp"
     ],
@@ -3151,7 +3311,7 @@ export const products: Product[] = [
     "price": 2000,
     "category": "accessories",
     "subcategory": "mugs",
-    "description": "Premium anime manga panel ceramic mug wrapped in high-definition monochromatic comic artwork. Dishwasher and microwave safe.",
+    "description": "The MANGA PANEL MUG brings authentic MANGA PANEL MUG detailing to a carefully finished mug silhouette. Crafted from premium 11 oz white ceramic with a glossy finish and an ergonomic handle, perfect for daily coffee, tea, and desk display. Heat-pressed with high-resolution sublimation ink in Karachi, resulting in a scratch-resistant graphic surface that holds clarity through regular hand washing. Microwave safe; gentle hand washing with non-abrasive sponge is recommended to preserve high-gloss luster. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window.",
     "images": [
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773596802/mug_collection_gntc3f.webp"
     ],
@@ -3177,7 +3337,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "ONE PIECE GEAR 5 LUFFY TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Featuring high-definition Luffy from One Piece artwork, the ONE PIECE GEAR 5 LUFFY TAPESTRY is crafted for everyday durability and statement comfort. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-berserk-eclipse-tapestry",
@@ -3195,7 +3355,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "BERSERK ECLIPSE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Deez Prints presents the BERSERK ECLIPSE TAPESTRY, combining custom Berserk graphic imagery with a dedicated tapestry cut. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-itachi-uchiha-sharingan-tapestry",
@@ -3213,7 +3373,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "ITACHI UCHIHA SHARINGAN TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Engineered for casual styling, the ITACHI UCHIHA SHARINGAN TAPESTRY features detailed Itachi from Naruto graphics across a specialized garment build. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-goku-kamehameha-tapestry",
@@ -3231,7 +3391,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "GOKU KAMEHAMEHA TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "The GOKU KAMEHAMEHA TAPESTRY delivers bold Goku from Dragon Ball artwork tailored directly on our signature tapestry blank. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-fight-club-tyler-durden-tapestry",
@@ -3249,7 +3409,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "art-drop",
-    "description": "FIGHT CLUB TYLER DURDEN TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Inspired by Cinema graphic, the FIGHT CLUB TYLER DURDEN TAPESTRY showcases precise graphic execution on an authentic streetwear cut. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-guts-brand-of-sacrifice-tapestry",
@@ -3267,7 +3427,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "GUTS BRAND OF SACRIFICE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "GUTS BRAND OF SACRIFICE TAPESTRY is a tapestry graphic release from Deez Prints, showcasing Guts from Berserk artwork. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-spider-man-comic-tapestry",
@@ -3285,7 +3445,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "art-drop",
-    "description": "SPIDER-MAN COMIC TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Designed for streetwear enthusiasts, the SPIDER-MAN COMIC TAPESTRY highlights Spider-Man from Marvel visuals in a distinct tapestry profile. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-breaking-bad-walter-white-jesse-tapestry",
@@ -3303,7 +3463,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "art-drop",
-    "description": "BREAKING BAD WALTER WHITE JESSE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "The BREAKING BAD WALTER WHITE JESSE TAPESTRY brings authentic Cinema graphic detailing to a carefully finished tapestry silhouette. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-american-psycho-movie-poster-tapestry",
@@ -3321,7 +3481,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "art-drop",
-    "description": "AMERICAN PSYCHO MOVIE POSTER TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Featuring high-definition Cinema graphic artwork, the AMERICAN PSYCHO MOVIE POSTER TAPESTRY is crafted for everyday durability and statement comfort. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-madara-uchiha-sharingan-tapestry",
@@ -3339,7 +3499,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "MADARA UCHIHA SHARINGAN TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Deez Prints presents the MADARA UCHIHA SHARINGAN TAPESTRY, combining custom Madara from Naruto imagery with a dedicated tapestry cut. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-vegeta-super-saiyan-tapestry",
@@ -3357,7 +3517,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "VEGETA SUPER SAIYAN TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Engineered for casual styling, the VEGETA SUPER SAIYAN TAPESTRY features detailed Vegeta from Dragon Ball graphics across a specialized garment build. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-tanjiro-kamado-tapestry",
@@ -3375,7 +3535,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "TANJIRO KAMADO TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "The TANJIRO KAMADO TAPESTRY delivers bold Tanjiro from Demon Slayer artwork tailored directly on our signature tapestry blank. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-scarface-tony-montana-tapestry",
@@ -3393,7 +3553,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "art-drop",
-    "description": "SCARFACE TONY MONTANA TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Inspired by Ace from One Piece, the SCARFACE TONY MONTANA TAPESTRY showcases precise graphic execution on an authentic streetwear cut. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-ultra-instinct-goku-energy-tapestry",
@@ -3411,7 +3571,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "ULTRA INSTINCT GOKU ENERGY TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "ULTRA INSTINCT GOKU ENERGY TAPESTRY is a tapestry graphic release from Deez Prints, showcasing Goku from Dragon Ball artwork. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-the-godfather-tapestry",
@@ -3429,7 +3589,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "art-drop",
-    "description": "THE GODFATHER TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Designed for streetwear enthusiasts, the THE GODFATHER TAPESTRY highlights Cinema graphic visuals in a distinct tapestry profile. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-luffy-one-piece-tapestry",
@@ -3447,7 +3607,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "LUFFY ONE PIECE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "The LUFFY ONE PIECE TAPESTRY brings authentic Luffy from One Piece detailing to a carefully finished tapestry silhouette. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-guts-berserk-tapestry",
@@ -3465,7 +3625,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "GUTS BERSERK TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Featuring high-definition Guts from Berserk artwork, the GUTS BERSERK TAPESTRY is crafted for everyday durability and statement comfort. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-american-psycho-bateman-portrait-tapestry",
@@ -3483,7 +3643,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "art-drop",
-    "description": "AMERICAN PSYCHO BATEMAN PORTRAIT TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Deez Prints presents the AMERICAN PSYCHO BATEMAN PORTRAIT TAPESTRY, combining custom Cinema graphic imagery with a dedicated tapestry cut. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-dragon-ball-z-characters-tapestry",
@@ -3501,7 +3661,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "DRAGON BALL Z CHARACTERS TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Engineered for casual styling, the DRAGON BALL Z CHARACTERS TAPESTRY features detailed Dragon Ball graphic graphics across a specialized garment build. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-goku-ultra-instinct-red-tapestry",
@@ -3519,7 +3679,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "GOKU ULTRA INSTINCT RED TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "The GOKU ULTRA INSTINCT RED TAPESTRY delivers bold Goku from Dragon Ball artwork tailored directly on our signature tapestry blank. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-itachi-uchiha-crows-tapestry",
@@ -3537,7 +3697,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "ITACHI UCHIHA CROWS TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Inspired by Itachi from Naruto, the ITACHI UCHIHA CROWS TAPESTRY showcases precise graphic execution on an authentic streetwear cut. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-vegeta-prince-of-saiyans-tapestry",
@@ -3555,7 +3715,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "VEGETA PRINCE OF SAIYANS TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "VEGETA PRINCE OF SAIYANS TAPESTRY is a tapestry graphic release from Deez Prints, showcasing Vegeta from Dragon Ball artwork. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-goku-manga-collage-tapestry",
@@ -3573,7 +3733,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "GOKU MANGA COLLAGE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Designed for streetwear enthusiasts, the GOKU MANGA COLLAGE TAPESTRY highlights Goku from Dragon Ball visuals in a distinct tapestry profile. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-itachi-uchiha-akatsuki-tapestry",
@@ -3591,7 +3751,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "ITACHI UCHIHA AKATSUKI TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "The ITACHI UCHIHA AKATSUKI TAPESTRY brings authentic Itachi from Naruto detailing to a carefully finished tapestry silhouette. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-goku-dragon-ball-z-manga-tapestry",
@@ -3609,7 +3769,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "GOKU DRAGON BALL Z MANGA TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Featuring high-definition Goku from Dragon Ball artwork, the GOKU DRAGON BALL Z MANGA TAPESTRY is crafted for everyday durability and statement comfort. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-berserk-tapestry",
@@ -3627,7 +3787,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "BERSERK TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Deez Prints presents the BERSERK TAPESTRY, combining custom Berserk graphic imagery with a dedicated tapestry cut. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-dragon-ball-z-goku-collage-tapestry",
@@ -3645,7 +3805,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "DRAGON BALL Z GOKU COLLAGE TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Engineered for casual styling, the DRAGON BALL Z GOKU COLLAGE TAPESTRY features detailed Goku from Dragon Ball graphics across a specialized garment build. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-goku-super-saiyan-tapestry",
@@ -3663,7 +3823,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "GOKU SUPER SAIYAN TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "The GOKU SUPER SAIYAN TAPESTRY delivers bold Goku from Dragon Ball artwork tailored directly on our signature tapestry blank. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-goku-ultra-instinct-tapestry",
@@ -3681,7 +3841,7 @@ export const products: Product[] = [
     "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive",
-    "description": "GOKU ULTRA INSTINCT TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Inspired by Goku from Dragon Ball, the GOKU ULTRA INSTINCT TAPESTRY showcases precise graphic execution on an authentic streetwear cut. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-cyber-city",
@@ -3699,7 +3859,7 @@ export const products: Product[] = [
       "Small (50 x 30)",
       "Large (70 x 50)"
     ],
-    "description": "CYBER CITY NIGHT TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "CYBER CITY NIGHT TAPESTRY is a tapestry graphic release from Deez Prints, showcasing CYBER CITY NIGHT TAPESTRY artwork. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-manga-panel",
@@ -3717,7 +3877,7 @@ export const products: Product[] = [
       "Small (50 x 30)",
       "Large (70 x 50)"
     ],
-    "description": "ITACHI MANGA PANEL TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Designed for streetwear enthusiasts, the ITACHI MANGA PANEL TAPESTRY highlights Itachi from Naruto visuals in a distinct tapestry profile. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-rick-and-morty",
@@ -3734,7 +3894,7 @@ export const products: Product[] = [
       "Small (50 x 30)",
       "Large (70 x 50)"
     ],
-    "description": "RICK & MORTY TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "The RICK & MORTY TAPESTRY brings authentic Rick & Morty from TV detailing to a carefully finished tapestry silhouette. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "tapestry-vagabond",
@@ -3752,7 +3912,7 @@ export const products: Product[] = [
       "Small (50 x 30)",
       "Large (70 x 50)"
     ],
-    "description": "VAGABOND TAPESTRY \u2014 Small (50 x 30 in) or Large (70 x 50 in) depending on design orientation (vertical/horizontal). Premium high-density satin wall tapestry with brass hanging grommets by Deez Prints."
+    "description": "Featuring high-definition VAGABOND TAPESTRY artwork, the VAGABOND TAPESTRY is crafted for everyday durability and statement comfort. Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration. Digitally printed in Karachi using sublimation dye technology to ensure crisp graphical gradients that remain smooth and uniform across the textile. Hand wash in cool water or gentle spot-clean; iron on reverse at low temperature to release folds. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "scarlet-bloom-tee",
@@ -3765,8 +3925,11 @@ export const products: Product[] = [
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772651794/rose1_fg88h0/scarlet-bloom-tee-black-detail.webp",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772651795/backrose1_iqatfb/scarlet-bloom-tee-black-back.webp"
     ],
-    "colors": [],
-    "rating": 5
+    "colors": [
+      "Black"
+    ],
+    "rating": 5,
+    "description": "Deez Prints presents the SCARLET BLOOM TEE, combining custom SCARLET BLOOM TEE imagery with a dedicated regular cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "breakout-tee",
@@ -3780,8 +3943,11 @@ export const products: Product[] = [
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738506/break2_bnjlfy.webp",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773255816/breakoutvariations_birjvm.webp"
     ],
-    "colors": [],
-    "rating": 5
+    "colors": [
+      "Black"
+    ],
+    "rating": 5,
+    "description": "Engineered for casual styling, the BREAKOUT REGULAR TEE features detailed BREAKOUT REGULAR TEE graphics across a specialized garment build. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "berserk-tee",
@@ -3795,8 +3961,12 @@ export const products: Product[] = [
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739462/whtieb_mewjvg.webp",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/white_ber_bztrq9.webp"
     ],
-    "colors": [],
-    "rating": 4
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "rating": 4,
+    "description": "The BERSERK TEE delivers bold Berserk graphic artwork tailored directly on our signature regular blank. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-spiderverse",
@@ -3814,7 +3984,8 @@ export const products: Product[] = [
       "Olive",
       "Sand"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Inspired by Marvel graphic, the SPIDERVERSE TEE showcases precise graphic execution on an authentic streetwear cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-divine",
@@ -3829,7 +4000,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 4
+    "rating": 4,
+    "description": "DIVINE TEE is a regular graphic release from Deez Prints, showcasing DIVINE TEE artwork. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-lcnst",
@@ -3843,7 +4015,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 4
+    "rating": 4,
+    "description": "Designed for streetwear enthusiasts, the LCNST TEE highlights LCNST TEE visuals in a distinct regular profile. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-snake",
@@ -3858,7 +4031,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 4
+    "rating": 4,
+    "description": "The SNAKE TEE brings authentic SNAKE TEE detailing to a carefully finished regular silhouette. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-abstract-wings",
@@ -3873,7 +4047,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 4
+    "rating": 4,
+    "description": "Featuring high-definition ABSTRACT WINGS TEE artwork, the ABSTRACT WINGS TEE is crafted for everyday durability and statement comfort. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-regular-ferrari",
@@ -3888,7 +4063,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 4
+    "rating": 4,
+    "description": "Deez Prints presents the FERRARI TEE, combining custom FERRARI TEE imagery with a dedicated regular cut. Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-berserk-warrior",
@@ -3903,7 +4079,8 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Engineered for casual styling, the BERSERK WARRIOR ACID WASH TEE features detailed Berserk graphic graphics across a specialized garment build. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-divine",
@@ -3918,7 +4095,8 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "The DIVINE ACID WASH TEE delivers bold DIVINE ACID WASH TEE artwork tailored directly on our signature acid wash blank. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-punk-is-dead",
@@ -3932,7 +4110,8 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Inspired by PUNK IS DEAD ACID WASH TEE, the PUNK IS DEAD ACID WASH TEE showcases precise graphic execution on an authentic streetwear cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-ferrari",
@@ -3948,7 +4127,8 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "FERRARI ACID WASH TEE is a acid wash graphic release from Deez Prints, showcasing FERRARI ACID WASH TEE artwork. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-knightfall",
@@ -3962,7 +4142,8 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Designed for streetwear enthusiasts, the KNIGHTFALL ACID WASH TEE highlights KNIGHTFALL ACID WASH TEE visuals in a distinct acid wash profile. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-abstract-wings",
@@ -3977,7 +4158,8 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "The ABSTRACT WINGS ACID WASH TEE brings authentic ABSTRACT WINGS ACID WASH TEE detailing to a carefully finished acid wash silhouette. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-berserk-classic",
@@ -3992,7 +4174,8 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Featuring high-definition Berserk graphic artwork, the BERSERK ACID WASH TEE is crafted for everyday durability and statement comfort. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-acid-wash-breakout",
@@ -4006,7 +4189,8 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Deez Prints presents the BREAKOUT ACID WASH TEE, combining custom BREAKOUT ACID WASH TEE imagery with a dedicated acid wash cut. Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-berserk",
@@ -4024,7 +4208,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Engineered for casual styling, the Berserk Drop Shoulder Tee features detailed Berserk graphic graphics across a specialized garment build. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-divine",
@@ -4041,7 +4226,8 @@ export const products: Product[] = [
       "beige",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "The DIVINE DRP SHLDR delivers bold DIVINE DRP SHLDR artwork tailored directly on our signature drop shoulder blank. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-punk-is-dead",
@@ -4057,7 +4243,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Inspired by PUNK IS DEAD DRP SHLDR, the PUNK IS DEAD DRP SHLDR showcases precise graphic execution on an authentic streetwear cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-lcnst",
@@ -4073,7 +4260,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "LCNST DRP SHLDR is a drop shoulder graphic release from Deez Prints, showcasing LCNST DRP SHLDR artwork. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-tbsm-calm",
@@ -4088,7 +4276,8 @@ export const products: Product[] = [
     "colors": [
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Designed for streetwear enthusiasts, the TBSM CALM DRP SHLDR highlights TBSM CALM DRP SHLDR visuals in a distinct drop shoulder profile. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-tbsm-encore",
@@ -4103,7 +4292,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "The TBSM ENCORE DRP SHLDR brings authentic TBSM ENCORE DRP SHLDR detailing to a carefully finished drop shoulder silhouette. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-punish",
@@ -4121,7 +4311,8 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Featuring high-definition Punish Drop Shoulder Tee artwork, the Punish Drop Shoulder Tee is crafted for everyday durability and statement comfort. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-ferrari",
@@ -4136,7 +4327,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Deez Prints presents the FERRARI DRP SHLDR, combining custom FERRARI DRP SHLDR imagery with a dedicated drop shoulder cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-tbsm",
@@ -4150,7 +4342,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Engineered for casual styling, the TBSM DRP SHLDR features detailed TBSM DRP SHLDR graphics across a specialized garment build. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-abstract-wings",
@@ -4166,7 +4359,8 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "The ABSTRACT WINGS DRP SHLDR delivers bold ABSTRACT WINGS DRP SHLDR artwork tailored directly on our signature drop shoulder blank. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   },
   {
     "id": "dp-drop-shoulder-snake",
@@ -4182,9 +4376,11 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "description": "Inspired by SNAKE DRP SHLDR, the SNAKE DRP SHLDR showcases precise graphic execution on an authentic streetwear cut. Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband. Discharged and cured in Karachi with industrial Direct-to-Film (DTF) printing technology, producing sharp edge definition and elastic print flexibility. Machine wash cold inside-out, wash with like colors, and air dry in shade. Avoid ironing directly on the printed artwork. Dispatched across Pakistan with flat shipping rates (Rs. 200 in Karachi, Rs. 450 nationwide, free on orders over Rs. 5,000) backed by a 7-day exchange window."
   }
 ];
+
 
 // ─── Product Override Merge ────────────────────────────────────────────────────
 

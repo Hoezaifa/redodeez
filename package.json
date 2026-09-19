@@ -15,7 +15,8 @@
     "format": "prettier --write .",
     "catalog:qa": "tsx scripts/catalog-qa.ts",
     "test:seo": "node scripts/validate-seo.js && node scripts/validate-sitemap.js",
-    "test:regression": "tsx scripts/verify-second-pass-regression.ts"
+    "test:regression": "tsx scripts/verify-second-pass-regression.ts",
+    "seo:check": "node scripts/seo-check.mjs"
   },
   "dependencies": {
     "@fontsource-variable/plus-jakarta-sans": "^5.3.0",

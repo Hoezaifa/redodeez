@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/shop/ProductRow";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/structuredData";
+import { collectionMeta } from "@/lib/seoMeta";
 
 interface CollectionSlugSearchParams {
   sort?: "featured" | "price" | "name";
@@ -53,8 +54,11 @@ export const Route = createFileRoute("/collections/$slug")({
     const absoluteImgUrl = toAbsoluteImageUrl(collectionObj?.image);
     const ogImgUrl = toOgImageUrl(collectionObj?.image);
     const url = `${SITE_URL}/collections/${loaderData?.slug ?? ""}`;
-    const title = `${name} Collection — Deez Prints`;
-    const desc = `${blurb} Shop ${name} by Deez Prints. Made to order in Karachi, delivered nationwide across Pakistan.`;
+    const { title, description: desc } = collectionMeta(
+      loaderData?.slug ?? "",
+      name,
+      blurb
+    );
     const isEmpty = (loaderData?.productCount ?? 0) === 0;
     const isComingSoon = loaderData?.status === "COMING_SOON" || loaderData?.slug === "hoodies";
     const search = loaderData?.search;

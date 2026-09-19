@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SITE_URL } from "@/data/site";
+import { homeMeta } from "@/lib/seoMeta";
 import { useMemo } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight, Instagram } from "lucide-react";
@@ -17,43 +18,13 @@ export const Route = createFileRoute("/")({"loader": async () => {
     const allProducts = await getProducts();
     return { allProducts };
   },
-  head: () => ({
-    meta: [
-      { title: "Deez Prints — Premium Streetwear & Custom Printing in Pakistan" },
-      {
-        name: "description",
-        content:
-          "Oversized drop-shoulder tees, acid wash, anime apparel, hoodies and tapestries. Custom DTF t-shirt printing studio based in Karachi, delivering nationwide across Pakistan.",
-      },
-      {
-        property: "og:title",
-        content: "Deez Prints — Premium Streetwear & Custom Printing in Pakistan",
-      },
-      {
-        property: "og:description",
-        content:
-          "Oversized drop-shoulder tees, acid wash, anime apparel, hoodies and tapestries. Custom DTF t-shirt printing studio based in Karachi, delivering nationwide across Pakistan.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: `${SITE_URL}/` },
-      { property: "og:site_name", content: "Deez Prints" },
-      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
-      { property: "og:image:secure_url", content: `${SITE_URL}/og-image.jpg` },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
-      { property: "og:image:type", content: "image/jpeg" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@deez_prints" },
-      { name: "twitter:title", content: "Deez Prints — Premium Streetwear & Custom Printing in Pakistan" },
-      {
-        name: "twitter:description",
-        content:
-          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and tapestries. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
-      },
-      { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
-    ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
-  }),
+  head: () => {
+    const { meta } = homeMeta();
+    return {
+      meta,
+      links: [{ rel: "canonical", href: `${SITE_URL}/` }],
+    };
+  },
   component: Home,
 });
 
