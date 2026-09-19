@@ -76,6 +76,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "p:domain_verify", content: "224a4bde89bf6ae8a33af0493a310072" },
+      { name: "msvalidate.01", content: "D9F43483E8355D973E0F5F128B8D5845" },
       { title: "Deez Prints — Premium Streetwear & Custom Printing in Pakistan" },
       {
         name: "description",
