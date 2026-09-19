@@ -79,11 +79,15 @@ export const Route = createFileRoute("/products/$productId")({
     const ogImgUrl = toOgImageUrl(rawImg);
     const isTapestryMeta = p?.subcategory === "tapestries" || p?.subcategory === "flags";
     const subcatLabel = p?.subcategory ? p.subcategory.replace(/-/g, " ") : "streetwear";
+    // Avoid "graphic graphic apparel" when subcategory is already "graphic"
+    const apparelDescriptor = subcatLabel === "graphic"
+      ? "Premium graphic apparel"
+      : `Premium ${subcatLabel} apparel`;
     const desc = p?.description
       ? `${p.title} (${formatPrice(p.price)}): ${p.description}. Custom made in Karachi, delivered across Pakistan.`
       : isTapestryMeta
         ? `${p?.title ?? "Product"} (${formatPrice(p?.price ?? 0)}) — High-definition digital sublimation printed satin wall tapestry by Deez Prints. Made in Karachi, delivered across Pakistan.`
-        : `${p?.title ?? "Product"} (${formatPrice(p?.price ?? 0)}) — Premium ${subcatLabel} graphic apparel by Deez Prints. 100% cotton, DTF printed in Karachi. Dispatched across Pakistan.`;
+        : `${p?.title ?? "Product"} (${formatPrice(p?.price ?? 0)}) — ${apparelDescriptor} by Deez Prints. 100% cotton, DTF printed in Karachi. Dispatched across Pakistan.`;
     const title = `${p?.title ?? "Product"} | ${subcatLabel.toUpperCase()} — Deez Prints`;
     const url = `${SITE_URL}/products/${p?.id ?? ""}`;
 

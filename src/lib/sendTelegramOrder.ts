@@ -51,11 +51,19 @@ function buildOrderMessage(order: StoredOrder): { html: string; plain: string } 
           `  • Qty: ${item.qty}`,
           `  • Price: Rs ${(item.price || 0).toLocaleString()}`,
         ];
-        if (item.frontArtworkUrl?.startsWith("http")) {
-          parts.push(`  • <a href="${esc(item.frontArtworkUrl)}">Front Artwork ↗</a>`);
+        if (item.frontArtworkUrl) {
+          if (item.frontArtworkUrl.startsWith("http")) {
+            parts.push(`  • <a href="${esc(item.frontArtworkUrl)}">Front Artwork ↗</a>`);
+          } else {
+            parts.push(`  • Front Artwork: [Uploaded — view in Admin Dashboard]`);
+          }
         }
-        if (item.backArtworkUrl?.startsWith("http")) {
-          parts.push(`  • <a href="${esc(item.backArtworkUrl)}">Back Artwork ↗</a>`);
+        if (item.backArtworkUrl) {
+          if (item.backArtworkUrl.startsWith("http")) {
+            parts.push(`  • <a href="${esc(item.backArtworkUrl)}">Back Artwork ↗</a>`);
+          } else {
+            parts.push(`  • Back Artwork: [Uploaded — view in Admin Dashboard]`);
+          }
         }
         return parts.join("\n");
       }
@@ -75,8 +83,20 @@ function buildOrderMessage(order: StoredOrder): { html: string; plain: string } 
           `  • Qty: ${item.qty}`,
           `  • Price: Rs ${(item.price || 0).toLocaleString()}`,
         ];
-        if (item.frontArtworkUrl?.startsWith("http")) parts.push(`  • Front: ${item.frontArtworkUrl}`);
-        if (item.backArtworkUrl?.startsWith("http")) parts.push(`  • Back: ${item.backArtworkUrl}`);
+        if (item.frontArtworkUrl) {
+          if (item.frontArtworkUrl.startsWith("http")) {
+            parts.push(`  • Front: ${item.frontArtworkUrl}`);
+          } else {
+            parts.push(`  • Front Artwork: [Uploaded — view in Admin Dashboard]`);
+          }
+        }
+        if (item.backArtworkUrl) {
+          if (item.backArtworkUrl.startsWith("http")) {
+            parts.push(`  • Back: ${item.backArtworkUrl}`);
+          } else {
+            parts.push(`  • Back Artwork: [Uploaded — view in Admin Dashboard]`);
+          }
+        }
         return parts.join("\n");
       }
       return `  • ${item.title} ${item.size ? `(${item.size})` : ""} ×${item.qty} — Rs ${(item.price || 0).toLocaleString()}`;

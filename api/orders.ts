@@ -38,11 +38,19 @@ function buildEmailHtml(order: any): string {
     ].filter(Boolean).join(" · ");
 
     const artworkLinks: string[] = [];
-    if (item.isCustom && item.frontArtworkUrl?.startsWith("http")) {
-      artworkLinks.push(`<a href="${escHtml(item.frontArtworkUrl)}" style="color:#f97316;text-decoration:underline;font-weight:700;font-size:12px;">📎 Front Artwork</a>`);
+    if (item.isCustom && item.frontArtworkUrl) {
+      if (item.frontArtworkUrl.startsWith("http")) {
+        artworkLinks.push(`<a href="${escHtml(item.frontArtworkUrl)}" style="color:#f97316;text-decoration:underline;font-weight:700;font-size:12px;">📎 Front Artwork</a>`);
+      } else {
+        artworkLinks.push(`<a href="https://deezprints.com/cocnballs" style="color:#f97316;text-decoration:underline;font-weight:700;font-size:12px;">📎 Front Artwork — View in Admin</a>`);
+      }
     }
-    if (item.isCustom && item.backArtworkUrl?.startsWith("http")) {
-      artworkLinks.push(`<a href="${escHtml(item.backArtworkUrl)}" style="color:#f97316;text-decoration:underline;font-weight:700;font-size:12px;">📎 Back Artwork</a>`);
+    if (item.isCustom && item.backArtworkUrl) {
+      if (item.backArtworkUrl.startsWith("http")) {
+        artworkLinks.push(`<a href="${escHtml(item.backArtworkUrl)}" style="color:#f97316;text-decoration:underline;font-weight:700;font-size:12px;">📎 Back Artwork</a>`);
+      } else {
+        artworkLinks.push(`<a href="https://deezprints.com/cocnballs" style="color:#f97316;text-decoration:underline;font-weight:700;font-size:12px;">📎 Back Artwork — View in Admin</a>`);
+      }
     }
 
     return `<tr><td style="padding:4px 0;font-size:14px;color:#18181b;"><strong>${title}</strong> ×${item.qty || 1}${meta ? `<br/><span style="font-size:12px;color:#71717a;">${meta}</span>` : ""}${artworkLinks.length ? `<br/><span style="margin-top:2px;display:inline-block;">${artworkLinks.join(" &nbsp; ")}</span>` : ""}</td><td style="padding:4px 0;font-size:14px;color:#18181b;text-align:right;white-space:nowrap;">${fmtCurrency((item.price || 0) * (item.qty || 1))}</td></tr>`;
@@ -83,8 +91,12 @@ function buildEmailPlainText(order: any): string {
       i.isCustom && i.placement ? `Placement: ${i.placement}` : "",
     ].filter(Boolean).join(" · ");
     const artLinks: string[] = [];
-    if (i.isCustom && i.frontArtworkUrl?.startsWith("http")) artLinks.push(`    Front Artwork: ${i.frontArtworkUrl}`);
-    if (i.isCustom && i.backArtworkUrl?.startsWith("http")) artLinks.push(`    Back Artwork: ${i.backArtworkUrl}`);
+    if (i.isCustom && i.frontArtworkUrl) {
+      artLinks.push(i.frontArtworkUrl.startsWith("http") ? `    Front Artwork: ${i.frontArtworkUrl}` : `    Front Artwork: [Uploaded — view in Admin Dashboard]`);
+    }
+    if (i.isCustom && i.backArtworkUrl) {
+      artLinks.push(i.backArtworkUrl.startsWith("http") ? `    Back Artwork: ${i.backArtworkUrl}` : `    Back Artwork: [Uploaded — view in Admin Dashboard]`);
+    }
     return `  ${title} ×${i.qty || 1} — ${fmtCurrency((i.price || 0) * (i.qty || 1))}${meta ? `\n    ${meta}` : ""}${artLinks.length ? `\n${artLinks.join("\n")}` : ""}`;
   }).filter(Boolean).join("\n");
 

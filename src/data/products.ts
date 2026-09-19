@@ -12,6 +12,7 @@ export interface Product {
   aesthetic?: string;
   productType?: string;
   style?: string;
+  imageAlts?: string[];
 }
 
 /* ─── Three-Axis Taxonomy Helper ────────────────────────────── */
@@ -3760,16 +3761,16 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "graphic",
     "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772652301/Gemini_Generated_Image_ox19ckox19ckox19_sfssfg.png",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772651794/rose1_fg88h0.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772651795/backrose1_iqatfb.webp"
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772652301/Gemini_Generated_Image_ox19ckox19ckox19_sfssfg/scarlet-bloom-tee-black-front.png",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772651794/rose1_fg88h0/scarlet-bloom-tee-black-detail.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772651795/backrose1_iqatfb/scarlet-bloom-tee-black-back.webp"
     ],
     "colors": [],
     "rating": 5
   },
   {
     "id": "breakout-tee",
-    "title": "Breakout Regular tee",
+    "title": "BREAKOUT REGULAR TEE",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "graphic",

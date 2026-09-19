@@ -43,6 +43,8 @@ export const Route = createFileRoute("/custom-print")({
       { property: "og:image:secure_url", content: `${SITE_URL}/assets/custom_print_mockup.png` },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:alt", content: "Custom t-shirt printing service by Deez Prints — upload your artwork for DTF printing on premium cotton tees" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@deez_prints" },
       { name: "twitter:title", content: "Custom T-Shirt Printing Karachi & Pakistan — Deez Prints" },
@@ -52,6 +54,7 @@ export const Route = createFileRoute("/custom-print")({
           "Upload your artwork for custom DTF t-shirt printing on Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Made in Karachi, delivered nationwide across Pakistan.",
       },
       { name: "twitter:image", content: `${SITE_URL}/assets/custom_print_mockup.png` },
+      { name: "twitter:image:alt", content: "Custom t-shirt printing service by Deez Prints — upload your artwork for DTF printing on premium cotton tees" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/custom-print` }],
   }),
@@ -71,7 +74,6 @@ const bases = [
     subtitle: "180 GSM Premium Cotton",
     isClothing: true,
     image: regTeeProduct.images[0],
-    price: regTeeProduct.price,
   },
   {
     id: "drop-shoulder",
@@ -79,7 +81,6 @@ const bases = [
     subtitle: "Oversized Streetwear Cut",
     isClothing: true,
     image: dropProduct.images[0],
-    price: dropProduct.price,
   },
   {
     id: "acid-wash",
@@ -87,7 +88,6 @@ const bases = [
     subtitle: "Hand-dyed Vintage Finish",
     isClothing: true,
     image: acidProduct.images[0],
-    price: acidProduct.price,
   },
   {
     id: "tapestry",
@@ -95,13 +95,12 @@ const bases = [
     subtitle: "High-Quality Wall Piece",
     isClothing: false,
     image: tapestryProduct.images[0],
-    price: tapestryProduct.price,
   },
 ];
 
 const clothingSizes = ["S", "M", "L", "XL", "XXL"];
 const acidWashSizes = ["S", "M", "L"];
-const tapestrySizes = ["3x2 ft", "4x3 ft", "5x3 ft", "6x4 ft"];
+const tapestrySizes = ["Small (50 x 30)", "Large (70 x 50)"];
 
 const regularTeeColorOptions = [
   { id: "black", name: "Black", colorHex: "#0a0a0a" },
@@ -147,7 +146,7 @@ function CustomPrint() {
   const [color, setColor] = useState(dropShoulderColorOptions[0].name);
 
   const [clothingSize, setClothingSize] = useState("L");
-  const [tapestrySize, setTapestrySize] = useState("4x3 ft");
+  const [tapestrySize, setTapestrySize] = useState("Small (50 x 30)");
 
   const [files, setFiles] = useState<UploadedFile[]>([]);
   const [singlePlacement, setSinglePlacement] = useState<"Front" | "Back">("Front");
@@ -259,9 +258,8 @@ function CustomPrint() {
         backUrl = await uploadArtworkToCloudinary(files[1].file);
       }
 
-      // Base price + optional double-sided add-on (Rs. 500)
-      const doubleSidedFee = files.length === 2 ? 500 : 0;
-      const finalItemPrice = selectedBase.price + doubleSidedFee;
+      // Custom orders are priced manually after artwork review — use 0 as placeholder
+      const finalItemPrice = 0;
 
       // Add custom line item to cart
       add({
@@ -725,6 +723,13 @@ function CustomPrint() {
 
           {/* Place Custom Order CTA Button */}
           <div className="border-t border-zinc-800 pt-5 space-y-3">
+            {/* Pricing notice */}
+            <div className="bg-primary/10 border border-primary/30 rounded-lg px-4 py-3 text-center">
+              <p className="text-xs sm:text-sm font-sans font-semibold text-primary leading-relaxed">
+                Your custom order price will be calculated based on your design and sent to you on WhatsApp within one hour of placing your order.
+              </p>
+            </div>
+
             <button
               type="button"
               disabled={isUploading}
