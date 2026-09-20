@@ -146,7 +146,9 @@ export const aestheticSlugs = [
   "minimal-drops",
   "cinema-collection",
   "art-drop",
-  "street-aesthetic",
+  "music-drops",
+  "dark-artistry",
+  "streetwear-essentials",
 ];
 
 export type CollectionStatus = "ACTIVE" | "COMING_SOON";
@@ -202,12 +204,28 @@ export const collections: Collection[] = [
     match: (p) => p.aesthetic === "art-drop",
   },
   {
-    slug: "street-aesthetic",
-    name: "Street Aesthetic",
-    blurb: "Bold typography, street energy and new everyday statements.",
+    slug: "music-drops",
+    name: "Music Drops",
+    blurb: "Travis Scott, Metallica, Guns N' Roses — legendary artists on premium streetwear.",
     image: "/assets/collections/street_aesthetic.webp",
-    status: "COMING_SOON",
-    match: (p) => p.aesthetic === "street-aesthetic",
+    status: "ACTIVE",
+    match: (p) => p.aesthetic === "music-drops",
+  },
+  {
+    slug: "dark-artistry",
+    name: "Dark Artistry",
+    blurb: "Gothic designs, dark fantasy, and mythological artwork.",
+    image: "/assets/collections/street_aesthetic.webp",
+    status: "ACTIVE",
+    match: (p) => p.aesthetic === "dark-artistry",
+  },
+  {
+    slug: "streetwear-essentials",
+    name: "Streetwear Essentials",
+    blurb: "Bold typography, street energy and everyday statements.",
+    image: "/assets/collections/street_aesthetic.webp",
+    status: "ACTIVE",
+    match: (p) => p.aesthetic === "streetwear-essentials",
   },
   {
     slug: "drop-shoulder",

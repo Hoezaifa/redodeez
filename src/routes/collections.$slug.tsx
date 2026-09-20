@@ -144,7 +144,6 @@ function CollectionPage() {
       list.sort((a, b) => (priceDir === "asc" ? a.price - b.price : b.price - a.price));
     }
     if (sort === "name") list.sort((a, b) => a.title.localeCompare(b.title));
-    if (sort === "featured") list.sort((a, b) => b.images.length - a.images.length);
     return list;
   }, [slug, sort, priceDir, allProducts]);
 

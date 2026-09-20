@@ -28,16 +28,102 @@ export const Route = createFileRoute("/")({"loader": async () => {
   component: Home,
 });
 
+const COMMUNITY_POSTS = [
+  {
+    id: "dp-acid-wash-zoro-2",
+    title: "Zoro Bushido Acid Wash Tee",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970863/deez-prints/covers/zoro_bushido_acid_wash_new.jpg",
+  },
+  {
+    id: "dp-acid-wash-dbz-1",
+    title: "Majin Vegeta Acid Wash Tee",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970867/deez-prints/covers/majin_vegeta_acid_wash_new.jpg",
+  },
+  {
+    id: "dp-drop-shoulder-baby",
+    title: "Cupid Vintage Drop Shoulder Tee",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970851/deez-prints/covers/cupid_vintage_white_new.jpg",
+  },
+  {
+    id: "dp-acid-wash-berserk-skull-blade",
+    title: "Berserk Skull Blade Acid Wash Tee",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970854/deez-prints/covers/berserk_skull_blade_acid_wash_new.jpg",
+  },
+  {
+    id: "dp-acid-wash-speed",
+    title: "Formula Speed Acid Wash Tee",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970860/deez-prints/covers/formula_speed_acid_wash_new.jpg",
+  },
+  {
+    id: "dp-drop-shoulder-sukuna",
+    title: "Sukuna Cursed Drop Shoulder Tee",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1788970875/deez-prints/covers/sukuna_cursed_drop_shoulder_new.png",
+  },
+];
+
 function Home() {
   const { allProducts } = Route.useLoaderData();
 
-  const { withImages, acidWash, regularTees, latest, wallArt, accessories } = useMemo(() => {
-    const imgs = allProducts.filter((p) => p.images.length > 0);
+  const { acidWash, regularTees, latest, wallArt, accessories } = useMemo(() => {
+    const getColor = (p: Product) => {
+      if (!p.images || p.images.length === 0) return "black";
+      const img = p.images[0].toLowerCase();
+      if (img.includes("maroon")) return "maroon";
+      if (img.includes("green")) return "green";
+      if (img.includes("beige")) return "beige";
+      if (img.includes("white") || img.includes("whte")) return "white";
+      if (img.includes("grey") || img.includes("gray")) return "grey";
+      if (p.colors?.includes("Blue")) return "blue";
+      return "black";
+    };
+
+    const getFamily = (p: Product) => {
+      const pid = p.id.toLowerCase()
+        .replace(/^dp-(drop-shoulder|acid-wash|regular)-/, "")
+        .replace(/^tapestry-/, "");
+      return pid.split("-")[0];
+    };
+
+    const selectDiverseRow = (pool: Product[], targetColors: string[]): Product[] => {
+      const selected: Product[] = [];
+      const usedIds = new Set<string>();
+      const usedFams = new Set<string>();
+
+      for (const targetColor of targetColors) {
+        const match = pool.find(
+          (p) => !usedIds.has(p.id) && !usedFams.has(getFamily(p)) && getColor(p) === targetColor
+        );
+        if (match) {
+          selected.push(match);
+          usedIds.add(match.id);
+          usedFams.add(getFamily(match));
+        }
+      }
+
+      if (selected.length < 4) {
+        for (const p of pool) {
+          if (selected.length >= 4) break;
+          if (!usedIds.has(p.id) && !usedFams.has(getFamily(p))) {
+            selected.push(p);
+            usedIds.add(p.id);
+            usedFams.add(getFamily(p));
+          }
+        }
+      }
+      return selected;
+    };
+
+    const allAcid = allProducts.filter((p) => p.subcategory === "acid-wash");
+    const allDrop = allProducts.filter((p) => p.subcategory === "drop-shoulder");
+    const allReg = allProducts.filter((p) => ["regular", "graphic"].includes(p.subcategory));
+
     return {
-      withImages: imgs,
-      acidWash: imgs.filter((p) => p.subcategory === "acid-wash").slice(0, 4),
-      regularTees: imgs.filter((p) => ["regular", "graphic"].includes(p.subcategory)).slice(0, 4),
-      latest: imgs.filter((p) => p.subcategory === "drop-shoulder").slice(0, 4),
+      // Acid Wash: Charcoal Black -> Deep Maroon -> Vintage Grey -> Dark Green/Black
+      acidWash: selectDiverseRow(allAcid, ["black", "maroon", "grey", "black"]),
+      // Drop Shoulder: Sand Beige -> Olive Green -> Clean White -> Black
+      latest: selectDiverseRow(allDrop, ["beige", "green", "white", "black"]),
+      // Regular Tees: Crisp White -> Heavy Black -> Warm Beige -> Grey
+      regularTees: selectDiverseRow(allReg, ["white", "black", "beige", "grey"]),
       wallArt: allProducts.filter((p) => ["tapestries", "flags"].includes(p.subcategory)).slice(0, 4),
       accessories: allProducts.filter((p) => p.category === "accessories" && p.images.length > 0),
     };
@@ -121,16 +207,16 @@ function Home() {
           </a>
         </div>
         <div className="grid grid-cols-2 gap-px bg-border md:grid-cols-4 lg:grid-cols-6">
-          {withImages.slice(0, 6).map((p) => (
+          {COMMUNITY_POSTS.map((item) => (
             <Link
-              key={p.id}
+              key={item.id}
               to="/products/$productId"
-              params={{ productId: p.id }}
+              params={{ productId: item.id }}
               className="group relative aspect-square overflow-hidden bg-surface"
             >
               <img
-                src={p.images[0]}
-                alt={p.title}
+                src={item.image}
+                alt={item.title}
                 loading="lazy"
                 className="h-full w-full object-cover img-zoom"
               />
