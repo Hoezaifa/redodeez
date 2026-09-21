@@ -158,23 +158,29 @@ function About() {
 
               {/* Story copy */}
               <div
-                className="space-y-3 text-muted-foreground mb-6"
-                style={{ fontSize: "13px", lineHeight: 1.65, maxWidth: "420px" }}
+                className="space-y-3.5 text-muted-foreground mb-6"
+                style={{ fontSize: "13px", lineHeight: 1.65, maxWidth: "520px" }}
               >
                 <p>
-                  Deez Prints started with one idea: the clothes people actually want rarely exist on a
-                  shelf. So we built a studio around making them — heavyweight blanks, oversized cuts, and
-                  prints loud enough to carry a whole outfit.
+                  Deez Prints started in 2023 with a simple idea: make the kind of clothes you actually want to wear, not whatever happens to be sitting on a shelf.
                 </p>
                 <p>
-                  Everything is printed to order from our workshop in {site.location}. Drop shoulder tees,
-                  acid wash one-of-ones, hoodies, jerseys, tapestries and accessories — plus fully custom
-                  work where you send us the artwork and we handle the rest.
+                  Then, well... procrastination happened.
                 </p>
                 <p>
-                  We ship nationwide via {site.couriers}, usually within {site.deliveryTime}, with secure
-                  payment options via Meezan Bank, Easypaisa, and JazzCash. If something isn&apos;t right,
-                  our 7-day exchange policy has you covered.
+                  The idea never really went away. In 2026, we brought it back properly — rebuilt from the ground up with a real storefront, a growing catalog, better production, and a much clearer vision for what Deez Prints should be.
+                </p>
+                <p>
+                  Today, we make heavyweight tees, oversized and drop-shoulder cuts, acid wash pieces, hoodies, jerseys, tapestries and accessories, alongside fully custom printing for when you already have the idea and just need someone to bring it to life.
+                </p>
+                <p>
+                  Everything is produced and handled from our workshop in Karachi, Pakistan, with nationwide delivery through trusted courier partners.
+                </p>
+                <p>
+                  We&apos;re still building. More designs, more experiments, more weird ideas, and hopefully a lot less procrastination this time.
+                </p>
+                <p className="text-foreground font-semibold pt-1">
+                  Deez Prints. Made for people who don&apos;t want to wear the same shit as everyone else.
                 </p>
               </div>
 
@@ -214,11 +220,13 @@ function About() {
             <Reveal delay={0.1} y={16}>
               <div className="relative w-full">
                 <img
-                  src="/assets/about/hero-model.png"
-                  alt="Deez Prints oversized streetwear T-shirt — editorial campaign"
+                  src="/assets/about/hero-model.webp"
+                  alt="Deez Prints oversized streetwear T-shirt — Digital Angel editorial campaign"
                   className="w-full h-auto object-cover"
                   style={{ maxHeight: "700px", objectPosition: "top center" }}
                   loading="eager"
+                  width={807}
+                  height={1024}
                 />
               </div>
             </Reveal>

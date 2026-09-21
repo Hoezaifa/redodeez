@@ -1,446 +1,716 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Truck,
+  Users,
+  Calendar,
   ShieldCheck,
-  Sparkles,
-  Shirt,
-  Scissors,
-  Headphones,
-  CheckCircle2,
-  Package,
-  Award,
-  Building2,
-  Smartphone,
-  Wallet,
-  ArrowRight,
+  Gem,
   RefreshCw,
-  HelpCircle,
-  Clock,
-  Layers,
+  Headphones,
+  ArrowRight,
+  Globe,
 } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
-import { MagneticButton } from "@/components/motion/MagneticButton";
-import { site, whatsappLink, SITE_URL, SHIPPING_OPTIONS, commercialConfig } from "@/data/site";
-import { SectionHeading } from "@/components/shop/ProductRow";
+import { SITE_URL } from "@/data/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/structuredData";
 
 export const Route = createFileRoute("/trust")({
   head: () => ({
     meta: [
-      { title: "Why Trust Deez Prints — Quality, Shipping & Payment Guarantee" },
+      { title: "Trust & Transparency — Real People. Real Prints. No Bullshit | Deez Prints" },
       {
         name: "description",
         content:
-          "Discover why streetwear enthusiasts across Pakistan trust Deez Prints. Heavyweight 240 GSM blanks, HD industrial DTF prints, verified bank & wallet payments, and 7-day easy exchange.",
+          "Deez Prints is built by people who actually care about what they wear. 10,000+ orders delivered, heavyweight blanks, detailed prints, and 7-day exchange.",
       },
-      { property: "og:title", content: "Why Trust Deez Prints — Karachi Print Studio" },
+      { property: "og:title", content: "Trust & Transparency | Deez Prints" },
       {
         property: "og:description",
         content:
-          "Industrial DTF printing, premium heavyweight blanks, direct transparent payments, Karachi & nationwide delivery, and 7-day easy exchange.",
+          "Real People. Real Prints. No Bullshit. 10,000+ orders delivered across Pakistan. 100% quality guaranteed with 7-day exchange.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/trust` },
       { property: "og:site_name", content: "Deez Prints" },
       { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
-      { property: "og:image:type", content: "image/jpeg" },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Why Trust Deez Prints — Quality & Guarantees" },
+      { name: "twitter:title", content: "Trust & Transparency — Deez Prints" },
       {
         name: "twitter:description",
-        content:
-          "Heavyweight blanks, HD industrial DTF prints, verified bank & wallet payments, and 7-day easy exchange nationwide.",
+        content: "Real People. Real Prints. No Bullshit. Made to order at our Karachi studio.",
       },
-      { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/trust` }],
+    links: [
+      { rel: "canonical", href: `${SITE_URL}/trust` },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap",
+      },
+    ],
   }),
   component: TrustPage,
 });
 
+/* ─── Typography presets ────────────────────────────────── */
+const condensedFont = { fontFamily: "'Bebas Neue', sans-serif" };
+const markerFont = { fontFamily: "'Permanent Marker', cursive" };
+
+/* ─── Stats Strip Data ──────────────────────────────────── */
 const stats = [
-  { value: "10,000+", label: "Orders Delivered", sub: "Across Pakistan", icon: Package },
-  { value: "5,000+", label: "Happy Customers", sub: "Nationwide Community", icon: CheckCircle2 },
-  { value: "6+ Years", label: "Printing Expertise", sub: "Est. Karachi Studio", icon: Award },
-  { value: "100%", label: "Quality Guaranteed", sub: "7-Day Easy Exchange", icon: ShieldCheck },
-];
-
-const trustSignals = [
   {
     icon: Truck,
-    title: "Nationwide Shipping & Tracking",
-    desc: `Orders take ${commercialConfig.prepTime} to prepare before dispatch. Karachi Rs. ${SHIPPING_OPTIONS.karachi.fee} via ${SHIPPING_OPTIONS.karachi.method} (${commercialConfig.deliveryTimeKarachi}). Nationwide Rs. ${SHIPPING_OPTIONS.nationwide.fee} via ${SHIPPING_OPTIONS.nationwide.method} (${commercialConfig.deliveryTimeNationwide}). Free delivery on orders over Rs. ${commercialConfig.freeShippingThreshold.toLocaleString()}.`,
-    badge: "Tracked Delivery",
-    linkText: "View Shipping Policy",
-    linkHref: "/shipping",
+    value: "10,000+",
+    label: "Orders Delivered",
+    sub: "Across Pakistan",
+  },
+  {
+    icon: Users,
+    value: "5,000+",
+    label: "Happy Customers",
+    sub: "Nationwide Community",
+  },
+  {
+    icon: Calendar,
+    value: "6+ Years",
+    label: "Printing Experience",
+    sub: "Est. 2023 (Rebuilt 2026)",
   },
   {
     icon: ShieldCheck,
-    title: "Transparent Direct Payments",
-    desc: "We accept Meezan Bank IBFT, Easypaisa, JazzCash, and Raast Instant Pay with zero checkout surcharge. Instant payment verification via screenshot or transaction reference.",
-    badge: "Zero Surcharge",
-    linkText: "View Payment Guide",
-    linkHref: "/payments",
+    value: "100%",
+    label: "Quality Guaranteed",
+    sub: "7-Day Exchange",
+  },
+];
+
+/* ─── Promises Data ─────────────────────────────────────── */
+const promises = [
+  {
+    icon: Gem,
+    title: "Premium Quality",
+    desc: "Heavyweight blanks, high-detail prints, built to last.",
   },
   {
-    icon: Sparkles,
-    title: "Industrial DTF & Sublimation Quality",
-    desc: "We use high-definition Direct-to-Film (DTF) and sublimation presses with premium Japanese inks. Razor-sharp lines, rich blacks, and vibrant colors that do not crack or peel after repeated washing.",
-    badge: "50+ Washes Durability",
-    linkText: "Read Print & Care Guide",
-    linkHref: "/guides/streetwear-printing-and-care",
+    icon: Truck,
+    title: "Nationwide Shipping",
+    desc: "TCS, Leopards, M&P, Bykea.\nUsually within 3–5 working days.",
   },
   {
-    icon: Shirt,
-    title: "Heavyweight Custom Blanks",
-    desc: "No paper-thin stock tees. We manufacture 240 GSM drop-shoulder streetwear tees, 100% combed cotton regular blanks, hand-washed acid wash pieces, and high-density satin tapestries.",
-    badge: "240 GSM Cotton",
-    linkText: "Explore Collections",
-    linkHref: "/collections",
-  },
-  {
-    icon: Scissors,
-    title: "Made-to-Order Precision & QA",
-    desc: "Every order is individually printed, cured, and inspected at our Karachi studio. Triple-checked for alignment, color fidelity, and stitching before packaging.",
-    badge: "Karachi Studio Craft",
-    linkText: "Start Custom Order",
-    linkHref: "/custom-print",
+    icon: ShieldCheck,
+    title: "Secure Payments",
+    desc: "Meezan Bank, Easypaisa,\nJazzCash & Raast.",
   },
   {
     icon: RefreshCw,
-    title: "7-Day Hassle-Free Exchange",
-    desc: "If the size isn't right or there's any defect upon arrival, contact us within 7 days of delivery. We guide you step-by-step through our smooth nationwide replacement process.",
-    badge: "7-Day Window",
-    linkText: "View Returns Policy",
-    linkHref: "/returns",
+    title: "7-Day Exchange",
+    desc: "If something isn't right,\nwe've got you covered.",
+  },
+  {
+    icon: Headphones,
+    title: "Real Support",
+    desc: "Actual humans. Fast replies.\nNo automated nonsense.",
   },
 ];
 
-const supportedGateways = [
+/* ─── Process Steps Data ────────────────────────────────── */
+const processSteps = [
   {
-    name: "Meezan Bank",
-    type: "Direct Bank Transfer / IBFT",
-    desc: "Transfer via Meezan Mobile App or any bank app in Pakistan with instant reference tracking.",
-    icon: Building2,
-    badge: "Instant IBFT",
+    num: "01",
+    title: "You Order",
+    desc: "Pick your design or send us your custom artwork.",
   },
   {
-    name: "Easypaisa",
-    type: "Mobile Wallet Transfer",
-    desc: "Instant transfer from your Easypaisa app or nearest retailer to our verified account.",
-    icon: Smartphone,
-    badge: "Direct Wallet",
+    num: "02",
+    title: "We Print",
+    desc: "Produced at our Karachi studio.",
   },
   {
-    name: "JazzCash",
-    type: "Mobile Wallet Transfer",
-    desc: "Quick and secure transfers from your JazzCash wallet with zero transaction delay.",
-    icon: Wallet,
-    badge: "Instant Pay",
+    num: "03",
+    title: "We Pack",
+    desc: "Carefully inspected, securely packed.",
   },
   {
-    name: "Raast Pay",
-    type: "State Bank Instant Payment",
-    desc: "Instant, zero-fee interbank transfer via Raast ID linked directly to verified accounts.",
-    icon: ShieldCheck,
-    badge: "SBP Raast",
+    num: "04",
+    title: "It Ships",
+    desc: "Nationwide, with tracking. Usually 3–5 working days.",
   },
 ];
 
-const policyCards = [
+/* ─── Community Photos ──────────────────────────────────── */
+const communityPhotos = [
   {
-    title: "Shipping & Delivery",
-    desc: "Rates, dispatch timelines, Bykea in Karachi, and nationwide courier coverage.",
-    href: "/shipping",
-    icon: Truck,
+    title: "Zoro Bushido Acid Wash Tee",
+    src: "https://res.cloudinary.com/okcxaese/image/upload/v1788970863/deez-prints/covers/zoro_bushido_acid_wash_new.jpg",
   },
   {
-    title: "Payment Methods",
-    desc: "Step-by-step transfer instructions, account titles, and verification guide.",
-    href: "/payments",
-    icon: ShieldCheck,
+    title: "Majin Vegeta Acid Wash Tee",
+    src: "https://res.cloudinary.com/okcxaese/image/upload/v1788970867/deez-prints/covers/majin_vegeta_acid_wash_new.jpg",
   },
   {
-    title: "Returns & Exchanges",
-    desc: "7-day exchange window, conditions, and replacement procedure.",
-    href: "/returns",
-    icon: RefreshCw,
+    title: "Berserk Skull Blade Acid Wash Tee",
+    src: "https://res.cloudinary.com/okcxaese/image/upload/v1788970854/deez-prints/covers/berserk_skull_blade_acid_wash_new.jpg",
   },
   {
-    title: "Frequently Asked Questions",
-    desc: "Sizing guides, print methods, order tracking, and custom artwork specs.",
-    href: "/faq",
-    icon: HelpCircle,
+    title: "Cupid Vintage Drop Shoulder Tee",
+    src: "https://res.cloudinary.com/okcxaese/image/upload/v1788970851/deez-prints/covers/cupid_vintage_white_new.jpg",
+  },
+  {
+    title: "Formula Speed Acid Wash Tee",
+    src: "https://res.cloudinary.com/okcxaese/image/upload/v1788970860/deez-prints/covers/formula_speed_acid_wash_new.jpg",
+  },
+  {
+    title: "Sukuna Cursed Drop Shoulder Tee",
+    src: "https://res.cloudinary.com/okcxaese/image/upload/v1788970875/deez-prints/covers/sukuna_cursed_drop_shoulder_new.png",
   },
 ];
 
 function TrustPage() {
   const breadcrumbs = [
     { name: "Home", url: SITE_URL },
-    { name: "Why Deez Prints", url: `${SITE_URL}/trust` },
+    { name: "Trust & Transparency", url: `${SITE_URL}/trust` },
   ];
 
   return (
-    <div className="edge py-10 md:py-16 space-y-16 md:space-y-24">
+    <div className="bg-[#050505] text-white min-h-screen selection:bg-primary selection:text-black">
       {/* Structured Data */}
       <JsonLd data={breadcrumbSchema(breadcrumbs)} />
 
-      {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="label-mono text-[10px] md:text-xs text-muted-foreground">
-        <ol className="flex items-center gap-1.5 flex-wrap">
-          <li>
-            <Link to="/" className="hover:text-foreground transition-colors">
-              Home
-            </Link>
-          </li>
-          <li aria-hidden="true" className="text-muted-foreground/60">
-            /
-          </li>
-          <li className="text-foreground font-semibold" aria-current="page">
-            Why Deez Prints
-          </li>
-        </ol>
-      </nav>
+      {/* ═══════════════════════════════════════════════════════
+          SECTION 1: HERO
+          ═══════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden border-b border-white/[0.08]">
+        {/* Background ambient gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent z-10 pointer-events-none" />
 
-      {/* Header Section */}
-      <div className="max-w-3xl space-y-4">
-        <SectionHeading
-          eyebrow="Trust & Transparency"
-          title={"Why Streetwear Enthusiasts\nTrust Deez Prints"}
-          sub="Founded in Karachi, shipped nationwide. Every piece is printed on industrial DTF equipment using premium heavyweight blanks, backed by clear policies and direct customer care."
-        />
-      </div>
+        <div className="edge py-12 md:py-20 lg:py-24 relative z-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Left Column — Statement & CTAs */}
+            <Reveal className="lg:col-span-7 flex flex-col" y={20}>
+              <div
+                className="font-mono text-primary uppercase tracking-[0.2em] mb-4 text-xs font-bold"
+              >
+                TRUST &amp; TRANSPARENCY
+              </div>
 
-      {/* Brand Credibility Stats */}
-      <Reveal>
-        <div className="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-white/10 rounded-2xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-white/10">
-            {stats.map((st, idx) => {
+              <h1
+                className="uppercase leading-[0.9] tracking-[0.01em] text-white"
+                style={{
+                  ...condensedFont,
+                  fontSize: "clamp(3.8rem, 10vw, 7.5rem)",
+                }}
+              >
+                REAL PEOPLE.
+                <br />
+                REAL PRINTS.
+                <br />
+                <span className="text-primary">NO BULLSHIT.</span>
+              </h1>
+
+              <p className="text-zinc-400 text-sm md:text-base leading-relaxed mt-6 mb-8 max-w-xl">
+                Deez Prints is built by people who actually care about what they wear. From premium
+                blanks to detailed prints, we keep things authentic, transparent, and customer-first.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  to="/collections"
+                  className="inline-flex items-center gap-2 bg-primary text-black font-extrabold uppercase tracking-wider text-xs md:text-sm px-7 py-3.5 transition-all duration-200 hover:brightness-110 hover:shadow-[0_0_24px_rgba(249,115,22,0.4)] active:scale-[0.98]"
+                >
+                  EXPLORE COLLECTIONS &rarr;
+                </Link>
+
+                <a
+                  href="#story"
+                  className="inline-flex items-center gap-2 border border-white/20 bg-black/40 text-white font-extrabold uppercase tracking-wider text-xs md:text-sm px-7 py-3.5 transition-all duration-200 hover:border-white/50 hover:bg-white/5 active:scale-[0.98]"
+                >
+                  OUR STORY &rarr;
+                </a>
+              </div>
+            </Reveal>
+
+            {/* Right Column — Model Photo with Graffiti */}
+            <Reveal className="lg:col-span-5 relative" delay={0.15} y={20}>
+              <div className="relative mx-auto max-w-md lg:max-w-none rounded-none overflow-hidden border border-white/[0.08] shadow-2xl group">
+                <img
+                  src="/assets/trust/hero-streetwear.webp"
+                  alt="Deez Prints heavyweight streetwear t-shirt back print editorial campaign"
+                  className="w-full h-auto object-cover max-h-[560px] filter brightness-95 contrast-105 transition-transform duration-700 group-hover:scale-[1.02]"
+                  width={800}
+                  height={1000}
+                  loading="eager"
+                />
+
+                {/* Graffiti Chalk Overlays */}
+                <div
+                  className="absolute top-6 left-6 text-white/40 text-sm md:text-base leading-tight select-none pointer-events-none -rotate-6"
+                  style={markerFont}
+                >
+                  STREETWEAR
+                  <br />
+                  CUSTOM PRINTS
+                  <br />
+                  NO LIMITS.
+                </div>
+
+                <div
+                  className="absolute bottom-6 right-6 text-right select-none pointer-events-none rotate-3"
+                  style={markerFont}
+                >
+                  <span className="text-white/60 text-xs md:text-sm block">KARACHI</span>
+                  <span className="text-primary text-sm md:text-base block">TO EVERYWHERE</span>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          SECTION 2: STATS STRIP
+          ═══════════════════════════════════════════════════════ */}
+      <section className="border-b border-white/[0.08] bg-[#080808]">
+        <div className="edge py-8 md:py-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-white/[0.08]">
+            {stats.map((st, i) => {
               const Icon = st.icon;
               return (
-                <div key={st.label} className={`pt-6 lg:pt-0 ${idx !== 0 ? "lg:pl-8" : ""}`}>
-                  <div className="inline-flex p-2.5 rounded-xl bg-primary/10 text-primary mb-3">
-                    <Icon className="w-5 h-5" />
+                <Reveal key={st.label} delay={i * 0.05}>
+                  <div
+                    className={`flex items-start gap-4 ${
+                      i !== 0 ? "pt-4 md:pt-0 md:pl-6 lg:pl-8" : ""
+                    }`}
+                  >
+                    <div className="p-2.5 rounded-none bg-primary/10 text-primary shrink-0 mt-0.5 border border-primary/20">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div
+                        className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-none"
+                        style={condensedFont}
+                      >
+                        {st.value}
+                      </div>
+                      <div className="text-xs font-bold text-zinc-200 mt-1 uppercase tracking-wider">
+                        {st.label}
+                      </div>
+                      <div className="text-[11px] text-zinc-500 font-mono mt-0.5">
+                        {st.sub}
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono">
-                    {st.value}
-                  </p>
-                  <p className="text-xs font-bold uppercase tracking-wider text-zinc-300 mt-1">
-                    {st.label}
-                  </p>
-                  <p className="text-[11px] text-zinc-500 font-medium mt-0.5">{st.sub}</p>
-                </div>
+                </Reveal>
               );
             })}
           </div>
         </div>
-      </Reveal>
+      </section>
 
-      {/* Core Trust Signals Grid */}
-      <div className="space-y-8">
-        <div>
-          <span className="label-mono text-primary text-xs uppercase tracking-wider">Our Commitments</span>
-          <h2 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white mt-1">
-            Built on Six Brand Promises
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {trustSignals.map((sig, i) => {
-            const Icon = sig.icon;
-            return (
-              <Reveal key={sig.title} delay={i * 0.05}>
-                <div className="h-full bg-surface/50 border border-white/10 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 group flex flex-col justify-between shadow-lg">
-                  <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-400">
-                        {sig.badge}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-bold text-white uppercase tracking-wide group-hover:text-primary transition-colors">
-                      {sig.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-zinc-400 mt-3 leading-relaxed">
-                      {sig.desc}
-                    </p>
+      {/* ═══════════════════════════════════════════════════════
+          SECTION 3: OUR STORY
+          ═══════════════════════════════════════════════════════ */}
+      <section id="story" className="py-16 md:py-24 border-b border-white/[0.08] bg-[#060606]">
+        <div className="edge">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Left Column — Workshop Photo Collage */}
+            <div className="lg:col-span-4 relative">
+              <Reveal y={16}>
+                <div className="relative space-y-4">
+                  {/* Workshop Photo */}
+                  <div className="border border-white/[0.1] bg-[#0c0c0c] p-2 shadow-2xl relative">
+                    <img
+                      src="/assets/trust/workshop-screenprint.webp"
+                      alt="Deez Prints garment printing workshop press and screens in Karachi"
+                      className="w-full h-auto object-cover filter contrast-105"
+                      width={600}
+                      height={450}
+                      loading="lazy"
+                    />
                   </div>
-                  <div className="pt-6 border-t border-white/5 mt-6">
-                    <Link
-                      to={sig.linkHref as any}
-                      className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-primary hover:underline"
+
+                  {/* Taped Sticky Note */}
+                  <div
+                    className="absolute -bottom-6 -right-3 sm:-right-6 bg-[#f0f0f0] text-black px-5 py-4 shadow-2xl rotate-3 border border-black/10 z-20"
+                    style={{ maxWidth: "160px" }}
+                  >
+                    {/* Simulated Tape Strip */}
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-14 h-4 bg-amber-100/50 backdrop-blur-xs -rotate-2 border-l border-r border-black/10" />
+
+                    <div
+                      className="text-center font-bold tracking-wider text-xs md:text-sm uppercase leading-tight"
+                      style={markerFont}
                     >
-                      {sig.linkText} <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
+                      IDEAS
+                      <br />
+                      BLANKS
+                      <br />
+                      PRINTS
+                      <br />
+                      PEOPLE
+                    </div>
                   </div>
                 </div>
               </Reveal>
-            );
-          })}
-        </div>
-      </div>
+            </div>
 
-      {/* Synchronized Payment Transparency Section */}
-      <div className="bg-zinc-950/80 border border-white/10 rounded-2xl p-8 sm:p-10 space-y-8">
-        <div className="max-w-2xl space-y-2">
-          <span className="label-mono text-primary text-xs uppercase tracking-wider">Direct & Transparent</span>
-          <h2 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white">
-            Accepted Payment Methods
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-            We use zero-markup, direct interbank and mobile wallet transactions. Simply upload your screenshot or reference after placing your order for instant processing.
-          </p>
-        </div>
+            {/* Center Column — The Story Copy */}
+            <Reveal className="lg:col-span-5 flex flex-col" delay={0.1} y={20}>
+              <div className="font-mono text-primary uppercase tracking-[0.2em] mb-2 text-xs font-bold">
+                OUR STORY
+              </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {supportedGateways.map((gw) => {
-            const Icon = gw.icon;
-            return (
-              <div
-                key={gw.name}
-                className="bg-zinc-900/60 border border-white/10 rounded-xl p-5 space-y-3 flex flex-col justify-between hover:border-primary/50 transition-colors"
+              <h2
+                className="text-white uppercase leading-[0.92] tracking-[0.01em] mb-6"
+                style={{
+                  ...condensedFont,
+                  fontSize: "clamp(2.6rem, 5vw, 4.2rem)",
+                }}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 text-zinc-400 border border-white/10">
-                      {gw.badge}
-                    </span>
-                  </div>
-                  <h3 className="text-base font-bold text-white uppercase">{gw.name}</h3>
-                  <p className="text-[11px] font-mono text-primary mt-0.5">{gw.type}</p>
-                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed">{gw.desc}</p>
+                FROM AN IDEA
+                <br />
+                TO A REAL BRAND
+              </h2>
+
+              <div className="space-y-4 text-zinc-400 text-sm leading-relaxed">
+                <p>
+                  Deez Prints started in 2023 with a simple idea: make the kind of clothes you
+                  actually want to wear — not whatever happens to be sitting on a shelf.
+                </p>
+
+                <p className="italic text-zinc-500 font-mono text-xs">
+                  Then, well... procrastination happened.
+                </p>
+
+                <p>
+                  The idea never really went away. In 2026, we brought it back properly — with a
+                  real storefront, a growing catalog, better production, and a much clearer vision
+                  for what Deez Prints should be.
+                </p>
+
+                <p>
+                  Today, we're a streetwear and custom print brand based in Karachi, Pakistan,
+                  making heavyweight tees, oversized and drop-shoulder cuts, acid wash pieces,
+                  hoodies, jerseys, tapestries and accessories — plus fully custom printing for
+                  when you already have the idea and just need someone to bring it to life.
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-2 bg-white text-black font-extrabold uppercase tracking-wider text-xs px-6 py-3.5 transition-all duration-200 hover:bg-primary hover:text-black active:scale-[0.98]"
+                >
+                  LEARN MORE ABOUT US &rarr;
+                </Link>
+              </div>
+            </Reveal>
+
+            {/* Right Column — Collar Tag Macro Shot */}
+            <Reveal className="lg:col-span-3 relative hidden sm:block" delay={0.2} y={16}>
+              <div className="border border-white/[0.1] bg-[#0c0c0c] p-2 relative shadow-2xl">
+                <img
+                  src="/assets/trust/collar-tag.webp"
+                  alt="Deez Prints heavyweight garment woven collar tag macro"
+                  className="w-full h-auto object-cover filter contrast-105"
+                  width={400}
+                  height={400}
+                  loading="lazy"
+                />
+
+                <div
+                  className="mt-4 text-center text-white/50 text-xs md:text-sm tracking-widest uppercase"
+                  style={markerFont}
+                >
+                  GOOD IDEAS TAKE TIME.
                 </div>
               </div>
-            );
-          })}
-        </div>
-
-        <div className="pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-white/10">
-          <p className="text-xs text-zinc-400">
-            Need account numbers, titles, or transfer instructions?
-          </p>
-          <Link
-            to="/payments"
-            className="inline-flex items-center gap-2 text-xs font-mono font-bold text-primary hover:underline"
-          >
-            View Official Payment Account Details <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-      </div>
-
-      {/* Blank Quality & Studio Production Deep Dive */}
-      <div className="grid gap-8 lg:grid-cols-2">
-        <Reveal className="border border-white/10 bg-surface/40 rounded-2xl p-8 space-y-4">
-          <div className="flex items-center gap-2">
-            <Layers className="w-5 h-5 text-primary" />
-            <span className="label-mono text-primary text-xs uppercase tracking-wider">Garment Construction</span>
+            </Reveal>
           </div>
-          <h3 className="text-xl font-bold uppercase text-white">Heavyweight Blanks Only</h3>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            We do not use generic, ultra-thin promotional blanks. Our drop-shoulder tees use 240 GSM combed cotton with reinforced collars that stay flat. Our acid wash garments undergo custom mineral enzyme washing, making every single piece uniquely patterned.
-          </p>
-          <ul className="text-xs font-mono text-zinc-300 space-y-1.5 pt-2">
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Drop-shoulder: 240 GSM combed cotton
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Acid wash: Hand-dyed vintage mineral wash
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Regular tees: 180 GSM everyday premium cotton
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Tapestries: High-density satin with metal grommets
-            </li>
-          </ul>
-        </Reveal>
-
-        <Reveal delay={0.1} className="border border-white/10 bg-surface/40 rounded-2xl p-8 space-y-4">
-          <div className="flex items-center gap-2">
-            <Clock className="w-5 h-5 text-primary" />
-            <span className="label-mono text-primary text-xs uppercase tracking-wider">Studio Technology</span>
-          </div>
-          <h3 className="text-xl font-bold uppercase text-white">Industrial DTF & Sublimation</h3>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            Every garment is pressed on industrial-grade Direct-to-Film (DTF) transfer equipment using premium polymer powders and eco-certified inks. The result is razor-sharp detail on both dark and light fabrics, elastic stretch without cracking, and long-term durability.
-          </p>
-          <ul className="text-xs font-mono text-zinc-300 space-y-1.5 pt-2">
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> High-definition print resolution up to 1440 DPI
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Soft-hand finish with flexible ink cure
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Individually inspected before packaging
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Zero crack guarantee when following care guide
-            </li>
-          </ul>
-        </Reveal>
-      </div>
-
-      {/* Quick Policy Navigation Cards */}
-      <div className="space-y-6">
-        <div>
-          <span className="label-mono text-primary text-xs uppercase tracking-wider">Information Hub</span>
-          <h2 className="text-2xl font-bold uppercase tracking-tight text-white mt-1">
-            Store Policies & Guidance
-          </h2>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {policyCards.map((card) => {
-            const Icon = card.icon;
-            return (
-              <Link
-                key={card.title}
-                to={card.href as any}
-                className="bg-surface/50 border border-white/10 rounded-xl p-5 hover:border-primary/50 transition-all group flex flex-col justify-between"
+      {/* ═══════════════════════════════════════════════════════
+          SECTION 4: OUR PROMISES
+          ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-24 border-b border-white/[0.08] bg-[#080808]">
+        <div className="edge">
+          <Reveal y={16}>
+            <div className="mb-12">
+              <div className="font-mono text-primary uppercase tracking-[0.2em] mb-2 text-xs font-bold">
+                OUR PROMISES
+              </div>
+              <h2
+                className="text-white uppercase leading-[0.92] tracking-[0.01em]"
+                style={{
+                  ...condensedFont,
+                  fontSize: "clamp(2.4rem, 6vw, 3.8rem)",
+                }}
               >
-                <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center group-hover:scale-105 transition-transform">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-base font-bold text-white uppercase group-hover:text-primary transition-colors">
-                    {card.title}
-                  </h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed">{card.desc}</p>
-                </div>
-                <div className="pt-4 flex items-center gap-1 text-xs font-mono text-primary font-semibold">
-                  Read Details <ArrowRight className="w-3.5 h-3.5" />
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </div>
+                WHAT YOU CAN EXPECT
+              </h2>
+            </div>
+          </Reveal>
 
-      {/* Direct Contact & Experience Quality CTAs */}
-      <div className="border border-white/10 bg-surface/50 rounded-2xl p-8 sm:p-12 text-center space-y-6 max-w-3xl mx-auto">
-        <h3 className="text-2xl sm:text-3xl font-bold uppercase text-white">Experience Deez Prints Quality</h3>
-        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-xl mx-auto">
-          Whether you are choosing a limited graphic drop or printing your own unique artwork on heavyweight blanks, we guarantee premium print craft and transparent service from order to door.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 pt-2">
-          <MagneticButton to="/collections">Browse Collections</MagneticButton>
-          <MagneticButton to="/custom-print" variant="outline">
-            Custom Print Order
-          </MagneticButton>
-          <MagneticButton href={whatsappLink("Hi! I have a question about Deez Prints quality.")} variant="outline">
-            Chat on WhatsApp
-          </MagneticButton>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {promises.map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <Reveal key={p.title} delay={i * 0.05} y={16}>
+                  <div className="p-6 border border-white/[0.08] bg-black/40 h-full flex flex-col justify-between transition-all duration-300 hover:border-primary/50 hover:bg-black/60 group">
+                    <div>
+                      <div className="w-10 h-10 flex items-center justify-center border border-white/20 text-white mb-5 group-hover:border-primary group-hover:text-primary transition-colors">
+                        <Icon className="w-5 h-5 stroke-[1.5]" />
+                      </div>
+                      <h3
+                        className="text-lg font-bold text-white uppercase tracking-wider mb-2"
+                        style={condensedFont}
+                      >
+                        {p.title}
+                      </h3>
+                      <p className="text-zinc-400 text-xs leading-relaxed whitespace-pre-line">
+                        {p.desc}
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          SECTION 5: OUR PROCESS
+          ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-24 border-b border-white/[0.08] bg-[#060606]">
+        <div className="edge">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Column — Hoodie Model Photograph */}
+            <Reveal className="lg:col-span-5" y={16}>
+              <div className="border border-white/[0.1] bg-[#0a0a0a] overflow-hidden shadow-2xl">
+                <img
+                  src="/assets/trust/process-hoodie.webp"
+                  alt="Deez Prints heavyweight washed hoodie editorial model photoshoot"
+                  className="w-full h-auto object-cover max-h-[520px] filter contrast-105"
+                  width={600}
+                  height={800}
+                  loading="lazy"
+                />
+              </div>
+            </Reveal>
+
+            {/* Right Column — Process Steps */}
+            <div className="lg:col-span-7 flex flex-col">
+              <Reveal y={16}>
+                <div className="font-mono text-primary uppercase tracking-[0.2em] mb-2 text-xs font-bold">
+                  OUR PROCESS
+                </div>
+                <h2
+                  className="text-white uppercase leading-[0.92] tracking-[0.01em] mb-4"
+                  style={{
+                    ...condensedFont,
+                    fontSize: "clamp(2.6rem, 6vw, 4.2rem)",
+                  }}
+                >
+                  MADE TO ORDER.
+                  <br />
+                  MADE WITH CARE.
+                </h2>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-10 max-w-xl">
+                  Every piece is printed to order at our studio in Karachi. No mass overproduction,
+                  no unnecessary waste — just high-quality, on-demand streetwear.
+                </p>
+              </Reveal>
+
+              {/* 4 Steps Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {processSteps.map((step, i) => (
+                  <Reveal key={step.num} delay={i * 0.05} y={16}>
+                    <div className="p-4 border border-white/[0.08] bg-black/30 h-full flex flex-col justify-between">
+                      <div>
+                        <div
+                          className="text-2xl md:text-3xl font-extrabold text-primary mb-1 tracking-tight"
+                          style={condensedFont}
+                        >
+                          {step.num}
+                        </div>
+                        <div
+                          className="text-sm font-bold text-white uppercase tracking-wider mb-1.5"
+                          style={condensedFont}
+                        >
+                          {step.title}
+                        </div>
+                        <p className="text-zinc-500 text-[11px] leading-relaxed">
+                          {step.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          SECTION 6: OUR COMMUNITY
+          ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-24 border-b border-white/[0.08] bg-[#080808]">
+        <div className="edge">
+          {/* Header Row */}
+          <Reveal y={16}>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+              <div>
+                <div className="font-mono text-primary uppercase tracking-[0.2em] mb-2 text-xs font-bold">
+                  OUR COMMUNITY
+                </div>
+                <h2
+                  className="text-white uppercase leading-[0.92] tracking-[0.01em]"
+                  style={{
+                    ...condensedFont,
+                    fontSize: "clamp(2.4rem, 6vw, 3.8rem)",
+                  }}
+                >
+                  REAL PEOPLE. REAL STYLE.
+                </h2>
+                <p className="text-zinc-400 text-xs md:text-sm mt-2 font-mono">
+                  Tag us{" "}
+                  <a
+                    href="https://instagram.com/deezprints"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    @deezprints
+                  </a>{" "}
+                  to get featured.
+                </p>
+              </div>
+
+              <div>
+                <a
+                  href="https://instagram.com/deezprints"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-primary uppercase tracking-wider text-xs font-extrabold hover:text-white transition-colors"
+                >
+                  VIEW MORE ON INSTAGRAM &rarr;
+                </a>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* 6-Item Community Photos Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {communityPhotos.map((photo, i) => (
+              <Reveal key={photo.src} delay={i * 0.04} y={16}>
+                <div className="group relative aspect-[3/4] overflow-hidden border border-white/[0.08] bg-zinc-950">
+                  <img
+                    src={photo.src}
+                    alt={photo.title}
+                    className="w-full h-full object-cover filter contrast-105 transition-transform duration-500 group-hover:scale-105"
+                    width={400}
+                    height={533}
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                    <p className="text-[10px] font-mono text-zinc-300 line-clamp-2">
+                      {photo.title}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          SECTION 7: BE A PART OF DEEZ PRINTS (CTA BANNER)
+          ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-24 bg-[#0a0a0a] relative overflow-hidden border-b border-white/[0.08]">
+        {/* Subtle background texture */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,85,0,0.05)_0%,transparent_70%)] pointer-events-none" />
+
+        <div className="edge relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+            {/* Left Marker */}
+            <div
+              className="text-white/40 text-sm md:text-base tracking-wider uppercase -rotate-6 select-none hidden lg:block"
+              style={markerFont}
+            >
+              MORE DESIGNS.
+              <br />
+              MORE STORIES.
+            </div>
+
+            {/* Center Headline & Buttons */}
+            <div className="flex flex-col items-center text-center max-w-xl mx-auto">
+              <h2
+                className="text-white uppercase leading-[0.95] tracking-[0.01em] mb-3"
+                style={{
+                  ...condensedFont,
+                  fontSize: "clamp(2.8rem, 6vw, 4.2rem)",
+                }}
+              >
+                BE A PART OF DEEZ PRINTS
+              </h2>
+
+              <p className="text-zinc-400 text-sm md:text-base mb-8 font-mono">
+                Streetwear, custom prints, tapestries and more.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <Link
+                  to="/collections"
+                  className="inline-flex items-center gap-2 bg-primary text-black font-extrabold uppercase tracking-wider text-xs md:text-sm px-8 py-3.5 transition-all duration-200 hover:brightness-110 hover:shadow-[0_0_24px_rgba(249,115,22,0.4)] active:scale-[0.98]"
+                >
+                  SHOP NOW &rarr;
+                </Link>
+
+                <Link
+                  to="/custom-print"
+                  className="inline-flex items-center gap-2 border border-white/30 bg-black/60 text-white font-extrabold uppercase tracking-wider text-xs md:text-sm px-8 py-3.5 transition-all duration-200 hover:border-white/60 hover:bg-white/10 active:scale-[0.98]"
+                >
+                  CUSTOM PRINT &rarr;
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Marker with Globe */}
+            <div
+              className="text-white/40 text-sm md:text-base tracking-wider uppercase rotate-6 select-none hidden lg:block text-right"
+              style={markerFont}
+            >
+              <div className="flex items-center gap-2 justify-end">
+                <span>KARACHI TO THE WORLD</span>
+                <Globe className="w-5 h-5 inline text-primary/70" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          SECTION 8: KARACHI, PAKISTAN SIGNOFF
+          ═══════════════════════════════════════════════════════ */}
+      <section className="py-8 bg-black border-b border-white/[0.04]">
+        <div className="edge flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs font-mono text-zinc-500">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-zinc-300 font-bold uppercase tracking-wider">
+              KARACHI, PAKISTAN
+            </span>
+          </div>
+
+          <div className="uppercase tracking-widest text-[11px] text-zinc-600">
+            BUILT BY CREATIVES. FOR CREATIVES.
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
