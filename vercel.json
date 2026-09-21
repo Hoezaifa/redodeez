@@ -328,6 +328,556 @@
       "source": "/tshirt-drop-11",
       "destination": "/products/dp-drop-shoulder-snake",
       "permanent": true
+    },
+    {
+      "source": "/products/anime-acid-1",
+      "destination": "/products/dp-acid-wash-berserk-warrior",
+      "permanent": true
+    },
+    {
+      "source": "/anime-acid-1",
+      "destination": "/products/dp-acid-wash-berserk-warrior",
+      "permanent": true
+    },
+    {
+      "source": "/products/anime-acid-2",
+      "destination": "/products/dp-acid-wash-berserk-skull-blade",
+      "permanent": true
+    },
+    {
+      "source": "/anime-acid-2",
+      "destination": "/products/dp-acid-wash-berserk-skull-blade",
+      "permanent": true
+    },
+    {
+      "source": "/products/anime-acid-3",
+      "destination": "/products/dp-acid-wash-berserk-classic",
+      "permanent": true
+    },
+    {
+      "source": "/anime-acid-3",
+      "destination": "/products/dp-acid-wash-berserk-classic",
+      "permanent": true
+    },
+    {
+      "source": "/products/anime-drop-1",
+      "destination": "/products/dp-drop-shoulder-berserk",
+      "permanent": true
+    },
+    {
+      "source": "/anime-drop-1",
+      "destination": "/products/dp-drop-shoulder-berserk",
+      "permanent": true
+    },
+    {
+      "source": "/products/anime-drop-2",
+      "destination": "/products/dp-drop-shoulder-berserk",
+      "permanent": true
+    },
+    {
+      "source": "/anime-drop-2",
+      "destination": "/products/dp-drop-shoulder-berserk",
+      "permanent": true
+    },
+    {
+      "source": "/products/anime-reg-1",
+      "destination": "/products/berserk-tee",
+      "permanent": true
+    },
+    {
+      "source": "/anime-reg-1",
+      "destination": "/products/berserk-tee",
+      "permanent": true
+    },
+    {
+      "source": "/products/anime-reg-2",
+      "destination": "/products/berserk-tee",
+      "permanent": true
+    },
+    {
+      "source": "/anime-reg-2",
+      "destination": "/products/berserk-tee",
+      "permanent": true
+    },
+    {
+      "source": "/products/anime-reg-3",
+      "destination": "/products/berserk-tee",
+      "permanent": true
+    },
+    {
+      "source": "/anime-reg-3",
+      "destination": "/products/berserk-tee",
+      "permanent": true
+    },
+    {
+      "source": "/products/art-acid-1",
+      "destination": "/products/dp-acid-wash-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/art-acid-1",
+      "destination": "/products/dp-acid-wash-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/products/art-acid-2",
+      "destination": "/products/dp-acid-wash-divine",
+      "permanent": true
+    },
+    {
+      "source": "/art-acid-2",
+      "destination": "/products/dp-acid-wash-divine",
+      "permanent": true
+    },
+    {
+      "source": "/products/art-acid-3",
+      "destination": "/products/dp-acid-wash-berserk-skull-blade",
+      "permanent": true
+    },
+    {
+      "source": "/art-acid-3",
+      "destination": "/products/dp-acid-wash-berserk-skull-blade",
+      "permanent": true
+    },
+    {
+      "source": "/products/art-drop-1",
+      "destination": "/products/dp-drop-shoulder-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/art-drop-1",
+      "destination": "/products/dp-drop-shoulder-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/products/art-drop-2",
+      "destination": "/products/dp-drop-shoulder-snake",
+      "permanent": true
+    },
+    {
+      "source": "/art-drop-2",
+      "destination": "/products/dp-drop-shoulder-snake",
+      "permanent": true
+    },
+    {
+      "source": "/products/art-drop-3",
+      "destination": "/products/dp-drop-shoulder-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/art-drop-3",
+      "destination": "/products/dp-drop-shoulder-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/products/art-reg-1",
+      "destination": "/products/dp-regular-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/art-reg-1",
+      "destination": "/products/dp-regular-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/products/art-reg-3",
+      "destination": "/products/breakout-tee",
+      "permanent": true
+    },
+    {
+      "source": "/art-reg-3",
+      "destination": "/products/breakout-tee",
+      "permanent": true
+    },
+    {
+      "source": "/products/art-reg-4",
+      "destination": "/products/dp-regular-snake",
+      "permanent": true
+    },
+    {
+      "source": "/art-reg-4",
+      "destination": "/products/dp-regular-snake",
+      "permanent": true
+    },
+    {
+      "source": "/products/cinema-acid-1",
+      "destination": "/products/dp-acid-wash-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/cinema-acid-1",
+      "destination": "/products/dp-acid-wash-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/products/cinema-acid-2",
+      "destination": "/products/dp-acid-wash-knightfall",
+      "permanent": true
+    },
+    {
+      "source": "/cinema-acid-2",
+      "destination": "/products/dp-acid-wash-knightfall",
+      "permanent": true
+    },
+    {
+      "source": "/products/cinema-acid-3",
+      "destination": "/products/dp-acid-wash-spiderverse",
+      "permanent": true
+    },
+    {
+      "source": "/cinema-acid-3",
+      "destination": "/products/dp-acid-wash-spiderverse",
+      "permanent": true
+    },
+    {
+      "source": "/products/cinema-drop-1",
+      "destination": "/products/dp-drop-shoulder-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/cinema-drop-1",
+      "destination": "/products/dp-drop-shoulder-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/products/cinema-drop-2",
+      "destination": "/products/dp-drop-shoulder-divine",
+      "permanent": true
+    },
+    {
+      "source": "/cinema-drop-2",
+      "destination": "/products/dp-drop-shoulder-divine",
+      "permanent": true
+    },
+    {
+      "source": "/products/cinema-drop-3",
+      "destination": "/products/dp-drop-shoulder-tbsm-encore",
+      "permanent": true
+    },
+    {
+      "source": "/cinema-drop-3",
+      "destination": "/products/dp-drop-shoulder-tbsm-encore",
+      "permanent": true
+    },
+    {
+      "source": "/products/cinema-reg-1",
+      "destination": "/products/dp-regular-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/cinema-reg-1",
+      "destination": "/products/dp-regular-ferrari",
+      "permanent": true
+    },
+    {
+      "source": "/products/cinema-reg-3",
+      "destination": "/products/breakout-tee",
+      "permanent": true
+    },
+    {
+      "source": "/cinema-reg-3",
+      "destination": "/products/breakout-tee",
+      "permanent": true
+    },
+    {
+      "source": "/products/cinema-reg-4",
+      "destination": "/products/breakout-tee",
+      "permanent": true
+    },
+    {
+      "source": "/cinema-reg-4",
+      "destination": "/products/breakout-tee",
+      "permanent": true
+    },
+    {
+      "source": "/products/comic-acid-1",
+      "destination": "/products/dp-acid-wash-knightfall",
+      "permanent": true
+    },
+    {
+      "source": "/comic-acid-1",
+      "destination": "/products/dp-acid-wash-knightfall",
+      "permanent": true
+    },
+    {
+      "source": "/products/comic-acid-2",
+      "destination": "/products/dp-acid-wash-spiderverse",
+      "permanent": true
+    },
+    {
+      "source": "/comic-acid-2",
+      "destination": "/products/dp-acid-wash-spiderverse",
+      "permanent": true
+    },
+    {
+      "source": "/products/comic-acid-3",
+      "destination": "/products/dp-acid-wash-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/comic-acid-3",
+      "destination": "/products/dp-acid-wash-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/products/comic-drop-1",
+      "destination": "/products/dp-drop-shoulder-punish",
+      "permanent": true
+    },
+    {
+      "source": "/comic-drop-1",
+      "destination": "/products/dp-drop-shoulder-punish",
+      "permanent": true
+    },
+    {
+      "source": "/products/comic-drop-2",
+      "destination": "/products/dp-drop-shoulder-punish",
+      "permanent": true
+    },
+    {
+      "source": "/comic-drop-2",
+      "destination": "/products/dp-drop-shoulder-punish",
+      "permanent": true
+    },
+    {
+      "source": "/products/comic-drop-3",
+      "destination": "/products/dp-drop-shoulder-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/comic-drop-3",
+      "destination": "/products/dp-drop-shoulder-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/products/comic-reg-1",
+      "destination": "/products/dp-regular-spiderverse",
+      "permanent": true
+    },
+    {
+      "source": "/comic-reg-1",
+      "destination": "/products/dp-regular-spiderverse",
+      "permanent": true
+    },
+    {
+      "source": "/products/comic-reg-2",
+      "destination": "/products/dp-regular-divine",
+      "permanent": true
+    },
+    {
+      "source": "/comic-reg-2",
+      "destination": "/products/dp-regular-divine",
+      "permanent": true
+    },
+    {
+      "source": "/products/comic-reg-3",
+      "destination": "/products/dp-regular-snake",
+      "permanent": true
+    },
+    {
+      "source": "/comic-reg-3",
+      "destination": "/products/dp-regular-snake",
+      "permanent": true
+    },
+    {
+      "source": "/products/comic-reg-4",
+      "destination": "/products/dp-regular-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/comic-reg-4",
+      "destination": "/products/dp-regular-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/products/minimal-acid-1",
+      "destination": "/products/dp-acid-wash-divine",
+      "permanent": true
+    },
+    {
+      "source": "/minimal-acid-1",
+      "destination": "/products/dp-acid-wash-divine",
+      "permanent": true
+    },
+    {
+      "source": "/products/minimal-acid-2",
+      "destination": "/products/dp-acid-wash-breakout",
+      "permanent": true
+    },
+    {
+      "source": "/minimal-acid-2",
+      "destination": "/products/dp-acid-wash-breakout",
+      "permanent": true
+    },
+    {
+      "source": "/products/minimal-acid-3",
+      "destination": "/products/dp-acid-wash-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/minimal-acid-3",
+      "destination": "/products/dp-acid-wash-abstract-wings",
+      "permanent": true
+    },
+    {
+      "source": "/products/minimal-drop-1",
+      "destination": "/products/dp-drop-shoulder-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/minimal-drop-1",
+      "destination": "/products/dp-drop-shoulder-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/products/minimal-drop-2",
+      "destination": "/products/dp-drop-shoulder-tbsm-calm",
+      "permanent": true
+    },
+    {
+      "source": "/minimal-drop-2",
+      "destination": "/products/dp-drop-shoulder-tbsm-calm",
+      "permanent": true
+    },
+    {
+      "source": "/products/minimal-drop-3",
+      "destination": "/products/dp-drop-shoulder-tbsm",
+      "permanent": true
+    },
+    {
+      "source": "/minimal-drop-3",
+      "destination": "/products/dp-drop-shoulder-tbsm",
+      "permanent": true
+    },
+    {
+      "source": "/products/minimal-reg-1",
+      "destination": "/products/dp-regular-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/minimal-reg-1",
+      "destination": "/products/dp-regular-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/products/minimal-reg-2",
+      "destination": "/products/dp-regular-divine",
+      "permanent": true
+    },
+    {
+      "source": "/minimal-reg-2",
+      "destination": "/products/dp-regular-divine",
+      "permanent": true
+    },
+    {
+      "source": "/products/minimal-reg-3",
+      "destination": "/products/dp-regular-snake",
+      "permanent": true
+    },
+    {
+      "source": "/minimal-reg-3",
+      "destination": "/products/dp-regular-snake",
+      "permanent": true
+    },
+    {
+      "source": "/products/street-acid-1",
+      "destination": "/products/dp-acid-wash-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/street-acid-1",
+      "destination": "/products/dp-acid-wash-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/products/street-acid-2",
+      "destination": "/products/dp-acid-wash-breakout",
+      "permanent": true
+    },
+    {
+      "source": "/street-acid-2",
+      "destination": "/products/dp-acid-wash-breakout",
+      "permanent": true
+    },
+    {
+      "source": "/products/street-acid-3",
+      "destination": "/products/dp-acid-wash-knightfall",
+      "permanent": true
+    },
+    {
+      "source": "/street-acid-3",
+      "destination": "/products/dp-acid-wash-knightfall",
+      "permanent": true
+    },
+    {
+      "source": "/products/street-drop-1",
+      "destination": "/products/dp-drop-shoulder-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/street-drop-1",
+      "destination": "/products/dp-drop-shoulder-punk-is-dead",
+      "permanent": true
+    },
+    {
+      "source": "/products/street-drop-2",
+      "destination": "/products/dp-drop-shoulder-tbsm-encore",
+      "permanent": true
+    },
+    {
+      "source": "/street-drop-2",
+      "destination": "/products/dp-drop-shoulder-tbsm-encore",
+      "permanent": true
+    },
+    {
+      "source": "/products/street-drop-3",
+      "destination": "/products/dp-drop-shoulder-punish",
+      "permanent": true
+    },
+    {
+      "source": "/street-drop-3",
+      "destination": "/products/dp-drop-shoulder-punish",
+      "permanent": true
+    },
+    {
+      "source": "/products/street-reg-1",
+      "destination": "/products/breakout-tee",
+      "permanent": true
+    },
+    {
+      "source": "/street-reg-1",
+      "destination": "/products/breakout-tee",
+      "permanent": true
+    },
+    {
+      "source": "/products/street-reg-2",
+      "destination": "/products/dp-regular-snake",
+      "permanent": true
+    },
+    {
+      "source": "/street-reg-2",
+      "destination": "/products/dp-regular-snake",
+      "permanent": true
+    },
+    {
+      "source": "/products/street-reg-3",
+      "destination": "/products/dp-regular-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/street-reg-3",
+      "destination": "/products/dp-regular-lcnst",
+      "permanent": true
+    },
+    {
+      "source": "/products/street-reg-4",
+      "destination": "/products/dp-regular-divine",
+      "permanent": true
+    },
+    {
+      "source": "/street-reg-4",
+      "destination": "/products/dp-regular-divine",
+      "permanent": true
     }
   ],
   "headers": [
