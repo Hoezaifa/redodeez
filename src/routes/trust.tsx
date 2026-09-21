@@ -579,12 +579,12 @@ function TrustPage() {
                 <p className="text-zinc-400 text-xs md:text-sm mt-2 font-mono">
                   Tag us{" "}
                   <a
-                    href="https://instagram.com/deezprints"
+                    href="https://www.instagram.com/deez_prints/"
                     target="_blank"
                     rel="noreferrer"
                     className="text-primary hover:underline"
                   >
-                    @deezprints
+                    @deez_prints
                   </a>{" "}
                   to get featured.
                 </p>
@@ -592,7 +592,7 @@ function TrustPage() {
 
               <div>
                 <a
-                  href="https://instagram.com/deezprints"
+                  href="https://www.instagram.com/deez_prints/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-primary uppercase tracking-wider text-xs font-extrabold hover:text-white transition-colors"
