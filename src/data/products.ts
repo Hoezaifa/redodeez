@@ -81,7 +81,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-dbz-bardock-the-fallen-warrior",
     "title": "DBZ Bardock Fallen Warrior Acid Wash Tee",
-    "price": 2200,
+    "price": 2300,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -97,7 +97,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-batman-bat-swarm",
     "title": "Batman Bat Swarm Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -140,14 +140,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-gogeta-blue-fusion",
     "title": "Gogeta Blue Fusion Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926501/gogeta_blue_fusion_green_dropshoulder_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926484/gogeta_blue_fusion_green_dropshoulder_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926458/gogeta_blue_fusion_black_drop_shoulder_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926398/gogeta_blue_fusion_black_drop_shoulder_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926484/gogeta_blue_fusion_green_dropshoulder_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926398/gogeta_blue_fusion_black_drop_shoulder_front.jpg"
     ],
     "colors": [
       "Black",
@@ -159,7 +159,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-travis-scott-highest-in-the-room",
     "title": "Travis Scott Highest In The Room Acid Wash Tee",
-    "price": 2200,
+    "price": 2550,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -175,7 +175,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-spiderman-comic-battle",
     "title": "Spiderman Comic Battle Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -228,14 +228,14 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-punisher-distressed",
     "title": "Punisher Distressed Acid Wash Tee",
-    "price": 2200,
+    "price": 2300,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926844/punisher_distressed_acidwash_maroon_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926891/punisher_distressed_acidwash_maroon_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926836/punisher_distressed_acidwash_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926867/punisher_distressed_acidwash_black_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926891/punisher_distressed_acidwash_maroon_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926867/punisher_distressed_acidwash_black_front.jpg"
     ],
     "colors": [
       "Black",
@@ -247,14 +247,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-spiderman-comic",
     "title": "Spiderman Comic Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927181/spiderman_comic_dropshoulder_white_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927149/spiderman_comic_dropshoulder_white_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927149/spiderman_comic_dropshoulder_beige_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927148/spiderman_comic_dropshoulder_beige_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927149/spiderman_comic_dropshoulder_white_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927148/spiderman_comic_dropshoulder_beige_front.jpg"
     ],
     "colors": [
       "Beige",
@@ -284,14 +284,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-venom-symbiote",
     "title": "Venom Symbiote Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927694/venom_symbiote_dropshoulder_green_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789928027/venom_symbiote_dropshoulder_green_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927688/venom_symbiote_dropshoulder_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789928019/venom_symbiote_dropshoulder_black_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789928027/venom_symbiote_dropshoulder_green_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789928019/venom_symbiote_dropshoulder_black_front.jpg"
     ],
     "colors": [
       "Black",
@@ -303,7 +303,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-dr-doom",
     "title": "Dr. Doom Acid Wash Tee",
-    "price": 2200,
+    "price": 2500,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -319,14 +319,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-the-batman-gotham",
     "title": "The Batman Gotham Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927256/the_batman_gotham_dropshoulder_white_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927301/the_batman_gotham_dropshoulder_white_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927289/the_batman_gotham_dropshoulder_beige_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927250/the_batman_gotham_dropshoulder_beige_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927301/the_batman_gotham_dropshoulder_white_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927250/the_batman_gotham_dropshoulder_beige_front.jpg"
     ],
     "colors": [
       "Beige",
@@ -353,7 +353,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-look-mom-i-can-fly",
     "title": "Look Mom I Can Fly Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1850,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -370,7 +370,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-utopia-skeleton",
     "title": "UTOPIA Skeleton Acid Wash Tee",
-    "price": 2200,
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -386,7 +386,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-no-mercy",
     "title": "No Mercy Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2600,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -423,14 +423,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-utopia-screwed",
     "title": "UTOPIA Screwed Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927429/utopia_screwed_green_drop_shoulder_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927439/utopia_screwed_green_drop_shoulder_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927437/utopia_screwed_black_drop_shoulder_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927429/utopia_screwed_black_drop_shoulder_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927439/utopia_screwed_green_drop_shoulder_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927429/utopia_screwed_black_drop_shoulder_front.jpg"
     ],
     "colors": [
       "Black",
@@ -442,7 +442,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-odyssey-spartan",
     "title": "Odyssey Spartan Acid Wash Tee",
-    "price": 2200,
+    "price": 2500,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -458,7 +458,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-venom-demon-inside",
     "title": "Venom Demon Inside Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -489,14 +489,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-ruinborn-requiem",
     "title": "Ruinborn Requiem Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927040/ruinborn_requiem_drop_shoulder_maroon_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927040/ruinborn_requiem_drop_shoulder_maroon_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927008/ruinborn_requiem_drop_shoulder_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927009/ruinborn_requiem_drop_shoulder_black_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927040/ruinborn_requiem_drop_shoulder_maroon_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927009/ruinborn_requiem_drop_shoulder_black_front.jpg"
     ],
     "colors": [
       "Black",
@@ -508,7 +508,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-cactus-takeover",
     "title": "Cactus Takeover Acid Wash Tee",
-    "price": 2200,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -523,7 +523,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-dbz-bardock-the-fallen-warrior",
     "title": "DBZ Bardock Fallen Warrior Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -561,7 +561,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-no-friends",
     "title": "No Friends Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -583,9 +583,9 @@ export const products: Product[] = [
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927753/wired_different_maroon_acid_wash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927787/wired_different_maroon_acid_wash_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927722/wired_different_black_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789928022/wired_different_black_acid_wash_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927787/wired_different_maroon_acid_wash_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789928022/wired_different_black_acid_wash_front.jpg"
     ],
     "colors": [
       "Black",
@@ -597,7 +597,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-guns-n-roses",
     "title": "Guns N Roses Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1850,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -627,7 +627,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-astral-ruins",
     "title": "Astral Ruins Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1850,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -644,14 +644,14 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-gogeta-blue-fusion",
     "title": "Gogeta Blue Fusion Acid Wash Tee",
-    "price": 2200,
+    "price": 2250,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926545/gogeta_blue_fusion_maroon_acid_wash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926498/gogeta_blue_fusion_maroon_acid_wash_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926415/gogeta_blue_fusion_black_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926417/gogeta_blue_fusion_black_acid_wash_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926498/gogeta_blue_fusion_maroon_acid_wash_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926417/gogeta_blue_fusion_black_acid_wash_front.jpg"
     ],
     "colors": [
       "Black",
@@ -663,14 +663,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-punisher-distressed",
     "title": "Punisher Distressed Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926868/punisher_distressed_dropshoulder_green_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926895/punisher_distressed_dropshoulder_green_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926844/punisher_distressed_dropshoulder_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926902/punisher_distressed_dropshoulder_black_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926895/punisher_distressed_dropshoulder_green_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926902/punisher_distressed_dropshoulder_black_front.jpg"
     ],
     "colors": [
       "Black",
@@ -703,7 +703,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-metallica-2-0",
     "title": "Metallica 2.0 Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -737,7 +737,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-dr-doom",
     "title": "Dr. Doom Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -768,7 +768,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-travis-scott-highest-in-the-room",
     "title": "Travis Scott Highest In The Room Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -787,7 +787,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-digital-angel",
     "title": "Digital Angel Acid Wash Tee",
-    "price": 2200,
+    "price": 2250,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -802,7 +802,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-metallica",
     "title": "Metallica Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -860,7 +860,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-spiderman-comic-battle",
     "title": "Spiderman Comic Battle Acid Wash Tee",
-    "price": 2200,
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -876,14 +876,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-utopia-skeleton",
     "title": "UTOPIA Skeleton Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2250,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927468/utopia_skeleton_drop_shoulder_white_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927493/utopia_skeleton_drop_shoulder_beige_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927524/utopia_skeleton_drop_shoulder_white_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927481/utopia_skeleton_drop_shoulder_beige_back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927481/utopia_skeleton_drop_shoulder_beige_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927493/utopia_skeleton_drop_shoulder_beige_front.jpg"
     ],
     "colors": [
       "Beige",
@@ -934,7 +934,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-no-mercy",
     "title": "No Mercy Acid Wash Tee",
-    "price": 2200,
+    "price": 3000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -949,7 +949,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-stay-safe",
     "title": "Stay Safe Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -985,14 +985,12 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-cactus-takeover",
     "title": "Cactus Takeover Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926022/cactus_takeover_drop_shoulder_beige_back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926030/cactus_takeover_drop_shoulder_beige_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926022/cactus_takeover_drop_shoulder_white_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926061/cactus_takeover_drop_shoulder_white_back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926022/cactus_takeover_drop_shoulder_white_front.jpg"
     ],
     "colors": [
       "Beige",
@@ -1004,7 +1002,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-look-mom-i-can-fly",
     "title": "Look Mom I Can Fly Acid Wash Tee",
-    "price": 2200,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -1021,7 +1019,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-crimson-thorn-sigil",
     "title": "Crimson Thorn Sigil Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1052,14 +1050,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-odyssey-spartan",
     "title": "Odyssey Spartan Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926764/odyssey_spartan_drop_shoulder_white_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926798/odyssey_spartan_drop_shoulder_beige_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926809/odyssey_spartan_drop_shoulder_white_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926765/odyssey_spartan_drop_shoulder_beige_back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926765/odyssey_spartan_drop_shoulder_beige_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926798/odyssey_spartan_drop_shoulder_beige_front.jpg"
     ],
     "colors": [
       "Beige",
@@ -1089,7 +1087,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-the-odyssey",
     "title": "The Odyssey Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1127,14 +1125,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-wired-different",
     "title": "Wired Different Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789928075/wired_different_green_drop_shoulder_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927751/wired_different_green_drop_shoulder_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927744/wired_different_black_drop_shoulder_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927716/wired_different_black_drop_shoulder_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927751/wired_different_green_drop_shoulder_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927716/wired_different_black_drop_shoulder_front.jpg"
     ],
     "colors": [
       "Black",
@@ -1146,7 +1144,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-venom-symbiote",
     "title": "Venom Symbiote Acid Wash Tee",
-    "price": 2200,
+    "price": 2350,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -1162,14 +1160,14 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-rick-and-morty",
     "title": "Rick and Morty Drop Shoulder Tee",
-    "price": 1800,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926973/rick_and_morty_dropshoulder_white_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926938/rick_and_morty_dropshoulder_white_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789926937/rick_and_morty_dropshoulder_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926958/rick_and_morty_dropshoulder_black_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926938/rick_and_morty_dropshoulder_white_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926958/rick_and_morty_dropshoulder_black_front.jpg"
     ],
     "colors": [
       "Black",
@@ -1217,7 +1215,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-venom-demon-inside",
     "title": "Venom Demon Inside Acid Wash Tee",
-    "price": 2200,
+    "price": 2300,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -1273,7 +1271,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-digital-angel",
     "title": "Digital Angel Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1309,7 +1307,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-conquer",
     "title": "Conquer Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1377,7 +1375,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-hellstar",
     "title": "Hellstar Drop Shoulder Tee",
-    "price": 1800,
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
@@ -1433,7 +1431,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-metallica-2-0",
     "title": "Metallica 2.0 Acid Wash Tee",
-    "price": 2200,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -1500,7 +1498,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-utopia-screwed",
     "title": "UTOPIA Screwed Acid Wash Tee",
-    "price": 2200,
+    "price": 2300,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -1745,7 +1743,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-metallica",
     "title": "Metallica Acid Wash Tee",
-    "price": 2200,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -1955,7 +1953,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-crimson-thorn-sigil",
     "title": "Crimson Thorn Sigil Acid Wash Tee",
-    "price": 2200,
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -2106,7 +2104,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-ruinborn-requiem",
     "title": "Ruinborn Requiem Acid Wash Tee",
-    "price": 2200,
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -2184,7 +2182,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-the-odyssey",
     "title": "The Odyssey Acid Wash Tee",
-    "price": 2200,
+    "price": 2650,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -2254,7 +2252,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-conquer",
     "title": "Conquer Acid Wash Tee",
-    "price": 2200,
+    "price": 2100,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -2327,7 +2325,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-hellstar",
     "title": "Hellstar Acid Wash Tee",
-    "price": 2200,
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
@@ -2776,7 +2774,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-rick-and-morty",
     "title": "Rick and Morty Acid Wash Tee",
-    "price": 2200,
+    "price": 2100,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [

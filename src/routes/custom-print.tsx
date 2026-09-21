@@ -138,6 +138,8 @@ interface UploadedFile {
   preview: string;
 }
 
+type PrintPlacement = "Front" | "Back" | "Front + Back";
+
 function CustomPrint() {
   const navigate = useNavigate();
   const { add } = useCart();
@@ -149,7 +151,7 @@ function CustomPrint() {
   const [tapestrySize, setTapestrySize] = useState("Small (50 x 30)");
 
   const [files, setFiles] = useState<UploadedFile[]>([]);
-  const [singlePlacement, setSinglePlacement] = useState<"Front" | "Back">("Front");
+  const [placement, setPlacement] = useState<PrintPlacement>("Front");
 
   const [notes, setNotes] = useState("");
   const [isUploading, setIsUploading] = useState(false);
@@ -174,7 +176,7 @@ function CustomPrint() {
     ? "Wall Print"
     : files.length === 2
       ? "Front + Back"
-      : singlePlacement;
+      : placement;
 
   function handleSelectBase(newBaseId: string) {
     setBase(newBaseId);
@@ -224,7 +226,13 @@ function CustomPrint() {
       preview: URL.createObjectURL(file),
     }));
 
-    setFiles((prev) => [...prev, ...newUploaded].slice(0, maxAllowedFiles));
+    setFiles((prev) => {
+      const updated = [...prev, ...newUploaded].slice(0, maxAllowedFiles);
+      if (isClothing && updated.length >= 2) {
+        setPlacement("Front + Back");
+      }
+      return updated;
+    });
     trackEvent.uploadStarted(array.length);
   }
 
@@ -238,7 +246,7 @@ function CustomPrint() {
   }
 
   function resetPlacement() {
-    setSinglePlacement("Front");
+    setPlacement("Front");
   }
 
   async function handlePlaceCustomOrder() {
@@ -268,7 +276,7 @@ function CustomPrint() {
         price: finalItemPrice,
         image: frontUrl || files[0].preview,
         size: currentSize,
-        color,
+        color: isClothing ? color : undefined,
         qty: 1,
         note: notes,
         isCustom: true,
@@ -339,7 +347,7 @@ function CustomPrint() {
                 <p className="mt-4 text-xs sm:text-sm text-zinc-400 font-sans leading-relaxed">
                   {isClothing
                     ? "Upload your artwork for custom streetwear t-shirts. Front, back, or double-sided prints."
-                    : "Upload high-res artwork for custom HD fabric tapestries and wall art hanging pieces."}
+                    : "Upload high-res artwork for custom HD satin fabric tapestries and wall art hanging pieces."}
                 </p>
               </div>
 
@@ -347,7 +355,7 @@ function CustomPrint() {
               <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-2">
                 {[
                   { label: "PREMIUM QUALITY", icon: ShieldCheck },
-                  { label: isClothing ? "DURABLE FABRIC" : "HD CANVAS", icon: Shirt },
+                  { label: isClothing ? "DURABLE FABRIC" : "SATIN FABRIC", icon: Shirt },
                   { label: "FAST TURNAROUND", icon: Zap },
                   { label: "MADE TO LAST", icon: Sparkles },
                 ].map((item) => (
@@ -408,8 +416,11 @@ function CustomPrint() {
                     {files.length < maxAllowedFiles && (
                       <button
                         type="button"
-                        onClick={() => fileInputRef.current?.click()}
-                        className="font-mono text-xs text-primary hover:underline"
+                        onClick={() => {
+                          if (isClothing) setPlacement("Front + Back");
+                          fileInputRef.current?.click();
+                        }}
+                        className="font-mono text-xs text-primary hover:underline cursor-pointer"
                       >
                         + Add 2nd Design
                       </button>
@@ -437,13 +448,21 @@ function CustomPrint() {
                             type="button"
                             aria-label="Remove artwork"
                             onClick={() => removeFile(idx)}
-                            className="absolute right-1.5 top-1.5 grid h-6 w-6 place-items-center rounded-full bg-black/80 text-white hover:text-primary transition-colors"
+                            className="absolute right-1.5 top-1.5 grid h-6 w-6 place-items-center rounded-full bg-black/80 text-white hover:text-primary transition-colors cursor-pointer"
                           >
                             <X className="h-3.5 w-3.5" />
                           </button>
                         </div>
                         <p className="mt-2 text-[10px] font-mono text-zinc-400 truncate max-w-full">
-                          {isClothing ? `Design ${idx + 1}: ` : "Tapestry: "}
+                          {isClothing
+                            ? files.length === 2
+                              ? idx === 0
+                                ? "Front Design: "
+                                : "Back Design: "
+                              : placement === "Front + Back"
+                              ? "Front + Back: "
+                              : `${placement} Design: `
+                            : "Tapestry: "}
                           {fileObj.name}
                         </p>
                       </div>
@@ -486,35 +505,59 @@ function CustomPrint() {
                   Where should your design be printed?
                 </p>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <button
                     type="button"
-                    onClick={() => setSinglePlacement("Front")}
+                    onClick={() => setPlacement("Front")}
                     className={cn(
-                      "py-4 px-5 rounded-lg border text-xs font-mono font-bold flex items-center justify-center gap-3 transition-all cursor-pointer",
-                      singlePlacement === "Front"
+                      "py-3.5 px-3 rounded-lg border text-xs font-mono font-bold flex items-center justify-center gap-2.5 transition-all cursor-pointer",
+                      placement === "Front"
                         ? "border-primary bg-primary/10 text-primary shadow-md shadow-primary/10"
                         : "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-zinc-700 hover:text-white",
                     )}
                   >
-                    <Shirt className="h-5 w-5 stroke-[1.75]" />
+                    <Shirt className="h-4.5 w-4.5 stroke-[1.75] shrink-0" />
                     <span>FRONT ONLY</span>
                   </button>
 
                   <button
                     type="button"
-                    onClick={() => setSinglePlacement("Back")}
+                    onClick={() => setPlacement("Back")}
                     className={cn(
-                      "py-4 px-5 rounded-lg border text-xs font-mono font-bold flex items-center justify-center gap-3 transition-all cursor-pointer",
-                      singlePlacement === "Back"
+                      "py-3.5 px-3 rounded-lg border text-xs font-mono font-bold flex items-center justify-center gap-2.5 transition-all cursor-pointer",
+                      placement === "Back"
                         ? "border-primary bg-primary/10 text-primary shadow-md shadow-primary/10"
                         : "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-zinc-700 hover:text-white",
                     )}
                   >
-                    <Shirt className="h-5 w-5 stroke-[1.75]" />
+                    <Shirt className="h-4.5 w-4.5 stroke-[1.75] shrink-0" />
                     <span>BACK ONLY</span>
                   </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setPlacement("Front + Back")}
+                    className={cn(
+                      "py-3.5 px-3 rounded-lg border text-xs font-mono font-bold flex items-center justify-center gap-2.5 transition-all cursor-pointer",
+                      placement === "Front + Back"
+                        ? "border-primary bg-primary/10 text-primary shadow-md shadow-primary/10"
+                        : "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-zinc-700 hover:text-white",
+                    )}
+                  >
+                    <div className="flex items-center -space-x-1.5 shrink-0">
+                      <Shirt className="h-4.5 w-4.5 stroke-[1.75]" />
+                      <Shirt className="h-4.5 w-4.5 stroke-[1.75] opacity-60" />
+                    </div>
+                    <span>BOTH (FRONT + BACK)</span>
+                  </button>
                 </div>
+
+                {placement === "Front + Back" && (
+                  <p className="text-[11px] text-zinc-400 font-sans flex items-center gap-2 bg-zinc-900/60 border border-zinc-800/80 rounded-md px-3 py-2">
+                    <Sparkles className="h-3.5 w-3.5 text-primary shrink-0" />
+                    <span>Double-sided print: upload 2 separate artwork files or 1 design for both sides.</span>
+                  </p>
+                )}
               </>
             ) : (
               <>
@@ -539,7 +582,7 @@ function CustomPrint() {
                       HD Full Bleed Print
                     </h4>
                     <p className="text-[11px] text-zinc-400 font-sans mt-0.5">
-                      Edge-to-edge wall artwork printing on premium fabric banner.
+                      Edge-to-edge wall artwork printing on premium satin fabric banner.
                     </p>
                   </div>
                 </div>
@@ -556,10 +599,10 @@ function CustomPrint() {
                 icon: Sparkles,
               },
               {
-                title: isClothing ? "PREMIUM GARMENT" : "FABRIC CANVAS",
+                title: isClothing ? "PREMIUM GARMENT" : "SATIN FABRIC",
                 desc: isClothing
                   ? "Soft, heavy-grade cotton for long lasting wear."
-                  : "Durable wall hanging fabric canvas.",
+                  : "Durable wall hanging premium satin fabric.",
                 icon: Shirt,
               },
               {
@@ -627,41 +670,43 @@ function CustomPrint() {
             </div>
           </div>
 
-          {/* 2. SELECT COLOR */}
-          <div>
-            <label className="block font-mono text-xs font-bold uppercase tracking-wider text-white mb-3">
-              2. SELECT COLOR
-            </label>
-            <div className="flex flex-wrap gap-2">
-              {availableColors.map((c) => {
-                const selected = color === c.name;
-                return (
-                  <button
-                    key={c.id}
-                    type="button"
-                    onClick={() => setColor(c.name)}
-                    className={cn(
-                      "h-9 px-3 rounded-md font-sans text-xs flex items-center gap-2 border transition-all cursor-pointer",
-                      selected
-                        ? "border-primary bg-zinc-900 text-white font-bold shadow-sm"
-                        : "border-zinc-800 bg-zinc-900/40 text-zinc-300 hover:border-zinc-700",
-                    )}
-                  >
-                    <span
-                      className="h-3 w-3 rounded-full border border-white/20 shrink-0"
-                      style={{ backgroundColor: c.colorHex }}
-                    />
-                    <span>{c.name}</span>
-                  </button>
-                );
-              })}
+          {/* 2. SELECT COLOR (Apparel Only) */}
+          {isClothing && (
+            <div>
+              <label className="block font-mono text-xs font-bold uppercase tracking-wider text-white mb-3">
+                2. SELECT COLOR
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {availableColors.map((c) => {
+                  const selected = color === c.name;
+                  return (
+                    <button
+                      key={c.id}
+                      type="button"
+                      onClick={() => setColor(c.name)}
+                      className={cn(
+                        "h-9 px-3 rounded-md font-sans text-xs flex items-center gap-2 border transition-all cursor-pointer",
+                        selected
+                          ? "border-primary bg-zinc-900 text-white font-bold shadow-sm"
+                          : "border-zinc-800 bg-zinc-900/40 text-zinc-300 hover:border-zinc-700",
+                      )}
+                    >
+                      <span
+                        className="h-3 w-3 rounded-full border border-white/20 shrink-0"
+                        style={{ backgroundColor: c.colorHex }}
+                      />
+                      <span>{c.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
 
-          {/* 3. SELECT SIZE */}
+          {/* SELECT SIZE */}
           <div>
             <label className="block font-mono text-xs font-bold uppercase tracking-wider text-white mb-3">
-              3. SELECT SIZE
+              {isClothing ? "3. SELECT SIZE" : "2. SELECT SIZE"}
             </label>
             {isClothing ? (
               <div className={`grid gap-2 ${isAcidWash ? "grid-cols-3" : "grid-cols-5"}`}>
@@ -723,10 +768,20 @@ function CustomPrint() {
 
           {/* Place Custom Order CTA Button */}
           <div className="border-t border-zinc-800 pt-5 space-y-3">
+            {/* Configuration Summary Badge */}
+            <div className="flex flex-wrap items-center justify-between text-xs font-mono border border-zinc-800/80 bg-zinc-900/40 rounded-lg px-3.5 py-2.5 text-zinc-300">
+              <span className="text-zinc-400">Configuration:</span>
+              <span className="font-bold text-white uppercase">
+                {selectedBase.label} • {isClothing ? `${color} • ` : ""}{currentSize} • {placementText}
+              </span>
+            </div>
+
             {/* Pricing notice */}
             <div className="bg-primary/10 border border-primary/30 rounded-lg px-4 py-3 text-center">
               <p className="text-xs sm:text-sm font-sans font-semibold text-primary leading-relaxed">
-                Your custom order price will be calculated based on your design and sent to you on WhatsApp within one hour of placing your order.
+                {isClothing
+                  ? "Your custom apparel order price will be calculated based on your design and sent to you on WhatsApp within one hour of placing your order."
+                  : "Custom tapestry printing has a flat rate regardless of the design. Order details will be confirmed on WhatsApp within one hour of placing your order."}
               </p>
             </div>
 
