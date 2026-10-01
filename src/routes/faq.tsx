@@ -27,11 +27,11 @@ export const Route = createFileRoute("/faq")({
 });
 
 const sizeChart = [
-  ["S", "38", "27"],
-  ["M", "40", "28"],
-  ["L", "42", "29"],
-  ["XL", "44", "30"],
-  ["XXL", "46", "31"],
+  ["Small", "19", "26"],
+  ["Medium", "20", "27"],
+  ["Large", "21", "28"],
+  ["XL", "22", "29"],
+  ["XXL", "23", "30"],
 ];
 
 function Faq() {

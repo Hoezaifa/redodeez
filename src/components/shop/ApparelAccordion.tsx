@@ -1,15 +1,7 @@
 import { AccordionItem } from "@/components/shop/AccordionItem";
 import type { Product } from "@/data/products";
 
-/* ─── Size Cheat Sheet Data ──────────────────────────────── */
 
-const SIZE_CHEAT_SHEET = [
-  { height: '5\'0"–5\'4"', weight: "38–50 kg", size: "XS" },
-  { height: '5\'3"–5\'7"', weight: "45–58 kg", size: "S" },
-  { height: '5\'5"–5\'9"', weight: "55–68 kg", size: "M" },
-  { height: '5\'7"–6\'0"', weight: "65–78 kg", size: "L" },
-  { height: '5\'9"–6\'2"', weight: "75–90 kg", size: "XL" },
-] as const;
 
 /* ─── Care Guide Items ───────────────────────────────────── */
 
@@ -127,58 +119,6 @@ export function ApparelAccordion({ product }: ApparelAccordionProps) {
         </div>
       </AccordionItem>
 
-      {/* ── Section 2: Size Cheat Sheet ────────────────────── */}
-      <AccordionItem title="Size Cheat Sheet">
-        <div className="overflow-x-auto -mx-1">
-          <table className="w-full text-left border-collapse min-w-[280px]">
-            <thead>
-              <tr className="border-b border-border/50">
-                <th className="py-2.5 px-2 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-foreground/80">
-                  Height
-                </th>
-                <th className="py-2.5 px-2 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-foreground/80 text-right">
-                  Weight
-                </th>
-                <th className="py-2.5 px-2 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-foreground/80 text-center">
-                  Size
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border/30">
-              {SIZE_CHEAT_SHEET.map((row) => (
-                <tr key={row.size} className="hover:bg-elevated/30 transition-colors">
-                  <td className="py-2.5 px-2 text-[13px] sm:text-sm text-muted-foreground font-mono">
-                    {row.height}
-                  </td>
-                  <td className="py-2.5 px-2 text-[13px] sm:text-sm text-muted-foreground font-mono text-right">
-                    {row.weight}
-                  </td>
-                  <td className="py-2.5 px-2 text-[13px] sm:text-sm text-foreground font-mono font-bold text-center">
-                    {row.size}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <p className="mt-4 text-[12px] sm:text-[13px] text-muted-foreground/80 leading-relaxed">
-          This is only a general recommendation. For the best fit, compare the
-          measurements in our size chart with a T-shirt you already own.
-        </p>
-        <p className="mt-2 text-[12px] sm:text-[13px] text-muted-foreground/80 leading-relaxed">
-          Still unsure?{" "}
-          <a
-            href="https://www.instagram.com/deez_prints/"
-            target="_blank"
-            rel="noreferrer"
-            className="text-primary hover:underline font-semibold"
-          >
-            DM us on Instagram
-          </a>{" "}
-          and we'll help you choose.
-        </p>
-      </AccordionItem>
 
       {/* ── Section 3: Care Guide ──────────────────────────── */}
       <AccordionItem title="Care Guide">
