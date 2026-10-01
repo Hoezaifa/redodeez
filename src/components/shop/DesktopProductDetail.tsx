@@ -294,6 +294,13 @@ export function DesktopProductDetail({
           {product.title}
         </h1>
 
+        {/* Product Description */}
+        {product.description && (
+          <p className="text-sm sm:text-[15px] text-muted-foreground leading-relaxed max-w-prose">
+            {product.description}
+          </p>
+        )}
+
         {/* Price */}
         <div className="flex items-baseline gap-2.5">
           <span className="font-display text-2xl xl:text-3xl font-black text-foreground">
@@ -513,6 +520,11 @@ export function DesktopProductDetail({
           <ApparelAccordion product={product} />
         ) : (
           <div className="mt-8 border-t border-border/60">
+            {product.description && (
+              <AccordionItem title="Product Description" defaultOpen>
+                <p className="leading-relaxed">{product.description}</p>
+              </AccordionItem>
+            )}
             <AccordionItem title="Materials & Details">
               {product.subcategory === "tapestries" || product.subcategory === "flags" ? (
                 <ul className="list-disc list-inside space-y-1">
