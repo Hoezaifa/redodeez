@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Smartphone, Building2, Download, Share2, ArrowLeft, Banknote, Info } from "lucide-react";
+import { Check, Download, Share2, ArrowLeft, Info } from "lucide-react";
 import { toPng } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site, SHIPPING_OPTIONS, type DeliveryLocation } from "@/data/site";
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/checkout")({
       {
         name: "description",
         content:
-          "Complete your Deez Prints order with Meezan Bank transfer, Easypaisa, JazzCash, or Raast.",
+          "Complete your Deez Prints order with Easypaisa, Bank Transfer, or Cash on Delivery.",
       },
       { name: "robots", content: "noindex, nofollow" },
     ],
@@ -26,34 +26,37 @@ export const Route = createFileRoute("/checkout")({
   component: Checkout,
 });
 
+type PaymentMethod = "easypaisa" | "bank" | "cod";
+
 function Checkout() {
   const { lines, subtotal, clear } = useCart();
   const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [paymentMethod, setPaymentMethod] = useState<"easypaisa" | "jazzcash" | "raast" | "meezan">("easypaisa");
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("easypaisa");
   const [deliveryLocation, setDeliveryLocation] = useState<DeliveryLocation>("karachi");
   const [placed, setPlaced] = useState(false);
   const [downloading, setDownloading] = useState(false);
-  const [copied, setCopied] = useState(false);
   const receiptRef = useRef<HTMLDivElement>(null);
 
   const [copiedPaymentId, setCopiedPaymentId] = useState<string | null>(null);
+  const [cityMode, setCityMode] = useState<"karachi" | "other">("karachi");
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     address: "",
     phone: "",
-    city: "",
-    zip: "",
+    city: "Karachi",
     notes: "",
   });
 
   const [completedOrder, setCompletedOrder] = useState<StoredOrder | null>(null);
 
   const shippingOption = SHIPPING_OPTIONS[deliveryLocation];
-  const isFreeShipping = subtotal >= site.freeShippingThreshold;
+  const isFreeShipping = subtotal >= site.freeShippingThreshold && deliveryLocation === "karachi";
   const shippingCost = isFreeShipping ? 0 : shippingOption.fee;
   const total = lines.length ? subtotal + shippingCost : 0;
+
+  const hasCustomItems = lines.some((l) => l.isCustom);
 
   useEffect(() => {
     if (lines.length > 0) {
@@ -72,30 +75,31 @@ function Checkout() {
   const handleSubmitInfo = (e: React.FormEvent) => {
     e.preventDefault();
     if (
-      !formData.name ||
-      !formData.email ||
-      !formData.address ||
-      !formData.phone ||
-      !formData.city
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.address.trim() ||
+      !formData.phone.trim() ||
+      !formData.city.trim()
     ) {
       alert("Please fill in all required fields.");
       return;
     }
+
+    if (formData.city.trim().toLowerCase() !== "karachi" && deliveryLocation === "karachi") {
+      setDeliveryLocation("nationwide");
+    }
+
     setStep(2);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handlePlaceOrder = async () => {
     const methodTitle =
-      paymentMethod === "meezan"
-        ? "Meezan Bank"
-        : paymentMethod === "jazzcash"
-        ? "JazzCash"
-        : paymentMethod === "raast"
-        ? "Raast"
+      paymentMethod === "bank"
+        ? "Bank Transfer (Meezan)"
+        : paymentMethod === "cod"
+        ? "Cash on Delivery"
         : "Easypaisa";
-
-    const hasCustomItems = lines.some((l) => l.isCustom);
 
     const now = new Date().toISOString();
     const orderData: StoredOrder = {
@@ -185,6 +189,13 @@ function Checkout() {
     }
   };
 
+  /** Copy an account number to clipboard */
+  const copyNumber = (number: string, label: string) => {
+    navigator.clipboard.writeText(number);
+    setCopiedPaymentId(label);
+    setTimeout(() => setCopiedPaymentId(null), 2000);
+  };
+
   /* ── ORDER SUCCESS / STEP 3 RECEIPT ── */
   if (placed && completedOrder) {
     const suggested = products
@@ -192,7 +203,9 @@ function Checkout() {
       .sort(() => Math.random() - 0.5)
       .slice(0, 4);
 
-    const whatsappMessage = `Hi Deez Prints! I just placed Order #${completedOrder.orderId}.\n\n*Name:* ${completedOrder.name}\n*Total:* PKR ${completedOrder.total.toLocaleString()}\n*Payment:* ${completedOrder.paymentMethod}\n\nAttached is my payment receipt.`;
+    const whatsappMessage = paymentMethod === "cod"
+      ? `Hi Deez Prints! I just placed Order #${completedOrder.orderId} (Cash on Delivery).\n\n*Name:* ${completedOrder.name}\n*Total:* PKR ${completedOrder.total.toLocaleString()}\n*Payment:* ${completedOrder.paymentMethod}\n\nPlease confirm my order for dispatch.`
+      : `Hi Deez Prints! I just placed Order #${completedOrder.orderId}.\n\n*Name:* ${completedOrder.name}\n*Total:* PKR ${completedOrder.total.toLocaleString()}\n*Payment:* ${completedOrder.paymentMethod}\n\nAttached is my payment receipt.`;
 
     return (
       <div className="max-w-4xl mx-auto pt-28 pb-16 px-4 sm:px-6">
@@ -234,8 +247,10 @@ function Checkout() {
           {/* Prominent WhatsApp Payment Notice */}
           <div className="mt-6 max-w-md mx-auto p-4 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-200 text-xs sm:text-sm font-medium text-center shadow-lg">
             <p className="leading-relaxed">
-              💬 <strong>Please share your payment screenshot on WhatsApp</strong> to confirm your
-              order dispatch!
+              {completedOrder.paymentMethod === "Cash on Delivery"
+                ? <>💬 <strong>Please confirm your order on WhatsApp</strong> so we can prepare it for dispatch.</>
+                : <>💬 <strong>Please share your payment screenshot on WhatsApp</strong> to confirm your order dispatch!</>
+              }
             </p>
           </div>
         </motion.div>
@@ -378,7 +393,7 @@ function Checkout() {
             className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold uppercase text-xs tracking-wider py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md text-center cursor-pointer"
           >
             <Share2 className="h-4 w-4" />
-            <span>SEND RECEIPT ON WHATSAPP</span>
+            <span>{completedOrder.paymentMethod === "Cash on Delivery" ? "CONFIRM ORDER ON WHATSAPP" : "SEND RECEIPT ON WHATSAPP"}</span>
           </a>
 
           <Link
@@ -418,7 +433,7 @@ function Checkout() {
     );
   }
 
-  /* ── 2-COLUMN CHECKOUT LAYOUT (IMAGE 1) ── */
+  /* ── 2-COLUMN CHECKOUT LAYOUT ── */
   return (
     <div className="max-w-4xl mx-auto pt-28 pb-16 px-4 sm:px-6">
       {/* 2-Column Grid */}
@@ -486,22 +501,55 @@ function Checkout() {
                     onChange={handleInputChange}
                     className="w-full bg-zinc-900/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-white/30 outline-none transition-colors"
                   />
-                  <div className="grid grid-cols-2 gap-3.5">
-                    <input
-                      required
-                      name="city"
-                      placeholder="City"
-                      value={formData.city}
-                      onChange={handleInputChange}
-                      className="w-full bg-zinc-900/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-white/30 outline-none transition-colors"
-                    />
-                    <input
-                      name="zip"
-                      placeholder="ZIP Code"
-                      value={formData.zip}
-                      onChange={handleInputChange}
-                      className="w-full bg-zinc-900/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-white/30 outline-none transition-colors"
-                    />
+                  <div className="space-y-2.5">
+                    <div className="flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setCityMode("karachi");
+                          setDeliveryLocation("karachi");
+                          setFormData((f) => ({ ...f, city: "Karachi" }));
+                        }}
+                        className={`flex-1 py-2.5 text-xs font-bold rounded-xl border transition-all cursor-pointer ${
+                          cityMode === "karachi"
+                            ? "bg-zinc-800/90 border-orange-500 text-white"
+                            : "bg-zinc-900/40 border-white/10 text-zinc-400 hover:border-white/20"
+                        }`}
+                      >
+                        Karachi
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setCityMode("other");
+                          setDeliveryLocation("nationwide");
+                          setFormData((f) => ({ ...f, city: f.city === "Karachi" ? "" : f.city }));
+                        }}
+                        className={`flex-1 py-2.5 text-xs font-bold rounded-xl border transition-all cursor-pointer ${
+                          cityMode === "other"
+                            ? "bg-zinc-800/90 border-orange-500 text-white"
+                            : "bg-zinc-900/40 border-white/10 text-zinc-400 hover:border-white/20"
+                        }`}
+                      >
+                        Other City
+                      </button>
+                    </div>
+                    {cityMode === "other" && (
+                      <input
+                        required
+                        name="city"
+                        placeholder="Enter your city"
+                        value={formData.city}
+                        onChange={(e) => {
+                          handleInputChange(e);
+                          if (deliveryLocation !== "nationwide") {
+                            setDeliveryLocation("nationwide");
+                          }
+                        }}
+                        autoFocus
+                        className="w-full bg-zinc-900/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-white/30 outline-none transition-colors"
+                      />
+                    )}
                   </div>
                   <textarea
                     rows={2}
@@ -528,7 +576,16 @@ function Checkout() {
                       <button
                         key={key}
                         type="button"
-                        onClick={() => setDeliveryLocation(key)}
+                        onClick={() => {
+                          setDeliveryLocation(key);
+                          if (key === "karachi") {
+                            setCityMode("karachi");
+                            setFormData((f) => ({ ...f, city: "Karachi" }));
+                          } else {
+                            setCityMode("other");
+                            setFormData((f) => ({ ...f, city: f.city === "Karachi" ? "" : f.city }));
+                          }
+                        }}
                         className={`flex flex-col p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
                           deliveryLocation === key
                             ? "bg-zinc-800/90 border-orange-500 shadow-md"
@@ -544,7 +601,7 @@ function Checkout() {
                           }`} />
                         </div>
                         <span className="text-[11px] text-zinc-400">
-                          {isFreeShipping ? (
+                          {isFreeShipping && key === "karachi" ? (
                             <span className="text-emerald-400 font-bold">FREE — {opt.method}</span>
                           ) : (
                             `Rs. ${opt.fee} — ${opt.method}`
@@ -576,134 +633,191 @@ function Checkout() {
                 className="space-y-5"
               >
                 <h2 className="text-xl sm:text-2xl font-bold text-white">Payment Method</h2>
-                <div className="space-y-3">
-                  {[
-                    {
-                      id: "easypaisa" as const,
-                      name: "Easypaisa",
-                      accountTitle: bankDetails.easypaisa.accountTitle,
-                      accountNumber: bankDetails.easypaisa.accountNumber,
-                      logo: (
-                        <div className="flex items-center gap-2">
-                          <img
-                            src="/assets/payment/easypaisa.svg"
-                            alt="Easypaisa"
-                            className="h-7 w-7 sm:h-8 sm:w-8 object-contain shrink-0"
-                          />
-                          <span className="font-bold text-sm sm:text-base text-white tracking-tight">
-                            easypaisa
-                          </span>
-                        </div>
-                      ),
-                    },
-                    {
-                      id: "jazzcash" as const,
-                      name: "JazzCash",
-                      accountTitle: bankDetails.jazzcash.accountTitle,
-                      accountNumber: bankDetails.jazzcash.accountNumber,
-                      logo: (
-                        <img
-                          src="/assets/payment/jazzcash.svg"
-                          alt="JazzCash"
-                          className="h-6 sm:h-7 w-auto max-w-[110px] sm:max-w-[130px] object-contain object-left"
-                        />
-                      ),
-                    },
-                    {
-                      id: "raast" as const,
-                      name: "Raast",
-                      accountTitle: bankDetails.raast.accountTitle,
-                      accountNumber: bankDetails.raast.accountNumber,
-                      logo: (
-                        <img
-                          src="/assets/payment/raast.svg"
-                          alt="Raast"
-                          className="h-7 sm:h-8 w-auto max-w-[110px] sm:max-w-[130px] object-contain object-left"
-                        />
-                      ),
-                    },
-                    {
-                      id: "meezan" as const,
-                      name: "Meezan Bank",
-                      accountTitle: bankDetails.meezan.accountTitle,
-                      accountNumber: bankDetails.meezan.accountNumber,
-                      logo: (
-                        <div className="flex items-center gap-2">
-                          <img
-                            src="/assets/payment/meezan.svg"
-                            alt="Meezan Bank"
-                            className="h-7 w-7 sm:h-8 sm:w-8 object-contain shrink-0"
-                          />
-                          <span className="font-bold text-xs sm:text-sm text-white leading-tight">
-                            Meezan Bank
-                          </span>
-                        </div>
-                      ),
-                    },
-                  ].map((opt) => (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => setPaymentMethod(opt.id)}
-                      className={`w-full p-4 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-3 sm:gap-4 ${
-                        paymentMethod === opt.id
-                          ? "bg-zinc-800/90 border-orange-500 shadow-md ring-1 ring-orange-500/30"
-                          : "bg-zinc-900/40 border-white/10 hover:border-white/20 hover:bg-zinc-900/60"
-                      }`}
-                    >
-                      {/* Left: Logo */}
-                      <div className="w-28 sm:w-36 h-10 sm:h-12 shrink-0 flex items-center justify-start">
-                        {opt.logo}
-                      </div>
 
-                      {/* Middle: Details */}
-                      <div className="flex-1 min-w-0 pl-1 sm:pl-2 text-left">
-                        <p className="text-xs sm:text-sm font-semibold text-zinc-300 truncate">
-                          {opt.accountTitle}
-                        </p>
-                        <div className="flex items-center gap-2 mt-0.5">
-                          <span className="font-mono text-xs sm:text-sm font-bold text-white tracking-wide">
-                            {opt.accountNumber}
-                          </span>
-                          <span
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              navigator.clipboard.writeText(opt.accountNumber);
-                              setCopiedPaymentId(opt.id);
-                              setTimeout(() => setCopiedPaymentId(null), 2000);
-                            }}
-                            className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded text-[10px] font-bold hover:bg-emerald-500/30 cursor-pointer transition-colors shrink-0"
-                          >
-                            {copiedPaymentId === opt.id ? "Copied!" : "Copy"}
-                          </span>
+                {/* ── PAYMENT OPTIONS ── */}
+                <div className="space-y-2.5">
+
+                  {/* ── Easypaisa ── */}
+                  <button
+                    type="button"
+                    onClick={() => setPaymentMethod("easypaisa")}
+                    className={`w-full text-left transition-all cursor-pointer rounded-xl border ${
+                      paymentMethod === "easypaisa"
+                        ? "bg-zinc-800/90 border-orange-500 ring-1 ring-orange-500/30"
+                        : "bg-zinc-900/40 border-white/10 hover:border-white/20 hover:bg-zinc-900/60"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between p-4">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src="/assets/payment/easypaisa.svg"
+                          alt="Easypaisa"
+                          className="h-7 w-7 sm:h-8 sm:w-8 object-contain shrink-0"
+                        />
+                        <div>
+                          <span className="font-bold text-sm text-white block">Easypaisa</span>
+                          <span className="text-[11px] text-zinc-400">Pay now</span>
                         </div>
                       </div>
-
-                      {/* Right: Radio indicator */}
                       <div
                         className={`w-4 h-4 rounded-full border shrink-0 flex items-center justify-center transition-colors ${
-                          paymentMethod === opt.id
+                          paymentMethod === "easypaisa"
                             ? "border-orange-500 bg-orange-500"
                             : "border-zinc-500"
                         }`}
                       >
-                        {paymentMethod === opt.id && (
+                        {paymentMethod === "easypaisa" && (
                           <div className="w-1.5 h-1.5 rounded-full bg-white" />
                         )}
                       </div>
-                    </button>
-                  ))}
+                    </div>
+
+                    {/* Expanded details */}
+                    {paymentMethod === "easypaisa" && (
+                      <div className="px-4 pb-4 pt-0">
+                        <div className="border-t border-white/10 pt-3 space-y-1.5 text-xs">
+                          <div className="flex justify-between text-zinc-400">
+                            <span>Account Title</span>
+                            <span className="text-white font-semibold">{bankDetails.easypaisa.accountTitle}</span>
+                          </div>
+                          <div className="flex items-center justify-between text-zinc-400">
+                            <span>Account Number</span>
+                            <div className="flex items-center gap-2">
+                              <span className="font-mono font-bold text-white tracking-wide">{bankDetails.easypaisa.accountNumber}</span>
+                              <span
+                                onClick={(e) => { e.stopPropagation(); copyNumber(bankDetails.easypaisa.accountNumber, "easypaisa"); }}
+                                className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded text-[10px] font-bold hover:bg-emerald-500/30 cursor-pointer transition-colors"
+                              >
+                                {copiedPaymentId === "easypaisa" ? "Copied!" : "Copy"}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </button>
+
+                  {/* ── Bank Transfer (Meezan) ── */}
+                  <button
+                    type="button"
+                    onClick={() => setPaymentMethod("bank")}
+                    className={`w-full text-left transition-all cursor-pointer rounded-xl border ${
+                      paymentMethod === "bank"
+                        ? "bg-zinc-800/90 border-orange-500 ring-1 ring-orange-500/30"
+                        : "bg-zinc-900/40 border-white/10 hover:border-white/20 hover:bg-zinc-900/60"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between p-4">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src="/assets/payment/meezan.svg"
+                          alt="Meezan Bank"
+                          className="h-7 w-7 sm:h-8 sm:w-8 object-contain shrink-0"
+                        />
+                        <div>
+                          <span className="font-bold text-sm text-white block">Bank Transfer</span>
+                          <span className="text-[11px] text-zinc-400">Pay now</span>
+                        </div>
+                      </div>
+                      <div
+                        className={`w-4 h-4 rounded-full border shrink-0 flex items-center justify-center transition-colors ${
+                          paymentMethod === "bank"
+                            ? "border-orange-500 bg-orange-500"
+                            : "border-zinc-500"
+                        }`}
+                      >
+                        {paymentMethod === "bank" && (
+                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Expanded details */}
+                    {paymentMethod === "bank" && (
+                      <div className="px-4 pb-4 pt-0">
+                        <div className="border-t border-white/10 pt-3 space-y-1.5 text-xs">
+                          <div className="flex justify-between text-zinc-400">
+                            <span>Bank</span>
+                            <span className="text-white font-semibold">Meezan Bank</span>
+                          </div>
+                          <div className="flex justify-between text-zinc-400">
+                            <span>Account Title</span>
+                            <span className="text-white font-semibold">{bankDetails.meezan.accountTitle}</span>
+                          </div>
+                          <div className="flex items-center justify-between text-zinc-400">
+                            <span>Account Number</span>
+                            <div className="flex items-center gap-2">
+                              <span className="font-mono font-bold text-white tracking-wide">{bankDetails.meezan.accountNumber}</span>
+                              <span
+                                onClick={(e) => { e.stopPropagation(); copyNumber(bankDetails.meezan.accountNumber, "bank"); }}
+                                className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded text-[10px] font-bold hover:bg-emerald-500/30 cursor-pointer transition-colors"
+                              >
+                                {copiedPaymentId === "bank" ? "Copied!" : "Copy"}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </button>
+
+                  {/* ── Cash on Delivery ── */}
+                  <button
+                    type="button"
+                    onClick={() => setPaymentMethod("cod")}
+                    className={`w-full text-left transition-all cursor-pointer rounded-xl border ${
+                      paymentMethod === "cod"
+                        ? "bg-zinc-800/90 border-orange-500 ring-1 ring-orange-500/30"
+                        : "bg-zinc-900/40 border-white/10 hover:border-white/20 hover:bg-zinc-900/60"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="h-7 w-7 sm:h-8 sm:w-8 shrink-0 rounded-lg bg-zinc-700/60 flex items-center justify-center text-[11px] font-black text-white tracking-tight">
+                          COD
+                        </div>
+                        <div>
+                          <span className="font-bold text-sm text-white block">Cash on Delivery</span>
+                          <span className="text-[11px] text-zinc-400">Pay when your order arrives</span>
+                        </div>
+                      </div>
+                      <div
+                        className={`w-4 h-4 rounded-full border shrink-0 flex items-center justify-center transition-colors ${
+                          paymentMethod === "cod"
+                            ? "border-orange-500 bg-orange-500"
+                            : "border-zinc-500"
+                        }`}
+                      >
+                        {paymentMethod === "cod" && (
+                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Expanded description */}
+                    {paymentMethod === "cod" && (
+                      <div className="px-4 pb-4 pt-0">
+                        <div className="border-t border-white/10 pt-3">
+                          <p className="text-xs text-zinc-400 leading-relaxed">
+                            Order will be confirmed via WhatsApp before dispatch. Pay the full amount to the courier at delivery.
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </button>
                 </div>
 
-                {/* Custom Order Advance Notice */}
-                <div className="flex items-start gap-3.5 p-4 rounded-xl bg-zinc-900/60 border border-white/10 text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                  <Info className="w-5 h-5 text-zinc-400 shrink-0 mt-0.5" />
-                  <p>
-                    Custom orders require a{" "}
-                    <span className="text-orange-500 font-semibold">Rs. 500 advance</span>{" "}
-                    to begin processing. The remaining balance is payable upon completion.
-                  </p>
-                </div>
+                {/* Custom Order Advance Notice — only shown when cart has custom items */}
+                {hasCustomItems && (
+                  <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                    <Info className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                    <p>
+                      Custom print orders require a{" "}
+                      <span className="text-orange-500 font-semibold">Rs. 500 advance</span>{" "}
+                      to start production. The remaining balance can be paid on delivery.
+                    </p>
+                  </div>
+                )}
 
                 <div className="flex gap-3 pt-2">
                   <button
@@ -726,7 +840,7 @@ function Checkout() {
           </AnimatePresence>
         </div>
 
-        {/* Right Column: Order Summary (Image 1 design) */}
+        {/* Right Column: Order Summary */}
         <div>
           <div className="bg-zinc-900/60 border border-white/10 rounded-2xl p-6 sticky top-28">
             <h3 className="text-lg font-bold text-white mb-4">Order Summary</h3>
@@ -788,3 +902,4 @@ function Checkout() {
     </div>
   );
 }
+

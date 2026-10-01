@@ -12,7 +12,7 @@ export const Route = createFileRoute("/cart")({
       {
         name: "description",
         content:
-          "Review the pieces in your Deez Prints bag, adjust sizes and quantities, then check out with Meezan Bank, Easypaisa, JazzCash, or Raast.",
+          "Review the pieces in your Deez Prints bag, adjust sizes and quantities, then check out with Easypaisa, Bank Transfer, or Cash on Delivery.",
       },
       { property: "og:title", content: "Your Bag — Deez Prints" },
       { property: "og:description", content: "Review your Deez Prints order before checkout." },
@@ -104,22 +104,18 @@ function CartPage() {
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Shipping</dt>
                 <dd className="text-xs">
-                  {subtotal >= site.freeShippingThreshold ? (
-                    <span className="text-emerald-400 font-bold font-mono">FREE</span>
-                  ) : (
-                    <span className="text-muted-foreground">from Rs. {SHIPPING_OPTIONS.karachi.fee}</span>
-                  )}
+                  <span className="text-muted-foreground">from Rs. {SHIPPING_OPTIONS.karachi.fee}</span>
                 </dd>
               </div>
             </dl>
             <div className="mt-4 p-3 rounded-lg border border-white/10 bg-background/50 text-xs">
               {subtotal >= site.freeShippingThreshold ? (
                 <p className="text-emerald-400 font-bold">
-                  🎉 You unlocked FREE nationwide shipping!
+                  🎉 Karachi orders qualify for FREE shipping!
                 </p>
               ) : (
                 <p className="text-muted-foreground">
-                  Add <span className="text-primary font-bold">{formatPrice(site.freeShippingThreshold - subtotal)}</span> more for <span className="text-foreground font-bold">FREE delivery</span>
+                  Karachi orders above <span className="text-primary font-bold">Rs. {site.freeShippingThreshold.toLocaleString()}</span> get <span className="text-foreground font-bold">FREE delivery</span>
                 </p>
               )}
             </div>
@@ -137,7 +133,7 @@ function CartPage() {
               Checkout
             </Link>
             <p className="label-mono mt-4 text-muted-foreground text-xs">
-              Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee} (FREE above Rs. {site.freeShippingThreshold.toLocaleString()})
+              Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}
             </p>
           </aside>
         </div>

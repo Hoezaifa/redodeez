@@ -322,7 +322,7 @@ export function DesktopProductDetail({
           <span className="text-border-strong">|</span>
           <div className="flex items-center gap-1.5">
             <Truck className="h-3.5 w-3.5 text-muted-foreground/60" />
-            <span>Free delivery on orders above Rs. {site.freeShippingThreshold.toLocaleString()}</span>
+            <span>Free Karachi delivery on orders above Rs. {site.freeShippingThreshold.toLocaleString()}</span>
           </div>
           <span className="text-border-strong">|</span>
           <div className="flex items-center gap-1.5">

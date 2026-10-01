@@ -10,12 +10,12 @@ export const Route = createFileRoute("/shipping")({
       {
         name: "description",
         content:
-          "Karachi Rs. 200 via Bykea, Nationwide Pakistan Rs. 450 via Courier. Orders take 2–3 working days to prepare before dispatch.",
+          "Karachi Rs. 200 via Rider, Nationwide Pakistan Rs. 450 via Courier. Orders take 2–3 working days to prepare before dispatch.",
       },
       { property: "og:title", content: "Shipping & Delivery Policy — Deez Prints" },
       {
         property: "og:description",
-        content: "Karachi Rs. 200 (Bykea), Nationwide Rs. 450 (Courier). 2–3 working days preparation time.",
+        content: "Karachi Rs. 200, Nationwide Rs. 450 (Courier). 2–3 working days preparation time.",
       },
       { property: "og:url", content: `${SITE_URL}/shipping` },
       { property: "og:site_name", content: "Deez Prints" },
@@ -36,7 +36,7 @@ function Shipping() {
           <p className="text-sm font-mono text-muted-foreground uppercase">Shipping Rates</p>
           <p className="text-xl font-bold text-foreground">Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} | Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}</p>
           <p className="text-xs text-muted-foreground">
-            Karachi via Bykea | Rest of Pakistan via Courier
+            Karachi via Rider | Rest of Pakistan via Courier
           </p>
         </div>
         <div className="rounded-xl border border-white/10 bg-surface/50 p-6 space-y-2">
@@ -48,7 +48,7 @@ function Shipping() {
         <div className="rounded-xl border border-white/10 bg-surface/50 p-6 space-y-2">
           <MapPin className="w-6 h-6 text-primary" />
           <p className="text-sm font-mono text-muted-foreground uppercase">Delivery Method</p>
-          <p className="text-xl font-bold text-foreground">Bykea &amp; Courier Services</p>
+          <p className="text-xl font-bold text-foreground">Rider &amp; Courier Services</p>
           <p className="text-xs text-muted-foreground">Covering Karachi and all major cities across Pakistan</p>
         </div>
       </div>
@@ -71,13 +71,13 @@ function Shipping() {
             </p>
             <ul className="list-disc pl-5 text-muted-foreground space-y-2">
               <li>
-                <strong className="text-foreground font-semibold">Karachi (Rs. {SHIPPING_OPTIONS.karachi.fee}):</strong> Delivered directly to your doorstep via Bykea local courier.
+                <strong className="text-foreground font-semibold">Karachi (Rs. {SHIPPING_OPTIONS.karachi.fee}):</strong> Delivered directly to your doorstep via rider.
               </li>
               <li>
                 <strong className="text-foreground font-semibold">Nationwide Pakistan (Rs. {SHIPPING_OPTIONS.nationwide.fee}):</strong> Dispatched via reliable courier services across all provinces.
               </li>
               <li>
-                <strong className="text-emerald-400 font-semibold">Free Delivery:</strong> All orders exceeding <strong className="text-foreground font-semibold">Rs. {site.freeShippingThreshold.toLocaleString()}</strong> qualify for complimentary free shipping nationwide.
+                <strong className="text-emerald-400 font-semibold">Free Karachi Delivery:</strong> Karachi orders exceeding <strong className="text-foreground font-semibold">Rs. {site.freeShippingThreshold.toLocaleString()}</strong> qualify for complimentary free shipping.
               </li>
             </ul>
           </div>

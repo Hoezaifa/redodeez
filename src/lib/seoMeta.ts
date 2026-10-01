@@ -227,7 +227,7 @@ export function staticPageMeta(path: string): { title: string; description: stri
       return {
         title: "Shipping & Delivery Across Pakistan | Deez Prints",
         description:
-          "Shipping rates and delivery timelines: Karachi Rs. 200 via Bykea/local courier, nationwide Rs. 450. Free shipping on all orders over Rs. 5,000.",
+          "Shipping rates and delivery timelines: Karachi Rs. 200 via rider, nationwide Rs. 450. Free Karachi delivery on orders over Rs. 5,000.",
       };
     case "/returns":
       return {

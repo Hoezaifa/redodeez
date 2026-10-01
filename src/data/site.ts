@@ -18,7 +18,7 @@ export const commercialConfig = {
   deliveryTimeKarachi: "2–4 working days",
   deliveryTimeNationwide: "3–5 working days",
   exchangeWindow: "7 days",
-  acceptedPaymentMethods: ["Meezan Bank", "Easypaisa", "JazzCash", "Raast"] as const,
+  acceptedPaymentMethods: ["Easypaisa", "Bank Transfer (Meezan)", "Cash on Delivery"] as const,
 };
 
 export const site = {
@@ -37,7 +37,7 @@ export const site = {
   deliveryTimeNationwide: "3–5 working days",
   prepTime: "2–3 working days",
   exchangeWindow: "7 days",
-  couriers: "TCS, Leopards, M&P, Bykea",
+  couriers: "TCS, Leopards, M&P",
   orderPrepNotice: "Orders take 2–3 working days to prepare before dispatch. Delivery time is additional and depends on your location.",
 };
 
@@ -114,7 +114,7 @@ export function whatsappLink(message: string) {
     : `https://www.instagram.com/deez_prints/`;
 }
 
-export const paymentMethods = ["Easypaisa", "JazzCash", "Raast", "Meezan Bank"];
+export const paymentMethods = ["Easypaisa", "Bank Transfer (Meezan)", "Cash on Delivery"];
 
 /* ─── Shipping / Delivery Configuration ─────────────────────── */
 
@@ -129,8 +129,8 @@ export const SHIPPING_OPTIONS: Record<DeliveryLocation, {
   karachi: {
     label: "Karachi",
     fee: 200,
-    method: "Bykea",
-    description: "Karachi — Rs. 200 via Bykea",
+    method: "Rider",
+    description: "Karachi — Rs. 200 via Rider",
   },
   nationwide: {
     label: "Nationwide Pakistan",
@@ -284,16 +284,16 @@ export const faqs = [
   {
     q: "What payment methods do you accept?",
     category: "Payments",
-    a: "We accept Direct Bank Transfers (Meezan Bank) as well as Mobile Wallet transfers via Easypaisa, JazzCash, and Raast. Simply transfer the order total and upload your transaction reference or screenshot at checkout or via WhatsApp for instant verification.",
+    a: "We accept Easypaisa mobile wallet transfers, Meezan Bank direct transfers, and Cash on Delivery (COD). For prepaid orders, simply transfer the order total and share your receipt screenshot via WhatsApp for instant verification. COD orders are confirmed via WhatsApp before dispatch.",
   },
   {
     q: "How long does delivery take?",
     category: "Shipping",
-    a: "Orders take 2–3 working days to prepare at our Karachi studio before dispatch. Delivery time is additional and depends on your location (2–4 working days for Karachi via Bykea, 3–5 working days via Courier for Nationwide Pakistan).",
+    a: "Orders take 2–3 working days to prepare at our Karachi studio before dispatch. Delivery time is additional and depends on your location (2–4 working days for Karachi, 3–5 working days via Courier for Nationwide Pakistan).",
   },
   {
     q: "What is your shipping fee?",
-    a: "Karachi delivery is Rs. 200 (via Bykea) and Nationwide Pakistan delivery is Rs. 450 (via Courier). Orders over Rs. 5,000 qualify for FREE delivery nationwide.",
+    a: "Karachi delivery is Rs. 200 and Nationwide Pakistan delivery is Rs. 450 (via Courier). Karachi orders over Rs. 5,000 qualify for FREE delivery.",
     category: "Shipping",
   },
   {
@@ -382,7 +382,7 @@ export const COLOR_HEX_MAP: Record<string, string> = {
 export const usps = [
   { title: "Premium Quality", body: "Top-notch fabric & prints" },
   { title: "Fast Dispatch", body: "2–3 days prep before dispatch" },
-  { title: "Secure Payments", body: "Meezan, Easypaisa, JazzCash & Raast" },
+  { title: "Secure Payments", body: "Easypaisa, Bank Transfer & COD" },
   { title: "Easy Returns", body: "7-day exchange policy" },
 ];
 

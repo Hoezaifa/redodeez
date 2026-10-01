@@ -96,7 +96,7 @@ const promises = [
   {
     icon: Truck,
     title: "Nationwide Shipping",
-    desc: "TCS, Leopards, M&P, Bykea.\nUsually within 3–5 working days.",
+    desc: "TCS, Leopards, M&P.\nUsually within 3–5 working days.",
   },
   {
     icon: ShieldCheck,
