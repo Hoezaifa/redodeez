@@ -680,11 +680,11 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-ruinborn-requiem",
     "title": "Ruinborn Requiem Drop Shoulder Tee",
+    "description": "Gothic mechanical wings and a central spine form the detailed back graphic, with red accents and fine lettering. A smaller front emblem keeps this drop-shoulder tee balanced between its intricate reverse and minimal front.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927040/ruinborn_requiem_drop_shoulder_maroon_back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927040/ruinborn_requiem_drop_shoulder_maroon_front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927008/ruinborn_requiem_drop_shoulder_black_back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1789927009/ruinborn_requiem_drop_shoulder_black_front.jpg"
@@ -869,7 +869,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-punk-is-dead",
-    "title": "PUNK IS DEAD DRP SHLDR",
+    "title": "PUNK\'S NOT DEAD DROP SHOULDER TEE",
+    "description": "PUNK\'S NOT DEAD lettering and punk-inspired graphic details form the main front composition. The oversized drop-shoulder fit pairs with the distressed typography for a streetwear take on punk aesthetics.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1263,7 +1264,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-punk-is-dead",
-    "title": "PUNK IS DEAD ACID WASH TEE",
+    "title": "PUNK\'S NOT DEAD ACID WASH TEE",
+    "description": "Bold PUNK\'S NOT DEAD lettering stretches across the front with distressed typography and punk-inspired graphic elements. The acid-wash texture adds a vintage feel to the rebellious slogan.",
     "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -1912,6 +1914,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-sukuna",
     "title": "Sukuna Cursed Drop Shoulder Tee",
+    "description": "A detailed Sukuna portrait fills the back of this drop-shoulder tee, with cursed markings and dark linework. A smaller chest emblem carries the Jujutsu Kaisen theme to the front.",
     "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -2043,7 +2046,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-titan",
-    "title": "Sukuna Drop Shoulder Tee",
+    "title": "Attack Titan Drop Shoulder Tee",
+    "description": "The Attack Titan\'s roaring form fills the back, with exposed jaw, wild hair and red steam lines rising from the muscular figure. This Attack on Titan drop-shoulder tee uses a single dramatic character illustration as its centrepiece.",
     "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -2988,7 +2992,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-itachi",
-    "title": "ITACHI DROP SHOULDER TEE",
+    "title": "Gojo Satoru Drop Shoulder Tee",
+    "description": "Gojo Satoru\'s blindfolded portrait fills the front, with spiky white hair and glowing blue energy fragments floating around him. The dark high-collar jacket and upward gaze give this drop-shoulder tee its signature Jujutsu Kaisen look.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -3037,6 +3042,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-itachi-2",
     "title": "Itachi Eclipse Drop Shoulder Tee",
+    "description": "Itachi Uchiha sits atop a pole in his Akatsuki cloak, framed by a red moon, the Uchiha crest and swarming crows across the back. A MADARA front panel completes this Naruto-themed drop-shoulder tee with distinct artwork on each side.",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -3187,6 +3193,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-luffy-1",
     "title": "Luffy Gear 5 Drop Shoulder Tee",
+    "description": "A Gear 5 Luffy illustration fills the back with One Piece-themed artwork and curling cloud details. A compact straw-hat skull motif sits on the chest, connecting both sides of this drop-shoulder tee.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -3296,6 +3303,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-naruto-3",
     "title": "NARUTO 3 DROP SHOULDER TEE",
+    "description": "A Naruto character illustration forms the back graphic with manga-inspired details and sharp linework. The front keeps a smaller emblem, giving this drop-shoulder tee distinct artwork on each side.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -3364,7 +3372,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-curse-whtie",
-    "title": "Sukuna Cursed Inscription Drop Shoulder Tee",
+    "title": "Choso Bloodline Drop Shoulder Tee",
+    "description": "Choso\'s raised-hand blood manipulation pose fills the back in detailed linework, with red blood splatters around his hands. The distinct facial blood mark across his nose identifies this Jujutsu Kaisen character on this white drop-shoulder tee.",
     "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -3398,25 +3407,9 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "scarlet-bloom-tee",
-    "title": "SCARLET BLOOM TEE",
-    "price": 3200,
-    "category": "t-shirts",
-    "subcategory": "graphic",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772652301/Gemini_Generated_Image_ox19ckox19ckox19_sfssfg/scarlet-bloom-tee-black-front.png",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772651794/rose1_fg88h0/scarlet-bloom-tee-black-detail.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772651795/backrose1_iqatfb/scarlet-bloom-tee-black-back.webp"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
-  },
-  {
     "id": "dp-drop-shoulder-batman-grye",
     "title": "Batman Noir Drop Shoulder Tee",
+    "description": "NO MORE LIES and THE BATMAN lettering in red frame a dark Batman cowl portrait, with Riddler question mark annotations scattered around. This grey drop-shoulder tee uses a film-poster-style graphic with red accents.",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -3424,7 +3417,7 @@ export const products: Product[] = [
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769213/deez-prints/drops/batman-grye-front.jpg"
     ],
     "colors": [
-      "Black"
+      "Grey"
     ],
     "rating": 5,
     "aesthetic": "comic-universe"
@@ -3500,7 +3493,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-fire-bleu",
-    "title": "Maki Oze Firepower Drop Shoulder Tee",
+    "title": "Tanjiro Fire Water Drop Shoulder Tee",
+    "description": "Tanjiro in his checkered haori stands amid swirling flames, with FIRE WATER lettering framing the Demon Slayer artwork. A smaller chest graphic balances the larger back illustration on this drop-shoulder tee.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -3884,7 +3878,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-sukuna",
-    "title": "SUKUNA REGULAR TEE",
+    "title": "Attack Titan Regular Tee",
+    "description": "The Attack Titan\'s fierce roaring portrait dominates this regular tee, with exposed jaw muscles and red steam accents. A compact chest emblem balances the detailed back illustration.",
     "price": 1950,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -4079,7 +4074,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-fire",
-    "title": "Maki Oze Firepower Acid Wash Tee",
+    "title": "Tanjiro Fire Water Acid Wash Tee",
+    "description": "Tanjiro in his checkered haori is surrounded by dramatic flame effects, with FIRE WATER block lettering behind him. The Demon Slayer-inspired composition uses red and orange fire details against the grey acid-wash finish.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -4221,6 +4217,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-naruto-5",
     "title": "Naruto 3 Acid Wash Tee",
+    "description": "A Naruto character portrait fills the back of this acid-wash tee, with Japanese lettering and manga-panel details framing the illustration. The design uses sharp linework against the mottled acid-wash texture.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -4466,6 +4463,7 @@ export const products: Product[] = [
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788970867/deez-prints/covers/majin_vegeta_acid_wash_new.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770130/deez-prints/acid/dbz-3-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770136/deez-prints/acid/dbz-3-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770127/deez-prints/acid/dbz-3-black-back.jpg",
@@ -4503,7 +4501,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-sakuna",
-    "title": "Sukuna Cursed Acid Wash Tee - Dark Edition",
+    "title": "Tanjiro Demon Slayer Acid Wash Tee",
+    "description": "A side-profile Tanjiro portrait with his distinctive forehead scar and Hanafuda earring sits across the front. Red Japanese kanji adds a bold accent against the dark acid-wash finish.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -4560,11 +4559,11 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-dbz-1",
     "title": "Majin Vegeta Acid Wash Tee",
+    "description": "Majin Vegeta stands in a battle-ready pose with the iconic M mark on his forehead. The front pairs a close-up portrait with manga-style background details on this acid-wash tee.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1788970867/deez-prints/covers/majin_vegeta_acid_wash_new.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1788958669/deez-prints/covers/majin_vegeta_acid_wash_tee_front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770111/deez-prints/acid/dbz-1-maroon-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770115/deez-prints/acid/dbz-1-maroon-front.jpg"
@@ -4933,7 +4932,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-regular-fire",
-    "title": "MAKI OZE FIREPOWER REGULAR TEE",
+    "title": "Tanjiro Fire Water Regular Tee",
+    "description": "Tanjiro\'s checkered haori and surrounding flame effects create the FIRE WATER-themed graphic on this regular tee. The Demon Slayer character illustration pairs fiery detail with bold block lettering.",
     "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -5389,9 +5389,22 @@ export async function fetchProductOverrides(): Promise<Record<string, ProductOve
  * Get the full product list with DB overrides applied.
  * This is the primary function all product-consuming code should use.
  */
+/**
+ * Subcategories currently visible in the store.
+ * To re-enable a category, simply add it back to this set.
+ */
+const VISIBLE_SUBCATEGORIES: ReadonlySet<string> = new Set([
+  "regular",
+  "drop-shoulder",
+  "acid-wash",
+  "tapestries",
+  "flags",
+]);
+
 export async function getProducts(): Promise<Product[]> {
   const overrides = await fetchProductOverrides();
-  return mergeOverrides(products, overrides);
+  const all = mergeOverrides(products, overrides);
+  return all.filter((p) => VISIBLE_SUBCATEGORIES.has(p.subcategory));
 }
 
 export type ProductWithTimestamp = Product & {

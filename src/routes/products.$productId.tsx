@@ -29,7 +29,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema, breadcrumbSchema } from "@/lib/structuredData";
 
 const LEGACY_PRODUCT_SLUGS: Record<string, string> = {
-  "kanye-yeezus-shirt": "scarlet-bloom-tee",
+  "kanye-yeezus-shirt": "dp-acid-wash-berserk-skull-blade",
   "tshirt-acid-4": "dp-acid-wash-berserk-skull-blade",
   "tshirt-acid-9": "dp-acid-wash-spiderverse",
   "tshirt-reg-5": "dp-regular-spiderverse",
