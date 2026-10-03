@@ -287,7 +287,7 @@ export const products: Product[] = [
     "id": "dp-regular-abstract-wings",
     "title": "ABSTRACT WINGS TEE",
     "description": "White skeletal wings stretch across the back and taper into a long spine down the centre. A compact pointed emblem sits on the chest, giving this regular tee a smaller front detail beside the wide back illustration.",
-    "price": 1750,
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
