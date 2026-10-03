@@ -60,7 +60,7 @@ export const Route = createFileRoute("/collections/$slug")({
       blurb
     );
     const isEmpty = (loaderData?.productCount ?? 0) === 0;
-    const isComingSoon = loaderData?.status === "COMING_SOON" || loaderData?.slug === "hoodies";
+    const isComingSoon = loaderData?.slug === "hoodies";
     const search = loaderData?.search;
     const isUtilitySort = Boolean(search?.sort || search?.dir);
     const shouldNoindex = isEmpty || isComingSoon || isUtilitySort;
@@ -128,7 +128,7 @@ function CollectionPage() {
   };
 
   const isAesthetic = aestheticSlugs.includes(slug);
-  const isComingSoonCollection = status === "COMING_SOON" || slug === "hoodies";
+  const isComingSoonCollection = slug === "hoodies";
 
   const filterableCollections = useMemo(() => {
     if (isAesthetic) {

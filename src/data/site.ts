@@ -314,7 +314,7 @@ export const faqs = [
   {
     q: "What sizes and colors are available?",
     category: "Sizing",
-    a: "Acid Wash tees are available in Black, Grey, and Maroon (Sizes: S, M, L). Drop Shoulder tees come in Black, White, Grey, Red, Blue, Army Green, Beige, and Brown (Sizes: S, M, L, XL, XXL). Regular Tees come in Black, Charcoal, White, Steel Grey, Navy Blue, Army Green, Red, Beige, and Brown (Sizes: S, M, L, XL, XXL).",
+    a: "Acid Wash tees are available in Black, Grey, and Maroon (Sizes: S, M, L). Drop Shoulder tees come in Black, White, Grey, Red, Blue, Army Green, Beige, and Brown (Sizes: S, M, L, XL). Regular Tees come in Black, Charcoal, White, Steel Grey, Navy Blue, Army Green, Red, Beige, and Brown (Sizes: S, M, L, XL, XXL).",
   },
   {
     q: "Where are Deez Prints garments manufactured?",
@@ -352,7 +352,7 @@ export const REGULAR_TEE_COLORS = [
   "Brown",
 ] as const;
 
-export const DROP_SHOULDER_SIZES = ["S", "M", "L", "XL", "XXL"] as const;
+export const DROP_SHOULDER_SIZES = ["S", "M", "L", "XL"] as const;
 export const DROP_SHOULDER_COLORS = [
   "Black",
   "White",

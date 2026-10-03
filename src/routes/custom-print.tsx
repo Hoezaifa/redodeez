@@ -98,7 +98,8 @@ const bases = [
   },
 ];
 
-const clothingSizes = ["S", "M", "L", "XL", "XXL"];
+const dropShoulderSizes = ["S", "M", "L", "XL"];
+const regularSizes = ["S", "M", "L", "XL", "XXL"];
 const acidWashSizes = ["S", "M", "L"];
 const tapestrySizes = ["Small (50 x 30)", "Large (70 x 50)"];
 
@@ -164,8 +165,11 @@ function CustomPrint() {
   const isClothing = selectedBase.isClothing;
   const isAcidWash = base === "acid-wash";
   const isDropShoulder = base === "drop-shoulder";
-  const maxAllowedFiles = isClothing ? 2 : 1;
-  const availableClothingSizes = isAcidWash ? acidWashSizes : clothingSizes;
+  const availableClothingSizes = isAcidWash
+    ? acidWashSizes
+    : isDropShoulder
+    ? dropShoulderSizes
+    : regularSizes;
   const availableColors = isAcidWash
     ? acidWashColorOptions
     : isDropShoulder
@@ -183,7 +187,12 @@ function CustomPrint() {
     if (newBaseId === "tapestry" && files.length > 1) {
       setFiles((prev) => prev.slice(0, 1));
     }
-    const targetSizes = newBaseId === "acid-wash" ? acidWashSizes : clothingSizes;
+    const targetSizes =
+      newBaseId === "acid-wash"
+        ? acidWashSizes
+        : newBaseId === "drop-shoulder"
+        ? dropShoulderSizes
+        : regularSizes;
     const targetColors =
       newBaseId === "acid-wash"
         ? acidWashColorOptions
@@ -709,7 +718,7 @@ function CustomPrint() {
               {isClothing ? "3. SELECT SIZE" : "2. SELECT SIZE"}
             </label>
             {isClothing ? (
-              <div className={`grid gap-2 ${isAcidWash ? "grid-cols-3" : "grid-cols-5"}`}>
+              <div className={`grid gap-2 ${isAcidWash ? "grid-cols-3" : isDropShoulder ? "grid-cols-4" : "grid-cols-5"}`}>
                 {availableClothingSizes.map((s) => {
                   const selected = clothingSize === s;
                   return (
