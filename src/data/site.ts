@@ -269,11 +269,11 @@ export const collections: Collection[] = [
   },
   {
     slug: "accessories",
-    name: "Accessories",
-    blurb: "Premium ceramic mugs & lifestyle accessories.",
+    name: "Mugs",
+    blurb: "Premium ceramic graphic mugs & drinkware. Exclusively delivered in Karachi.",
     image: `${CDN}/v1773596802/mug_collection_gntc3f.webp`,
     status: "ACTIVE",
-    match: (p) => p.category === "accessories",
+    match: (p) => p.category === "accessories" || p.subcategory === "mugs",
   },
 ];
 
@@ -293,8 +293,13 @@ export const faqs = [
   },
   {
     q: "What is your shipping fee?",
-    a: "Karachi delivery is Rs. 200 and Nationwide Pakistan delivery is Rs. 450 (via Courier). Karachi orders over Rs. 5,000 qualify for FREE delivery.",
+    a: "Karachi delivery is Rs. 200 and Nationwide Pakistan delivery is Rs. 450 (via Courier). Karachi orders over Rs. 5,000 qualify for FREE delivery. Please note: ceramic mugs are delivered only within Karachi.",
     category: "Shipping",
+  },
+  {
+    q: "Do you deliver ceramic mugs nationwide?",
+    category: "Shipping",
+    a: "Due to the fragility of ceramic materials, our mugs are delivered exclusively within Karachi via local rider to guarantee 100% damage-free delivery. All apparel and tapestries are delivered nationwide across Pakistan.",
   },
   {
     q: "What is your exchange policy?",
@@ -390,6 +395,6 @@ export const navLinks = [
   { label: "Shop", to: "/collections" },
   { label: "Custom Print", to: "/custom-print" },
   { label: "Tapestries", to: "/collections/tapestries" },
-  { label: "Accessories", to: "/collections/accessories" },
+  { label: "Mugs", to: "/collections/accessories" },
   { label: "About", to: "/about" },
 ];

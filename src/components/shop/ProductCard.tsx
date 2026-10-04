@@ -19,7 +19,8 @@ export function ProductCard({
   const wished = wishlist.includes(product.id);
   const primary = product.images[0];
   const alt = product.images[1] ?? primary;
-  const isNew = !isComingSoon && index < 4;
+  const isMug = product.subcategory === "mugs" || product.category === "accessories";
+  const isNew = !isComingSoon && !isMug && index < 4;
 
   const subcategoryLabel = product.subcategory.replace(/-/g, " ").toUpperCase();
 
@@ -30,7 +31,7 @@ export function ProductCard({
       title: product.title,
       price: product.price,
       image: primary,
-      size: "M",
+      size: isMug ? "Standard 11oz" : "M",
       qty: 1,
     });
   };
@@ -85,6 +86,12 @@ export function ProductCard({
             <div className="absolute left-2.5 top-2.5 sm:left-3 sm:top-3 flex flex-col items-start gap-1 z-10 pointer-events-none">
               <span className="bg-amber-500 px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-black text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm">
                 Preview
+              </span>
+            </div>
+          ) : isMug ? (
+            <div className="absolute left-2.5 top-2.5 sm:left-3 sm:top-3 flex flex-col items-start gap-1 z-10 pointer-events-none">
+              <span className="bg-amber-500 text-black px-2 py-0.5 sm:px-2.5 sm:py-1 label-mono text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm">
+                Karachi Only
               </span>
             </div>
           ) : isNew ? (

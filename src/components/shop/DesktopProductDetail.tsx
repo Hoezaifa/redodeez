@@ -15,6 +15,7 @@ import {
   Clock,
   Info,
   RotateCcw,
+  MapPin,
 } from "lucide-react";
 import { cn, getProductImageAlt } from "@/lib/utils";
 import type { Product } from "@/data/products";
@@ -87,6 +88,7 @@ export function DesktopProductDetail({
   const hasMultipleImages = totalImages > 1;
 
   const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
+  const isMug = product.subcategory === "mugs" || product.category === "accessories";
   const isLargeTapestry = isTapestry && (size?.includes("70 x 50") || size?.toLowerCase().includes("large"));
   const displayPrice = isLargeTapestry ? 4200 : product.price;
 
@@ -164,8 +166,13 @@ export function DesktopProductDetail({
           )}
         >
           {/* Badge */}
-          <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-[10px] label-mono font-bold px-3 py-1 rounded-none uppercase tracking-wider pointer-events-none z-10 shadow-md">
-            PREMIUM STREETWEAR
+          <div
+            className={cn(
+              "absolute top-4 left-4 text-[10px] label-mono font-bold px-3 py-1 rounded-none uppercase tracking-wider pointer-events-none z-10 shadow-md",
+              isMug ? "bg-amber-500 text-black font-black" : "bg-primary text-primary-foreground"
+            )}
+          >
+            {isMug ? "KARACHI DELIVERY ONLY" : "PREMIUM STREETWEAR"}
           </div>
 
           {/* Image */}
@@ -301,6 +308,19 @@ export function DesktopProductDetail({
           </p>
         )}
 
+        {/* Karachi Delivery Only Alert for Mugs */}
+        {isMug && (
+          <div className="p-3.5 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-start gap-2.5">
+            <MapPin className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+            <div className="text-xs">
+              <span className="font-bold text-amber-400 uppercase tracking-wide label-mono">Karachi Delivery Only: </span>
+              <span className="text-zinc-300">
+                Fragile ceramic item. Safely dispatched via direct rider exclusively within Karachi (2–4 days). Nationwide courier shipping is not available for drinkware.
+              </span>
+            </div>
+          </div>
+        )}
+
         {/* Price */}
         <div className="flex items-baseline gap-2.5">
           <span className="font-display text-2xl xl:text-3xl font-black text-foreground">
@@ -321,8 +341,12 @@ export function DesktopProductDetail({
           </div>
           <span className="text-border-strong">|</span>
           <div className="flex items-center gap-1.5">
-            <Truck className="h-3.5 w-3.5 text-muted-foreground/60" />
-            <span>Free Karachi delivery on orders above Rs. {site.freeShippingThreshold.toLocaleString()}</span>
+            <Truck className={cn("h-3.5 w-3.5", isMug ? "text-amber-400" : "text-muted-foreground/60")} />
+            {isMug ? (
+              <span className="text-amber-300 font-semibold">Delivery only in Karachi</span>
+            ) : (
+              <span>Free Karachi delivery on orders above Rs. {site.freeShippingThreshold.toLocaleString()}</span>
+            )}
           </div>
           <span className="text-border-strong">|</span>
           <div className="flex items-center gap-1.5">
@@ -547,10 +571,21 @@ export function DesktopProductDetail({
               )}
             </AccordionItem>
             <AccordionItem title="Shipping Information">
-              <p>
-                Standard delivery time is 3-5 working days across Pakistan, and 2-4 working days for
-                Karachi. You will receive an instant order notification & confirmation update.
-              </p>
+              {isMug ? (
+                <div className="space-y-1.5 text-sm leading-relaxed">
+                  <p className="text-amber-300 font-bold">
+                    ⚠️ Karachi Delivery Exclusively
+                  </p>
+                  <p>
+                    Due to the fragile nature of high-gloss ceramic, all mugs are hand-packaged with bubble wrap and dispatched exclusively via direct rider within Karachi (2–4 working days) to guarantee zero damage. Mugs cannot be dispatched via nationwide courier services.
+                  </p>
+                </div>
+              ) : (
+                <p>
+                  Standard delivery time is 3-5 working days across Pakistan, and 2-4 working days for
+                  Karachi. You will receive an instant order notification &amp; confirmation update.
+                </p>
+              )}
             </AccordionItem>
             <AccordionItem title="Refund & Exchange">
               <p className="mb-2">

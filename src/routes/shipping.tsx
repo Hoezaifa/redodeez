@@ -79,6 +79,9 @@ function Shipping() {
               <li>
                 <strong className="text-emerald-400 font-semibold">Free Karachi Delivery:</strong> Karachi orders exceeding <strong className="text-foreground font-semibold">Rs. {site.freeShippingThreshold.toLocaleString()}</strong> qualify for complimentary free shipping.
               </li>
+              <li>
+                <strong className="text-amber-400 font-semibold">Ceramic Mugs (Karachi Only):</strong> Due to the fragility of ceramic drinkware, mugs are delivered exclusively within Karachi via local rider and cannot be dispatched via nationwide courier.
+              </li>
             </ul>
           </div>
 

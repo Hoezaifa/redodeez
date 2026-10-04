@@ -125,7 +125,9 @@ function Home() {
       // Regular Tees: Crisp White -> Heavy Black -> Warm Beige -> Grey
       regularTees: selectDiverseRow(allReg, ["white", "black", "beige", "grey"]),
       wallArt: allProducts.filter((p) => ["tapestries", "flags"].includes(p.subcategory)).slice(0, 4),
-      accessories: allProducts.filter((p) => p.category === "accessories" && p.images.length > 0),
+      accessories: allProducts.filter(
+        (p) => (p.category === "accessories" || p.subcategory === "mugs") && p.images.length > 0
+      ),
     };
   }, [allProducts]);
 
@@ -180,14 +182,17 @@ function Home() {
         ctaParams={{ slug: "t-shirts" }}
       />
 
-      <ProductRow
-        eyebrow="Accessories"
-        title={"Small\nstatements"}
-        items={accessories.slice(0, 4)}
-        ctaLabel="Shop accessories"
-        ctaTo="/collections/$slug"
-        ctaParams={{ slug: "accessories" }}
-      />
+      {/* Mugs Section — Karachi Delivery Only */}
+      {accessories.length > 0 && (
+        <ProductRow
+          eyebrow="Mugs · Karachi Delivery Only"
+          title={"Ceramic\nStatements"}
+          items={accessories.slice(0, 4)}
+          ctaLabel="Shop mugs"
+          ctaTo="/collections/$slug"
+          ctaParams={{ slug: "accessories" }}
+        />
+      )}
 
 
       {/* Community */}

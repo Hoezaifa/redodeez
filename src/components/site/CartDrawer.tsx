@@ -19,6 +19,11 @@ export function CartDrawer() {
       .slice(0, 3);
   }, [lines]);
 
+  const hasMugInCart = useMemo(
+    () => lines.some((l) => l.productId.startsWith("mug-") || l.title.toLowerCase().includes("mug")),
+    [lines]
+  );
+
 
 
   return (
@@ -61,7 +66,16 @@ export function CartDrawer() {
               <>
                 {/* Shipping info */}
                 <div className="border-b border-border px-5 py-3 bg-surface/50">
-                  {subtotal >= site.freeShippingThreshold ? (
+                  {hasMugInCart ? (
+                    <div className="space-y-0.5">
+                      <p className="text-xs text-amber-300 font-bold flex items-center gap-1.5">
+                        <span>📍</span> Karachi Delivery Only (Contains Ceramic Mugs)
+                      </p>
+                      <p className="text-[11px] text-muted-foreground">
+                        Ceramic drinkware delivered exclusively in Karachi (Rs. {SHIPPING_OPTIONS.karachi.fee}). {subtotal >= site.freeShippingThreshold && <span className="text-emerald-400 font-bold">Free Karachi delivery unlocked!</span>}
+                      </p>
+                    </div>
+                  ) : subtotal >= site.freeShippingThreshold ? (
                     <p className="text-xs text-emerald-400 font-bold">
                       🎉 Karachi orders qualify for FREE delivery!
                     </p>
@@ -88,6 +102,11 @@ export function CartDrawer() {
                         <p className="label-mono mt-1 text-muted-foreground">
                           {[l.size, l.color].filter(Boolean).join(" / ") || "One size"}
                         </p>
+                        {(l.productId.startsWith("mug-") || l.title.toLowerCase().includes("mug")) && (
+                          <span className="mt-1.5 inline-block self-start text-[10px] font-mono font-bold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-1.5 py-0.5 rounded">
+                            Karachi Delivery Only
+                          </span>
+                        )}
                         {l.note && <p className="mt-1 text-xs text-muted-foreground">{l.note}</p>}
                         <div className="mt-auto flex items-center justify-between pt-3">
                           <div className="flex items-center border border-border">

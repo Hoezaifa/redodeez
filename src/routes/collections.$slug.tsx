@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ChevronDown, Clock } from "lucide-react";
+import { ChevronDown, Clock, MapPin, Truck } from "lucide-react";
 import { getProducts, type Product } from "@/data/products";
 import { collections, site, aestheticSlugs, SITE_URL, toAbsoluteImageUrl, toOgImageUrl } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -30,6 +30,13 @@ export const Route = createFileRoute("/collections/$slug")({
       throw redirect({
         to: "/collections/$slug",
         params: { slug: "tapestries" },
+        statusCode: 301,
+      });
+    }
+    if (params.slug === "mugs") {
+      throw redirect({
+        to: "/collections/$slug",
+        params: { slug: "accessories" },
         statusCode: 301,
       });
     }
@@ -174,6 +181,20 @@ function CollectionPage() {
           sub={blurb}
         />
       </div>
+
+      {slug === "accessories" && (
+        <div className="mt-4 p-4 md:p-5 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-start gap-3">
+          <MapPin className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
+          <div>
+            <p className="label-mono text-amber-400 font-extrabold text-xs uppercase tracking-wider flex items-center gap-1.5">
+              <span>Karachi Delivery Only</span>
+            </p>
+            <p className="text-xs md:text-sm text-neutral-300 font-sans mt-0.5 leading-relaxed">
+              Due to the fragile nature of high-gloss ceramic drinkware, all mugs are delivered exclusively within Karachi via local rider to guarantee 100% damage-free delivery. Nationwide courier delivery is not supported for ceramic mugs.
+            </p>
+          </div>
+        </div>
+      )}
 
       {isComingSoonCollection && (
         <div className="mt-4 p-4 md:p-6 bg-amber-500/10 border border-amber-500/30 rounded-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">

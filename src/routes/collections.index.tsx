@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useRef, useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, MapPin } from "lucide-react";
 import { getProducts, type Product } from "@/data/products";
 import { collections, site, SITE_URL } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -356,6 +356,20 @@ function ShopAll() {
               Page {currentPage} of {totalPages}
             </span>
           )}
+        </div>
+      )}
+
+      {cat === "accessories" && (
+        <div className="mt-4 p-4 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-start gap-3">
+          <MapPin className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
+          <div>
+            <p className="label-mono text-amber-400 font-extrabold text-xs uppercase tracking-wider">
+              Karachi Delivery Only
+            </p>
+            <p className="text-xs md:text-sm text-neutral-300 font-sans mt-0.5 leading-relaxed">
+              Due to fragile ceramic handling, all mugs are delivered exclusively within Karachi via local rider. Nationwide courier shipping is not available for drinkware.
+            </p>
+          </div>
         </div>
       )}
 

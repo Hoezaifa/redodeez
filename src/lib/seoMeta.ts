@@ -83,8 +83,8 @@ const COLLECTION_TITLES: Record<string, { title: string; desc: string }> = {
     desc: "Heavyweight 350+ GSM fleece streetwear hoodies by Deez Prints. Premium boxy fit with durable graphic prints, dispatched across Pakistan.",
   },
   accessories: {
-    title: "Anime Mugs & Streetwear Accessories in Pakistan | Deez Prints",
-    desc: "High-gloss ceramic anime mugs and graphic drinkware accessories by Deez Prints. Safely packaged and delivered nationwide across Pakistan.",
+    title: "Anime Mugs & Graphic Drinkware in Karachi | Deez Prints",
+    desc: "High-gloss ceramic anime mugs and graphic drinkware by Deez Prints. Safely packaged and delivered exclusively across Karachi via local rider.",
   },
   "cinema-collection": {
     title: "Cinema Collection Graphic T-Shirts in Pakistan | Deez Prints",
@@ -185,7 +185,7 @@ export function productMeta(
   } else if (isTapestry) {
     description = `${entityString}${franchisePart} satin wall tapestry. Made to order in Karachi, delivered nationwide across Pakistan. 7-day exchange.`;
   } else if (isMug) {
-    description = `${entityString} ceramic anime mug by Deez Prints. Scratch-resistant print, safe nationwide dispatch across Pakistan.`;
+    description = `${entityString} ceramic anime mug by Deez Prints. Scratch-resistant print, safe dispatch exclusively across Karachi.`;
   } else {
     description = `${entityString}${franchisePart} ${garmentType.toLowerCase()}. ${fitBlurb}, DTF printed in Karachi. Rs. ${product.price}. Free delivery over Rs. 5,000.`;
   }

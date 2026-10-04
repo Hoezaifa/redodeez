@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Download, Share2, ArrowLeft, Info } from "lucide-react";
+import { Check, Download, Share2, ArrowLeft, Info, MapPin } from "lucide-react";
 import { toPng } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site, SHIPPING_OPTIONS, type DeliveryLocation } from "@/data/site";
@@ -57,6 +57,18 @@ function Checkout() {
   const total = lines.length ? subtotal + shippingCost : 0;
 
   const hasCustomItems = lines.some((l) => l.isCustom);
+  const hasMugInCart = useMemo(
+    () => lines.some((l) => l.productId.startsWith("mug-") || l.title.toLowerCase().includes("mug")),
+    [lines]
+  );
+
+  useEffect(() => {
+    if (hasMugInCart) {
+      setCityMode("karachi");
+      setDeliveryLocation("karachi");
+      setFormData((f) => ({ ...f, city: "Karachi" }));
+    }
+  }, [hasMugInCart]);
 
   useEffect(() => {
     if (lines.length > 0) {
@@ -85,7 +97,12 @@ function Checkout() {
       return;
     }
 
-    if (formData.city.trim().toLowerCase() !== "karachi" && deliveryLocation === "karachi") {
+    if (hasMugInCart) {
+      if (formData.city.trim().toLowerCase() !== "karachi" || deliveryLocation !== "karachi") {
+        alert("Ceramic mugs are fragile and can only be delivered within Karachi via local rider. Please use a Karachi delivery address or remove mugs from your bag to order nationwide.");
+        return;
+      }
+    } else if (formData.city.trim().toLowerCase() !== "karachi" && deliveryLocation === "karachi") {
       setDeliveryLocation("nationwide");
     }
 
@@ -520,21 +537,34 @@ function Checkout() {
                       </button>
                       <button
                         type="button"
+                        disabled={hasMugInCart}
                         onClick={() => {
+                          if (hasMugInCart) return;
                           setCityMode("other");
                           setDeliveryLocation("nationwide");
                           setFormData((f) => ({ ...f, city: f.city === "Karachi" ? "" : f.city }));
                         }}
-                        className={`flex-1 py-2.5 text-xs font-bold rounded-xl border transition-all cursor-pointer ${
-                          cityMode === "other"
-                            ? "bg-zinc-800/90 border-orange-500 text-white"
-                            : "bg-zinc-900/40 border-white/10 text-zinc-400 hover:border-white/20"
+                        className={`flex-1 py-2.5 text-xs font-bold rounded-xl border transition-all ${
+                          hasMugInCart
+                            ? "opacity-40 cursor-not-allowed bg-zinc-900/20 border-white/5 text-zinc-500"
+                            : cityMode === "other"
+                            ? "bg-zinc-800/90 border-orange-500 text-white cursor-pointer"
+                            : "bg-zinc-900/40 border-white/10 text-zinc-400 hover:border-white/20 cursor-pointer"
                         }`}
                       >
-                        Other City
+                        Other City {hasMugInCart && "(Unavailable)"}
                       </button>
                     </div>
-                    {cityMode === "other" && (
+
+                    {hasMugInCart ? (
+                      <div className="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-300 flex items-start gap-2">
+                        <MapPin className="h-4 w-4 shrink-0 text-amber-400 mt-0.5" />
+                        <p className="leading-relaxed">
+                          <strong className="text-amber-400 font-bold">Karachi Delivery Only: </strong>
+                          Your bag contains ceramic drinkware. Because ceramic is fragile, delivery is strictly limited to Karachi via local rider. Nationwide shipping is disabled for this order.
+                        </p>
+                      </div>
+                    ) : cityMode === "other" ? (
                       <input
                         required
                         name="city"
@@ -549,7 +579,7 @@ function Checkout() {
                         autoFocus
                         className="w-full bg-zinc-900/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-white/30 outline-none transition-colors"
                       />
-                    )}
+                    ) : null}
                   </div>
                   <textarea
                     rows={2}
@@ -572,43 +602,54 @@ function Checkout() {
                     )}
                   </div>
                   <div className="grid grid-cols-2 gap-3">
-                    {(Object.entries(SHIPPING_OPTIONS) as [DeliveryLocation, typeof SHIPPING_OPTIONS["karachi"]][]).map(([key, opt]) => (
-                      <button
-                        key={key}
-                        type="button"
-                        onClick={() => {
-                          setDeliveryLocation(key);
-                          if (key === "karachi") {
-                            setCityMode("karachi");
-                            setFormData((f) => ({ ...f, city: "Karachi" }));
-                          } else {
-                            setCityMode("other");
-                            setFormData((f) => ({ ...f, city: f.city === "Karachi" ? "" : f.city }));
-                          }
-                        }}
-                        className={`flex flex-col p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
-                          deliveryLocation === key
-                            ? "bg-zinc-800/90 border-orange-500 shadow-md"
-                            : "bg-zinc-900/40 border-white/10 hover:border-white/20"
-                        }`}
-                      >
-                        <div className="flex items-center justify-between w-full mb-1">
-                          <span className="font-bold text-xs text-white">{opt.label}</span>
-                          <div className={`w-3.5 h-3.5 rounded-full border ${
-                            deliveryLocation === key
-                              ? "border-4 border-orange-500 bg-white"
-                              : "border-zinc-500"
-                          }`} />
-                        </div>
-                        <span className="text-[11px] text-zinc-400">
-                          {isFreeShipping && key === "karachi" ? (
-                            <span className="text-emerald-400 font-bold">FREE — {opt.method}</span>
-                          ) : (
-                            `Rs. ${opt.fee} — ${opt.method}`
-                          )}
-                        </span>
-                      </button>
-                    ))}
+                    {(Object.entries(SHIPPING_OPTIONS) as [DeliveryLocation, typeof SHIPPING_OPTIONS["karachi"]][]).map(([key, opt]) => {
+                      const isDisabled = hasMugInCart && key === "nationwide";
+                      return (
+                        <button
+                          key={key}
+                          type="button"
+                          disabled={isDisabled}
+                          onClick={() => {
+                            if (isDisabled) return;
+                            setDeliveryLocation(key);
+                            if (key === "karachi") {
+                              setCityMode("karachi");
+                              setFormData((f) => ({ ...f, city: "Karachi" }));
+                            } else {
+                              setCityMode("other");
+                              setFormData((f) => ({ ...f, city: f.city === "Karachi" ? "" : f.city }));
+                            }
+                          }}
+                          className={`flex flex-col p-3.5 rounded-xl border text-left transition-all ${
+                            isDisabled
+                              ? "opacity-35 cursor-not-allowed bg-zinc-900/20 border-white/5"
+                              : deliveryLocation === key
+                              ? "bg-zinc-800/90 border-orange-500 shadow-md cursor-pointer"
+                              : "bg-zinc-900/40 border-white/10 hover:border-white/20 cursor-pointer"
+                          }`}
+                        >
+                          <div className="flex items-center justify-between w-full mb-1">
+                            <span className="font-bold text-xs text-white">
+                              {opt.label} {isDisabled && "(Unavailable for Mugs)"}
+                            </span>
+                            <div className={`w-3.5 h-3.5 rounded-full border ${
+                              deliveryLocation === key
+                                ? "border-4 border-orange-500 bg-white"
+                                : "border-zinc-500"
+                            }`} />
+                          </div>
+                          <span className="text-[11px] text-zinc-400">
+                            {isDisabled ? (
+                              <span className="text-amber-400/80 font-medium">Karachi only</span>
+                            ) : isFreeShipping && key === "karachi" ? (
+                              <span className="text-emerald-400 font-bold">FREE — {opt.method}</span>
+                            ) : (
+                              `Rs. ${opt.fee} — ${opt.method}`
+                            )}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                   <p className="text-[11px] text-amber-400/90 leading-relaxed bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2.5">
                     ⏳ {site.orderPrepNotice}
@@ -845,6 +886,16 @@ function Checkout() {
           <div className="bg-zinc-900/60 border border-white/10 rounded-2xl p-6 sticky top-28">
             <h3 className="text-lg font-bold text-white mb-4">Order Summary</h3>
 
+            {hasMugInCart && (
+              <div className="mb-4 p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-300 flex items-start gap-2">
+                <MapPin className="h-4 w-4 shrink-0 text-amber-400 mt-0.5" />
+                <div>
+                  <span className="font-bold text-amber-400">Karachi Delivery Only: </span>
+                  <span>Order contains ceramic mugs (local rider dispatch).</span>
+                </div>
+              </div>
+            )}
+
             {/* Item List */}
             <div className="space-y-3 max-h-[320px] overflow-y-auto pr-1">
               {lines.map((item) => (
@@ -861,6 +912,11 @@ function Checkout() {
                       <p className="text-[11px] text-zinc-400">
                         {[item.size, item.color].filter(Boolean).join(" / ")}
                       </p>
+                    )}
+                    {(item.productId.startsWith("mug-") || item.title.toLowerCase().includes("mug")) && (
+                      <span className="inline-block mt-0.5 text-[9px] font-mono font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-1 rounded">
+                        Karachi Only
+                      </span>
                     )}
                   </div>
                   <span className="text-xs font-bold text-white font-mono shrink-0">

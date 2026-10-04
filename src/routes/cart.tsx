@@ -24,6 +24,9 @@ export const Route = createFileRoute("/cart")({
 
 function CartPage() {
   const { lines, setQty, remove, subtotal } = useCart();
+  const hasMugInCart = lines.some(
+    (l) => l.productId.startsWith("mug-") || l.title.toLowerCase().includes("mug")
+  );
 
   return (
     <div className="edge py-14 md:py-20">
@@ -54,6 +57,11 @@ function CartPage() {
                       <p className="label-mono mt-1 text-muted-foreground">
                         {[l.size, l.color].filter(Boolean).join(" / ") || "One size"}
                       </p>
+                      {(l.productId.startsWith("mug-") || l.title.toLowerCase().includes("mug")) && (
+                        <span className="mt-1.5 inline-block text-[10px] font-mono font-bold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-1.5 py-0.5 rounded">
+                          Karachi Delivery Only
+                        </span>
+                      )}
                       {l.note && <p className="mt-1 text-xs text-muted-foreground">{l.note}</p>}
                     </div>
                     <button
@@ -104,10 +112,24 @@ function CartPage() {
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Shipping</dt>
                 <dd className="text-xs">
-                  <span className="text-muted-foreground">from Rs. {SHIPPING_OPTIONS.karachi.fee}</span>
+                  {hasMugInCart ? (
+                    <span className="text-amber-300 font-semibold">Karachi (Rs. {SHIPPING_OPTIONS.karachi.fee})</span>
+                  ) : (
+                    <span className="text-muted-foreground">from Rs. {SHIPPING_OPTIONS.karachi.fee}</span>
+                  )}
                 </dd>
               </div>
             </dl>
+            {hasMugInCart ? (
+              <div className="mt-4 p-3 rounded-lg border border-amber-500/30 bg-amber-500/10 text-xs">
+                <p className="font-bold flex items-center gap-1 text-amber-400">
+                  <span>📍</span> Karachi Delivery Only Notice
+                </p>
+                <p className="text-zinc-300 mt-1 leading-relaxed">
+                  Your bag includes ceramic mugs. Due to fragile handling, this order can only be delivered within Karachi via local rider.
+                </p>
+              </div>
+            ) : null}
             <div className="mt-4 p-3 rounded-lg border border-white/10 bg-background/50 text-xs">
               {subtotal >= site.freeShippingThreshold ? (
                 <p className="text-emerald-400 font-bold">
@@ -133,7 +155,9 @@ function CartPage() {
               Checkout
             </Link>
             <p className="label-mono mt-4 text-muted-foreground text-xs">
-              Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}
+              {hasMugInCart
+                ? `Ceramic Mugs · Karachi Only (Rs. ${SHIPPING_OPTIONS.karachi.fee})`
+                : `Karachi Rs. ${SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. ${SHIPPING_OPTIONS.nationwide.fee}`}
             </p>
           </aside>
         </div>

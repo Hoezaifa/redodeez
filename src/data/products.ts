@@ -5280,6 +5280,7 @@ export const products: Product[] = [
   {
     "id": "mug-manga-panel",
     "title": "MANGA PANEL MUG",
+    "description": "High-gloss ceramic mug featuring high-definition manga panels wrapped around the exterior. Durable, scratch-resistant print built for everyday coffee and tea. Handled with protective packaging and delivered exclusively in Karachi.",
     "price": 2000,
     "category": "accessories",
     "subcategory": "mugs",
@@ -5311,6 +5312,7 @@ export const products: Product[] = [
   {
     "id": "mug-colored",
     "title": "SUBLIMATION MUG (INNER + HANDLE COLORED)",
+    "description": "Two-tone sublimation ceramic mug featuring vibrant inner and handle color accents. Crisp graphic printing on premium glazed ceramic. Packaged with care and delivered exclusively within Karachi.",
     "price": 1200,
     "category": "accessories",
     "subcategory": "mugs",
@@ -5399,7 +5401,18 @@ const VISIBLE_SUBCATEGORIES: ReadonlySet<string> = new Set([
   "acid-wash",
   "tapestries",
   "flags",
+  "mugs",
 ]);
+
+export function isMugProduct(p?: { id?: string; category?: string; subcategory?: string; title?: string } | null): boolean {
+  if (!p) return false;
+  return (
+    p.subcategory === "mugs" ||
+    p.category === "accessories" ||
+    (p.id?.startsWith("mug-") ?? false) ||
+    (p.title?.toLowerCase().includes("mug") ?? false)
+  );
+}
 
 export async function getProducts(): Promise<Product[]> {
   const overrides = await fetchProductOverrides();
