@@ -27,8 +27,10 @@ import { ProductDetail } from "@/components/shop/DesktopProductDetail";
 import { cn, getProductImageAlt } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema, breadcrumbSchema } from "@/lib/structuredData";
+import { getRelatedProducts } from "@/lib/recommendations";
 
 const LEGACY_PRODUCT_SLUGS: Record<string, string> = {
+  "breakout-tee": "dp-acid-wash-breakout",
   "kanye-yeezus-shirt": "dp-acid-wash-berserk-skull-blade",
   "tshirt-acid-4": "dp-acid-wash-berserk-skull-blade",
   "tshirt-acid-9": "dp-acid-wash-spiderverse",
@@ -251,9 +253,7 @@ function ProductPage() {
     availableSizes.length > 0;
   const needsColor = availableColors.length > 0;
   const wished = wishlist.includes(product.id);
-  const related = allProducts
-    .filter((p) => p.id !== product.id && p.category === product.category && p.images.length)
-    .slice(0, 4);
+  const related = getRelatedProducts(product, allProducts, 4);
 
   const isLargeTapestry = isTapestry && (size?.includes("70 x 50") || size?.toLowerCase().includes("large"));
   const currentPrice = isLargeTapestry ? 4200 : product.price;

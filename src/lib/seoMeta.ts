@@ -138,61 +138,133 @@ export function productMeta(
   character?: string | null
 ): { title: string; description: string; seoTitle: string } {
   const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
-  const isMug = product.category === "accessories";
+  const isMug = product.category === "accessories" || product.subcategory === "mugs";
   const isAcidWash = product.subcategory === "acid-wash";
   const isDropShoulder = product.subcategory === "drop-shoulder";
 
-  // Clean the title by removing trailing "Tee", "T-Shirt", "Acid Wash Tee", etc. to avoid duplicate words
+  // Helper to check if a phrase is already contained (normalized for hyphens and punctuation)
+  const containsNormalized = (text: string, phrase?: string | null): boolean => {
+    if (!phrase) return false;
+    const t = text.toLowerCase().replace(/[^a-z0-9]/g, " ");
+    const p = phrase.toLowerCase().replace(/[^a-z0-9]/g, " ");
+    return ` ${t} `.includes(` ${p} `);
+  };
+
+  // Clean design name by stripping garment suffixes and internal garment markers
   let cleanDesign = product.title
-    .replace(/\s+(Acid Wash Tee|Drop Shoulder Tee|Regular Tee|Tee|T-Shirt|Tshirt)$/i, "")
+    .replace(/\s+(Acid Wash Tee|Drop Shoulder Tee|Regular Tee|Graphic Tee|Tee|T-Shirt|Tshirt|Satin Wall Tapestry|Wall Tapestry|Tapestry|Ceramic Mug|Graphic Mug|Mug)$/i, "")
+    .replace(/\b(Acid Wash Tee|Drop Shoulder Tee|Regular Tee|Graphic Tee)\b/gi, "")
     .replace(/\s+(Acid Wash|Drop Shoulder)$/i, "")
+    .replace(/\s{2,}/g, " ")
     .trim();
 
-  // If character is known and not already in cleanDesign, prepend or use it
-  let entityString = cleanDesign;
-  if (character && !cleanDesign.toLowerCase().includes(character.toLowerCase())) {
-    entityString = `${character} ${cleanDesign}`;
+  // If character is known and not already present, prefix or add it
+  if (character && !containsNormalized(cleanDesign, character)) {
+    cleanDesign = `${character} ${cleanDesign}`;
+  }
+
+  // If franchise is known and NOT already in cleanDesign or redundant with character
+  let franchisePart = "";
+  if (
+    franchise &&
+    !containsNormalized(cleanDesign, franchise) &&
+    (!character || !containsNormalized(character, franchise))
+  ) {
+    franchisePart = ` (${franchise})`;
   }
 
   let garmentType = "Graphic T-Shirt";
   let fitBlurb = "100% cotton graphic apparel";
 
   if (isTapestry) {
-    garmentType = "Satin Wall Tapestry";
+    garmentType = containsNormalized(cleanDesign, "tapestry") ? "Satin Wall Art" : "Satin Wall Tapestry";
     fitBlurb = "High-definition digital sublimation printed satin tapestry";
   } else if (isMug) {
-    garmentType = "Anime Ceramic Mug";
+    garmentType = containsNormalized(cleanDesign, "mug") ? "Drinkware" : "Anime Ceramic Mug";
     fitBlurb = "Premium high-gloss ceramic mug";
   } else if (isAcidWash) {
-    garmentType = "Acid Wash T-Shirt";
+    garmentType = containsNormalized(cleanDesign, "acid") ? "Vintage Graphic T-Shirt" : "Acid Wash T-Shirt";
     fitBlurb = "Hand-processed vintage mineral wash (100% cotton)";
   } else if (isDropShoulder) {
-    garmentType = "Drop Shoulder T-Shirt";
+    garmentType = containsNormalized(cleanDesign, "drop") ? "Oversized T-Shirt" : "Drop Shoulder T-Shirt";
     fitBlurb = "Heavyweight 240+ GSM oversized combed cotton";
   } else {
-    garmentType = "Regular Fit T-Shirt";
+    garmentType = containsNormalized(cleanDesign, "regular") ? "Graphic T-Shirt" : "Regular Fit T-Shirt";
     fitBlurb = "180–200 GSM ring-spun cotton jersey";
   }
 
-  const franchisePart = franchise ? ` ${franchise}` : "";
-  const title = `${entityString}${franchisePart} ${garmentType} in Pakistan | Deez Prints`;
+  const title = `${cleanDesign}${franchisePart} ${garmentType} in Pakistan | Deez Prints`;
 
+  // Fit string for factual summary
+  let fitStr = "regular fit T-shirt";
+  if (isTapestry) fitStr = "satin wall tapestry";
+  else if (isMug) fitStr = "ceramic coffee mug";
+  else if (isAcidWash) fitStr = "vintage acid wash T-shirt";
+  else if (isDropShoulder) fitStr = "drop shoulder T-shirt";
+
+  // Build factual product-specific meta description
   let description = "";
-  if (product.description && product.description.length > 30) {
-    description = product.description.length > 155
-      ? `${product.description.slice(0, 151).trim()}...`
-      : product.description;
-  } else if (isTapestry) {
-    description = `${entityString}${franchisePart} satin wall tapestry. Made to order in Karachi, delivered nationwide across Pakistan. 7-day exchange.`;
-  } else if (isMug) {
-    description = `${entityString} ceramic anime mug by Deez Prints. Scratch-resistant print, safe dispatch exclusively across Karachi.`;
-  } else {
-    description = `${entityString}${franchisePart} ${garmentType.toLowerCase()}. ${fitBlurb}, DTF printed in Karachi. Rs. ${product.price}. Free delivery over Rs. 5,000.`;
-  }
+  if (product.id === "dp-drop-shoulder-tbsm") {
+    description = "Seedhe Maut TBSM drop shoulder T-shirt with performer silhouettes and a chest emblem. DTF printed in Karachi by Deez Prints.";
+  } else if (product.id === "dp-drop-shoulder-dr-doom") {
+    description = "Doctor Doom (Marvel) drop shoulder T-shirt with green-hooded metallic mask back portrait and chest logo. Boxy streetwear fit by Deez Prints.";
+  } else if (product.id === "dp-acid-wash-dr-doom") {
+    description = "Doctor Doom (Marvel) vintage acid wash T-shirt with green-hooded metallic mask back portrait and chest logo. 100% cotton by Deez Prints.";
+  } else if (product.id === "dp-drop-shoulder-spiderman-comic-battle") {
+    description = "Spider-Man comic battle drop shoulder T-shirt featuring vintage action back artwork and chest emblem. Heavyweight cotton by Deez Prints.";
+  } else if (product.id === "dp-acid-wash-berserk-classic") {
+    description = "Berserk manga vintage acid wash T-shirt with Japanese panel back artwork and chest graphic. Made in Karachi by Deez Prints.";
+  } else if (product.id === "dp-acid-wash-dbz-bardock-the-fallen-warrior") {
+    description = "DBZ Bardock the Fallen Warrior acid wash T-shirt with bold red portrait back graphic. 100% cotton by Deez Prints.";
+  } else if (product.id === "dp-regular-bleach") {
+    description = "Bleach manga regular fit T-shirt with spiky-haired portrait back graphic and front wordmark. DTF printed in Karachi by Deez Prints.";
+  } else if (product.id === "dp-drop-shoulder-naruto-2") {
+    description = "Naruto Madara drop shoulder T-shirt with folded-arms monochrome illustration and chest leaf symbol. Deez Prints streetwear.";
+  } else if (product.id === "dp-drop-shoulder-lcnst") {
+    description = "LCNST drop shoulder T-shirt with red dripping sculptural illustration and chest wordmark. Heavyweight cotton by Deez Prints.";
+  } else if (product.id === "berserk-tee") {
+    description = "Berserk manga regular fit T-shirt with monochrome panel collage and red-and-black chest graphic. Made in Karachi by Deez Prints.";
+  } else if (product.id === "dp-drop-shoulder-chainsaw-1") {
+    description = "Denji Chainsaw Man drop shoulder T-shirt with red-and-monochrome action illustration and chest wordmark. Deez Prints streetwear.";
+  } else if (product.id === "dp-drop-shoulder-goodfellas") {
+    description = "Goodfellas cinema drop shoulder T-shirt with monochrome portrait collage and dark red title lettering. Deez Prints streetwear.";
+  } else if (product.id === "dp-regular-chinese") {
+    description = "Rockstar Tokyo regular fit T-shirt with monochrome portrait and red Japanese typography. 100% cotton by Deez Prints.";
+  } else if (product.id === "dp-acid-wash-mobland") {
+    description = "Outlaw vintage acid wash T-shirt with hem-level monochrome group scene and chest wordmark. Deez Prints streetwear.";
+  } else if (product.id === "tapestry-berserk-eclipse-tapestry") {
+    description = "Berserk Eclipse satin wall tapestry featuring detailed manga artwork in high-definition digital print. Made in Karachi by Deez Prints.";
+  } else if (product.id === "mug-white") {
+    description = "Skull graphic ceramic coffee mug with vertical anatomical illustration. Safe rider delivery exclusively across Karachi by Deez Prints.";
+  } else if (product.description && product.description.length > 20) {
+    const raw = product.description.trim();
+    const sentences = raw.match(/[^.!?]+[.!?]+/g);
+    let artworkFeature = "";
+    if (sentences && sentences.length > 0) {
+      artworkFeature = sentences[0].trim().replace(/^[A-Z]/, (c) => c.toLowerCase()).replace(/[.]+$/, "");
+    }
 
-  // Ensure description is safe length
-  if (description.length > 160) {
-    description = `${description.slice(0, 155).trim()}...`;
+    if (artworkFeature) {
+      const candidate = `${cleanDesign} ${fitStr} featuring ${artworkFeature}. DTF printed in Karachi by Deez Prints.`;
+      if (candidate.length <= 155) {
+        description = candidate;
+      } else {
+        const shorter = `${cleanDesign} ${fitStr} featuring ${artworkFeature}.`;
+        if (shorter.length <= 155) {
+          description = shorter;
+        } else {
+          description = `${cleanDesign} ${fitStr}. Made to order in Karachi by Deez Prints with nationwide Pakistan delivery.`;
+        }
+      }
+    } else {
+      description = `${cleanDesign} ${fitStr}. Made to order in Karachi by Deez Prints with nationwide Pakistan delivery.`;
+    }
+  } else if (isTapestry) {
+    description = `${cleanDesign}${franchisePart} satin wall tapestry. Made to order in Karachi by Deez Prints, delivered nationwide across Pakistan.`;
+  } else if (isMug) {
+    description = `${cleanDesign} ceramic anime mug by Deez Prints. Scratch-resistant print, safe dispatch exclusively across Karachi.`;
+  } else {
+    description = `${cleanDesign}${franchisePart} ${garmentType.toLowerCase()}. ${fitBlurb}, DTF printed in Karachi by Deez Prints.`;
   }
 
   return {

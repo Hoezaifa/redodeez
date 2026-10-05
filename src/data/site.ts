@@ -159,6 +159,7 @@ export type Collection = {
   blurb: string;
   image: string;
   status: CollectionStatus;
+  navHidden?: boolean;
   match: (p: { category: string; subcategory: string; aesthetic?: string }) => boolean;
 };
 
@@ -201,7 +202,8 @@ export const collections: Collection[] = [
     blurb: "Experimental artwork, surreal graphics and limited releases.",
     image: "/assets/collections/art_drop.webp",
     status: "ACTIVE",
-    match: (p) => p.aesthetic === "art-drop",
+    navHidden: true,
+        match: (p) => p.aesthetic === "art-drop" || p.subcategory === "tapestries" || p.title.toLowerCase().includes("abstract") || p.title.toLowerCase().includes("wings"),
   },
   {
     slug: "music-drops",
@@ -209,7 +211,8 @@ export const collections: Collection[] = [
     blurb: "Travis Scott, Metallica, Guns N' Roses — legendary artists on premium streetwear.",
     image: "/assets/collections/street_aesthetic.webp",
     status: "ACTIVE",
-    match: (p) => p.aesthetic === "music-drops",
+    navHidden: true,
+        match: (p) => p.aesthetic === "music-drops" || /travis|utopia|metallica|guns|tbsm|seedhe|encore/i.test(p.title),
   },
   {
     slug: "dark-artistry",
@@ -217,7 +220,8 @@ export const collections: Collection[] = [
     blurb: "Gothic designs, dark fantasy, and mythological artwork.",
     image: "/assets/collections/street_aesthetic.webp",
     status: "ACTIVE",
-    match: (p) => p.aesthetic === "dark-artistry",
+    navHidden: true,
+        match: (p) => p.aesthetic === "dark-artistry" || /berserk|skull|blade|guts|warrior|curse|ruinborn/i.test(p.title),
   },
   {
     slug: "streetwear-essentials",
@@ -225,7 +229,8 @@ export const collections: Collection[] = [
     blurb: "Bold typography, street energy and everyday statements.",
     image: "/assets/collections/street_aesthetic.webp",
     status: "ACTIVE",
-    match: (p) => p.aesthetic === "streetwear-essentials",
+    navHidden: true,
+        match: (p) => !p.retired && (p.subcategory === "drop-shoulder" || p.subcategory === "acid-wash"),
   },
   {
     slug: "drop-shoulder",

@@ -236,7 +236,7 @@ function Home() {
       {/* Collections quick links */}
       <section className="edge border-t border-border py-14">
         <div className="flex flex-wrap gap-2">
-          {collections.map((c) => (
+          {collections.filter((c) => !c.navHidden).map((c) => (
             <Link
               key={c.slug}
               to="/collections/$slug"

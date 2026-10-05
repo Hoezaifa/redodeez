@@ -98,7 +98,7 @@ function ShopAll() {
   }, [moreOpen]);
 
   const nonEmptyCollections = useMemo(() => {
-    return collections.filter((c) => allProducts.some((p) => c.match(p)));
+    return collections.filter((c) => !c.navHidden && allProducts.some((p) => c.match(p)));
   }, [allProducts]);
 
   const visibleCollections = nonEmptyCollections.slice(0, VISIBLE_COUNT);

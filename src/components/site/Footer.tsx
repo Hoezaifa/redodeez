@@ -44,7 +44,7 @@ export function Footer() {
         <nav>
           <p className="label-mono text-muted-foreground uppercase tracking-wider text-xs">Shop</p>
           <ul className="mt-5 space-y-2.5 text-sm">
-            {collections.map((c) => (
+            {collections.filter((c) => !c.navHidden).map((c) => (
               <li key={c.slug}>
                 <Link
                   to="/collections/$slug"

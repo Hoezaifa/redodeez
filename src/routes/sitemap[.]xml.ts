@@ -43,12 +43,12 @@ export const Route = createFileRoute("/sitemap.xml")({
 
         // Only index products that are published and have at least one image
         const activeProducts = allProducts.filter(
-          (p) => p.images && p.images.length > 0 && (p as any).published !== false
+          (p) => !p.retired && p.images && p.images.length > 0 && (p as any).published !== false
         );
 
-        // Only emit collections that are ACTIVE and have at least one matching active product
+        // Only emit collections that are ACTIVE, not navHidden, and have at least one matching active product
         const activeCollections = collections.filter((c) =>
-          c.status === "ACTIVE" && activeProducts.some((p) => c.match(p))
+          !c.navHidden && c.status === "ACTIVE" && activeProducts.some((p) => c.match(p))
         );
 
         const staticPaths = [

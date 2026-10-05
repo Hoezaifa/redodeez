@@ -124,13 +124,21 @@ const FRANCHISE_PATTERNS: Array<{
   },
   {
     franchise: "Marvel",
-    keywords: ["spider-man", "spiderman", "peter parker", "spiderverse", "marvel"],
-    characters: [{ name: "Spider-Man", aliases: ["spider-man", "spiderman", "peter parker"] }],
+    keywords: ["spider-man", "spiderman", "peter parker", "spiderverse", "doctor doom", "dr. doom", "dr doom", "venom", "punisher", "marvel"],
+    characters: [
+      { name: "Doctor Doom", aliases: ["doctor doom", "dr. doom", "dr doom"] },
+      { name: "Spider-Man", aliases: ["spider-man", "spiderman", "peter parker"] },
+      { name: "Venom", aliases: ["venom"] },
+      { name: "Punisher", aliases: ["punisher"] },
+    ],
   },
   {
     franchise: "DC",
-    keywords: ["batman", "dark knight"],
-    characters: [{ name: "Batman", aliases: ["batman", "dark knight"] }],
+    keywords: ["batman", "dark knight", "joker"],
+    characters: [
+      { name: "Batman", aliases: ["batman", "dark knight"] },
+      { name: "Joker", aliases: ["joker"] },
+    ],
   },
   {
     franchise: "Cinema",
@@ -250,5 +258,5 @@ export function getProductSeoData(product: Product): NormalizedProductSeo {
 }
 
 export function getAllProductSeoData(): NormalizedProductSeo[] {
-  return products.map(getProductSeoData);
+  return products.filter((p) => !p.retired).map(getProductSeoData);
 }

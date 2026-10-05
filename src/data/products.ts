@@ -100,7 +100,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-tbsm-encore",
-    "title": "TBSM ENCORE DRP SHLDR",
+    "title": "Seedhe Maut TBSM ENCORE Drop Shoulder Tee",
     "description": "A red-and-grey graphic with crossed lines, a horned mask-like shape and a yin-yang symbol fills the back. The black front combines a small red chest emblem with ENCORE lettering near the side and smaller text at the hem.",
     "price": 1900,
     "category": "t-shirts",
@@ -112,8 +112,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-dbz-bardock-the-fallen-warrior",
@@ -179,7 +178,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-spiderman-comic-battle",
-    "title": "Spiderman Comic Battle Drop Shoulder Tee",
+    "title": "Spider-Man Comic Battle Drop Shoulder Tee",
     "description": "An upside-down Spider-Man hangs on the front, with a larger red-and-blue comic action scene rising from the lower back. The two illustrations use separate placements across this drop-shoulder tee, leaving the upper back largely clear.",
     "price": 2200,
     "category": "t-shirts",
@@ -215,7 +214,7 @@ export const products: Product[] = [
       "Acid Black"
     ],
     "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "tapestry-berserk-eclipse-tapestry",
@@ -233,7 +232,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-lcnst",
-    "title": "LCNST DRP SHLDR",
+    "title": "LCNST Drop Shoulder Tee",
     "description": "A dripping red sculptural form rises from the lower front beneath a small LCSNT wordmark. The uneven silhouette and long trails of red give this drop-shoulder design its distinctive placement and shape.",
     "price": 1900,
     "category": "t-shirts",
@@ -246,8 +245,7 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-batman-vengeance",
@@ -280,8 +278,7 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-regular-abstract-wings",
@@ -297,12 +294,11 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 4,
-    "aesthetic": "streetwear-essentials"
+    "rating": 4
   },
   {
     "id": "dp-drop-shoulder-spiderman-comic",
-    "title": "Spiderman Comic Drop Shoulder Tee",
+    "title": "Spider-Man Comic Drop Shoulder Tee",
     "description": "Red SPIDER and MAN lettering frames a jagged monochrome character illustration on the back. A smaller yellow Spider-Man wordmark sits on the chest, adding a separate colour accent to this drop-shoulder tee.",
     "price": 1950,
     "category": "t-shirts",
@@ -337,8 +333,7 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-punisher-distressed",
@@ -377,7 +372,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-venom-symbiote",
     "title": "Venom Symbiote Drop Shoulder Tee",
-    "description": "Venom\'s large monochrome head rises from the lower back, with a long red tongue curling outward. A compact VENOM chest wordmark gives the front a smaller matching detail on this drop-shoulder tee.",
+    "description": "Venom's large monochrome head rises from the lower back, with a long red tongue curling outward. A compact VENOM chest wordmark gives the front a smaller matching detail on this drop-shoulder tee.",
     "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -429,12 +424,12 @@ export const products: Product[] = [
       "Acid Black"
     ],
     "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-chainsaw-2",
     "title": "DENJI CHAINSAW REGULAR TEE",
-    "description": "Denji\'s chainsaw-headed action pose sits beside vertical lettering in the large red-and-monochrome back graphic. A small Chainsaw Man title on the chest repeats the theme without duplicating the full illustration.",
+    "description": "Denji's chainsaw-headed action pose sits beside vertical lettering in the large red-and-monochrome back graphic. A small Chainsaw Man title on the chest repeats the theme without duplicating the full illustration.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -452,7 +447,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-snake",
-    "title": "SNAKE DRP SHLDR",
+    "title": "SNAKE Drop Shoulder Tee",
     "description": "A winding snake illustration curves down from one shoulder towards the chest. The off-centre placement leaves most of the front unprinted, making the shape of the snake the main feature of this drop-shoulder tee.",
     "price": 1400,
     "category": "t-shirts",
@@ -466,7 +461,7 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-look-mom-i-can-fly",
@@ -483,13 +478,12 @@ export const products: Product[] = [
       "Black",
       "Green"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-dr-doom",
-    "title": "Dr. Doom Acid Wash Tee",
-    "description": "A large side-profile portrait of Dr. Doom fills the back, with a green hood framing the metallic mask. A compact DOOM chest graphic echoes the green palette against the dark acid-wash base.",
+    "title": "Doctor Doom Acid Wash Tee",
+    "description": "A large side-profile portrait of Doctor Doom (Marvel) fills the back, with a green hood framing the metallic mask. A compact DOOM chest graphic echoes the green palette on this vintage mineral-wash tee. Essential Marvel comic apparel for fans of Latveria's ruler and Avengers: Doomsday.",
     "price": 2500,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -530,12 +524,11 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "comic-universe"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-tbsm",
-    "title": "TBSM DRP SHLDR",
+    "title": "Seedhe Maut TBSM Drop Shoulder Tee",
     "description": "Two black performer silhouettes with raised arms and microphones rise from the lower front. A small emblem sits at the chest, leaving the middle of this white drop-shoulder tee open between the two print placements.",
     "price": 1750,
     "category": "t-shirts",
@@ -546,8 +539,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-utopia-skeleton",
@@ -563,8 +555,7 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-regular-chainsaw-1",
@@ -606,13 +597,12 @@ export const products: Product[] = [
       "Black",
       "Green"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-venom-demon-inside",
     "title": "Venom Demon Inside Drop Shoulder Tee",
-    "description": "Venom\'s eye, teeth and red tongue extend along one side of both front and back. DEMON INSIDE lettering sits near the artwork, keeping this black drop-shoulder tee\'s graphic weight towards the side rather than the centre.",
+    "description": "Venom's eye, teeth and red tongue extend along one side of both front and back. DEMON INSIDE lettering sits near the artwork, keeping this black drop-shoulder tee's graphic weight towards the side rather than the centre.",
     "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -641,7 +631,7 @@ export const products: Product[] = [
       "Acid Black"
     ],
     "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "tapestry-dragon-ball-z-goku-collage-tapestry",
@@ -675,7 +665,7 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-ruinborn-requiem",
@@ -693,8 +683,7 @@ export const products: Product[] = [
       "Black",
       "Maroon"
     ],
-    "rating": 5,
-    "aesthetic": "dark-artistry"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-odyssey-spartan",
@@ -710,13 +699,12 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "dark-artistry"
+    "rating": 5
   },
   {
     "id": "dp-regular-divine",
     "title": "DIVINE TEE",
-    "description": "Gold-toned Divine lettering and a branching illustration occupy the front, with an oversized 00 on the back. Smaller words and symbols complete this regular tee\'s coordinated typography-led design.",
+    "description": "Gold-toned Divine lettering and a branching illustration occupy the front, with an oversized 00 on the back. Smaller words and symbols complete this regular tee's coordinated typography-led design.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -727,13 +715,12 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 4,
-    "aesthetic": "streetwear-essentials"
+    "rating": 4
   },
   {
     "id": "dp-drop-shoulder-dbz-bardock-the-fallen-warrior",
     "title": "DBZ Bardock Fallen Warrior Drop Shoulder Tee",
-    "description": "Bardock\'s portrait is set against red shapes and large white BARDOCK lettering on the back. The front has a small crossed-mark emblem, keeping this drop-shoulder design focused on the character illustration when viewed from behind.",
+    "description": "Bardock's portrait is set against red shapes and large white BARDOCK lettering on the back. The front has a small crossed-mark emblem, keeping this drop-shoulder design focused on the character illustration when viewed from behind.",
     "price": 1950,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -749,7 +736,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-tbsm-calm",
-    "title": "TBSM CALM DRP SHLDR",
+    "title": "Seedhe Maut TBSM CALM Drop Shoulder Tee",
     "description": "A red-and-black back graphic combines a horned mask-like form, crossed diagonal lines and a yin-yang symbol. The white front carries a small red chest emblem with separate lettering near the hem, including CALM.",
     "price": 1900,
     "category": "t-shirts",
@@ -761,12 +748,11 @@ export const products: Product[] = [
     "colors": [
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-cactus-takeover",
-    "title": "Cactus Takeover Acid Wash Tee",
+    "title": "Travis Scott Cactus Takeover Acid Wash Tee",
     "description": "A black figure and loose green lettering overlap in a graffiti-style front composition. The Cactus Takeover artwork uses scattered marks and uneven typography against the grey acid-wash surface.",
     "price": 2000,
     "category": "t-shirts",
@@ -777,8 +763,7 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "tapestry-goku-dragon-ball-z-manga-tapestry",
@@ -809,13 +794,12 @@ export const products: Product[] = [
       "Black",
       "Green"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-guns-n-roses",
     "title": "Guns N Roses Drop Shoulder Tee",
-    "description": "Tall Guns N\' Roses lettering runs vertically around a central emblem and two red roses. The long front composition pairs white typography with small green and red details on a black drop-shoulder base.",
+    "description": "Tall Guns N' Roses lettering runs vertically around a central emblem and two red roses. The long front composition pairs white typography with small green and red details on a black drop-shoulder base.",
     "price": 1850,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -825,8 +809,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-breakout",
@@ -841,13 +824,12 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-regular-anime1",
     "title": "CHOSO BLOODLINE REGULAR TEE",
-    "description": "Choso\'s raised-hand pose fills the lower back in black linework with small red accents. An angular chest wordmark keeps the front of this regular tee much simpler than its large character illustration.",
+    "description": "Choso's raised-hand pose fills the lower back in black linework with small red accents. An angular chest wordmark keeps the front of this regular tee much simpler than its large character illustration.",
     "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -869,8 +851,8 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-punk-is-dead",
-    "title": "PUNK\'S NOT DEAD DROP SHOULDER TEE",
-    "description": "PUNK\'S NOT DEAD lettering and punk-inspired graphic details form the main front composition. The oversized drop-shoulder fit pairs with the distressed typography for a streetwear take on punk aesthetics.",
+    "title": "PUNK'S NOT DEAD DROP SHOULDER TEE",
+    "description": "PUNK'S NOT DEAD lettering and punk-inspired graphic details form the main front composition. The oversized drop-shoulder fit pairs with the distressed typography for a streetwear take on punk aesthetics.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -882,8 +864,7 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-astral-ruins",
@@ -900,8 +881,7 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "dark-artistry"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-wired-different",
@@ -920,8 +900,7 @@ export const products: Product[] = [
       "Black",
       "Maroon"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "tapestry-goku-kamehameha-tapestry",
@@ -959,7 +938,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-abstract-wings",
-    "title": "ABSTRACT WINGS DRP SHLDR",
+    "title": "ABSTRACT WINGS Drop Shoulder Tee",
     "description": "Skeletal wings spread across the back and narrow into a long central spine. A smaller pointed emblem sits on the chest, pairing detailed monochrome artwork with the broader shape of a drop-shoulder tee.",
     "price": 1800,
     "category": "t-shirts",
@@ -972,8 +951,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-gogeta-blue-fusion",
@@ -1030,13 +1008,12 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-dr-doom",
-    "title": "Dr. Doom Drop Shoulder Tee",
-    "description": "A green-hooded Dr. Doom portrait fills the back, with the metallic mask shown in side profile. The small DOOM chest graphic repeats the green tone on the otherwise black front of this drop-shoulder tee.",
+    "title": "Doctor Doom Drop Shoulder Tee",
+    "description": "A green-hooded Doctor Doom (Marvel) portrait fills the back, with the metallic mask shown in side profile. Features a DOOM chest graphic on the front of this heavyweight drop-shoulder tee. Boxy relaxed streetwear cut for Marvel comic and Avengers: Doomsday fans.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1063,8 +1040,7 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "tapestry-goku-manga-collage-tapestry",
@@ -1082,7 +1058,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-divine",
-    "title": "DIVINE DRP SHLDR",
+    "title": "DIVINE Drop Shoulder Tee",
     "description": "Gold-toned Divine lettering sits above a branching front illustration, while an oversized 00 fills the back. Small words and symbols accompany both prints, making this drop-shoulder tee a coordinated typography-led design.",
     "price": 1950,
     "category": "t-shirts",
@@ -1096,8 +1072,7 @@ export const products: Product[] = [
       "beige",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-travis-scott-highest-in-the-room",
@@ -1116,8 +1091,7 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-bluelock",
@@ -1153,8 +1127,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 4,
-    "aesthetic": "streetwear-essentials"
+    "rating": 4
   },
   {
     "id": "dp-drop-shoulder-metallica",
@@ -1169,12 +1142,11 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-ferrari",
-    "title": "FERRARI DRP SHLDR",
+    "title": "FERRARI Drop Shoulder Tee",
     "description": "Red Ferrari lettering and racing-style badges decorate the front, with a larger prancing-horse graphic on the back. Yellow sleeve details extend the motorsport design beyond the torso of this drop-shoulder tee.",
     "price": 1950,
     "category": "t-shirts",
@@ -1186,8 +1158,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-digital-angel",
@@ -1202,8 +1173,7 @@ export const products: Product[] = [
     "colors": [
       "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "tapestry-goku-super-saiyan-tapestry",
@@ -1259,13 +1229,12 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-punk-is-dead",
-    "title": "PUNK\'S NOT DEAD ACID WASH TEE",
-    "description": "Bold PUNK\'S NOT DEAD lettering stretches across the front with distressed typography and punk-inspired graphic elements. The acid-wash texture adds a vintage feel to the rebellious slogan.",
+    "title": "PUNK'S NOT DEAD ACID WASH TEE",
+    "description": "Bold PUNK'S NOT DEAD lettering stretches across the front with distressed typography and punk-inspired graphic elements. The acid-wash texture adds a vintage feel to the rebellious slogan.",
     "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -1275,8 +1244,7 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-regular-ace-1",
@@ -1338,12 +1306,11 @@ export const products: Product[] = [
     "colors": [
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-spiderman-comic-battle",
-    "title": "Spiderman Comic Battle Acid Wash Tee",
+    "title": "Spider-Man Comic Battle Acid Wash Tee",
     "description": "An upside-down Spider-Man hangs on the front, while a larger red-and-blue comic action scene rises from the lower back. The two placements carry the character artwork across both sides without covering the entire acid-wash surface.",
     "price": 2400,
     "category": "t-shirts",
@@ -1374,7 +1341,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-cactus-takeover",
-    "title": "Cactus Takeover Drop Shoulder Tee",
+    "title": "Travis Scott Cactus Takeover Drop Shoulder Tee",
     "description": "A black figure is overlaid with green graffiti-style lettering, small handwritten marks and compact text. The front-focused Cactus Takeover graphic gives this drop-shoulder tee a loose, layered composition rather than a neatly boxed illustration.",
     "price": 1900,
     "category": "t-shirts",
@@ -1387,8 +1354,7 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-crimson-thorn-sigil",
@@ -1404,8 +1370,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "dark-artistry"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-no-mercy",
@@ -1420,8 +1385,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "comic-universe"
+    "rating": 5
   },
   {
     "id": "dp-regular-dbz-8",
@@ -1448,7 +1412,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-odyssey-spartan",
     "title": "Odyssey Spartan Drop Shoulder Tee",
-    "description": "A large crested helmet occupies the front, paired with stacked text and THE ODYSSEY lettering on the back. Both sides use monochrome artwork, keeping the helmet\'s detailed shading as the main visual feature.",
+    "description": "A large crested helmet occupies the front, paired with stacked text and THE ODYSSEY lettering on the back. Both sides use monochrome artwork, keeping the helmet's detailed shading as the main visual feature.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1462,8 +1426,7 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "dark-artistry"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-the-odyssey",
@@ -1479,8 +1442,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "dark-artistry"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-abstract-wings",
@@ -1496,13 +1458,12 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "tapestry-goku-ultra-instinct-tapestry",
     "title": "GOKU ULTRA INSTINCT TAPESTRY",
-    "description": "A full-length Goku figure stands within a bright purple-and-blue aura against a dark background. Orange clothing contrasts with the luminous surrounding effects, creating a vertical tapestry centred on the character\'s silhouette.",
+    "description": "A full-length Goku figure stands within a bright purple-and-blue aura against a dark background. Orange clothing contrasts with the luminous surrounding effects, creating a vertical tapestry centred on the character's silhouette.",
     "price": 3000,
     "category": "tapestries",
     "subcategory": "tapestries",
@@ -1530,13 +1491,12 @@ export const products: Product[] = [
       "Black",
       "Green"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-rick-and-morty",
     "title": "Rick and Morty Drop Shoulder Tee",
-    "description": "A pink-framed Rick and Morty illustration fills the back beneath arched lettering. A small green Rick and Morty wordmark sits on the chest, repeating one of the illustration\'s accent colours across this drop-shoulder tee.",
+    "description": "A pink-framed Rick and Morty illustration fills the back beneath arched lettering. A small green Rick and Morty wordmark sits on the chest, repeating one of the illustration's accent colours across this drop-shoulder tee.",
     "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1568,8 +1528,7 @@ export const products: Product[] = [
       "Black",
       "Maroon"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-regular-spiderverse",
@@ -1589,7 +1548,7 @@ export const products: Product[] = [
       "Sand"
     ],
     "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-drop-shoulder-naruto-2",
@@ -1681,8 +1640,7 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-conquer",
@@ -1697,8 +1655,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-divine",
@@ -1714,13 +1671,12 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-regular-kaijin",
     "title": "GAROU KAIJIN REGULAR TEE",
-    "description": "Garou\'s monochrome back illustration is crossed by vivid red branching lines. The front pairs KAIJIN lettering with two thorn-like motifs near the hem, giving this regular tee distinct artwork on each side.",
+    "description": "Garou's monochrome back illustration is crossed by vivid red branching lines. The front pairs KAIJIN lettering with two thorn-like motifs near the hem, giving this regular tee distinct artwork on each side.",
     "price": 1950,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -1776,8 +1732,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-venom-symbiote",
@@ -1813,7 +1768,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-aizen",
     "title": "AIZEN DROP SHOULDER TEE",
-    "description": "Aizen\'s red, white and black character illustration fills the back beside vertical lettering and circular motifs. A small Aizen chest emblem repeats the palette on the front of this drop-shoulder tee.",
+    "description": "Aizen's red, white and black character illustration fills the back beside vertical lettering and circular motifs. A small Aizen chest emblem repeats the palette on the front of this drop-shoulder tee.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -1852,7 +1807,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-venom-demon-inside",
     "title": "Venom Demon Inside Acid Wash Tee",
-    "description": "Venom\'s white eye, jagged teeth and red tongue occupy one side of the tee, with DEMON INSIDE text nearby. The artwork appears on both front and back, creating a side-weighted composition over the dark acid-wash base.",
+    "description": "Venom's white eye, jagged teeth and red tongue occupy one side of the tee, with DEMON INSIDE text nearby. The artwork appears on both front and back, creating a side-weighted composition over the dark acid-wash base.",
     "price": 2300,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -1947,8 +1902,7 @@ export const products: Product[] = [
     "colors": [
       "Acid Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "tapestry-manga-panel",
@@ -2001,13 +1955,12 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-chainsaw",
     "title": "Denji Chainsawman Acid Wash Tee",
-    "description": "Denji\'s chainsaw-headed figure appears in a red, white and black action composition across the back, beside vertical lettering. A smaller Chainsaw Man wordmark keeps the front comparatively spare on this acid-wash tee.",
+    "description": "Denji's chainsaw-headed figure appears in a red, white and black action composition across the back, beside vertical lettering. A smaller Chainsaw Man wordmark keeps the front comparatively spare on this acid-wash tee.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -2026,7 +1979,7 @@ export const products: Product[] = [
   },
   {
     "id": "berserk-tee",
-    "title": "BERSERK TEE",
+    "title": "Berserk Graphic Regular Tee",
     "description": "A red-and-black chest graphic leads into a larger Berserk manga collage on the back. Japanese lettering, monochrome panels and a barcode-style detail give this regular tee a printed-page layout, with the artwork concentrated down the centre.",
     "price": 1800,
     "category": "t-shirts",
@@ -2042,12 +1995,12 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 4,
-    "aesthetic": "streetwear-essentials"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-titan",
     "title": "Attack Titan Drop Shoulder Tee",
-    "description": "The Attack Titan\'s roaring form fills the back, with exposed jaw, wild hair and red steam lines rising from the muscular figure. This Attack on Titan drop-shoulder tee uses a single dramatic character illustration as its centrepiece.",
+    "description": "The Attack Titan's roaring form fills the back, with exposed jaw, wild hair and red steam lines rising from the muscular figure. This Attack on Titan drop-shoulder tee uses a single dramatic character illustration as its centrepiece.",
     "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -2125,7 +2078,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-kaijin",
     "title": "Garou Kaijin Drop Shoulder Tee",
-    "description": "Garou\'s back illustration is overlaid with red branching strokes, while KAIJIN lettering sits on the chest. Separate thorn-like marks near the front hem give this drop-shoulder tee several graphic placements rather than one continuous print.",
+    "description": "Garou's back illustration is overlaid with red branching strokes, while KAIJIN lettering sits on the chest. Separate thorn-like marks near the front hem give this drop-shoulder tee several graphic placements rather than one continuous print.",
     "price": 2000,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -2148,7 +2101,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-dbz-5",
     "title": "Goku Ronin Drop Shoulder Tee",
-    "description": "Goku\'s monochrome portrait is framed by curling clouds, red clothing accents and vertical Japanese lettering. A small circular chest emblem completes the front of this drop-shoulder tee without repeating the large back print.",
+    "description": "Goku's monochrome portrait is framed by curling clouds, red clothing accents and vertical Japanese lettering. A small circular chest emblem completes the front of this drop-shoulder tee without repeating the large back print.",
     "price": 1700,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -2186,7 +2139,7 @@ export const products: Product[] = [
       "Acid Black"
     ],
     "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-regular-uchiha-5",
@@ -2259,8 +2212,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "tapestry-itachi-uchiha-crows-tapestry",
@@ -2326,13 +2278,12 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-regular-eye-2",
     "title": "GOJO SATORU REGULAR TEE",
-    "description": "Gojo appears in side profile near the lower front, with white hair, dark clothing and blue fragments around him. The portrait\'s angled placement gives this regular tee a distinct silhouette without filling the upper chest.",
+    "description": "Gojo appears in side profile near the lower front, with white hair, dark clothing and blue fragments around him. The portrait's angled placement gives this regular tee a distinct silhouette without filling the upper chest.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -2366,12 +2317,11 @@ export const products: Product[] = [
       "Blue",
       "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-fire",
-    "title": "FIRE DROP SHOULDER TEE",
+    "title": "Tanjiro Flame Graphic Drop Shoulder Tee",
     "description": "Red-and-yellow flames frame a monochrome character beneath stacked FIRE POWER lettering at the lower back. A small chest symbol keeps the front simple, contrasting with the wider illustrated panel on this drop-shoulder tee.",
     "price": 1800,
     "category": "t-shirts",
@@ -2389,12 +2339,12 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-guns-n-roses",
     "title": "Guns N Roses Acid Wash Tee",
-    "description": "Tall Guns N\' Roses lettering stretches down the front around a central emblem and red roses. The mostly monochrome design uses the flowers as its main colour accent against the dark acid-wash surface.",
+    "description": "Tall Guns N' Roses lettering stretches down the front around a central emblem and red roses. The mostly monochrome design uses the flowers as its main colour accent against the dark acid-wash surface.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -2404,13 +2354,12 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "tapestry-itachi-uchiha-sharingan-tapestry",
     "title": "ITACHI UCHIHA SHARINGAN TAPESTRY",
-    "description": "An extreme close-up of Itachi\'s face fills this vertical tapestry, with a red eye as the main colour accent. Black hair, grey facial shading and red edge details create a tightly cropped, portrait-led composition.",
+    "description": "An extreme close-up of Itachi's face fills this vertical tapestry, with a red eye as the main colour accent. Black hair, grey facial shading and red edge details create a tightly cropped, portrait-led composition.",
     "price": 3000,
     "category": "tapestries",
     "subcategory": "tapestries",
@@ -2472,7 +2421,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-dbz-4",
     "title": "DBZ Goku Rage Acid Wash Tee",
-    "description": "Goku\'s red-and-purple character graphic stands out across the back, framed by energetic strokes and stylized lettering. The front carries a small Dragon Ball Z wordmark over the mottled acid-wash base.",
+    "description": "Goku's red-and-purple character graphic stands out across the back, framed by energetic strokes and stylized lettering. The front carries a small Dragon Ball Z wordmark over the mottled acid-wash base.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -2493,7 +2442,7 @@ export const products: Product[] = [
   },
   {
     "id": "breakout-tee",
-    "title": "BREAKOUT REGULAR TEE",
+    "title": "Breakout Snake Graphic Regular Tee",
     "description": "Oversized BREAKOUT lettering runs across the chest, threaded with a red-and-white snake illustration. This regular tee keeps the design focused on one wide graphic rather than an all-over pattern.",
     "price": 1750,
     "category": "t-shirts",
@@ -2508,11 +2457,11 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "retired": true
   },
   {
     "id": "dp-drop-shoulder-peter",
-    "title": "PETER DROP SHOULDER TEE",
+    "title": "Spider-Man Peter Parker Drop Shoulder Tee",
     "description": "A red mask graphic sits at the chest, while an oversized red spider outline stretches down the back. Fine lettering runs through the centre of the back emblem on this Spider-Man-themed drop-shoulder tee.",
     "price": 1900,
     "category": "t-shirts",
@@ -2530,7 +2479,7 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "cinema-collection"
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-drop-shoulder-shoot",
@@ -2601,7 +2550,7 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-drop-shoulder-dbz-2",
@@ -2639,8 +2588,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "music-drops"
+    "rating": 5
   },
   {
     "id": "dp-regular-uchiha-2",
@@ -2667,7 +2615,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-drop-shoulder-yamoto",
-    "title": "Yamoto Inferno Drop Shoulder Tee",
+    "title": "Yamamoto Inferno Drop Shoulder Tee",
     "description": "A monochrome warrior stands within a broad red, flame-like halo on the back. Small YAMAMOTO lettering occupies the chest, connecting the minimal front to the larger illustrated reverse of this drop-shoulder tee.",
     "price": 2000,
     "category": "t-shirts",
@@ -2694,7 +2642,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-zoro-2",
     "title": "Zoro Bushido Drop Shoulder Tee",
-    "description": "A sword-carrying Zoro figure stands against a vivid green circle on the back, framed by Japanese lettering. A narrow column of green characters sits on the chest, repeating the back print\'s strongest colour.",
+    "description": "A sword-carrying Zoro figure stands against a vivid green circle on the back, framed by Japanese lettering. A narrow column of green characters sits on the chest, repeating the back print's strongest colour.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -2725,8 +2673,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "dark-artistry"
+    "rating": 5
   },
   {
     "id": "tapestry-madara-uchiha-sharingan-tapestry",
@@ -2870,8 +2817,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "dark-artistry"
+    "rating": 5
   },
   {
     "id": "tapestry-one-piece-gear-5-luffy-tapestry",
@@ -2933,7 +2879,7 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5,
-    "aesthetic": "comic-universe"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-curse",
@@ -2964,8 +2910,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 4,
-    "aesthetic": "streetwear-essentials"
+    "rating": 4
   },
   {
     "id": "dp-drop-shoulder-baby",
@@ -2987,13 +2932,12 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-itachi",
     "title": "Gojo Satoru Drop Shoulder Tee",
-    "description": "Gojo Satoru\'s blindfolded portrait fills the front, with spiky white hair and glowing blue energy fragments floating around him. The dark high-collar jacket and upward gaze give this drop-shoulder tee its signature Jujutsu Kaisen look.",
+    "description": "Gojo Satoru's blindfolded portrait fills the front, with spiky white hair and glowing blue energy fragments floating around him. The dark high-collar jacket and upward gaze give this drop-shoulder tee its signature Jujutsu Kaisen look.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -3022,13 +2966,12 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "dark-artistry"
+    "rating": 5
   },
   {
     "id": "tapestry-tanjiro-kamado-tapestry",
     "title": "TANJIRO KAMADO TAPESTRY",
-    "description": "Tanjiro\'s side-profile portrait and checkered clothing sit within a beige, black and red collage. Vertical Japanese lettering and a red sun-like circle give this tapestry a layered, weathered-paper-style appearance within the printed artwork.",
+    "description": "Tanjiro's side-profile portrait and checkered clothing sit within a beige, black and red collage. Vertical Japanese lettering and a red sun-like circle give this tapestry a layered, weathered-paper-style appearance within the printed artwork.",
     "price": 3000,
     "category": "tapestries",
     "subcategory": "tapestries",
@@ -3099,13 +3042,12 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "dark-artistry"
+    "rating": 5
   },
   {
     "id": "dp-regular-berserk-3",
     "title": "GUTS BERSERKER REGULAR TEE",
-    "description": "A large monochrome Guts figure rises from the lower front beneath Japanese lettering. The character\'s armour and sword details form a dense silhouette, with open space separating the illustration from the smaller chest text.",
+    "description": "A large monochrome Guts figure rises from the lower front beneath Japanese lettering. The character's armour and sword details form a dense silhouette, with open space separating the illustration from the smaller chest text.",
     "price": 1900,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -3173,8 +3115,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "tapestry-ultra-instinct-goku-energy-tapestry",
@@ -3241,7 +3182,7 @@ export const products: Product[] = [
   {
     "id": "dp-acid-wash-kaijin",
     "title": "Garou Kaijin Acid Wash Tee",
-    "description": "Garou\'s monochrome figure is crossed by vivid red branching lines on the back. KAIJIN lettering and two separate thorn-like shapes occupy the front, giving both sides of the grey acid-wash tee distinct graphic placements.",
+    "description": "Garou's monochrome figure is crossed by vivid red branching lines on the back. KAIJIN lettering and two separate thorn-like shapes occupy the front, giving both sides of the grey acid-wash tee distinct graphic placements.",
     "price": 2800,
     "category": "t-shirts",
     "subcategory": "acid-wash",
@@ -3333,8 +3274,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "tapestry-vagabond",
@@ -3373,7 +3313,7 @@ export const products: Product[] = [
   {
     "id": "dp-drop-shoulder-curse-whtie",
     "title": "Choso Bloodline Drop Shoulder Tee",
-    "description": "Choso\'s raised-hand blood manipulation pose fills the back in detailed linework, with red blood splatters around his hands. The distinct facial blood mark across his nose identifies this Jujutsu Kaisen character on this white drop-shoulder tee.",
+    "description": "Choso's raised-hand blood manipulation pose fills the back in detailed linework, with red blood splatters around his hands. The distinct facial blood mark across his nose identifies this Jujutsu Kaisen character on this white drop-shoulder tee.",
     "price": 1900,
     "category": "t-shirts",
     "subcategory": "drop-shoulder",
@@ -3437,8 +3377,7 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-luffy-1",
@@ -3489,7 +3428,7 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-fire-bleu",
@@ -3506,7 +3445,7 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-supra",
@@ -3522,8 +3461,7 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "dp-regular-uchiha-3",
@@ -3557,7 +3495,7 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-solo-1",
@@ -3628,7 +3566,7 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-evil",
@@ -3649,8 +3587,7 @@ export const products: Product[] = [
       "Blue",
       "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-naruto-4",
@@ -3674,7 +3611,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dbz-7",
     "title": "GOKU RONIN REGULAR TEE",
-    "description": "Goku\'s monochrome portrait is framed by curling clouds, red accents and Japanese lettering on the back. A compact circular chest emblem gives this regular tee a clean front beside the more detailed reverse.",
+    "description": "Goku's monochrome portrait is framed by curling clouds, red accents and Japanese lettering on the back. A compact circular chest emblem gives this regular tee a clean front beside the more detailed reverse.",
     "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -3720,7 +3657,7 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "art-drop"
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-acid-wash-luffy-3",
@@ -3753,7 +3690,7 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 4,
-    "aesthetic": "streetwear-essentials"
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-acid-wash-shoot",
@@ -3783,7 +3720,7 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "art-drop"
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-acid-wash-eye",
@@ -3799,7 +3736,7 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "anime-archive"
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-dbz-4",
@@ -3855,7 +3792,7 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "art-drop"
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-acid-wash-naruto-1",
@@ -3879,7 +3816,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-sukuna",
     "title": "Attack Titan Regular Tee",
-    "description": "The Attack Titan\'s fierce roaring portrait dominates this regular tee, with exposed jaw muscles and red steam accents. A compact chest emblem balances the detailed back illustration.",
+    "description": "The Attack Titan's fierce roaring portrait dominates this regular tee, with exposed jaw muscles and red steam accents. A compact chest emblem balances the detailed back illustration.",
     "price": 1950,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -3933,8 +3870,7 @@ export const products: Product[] = [
       "/assets/products/tapestries/cyber_city_night_tapestry.webp"
     ],
     "colors": [],
-    "rating": 5,
-    "aesthetic": "art-drop"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-zoro-1",
@@ -3956,7 +3892,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-animeshoot",
     "title": "KANEKI REAPER REGULAR TEE",
-    "description": "Kaneki\'s monochrome figure is crossed by sharp red diagonal marks on the back. A vertical arrangement of Japanese lettering and an eye symbol sits on the chest, giving this regular tee a separate emblem-style front.",
+    "description": "Kaneki's monochrome figure is crossed by sharp red diagonal marks on the back. A vertical arrangement of Japanese lettering and an eye symbol sits on the chest, giving this regular tee a separate emblem-style front.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -3995,7 +3931,7 @@ export const products: Product[] = [
   {
     "id": "tapestry-fight-club-tyler-durden-tapestry",
     "title": "FIGHT CLUB TYLER DURDEN TAPESTRY",
-    "description": "Tyler Durden\'s monochrome portrait sits beneath and beside large red FIGHT CLUB lettering. Red radial marks and small text blocks complete the vertical poster-style tapestry against a pale background.",
+    "description": "Tyler Durden's monochrome portrait sits beneath and beside large red FIGHT CLUB lettering. Red radial marks and small text blocks complete the vertical poster-style tapestry against a pale background.",
     "price": 3000,
     "category": "tapestries",
     "subcategory": "tapestries",
@@ -4004,7 +3940,7 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "art-drop"
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-acid-wash-batman",
@@ -4070,7 +4006,7 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "art-drop"
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-acid-wash-fire",
@@ -4089,7 +4025,7 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-dbz-6",
@@ -4142,7 +4078,7 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "art-drop"
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-acid-wash-sukuna",
@@ -4212,7 +4148,7 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "art-drop"
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-acid-wash-naruto-5",
@@ -4279,7 +4215,7 @@ export const products: Product[] = [
     ],
     "colors": [],
     "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "aesthetic": "cinema-collection"
   },
   {
     "id": "dp-acid-wash-dbz-6",
@@ -4359,7 +4295,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dbz-5",
     "title": "GOKU RAGE REGULAR TEE",
-    "description": "A vivid red-and-purple Goku illustration covers the back, with coloured strokes spreading beyond the character\'s outline. A compact Dragon Ball Z wordmark sits on the chest, adding a smaller front reference on this regular tee.",
+    "description": "A vivid red-and-purple Goku illustration covers the back, with coloured strokes spreading beyond the character's outline. A compact Dragon Ball Z wordmark sits on the chest, adding a smaller front reference on this regular tee.",
     "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -4635,7 +4571,7 @@ export const products: Product[] = [
   },
   {
     "id": "dp-acid-wash-yamoto",
-    "title": "Yamoto Inferno Acid Wash Tee",
+    "title": "Yamamoto Inferno Acid Wash Tee",
     "description": "A monochrome warrior stands within a broad red flame-like halo on the back. Small YAMAMOTO lettering on the chest echoes the red-and-white palette, leaving the rest of the acid-wash front open.",
     "price": 2500,
     "category": "t-shirts",
@@ -4712,12 +4648,12 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "comic-universe"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-sukuna-2",
     "title": "SUKUNA CURSED REGULAR TEE",
-    "description": "Sukuna\'s back portrait combines fine black linework, bold red markings and vertical Japanese lettering. Red Sukuna text and an eye-and-mouth motif appear separately on the front, giving this regular tee three distinct graphic placements.",
+    "description": "Sukuna's back portrait combines fine black linework, bold red markings and vertical Japanese lettering. Red Sukuna text and an eye-and-mouth motif appear separately on the front, giving this regular tee three distinct graphic placements.",
     "price": 1850,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -4751,8 +4687,7 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-acid-wash-solo-1",
@@ -4789,7 +4724,7 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-hands",
@@ -4806,7 +4741,7 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-acid-wash-evil",
@@ -4824,13 +4759,12 @@ export const products: Product[] = [
       "Grey",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-regular-zoro-2",
     "title": "ZORO BUSHIDO REGULAR TEE",
-    "description": "Zoro stands with swords against a vivid green circle, framed by vertical lettering on the back. A smaller column of green Japanese characters sits on the chest, repeating the illustration\'s strongest accent colour.",
+    "description": "Zoro stands with swords against a vivid green circle, framed by vertical lettering on the back. A smaller column of green Japanese characters sits on the chest, repeating the illustration's strongest accent colour.",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -4867,7 +4801,7 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "cinema-collection"
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-acid-wash-baby",
@@ -4885,8 +4819,7 @@ export const products: Product[] = [
       "Grey",
       "Maroon"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-regular-zoro-1",
@@ -4933,7 +4866,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-fire",
     "title": "Tanjiro Fire Water Regular Tee",
-    "description": "Tanjiro\'s checkered haori and surrounding flame effects create the FIRE WATER-themed graphic on this regular tee. The Demon Slayer character illustration pairs fiery detail with bold block lettering.",
+    "description": "Tanjiro's checkered haori and surrounding flame effects create the FIRE WATER-themed graphic on this regular tee. The Demon Slayer character illustration pairs fiery detail with bold block lettering.",
     "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -4947,7 +4880,7 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-speed",
@@ -4964,8 +4897,7 @@ export const products: Product[] = [
       "Beige",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-regular-berserk-2",
@@ -5001,8 +4933,7 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-regular-uchiha-4",
@@ -5124,7 +5055,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-tujiro",
     "title": "TANJIRO KAMADO REGULAR TEE",
-    "description": "A red-and-black side-profile portrait sits low on the front beneath a small red symbol. White highlights pick out the character\'s hair and face, leaving the rest of this black regular tee clear around the illustration.",
+    "description": "A red-and-black side-profile portrait sits low on the front beneath a small red symbol. White highlights pick out the character's hair and face, leaving the rest of this black regular tee clear around the illustration.",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -5194,12 +5125,11 @@ export const products: Product[] = [
       "Black",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
+    "rating": 5
   },
   {
     "id": "dp-regular-knight",
-    "title": "KNIGHT REGULAR TEE",
+    "title": "Batman Dark Knight Regular Tee",
     "description": "A large Batman outline drawing rises from the lower back beside DARK KNIGHT lettering. A small angular chest graphic balances the detailed reverse on this regular tee.",
     "price": 1700,
     "category": "t-shirts",
@@ -5220,7 +5150,7 @@ export const products: Product[] = [
       "Grey"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-regular-responsibility",
@@ -5242,7 +5172,7 @@ export const products: Product[] = [
       "Beige"
     ],
     "rating": 5,
-    "aesthetic": "minimal-drops"
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-regular-chinese",
@@ -5263,7 +5193,7 @@ export const products: Product[] = [
   {
     "id": "dp-regular-dbz-3",
     "title": "VEGETA SUPER SAIYAN REGULAR TEE",
-    "description": "Vegeta\'s spiked hair and face emerge in bright monochrome outlines against a dark silhouette. A small Majin symbol sits at the chest, giving this regular tee a restrained front beside its large back portrait.",
+    "description": "Vegeta's spiked hair and face emerge in bright monochrome outlines against a dark silhouette. A small Majin symbol sits at the chest, giving this regular tee a restrained front beside its large back portrait.",
     "price": 1850,
     "category": "t-shirts",
     "subcategory": "regular",
@@ -5290,8 +5220,7 @@ export const products: Product[] = [
     "colors": [
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
+    "rating": 5
   },
   {
     "id": "mug-white",
@@ -5306,8 +5235,7 @@ export const products: Product[] = [
     "colors": [
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   },
   {
     "id": "mug-colored",
@@ -5325,8 +5253,7 @@ export const products: Product[] = [
       "Black",
       "Blue"
     ],
-    "rating": 5,
-    "aesthetic": "streetwear-essentials"
+    "rating": 5
   }
 ];
 
@@ -5397,6 +5324,7 @@ export async function fetchProductOverrides(): Promise<Record<string, ProductOve
  */
 const VISIBLE_SUBCATEGORIES: ReadonlySet<string> = new Set([
   "regular",
+  "graphic",
   "drop-shoulder",
   "acid-wash",
   "tapestries",
@@ -5417,7 +5345,7 @@ export function isMugProduct(p?: { id?: string; category?: string; subcategory?:
 export async function getProducts(): Promise<Product[]> {
   const overrides = await fetchProductOverrides();
   const all = mergeOverrides(products, overrides);
-  return all.filter((p) => VISIBLE_SUBCATEGORIES.has(p.subcategory));
+  return all.filter((p) => !p.retired && VISIBLE_SUBCATEGORIES.has(p.subcategory));
 }
 
 export type ProductWithTimestamp = Product & {

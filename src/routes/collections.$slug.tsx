@@ -139,9 +139,9 @@ function CollectionPage() {
 
   const filterableCollections = useMemo(() => {
     if (isAesthetic) {
-      return collections.filter((c) => aestheticSlugs.includes(c.slug));
+      return collections.filter((c) => !c.navHidden && aestheticSlugs.includes(c.slug));
     }
-    return collections.filter((c) => !aestheticSlugs.includes(c.slug));
+    return collections.filter((c) => !c.navHidden && !aestheticSlugs.includes(c.slug));
   }, [isAesthetic]);
 
   const items = useMemo(() => {
