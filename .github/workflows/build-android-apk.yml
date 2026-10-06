@@ -2,6 +2,12 @@ name: Build Deez Prints Android APK
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'mobile/android/**'
+      - '.github/workflows/build-android-apk.yml'
   push:
     branches:
       - deezprints-android-v1
