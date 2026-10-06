@@ -1,0 +1,15 @@
+<resources>
+    <style name="Theme.DeezPrints" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:colorAccent">@color/dp_orange</item>
+        <item name="android:navigationBarColor">@color/dp_black</item>
+        <item name="android:statusBarColor">@color/dp_black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowSplashScreenBackground">@color/dp_black</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_dp_mark</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/dp_orange</item>
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+</resources>
