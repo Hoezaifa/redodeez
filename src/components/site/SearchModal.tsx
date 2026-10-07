@@ -170,6 +170,15 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && query.trim()) {
+                    onClose();
+                    navigate({
+                      to: "/collections",
+                      search: { q: query.trim() } as any,
+                    });
+                  }
+                }}
                 placeholder="Search products, hoodies, acid wash..."
                 className="w-full bg-transparent px-4 py-1 text-base sm:text-lg font-sans text-white placeholder:text-white/40 focus:outline-none"
               />
@@ -308,10 +317,11 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
               </span>
               <Link
                 to="/collections"
+                search={query.trim() ? ({ q: query.trim() } as any) : undefined}
                 onClick={onClose}
                 className="text-xs font-mono uppercase text-orange-400 hover:underline inline-flex items-center gap-1"
               >
-                View all products <ArrowRight className="h-3 w-3" />
+                {query.trim() ? `View all results for "${query.trim()}"` : "View all products"} <ArrowRight className="h-3 w-3" />
               </Link>
             </div>
           </motion.div>

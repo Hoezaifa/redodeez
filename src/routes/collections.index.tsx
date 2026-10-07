@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useRef, useState, useEffect } from "react";
 import { ChevronDown, MapPin } from "lucide-react";
-import { getProducts, type Product } from "@/data/products";
+import { getProducts } from "@/data/products";
 import { collections, site, SITE_URL } from "@/data/site";
-import { ProductCard } from "@/components/shop/ProductCard";
+import { InfiniteProductGrid } from "@/components/shop/InfiniteProductGrid";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +12,7 @@ interface CollectionsSearchParams {
   sort?: "featured" | "newest" | "price" | "name";
   dir?: "asc" | "desc";
   cat?: string;
+  q?: string;
 }
 
 const PAGE_SIZE = 24;
@@ -25,9 +26,10 @@ export const Route = createFileRoute("/collections/")({
         : undefined,
       dir: search.dir === "desc" || search.dir === "asc" ? search.dir : undefined,
       cat: typeof search.cat === "string" && search.cat.trim().length > 0 ? search.cat.trim() : undefined,
+      q: typeof search.q === "string" && search.q.trim().length > 0 ? search.q.trim() : undefined,
     };
   },
-  loaderDeps: ({ search: { page, sort, dir, cat } }) => ({ page, sort, dir, cat }),
+  loaderDeps: ({ search: { page, sort, dir, cat, q } }) => ({ page, sort, dir, cat, q }),
   loader: async ({ deps }) => {
     const allProducts = await getProducts();
     return { allProducts, search: deps };
@@ -35,12 +37,13 @@ export const Route = createFileRoute("/collections/")({
   head: ({ loaderData }) => {
     const search = loaderData?.search;
     const isUtilityOrPaginated = Boolean(
-      search?.sort || search?.dir || (search?.cat && search.cat !== "all") || (search?.page && search.page > 1)
+      search?.sort || search?.dir || (search?.cat && search.cat !== "all") || (search?.page && search.page > 1) || search?.q
     );
-    const pageTitle =
-      search?.page && search.page > 1
-        ? `Shop All (Page ${search.page}) — Deez Prints Streetwear Catalogue`
-        : "Shop All — Deez Prints Streetwear Catalogue";
+    const pageTitle = search?.q
+      ? `Search results for "${search.q}" — Deez Prints Streetwear Catalogue`
+      : search?.page && search.page > 1
+      ? `Shop All (Page ${search.page}) — Deez Prints Streetwear Catalogue`
+      : "Shop All — Deez Prints Streetwear Catalogue";
 
     return {
       meta: [
@@ -80,7 +83,6 @@ function ShopAll() {
   const cat = search.cat || "all";
   const sort = search.sort || "featured";
   const priceDir = search.dir || "asc";
-  const currentPageParam = search.page || 1;
 
   const [moreOpen, setMoreOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement>(null);
@@ -108,7 +110,28 @@ function ShopAll() {
 
   const list = useMemo(() => {
     const c = nonEmptyCollections.find((x) => x.slug === cat);
-    const filtered = c ? allProducts.filter((p) => c.match(p)) : allProducts;
+    let filtered = c ? allProducts.filter((p) => c.match(p)) : allProducts;
+
+    if (search.q) {
+      const qLower = search.q.trim().toLowerCase();
+      const tokens = qLower.split(/\s+/).filter(Boolean);
+      filtered = filtered.filter((p) => {
+        const titleL = p.title.toLowerCase();
+        const catL = p.category.toLowerCase();
+        const subcatL = p.subcategory.toLowerCase();
+        const aestheticL = (p.aesthetic || "").toLowerCase();
+        const descL = (p.description || "").toLowerCase();
+        return tokens.every(
+          (t) =>
+            titleL.includes(t) ||
+            catL.includes(t) ||
+            subcatL.includes(t) ||
+            aestheticL.includes(t) ||
+            descL.includes(t)
+        );
+      });
+    }
+
     const sorted = [...filtered];
     if (sort === "price") {
       sorted.sort((a, b) => (priceDir === "asc" ? a.price - b.price : b.price - a.price));
@@ -116,15 +139,15 @@ function ShopAll() {
     if (sort === "name") sorted.sort((a, b) => a.title.localeCompare(b.title));
     if (sort === "newest") sorted.sort((a, b) => (b.rating ?? 5) - (a.rating ?? 5));
     return sorted;
-  }, [cat, sort, priceDir, allProducts, nonEmptyCollections]);
+  }, [cat, sort, priceDir, search.q, allProducts, nonEmptyCollections]);
 
-  // Deterministic pagination calculations
-  const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
-  const currentPage = Math.min(Math.max(1, currentPageParam), totalPages);
-  const paginatedList = useMemo(() => {
-    const start = (currentPage - 1) * PAGE_SIZE;
-    return list.slice(start, start + PAGE_SIZE);
-  }, [list, currentPage]);
+  // Build the search params object for SEO pagination links
+  const currentSearchParams = useMemo(() => ({
+    ...(cat !== "all" ? { cat } : {}),
+    ...(sort !== "featured" ? { sort } : {}),
+    ...(sort === "price" && priceDir !== "asc" ? { dir: priceDir } : {}),
+    ...(search.q ? { q: search.q } : {}),
+  }), [cat, sort, priceDir, search.q]);
 
   const handleCategoryChange = (newCat: string) => {
     setMoreOpen(false);
@@ -174,9 +197,9 @@ function ShopAll() {
   return (
     <div className="edge pt-14 pb-6 md:pt-16 md:pb-10">
       <SectionHeading
-        eyebrow={`${allProducts.length} pieces`}
-        title={"Shop\neverything"}
-        sub="Curated collections inspired by anime, street culture and oversized silhouettes. Premium cotton. Printed in Karachi."
+        eyebrow={search.q ? `Search: "${search.q}" (${list.length} results)` : `${allProducts.length} pieces`}
+        title={search.q ? `Search\nresults` : "Shop\neverything"}
+        sub={search.q ? `Showing products matching "${search.q}". Scroll to discover all pieces.` : "Curated collections inspired by anime, street culture and oversized silhouettes. Premium cotton. Printed in Karachi."}
       />
 
       {/* Stats strip — single line horizontal scroll on mobile, flex row on desktop */}
@@ -345,20 +368,6 @@ function ShopAll() {
         </div>
       </div>
 
-      {/* Active page item count indicator */}
-      {list.length > 0 && (
-        <div className="mt-4 flex items-center justify-between text-xs label-mono text-muted-foreground">
-          <span>
-            Showing {(currentPage - 1) * PAGE_SIZE + 1}–{Math.min(currentPage * PAGE_SIZE, list.length)} of {list.length} pieces
-          </span>
-          {totalPages > 1 && (
-            <span>
-              Page {currentPage} of {totalPages}
-            </span>
-          )}
-        </div>
-      )}
-
       {cat === "accessories" && (
         <div className="mt-4 p-4 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-start gap-3">
           <MapPin className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
@@ -373,94 +382,21 @@ function ShopAll() {
         </div>
       )}
 
-      {/* Paginated Product Grid */}
-      <div className="mt-4 md:mt-6 grid grid-cols-2 gap-2.5 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-8">
-        {paginatedList.map((p, i) => (
-          <ProductCard key={p.id} product={p} index={i} />
-        ))}
-      </div>
-
-      {list.length === 0 && (
+      {list.length === 0 ? (
         <p className="py-24 text-center label-mono text-muted-foreground">
           Nothing here yet.{" "}
           <Link to="/collections" className="text-primary">
             Reset
           </Link>
         </p>
-      )}
-
-      {/* Crawlable Pagination Controls */}
-      {totalPages > 1 && (
-        <nav
-          aria-label="Catalogue pagination"
-          className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border pt-6"
-        >
-          <p className="label-mono text-xs text-muted-foreground order-2 sm:order-1">
-            Page <span className="text-foreground font-semibold">{currentPage}</span> of{" "}
-            <span className="text-foreground font-semibold">{totalPages}</span>
-          </p>
-
-          <div className="flex items-center gap-1.5 order-1 sm:order-2 flex-wrap justify-center">
-            {currentPage > 1 && (
-              <Link
-                to="/collections"
-                search={{
-                  ...search,
-                  page: currentPage - 1 === 1 ? undefined : currentPage - 1,
-                }}
-                className="px-3 py-1.5 label-mono text-xs border border-border hover:border-primary hover:text-primary transition-colors rounded-sm"
-              >
-                ← Prev
-              </Link>
-            )}
-
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => {
-              if (totalPages > 7) {
-                if (p !== 1 && p !== totalPages && Math.abs(p - currentPage) > 2) {
-                  if (p === 2 || p === totalPages - 1) {
-                    return (
-                      <span key={p} className="px-1 text-muted-foreground text-xs">
-                        …
-                      </span>
-                    );
-                  }
-                  return null;
-                }
-              }
-              return (
-                <Link
-                  key={p}
-                  to="/collections"
-                  search={{
-                    ...search,
-                    page: p === 1 ? undefined : p,
-                  }}
-                  className={cn(
-                    "min-w-[34px] h-[34px] flex items-center justify-center label-mono text-xs border transition-colors rounded-sm",
-                    p === currentPage
-                      ? "bg-primary text-primary-foreground border-primary font-bold shadow-sm"
-                      : "border-border hover:border-primary hover:text-primary"
-                  )}
-                >
-                  {p}
-                </Link>
-              );
-            })}
-
-            {currentPage < totalPages && (
-              <Link
-                to="/collections"
-                search={{
-                  ...search,
-                  page: currentPage + 1,
-                }}
-                className="px-3 py-1.5 label-mono text-xs border border-border hover:border-primary hover:text-primary transition-colors rounded-sm"
-              >
-                Next →
-              </Link>
-            )}
-          </div>
-        </nav>
+      ) : (
+        <InfiniteProductGrid
+          products={list}
+          batchSize={PAGE_SIZE}
+          searchParams={currentSearchParams}
+          paginationBasePath="/collections"
+          resetKey={`${cat}-${sort}-${priceDir}-${search.q || ""}`}
+        />
       )}
     </div>
   );

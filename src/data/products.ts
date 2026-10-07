@@ -79,6 +79,408 @@ export interface ProductOverrideData {
 
 export const products: Product[] = [
   {
+    "id": "dp-drop-shoulder-the-batman-gotham",
+    "title": "The Batman Gotham Drop Shoulder Tee",
+    "description": "A red-and-black character collage forms the back graphic, with a prominent question mark and THE BATMAN lettering beneath. A small red Batman title sits on the chest, keeping the front of this drop-shoulder tee comparatively spare.",
+    "price": 1950,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927256/the_batman_gotham_dropshoulder_white_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927301/the_batman_gotham_dropshoulder_white_front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927289/the_batman_gotham_dropshoulder_beige_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927250/the_batman_gotham_dropshoulder_beige_front.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "comic-universe"
+  },
+  {
+    "id": "dp-drop-shoulder-look-mom-i-can-fly",
+    "title": "Look Mom I Can Fly Drop Shoulder Tee",
+    "description": "LOOK MOM I CAN FLY sits above a monochrome portrait and a film-rating-style block. The rectangular front graphic resembles a compact movie poster, combining large headline text with finer details on this drop-shoulder tee.",
+    "price": 1850,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926601/look_mom_i_can_fly_green_drop_shoulder_front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926624/look_mom_i_can_fly_black_drop_shoulder_front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Green"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-acid-wash-kaijin",
+    "title": "Garou Kaijin Acid Wash Tee",
+    "description": "Garou's monochrome figure is crossed by vivid red branching lines on the back. KAIJIN lettering and two separate thorn-like shapes occupy the front, giving both sides of the grey acid-wash tee distinct graphic placements.",
+    "price": 2800,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770228/deez-prints/acid/kaijin-grey-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770231/deez-prints/acid/kaijin-grey-front.jpg"
+    ],
+    "colors": [
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-chinese",
+    "title": "ROCKSTAR TOKYO REGULAR TEE",
+    "description": "A monochrome portrait is layered with red Japanese lettering, a star and smaller text blocks. The Rockstar Tokyo graphic concentrates its detail in one vertical composition on the front of this regular tee.",
+    "price": 1750,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768564/deez-prints/regular/chinese-black-front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "minimal-drops"
+  },
+  {
+    "id": "dp-drop-shoulder-berserk-black-1",
+    "title": "Guts Berserker Armor Drop Shoulder Tee",
+    "description": "An armoured Guts figure grips a sword in the large red-and-monochrome back illustration. The front combines a red Brand of Sacrifice with an angular helmet graphic near the hem, giving this drop-shoulder tee multiple distinct print placements.",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769225/deez-prints/drops/berserk-black-1-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769222/deez-prints/drops/berserk-black-1-back.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-drop-shoulder-no-mercy",
+    "title": "No Mercy Drop Shoulder Tee",
+    "description": "White NO MERCY lettering crosses a large scene in red, black and blue-purple. The illustration fills much of the front of this drop-shoulder tee, with an angled red panel forming its upper edge.",
+    "price": 2600,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926760/no_mercy_black_dropshoulder_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-acid-wash-conquer",
+    "title": "Conquer Acid Wash Tee",
+    "description": "CONQUER arches above a narrow, skeletal graphic with a red centre line. Small text blocks sit beside the illustration, giving this acid-wash tee a front-focused layout built from typography and sharp vertical detail.",
+    "price": 2100,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927903/conquer_black_acidwash_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "tapestry-berserk-eclipse-tapestry",
+    "title": "BERSERK ECLIPSE TAPESTRY",
+    "description": "A red circular centre is surrounded by a dense black-and-white Berserk collage in this horizontal tapestry. The bright central shape draws attention against the surrounding manga-style imagery and dark silhouettes.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/berserk_eclipse_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-drop-shoulder-guns-n-roses",
+    "title": "Guns N Roses Drop Shoulder Tee",
+    "description": "Tall Guns N' Roses lettering runs vertically around a central emblem and two red roses. The long front composition pairs white typography with small green and red details on a black drop-shoulder base.",
+    "price": 1850,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "/assets/products/guns-n-roses/guns_n_roses_drop_shoulder_black_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-drop-shoulder-no-friends",
+    "title": "No Friends Drop Shoulder Tee",
+    "description": "Large distressed AUTHENTIC lettering arches above a hand-and-face illustration on the front. An outlined circular R and smaller marks complete the collage, making this drop-shoulder tee a typography-heavy graphic design.",
+    "price": 1950,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926702/no_friends_dropshoulder_black_front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926722/no_friends_dropshoulder_green_front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Green"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-acid-wash-no-mercy",
+    "title": "No Mercy Acid Wash Tee",
+    "description": "NO MERCY cuts across a large red, black and blue-purple illustration covering much of the front. The tightly framed scene and bold white lettering make this a more print-heavy acid-wash design.",
+    "price": 3000,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926797/no_mercy_black_acidwash_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-regular-baby",
+    "title": "CUPID VINTAGE REGULAR TEE",
+    "description": "Cherub illustrations frame the shoulders and lower front around a small central text block. This regular tee uses offset placements and open space, with the largest Cupid artwork sitting close to the hem.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788970857/deez-prints/covers/cupid_vintage_regular_black.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768470/deez-prints/regular/baby-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768476/deez-prints/regular/baby-whiet-front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-drop-shoulder-dr-doom",
+    "title": "Doctor Doom Drop Shoulder Tee",
+    "description": "A green-hooded Doctor Doom (Marvel) portrait fills the back, with the metallic mask shown in side profile. Features a DOOM chest graphic on the front of this heavyweight drop-shoulder tee. Boxy relaxed streetwear cut for Marvel comic and Avengers: Doomsday fans.",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926310/dr_doom_dropshoulder_black_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926334/dr_doom_dropshoulder_black_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "comic-universe"
+  },
+  {
+    "id": "dp-drop-shoulder-luffy-3",
+    "title": "Luffy Freedom Drop Shoulder Tee",
+    "description": "A cropped Luffy portrait with a straw hat and red clothing occupies the lower front. Small birds and compact lettering extend the design upward while leaving much of the drop-shoulder tee unprinted.",
+    "price": 1750,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769695/deez-prints/drops/luffy-3-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769689/deez-prints/drops/luffy-3-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769701/deez-prints/drops/luffy-3-white-front.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "Black",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-ruinborn-requiem",
+    "title": "Ruinborn Requiem Acid Wash Tee",
+    "description": "Red-and-white skeletal wings and a long central spine spread across the back beneath jagged lettering. A smaller matching wordmark sits on the chest, giving this acid-wash tee a coordinated front and back treatment.",
+    "price": 2400,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927106/ruinborn_requiem_acidwash_black_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927008/ruinborn_requiem_acidwash_black_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "tapestry-berserk-tapestry",
+    "title": "BERSERK TAPESTRY",
+    "description": "Large white BERSERK lettering tops a red-and-black character composition in this vertical tapestry. Heavy black shapes and angular white highlights give the artwork a high-contrast, tightly cropped appearance.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/berserk_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-drop-shoulder-utopia-skeleton",
+    "title": "UTOPIA Skeleton Drop Shoulder Tee",
+    "description": "A black skeleton rises from the lower front beneath a small wordmark. On the back, UTOPIA lettering heads a narrow column of titles, contrasting the illustrated front with a text-focused layout on this drop-shoulder tee.",
+    "price": 2250,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927524/utopia_skeleton_drop_shoulder_white_front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927468/utopia_skeleton_drop_shoulder_white_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927481/utopia_skeleton_drop_shoulder_beige_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927493/utopia_skeleton_drop_shoulder_beige_front.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "White"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-drop-shoulder-the-odyssey",
+    "title": "The Odyssey Drop Shoulder Tee",
+    "description": "A metallic-looking helmeted warrior rises beneath oversized red THE ODYSSEY lettering on the back. The small red chest title repeats the typography at a quieter scale on this black drop-shoulder tee.",
+    "price": 2400,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927320/the_odyssey_black_drop_shoulder_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927288/the_odyssey_black_drop_shoulder_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-acid-wash-crimson-thorn-sigil",
+    "title": "Crimson Thorn Sigil Acid Wash Tee",
+    "description": "A red central sigil sits between mirrored, pale thorn-like forms on the back. The front carries a separate white ornamental graphic, combining fine lines, pointed shapes and small text over the acid-wash texture.",
+    "price": 2400,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926125/crimson_thorn_sigil_acid_wash_black_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926154/crimson_thorn_sigil_acid_wash_black_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-regular-berserk-2",
+    "title": "GUTS BERSERKER ARMOR REGULAR TEE",
+    "description": "An armoured Guts figure grips a sword against red circular accents on the back. The front pairs a red Brand of Sacrifice with a separate helmet illustration near the hem, giving this regular tee several linked design elements.",
+    "price": 2000,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768496/deez-prints/regular/berserk2black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768499/deez-prints/regular/berserk2black-front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-drop-shoulder-rick-and-morty",
+    "title": "Rick and Morty Drop Shoulder Tee",
+    "description": "A pink-framed Rick and Morty illustration fills the back beneath arched lettering. A small green Rick and Morty wordmark sits on the chest, repeating one of the illustration's accent colours across this drop-shoulder tee.",
+    "price": 2000,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926973/rick_and_morty_dropshoulder_white_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926938/rick_and_morty_dropshoulder_white_front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926937/rick_and_morty_dropshoulder_black_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926958/rick_and_morty_dropshoulder_black_front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "cinema-collection"
+  },
+  {
+    "id": "dp-drop-shoulder-speed",
+    "title": "Formula Speed Drop Shoulder Tee",
+    "description": "A Formula-style racing car runs along the lower front beneath a compact SPEED wordmark. The wide car illustration and open upper chest give this drop-shoulder tee a low-set, automotive graphic layout.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769908/deez-prints/drops/speed-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769896/deez-prints/drops/speed-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769902/deez-prints/drops/speed-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769910/deez-prints/drops/speed-grey-front.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "Black",
+      "Blue",
+      "Grey"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-acid-wash-utopia-skeleton",
+    "title": "UTOPIA Skeleton Acid Wash Tee",
+    "description": "A black skeleton illustration rises from the lower front beneath a small wordmark. The back uses UTOPIA lettering above a narrow column of text, balancing an illustrated front with a typography-focused reverse on grey acid wash.",
+    "price": 2400,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789928108/utopia_skeleton_grey_acid_wash_front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927485/utopia_skeleton_grey_acid_wash_back.jpg"
+    ],
+    "colors": [
+      "Grey"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "tapestry-dragon-ball-z-characters-tapestry",
+    "title": "DRAGON BALL Z CHARACTERS TAPESTRY",
+    "description": "A colour lineup of Dragon Ball Z characters stretches across a background of black-and-white manga panels. The horizontal composition groups the figures through the centre, making this tapestry distinct from a single-character portrait.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/dragon_ball_z_characters_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-batman-bat-swarm",
     "title": "Batman Bat Swarm Drop Shoulder Tee",
     "description": "Batman is seen from behind at the lower back, surrounded by a spreading swarm of bats. A small red-and-black Batman chest graphic completes the front of this drop-shoulder tee, keeping the cape-and-bats scene as its main feature.",
@@ -115,42 +517,35 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-acid-wash-dbz-bardock-the-fallen-warrior",
-    "title": "DBZ Bardock Fallen Warrior Acid Wash Tee",
-    "description": "Bardock appears in a red, black and white back graphic with large BARDOCK lettering beneath the portrait. A small crossed-mark chest graphic gives this acid-wash tee a minimal front and a much more detailed reverse.",
-    "price": 2300,
+    "id": "dp-acid-wash-knightfall",
+    "title": "KNIGHTFALL ACID WASH TEE",
+    "description": "A kneeling armoured figure occupies the centre of the chest, with arrow-like lines radiating around it. Small text blocks and framed details give the Knightfall graphic a compact poster-style layout against the dark acid-wash surface.",
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926166/dbz_bardock_the_fallen_warrior_black_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926200/dbz_bardock_the_fallen_warrior_black_acid_wash_front.jpg"
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085757/AcidKnioghtF_smiizk.webp"
     ],
     "colors": [
-      "Black"
+      "Acid Black"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
+    "rating": 5
   },
   {
-    "id": "dp-regular-bleach",
-    "title": "BLEACH REGULAR TEE",
-    "description": "A laughing, spiky-haired manga portrait rises from the lower back, surrounded by small lettering. The front carries a compact BLEACH wordmark, balancing detailed linework with a simple title treatment on this regular tee.",
-    "price": 1700,
+    "id": "dp-regular-sukuna-2",
+    "title": "SUKUNA CURSED REGULAR TEE",
+    "description": "Sukuna's back portrait combines fine black linework, bold red markings and vertical Japanese lettering. Red Sukuna text and an eye-and-mouth motif appear separately on the front, giving this regular tee three distinct graphic placements.",
+    "price": 1850,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768529/deez-prints/regular/bleach-whte-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768514/deez-prints/regular/bleach-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768526/deez-prints/regular/bleach-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768517/deez-prints/regular/bleach-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768520/deez-prints/regular/bleach-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768523/deez-prints/regular/bleach-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768533/deez-prints/regular/bleach-whte-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769003/deez-prints/regular/sukuna-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769012/deez-prints/regular/sukuna-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769006/deez-prints/regular/sukuna-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769009/deez-prints/regular/sukuna-white-back.jpg"
     ],
     "colors": [
       "Beige",
-      "Blue",
-      "Grey",
       "White"
     ],
     "rating": 5,
@@ -200,31 +595,29 @@ export const products: Product[] = [
     "aesthetic": "comic-universe"
   },
   {
-    "id": "dp-acid-wash-berserk-classic",
-    "title": "BERSERK ACID WASH TEE",
-    "description": "A compact red chest graphic pairs with a back print built from Berserk manga panels, red Japanese lettering and small editorial details. The acid-wash base adds a mottled backdrop to the sharp rectangular artwork.",
-    "price": 2400,
+    "id": "dp-acid-wash-cactus-takeover",
+    "title": "Travis Scott Cactus Takeover Acid Wash Tee",
+    "description": "A black figure and loose green lettering overlap in a graffiti-style front composition. The Cactus Takeover artwork uses scattered marks and uneven typography against the grey acid-wash surface.",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085752/BerserkAcidB_pow8mm.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/BerserkAcidF_x9zx9m.webp"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927816/cactus_takeover_grey_acid_wash_front.jpg"
     ],
     "colors": [
-      "Acid Black"
+      "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
+    "rating": 5
   },
   {
-    "id": "tapestry-berserk-eclipse-tapestry",
-    "title": "BERSERK ECLIPSE TAPESTRY",
-    "description": "A red circular centre is surrounded by a dense black-and-white Berserk collage in this horizontal tapestry. The bright central shape draws attention against the surrounding manga-style imagery and dark silhouettes.",
+    "id": "tapestry-dragon-ball-z-goku-collage-tapestry",
+    "title": "DRAGON BALL Z GOKU COLLAGE TAPESTRY",
+    "description": "Several Goku portraits and figures overlap in a tall collage, with orange clothing and bright blue energy-like accents. The vertical tapestry brings a full standing figure together with larger cropped faces in one densely illustrated composition.",
     "price": 3000,
     "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
-      "/assets/products/tapestries/berserk_eclipse_tapestry.webp"
+      "/assets/products/tapestries/dragon_ball_z_goku_collage_tapestry.webp"
     ],
     "colors": [],
     "rating": 5,
@@ -265,36 +658,43 @@ export const products: Product[] = [
     "aesthetic": "comic-universe"
   },
   {
-    "id": "dp-acid-wash-travis-scott-highest-in-the-room",
-    "title": "Travis Scott Highest In The Room Acid Wash Tee",
-    "description": "A Travis Scott portrait sits low on the back beneath handwritten-style lettering and sketched marks. Small orange and yellow face graphics add colour, while compact dark lettering keeps the front of the grey acid-wash tee comparatively minimal.",
-    "price": 2550,
+    "id": "dp-acid-wash-dr-doom",
+    "title": "Doctor Doom Acid Wash Tee",
+    "description": "A large side-profile portrait of Doctor Doom (Marvel) fills the back, with a green hood framing the metallic mask. A compact DOOM chest graphic echoes the green palette on this vintage mineral-wash tee. Essential Marvel comic apparel for fans of Latveria's ruler and Avengers: Doomsday.",
+    "price": 2500,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927368/travis_scott_highest_in_the_room_grey_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927371/travis_scott_highest_in_the_room_grey_acid_wash_front.jpg"
-    ],
-    "colors": [
-      "Grey"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-abstract-wings",
-    "title": "ABSTRACT WINGS TEE",
-    "description": "White skeletal wings stretch across the back and taper into a long spine down the centre. A compact pointed emblem sits on the chest, giving this regular tee a smaller front detail beside the wide back illustration.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737955/calligraphyf_i50rtp.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737946/wingsback_ojdcgx.webp"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926300/dr_doom_acidwash_black_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926411/dr_doom_acidwash_black_front.jpg"
     ],
     "colors": [
       "Black"
     ],
-    "rating": 4
+    "rating": 5,
+    "aesthetic": "comic-universe"
+  },
+  {
+    "id": "dp-regular-dbz-1",
+    "title": "MAJIN VEGETA REGULAR TEE",
+    "description": "A monochrome Vegeta portrait is surrounded by a red outline and energetic red marks on the back. The front carries a small red Majin symbol, keeping the character artwork as the main feature of this regular tee.",
+    "price": 1700,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768573/deez-prints/regular/dbz-1-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768567/deez-prints/regular/dbz-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768575/deez-prints/regular/dbz-1-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768570/deez-prints/regular/dbz-1-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768579/deez-prints/regular/dbz-1-white-front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Grey",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-spiderman-comic",
@@ -336,34 +736,31 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-acid-wash-punisher-distressed",
-    "title": "Punisher Distressed Acid Wash Tee",
-    "description": "A large distressed white skull fills the back, with long teeth extending down the torso. A smaller red-and-white Punisher wordmark sits on the chest, setting the graphic against the mottled acid-wash finish.",
+    "id": "dp-acid-wash-dbz-bardock-the-fallen-warrior",
+    "title": "DBZ Bardock Fallen Warrior Acid Wash Tee",
+    "description": "Bardock appears in a red, black and white back graphic with large BARDOCK lettering beneath the portrait. A small crossed-mark chest graphic gives this acid-wash tee a minimal front and a much more detailed reverse.",
     "price": 2300,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926844/punisher_distressed_acidwash_maroon_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926891/punisher_distressed_acidwash_maroon_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926836/punisher_distressed_acidwash_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926867/punisher_distressed_acidwash_black_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926166/dbz_bardock_the_fallen_warrior_black_acid_wash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926200/dbz_bardock_the_fallen_warrior_black_acid_wash_front.jpg"
     ],
     "colors": [
-      "Black",
-      "Maroon"
+      "Black"
     ],
     "rating": 5,
-    "aesthetic": "comic-universe"
+    "aesthetic": "anime-archive"
   },
   {
-    "id": "tapestry-berserk-tapestry",
-    "title": "BERSERK TAPESTRY",
-    "description": "Large white BERSERK lettering tops a red-and-black character composition in this vertical tapestry. Heavy black shapes and angular white highlights give the artwork a high-contrast, tightly cropped appearance.",
+    "id": "tapestry-goku-dragon-ball-z-manga-tapestry",
+    "title": "GOKU DRAGON BALL Z MANGA TAPESTRY",
+    "description": "Large decorative Son Goku lettering sits above a colour Goku illustration on a dark background. Orange clothing, white linework and smaller manga-style details build a tightly packed vertical tapestry design.",
     "price": 3000,
     "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
-      "/assets/products/tapestries/berserk_tapestry.webp"
+      "/assets/products/tapestries/goku_dragon_ball_z_manga_tapestry.webp"
     ],
     "colors": [],
     "rating": 5,
@@ -390,62 +787,6 @@ export const products: Product[] = [
     "aesthetic": "comic-universe"
   },
   {
-    "id": "dp-drop-shoulder-the-batman-gotham",
-    "title": "The Batman Gotham Drop Shoulder Tee",
-    "description": "A red-and-black character collage forms the back graphic, with a prominent question mark and THE BATMAN lettering beneath. A small red Batman title sits on the chest, keeping the front of this drop-shoulder tee comparatively spare.",
-    "price": 1950,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927256/the_batman_gotham_dropshoulder_white_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927301/the_batman_gotham_dropshoulder_white_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927289/the_batman_gotham_dropshoulder_beige_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927250/the_batman_gotham_dropshoulder_beige_front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "comic-universe"
-  },
-  {
-    "id": "dp-acid-wash-berserk-skull-blade",
-    "title": "BERSERK SKULL BLADE ACID WASH TEE",
-    "description": "A central sword, skull imagery and Gothic Berserk lettering form a tall front graphic. Small symbols and text blocks surround the blade, giving this acid-wash tee a densely arranged, monochrome composition.",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1788970854/deez-prints/covers/berserk_skull_blade_acid_wash_new.jpg",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidBerserkEmbossF_izdjez.webp"
-    ],
-    "colors": [
-      "Acid Black"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-regular-chainsaw-2",
-    "title": "DENJI CHAINSAW REGULAR TEE",
-    "description": "Denji's chainsaw-headed action pose sits beside vertical lettering in the large red-and-monochrome back graphic. A small Chainsaw Man title on the chest repeats the theme without duplicating the full illustration.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768553/deez-prints/regular/chainsaw-2-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768555/deez-prints/regular/chainsaw-2-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768558/deez-prints/regular/chainsaw-2-grey-front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Grey"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-drop-shoulder-snake",
     "title": "SNAKE Drop Shoulder Tee",
     "description": "A winding snake illustration curves down from one shoulder towards the chest. The off-centre placement leaves most of the front unprinted, making the shape of the snake the main feature of this drop-shoulder tee.",
@@ -464,67 +805,38 @@ export const products: Product[] = [
     "aesthetic": "minimal-drops"
   },
   {
-    "id": "dp-drop-shoulder-look-mom-i-can-fly",
-    "title": "Look Mom I Can Fly Drop Shoulder Tee",
-    "description": "LOOK MOM I CAN FLY sits above a monochrome portrait and a film-rating-style block. The rectangular front graphic resembles a compact movie poster, combining large headline text with finer details on this drop-shoulder tee.",
-    "price": 1850,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926601/look_mom_i_can_fly_green_drop_shoulder_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926624/look_mom_i_can_fly_black_drop_shoulder_front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Green"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-dr-doom",
-    "title": "Doctor Doom Acid Wash Tee",
-    "description": "A large side-profile portrait of Doctor Doom (Marvel) fills the back, with a green hood framing the metallic mask. A compact DOOM chest graphic echoes the green palette on this vintage mineral-wash tee. Essential Marvel comic apparel for fans of Latveria's ruler and Avengers: Doomsday.",
-    "price": 2500,
+    "id": "dp-acid-wash-berserk-classic",
+    "title": "BERSERK ACID WASH TEE",
+    "description": "A compact red chest graphic pairs with a back print built from Berserk manga panels, red Japanese lettering and small editorial details. The acid-wash base adds a mottled backdrop to the sharp rectangular artwork.",
+    "price": 2400,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926300/dr_doom_acidwash_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926411/dr_doom_acidwash_black_front.jpg"
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085752/BerserkAcidB_pow8mm.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/BerserkAcidF_x9zx9m.webp"
     ],
     "colors": [
-      "Black"
+      "Acid Black"
     ],
-    "rating": 5,
-    "aesthetic": "comic-universe"
-  },
-  {
-    "id": "tapestry-dragon-ball-z-characters-tapestry",
-    "title": "DRAGON BALL Z CHARACTERS TAPESTRY",
-    "description": "A colour lineup of Dragon Ball Z characters stretches across a background of black-and-white manga panels. The horizontal composition groups the figures through the centre, making this tapestry distinct from a single-character portrait.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/dragon_ball_z_characters_tapestry.webp"
-    ],
-    "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-drop-shoulder-no-mercy",
-    "title": "No Mercy Drop Shoulder Tee",
-    "description": "White NO MERCY lettering crosses a large scene in red, black and blue-purple. The illustration fills much of the front of this drop-shoulder tee, with an angled red panel forming its upper edge.",
-    "price": 2600,
+    "id": "dp-regular-berserk",
+    "title": "GUTS BRAND OF SACRIFICE REGULAR TEE",
+    "description": "A red Brand of Sacrifice sits above a monochrome Guts illustration at the lower back. A compact red Berserk chest wordmark ties the front to the larger reverse artwork on this regular tee.",
+    "price": 2000,
     "category": "t-shirts",
-    "subcategory": "drop-shoulder",
+    "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926760/no_mercy_black_dropshoulder_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768490/deez-prints/regular/berserk-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768493/deez-prints/regular/berserk-black-front.jpg"
     ],
     "colors": [
       "Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-tbsm",
@@ -540,45 +852,6 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-utopia-skeleton",
-    "title": "UTOPIA Skeleton Acid Wash Tee",
-    "description": "A black skeleton illustration rises from the lower front beneath a small wordmark. The back uses UTOPIA lettering above a narrow column of text, balancing an illustrated front with a typography-focused reverse on grey acid wash.",
-    "price": 2400,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927485/utopia_skeleton_grey_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789928108/utopia_skeleton_grey_acid_wash_front.jpg"
-    ],
-    "colors": [
-      "Grey"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-chainsaw-1",
-    "title": "CHAINSAW MAN REGULAR TEE",
-    "description": "A chainsaw-headed figure in a collared shirt fills the back, framed by red strokes and Japanese lettering. A smaller Chainsaw Man chest wordmark keeps the front of this regular tee comparatively minimal.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768535/deez-prints/regular/chainsaw-1-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768550/deez-prints/regular/chainsaw-1-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768538/deez-prints/regular/chainsaw-1-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768541/deez-prints/regular/chainsaw-1-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768544/deez-prints/regular/chainsaw-1-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768547/deez-prints/regular/chainsaw-1-white-back.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "Black",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-utopia-screwed",
@@ -600,6 +873,36 @@ export const products: Product[] = [
     "rating": 5
   },
   {
+    "id": "dp-acid-wash-travis-scott-highest-in-the-room",
+    "title": "Travis Scott Highest In The Room Acid Wash Tee",
+    "description": "A Travis Scott portrait sits low on the back beneath handwritten-style lettering and sketched marks. Small orange and yellow face graphics add colour, while compact dark lettering keeps the front of the grey acid-wash tee comparatively minimal.",
+    "price": 2550,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927368/travis_scott_highest_in_the_room_grey_acid_wash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927371/travis_scott_highest_in_the_room_grey_acid_wash_front.jpg"
+    ],
+    "colors": [
+      "Grey"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "tapestry-goku-kamehameha-tapestry",
+    "title": "GOKU KAMEHAMEHA TAPESTRY",
+    "description": "A close-up Goku action pose cuts diagonally across this horizontal tapestry, surrounded by bright blue energy-like streaks. The cropped face, red-orange clothing and luminous background make the composition feel concentrated on one moment of movement.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/goku_kamehameha_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-venom-demon-inside",
     "title": "Venom Demon Inside Drop Shoulder Tee",
     "description": "Venom's eye, teeth and red tongue extend along one side of both front and back. DEMON INSIDE lettering sits near the artwork, keeping this black drop-shoulder tee's graphic weight towards the side rather than the centre.",
@@ -617,37 +920,6 @@ export const products: Product[] = [
     "aesthetic": "comic-universe"
   },
   {
-    "id": "dp-acid-wash-berserk-warrior",
-    "title": "BERSERK WARRIOR ACID WASH TEE",
-    "description": "A white ornamental chest emblem pairs with a much larger Guts illustration on the back. The red Brand of Sacrifice sits above the figure, creating a single colour accent against the black-and-white artwork and acid-wash texture.",
-    "price": 3200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/AcidBerB_hlqkml.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidBerF_csztus.webp"
-    ],
-    "colors": [
-      "Acid Black"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "tapestry-dragon-ball-z-goku-collage-tapestry",
-    "title": "DRAGON BALL Z GOKU COLLAGE TAPESTRY",
-    "description": "Several Goku portraits and figures overlap in a tall collage, with orange clothing and bright blue energy-like accents. The vertical tapestry brings a full standing figure together with larger cropped faces in one densely illustrated composition.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/dragon_ball_z_goku_collage_tapestry.webp"
-    ],
-    "colors": [],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-drop-shoulder-berserk",
     "title": "Berserk Drop Shoulder Tee",
     "description": "Red Japanese lettering tops a back collage of Berserk manga panels, small text and a barcode-style detail. A compact red-and-black front illustration gives this drop-shoulder tee separate artwork on both sides.",
@@ -663,6 +935,50 @@ export const products: Product[] = [
     "colors": [
       "Black",
       "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-punisher-distressed",
+    "title": "Punisher Distressed Acid Wash Tee",
+    "description": "A large distressed white skull fills the back, with long teeth extending down the torso. A smaller red-and-white Punisher wordmark sits on the chest, setting the graphic against the mottled acid-wash finish.",
+    "price": 2300,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926844/punisher_distressed_acidwash_maroon_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926891/punisher_distressed_acidwash_maroon_front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926836/punisher_distressed_acidwash_black_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926867/punisher_distressed_acidwash_black_front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Maroon"
+    ],
+    "rating": 5,
+    "aesthetic": "comic-universe"
+  },
+  {
+    "id": "dp-regular-sukuna",
+    "title": "Attack Titan Regular Tee",
+    "description": "The Attack Titan's fierce roaring portrait dominates this regular tee, with exposed jaw muscles and red steam accents. A compact chest emblem balances the detailed back illustration.",
+    "price": 1950,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768939/deez-prints/regular/sakuna-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768945/deez-prints/regular/sakuna-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768951/deez-prints/regular/sakunga-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768942/deez-prints/regular/sakuna-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768948/deez-prints/regular/sakuna-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768954/deez-prints/regular/sakunga-beige-front.jpg"
+    ],
+    "colors": [
+      "Blue",
+      "White",
+      "Beige",
+      "Grey"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -686,38 +1002,6 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-acid-wash-odyssey-spartan",
-    "title": "Odyssey Spartan Acid Wash Tee",
-    "description": "A large crested helmet illustration occupies the front, while stacked text and THE ODYSSEY lettering cover the back. The monochrome artwork gives this grey acid-wash tee a classical-warrior theme with distinct designs on each side.",
-    "price": 2500,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926823/odyssey_spartan_grey_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926811/odyssey_spartan_grey_acid_wash_front.jpg"
-    ],
-    "colors": [
-      "Grey"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-divine",
-    "title": "DIVINE TEE",
-    "description": "Gold-toned Divine lettering and a branching illustration occupy the front, with an oversized 00 on the back. Smaller words and symbols complete this regular tee's coordinated typography-led design.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738656/divin_en7ejg.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738656/div_uzioib.webp"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 4
-  },
-  {
     "id": "dp-drop-shoulder-dbz-bardock-the-fallen-warrior",
     "title": "DBZ Bardock Fallen Warrior Drop Shoulder Tee",
     "description": "Bardock's portrait is set against red shapes and large white BARDOCK lettering on the back. The front has a small crossed-mark emblem, keeping this drop-shoulder design focused on the character illustration when viewed from behind.",
@@ -731,6 +1015,37 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-berserk-skull-blade",
+    "title": "BERSERK SKULL BLADE ACID WASH TEE",
+    "description": "A central sword, skull imagery and Gothic Berserk lettering form a tall front graphic. Small symbols and text blocks surround the blade, giving this acid-wash tee a densely arranged, monochrome composition.",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788970854/deez-prints/covers/berserk_skull_blade_acid_wash_new.jpg",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidBerserkEmbossF_izdjez.webp"
+    ],
+    "colors": [
+      "Acid Black"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "tapestry-goku-manga-collage-tapestry",
+    "title": "GOKU MANGA COLLAGE TAPESTRY",
+    "description": "A monochrome Goku portrait fills the lower section of this vertical tapestry, framed by manga panels and bold red blocks. Large red Japanese lettering at the top balances the darker character illustration below.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/goku_manga_collage_tapestry.webp"
+    ],
+    "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -751,105 +1066,6 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-acid-wash-cactus-takeover",
-    "title": "Travis Scott Cactus Takeover Acid Wash Tee",
-    "description": "A black figure and loose green lettering overlap in a graffiti-style front composition. The Cactus Takeover artwork uses scattered marks and uneven typography against the grey acid-wash surface.",
-    "price": 2000,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927816/cactus_takeover_grey_acid_wash_front.jpg"
-    ],
-    "colors": [
-      "Grey"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "tapestry-goku-dragon-ball-z-manga-tapestry",
-    "title": "GOKU DRAGON BALL Z MANGA TAPESTRY",
-    "description": "Large decorative Son Goku lettering sits above a colour Goku illustration on a dark background. Orange clothing, white linework and smaller manga-style details build a tightly packed vertical tapestry design.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/goku_dragon_ball_z_manga_tapestry.webp"
-    ],
-    "colors": [],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-drop-shoulder-no-friends",
-    "title": "No Friends Drop Shoulder Tee",
-    "description": "Large distressed AUTHENTIC lettering arches above a hand-and-face illustration on the front. An outlined circular R and smaller marks complete the collage, making this drop-shoulder tee a typography-heavy graphic design.",
-    "price": 1950,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926722/no_friends_dropshoulder_green_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926702/no_friends_dropshoulder_black_front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Green"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-drop-shoulder-guns-n-roses",
-    "title": "Guns N Roses Drop Shoulder Tee",
-    "description": "Tall Guns N' Roses lettering runs vertically around a central emblem and two red roses. The long front composition pairs white typography with small green and red details on a black drop-shoulder base.",
-    "price": 1850,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "/assets/products/guns-n-roses/guns_n_roses_drop_shoulder_black_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-breakout",
-    "title": "BREAKOUT ACID WASH TEE",
-    "description": "The BREAKOUT chest graphic combines large outlined lettering with a red-and-white snake winding through it. Its wide placement contrasts with the irregular texture of the acid-wash base.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086685/breakoutAcid_dp04ei.webp"
-    ],
-    "colors": [
-      "Acid Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-anime1",
-    "title": "CHOSO BLOODLINE REGULAR TEE",
-    "description": "Choso's raised-hand pose fills the lower back in black linework with small red accents. An angular chest wordmark keeps the front of this regular tee much simpler than its large character illustration.",
-    "price": 1700,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768439/deez-prints/regular/anime1beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768454/deez-prints/regular/anime1white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768442/deez-prints/regular/anime1beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768445/deez-prints/regular/anime1blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768451/deez-prints/regular/anime1white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768448/deez-prints/regular/anime1blue-front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "Blue",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-drop-shoulder-punk-is-dead",
     "title": "PUNK'S NOT DEAD DROP SHOULDER TEE",
     "description": "PUNK'S NOT DEAD lettering and punk-inspired graphic details form the main front composition. The oversized drop-shoulder fit pairs with the distressed typography for a streetwear take on punk aesthetics.",
@@ -867,6 +1083,41 @@ export const products: Product[] = [
     "rating": 5
   },
   {
+    "id": "dp-acid-wash-berserk-warrior",
+    "title": "BERSERK WARRIOR ACID WASH TEE",
+    "description": "A white ornamental chest emblem pairs with a much larger Guts illustration on the back. The red Brand of Sacrifice sits above the figure, creating a single colour accent against the black-and-white artwork and acid-wash texture.",
+    "price": 3200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/AcidBerB_hlqkml.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidBerF_csztus.webp"
+    ],
+    "colors": [
+      "Acid Black"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-luffy-4",
+    "title": "LUFFY FREEDOM REGULAR TEE",
+    "description": "A cropped Luffy portrait with a straw hat sits low on the front, accented with red clothing and small flying birds. The off-centre layout leaves the upper chest open on this regular tee.",
+    "price": 1750,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768843/deez-prints/regular/luffy-4-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768849/deez-prints/regular/luffy-4-white-front.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-astral-ruins",
     "title": "Astral Ruins Drop Shoulder Tee",
     "description": "An irregular black spiral is built from fine lines, stars, crosses and diagram-like marks. The Astral Ruins graphic spreads vertically across the front of this drop-shoulder tee, with open space between its looping shapes.",
@@ -882,39 +1133,6 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-wired-different",
-    "title": "Wired Different Acid Wash Tee",
-    "description": "A white, diagram-like hand graphic fills the back, surrounded by fine labels, lines and cross marks. A smaller version sits on the chest, giving the Wired Different acid-wash tee a coordinated technical-drawing look.",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927753/wired_different_maroon_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927787/wired_different_maroon_acid_wash_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927722/wired_different_black_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789928022/wired_different_black_acid_wash_front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Maroon"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "tapestry-goku-kamehameha-tapestry",
-    "title": "GOKU KAMEHAMEHA TAPESTRY",
-    "description": "A close-up Goku action pose cuts diagonally across this horizontal tapestry, surrounded by bright blue energy-like streaks. The cropped face, red-orange clothing and luminous background make the composition feel concentrated on one moment of movement.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/goku_kamehameha_tapestry.webp"
-    ],
-    "colors": [],
-    "rating": 5,
-    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-punisher-distressed",
@@ -937,6 +1155,36 @@ export const products: Product[] = [
     "aesthetic": "comic-universe"
   },
   {
+    "id": "dp-acid-wash-odyssey-spartan",
+    "title": "Odyssey Spartan Acid Wash Tee",
+    "description": "A large crested helmet illustration occupies the front, while stacked text and THE ODYSSEY lettering cover the back. The monochrome artwork gives this grey acid-wash tee a classical-warrior theme with distinct designs on each side.",
+    "price": 2500,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926823/odyssey_spartan_grey_acid_wash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926811/odyssey_spartan_grey_acid_wash_front.jpg"
+    ],
+    "colors": [
+      "Grey"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "tapestry-goku-super-saiyan-tapestry",
+    "title": "GOKU SUPER SAIYAN TAPESTRY",
+    "description": "A yellow-haired Goku action pose sits over black-and-white manga panels in this vertical tapestry. Orange clothing and blue accents separate the central figure from the surrounding illustrated background.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/goku_super_saiyan_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-abstract-wings",
     "title": "ABSTRACT WINGS Drop Shoulder Tee",
     "description": "Skeletal wings spread across the back and narrow into a long central spine. A smaller pointed emblem sits on the chest, pairing detailed monochrome artwork with the broader shape of a drop-shoulder tee.",
@@ -954,48 +1202,6 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-acid-wash-gogeta-blue-fusion",
-    "title": "Gogeta Blue Fusion Acid Wash Tee",
-    "description": "Blue-haired Gogeta fills a rectangular back graphic beside vertical GOGETA lettering and red accents. A small blue-and-red circular chest emblem links the front to the detailed character artwork on this acid-wash tee.",
-    "price": 2250,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926545/gogeta_blue_fusion_maroon_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926498/gogeta_blue_fusion_maroon_acid_wash_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926415/gogeta_blue_fusion_black_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926417/gogeta_blue_fusion_black_acid_wash_front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Maroon"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-regular-aizen",
-    "title": "AIZEN REGULAR TEE",
-    "description": "Aizen appears in a large red, white and black back illustration with vertical lettering and circular details. A smaller Aizen emblem sits at the chest, concentrating the most detailed artwork on the reverse of this regular tee.",
-    "price": 1700,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768431/deez-prints/regular/aizen-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768425/deez-prints/regular/aizen-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768434/deez-prints/regular/aizen-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768437/deez-prints/regular/aizen-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768428/deez-prints/regular/aizen-black-front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Grey",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-drop-shoulder-metallica-2-0",
     "title": "Metallica 2.0 Drop Shoulder Tee",
     "description": "A skeletal reaper and sweeping scythe fill the front beneath red Metallica lettering. White and grey details follow the curved blade and dark figure, standing out against the black drop-shoulder base.",
@@ -1011,31 +1217,14 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-drop-shoulder-dr-doom",
-    "title": "Doctor Doom Drop Shoulder Tee",
-    "description": "A green-hooded Doctor Doom (Marvel) portrait fills the back, with the metallic mask shown in side profile. Features a DOOM chest graphic on the front of this heavyweight drop-shoulder tee. Boxy relaxed streetwear cut for Marvel comic and Avengers: Doomsday fans.",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926310/dr_doom_dropshoulder_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926334/dr_doom_dropshoulder_black_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "comic-universe"
-  },
-  {
-    "id": "dp-acid-wash-knightfall",
-    "title": "KNIGHTFALL ACID WASH TEE",
-    "description": "A kneeling armoured figure occupies the centre of the chest, with arrow-like lines radiating around it. Small text blocks and framed details give the Knightfall graphic a compact poster-style layout against the dark acid-wash surface.",
+    "id": "dp-acid-wash-breakout",
+    "title": "BREAKOUT ACID WASH TEE",
+    "description": "The BREAKOUT chest graphic combines large outlined lettering with a red-and-white snake winding through it. Its wide placement contrasts with the irregular texture of the acid-wash base.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085757/AcidKnioghtF_smiizk.webp"
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086685/breakoutAcid_dp04ei.webp"
     ],
     "colors": [
       "Acid Black"
@@ -1043,16 +1232,25 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tapestry-goku-manga-collage-tapestry",
-    "title": "GOKU MANGA COLLAGE TAPESTRY",
-    "description": "A monochrome Goku portrait fills the lower section of this vertical tapestry, framed by manga panels and bold red blocks. Large red Japanese lettering at the top balances the darker character illustration below.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
+    "id": "dp-regular-kaijin",
+    "title": "GAROU KAIJIN REGULAR TEE",
+    "description": "Garou's monochrome back illustration is crossed by vivid red branching lines. The front pairs KAIJIN lettering with two thorn-like motifs near the hem, giving this regular tee distinct artwork on each side.",
+    "price": 1950,
+    "category": "t-shirts",
+    "subcategory": "regular",
     "images": [
-      "/assets/products/tapestries/goku_manga_collage_tapestry.webp"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768774/deez-prints/regular/kaijin-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768790/deez-prints/regular/kaijin-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768777/deez-prints/regular/kaijin-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768780/deez-prints/regular/kaijin-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768784/deez-prints/regular/kaijin-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768787/deez-prints/regular/kaijin-white-back.jpg"
     ],
-    "colors": [],
+    "colors": [
+      "Beige",
+      "Blue",
+      "White"
+    ],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -1094,40 +1292,37 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-acid-wash-bluelock",
-    "title": "BLUELOCK ACID WASH TEE",
-    "description": "An Isagi Yoichi collage combines football imagery, manga panels and blue lettering across the back. A smaller blue BLUELOCK wordmark sits on the chest, linking both sides of this acid-wash tee.",
+    "id": "dp-acid-wash-wired-different",
+    "title": "Wired Different Acid Wash Tee",
+    "description": "A white, diagram-like hand graphic fills the back, surrounded by fine labels, lines and cross marks. A smaller version sits on the chest, giving the Wired Different acid-wash tee a coordinated technical-drawing look.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770067/deez-prints/acid/bluelock-maroon-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770061/deez-prints/acid/bluelock-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770070/deez-prints/acid/bluelock-maroon-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770064/deez-prints/acid/bluelock-black-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927753/wired_different_maroon_acid_wash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927787/wired_different_maroon_acid_wash_front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927722/wired_different_black_acid_wash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789928022/wired_different_black_acid_wash_front.jpg"
     ],
     "colors": [
       "Black",
       "Maroon"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
+    "rating": 5
   },
   {
-    "id": "dp-regular-ferrari",
-    "title": "FERRARI TEE",
-    "description": "Red Ferrari lettering and racing-style badges decorate the front, with a prancing-horse graphic on the back. Yellow sleeve motifs extend the motorsport theme around this regular tee.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
+    "id": "tapestry-goku-ultra-instinct-red-tapestry",
+    "title": "GOKU ULTRA INSTINCT RED TAPESTRY",
+    "description": "A silver-haired Goku figure stands against a strong red backdrop with oversized black Japanese lettering. Dark trousers and heavily shaded character details give this tapestry a graphic red-and-monochrome treatment rather than a manga-panel collage.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
     "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908159/regferrariFblack_kpig1e.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908160/regferrariBblack_wgsjpf.webp"
+      "/assets/products/tapestries/goku_ultra_instinct_red_tapestry.webp"
     ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 4
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-metallica",
@@ -1161,33 +1356,44 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-acid-wash-digital-angel",
-    "title": "Digital Angel Acid Wash Tee",
-    "description": "Large DIGITAL ANGEL lettering sits above a winged figure and a grid of small graphic panels. Blue accents break up the monochrome artwork, giving the front of this acid-wash tee a layered, poster-like arrangement.",
+    "id": "dp-acid-wash-gogeta-blue-fusion",
+    "title": "Gogeta Blue Fusion Acid Wash Tee",
+    "description": "Blue-haired Gogeta fills a rectangular back graphic beside vertical GOGETA lettering and red accents. A small blue-and-red circular chest emblem links the front to the detailed character artwork on this acid-wash tee.",
     "price": 2250,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926261/digital_angel_grey_acid_wash_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926545/gogeta_blue_fusion_maroon_acid_wash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926498/gogeta_blue_fusion_maroon_acid_wash_front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926415/gogeta_blue_fusion_black_acid_wash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926417/gogeta_blue_fusion_black_acid_wash_front.jpg"
     ],
     "colors": [
-      "Grey"
+      "Black",
+      "Maroon"
     ],
-    "rating": 5
-  },
-  {
-    "id": "tapestry-goku-super-saiyan-tapestry",
-    "title": "GOKU SUPER SAIYAN TAPESTRY",
-    "description": "A yellow-haired Goku action pose sits over black-and-white manga panels in this vertical tapestry. Orange clothing and blue accents separate the central figure from the surrounding illustrated background.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/goku_super_saiyan_tapestry.webp"
-    ],
-    "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-spiderverse",
+    "title": "SPIDERVERSE TEE",
+    "description": "A large red spider outline spans the back, with narrow white lettering through its centre. A smaller white-and-red spider emblem sits on the chest, giving this black regular tee a matching two-sided design.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737932/sppiderb_srlaq3.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737932/sppiderf_aqsefr.webp"
+    ],
+    "colors": [
+      "Black",
+      "White",
+      "Olive",
+      "Sand"
+    ],
+    "rating": 5,
+    "aesthetic": "comic-universe"
   },
   {
     "id": "dp-drop-shoulder-bleach",
@@ -1207,62 +1413,6 @@ export const products: Product[] = [
     "colors": [
       "Beige",
       "Blue",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-drop-shoulder-utopia-skeleton",
-    "title": "UTOPIA Skeleton Drop Shoulder Tee",
-    "description": "A black skeleton rises from the lower front beneath a small wordmark. On the back, UTOPIA lettering heads a narrow column of titles, contrasting the illustrated front with a text-focused layout on this drop-shoulder tee.",
-    "price": 2250,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927468/utopia_skeleton_drop_shoulder_white_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927524/utopia_skeleton_drop_shoulder_white_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927481/utopia_skeleton_drop_shoulder_beige_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927493/utopia_skeleton_drop_shoulder_beige_front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "White"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-punk-is-dead",
-    "title": "PUNK'S NOT DEAD ACID WASH TEE",
-    "description": "Bold PUNK'S NOT DEAD lettering stretches across the front with distressed typography and punk-inspired graphic elements. The acid-wash texture adds a vintage feel to the rebellious slogan.",
-    "price": 2000,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/PunkAcidF_rz3omv.webp"
-    ],
-    "colors": [
-      "Acid Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-ace-1",
-    "title": "FIRE FIST ACE REGULAR TEE",
-    "description": "An orange-accented Ace illustration fills the back beside tall ACE lettering and flame-like marks. Two small orange face emblems sit on the chest, giving this regular tee matching character references on both sides.",
-    "price": 1700,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768420/deez-prints/regular/ace-1-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768414/deez-prints/regular/ace-1-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768411/deez-prints/regular/ace-1-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768422/deez-prints/regular/ace-1-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768417/deez-prints/regular/ace-1-grey-front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Grey",
       "White"
     ],
     "rating": 5,
@@ -1294,6 +1444,40 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-acid-wash-bluelock",
+    "title": "BLUELOCK ACID WASH TEE",
+    "description": "An Isagi Yoichi collage combines football imagery, manga panels and blue lettering across the back. A smaller blue BLUELOCK wordmark sits on the chest, linking both sides of this acid-wash tee.",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770067/deez-prints/acid/bluelock-maroon-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770061/deez-prints/acid/bluelock-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770070/deez-prints/acid/bluelock-maroon-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770064/deez-prints/acid/bluelock-black-front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Maroon"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "tapestry-goku-ultra-instinct-tapestry",
+    "title": "GOKU ULTRA INSTINCT TAPESTRY",
+    "description": "A full-length Goku figure stands within a bright purple-and-blue aura against a dark background. Orange clothing contrasts with the luminous surrounding effects, creating a vertical tapestry centred on the character's silhouette.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/goku_ultra_instinct_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-stay-safe",
     "title": "Stay Safe Drop Shoulder Tee",
     "description": "A red figure built from overlapping ribbon-like strips occupies one side of the front. A small black-and-white text graphic sits opposite it, giving this white drop-shoulder tee an asymmetrical layout.",
@@ -1307,37 +1491,6 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-spiderman-comic-battle",
-    "title": "Spider-Man Comic Battle Acid Wash Tee",
-    "description": "An upside-down Spider-Man hangs on the front, while a larger red-and-blue comic action scene rises from the lower back. The two placements carry the character artwork across both sides without covering the entire acid-wash surface.",
-    "price": 2400,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927080/spiderman_comic_battle_acidwash_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927089/spiderman_comic_battle_acidwash_black_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "comic-universe"
-  },
-  {
-    "id": "tapestry-goku-ultra-instinct-red-tapestry",
-    "title": "GOKU ULTRA INSTINCT RED TAPESTRY",
-    "description": "A silver-haired Goku figure stands against a strong red backdrop with oversized black Japanese lettering. Dark trousers and heavily shaded character details give this tapestry a graphic red-and-monochrome treatment rather than a manga-panel collage.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/goku_ultra_instinct_red_tapestry.webp"
-    ],
-    "colors": [],
-    "rating": 5,
-    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-cactus-takeover",
@@ -1357,6 +1510,46 @@ export const products: Product[] = [
     "rating": 5
   },
   {
+    "id": "dp-acid-wash-digital-angel",
+    "title": "Digital Angel Acid Wash Tee",
+    "description": "Large DIGITAL ANGEL lettering sits above a winged figure and a grid of small graphic panels. Blue accents break up the monochrome artwork, giving the front of this acid-wash tee a layered, poster-like arrangement.",
+    "price": 2250,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926261/digital_angel_grey_acid_wash_front.jpg"
+    ],
+    "colors": [
+      "Grey"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-regular-bleach",
+    "title": "BLEACH REGULAR TEE",
+    "description": "A laughing, spiky-haired manga portrait rises from the lower back, surrounded by small lettering. The front carries a compact BLEACH wordmark, balancing detailed linework with a simple title treatment on this regular tee.",
+    "price": 1700,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768529/deez-prints/regular/bleach-whte-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768514/deez-prints/regular/bleach-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768526/deez-prints/regular/bleach-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768517/deez-prints/regular/bleach-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768520/deez-prints/regular/bleach-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768523/deez-prints/regular/bleach-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768533/deez-prints/regular/bleach-whte-front.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "Blue",
+      "Grey",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-crimson-thorn-sigil",
     "title": "Crimson Thorn Sigil Drop Shoulder Tee",
     "description": "Mirrored thorn-like shapes surround a red central sigil on the back. A separate white ornamental drawing covers the front, combining fine branches, pointed forms and small lettering on this black drop-shoulder tee.",
@@ -1371,43 +1564,6 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-no-mercy",
-    "title": "No Mercy Acid Wash Tee",
-    "description": "NO MERCY cuts across a large red, black and blue-purple illustration covering much of the front. The tightly framed scene and bold white lettering make this a more print-heavy acid-wash design.",
-    "price": 3000,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926797/no_mercy_black_acidwash_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-dbz-8",
-    "title": "GOKU BLACK REBELLION REGULAR TEE",
-    "description": "A dark Goku Black portrait is framed by red Japanese lettering and bold white graphic text. The smaller circular front motif repeats the red-and-monochrome palette on this regular tee.",
-    "price": 1700,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768653/deez-prints/regular/dbz-8-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768647/deez-prints/regular/dbz-8-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768650/deez-prints/regular/dbz-8-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768656/deez-prints/regular/dbz-8-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768658/deez-prints/regular/dbz-8-white-front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Grey",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-odyssey-spartan",
@@ -1429,31 +1585,14 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-drop-shoulder-the-odyssey",
-    "title": "The Odyssey Drop Shoulder Tee",
-    "description": "A metallic-looking helmeted warrior rises beneath oversized red THE ODYSSEY lettering on the back. The small red chest title repeats the typography at a quieter scale on this black drop-shoulder tee.",
-    "price": 2400,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927320/the_odyssey_black_drop_shoulder_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927288/the_odyssey_black_drop_shoulder_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-abstract-wings",
-    "title": "ABSTRACT WINGS ACID WASH TEE",
-    "description": "White, bone-like wings stretch across the back and taper into a long central spine. A smaller spiked chest graphic balances the detailed back print against the mottled acid-wash finish.",
-    "price": 3200,
+    "id": "dp-acid-wash-punk-is-dead",
+    "title": "PUNK'S NOT DEAD ACID WASH TEE",
+    "description": "Bold PUNK'S NOT DEAD lettering stretches across the front with distressed typography and punk-inspired graphic elements. The acid-wash texture adds a vintage feel to the rebellious slogan.",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086408/acidwingsB_kejkg1.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085757/AcidWingsF_nb80ux.webp"
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/PunkAcidF_rz3omv.webp"
     ],
     "colors": [
       "Acid Black"
@@ -1461,14 +1600,14 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "tapestry-goku-ultra-instinct-tapestry",
-    "title": "GOKU ULTRA INSTINCT TAPESTRY",
-    "description": "A full-length Goku figure stands within a bright purple-and-blue aura against a dark background. Orange clothing contrasts with the luminous surrounding effects, creating a vertical tapestry centred on the character's silhouette.",
+    "id": "tapestry-guts-berserk-tapestry",
+    "title": "GUTS BERSERK TAPESTRY",
+    "description": "A monochrome Guts portrait fills the lower half beneath red Berserk lettering and a red Brand of Sacrifice. The black background and limited colour palette give this vertical tapestry a stark, portrait-focused layout.",
     "price": 3000,
     "category": "tapestries",
     "subcategory": "tapestries",
     "images": [
-      "/assets/products/tapestries/goku_ultra_instinct_tapestry.webp"
+      "/assets/products/tapestries/guts_berserk_tapestry.webp"
     ],
     "colors": [],
     "rating": 5,
@@ -1494,63 +1633,6 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-drop-shoulder-rick-and-morty",
-    "title": "Rick and Morty Drop Shoulder Tee",
-    "description": "A pink-framed Rick and Morty illustration fills the back beneath arched lettering. A small green Rick and Morty wordmark sits on the chest, repeating one of the illustration's accent colours across this drop-shoulder tee.",
-    "price": 2000,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926973/rick_and_morty_dropshoulder_white_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926938/rick_and_morty_dropshoulder_white_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926937/rick_and_morty_dropshoulder_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926958/rick_and_morty_dropshoulder_black_front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "cinema-collection"
-  },
-  {
-    "id": "dp-acid-wash-look-mom-i-can-fly",
-    "title": "Look Mom I Can Fly Acid Wash Tee",
-    "description": "LOOK MOM I CAN FLY heads a rectangular portrait graphic with a film-rating-style panel underneath. The monochrome front print uses stacked typography and a photographic image against the textured acid-wash finish.",
-    "price": 2000,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926633/look_mom_i_can_fly_maroon_acid_wash_front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926639/look_mom_i_can_fly_black_acid_wash_front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Maroon"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-spiderverse",
-    "title": "SPIDERVERSE TEE",
-    "description": "A large red spider outline spans the back, with narrow white lettering through its centre. A smaller white-and-red spider emblem sits on the chest, giving this black regular tee a matching two-sided design.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737932/sppiderf_aqsefr.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737932/sppiderb_srlaq3.webp"
-    ],
-    "colors": [
-      "Black",
-      "White",
-      "Olive",
-      "Sand"
-    ],
-    "rating": 5,
-    "aesthetic": "comic-universe"
-  },
-  {
     "id": "dp-drop-shoulder-naruto-2",
     "title": "Madara 1 Drop Shoulder Tee",
     "description": "Madara stands with folded arms in a large monochrome illustration rising from the lower back. A small leaf-shaped chest symbol completes the front, contrasting a minimal emblem with detailed armour and hair linework.",
@@ -1573,6 +1655,39 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-acid-wash-spiderman-comic-battle",
+    "title": "Spider-Man Comic Battle Acid Wash Tee",
+    "description": "An upside-down Spider-Man hangs on the front, while a larger red-and-blue comic action scene rises from the lower back. The two placements carry the character artwork across both sides without covering the entire acid-wash surface.",
+    "price": 2400,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927080/spiderman_comic_battle_acidwash_black_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927089/spiderman_comic_battle_acidwash_black_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "comic-universe"
+  },
+  {
+    "id": "dp-regular-abstract-wings",
+    "title": "ABSTRACT WINGS TEE",
+    "description": "White skeletal wings stretch across the back and taper into a long spine down the centre. A compact pointed emblem sits on the chest, giving this regular tee a smaller front detail beside the wide back illustration.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737955/calligraphyf_i50rtp.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737946/wingsback_ojdcgx.webp"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 4
+  },
+  {
     "id": "dp-drop-shoulder-curse",
     "title": "Choso Bloodline Drop Shoulder Tee",
     "description": "A line-drawn Choso illustration rises from the lower back, with red accents around his raised hand. A small angular chest wordmark gives the front a lighter graphic treatment on this drop-shoulder tee.",
@@ -1589,39 +1704,6 @@ export const products: Product[] = [
       "Beige",
       "Blue"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-solo-2",
-    "title": "Arise Solo Leveling Acid Wash Tee",
-    "description": "A tall monochrome character illustration and Solo Leveling lettering fill the back, framed by curling black shapes. The front carries an ARISE wordmark, keeping the two sides of this acid-wash tee visually distinct.",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770370/deez-prints/acid/solo2--grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770361/deez-prints/acid/solo-2-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770358/deez-prints/acid/solo-2-black-back.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Grey"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "tapestry-guts-berserk-tapestry",
-    "title": "GUTS BERSERK TAPESTRY",
-    "description": "A monochrome Guts portrait fills the lower half beneath red Berserk lettering and a red Brand of Sacrifice. The black background and limited colour palette give this vertical tapestry a stark, portrait-focused layout.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/guts_berserk_tapestry.webp"
-    ],
-    "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -1643,6 +1725,36 @@ export const products: Product[] = [
     "rating": 5
   },
   {
+    "id": "dp-acid-wash-abstract-wings",
+    "title": "ABSTRACT WINGS ACID WASH TEE",
+    "description": "White, bone-like wings stretch across the back and taper into a long central spine. A smaller spiked chest graphic balances the detailed back print against the mottled acid-wash finish.",
+    "price": 3200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086408/acidwingsB_kejkg1.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085757/AcidWingsF_nb80ux.webp"
+    ],
+    "colors": [
+      "Acid Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "tapestry-guts-brand-of-sacrifice-tapestry",
+    "title": "GUTS BRAND OF SACRIFICE TAPESTRY",
+    "description": "Guts looks back over one shoulder against a solid red field, with the Brand of Sacrifice above him. Dark armour, a cape and sword details build the lower silhouette in this vertical Berserk tapestry.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/guts_brand_of_sacrifice_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-conquer",
     "title": "Conquer Drop Shoulder Tee",
     "description": "Bold CONQUER lettering arches over a narrow skeletal illustration with a red vertical centre. Small blocks of type sit alongside the graphic, giving this black drop-shoulder tee a structured, front-focused composition.",
@@ -1656,45 +1768,6 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-divine",
-    "title": "DIVINE ACID WASH TEE",
-    "description": "Gold-toned Divine lettering and a branching illustration cover the front, while an oversized 00 anchors the back. Small supporting words and symbols connect both sides of this typography-led acid-wash tee.",
-    "price": 2400,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/DivineAcidF_xi1lrp.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/DivineAcidB_k4xqvo.webp"
-    ],
-    "colors": [
-      "Acid Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-kaijin",
-    "title": "GAROU KAIJIN REGULAR TEE",
-    "description": "Garou's monochrome back illustration is crossed by vivid red branching lines. The front pairs KAIJIN lettering with two thorn-like motifs near the hem, giving this regular tee distinct artwork on each side.",
-    "price": 1950,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768774/deez-prints/regular/kaijin-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768790/deez-prints/regular/kaijin-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768777/deez-prints/regular/kaijin-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768780/deez-prints/regular/kaijin-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768784/deez-prints/regular/kaijin-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768787/deez-prints/regular/kaijin-white-back.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "Blue",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-bluelock",
@@ -1719,6 +1792,42 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-acid-wash-look-mom-i-can-fly",
+    "title": "Look Mom I Can Fly Acid Wash Tee",
+    "description": "LOOK MOM I CAN FLY heads a rectangular portrait graphic with a film-rating-style panel underneath. The monochrome front print uses stacked typography and a photographic image against the textured acid-wash finish.",
+    "price": 2000,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926633/look_mom_i_can_fly_maroon_acid_wash_front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926639/look_mom_i_can_fly_black_acid_wash_front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Maroon"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-regular-chainsaw-2",
+    "title": "DENJI CHAINSAW REGULAR TEE",
+    "description": "Denji's chainsaw-headed action pose sits beside vertical lettering in the large red-and-monochrome back graphic. A small Chainsaw Man title on the chest repeats the theme without duplicating the full illustration.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768553/deez-prints/regular/chainsaw-2-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768555/deez-prints/regular/chainsaw-2-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768558/deez-prints/regular/chainsaw-2-grey-front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-hellstar",
     "title": "Hellstar Drop Shoulder Tee",
     "description": "A large skull illustration sits below HELLSTAR lettering on the back, surrounded by red marks and smaller symbols. A compact pale chest emblem leaves the front mostly clear on this black drop-shoulder tee.",
@@ -1733,37 +1842,6 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-venom-symbiote",
-    "title": "Venom Symbiote Acid Wash Tee",
-    "description": "A large Venom profile rises from the lower back, with white facial detail and a long red tongue. A compact VENOM wordmark sits on the chest, contrasting the smaller front treatment with the oversized reverse illustration.",
-    "price": 2350,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927964/venom_symbiote_acidwash_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927987/venom_symbiote_acidwash_black_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "comic-universe"
-  },
-  {
-    "id": "tapestry-guts-brand-of-sacrifice-tapestry",
-    "title": "GUTS BRAND OF SACRIFICE TAPESTRY",
-    "description": "Guts looks back over one shoulder against a solid red field, with the Brand of Sacrifice above him. Dark armour, a cape and sword details build the lower silhouette in this vertical Berserk tapestry.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/guts_brand_of_sacrifice_tapestry.webp"
-    ],
-    "colors": [],
-    "rating": 5,
-    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-aizen",
@@ -1789,6 +1867,39 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-acid-wash-solo-2",
+    "title": "Arise Solo Leveling Acid Wash Tee",
+    "description": "A tall monochrome character illustration and Solo Leveling lettering fill the back, framed by curling black shapes. The front carries an ARISE wordmark, keeping the two sides of this acid-wash tee visually distinct.",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770370/deez-prints/acid/solo2--grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770361/deez-prints/acid/solo-2-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770358/deez-prints/acid/solo-2-black-back.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "tapestry-manga-panel",
+    "title": "ITACHI MANGA PANEL TAPESTRY",
+    "description": "A full-length Itachi figure stands against a red-and-black field of manga panels. The horizontal composition places the character near the centre while the repeated background imagery extends across the width.",
+    "price": 2100,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/itachi_manga_panel_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-madara",
     "title": "Madara Uchiha Drop Shoulder Tee",
     "description": "A large line-drawn Madara figure is paired with purple background linework and small Japanese lettering. The open outlines allow the blue drop-shoulder base to show through the illustration.",
@@ -1800,45 +1911,6 @@ export const products: Product[] = [
     ],
     "colors": [
       "Blue"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-venom-demon-inside",
-    "title": "Venom Demon Inside Acid Wash Tee",
-    "description": "Venom's white eye, jagged teeth and red tongue occupy one side of the tee, with DEMON INSIDE text nearby. The artwork appears on both front and back, creating a side-weighted composition over the dark acid-wash base.",
-    "price": 2300,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789928048/venom_demon_inside_acidwash_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927977/venom_demon_inside_acidwash_black_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "comic-universe"
-  },
-  {
-    "id": "dp-regular-isagi-1",
-    "title": "ISAGI YOICHI REGULAR TEE",
-    "description": "An Isagi Yoichi collage mixes football imagery, manga panels and blue graphic blocks on the back. A smaller BLUELOCK chest wordmark gives this regular tee a clear title treatment without repeating the full panel layout.",
-    "price": 1700,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768764/deez-prints/regular/isagi-1-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768758/deez-prints/regular/isagi-1-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768761/deez-prints/regular/isagi-1-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768767/deez-prints/regular/isagi-1-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768770/deez-prints/regular/isagi-1-white-front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Grey",
-      "White"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -1867,6 +1939,45 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-acid-wash-divine",
+    "title": "DIVINE ACID WASH TEE",
+    "description": "Gold-toned Divine lettering and a branching illustration cover the front, while an oversized 00 anchors the back. Small supporting words and symbols connect both sides of this typography-led acid-wash tee.",
+    "price": 2400,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/DivineAcidF_xi1lrp.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/DivineAcidB_k4xqvo.webp"
+    ],
+    "colors": [
+      "Acid Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-regular-chainsaw-1",
+    "title": "CHAINSAW MAN REGULAR TEE",
+    "description": "A chainsaw-headed figure in a collared shirt fills the back, framed by red strokes and Japanese lettering. A smaller Chainsaw Man chest wordmark keeps the front of this regular tee comparatively minimal.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768535/deez-prints/regular/chainsaw-1-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768550/deez-prints/regular/chainsaw-1-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768538/deez-prints/regular/chainsaw-1-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768541/deez-prints/regular/chainsaw-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768544/deez-prints/regular/chainsaw-1-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768547/deez-prints/regular/chainsaw-1-white-back.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "Black",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-sukuna",
     "title": "Sukuna Cursed Drop Shoulder Tee",
     "description": "A detailed Sukuna portrait fills the back of this drop-shoulder tee, with cursed markings and dark linework. A smaller chest emblem carries the Jujutsu Kaisen theme to the front.",
@@ -1884,37 +1995,6 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-ferrari",
-    "title": "FERRARI ACID WASH TEE",
-    "description": "Red Ferrari lettering, a prancing-horse graphic and racing-style badge details appear across the front, back and sleeves. This acid-wash tee spreads its motorsport imagery across several placements rather than using one isolated chest print.",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidFerrariF_wlx5yi.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidFerrariB_oechir.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773506363/ferari_model_mzzxev.webp"
-    ],
-    "colors": [
-      "Acid Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "tapestry-manga-panel",
-    "title": "ITACHI MANGA PANEL TAPESTRY",
-    "description": "A full-length Itachi figure stands against a red-and-black field of manga panels. The horizontal composition places the character near the centre while the repeated background imagery extends across the width.",
-    "price": 2100,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/itachi_manga_panel_tapestry.webp"
-    ],
-    "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -1942,6 +2022,37 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-acid-wash-venom-symbiote",
+    "title": "Venom Symbiote Acid Wash Tee",
+    "description": "A large Venom profile rises from the lower back, with white facial detail and a long red tongue. A compact VENOM wordmark sits on the chest, contrasting the smaller front treatment with the oversized reverse illustration.",
+    "price": 2350,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927964/venom_symbiote_acidwash_black_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927987/venom_symbiote_acidwash_black_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "comic-universe"
+  },
+  {
+    "id": "tapestry-itachi-uchiha-akatsuki-tapestry",
+    "title": "ITACHI UCHIHA AKATSUKI TAPESTRY",
+    "description": "Itachi stands in a dark cloak with red details against a background of monochrome manga panels. A red circular shape behind the head separates the portrait from the surrounding collage in this vertical tapestry.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/itachi_uchiha_akatsuki_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-supra",
     "title": "Supra Drop Shoulder Tee",
     "description": "Purple SUPRA lettering towers over a rectangular automotive layout with a car illustration at the bottom. A smaller purple script wordmark sits on the chest, linking the front to the back design of this drop-shoulder tee.",
@@ -1956,46 +2067,6 @@ export const products: Product[] = [
       "Black"
     ],
     "rating": 5
-  },
-  {
-    "id": "dp-acid-wash-chainsaw",
-    "title": "Denji Chainsawman Acid Wash Tee",
-    "description": "Denji's chainsaw-headed figure appears in a red, white and black action composition across the back, beside vertical lettering. A smaller Chainsaw Man wordmark keeps the front comparatively spare on this acid-wash tee.",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770087/deez-prints/acid/chainsaw-maroon-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770081/deez-prints/acid/chainsaw-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770090/deez-prints/acid/chainsaw-maroon-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770084/deez-prints/acid/chainsaw-black-front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Maroon"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "berserk-tee",
-    "title": "Berserk Graphic Regular Tee",
-    "description": "A red-and-black chest graphic leads into a larger Berserk manga collage on the back. Japanese lettering, monochrome panels and a barcode-style detail give this regular tee a printed-page layout, with the artwork concentrated down the centre.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "graphic",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/bersk_B_yzgt10.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/berserk_Bb_dsrns9.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739462/whtieb_mewjvg.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/white_ber_bztrq9.webp"
-    ],
-    "colors": [
-      "Black",
-      "White"
-    ],
-    "rating": 4,
-    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-titan",
@@ -2021,6 +2092,39 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-acid-wash-venom-demon-inside",
+    "title": "Venom Demon Inside Acid Wash Tee",
+    "description": "Venom's white eye, jagged teeth and red tongue occupy one side of the tee, with DEMON INSIDE text nearby. The artwork appears on both front and back, creating a side-weighted composition over the dark acid-wash base.",
+    "price": 2300,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789928048/venom_demon_inside_acidwash_black_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927977/venom_demon_inside_acidwash_black_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "comic-universe"
+  },
+  {
+    "id": "dp-regular-divine",
+    "title": "DIVINE TEE",
+    "description": "Gold-toned Divine lettering and a branching illustration occupy the front, with an oversized 00 on the back. Smaller words and symbols complete this regular tee's coordinated typography-led design.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738656/divin_en7ejg.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738656/div_uzioib.webp"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 4
+  },
+  {
     "id": "dp-drop-shoulder-chainsaw-2",
     "title": "Chainsawman Drop Shoulder Tee",
     "description": "A chainsaw-headed figure in a collared shirt fills the back against red strokes and Japanese lettering. The front carries a small Chainsaw Man wordmark, leaving the larger character artwork to define this drop-shoulder design.",
@@ -2044,38 +2148,6 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-mobland",
-    "title": "Outlaw Acid Wash Tee",
-    "description": "A small angular OUTLAW wordmark sits at the chest, while a monochrome group scene runs along the lower front. The wide hem-level illustration gives this acid-wash tee an unusual placement compared with a standard central print.",
-    "price": 2000,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770288/deez-prints/acid/mobland-maroon-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770282/deez-prints/acid/mobland-grey-front.jpg"
-    ],
-    "colors": [
-      "Grey",
-      "Maroon"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "tapestry-itachi-uchiha-akatsuki-tapestry",
-    "title": "ITACHI UCHIHA AKATSUKI TAPESTRY",
-    "description": "Itachi stands in a dark cloak with red details against a background of monochrome manga panels. A red circular shape behind the head separates the portrait from the surrounding collage in this vertical tapestry.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/itachi_uchiha_akatsuki_tapestry.webp"
-    ],
-    "colors": [],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-drop-shoulder-kaijin",
     "title": "Garou Kaijin Drop Shoulder Tee",
     "description": "Garou's back illustration is overlaid with red branching strokes, while KAIJIN lettering sits on the chest. Separate thorn-like marks near the front hem give this drop-shoulder tee several graphic placements rather than one continuous print.",
@@ -2095,6 +2167,37 @@ export const products: Product[] = [
       "Blue",
       "White"
     ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-ferrari",
+    "title": "FERRARI ACID WASH TEE",
+    "description": "Red Ferrari lettering, a prancing-horse graphic and racing-style badge details appear across the front, back and sleeves. This acid-wash tee spreads its motorsport imagery across several placements rather than using one isolated chest print.",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidFerrariF_wlx5yi.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085750/AcidFerrariB_oechir.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773506363/ferari_model_mzzxev.webp"
+    ],
+    "colors": [
+      "Acid Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "tapestry-itachi-uchiha-crows-tapestry",
+    "title": "ITACHI UCHIHA CROWS TAPESTRY",
+    "description": "A close-up Itachi portrait is framed by black crows, a red circle and scattered red marks. The pale background emphasizes the dark clothing and hair, giving this vertical tapestry a strongly contrasted illustration.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/itachi_uchiha_crows_tapestry.webp"
+    ],
+    "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -2124,43 +2227,6 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-spiderverse",
-    "title": "SPIDERVERSE ACID WASH TEE",
-    "description": "An oversized red spider outline spans the back, with narrow white lettering through its centre. The chest carries a smaller white-and-red spider motif, creating a two-sided emblem design on the acid-wash base.",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1788958737/deez-prints/covers/spiderverse_acid_wash_tee.png",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/spiderAcidBack_dlpk7d.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086650/spiderAcidF_m4jkna.webp"
-    ],
-    "colors": [
-      "Acid Black"
-    ],
-    "rating": 5,
-    "aesthetic": "comic-universe"
-  },
-  {
-    "id": "dp-regular-uchiha-5",
-    "title": "ITACHI AKATSUKI REGULAR TEE - EDITION III",
-    "description": "A cloaked Itachi figure appears inside swirling monochrome shapes with red cloud accents on the back. A slim vertical character graphic sits on the chest, giving this regular-tee edition a lighter front treatment.",
-    "price": 1750,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769069/deez-prints/regular/uchiha-5-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769072/deez-prints/regular/uchiha-5-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769075/deez-prints/regular/uchiha-5-white-front.jpg"
-    ],
-    "colors": [
-      "Grey",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-drop-shoulder-dbz-1",
     "title": "Vegeta Super Saiyan Drop Shoulder Tee",
     "description": "A high-contrast Vegeta portrait uses bright hair and face outlines against a dark central silhouette. A small Majin symbol sits on the chest, giving this drop-shoulder tee a simple front and a larger monochrome back print.",
@@ -2175,6 +2241,49 @@ export const products: Product[] = [
     "colors": [
       "Black",
       "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-chainsaw",
+    "title": "Denji Chainsawman Acid Wash Tee",
+    "description": "Denji's chainsaw-headed figure appears in a red, white and black action composition across the back, beside vertical lettering. A smaller Chainsaw Man wordmark keeps the front comparatively spare on this acid-wash tee.",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770087/deez-prints/acid/chainsaw-maroon-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770081/deez-prints/acid/chainsaw-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770090/deez-prints/acid/chainsaw-maroon-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770084/deez-prints/acid/chainsaw-black-front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Maroon"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-anime1",
+    "title": "CHOSO BLOODLINE REGULAR TEE",
+    "description": "Choso's raised-hand pose fills the lower back in black linework with small red accents. An angular chest wordmark keeps the front of this regular tee much simpler than its large character illustration.",
+    "price": 1700,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768439/deez-prints/regular/anime1beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768454/deez-prints/regular/anime1white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768442/deez-prints/regular/anime1beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768445/deez-prints/regular/anime1blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768451/deez-prints/regular/anime1white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768448/deez-prints/regular/anime1blue-front.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "Blue",
+      "White"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -2200,35 +2309,6 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-metallica-2-0",
-    "title": "Metallica 2.0 Acid Wash Tee",
-    "description": "Red Metallica lettering sits over a skeletal reaper carrying a curved scythe. White and grey detailing picks out the blade, skull and surrounding forms, creating a tall front graphic against the acid-wash surface.",
-    "price": 2000,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926661/metallica_2_0_blackacid_wash_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "tapestry-itachi-uchiha-crows-tapestry",
-    "title": "ITACHI UCHIHA CROWS TAPESTRY",
-    "description": "A close-up Itachi portrait is framed by black crows, a red circle and scattered red marks. The pale background emphasizes the dark clothing and hair, giving this vertical tapestry a strongly contrasted illustration.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/itachi_uchiha_crows_tapestry.webp"
-    ],
-    "colors": [],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-drop-shoulder-naruto-6",
     "title": "Itachi Akatsuki Drop Shoulder Tee - Edition III",
     "description": "A cloaked Itachi figure appears within swirling monochrome shapes and red cloud accents on the back. A slim vertical character graphic sits on the chest, keeping the front lighter than the illustrated reverse.",
@@ -2242,6 +2322,38 @@ export const products: Product[] = [
     "colors": [
       "Beige"
     ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-mobland",
+    "title": "Outlaw Acid Wash Tee",
+    "description": "A small angular OUTLAW wordmark sits at the chest, while a monochrome group scene runs along the lower front. The wide hem-level illustration gives this acid-wash tee an unusual placement compared with a standard central print.",
+    "price": 2000,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770288/deez-prints/acid/mobland-maroon-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770282/deez-prints/acid/mobland-grey-front.jpg"
+    ],
+    "colors": [
+      "Grey",
+      "Maroon"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "tapestry-itachi-uchiha-sharingan-tapestry",
+    "title": "ITACHI UCHIHA SHARINGAN TAPESTRY",
+    "description": "An extreme close-up of Itachi's face fills this vertical tapestry, with a red eye as the main colour accent. Black hair, grey facial shading and red edge details create a tightly cropped, portrait-led composition.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/itachi_uchiha_sharingan_tapestry.webp"
+    ],
+    "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -2263,61 +2375,6 @@ export const products: Product[] = [
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-utopia-screwed",
-    "title": "UTOPIA Screwed Acid Wash Tee",
-    "description": "An overlapping cluster of gold-toned screws forms the back graphic. The front uses a separate red-bordered rectangular motif, making this UTOPIA acid-wash tee an object-led design rather than a portrait or logo collage.",
-    "price": 2300,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927467/utopia_screwed_black_acidwash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927434/utopia_screwed_black_acidwash_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-eye-2",
-    "title": "GOJO SATORU REGULAR TEE",
-    "description": "Gojo appears in side profile near the lower front, with white hair, dark clothing and blue fragments around him. The portrait's angled placement gives this regular tee a distinct silhouette without filling the upper chest.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768681/deez-prints/regular/eye-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768687/deez-prints/regular/eyewhite-front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-drop-shoulder-speed",
-    "title": "Formula Speed Drop Shoulder Tee",
-    "description": "A Formula-style racing car runs along the lower front beneath a compact SPEED wordmark. The wide car illustration and open upper chest give this drop-shoulder tee a low-set, automotive graphic layout.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769908/deez-prints/drops/speed-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769896/deez-prints/drops/speed-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769902/deez-prints/drops/speed-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769910/deez-prints/drops/speed-grey-front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "Black",
-      "Blue",
-      "Grey"
-    ],
-    "rating": 5
   },
   {
     "id": "dp-drop-shoulder-fire",
@@ -2342,31 +2399,42 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-guns-n-roses",
-    "title": "Guns N Roses Acid Wash Tee",
-    "description": "Tall Guns N' Roses lettering stretches down the front around a central emblem and red roses. The mostly monochrome design uses the flowers as its main colour accent against the dark acid-wash surface.",
+    "id": "dp-acid-wash-spiderverse",
+    "title": "SPIDERVERSE ACID WASH TEE",
+    "description": "An oversized red spider outline spans the back, with narrow white lettering through its centre. The chest carries a smaller white-and-red spider motif, creating a two-sided emblem design on the acid-wash base.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "/assets/products/guns-n-roses/guns_n_roses_acid_wash_black_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1788958737/deez-prints/covers/spiderverse_acid_wash_tee.png",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773085749/spiderAcidBack_dlpk7d.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773086650/spiderAcidF_m4jkna.webp"
     ],
     "colors": [
-      "Black"
+      "Acid Black"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "comic-universe"
   },
   {
-    "id": "tapestry-itachi-uchiha-sharingan-tapestry",
-    "title": "ITACHI UCHIHA SHARINGAN TAPESTRY",
-    "description": "An extreme close-up of Itachi's face fills this vertical tapestry, with a red eye as the main colour accent. Black hair, grey facial shading and red edge details create a tightly cropped, portrait-led composition.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
+    "id": "dp-regular-aizen",
+    "title": "AIZEN REGULAR TEE",
+    "description": "Aizen appears in a large red, white and black back illustration with vertical lettering and circular details. A smaller Aizen emblem sits at the chest, concentrating the most detailed artwork on the reverse of this regular tee.",
+    "price": 1700,
+    "category": "t-shirts",
+    "subcategory": "regular",
     "images": [
-      "/assets/products/tapestries/itachi_uchiha_sharingan_tapestry.webp"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768431/deez-prints/regular/aizen-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768425/deez-prints/regular/aizen-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768434/deez-prints/regular/aizen-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768437/deez-prints/regular/aizen-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768428/deez-prints/regular/aizen-black-front.jpg"
     ],
-    "colors": [],
+    "colors": [
+      "Black",
+      "Grey",
+      "White"
+    ],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -2419,45 +2487,33 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-dbz-4",
-    "title": "DBZ Goku Rage Acid Wash Tee",
-    "description": "Goku's red-and-purple character graphic stands out across the back, framed by energetic strokes and stylized lettering. The front carries a small Dragon Ball Z wordmark over the mottled acid-wash base.",
-    "price": 2200,
+    "id": "dp-acid-wash-metallica-2-0",
+    "title": "Metallica 2.0 Acid Wash Tee",
+    "description": "Red Metallica lettering sits over a skeletal reaper carrying a curved scythe. White and grey detailing picks out the blade, skull and surrounding forms, creating a tall front graphic against the acid-wash surface.",
+    "price": 2000,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770154/deez-prints/acid/dbz-4-maroon-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770147/deez-prints/acid/dbz-4-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770144/deez-prints/acid/dbz-4-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770150/deez-prints/acid/dbz-4-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770157/deez-prints/acid/dbz-4-maroon-front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "Grey",
-      "Maroon"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "breakout-tee",
-    "title": "Breakout Snake Graphic Regular Tee",
-    "description": "Oversized BREAKOUT lettering runs across the chest, threaded with a red-and-white snake illustration. This regular tee keeps the design focused on one wide graphic rather than an all-over pattern.",
-    "price": 1750,
-    "category": "t-shirts",
-    "subcategory": "graphic",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773255816/breakoutvariations_birjvm.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738506/breakb_zkkch0.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738506/break2_bnjlfy.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773255816/breakoutvariations_birjvm.webp"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926661/metallica_2_0_blackacid_wash_front.jpg"
     ],
     "colors": [
       "Black"
     ],
+    "rating": 5
+  },
+  {
+    "id": "tapestry-luffy-one-piece-tapestry",
+    "title": "LUFFY ONE PIECE TAPESTRY",
+    "description": "Red ONE PIECE lettering sits above a full-body Luffy illustration surrounded by monochrome manga panels and red emblems. The dark vertical layout combines a central character with smaller framed scenes around him.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/luffy_one_piece_tapestry.webp"
+    ],
+    "colors": [],
     "rating": 5,
-    "retired": true
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-peter",
@@ -2505,34 +2561,36 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-bleach",
-    "title": "BLEACH ACID WASH TEE",
-    "description": "An expressive, spiky-haired manga portrait rises from the lower part of the tee, framed by small lettering. The loose black linework leaves much of the grey acid-wash surface exposed rather than filling the tee with a solid print.",
-    "price": 2000,
+    "id": "dp-acid-wash-utopia-screwed",
+    "title": "UTOPIA Screwed Acid Wash Tee",
+    "description": "An overlapping cluster of gold-toned screws forms the back graphic. The front uses a separate red-bordered rectangular motif, making this UTOPIA acid-wash tee an object-led design rather than a portrait or logo collage.",
+    "price": 2300,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770058/deez-prints/acid/bleach-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927467/utopia_screwed_black_acidwash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927434/utopia_screwed_black_acidwash_front.jpg"
     ],
     "colors": [
-      "Grey"
+      "Black"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
+    "rating": 5
   },
   {
-    "id": "tapestry-luffy-one-piece-tapestry",
-    "title": "LUFFY ONE PIECE TAPESTRY",
-    "description": "Red ONE PIECE lettering sits above a full-body Luffy illustration surrounded by monochrome manga panels and red emblems. The dark vertical layout combines a central character with smaller framed scenes around him.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
+    "id": "dp-regular-ferrari",
+    "title": "FERRARI TEE",
+    "description": "Red Ferrari lettering and racing-style badges decorate the front, with a prancing-horse graphic on the back. Yellow sleeve motifs extend the motorsport theme around this regular tee.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "regular",
     "images": [
-      "/assets/products/tapestries/luffy_one_piece_tapestry.webp"
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908159/regferrariFblack_kpig1e.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908160/regferrariBblack_wgsjpf.webp"
     ],
-    "colors": [],
-    "rating": 5,
-    "aesthetic": "anime-archive"
+    "colors": [
+      "Black"
+    ],
+    "rating": 4
   },
   {
     "id": "dp-drop-shoulder-eye",
@@ -2576,14 +2634,14 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-metallica",
-    "title": "Metallica Acid Wash Tee",
-    "description": "A hooded skeletal figure sits beneath white Metallica lettering, framed by red marks and flowing lines. Red Master of Puppets text completes the lower edge of the front print on this acid-wash tee.",
-    "price": 2000,
+    "id": "dp-acid-wash-guns-n-roses",
+    "title": "Guns N Roses Acid Wash Tee",
+    "description": "Tall Guns N' Roses lettering stretches down the front around a central emblem and red roses. The mostly monochrome design uses the flowers as its main colour accent against the dark acid-wash surface.",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926701/metallica_black_acidwash_front.jpg"
+      "/assets/products/guns-n-roses/guns_n_roses_acid_wash_black_front.jpg"
     ],
     "colors": [
       "Black"
@@ -2591,25 +2649,16 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-regular-uchiha-2",
-    "title": "ITACHI UCHIHA REGULAR TEE",
-    "description": "An Itachi silhouette sits beneath a vertical line of Japanese lettering on the back, with birds spreading out below. More bird silhouettes rise from the lower front beneath a small chest symbol on this regular tee.",
-    "price": 1700,
-    "category": "t-shirts",
-    "subcategory": "regular",
+    "id": "tapestry-madara-uchiha-sharingan-tapestry",
+    "title": "MADARA UCHIHA SHARINGAN TAPESTRY",
+    "description": "Madara stands in front of a dense grid of monochrome manga panels, with red armour and eye details providing the colour accents. The vertical tapestry layers the figure over the panel borders rather than keeping him inside a single frame.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769033/deez-prints/regular/uchiha-2-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769023/deez-prints/regular/uchiha-2-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769026/deez-prints/regular/uchiha-2-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769030/deez-prints/regular/uchiha-2-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769036/deez-prints/regular/uchiha-2-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769039/deez-prints/regular/uchiha-2-white-front.jpg"
+      "/assets/products/tapestries/madara_uchiha_sharingan_tapestry.webp"
     ],
-    "colors": [
-      "Beige",
-      "Blue",
-      "White"
-    ],
+    "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -2660,32 +2709,46 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-chrome-wyrm",
-    "title": "Chrome Wyrm Acid Wash Tee",
-    "description": "A coiled, dragon-like creature forms the detailed back graphic, surrounded by crosses and fine lettering. Curved, silver-toned thorn shapes frame the front neckline and shoulders, carrying the Chrome Wyrm design across both sides of the acid-wash tee.",
+    "id": "dp-acid-wash-dbz-4",
+    "title": "DBZ Goku Rage Acid Wash Tee",
+    "description": "Goku's red-and-purple character graphic stands out across the back, framed by energetic strokes and stylized lettering. The front carries a small Dragon Ball Z wordmark over the mottled acid-wash base.",
     "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926061/chrome_wyrm_acid_wash_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926060/chrome_wyrm_acid_wash_black_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770154/deez-prints/acid/dbz-4-maroon-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770147/deez-prints/acid/dbz-4-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770144/deez-prints/acid/dbz-4-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770150/deez-prints/acid/dbz-4-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770157/deez-prints/acid/dbz-4-maroon-front.jpg"
     ],
     "colors": [
-      "Black"
+      "Black",
+      "Grey",
+      "Maroon"
     ],
-    "rating": 5
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
-    "id": "tapestry-madara-uchiha-sharingan-tapestry",
-    "title": "MADARA UCHIHA SHARINGAN TAPESTRY",
-    "description": "Madara stands in front of a dense grid of monochrome manga panels, with red armour and eye details providing the colour accents. The vertical tapestry layers the figure over the panel borders rather than keeping him inside a single frame.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
+    "id": "dp-regular-ace-1",
+    "title": "FIRE FIST ACE REGULAR TEE",
+    "description": "An orange-accented Ace illustration fills the back beside tall ACE lettering and flame-like marks. Two small orange face emblems sit on the chest, giving this regular tee matching character references on both sides.",
+    "price": 1700,
+    "category": "t-shirts",
+    "subcategory": "regular",
     "images": [
-      "/assets/products/tapestries/madara_uchiha_sharingan_tapestry.webp"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768420/deez-prints/regular/ace-1-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768414/deez-prints/regular/ace-1-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768411/deez-prints/regular/ace-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768422/deez-prints/regular/ace-1-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768417/deez-prints/regular/ace-1-grey-front.jpg"
     ],
-    "colors": [],
+    "colors": [
+      "Black",
+      "Grey",
+      "White"
+    ],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -2705,58 +2768,6 @@ export const products: Product[] = [
     "colors": [
       "Beige",
       "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-drop-shoulder-berserk-black-1",
-    "title": "Guts Berserker Armor Drop Shoulder Tee",
-    "description": "An armoured Guts figure grips a sword in the large red-and-monochrome back illustration. The front combines a red Brand of Sacrifice with an angular helmet graphic near the hem, giving this drop-shoulder tee multiple distinct print placements.",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769225/deez-prints/drops/berserk-black-1-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769222/deez-prints/drops/berserk-black-1-back.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-dbz-7",
-    "title": "Goku Black Rebellion Acid Wash Tee",
-    "description": "A sharply shaded Goku Black portrait sits between red Japanese lettering and a large white wordmark. The rectangular composition brings together red graphic accents and monochrome character art on grey acid wash.",
-    "price": 2200,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770178/deez-prints/acid/dbz-7-grey-front.jpg"
-    ],
-    "colors": [
-      "Grey"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-regular-luffy-2",
-    "title": "LUFFY GEAR 5 REGULAR TEE - EDITION II",
-    "description": "ONE PIECE and red GEAR 5 lettering frame a large Luffy illustration on the back. A small straw-hat skull motif sits on the chest, keeping this regular-tee edition focused on a titled character graphic rather than a hem border.",
-    "price": 1750,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768825/deez-prints/regular/luffy-2-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768852/deez-prints/regular/luffy2-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768854/deez-prints/regular/luffy2-black-front.jpg"
-    ],
-    "colors": [
-      "Grey",
-      "Black"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -2787,6 +2798,36 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-acid-wash-bleach",
+    "title": "BLEACH ACID WASH TEE",
+    "description": "An expressive, spiky-haired manga portrait rises from the lower part of the tee, framed by small lettering. The loose black linework leaves much of the grey acid-wash surface exposed rather than filling the tee with a solid print.",
+    "price": 2000,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770058/deez-prints/acid/bleach-grey-front.jpg"
+    ],
+    "colors": [
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "tapestry-one-piece-gear-5-luffy-tapestry",
+    "title": "ONE PIECE GEAR 5 LUFFY TAPESTRY",
+    "description": "Gear 5 Luffy occupies the centre of a black-and-white manga collage beneath ONE PIECE lettering. Small warm-coloured accents on the character break up the monochrome panels in this vertical tapestry.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/one_piece_gear_5_luffy_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-berserk-2",
     "title": "Guts Brand of Sacrifice Drop Shoulder Tee",
     "description": "A red Brand of Sacrifice sits high above a monochrome Guts illustration rising from the lower back. The front uses a small red Berserk wordmark, keeping the strongest imagery on the reverse of this drop-shoulder tee.",
@@ -2800,36 +2841,6 @@ export const products: Product[] = [
     "colors": [
       "Black"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-crimson-thorn-sigil",
-    "title": "Crimson Thorn Sigil Acid Wash Tee",
-    "description": "A red central sigil sits between mirrored, pale thorn-like forms on the back. The front carries a separate white ornamental graphic, combining fine lines, pointed shapes and small text over the acid-wash texture.",
-    "price": 2400,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926125/crimson_thorn_sigil_acid_wash_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789926154/crimson_thorn_sigil_acid_wash_black_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "tapestry-one-piece-gear-5-luffy-tapestry",
-    "title": "ONE PIECE GEAR 5 LUFFY TAPESTRY",
-    "description": "Gear 5 Luffy occupies the centre of a black-and-white manga collage beneath ONE PIECE lettering. Small warm-coloured accents on the character break up the monochrome panels in this vertical tapestry.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/one_piece_gear_5_luffy_tapestry.webp"
-    ],
-    "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -2854,6 +2865,43 @@ export const products: Product[] = [
     ],
     "rating": 5,
     "aesthetic": "comic-universe"
+  },
+  {
+    "id": "dp-acid-wash-metallica",
+    "title": "Metallica Acid Wash Tee",
+    "description": "A hooded skeletal figure sits beneath white Metallica lettering, framed by red marks and flowing lines. Red Master of Puppets text completes the lower edge of the front print on this acid-wash tee.",
+    "price": 2000,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926701/metallica_black_acidwash_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "dp-regular-dbz-8",
+    "title": "GOKU BLACK REBELLION REGULAR TEE",
+    "description": "A dark Goku Black portrait is framed by red Japanese lettering and bold white graphic text. The smaller circular front motif repeats the red-and-monochrome palette on this regular tee.",
+    "price": 1700,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768653/deez-prints/regular/dbz-8-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768647/deez-prints/regular/dbz-8-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768650/deez-prints/regular/dbz-8-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768656/deez-prints/regular/dbz-8-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768658/deez-prints/regular/dbz-8-white-front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Grey",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-drop-shoulder-horn",
@@ -2882,37 +2930,6 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-curse",
-    "title": "Choso Bloodline Acid Wash Tee",
-    "description": "Choso appears in black manga-style linework in a low-set graphic, with one raised hand and a red graphic accent. The open composition lets the grey acid-wash finish remain visible around the character.",
-    "price": 2000,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770099/deez-prints/acid/curse-grey-front.jpg"
-    ],
-    "colors": [
-      "Grey"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-regular-lcnst",
-    "title": "LCNST TEE",
-    "description": "A red, dripping sculptural form rises from the lower front beneath a small LCSNT wordmark. Long red trails and the off-centre placement give this black regular tee its distinctive graphic shape.",
-    "price": 1750,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883234/lcsntregF_g3cnas.webp"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 4
-  },
-  {
     "id": "dp-drop-shoulder-baby",
     "title": "Cupid Vintage Drop Shoulder Tee",
     "description": "Cherub illustrations frame the shoulders and lower front around a small central text block. This Cupid drop-shoulder tee uses offset artwork placements, leaving open space across the middle rather than one large boxed print.",
@@ -2935,33 +2952,15 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-drop-shoulder-itachi",
-    "title": "Gojo Satoru Drop Shoulder Tee",
-    "description": "Gojo Satoru's blindfolded portrait fills the front, with spiky white hair and glowing blue energy fragments floating around him. The dark high-collar jacket and upward gaze give this drop-shoulder tee its signature Jujutsu Kaisen look.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769595/deez-prints/drops/itachi-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769590/deez-prints/drops/itachi-beige-front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-ruinborn-requiem",
-    "title": "Ruinborn Requiem Acid Wash Tee",
-    "description": "Red-and-white skeletal wings and a long central spine spread across the back beneath jagged lettering. A smaller matching wordmark sits on the chest, giving this acid-wash tee a coordinated front and back treatment.",
-    "price": 2400,
+    "id": "dp-acid-wash-chrome-wyrm",
+    "title": "Chrome Wyrm Acid Wash Tee",
+    "description": "A coiled, dragon-like creature forms the detailed back graphic, surrounded by crosses and fine lettering. Curved, silver-toned thorn shapes frame the front neckline and shoulders, carrying the Chrome Wyrm design across both sides of the acid-wash tee.",
+    "price": 2200,
     "category": "t-shirts",
     "subcategory": "acid-wash",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927106/ruinborn_requiem_acidwash_black_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927008/ruinborn_requiem_acidwash_black_front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926061/chrome_wyrm_acid_wash_black_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789926060/chrome_wyrm_acid_wash_black_front.jpg"
     ],
     "colors": [
       "Black"
@@ -2983,6 +2982,24 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-drop-shoulder-itachi",
+    "title": "Gojo Satoru Drop Shoulder Tee",
+    "description": "Gojo Satoru's blindfolded portrait fills the front, with spiky white hair and glowing blue energy fragments floating around him. The dark high-collar jacket and upward gaze give this drop-shoulder tee its signature Jujutsu Kaisen look.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "drop-shoulder",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769595/deez-prints/drops/itachi-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769590/deez-prints/drops/itachi-beige-front.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-itachi-2",
     "title": "Itachi Eclipse Drop Shoulder Tee",
     "description": "Itachi Uchiha sits atop a pole in his Akatsuki cloak, framed by a red moon, the Uchiha crest and swarming crows across the back. A MADARA front panel completes this Naruto-themed drop-shoulder tee with distinct artwork on each side.",
@@ -2999,6 +3016,44 @@ export const products: Product[] = [
     ],
     "colors": [
       "Beige",
+      "Black",
+      "Grey",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-acid-wash-dbz-7",
+    "title": "Goku Black Rebellion Acid Wash Tee",
+    "description": "A sharply shaded Goku Black portrait sits between red Japanese lettering and a large white wordmark. The rectangular composition brings together red graphic accents and monochrome character art on grey acid wash.",
+    "price": 2200,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770178/deez-prints/acid/dbz-7-grey-front.jpg"
+    ],
+    "colors": [
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-isagi-1",
+    "title": "ISAGI YOICHI REGULAR TEE",
+    "description": "An Isagi Yoichi collage mixes football imagery, manga panels and blue graphic blocks on the back. A smaller BLUELOCK chest wordmark gives this regular tee a clear title treatment without repeating the full panel layout.",
+    "price": 1700,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768764/deez-prints/regular/isagi-1-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768758/deez-prints/regular/isagi-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768761/deez-prints/regular/isagi-1-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768767/deez-prints/regular/isagi-1-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768770/deez-prints/regular/isagi-1-white-front.jpg"
+    ],
+    "colors": [
       "Black",
       "Grey",
       "White"
@@ -3029,40 +3084,6 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-acid-wash-the-odyssey",
-    "title": "The Odyssey Acid Wash Tee",
-    "description": "Large red THE ODYSSEY lettering rises behind a metallic-looking helmeted warrior on the back. A small red title sits on the chest, giving this acid-wash tee a quiet front and a dramatic illustrated reverse.",
-    "price": 2650,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927310/the_odyssey_black_acid_wash_back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927299/the_odyssey_black_acid_wash_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "dp-regular-berserk-3",
-    "title": "GUTS BERSERKER REGULAR TEE",
-    "description": "A large monochrome Guts figure rises from the lower front beneath Japanese lettering. The character's armour and sword details form a dense silhouette, with open space separating the illustration from the smaller chest text.",
-    "price": 1900,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768511/deez-prints/regular/berserkwhte-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768505/deez-prints/regular/berserkbeige-front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
     "id": "dp-drop-shoulder-mobland",
     "title": "Outlaw Drop Shoulder Tee",
     "description": "A small angular OUTLAW wordmark sits above a monochrome group scene near the front hem. The wide lower illustration leaves open space through the middle of this drop-shoulder tee.",
@@ -3085,6 +3106,36 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-acid-wash-curse",
+    "title": "Choso Bloodline Acid Wash Tee",
+    "description": "Choso appears in black manga-style linework in a low-set graphic, with one raised hand and a red graphic accent. The open composition lets the grey acid-wash finish remain visible around the character.",
+    "price": 2000,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787770099/deez-prints/acid/curse-grey-front.jpg"
+    ],
+    "colors": [
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "tapestry-ultra-instinct-goku-energy-tapestry",
+    "title": "ULTRA INSTINCT GOKU ENERGY TAPESTRY",
+    "description": "Goku holds a bright blue energy sphere in a horizontal action composition, surrounded by blue and purple streaks. The light concentrates around the hands and face, giving this tapestry a different focus from the full-body aura design.",
+    "price": 3000,
+    "category": "tapestries",
+    "subcategory": "tapestries",
+    "images": [
+      "/assets/products/tapestries/ultra_instinct_goku_energy_tapestry.webp"
+    ],
+    "colors": [],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-konichiwa",
     "title": "Rockstar Tokyo Drop Shoulder Tee",
     "description": "Red Japanese lettering and a star overlap a monochrome portrait on the front. Small red text completes the Rockstar Tokyo composition, combining a photographic face with sharp graphic accents on this drop-shoulder tee.",
@@ -3099,35 +3150,6 @@ export const products: Product[] = [
       "Black",
       "Grey"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-conquer",
-    "title": "Conquer Acid Wash Tee",
-    "description": "CONQUER arches above a narrow, skeletal graphic with a red centre line. Small text blocks sit beside the illustration, giving this acid-wash tee a front-focused layout built from typography and sharp vertical detail.",
-    "price": 2100,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1789927903/conquer_black_acidwash_front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5
-  },
-  {
-    "id": "tapestry-ultra-instinct-goku-energy-tapestry",
-    "title": "ULTRA INSTINCT GOKU ENERGY TAPESTRY",
-    "description": "Goku holds a bright blue energy sphere in a horizontal action composition, surrounded by blue and purple streaks. The light concentrates around the hands and face, giving this tapestry a different focus from the full-body aura design.",
-    "price": 3000,
-    "category": "tapestries",
-    "subcategory": "tapestries",
-    "images": [
-      "/assets/products/tapestries/ultra_instinct_goku_energy_tapestry.webp"
-    ],
-    "colors": [],
     "rating": 5,
     "aesthetic": "anime-archive"
   },
@@ -3158,6 +3180,42 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
+    "id": "dp-acid-wash-the-odyssey",
+    "title": "The Odyssey Acid Wash Tee",
+    "description": "Large red THE ODYSSEY lettering rises behind a metallic-looking helmeted warrior on the back. A small red title sits on the chest, giving this acid-wash tee a quiet front and a dramatic illustrated reverse.",
+    "price": 2650,
+    "category": "t-shirts",
+    "subcategory": "acid-wash",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927310/the_odyssey_black_acid_wash_back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1789927299/the_odyssey_black_acid_wash_front.jpg"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "rating": 5
+  },
+  {
+    "id": "berserk-tee",
+    "title": "Berserk Graphic Regular Tee",
+    "description": "A red-and-black chest graphic leads into a larger Berserk manga collage on the back. Japanese lettering, monochrome panels and a barcode-style detail give this regular tee a printed-page layout, with the artwork concentrated down the centre.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "graphic",
+    "images": [
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/bersk_B_yzgt10.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/berserk_Bb_dsrns9.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739462/whtieb_mewjvg.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/white_ber_bztrq9.webp"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "rating": 4,
+    "aesthetic": "anime-archive"
+  },
+  {
     "id": "dp-drop-shoulder-arise",
     "title": "Solo Leveling Arise Drop Shoulder Tee",
     "description": "ARISE lettering sits at the chest, with a larger monochrome Solo Leveling illustration across the back. Curling shapes frame the central figure, making the reverse the main graphic feature of this drop-shoulder tee.",
@@ -3175,68 +3233,6 @@ export const products: Product[] = [
       "Beige",
       "Black",
       "Grey"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-acid-wash-kaijin",
-    "title": "Garou Kaijin Acid Wash Tee",
-    "description": "Garou's monochrome figure is crossed by vivid red branching lines on the back. KAIJIN lettering and two separate thorn-like shapes occupy the front, giving both sides of the grey acid-wash tee distinct graphic placements.",
-    "price": 2800,
-    "category": "t-shirts",
-    "subcategory": "acid-wash",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770228/deez-prints/acid/kaijin-grey-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787770231/deez-prints/acid/kaijin-grey-front.jpg"
-    ],
-    "colors": [
-      "Grey"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-regular-madara-1",
-    "title": "MADARA 1 REGULAR TEE",
-    "description": "A monochrome Madara portrait with folded arms rises from the lower back. The front uses a narrow eye-panel graphic with small lettering, pairing detailed character artwork with a compact chest placement.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768869/deez-prints/regular/madara-1-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768857/deez-prints/regular/madara-1-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768860/deez-prints/regular/madara-1-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768863/deez-prints/regular/madara-1-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768866/deez-prints/regular/madara-1-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768872/deez-prints/regular/madara-1-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768875/deez-prints/regular/madara-1-white-front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "Black",
-      "Grey",
-      "White"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
-  },
-  {
-    "id": "dp-drop-shoulder-luffy-3",
-    "title": "Luffy Freedom Drop Shoulder Tee",
-    "description": "A cropped Luffy portrait with a straw hat and red clothing occupies the lower front. Small birds and compact lettering extend the design upward while leaving much of the drop-shoulder tee unprinted.",
-    "price": 1750,
-    "category": "t-shirts",
-    "subcategory": "drop-shoulder",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769695/deez-prints/drops/luffy-3-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769689/deez-prints/drops/luffy-3-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769701/deez-prints/drops/luffy-3-white-front.jpg"
-    ],
-    "colors": [
-      "Beige",
-      "Black",
-      "White"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -3464,18 +3460,19 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-regular-uchiha-3",
-    "title": "ITACHI AKATSUKI REGULAR TEE - EDITION II",
-    "description": "A dark Itachi portrait is layered with a red circular symbol, vertical lettering and a red-cloud cloak detail. The narrow back composition leaves clear space around the artwork on this regular-tee edition.",
+    "id": "dp-regular-uchiha-5",
+    "title": "ITACHI AKATSUKI REGULAR TEE - EDITION III",
+    "description": "A cloaked Itachi figure appears inside swirling monochrome shapes with red cloud accents on the back. A slim vertical character graphic sits on the chest, giving this regular-tee edition a lighter front treatment.",
     "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769050/deez-prints/regular/uchiha-3-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769043/deez-prints/regular/uchiha-3-black-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769069/deez-prints/regular/uchiha-5-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769072/deez-prints/regular/uchiha-5-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769075/deez-prints/regular/uchiha-5-white-front.jpg"
     ],
     "colors": [
-      "Black",
+      "Grey",
       "White"
     ],
     "rating": 5,
@@ -3609,20 +3606,18 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-dbz-7",
-    "title": "GOKU RONIN REGULAR TEE",
-    "description": "Goku's monochrome portrait is framed by curling clouds, red accents and Japanese lettering on the back. A compact circular chest emblem gives this regular tee a clean front beside the more detailed reverse.",
-    "price": 1700,
+    "id": "dp-regular-eye-2",
+    "title": "GOJO SATORU REGULAR TEE",
+    "description": "Gojo appears in side profile near the lower front, with white hair, dark clothing and blue fragments around him. The portrait's angled placement gives this regular tee a distinct silhouette without filling the upper chest.",
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768641/deez-prints/regular/dbz-7-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768638/deez-prints/regular/dbz-7-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768635/deez-prints/regular/dbz-7-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768644/deez-prints/regular/dbz-7-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768681/deez-prints/regular/eye-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768687/deez-prints/regular/eyewhite-front.jpg"
     ],
     "colors": [
-      "Black",
+      "Beige",
       "White"
     ],
     "rating": 5,
@@ -3676,21 +3671,23 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-snake",
-    "title": "SNAKE TEE",
-    "description": "A snake curves down from one shoulder towards the chest in a single monochrome illustration. Its off-centre placement keeps most of this regular tee clear, with the winding outline providing the main detail.",
-    "price": 1550,
+    "id": "breakout-tee",
+    "title": "Breakout Snake Graphic Regular Tee",
+    "description": "Oversized BREAKOUT lettering runs across the chest, threaded with a red-and-white snake illustration. This regular tee keeps the design focused on one wide graphic rather than an all-over pattern.",
+    "price": 1750,
     "category": "t-shirts",
-    "subcategory": "regular",
+    "subcategory": "graphic",
     "images": [
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883233/snakeREGF_ezwmpp.webp",
-      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772909295/whitesnakeREGF_qczni7.webp"
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773255816/breakoutvariations_birjvm.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738506/breakb_zkkch0.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738506/break2_bnjlfy.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1773255816/breakoutvariations_birjvm.webp"
     ],
     "colors": [
       "Black"
     ],
-    "rating": 4,
-    "aesthetic": "minimal-drops"
+    "rating": 5,
+    "retired": true
   },
   {
     "id": "dp-acid-wash-shoot",
@@ -3739,22 +3736,23 @@ export const products: Product[] = [
     "aesthetic": "minimal-drops"
   },
   {
-    "id": "dp-regular-dbz-4",
-    "title": "MAJIN VEGETA RAGE REGULAR TEE",
-    "description": "Yellow-haired Majin Vegeta appears in a red-and-blue back graphic with sharp white highlights. A red Majin symbol and a small character print near the front hem extend the design across both sides of this regular tee.",
-    "price": 1800,
+    "id": "dp-regular-uchiha-2",
+    "title": "ITACHI UCHIHA REGULAR TEE",
+    "description": "An Itachi silhouette sits beneath a vertical line of Japanese lettering on the back, with birds spreading out below. More bird silhouettes rise from the lower front beneath a small chest symbol on this regular tee.",
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768599/deez-prints/regular/dbz-4-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768593/deez-prints/regular/dbz-4-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768595/deez-prints/regular/dbz-4-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768601/deez-prints/regular/dbz-4-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768604/deez-prints/regular/dbz-4-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769033/deez-prints/regular/uchiha-2-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769023/deez-prints/regular/uchiha-2-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769026/deez-prints/regular/uchiha-2-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769030/deez-prints/regular/uchiha-2-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769036/deez-prints/regular/uchiha-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769039/deez-prints/regular/uchiha-2-white-front.jpg"
     ],
     "colors": [
-      "Black",
-      "Grey",
+      "Beige",
+      "Blue",
       "White"
     ],
     "rating": 5,
@@ -3814,25 +3812,20 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-sukuna",
-    "title": "Attack Titan Regular Tee",
-    "description": "The Attack Titan's fierce roaring portrait dominates this regular tee, with exposed jaw muscles and red steam accents. A compact chest emblem balances the detailed back illustration.",
-    "price": 1950,
+    "id": "dp-regular-luffy-2",
+    "title": "LUFFY GEAR 5 REGULAR TEE - EDITION II",
+    "description": "ONE PIECE and red GEAR 5 lettering frame a large Luffy illustration on the back. A small straw-hat skull motif sits on the chest, keeping this regular-tee edition focused on a titled character graphic rather than a hem border.",
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768939/deez-prints/regular/sakuna-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768945/deez-prints/regular/sakuna-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768951/deez-prints/regular/sakunga-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768942/deez-prints/regular/sakuna-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768948/deez-prints/regular/sakuna-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768954/deez-prints/regular/sakunga-beige-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768825/deez-prints/regular/luffy-2-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768852/deez-prints/regular/luffy2-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768854/deez-prints/regular/luffy2-black-front.jpg"
     ],
     "colors": [
-      "Blue",
-      "White",
-      "Beige",
-      "Grey"
+      "Grey",
+      "Black"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -3890,24 +3883,19 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-animeshoot",
-    "title": "KANEKI REAPER REGULAR TEE",
-    "description": "Kaneki's monochrome figure is crossed by sharp red diagonal marks on the back. A vertical arrangement of Japanese lettering and an eye symbol sits on the chest, giving this regular tee a separate emblem-style front.",
-    "price": 1800,
+    "id": "dp-regular-lcnst",
+    "title": "LCNST TEE",
+    "description": "A red, dripping sculptural form rises from the lower front beneath a small LCSNT wordmark. Long red trails and the off-centre placement give this black regular tee its distinctive graphic shape.",
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768462/deez-prints/regular/animeshootwhite-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768459/deez-prints/regular/animeshootbeige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768457/deez-prints/regular/animeshootbeige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768465/deez-prints/regular/animeshootwhite-front.jpg"
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883234/lcsntregF_g3cnas.webp"
     ],
     "colors": [
-      "Beige",
-      "White"
+      "Black"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
+    "rating": 4
   },
   {
     "id": "dp-acid-wash-zoro-3",
@@ -3960,15 +3948,15 @@ export const products: Product[] = [
     "aesthetic": "comic-universe"
   },
   {
-    "id": "dp-regular-luffy-4",
-    "title": "LUFFY FREEDOM REGULAR TEE",
-    "description": "A cropped Luffy portrait with a straw hat sits low on the front, accented with red clothing and small flying birds. The off-centre layout leaves the upper chest open on this regular tee.",
-    "price": 1750,
+    "id": "dp-regular-berserk-3",
+    "title": "GUTS BERSERKER REGULAR TEE",
+    "description": "A large monochrome Guts figure rises from the lower front beneath Japanese lettering. The character's armour and sword details form a dense silhouette, with open space separating the illustration from the smaller chest text.",
+    "price": 1900,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768843/deez-prints/regular/luffy-4-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768849/deez-prints/regular/luffy-4-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768511/deez-prints/regular/berserkwhte-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768505/deez-prints/regular/berserkbeige-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -4028,20 +4016,25 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-dbz-6",
-    "title": "GOKU SHENRON REGULAR TEE",
-    "description": "An orange dragon coils above a small silhouetted figure in the large back print. The front carries a small orange circular emblem, linking the two sides of this Goku Shenron regular tee through colour.",
-    "price": 1700,
+    "id": "dp-regular-madara-1",
+    "title": "MADARA 1 REGULAR TEE",
+    "description": "A monochrome Madara portrait with folded arms rises from the lower back. The front uses a narrow eye-panel graphic with small lettering, pairing detailed character artwork with a compact chest placement.",
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768624/deez-prints/regular/dbz-6-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768632/deez-prints/regular/dbz-6-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768629/deez-prints/regular/dbz-6-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768627/deez-prints/regular/dbz-6-black-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768869/deez-prints/regular/madara-1-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768857/deez-prints/regular/madara-1-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768860/deez-prints/regular/madara-1-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768863/deez-prints/regular/madara-1-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768866/deez-prints/regular/madara-1-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768872/deez-prints/regular/madara-1-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768875/deez-prints/regular/madara-1-white-front.jpg"
     ],
     "colors": [
+      "Beige",
       "Black",
+      "Grey",
       "White"
     ],
     "rating": 5,
@@ -4098,20 +4091,18 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-luffy-1",
-    "title": "LUFFY GEAR 5 REGULAR TEE - EDITION I",
-    "description": "A cloud-framed Gear 5 Luffy illustration fills the back. The front combines a small straw-hat skull motif with a curling cloud border along the hem, distinguishing this regular-tee edition through its lower-edge detail.",
-    "price": 1800,
+    "id": "dp-regular-uchiha-3",
+    "title": "ITACHI AKATSUKI REGULAR TEE - EDITION II",
+    "description": "A dark Itachi portrait is layered with a red circular symbol, vertical lettering and a red-cloud cloak detail. The narrow back composition leaves clear space around the artwork on this regular-tee edition.",
+    "price": 1750,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768816/deez-prints/regular/luffy-1-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768819/deez-prints/regular/luffy-1-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768814/deez-prints/regular/luffy-1-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768822/deez-prints/regular/luffy-1-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769050/deez-prints/regular/uchiha-3-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769043/deez-prints/regular/uchiha-3-black-back.jpg"
     ],
     "colors": [
-      "Beige",
+      "Black",
       "White"
     ],
     "rating": 5,
@@ -4171,18 +4162,21 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-berserk",
-    "title": "GUTS BRAND OF SACRIFICE REGULAR TEE",
-    "description": "A red Brand of Sacrifice sits above a monochrome Guts illustration at the lower back. A compact red Berserk chest wordmark ties the front to the larger reverse artwork on this regular tee.",
-    "price": 2000,
+    "id": "dp-regular-dbz-7",
+    "title": "GOKU RONIN REGULAR TEE",
+    "description": "Goku's monochrome portrait is framed by curling clouds, red accents and Japanese lettering on the back. A compact circular chest emblem gives this regular tee a clean front beside the more detailed reverse.",
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768490/deez-prints/regular/berserk-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768493/deez-prints/regular/berserk-black-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768641/deez-prints/regular/dbz-7-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768638/deez-prints/regular/dbz-7-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768635/deez-prints/regular/dbz-7-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768644/deez-prints/regular/dbz-7-white-front.jpg"
     ],
     "colors": [
-      "Black"
+      "Black",
+      "White"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -4237,24 +4231,21 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-naruto-3",
-    "title": "ITACHI AKATSUKI REGULAR TEE - EDITION I",
-    "description": "An Itachi portrait is surrounded by black birds, red symbols and flowing shapes on the back. A smaller red-and-monochrome chest motif gives this regular-tee edition a related character detail on the front.",
-    "price": 1700,
+    "id": "dp-regular-snake",
+    "title": "SNAKE TEE",
+    "description": "A snake curves down from one shoulder towards the chest in a single monochrome illustration. Its off-centre placement keeps most of this regular tee clear, with the winding outline providing the main detail.",
+    "price": 1550,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768917/deez-prints/regular/naruto3-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768914/deez-prints/regular/naruto-3-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768911/deez-prints/regular/naruto-3-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768919/deez-prints/regular/naruto3-white-front.jpg"
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883233/snakeREGF_ezwmpp.webp",
+      "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772909295/whitesnakeREGF_qczni7.webp"
     ],
     "colors": [
-      "Beige",
-      "White"
+      "Black"
     ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
+    "rating": 4,
+    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-acid-wash-luffy-4",
@@ -4293,23 +4284,22 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-dbz-5",
-    "title": "GOKU RAGE REGULAR TEE",
-    "description": "A vivid red-and-purple Goku illustration covers the back, with coloured strokes spreading beyond the character's outline. A compact Dragon Ball Z wordmark sits on the chest, adding a smaller front reference on this regular tee.",
-    "price": 1700,
+    "id": "dp-regular-dbz-4",
+    "title": "MAJIN VEGETA RAGE REGULAR TEE",
+    "description": "Yellow-haired Majin Vegeta appears in a red-and-blue back graphic with sharp white highlights. A red Majin symbol and a small character print near the front hem extend the design across both sides of this regular tee.",
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768612/deez-prints/regular/dbz-5-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768610/deez-prints/regular/dbz-5-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768607/deez-prints/regular/dbz-5-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768618/deez-prints/regular/dbz-5-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768621/deez-prints/regular/dbz-5-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768615/deez-prints/regular/dbz-5-black-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768599/deez-prints/regular/dbz-4-grey-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768593/deez-prints/regular/dbz-4-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768595/deez-prints/regular/dbz-4-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768601/deez-prints/regular/dbz-4-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768604/deez-prints/regular/dbz-4-white-front.jpg"
     ],
     "colors": [
-      "Beige",
       "Black",
+      "Grey",
       "White"
     ],
     "rating": 5,
@@ -4354,17 +4344,17 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-luffy-3",
-    "title": "LUFFY STRAW HAT REGULAR TEE",
-    "description": "Luffy is shown from behind in a red outfit and straw hat beneath handwritten-style LUFFY lettering. A small straw-hat skull chest motif links the front of this regular tee to the larger back print.",
-    "price": 1700,
+    "id": "dp-regular-animeshoot",
+    "title": "KANEKI REAPER REGULAR TEE",
+    "description": "Kaneki's monochrome figure is crossed by sharp red diagonal marks on the back. A vertical arrangement of Japanese lettering and an eye symbol sits on the chest, giving this regular tee a separate emblem-style front.",
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768829/deez-prints/regular/luffy-3-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768837/deez-prints/regular/luffy-3-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768834/deez-prints/regular/luffy-3-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768832/deez-prints/regular/luffy-3-beige-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768462/deez-prints/regular/animeshootwhite-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768459/deez-prints/regular/animeshootbeige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768457/deez-prints/regular/animeshootbeige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768465/deez-prints/regular/animeshootwhite-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -4416,19 +4406,19 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-uchiha-1",
-    "title": "MADARA UCHIHA REGULAR TEE",
-    "description": "A line-drawn Madara figure overlaps purple background linework beneath a small text block. The open outlines and fine lettering give this regular tee a layered front composition without a solid rectangular background.",
-    "price": 1800,
+    "id": "dp-regular-dbz-6",
+    "title": "GOKU SHENRON REGULAR TEE",
+    "description": "An orange dragon coils above a small silhouetted figure in the large back print. The front carries a small orange circular emblem, linking the two sides of this Goku Shenron regular tee through colour.",
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769080/deez-prints/regular/uchiha1beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769087/deez-prints/regular/uchiha1black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769092/deez-prints/regular/uchiha1white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768624/deez-prints/regular/dbz-6-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768632/deez-prints/regular/dbz-6-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768629/deez-prints/regular/dbz-6-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768627/deez-prints/regular/dbz-6-black-front.jpg"
     ],
     "colors": [
-      "Beige",
       "Black",
       "White"
     ],
@@ -4470,23 +4460,20 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-ichigo",
-    "title": "ICHIGO HOLLOW REGULAR TEE",
-    "description": "A horned Ichigo figure fills the back in detailed monochrome, framed by red strokes and vertical lettering. A small red chest emblem gives this regular tee a compact front detail in the same colour palette.",
+    "id": "dp-regular-luffy-1",
+    "title": "LUFFY GEAR 5 REGULAR TEE - EDITION I",
+    "description": "A cloud-framed Gear 5 Luffy illustration fills the back. The front combines a small straw-hat skull motif with a curling cloud border along the hem, distinguishing this regular-tee edition through its lower-edge detail.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768747/deez-prints/regular/Ichigo-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768744/deez-prints/regular/Ichigo-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768741/deez-prints/regular/Ichigo-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768753/deez-prints/regular/Ichigo-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768749/deez-prints/regular/Ichigo-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768755/deez-prints/regular/Ichigo-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768816/deez-prints/regular/luffy-1-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768819/deez-prints/regular/luffy-1-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768814/deez-prints/regular/luffy-1-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768822/deez-prints/regular/luffy-1-white-front.jpg"
     ],
     "colors": [
       "Beige",
-      "Black",
       "White"
     ],
     "rating": 5,
@@ -4528,24 +4515,21 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-solo-2",
-    "title": "SOLO LEVELING ARISE REGULAR TEE",
-    "description": "A tall monochrome Solo Leveling illustration covers the back, framed by curling dark shapes. The front carries an ARISE chest wordmark, contrasting the detailed character art with a smaller typography-based graphic.",
+    "id": "dp-regular-naruto-3",
+    "title": "ITACHI AKATSUKI REGULAR TEE - EDITION I",
+    "description": "An Itachi portrait is surrounded by black birds, red symbols and flowing shapes on the back. A smaller red-and-monochrome chest motif gives this regular-tee edition a related character detail on the front.",
     "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768974/deez-prints/regular/solo-2-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768971/deez-prints/regular/solo-2-blue-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768968/deez-prints/regular/solo-2-blue-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768977/deez-prints/regular/solo-2-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768986/deez-prints/regular/solo2-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768989/deez-prints/regular/solo2-black-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768917/deez-prints/regular/naruto3-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768914/deez-prints/regular/naruto-3-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768911/deez-prints/regular/naruto-3-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768919/deez-prints/regular/naruto3-white-front.jpg"
     ],
     "colors": [
-      "Blue",
-      "White",
-      "Black"
+      "Beige",
+      "White"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -4590,22 +4574,23 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-dbz-1",
-    "title": "MAJIN VEGETA REGULAR TEE",
-    "description": "A monochrome Vegeta portrait is surrounded by a red outline and energetic red marks on the back. The front carries a small red Majin symbol, keeping the character artwork as the main feature of this regular tee.",
+    "id": "dp-regular-dbz-5",
+    "title": "GOKU RAGE REGULAR TEE",
+    "description": "A vivid red-and-purple Goku illustration covers the back, with coloured strokes spreading beyond the character's outline. A compact Dragon Ball Z wordmark sits on the chest, adding a smaller front reference on this regular tee.",
     "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768573/deez-prints/regular/dbz-1-grey-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768567/deez-prints/regular/dbz-1-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768575/deez-prints/regular/dbz-1-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768570/deez-prints/regular/dbz-1-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768579/deez-prints/regular/dbz-1-white-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768612/deez-prints/regular/dbz-5-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768610/deez-prints/regular/dbz-5-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768607/deez-prints/regular/dbz-5-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768618/deez-prints/regular/dbz-5-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768621/deez-prints/regular/dbz-5-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768615/deez-prints/regular/dbz-5-black-front.jpg"
     ],
     "colors": [
+      "Beige",
       "Black",
-      "Grey",
       "White"
     ],
     "rating": 5,
@@ -4651,17 +4636,17 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-sukuna-2",
-    "title": "SUKUNA CURSED REGULAR TEE",
-    "description": "Sukuna's back portrait combines fine black linework, bold red markings and vertical Japanese lettering. Red Sukuna text and an eye-and-mouth motif appear separately on the front, giving this regular tee three distinct graphic placements.",
-    "price": 1850,
+    "id": "dp-regular-luffy-3",
+    "title": "LUFFY STRAW HAT REGULAR TEE",
+    "description": "Luffy is shown from behind in a red outfit and straw hat beneath handwritten-style LUFFY lettering. A small straw-hat skull chest motif links the front of this regular tee to the larger back print.",
+    "price": 1700,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769003/deez-prints/regular/sukuna-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769012/deez-prints/regular/sukuna-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769006/deez-prints/regular/sukuna-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769009/deez-prints/regular/sukuna-white-back.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768829/deez-prints/regular/luffy-3-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768837/deez-prints/regular/luffy-3-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768834/deez-prints/regular/luffy-3-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768832/deez-prints/regular/luffy-3-beige-front.jpg"
     ],
     "colors": [
       "Beige",
@@ -4707,21 +4692,21 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-hands",
-    "title": "KURAPIKA RAGE REGULAR TEE",
-    "description": "Skeletal hands hold draped chains across the lower back, with a small cross-shaped motif above. A compact chest version repeats the muted gold-toned linework on the front of this regular tee.",
+    "id": "dp-regular-uchiha-1",
+    "title": "MADARA UCHIHA REGULAR TEE",
+    "description": "A line-drawn Madara figure overlaps purple background linework beneath a small text block. The open outlines and fine lettering give this regular tee a layered front composition without a solid rectangular background.",
     "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768734/deez-prints/regular/hands-grey-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768732/deez-prints/regular/hands-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768729/deez-prints/regular/hands-black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768738/deez-prints/regular/hands-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769080/deez-prints/regular/uchiha1beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769087/deez-prints/regular/uchiha1black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769092/deez-prints/regular/uchiha1white-front.jpg"
     ],
     "colors": [
+      "Beige",
       "Black",
-      "Grey"
+      "White"
     ],
     "rating": 5,
     "aesthetic": "anime-archive"
@@ -4762,22 +4747,23 @@ export const products: Product[] = [
     "rating": 5
   },
   {
-    "id": "dp-regular-zoro-2",
-    "title": "ZORO BUSHIDO REGULAR TEE",
-    "description": "Zoro stands with swords against a vivid green circle, framed by vertical lettering on the back. A smaller column of green Japanese characters sits on the chest, repeating the illustration's strongest accent colour.",
-    "price": 1750,
+    "id": "dp-regular-ichigo",
+    "title": "ICHIGO HOLLOW REGULAR TEE",
+    "description": "A horned Ichigo figure fills the back in detailed monochrome, framed by red strokes and vertical lettering. A small red chest emblem gives this regular tee a compact front detail in the same colour palette.",
+    "price": 1800,
     "category": "t-shirts",
     "subcategory": "regular",
     "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769126/deez-prints/regular/zoro-2-beige-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769140/deez-prints/regular/zoro-2-white-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769137/deez-prints/regular/zoro-2-white-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769130/deez-prints/regular/zoro-2-beige-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787769133/deez-prints/regular/zoro-2-grey-front.jpg"
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768747/deez-prints/regular/Ichigo-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768744/deez-prints/regular/Ichigo-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768741/deez-prints/regular/Ichigo-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768753/deez-prints/regular/Ichigo-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768749/deez-prints/regular/Ichigo-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768755/deez-prints/regular/Ichigo-white-front.jpg"
     ],
     "colors": [
       "Beige",
-      "Grey",
+      "Black",
       "White"
     ],
     "rating": 5,
@@ -4820,6 +4806,71 @@ export const products: Product[] = [
       "Maroon"
     ],
     "rating": 5
+  },
+  {
+    "id": "dp-regular-solo-2",
+    "title": "SOLO LEVELING ARISE REGULAR TEE",
+    "description": "A tall monochrome Solo Leveling illustration covers the back, framed by curling dark shapes. The front carries an ARISE chest wordmark, contrasting the detailed character art with a smaller typography-based graphic.",
+    "price": 1700,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768974/deez-prints/regular/solo-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768971/deez-prints/regular/solo-2-blue-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768968/deez-prints/regular/solo-2-blue-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768977/deez-prints/regular/solo-2-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768986/deez-prints/regular/solo2-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768989/deez-prints/regular/solo2-black-front.jpg"
+    ],
+    "colors": [
+      "Blue",
+      "White",
+      "Black"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-hands",
+    "title": "KURAPIKA RAGE REGULAR TEE",
+    "description": "Skeletal hands hold draped chains across the lower back, with a small cross-shaped motif above. A compact chest version repeats the muted gold-toned linework on the front of this regular tee.",
+    "price": 1800,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768734/deez-prints/regular/hands-grey-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768732/deez-prints/regular/hands-black-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768729/deez-prints/regular/hands-black-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787768738/deez-prints/regular/hands-grey-front.jpg"
+    ],
+    "colors": [
+      "Black",
+      "Grey"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
+  },
+  {
+    "id": "dp-regular-zoro-2",
+    "title": "ZORO BUSHIDO REGULAR TEE",
+    "description": "Zoro stands with swords against a vivid green circle, framed by vertical lettering on the back. A smaller column of green Japanese characters sits on the chest, repeating the illustration's strongest accent colour.",
+    "price": 1750,
+    "category": "t-shirts",
+    "subcategory": "regular",
+    "images": [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769126/deez-prints/regular/zoro-2-beige-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769140/deez-prints/regular/zoro-2-white-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769137/deez-prints/regular/zoro-2-white-back.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769130/deez-prints/regular/zoro-2-beige-front.jpg",
+      "https://res.cloudinary.com/okcxaese/image/upload/v1787769133/deez-prints/regular/zoro-2-grey-front.jpg"
+    ],
+    "colors": [
+      "Beige",
+      "Grey",
+      "White"
+    ],
+    "rating": 5,
+    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-zoro-1",
@@ -4898,23 +4949,6 @@ export const products: Product[] = [
       "White"
     ],
     "rating": 5
-  },
-  {
-    "id": "dp-regular-berserk-2",
-    "title": "GUTS BERSERKER ARMOR REGULAR TEE",
-    "description": "An armoured Guts figure grips a sword against red circular accents on the back. The front pairs a red Brand of Sacrifice with a separate helmet illustration near the hem, giving this regular tee several linked design elements.",
-    "price": 2000,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768496/deez-prints/regular/berserk2black-back.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768499/deez-prints/regular/berserk2black-front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "anime-archive"
   },
   {
     "id": "dp-regular-fuck",
@@ -5110,24 +5144,6 @@ export const products: Product[] = [
     "aesthetic": "anime-archive"
   },
   {
-    "id": "dp-regular-baby",
-    "title": "CUPID VINTAGE REGULAR TEE",
-    "description": "Cherub illustrations frame the shoulders and lower front around a small central text block. This regular tee uses offset placements and open space, with the largest Cupid artwork sitting close to the hem.",
-    "price": 1800,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1788970857/deez-prints/covers/cupid_vintage_regular_black.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768470/deez-prints/regular/baby-black-front.jpg",
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768476/deez-prints/regular/baby-whiet-front.jpg"
-    ],
-    "colors": [
-      "Black",
-      "White"
-    ],
-    "rating": 5
-  },
-  {
     "id": "dp-regular-knight",
     "title": "Batman Dark Knight Regular Tee",
     "description": "A large Batman outline drawing rises from the lower back beside DARK KNIGHT lettering. A small angular chest graphic balances the detailed reverse on this regular tee.",
@@ -5173,22 +5189,6 @@ export const products: Product[] = [
     ],
     "rating": 5,
     "aesthetic": "comic-universe"
-  },
-  {
-    "id": "dp-regular-chinese",
-    "title": "ROCKSTAR TOKYO REGULAR TEE",
-    "description": "A monochrome portrait is layered with red Japanese lettering, a star and smaller text blocks. The Rockstar Tokyo graphic concentrates its detail in one vertical composition on the front of this regular tee.",
-    "price": 1750,
-    "category": "t-shirts",
-    "subcategory": "regular",
-    "images": [
-      "https://res.cloudinary.com/okcxaese/image/upload/v1787768564/deez-prints/regular/chinese-black-front.jpg"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "rating": 5,
-    "aesthetic": "minimal-drops"
   },
   {
     "id": "dp-regular-dbz-3",

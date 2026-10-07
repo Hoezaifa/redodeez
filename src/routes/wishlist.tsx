@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCart } from "@/lib/cart";
 import { products } from "@/data/products";
-import { ProductCard } from "@/components/shop/ProductCard";
+import { InfiniteProductGrid } from "@/components/shop/InfiniteProductGrid";
 import { SectionHeading } from "@/components/shop/ProductRow";
 
 export const Route = createFileRoute("/wishlist")({
@@ -38,11 +38,7 @@ function WishlistPage() {
           </Link>
         </div>
       ) : (
-        <div className="mt-8 grid grid-cols-2 gap-2.5 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-10">
-          {items.map((p, i) => (
-            <ProductCard key={p.id} product={p} index={i} />
-          ))}
-        </div>
+        <InfiniteProductGrid products={items} batchSize={24} />
       )}
     </div>
   );

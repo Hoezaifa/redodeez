@@ -1,9 +1,9 @@
 import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ChevronDown, Clock, MapPin, Truck } from "lucide-react";
-import { getProducts, type Product } from "@/data/products";
+import { getProducts } from "@/data/products";
 import { collections, site, aestheticSlugs, SITE_URL, toAbsoluteImageUrl, toOgImageUrl } from "@/data/site";
-import { ProductCard } from "@/components/shop/ProductCard";
+import { InfiniteProductGrid } from "@/components/shop/InfiniteProductGrid";
 import { SectionHeading } from "@/components/shop/ProductRow";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -134,6 +134,11 @@ function CollectionPage() {
     }
   };
 
+  const currentSearchParams = useMemo(() => ({
+    ...(sort !== "featured" ? { sort } : {}),
+    ...(sort === "price" && priceDir !== "asc" ? { dir: priceDir } : {}),
+  }), [sort, priceDir]);
+
   const isAesthetic = aestheticSlugs.includes(slug);
   const isComingSoonCollection = slug === "hoodies";
 
@@ -261,11 +266,14 @@ function CollectionPage() {
         </div>
       </div>
 
-      <div className="mt-4 md:mt-6 grid grid-cols-2 gap-2.5 md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-8">
-        {items.map((p, i) => (
-          <ProductCard key={p.id} product={p} index={i} isComingSoon={isComingSoonCollection} />
-        ))}
-      </div>
+      <InfiniteProductGrid
+        products={items}
+        batchSize={24}
+        isComingSoon={isComingSoonCollection}
+        searchParams={currentSearchParams}
+        paginationBasePath={`/collections/${slug}`}
+        resetKey={`${slug}-${sort}-${priceDir}`}
+      />
     </div>
   );
 }
