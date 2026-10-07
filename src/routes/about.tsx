@@ -48,7 +48,7 @@ const benefits = [
   { icon: Award, label: "PREMIUM QUALITY", desc: "Top-notch fabric & long-lasting prints." },
   { icon: Truck, label: "EXPRESS SHIPPING", desc: "Karachi Rider & Nationwide Courier." },
   { icon: ShieldCheck, label: "SECURE PAYMENTS", desc: "Meezan, Easypaisa & JazzCash accepted." },
-  { icon: RefreshCw, label: "EASY RETURNS", desc: "7-day exchange policy." },
+  { icon: RefreshCw, label: "7-DAY EXCHANGE", desc: "Defect or wrong item replacement." },
   { icon: Scissors, label: "MADE TO ORDER", desc: "Every piece is printed just for you." },
 ];
 

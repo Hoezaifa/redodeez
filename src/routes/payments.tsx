@@ -175,15 +175,16 @@ function PaymentsPage() {
       <div className="border border-white/10 bg-surface/50 rounded-2xl p-8 sm:p-10 space-y-8 max-w-4xl mx-auto">
         <div className="text-center space-y-2">
           <p className="label-mono text-primary">How It Works</p>
-          <h2 className="text-2xl font-bold uppercase text-white">4 Simple Steps to Complete Payment</h2>
+          <h2 className="text-2xl font-bold uppercase text-white">Pay Online &amp; Share Receipt on WhatsApp</h2>
+          <p className="text-xs sm:text-sm text-zinc-400">Place your order, transfer the payment, then share the receipt on WhatsApp.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            ["01", "Select Method", "Choose Meezan Bank, Easypaisa, JazzCash, or Raast at checkout."],
-            ["02", "Transfer Funds", "Transfer the exact order total using the account details above."],
-            ["03", "Keep Receipt", "Save the transaction reference number or take a screenshot."],
-            ["04", "Instant Confirm", "Enter reference at checkout or WhatsApp us for instant dispatch."],
+            ["01", "Place Order", "Choose Meezan Bank or Easypaisa and place your order at checkout."],
+            ["02", "Transfer Funds", "Transfer the exact order total using the bank or wallet details above."],
+            ["03", "Keep Receipt", "Save the transaction reference number or take a payment screenshot."],
+            ["04", "WhatsApp Us", "Share receipt on WhatsApp (0327 2487127) for confirmation and dispatch."],
           ].map(([num, title, desc]) => (
             <div key={num} className="bg-zinc-950 border border-white/5 rounded-xl p-5 space-y-2">
               <span className="label-mono text-primary font-bold text-sm">{num}</span>

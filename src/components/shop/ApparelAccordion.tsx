@@ -114,7 +114,7 @@ export function ApparelAccordion({ product }: ApparelAccordionProps) {
             <strong className="text-foreground font-semibold">Free Nationwide Shipping:</strong> Automatically applied at checkout on all orders of Rs. 5,000 or more (standard flat rate is Rs. 200 Karachi / Rs. 450 Nationwide).
           </p>
           <p>
-            <strong className="text-foreground font-semibold">7-Day Hassle-Free Exchange:</strong> If you receive the wrong size or encounter any manufacturing defect, contact us within 7 days of delivery for a swift replacement.
+            <strong className="text-foreground font-semibold">7-Day Exchange:</strong> Exchange is available within 7 days only if you receive a defective item, incorrect product, or a different size than the one you ordered. Please check the size chart, fit and order details carefully before confirming your order. Incorrect size selection or change of mind is not eligible for exchange.
           </p>
         </div>
       </AccordionItem>

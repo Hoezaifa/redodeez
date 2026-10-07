@@ -44,10 +44,10 @@ const supportTopics = [
   },
   {
     icon: RefreshCw,
-    title: "Returns & Exchange",
-    desc: "Initiate a 7-day hassle-free size exchange or report a defective print.",
+    title: "7-Day Exchange",
+    desc: "Exchange policy for defective items or wrong products received within 7 days.",
     link: "/returns",
-    cta: "Return Guidelines",
+    cta: "Exchange Policy",
   },
   {
     icon: ShieldCheck,

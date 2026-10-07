@@ -18,7 +18,7 @@ export const Route = createFileRoute("/checkout")({
       {
         name: "description",
         content:
-          "Complete your Deez Prints order with Easypaisa, Bank Transfer, or Cash on Delivery.",
+          "Complete your Deez Prints order with Easypaisa, Bank Transfer, or Cash on Delivery (Karachi only).",
       },
       { name: "robots", content: "noindex, nofollow" },
     ],
@@ -39,6 +39,7 @@ function Checkout() {
 
   const [copiedPaymentId, setCopiedPaymentId] = useState<string | null>(null);
   const [cityMode, setCityMode] = useState<"karachi" | "other">("karachi");
+  const [detailsConfirmed, setDetailsConfirmed] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -69,6 +70,12 @@ function Checkout() {
       setFormData((f) => ({ ...f, city: "Karachi" }));
     }
   }, [hasMugInCart]);
+
+  useEffect(() => {
+    if (deliveryLocation === "nationwide" && paymentMethod === "cod") {
+      setPaymentMethod("easypaisa");
+    }
+  }, [deliveryLocation, paymentMethod]);
 
   useEffect(() => {
     if (lines.length > 0) {
@@ -111,6 +118,11 @@ function Checkout() {
   };
 
   const handlePlaceOrder = async () => {
+    if (!detailsConfirmed) {
+      alert("Please confirm that you have checked your size, fit and order details before confirming your order.");
+      return;
+    }
+
     const methodTitle =
       paymentMethod === "bank"
         ? "Bank Transfer (Meezan)"
@@ -261,15 +273,91 @@ function Checkout() {
             </span>
           </div>
 
-          {/* Prominent WhatsApp Payment Notice */}
-          <div className="mt-6 max-w-md mx-auto p-4 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-200 text-xs sm:text-sm font-medium text-center shadow-lg">
-            <p className="leading-relaxed">
-              {completedOrder.paymentMethod === "Cash on Delivery"
-                ? <>💬 <strong>Please confirm your order on WhatsApp</strong> so we can prepare it for dispatch.</>
-                : <>💬 <strong>Please share your payment screenshot on WhatsApp</strong> to confirm your order dispatch!</>
-              }
-            </p>
-          </div>
+          {/* Step 3 Notice & Payment Details */}
+          {completedOrder.paymentMethod === "Cash on Delivery" ? (
+            <div className="mt-6 max-w-md mx-auto p-4 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-200 text-xs sm:text-sm font-medium text-center shadow-lg">
+              <p className="leading-relaxed">
+                💬 <strong>Cash on Delivery (Karachi only):</strong> Please confirm your order on WhatsApp (<strong>0327 2487127</strong>) so our Karachi team can prepare it for dispatch.
+              </p>
+            </div>
+          ) : (
+            <div className="mt-6 max-w-md mx-auto p-5 rounded-2xl bg-zinc-900/90 border border-orange-500/30 text-left shadow-xl space-y-3.5">
+              <div className="flex items-start justify-between">
+                <div>
+                  <span className="text-[10px] font-mono uppercase text-orange-400 font-bold tracking-wider block">
+                    Step 2 of 2: Transfer & Confirm
+                  </span>
+                  <h3 className="text-base font-bold text-white mt-0.5">
+                    Pay Online & Share Receipt on WhatsApp
+                  </h3>
+                </div>
+                <span className="text-xs bg-orange-500/20 text-orange-400 font-mono font-bold px-2 py-0.5 rounded">
+                  Rs. {completedOrder.total.toLocaleString()}
+                </span>
+              </div>
+
+              <p className="text-xs text-zinc-300 leading-relaxed">
+                Place your order, transfer the payment, then share the receipt on WhatsApp.
+              </p>
+
+              <div className="p-3.5 bg-black/50 border border-white/10 rounded-xl space-y-2 text-xs font-mono">
+                {completedOrder.paymentMethod.toLowerCase().includes("bank") || completedOrder.paymentMethod.toLowerCase().includes("meezan") ? (
+                  <>
+                    <div className="flex justify-between text-zinc-400">
+                      <span>Bank:</span>
+                      <span className="text-white font-bold">Meezan Bank</span>
+                    </div>
+                    <div className="flex justify-between text-zinc-400">
+                      <span>Account Title:</span>
+                      <span className="text-white font-bold">{bankDetails.meezan.accountTitle}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-zinc-400">
+                      <span>Account Number:</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-white font-bold tracking-wider">{bankDetails.meezan.accountNumber}</span>
+                        <button
+                          type="button"
+                          onClick={() => copyNumber(bankDetails.meezan.accountNumber, "post-bank")}
+                          className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded text-[10px] font-bold hover:bg-emerald-500/30 cursor-pointer"
+                        >
+                          {copiedPaymentId === "post-bank" ? "Copied!" : "Copy"}
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex justify-between text-zinc-400">
+                      <span>Wallet:</span>
+                      <span className="text-white font-bold">Easypaisa</span>
+                    </div>
+                    <div className="flex justify-between text-zinc-400">
+                      <span>Account Title:</span>
+                      <span className="text-white font-bold">{bankDetails.easypaisa.accountTitle}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-zinc-400">
+                      <span>Account Number:</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-white font-bold tracking-wider">{bankDetails.easypaisa.accountNumber}</span>
+                        <button
+                          type="button"
+                          onClick={() => copyNumber(bankDetails.easypaisa.accountNumber, "post-ep")}
+                          className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded text-[10px] font-bold hover:bg-emerald-500/30 cursor-pointer"
+                        >
+                          {copiedPaymentId === "post-ep" ? "Copied!" : "Copy"}
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              <div className="text-[11px] text-zinc-400 flex items-center justify-between pt-1">
+                <span>WhatsApp support &amp; verification:</span>
+                <span className="text-white font-mono font-bold">0327 2487127</span>
+              </div>
+            </div>
+          )}
         </motion.div>
 
         {/* Official Printable Payment Receipt Card */}
@@ -410,7 +498,7 @@ function Checkout() {
             className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold uppercase text-xs tracking-wider py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md text-center cursor-pointer"
           >
             <Share2 className="h-4 w-4" />
-            <span>{completedOrder.paymentMethod === "Cash on Delivery" ? "CONFIRM ORDER ON WHATSAPP" : "SEND RECEIPT ON WHATSAPP"}</span>
+            <span>{completedOrder.paymentMethod === "Cash on Delivery" ? "CONFIRM ORDER ON WHATSAPP (0327 2487127)" : "SEND RECEIPT ON WHATSAPP (0327 2487127)"}</span>
           </a>
 
           <Link
@@ -660,7 +748,7 @@ function Checkout() {
                   type="submit"
                   className="w-full h-12 text-base font-extrabold bg-primary text-primary-foreground hover:bg-orange-600 rounded-xl transition-all shadow-lg cursor-pointer"
                 >
-                  Continue to Payment
+                  Continue to Payment Method
                 </button>
               </motion.form>
             )}
@@ -697,7 +785,7 @@ function Checkout() {
                         />
                         <div>
                           <span className="font-bold text-sm text-white block">Easypaisa</span>
-                          <span className="text-[11px] text-zinc-400">Pay now</span>
+                          <span className="text-[11px] text-emerald-400 font-medium">Pay Online &amp; Share Receipt on WhatsApp</span>
                         </div>
                       </div>
                       <div
@@ -716,8 +804,14 @@ function Checkout() {
                     {/* Expanded details */}
                     {paymentMethod === "easypaisa" && (
                       <div className="px-4 pb-4 pt-0">
-                        <div className="border-t border-white/10 pt-3 space-y-1.5 text-xs">
-                          <div className="flex justify-between text-zinc-400">
+                        <div className="border-t border-white/10 pt-3 space-y-2 text-xs">
+                          <p className="text-zinc-200 font-medium leading-relaxed">
+                            Place your order, transfer the payment, then share the receipt on WhatsApp.
+                          </p>
+                          <p className="text-[11px] text-zinc-400 leading-relaxed bg-zinc-900/80 p-2.5 rounded-lg border border-white/5">
+                            Selecting Easypaisa does not open a payment gateway and does not block you from placing your order. Place your order below, then transfer using these details.
+                          </p>
+                          <div className="flex justify-between text-zinc-400 pt-1">
                             <span>Account Title</span>
                             <span className="text-white font-semibold">{bankDetails.easypaisa.accountTitle}</span>
                           </div>
@@ -756,8 +850,8 @@ function Checkout() {
                           className="h-7 w-7 sm:h-8 sm:w-8 object-contain shrink-0"
                         />
                         <div>
-                          <span className="font-bold text-sm text-white block">Bank Transfer</span>
-                          <span className="text-[11px] text-zinc-400">Pay now</span>
+                          <span className="font-bold text-sm text-white block">Bank Transfer (Meezan)</span>
+                          <span className="text-[11px] text-emerald-400 font-medium">Pay Online &amp; Share Receipt on WhatsApp</span>
                         </div>
                       </div>
                       <div
@@ -776,8 +870,14 @@ function Checkout() {
                     {/* Expanded details */}
                     {paymentMethod === "bank" && (
                       <div className="px-4 pb-4 pt-0">
-                        <div className="border-t border-white/10 pt-3 space-y-1.5 text-xs">
-                          <div className="flex justify-between text-zinc-400">
+                        <div className="border-t border-white/10 pt-3 space-y-2 text-xs">
+                          <p className="text-zinc-200 font-medium leading-relaxed">
+                            Place your order, transfer the payment, then share the receipt on WhatsApp.
+                          </p>
+                          <p className="text-[11px] text-zinc-400 leading-relaxed bg-zinc-900/80 p-2.5 rounded-lg border border-white/5">
+                            Selecting Bank Transfer does not open a payment gateway and does not block you from placing your order. Place your order below, then transfer using these details.
+                          </p>
+                          <div className="flex justify-between text-zinc-400 pt-1">
                             <span>Bank</span>
                             <span className="text-white font-semibold">Meezan Bank</span>
                           </div>
@@ -805,11 +905,16 @@ function Checkout() {
                   {/* ── Cash on Delivery ── */}
                   <button
                     type="button"
-                    onClick={() => setPaymentMethod("cod")}
-                    className={`w-full text-left transition-all cursor-pointer rounded-xl border ${
-                      paymentMethod === "cod"
-                        ? "bg-zinc-800/90 border-orange-500 ring-1 ring-orange-500/30"
-                        : "bg-zinc-900/40 border-white/10 hover:border-white/20 hover:bg-zinc-900/60"
+                    disabled={deliveryLocation === "nationwide"}
+                    onClick={() => {
+                      if (deliveryLocation === "karachi") setPaymentMethod("cod");
+                    }}
+                    className={`w-full text-left transition-all rounded-xl border ${
+                      deliveryLocation === "nationwide"
+                        ? "opacity-60 cursor-not-allowed bg-zinc-900/20 border-white/5"
+                        : paymentMethod === "cod"
+                        ? "bg-zinc-800/90 border-orange-500 ring-1 ring-orange-500/30 cursor-pointer"
+                        : "bg-zinc-900/40 border-white/10 hover:border-white/20 hover:bg-zinc-900/60 cursor-pointer"
                     }`}
                   >
                     <div className="flex items-center justify-between p-4">
@@ -818,29 +923,40 @@ function Checkout() {
                           COD
                         </div>
                         <div>
-                          <span className="font-bold text-sm text-white block">Cash on Delivery</span>
-                          <span className="text-[11px] text-zinc-400">Pay when your order arrives</span>
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-sm text-white block">Cash on Delivery</span>
+                            {deliveryLocation === "karachi" && (
+                              <span className="text-[10px] font-mono px-1.5 py-0.2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded font-semibold">
+                                Karachi only
+                              </span>
+                            )}
+                          </div>
+                          <span className={`text-[11px] block mt-0.5 ${deliveryLocation === "nationwide" ? "text-amber-400 font-medium" : "text-zinc-400"}`}>
+                            {deliveryLocation === "karachi" ? "Karachi only" : "Outside Karachi: advance payment required to confirm your order."}
+                          </span>
                         </div>
                       </div>
                       <div
                         className={`w-4 h-4 rounded-full border shrink-0 flex items-center justify-center transition-colors ${
-                          paymentMethod === "cod"
+                          deliveryLocation === "nationwide"
+                            ? "border-zinc-700 bg-zinc-800"
+                            : paymentMethod === "cod"
                             ? "border-orange-500 bg-orange-500"
                             : "border-zinc-500"
                         }`}
                       >
-                        {paymentMethod === "cod" && (
+                        {deliveryLocation === "karachi" && paymentMethod === "cod" && (
                           <div className="w-1.5 h-1.5 rounded-full bg-white" />
                         )}
                       </div>
                     </div>
 
                     {/* Expanded description */}
-                    {paymentMethod === "cod" && (
+                    {deliveryLocation === "karachi" && paymentMethod === "cod" && (
                       <div className="px-4 pb-4 pt-0">
                         <div className="border-t border-white/10 pt-3">
                           <p className="text-xs text-zinc-400 leading-relaxed">
-                            Order will be confirmed via WhatsApp before dispatch. Pay the full amount to the courier at delivery.
+                            Order will be confirmed via WhatsApp before dispatch. Pay the full amount in cash to the rider at delivery.
                           </p>
                         </div>
                       </div>
@@ -860,7 +976,23 @@ function Checkout() {
                   </div>
                 )}
 
-                <div className="flex gap-3 pt-2">
+                {/* Confirmation Checkbox & Notice */}
+                <div className="space-y-2.5 pt-2">
+                  <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">
+                    Please check your size, fit and order details before confirming.
+                  </p>
+                  <label className="flex items-center gap-2.5 cursor-pointer text-xs text-zinc-300 select-none">
+                    <input
+                      type="checkbox"
+                      checked={detailsConfirmed}
+                      onChange={(e) => setDetailsConfirmed(e.target.checked)}
+                      className="rounded border-white/20 bg-zinc-900 text-primary focus:ring-primary w-4 h-4 cursor-pointer accent-orange-500"
+                    />
+                    <span>I’ve checked my size, fit and order details.</span>
+                  </label>
+                </div>
+
+                <div className="flex gap-3 pt-1">
                   <button
                     type="button"
                     onClick={() => setStep(1)}

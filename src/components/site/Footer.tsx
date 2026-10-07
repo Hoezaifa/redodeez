@@ -84,7 +84,7 @@ export function Footer() {
             </li>
             <li>
               <Link to="/returns" className="link-underline">
-                Returns &amp; Exchange
+                7-Day Exchange
               </Link>
             </li>
             <li>

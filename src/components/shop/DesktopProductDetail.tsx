@@ -351,7 +351,7 @@ export function DesktopProductDetail({
           <span className="text-border-strong">|</span>
           <div className="flex items-center gap-1.5">
             <Clock className="h-3.5 w-3.5 text-muted-foreground/60" />
-            <span>7 days easy returns</span>
+            <span>7-Day Defect/Wrong Item Exchange</span>
           </div>
         </div>
 
@@ -515,10 +515,10 @@ export function DesktopProductDetail({
           <div className="flex flex-col items-center text-center gap-1.5">
             <RotateCcw className="h-4 w-4 text-primary" />
             <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-foreground">
-              Easy Returns
+              7-Day Exchange
             </span>
             <span className="text-[10px] text-muted-foreground leading-tight">
-              7 days return
+              Defect / wrong item
             </span>
           </div>
           <div className="flex flex-col items-center text-center gap-1.5">
@@ -587,13 +587,12 @@ export function DesktopProductDetail({
                 </p>
               )}
             </AccordionItem>
-            <AccordionItem title="Refund & Exchange">
-              <p className="mb-2">
-                We replace any defective or damaged products immediately upon delivery.
+            <AccordionItem title="7-Day Exchange Policy">
+              <p className="mb-2 leading-relaxed text-sm">
+                Exchange is available within 7 days only if you receive a defective item, incorrect product, or a different size than the one you ordered.
               </p>
-              <p>
-                For size adjustments or support, contact our team via WhatsApp or email at{" "}
-                <span className="text-primary font-mono">deezprints69@gmail.com</span>.
+              <p className="leading-relaxed text-sm text-muted-foreground">
+                Please check the size chart, fit and order details carefully before confirming your order. Incorrect size selection or change of mind is not eligible for exchange. Items must be unworn, unwashed, unused, and in original condition.
               </p>
             </AccordionItem>
           </div>

@@ -53,8 +53,8 @@ export function Header() {
                     `Karachi delivery Rs. ${SHIPPING_OPTIONS.karachi.fee} via ${SHIPPING_OPTIONS.karachi.method}`,
                     `${SHIPPING_OPTIONS.nationwide.label} delivery Rs. ${SHIPPING_OPTIONS.nationwide.fee} via ${SHIPPING_OPTIONS.nationwide.method}`,
                     `Free Karachi delivery on orders above Rs. ${site.freeShippingThreshold.toLocaleString()}`,
-                    "Easypaisa, Bank Transfer & COD accepted",
-                    "7-day exchange",
+                    "Easypaisa, Bank Transfer & COD (Karachi only)",
+                    "7-day exchange (defective/wrong item)",
                     "Printed in Karachi",
                   ].map((t) => (
                     <span key={t} className="label-mono text-muted-foreground">

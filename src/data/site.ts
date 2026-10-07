@@ -18,7 +18,7 @@ export const commercialConfig = {
   deliveryTimeKarachi: "2–4 working days",
   deliveryTimeNationwide: "3–5 working days",
   exchangeWindow: "7 days",
-  acceptedPaymentMethods: ["Easypaisa", "Bank Transfer (Meezan)", "Cash on Delivery"] as const,
+  acceptedPaymentMethods: ["Easypaisa", "Bank Transfer (Meezan)", "Cash on Delivery (Karachi only)"] as const,
 };
 
 export const site = {
@@ -114,7 +114,7 @@ export function whatsappLink(message: string) {
     : `https://www.instagram.com/deez_prints/`;
 }
 
-export const paymentMethods = ["Easypaisa", "Bank Transfer (Meezan)", "Cash on Delivery"];
+export const paymentMethods = ["Easypaisa", "Bank Transfer (Meezan)", "Cash on Delivery (Karachi only)"];
 
 /* ─── Shipping / Delivery Configuration ─────────────────────── */
 
@@ -289,7 +289,7 @@ export const faqs = [
   {
     q: "What payment methods do you accept?",
     category: "Payments",
-    a: "We accept Easypaisa mobile wallet transfers, Meezan Bank direct transfers, and Cash on Delivery (COD). For prepaid orders, simply transfer the order total and share your receipt screenshot via WhatsApp for instant verification. COD orders are confirmed via WhatsApp before dispatch.",
+    a: "We accept Easypaisa mobile wallet transfers, Meezan Bank direct transfers, and Cash on Delivery (Karachi only). For customers outside Karachi, advance payment is required to confirm your order. After placing your order, transfer the payment and share your receipt screenshot via WhatsApp (0327 2487127). Cash on Delivery orders in Karachi are confirmed via WhatsApp before dispatch.",
   },
   {
     q: "How long does delivery take?",
@@ -308,8 +308,8 @@ export const faqs = [
   },
   {
     q: "What is your exchange policy?",
-    category: "Returns",
-    a: "We offer a 7-day hassle-free exchange policy from the date of delivery for sizing adjustments or any rare printing/fabric defects. Items must be unworn, unwashed, and in original condition with tags attached.",
+    category: "Exchanges",
+    a: "Exchange is available within 7 days only if you receive a defective item, incorrect product, or a different size than the one you ordered. Please check the size chart, fit and order details carefully before confirming your order. Incorrect size selection or change of mind is not eligible for exchange. Items must be unworn, unwashed, unused, and in original condition with original tags and packaging where applicable.",
   },
   {
     q: "Do you offer cash refunds?",
@@ -392,8 +392,8 @@ export const COLOR_HEX_MAP: Record<string, string> = {
 export const usps = [
   { title: "Premium Quality", body: "Top-notch fabric & prints" },
   { title: "Fast Dispatch", body: "2–3 days prep before dispatch" },
-  { title: "Secure Payments", body: "Easypaisa, Bank Transfer & COD" },
-  { title: "Easy Returns", body: "7-day exchange policy" },
+  { title: "Secure Payments", body: "Easypaisa, Meezan & COD (Karachi)" },
+  { title: "7-Day Exchange", body: "Defect or wrong item replacement" },
 ];
 
 export const navLinks = [

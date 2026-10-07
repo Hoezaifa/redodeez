@@ -303,9 +303,9 @@ export function staticPageMeta(path: string): { title: string; description: stri
       };
     case "/returns":
       return {
-        title: "7-Day Exchange & Returns Policy | Deez Prints",
+        title: "7-Day Exchange Policy | Deez Prints",
         description:
-          "Our straightforward 7-day exchange window for size and fit adjustments across Pakistan. Dedicated customer support via WhatsApp.",
+          "Exchange is available within 7 days only for defective items, incorrect products, or wrong size sent. Dedicated WhatsApp support.",
       };
     case "/payments":
       return {

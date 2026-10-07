@@ -6,14 +6,18 @@ import { AlertCircle, RefreshCw, ShieldCheck, Truck } from "lucide-react";
 export const Route = createFileRoute("/returns")({
   head: () => ({
     meta: [
-      { title: "Returns & Exchange Policy — Deez Prints" },
+      { title: "7-Day Exchange Policy — Deez Prints" },
       {
         name: "description",
         content:
-          "7-day exchange policy across Pakistan for size issues or defective items. Simple WhatsApp support to initiate exchanges.",
+          "7-Day Exchange is available only if you receive a defective item, incorrect product, or different size than ordered. Deez Prints does not offer change-of-mind returns.",
       },
-      { property: "og:title", content: "Returns & Exchange Policy — Deez Prints" },
-      { property: "og:description", content: "7-day exchange policy on size issues and defects." },
+      { property: "og:title", content: "7-Day Exchange Policy — Deez Prints" },
+      {
+        property: "og:description",
+        content:
+          "Exchange is available within 7 days only if you receive a defective item, incorrect product, or different size than ordered.",
+      },
       { property: "og:url", content: `${SITE_URL}/returns` },
       { property: "og:site_name", content: "Deez Prints" },
     ],
@@ -25,32 +29,41 @@ export const Route = createFileRoute("/returns")({
 function Returns() {
   return (
     <div className="edge py-14 md:py-20">
-      <SectionHeading eyebrow="Policies" title="Returns & Exchange" />
+      <SectionHeading eyebrow="Policies" title="7-Day Exchange" />
 
       <div className="mt-12 max-w-3xl space-y-8">
         <div className="rounded-xl border border-white/10 bg-surface/50 p-8 space-y-6">
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-foreground">7-Day Exchange Policy</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              We offer a{" "}
-              <strong className="text-foreground font-semibold">7-day exchange policy</strong> from
-              the date of delivery. If you have received a defective item or the wrong size, please
-              contact us immediately.
+            <h2 className="text-2xl font-bold text-foreground">7-Day Exchange</h2>
+            <p className="text-foreground/90 font-medium leading-relaxed">
+              Exchange is available within 7 days only if you receive a defective item, incorrect product, or a different size than the one you ordered.
             </p>
-            <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-2">
-              <li>Item must be unworn, unwashed, and in original condition.</li>
-              <li>Tags and packaging must be intact.</li>
-              <li>Exchange depends on stock availability.</li>
-            </ul>
+            <p className="text-muted-foreground leading-relaxed">
+              Please check the size chart, fit and order details carefully before confirming your order. Incorrect size selection or change of mind is not eligible for exchange.
+            </p>
+            <div className="space-y-2 pt-2">
+              <p className="text-xs font-mono uppercase tracking-wider text-primary font-bold">
+                Item Condition Requirements:
+              </p>
+              <ul className="list-disc list-inside text-muted-foreground space-y-1.5 ml-2 text-sm">
+                <li>unworn</li>
+                <li>unwashed</li>
+                <li>unused</li>
+                <li>in original condition</li>
+                <li>with original tags/packaging where applicable</li>
+              </ul>
+            </div>
+            <p className="text-sm text-foreground/90 leading-relaxed bg-white/5 border border-white/10 rounded-lg p-3.5">
+              If Deez Prints sends the wrong size/product or the item has a genuine printing/fabric defect, Deez Prints will resolve the issue.
+            </p>
           </div>
 
           <div className="w-full h-px bg-border" />
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-foreground">Returns & Refunds</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              We generally do not offer cash refunds. However, if a product is out of stock or
-              faulty upon arrival, we may process a refund via Bank Transfer within{" "}
+            <h2 className="text-2xl font-bold text-foreground">Refunds &amp; Cancellations</h2>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              Deez Prints does not offer general change-of-mind returns or cash refunds. If an ordered item is out of stock or confirmed defective and replacement is unavailable, we process a direct bank refund within{" "}
               <strong className="text-foreground font-semibold">7 working days</strong>.
             </p>
           </div>
@@ -58,8 +71,7 @@ function Returns() {
           <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 flex gap-4 items-start">
             <AlertCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
             <p className="text-sm text-foreground/90">
-              <strong className="font-semibold">Note:</strong> Custom or personalized items are not
-              eligible for return or exchange unless defective or printed incorrectly.
+              <strong className="font-semibold">Note:</strong> Custom or personalized items are produced specifically for your order and are strictly non-exchangeable unless defective or printed incorrectly by Deez Prints.
             </p>
           </div>
         </div>

@@ -68,21 +68,21 @@ const stats = [
   { value: "10,000+", label: "Orders Delivered", sub: "Across Pakistan", icon: Package },
   { value: "5,000+", label: "Happy Customers", sub: "Delivered Nationwide", icon: CheckCircle2 },
   { value: "6+ Years", label: "Printing Expertise", sub: "Est. Karachi Studio", icon: Award },
-  { value: "100%", label: "Quality Guaranteed", sub: "7-Day Easy Exchange", icon: CheckCircle2 },
+  { value: "100%", label: "Quality Guaranteed", sub: "7-Day Exchange", icon: CheckCircle2 },
 ];
 
 const faqs = [
   {
     q: "What payment methods are supported?",
-    a: "We support direct transfers via Meezan Bank, Easypaisa, and JazzCash. After transferring, simply upload your transaction reference or screenshot at checkout or via WhatsApp for instant order confirmation.",
+    a: "We support direct transfers via Meezan Bank, Easypaisa, and JazzCash, plus Cash on Delivery (Karachi only). For customers outside Karachi, advance payment is required to confirm your order. After transferring, simply share your receipt screenshot via WhatsApp (0327 2487127) for confirmation.",
   },
   {
     q: "How long does delivery take?",
     a: "Standard nationwide delivery takes 3 to 5 working days across Pakistan via TCS, Leopards, and M&P. Orders placed before 1 PM are processed the same day.",
   },
   {
-    q: "What is your return & exchange policy?",
-    a: "We offer a 7-day hassle-free exchange policy for any sizing issues, defective items, or printing discrepancies. Simply reach out on WhatsApp with your order ID.",
+    q: "What is your exchange policy?",
+    a: "We offer a 7-Day Exchange policy if you receive a defective item, incorrect product, or a different size than the one you ordered. Please check the size chart and measurements carefully before confirming your order. Incorrect size selection or change of mind is not eligible for exchange.",
   },
   {
     q: "How does Custom Printing work?",
@@ -233,15 +233,15 @@ export function TrustSection() {
               <div className="flex items-center gap-3 text-primary">
                 <RefreshCw className="w-6 h-6" />
                 <h3 className="text-lg font-bold uppercase text-white tracking-wide">
-                  7-Day Hassle-Free Exchange
+                  7-Day Exchange
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                If your fit isn't right or you receive a defective print, our exchange process is smooth and quick. Return shipping assistance is provided nationwide.
+                Exchange is available within 7 days only if you receive a defective item, incorrect product, or a different size than ordered. Please check size charts carefully before confirming.
               </p>
               <div className="pt-2 flex gap-4 text-xs font-bold">
                 <Link to="/returns" className="text-primary hover:underline">
-                  Read Return Policy →
+                  Read Exchange Policy →
                 </Link>
                 <Link to="/shipping" className="text-zinc-400 hover:text-white hover:underline">
                   Shipping Policy →

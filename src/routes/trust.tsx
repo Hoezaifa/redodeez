@@ -106,7 +106,7 @@ const promises = [
   {
     icon: RefreshCw,
     title: "7-Day Exchange",
-    desc: "If something isn't right,\nwe've got you covered.",
+    desc: "For defect or wrong items.\nCheck size charts carefully.",
   },
   {
     icon: Headphones,
