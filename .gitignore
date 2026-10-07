@@ -32,6 +32,7 @@ dist-ssr
 *.sw?
 
 .vercel
+.lovable
 .env
 scratch/
 scripts/independent-query.ts
