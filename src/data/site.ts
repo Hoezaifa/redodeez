@@ -348,8 +348,20 @@ export const sizes = ["S", "M", "L", "XL", "XXL"];
 /* ─── Sitewide Color & Size Specifications ──────────────────── */
 export const ACID_WASH_SIZES = ["S", "M", "L"] as const;
 export const ACID_WASH_COLORS = ["Black", "Grey", "Maroon"] as const;
+export const ACID_WASH_SIZE_CHART = [
+  { size: "Small", chest: '22"', length: '28"' },
+  { size: "Medium", chest: '23"', length: '29"' },
+  { size: "Large", chest: '24"', length: '30"' },
+] as const;
 
 export const REGULAR_TEE_SIZES = ["S", "M", "L", "XL", "XXL"] as const;
+export const REGULAR_TEE_SIZE_CHART = [
+  { size: "Small", chest: '19"', length: '26"' },
+  { size: "Medium", chest: '20"', length: '27"' },
+  { size: "Large", chest: '21"', length: '28"' },
+  { size: "XL", chest: '22"', length: '29"' },
+  { size: "XXL", chest: '23"', length: '30"' },
+] as const;
 export const REGULAR_TEE_COLORS = [
   "Black",
   "Charcoal",
@@ -363,6 +375,12 @@ export const REGULAR_TEE_COLORS = [
 ] as const;
 
 export const DROP_SHOULDER_SIZES = ["S", "M", "L", "XL"] as const;
+export const DROP_SHOULDER_SIZE_CHART = [
+  { size: "Small", chest: '21"', length: '27"' },
+  { size: "Medium", chest: '22"', length: '28"' },
+  { size: "Large", chest: '23"', length: '29"' },
+  { size: "XL", chest: '24"', length: '30"' },
+] as const;
 export const DROP_SHOULDER_COLORS = [
   "Black",
   "White",

@@ -26,17 +26,46 @@ export const Route = createFileRoute("/faq")({
   component: Faq,
 });
 
-const sizeChart = [
-  ["Small", "19", "26"],
-  ["Medium", "20", "27"],
-  ["Large", "21", "28"],
-  ["XL", "22", "29"],
-  ["XXL", "23", "30"],
-];
+const sizeCharts: Record<
+  string,
+  {
+    data: [string, string, string][];
+    note: string;
+  }
+> = {
+  "Acid Wash": {
+    data: [
+      ["Small", "22", "28"],
+      ["Medium", "23", "29"],
+      ["Large", "24", "30"],
+    ],
+    note: "Acid Wash vintage tees are available in S, M, and L sizes only.",
+  },
+  "Drop Shoulder": {
+    data: [
+      ["Small", "21", "27"],
+      ["Medium", "22", "28"],
+      ["Large", "23", "29"],
+      ["XL", "24", "30"],
+    ],
+    note: "Drop shoulder fits run oversized — size down for a regular fit.",
+  },
+  "Regular Fit": {
+    data: [
+      ["Small", "19", "26"],
+      ["Medium", "20", "27"],
+      ["Large", "21", "28"],
+      ["XL", "22", "29"],
+      ["XXL", "23", "30"],
+    ],
+    note: "Standard breathable everyday streetwear fit.",
+  },
+};
 
 function Faq() {
   const [open, setOpen] = useState<number | null>(0);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [activeFit, setActiveFit] = useState<keyof typeof sizeCharts>("Acid Wash");
 
   const categories = ["All", "Payments", "Shipping", "Returns", "Custom Orders", "Sizing", "Production"];
 
@@ -112,27 +141,49 @@ function Faq() {
         </div>
 
         <aside className="self-start border border-border bg-surface p-6">
-          <p className="label-mono">Size guide (inches)</p>
+          <div className="flex items-center justify-between pb-3 border-b border-border">
+            <p className="label-mono font-bold uppercase tracking-wider text-primary">Size guide (inches)</p>
+          </div>
+
+          {/* Fit Selector Tabs */}
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {Object.keys(sizeCharts).map((fitName) => (
+              <button
+                key={fitName}
+                type="button"
+                onClick={() => setActiveFit(fitName)}
+                className={cn(
+                  "px-3 py-1.5 text-[11px] font-mono font-bold uppercase tracking-wider border rounded-none transition-colors cursor-pointer",
+                  activeFit === fitName
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "bg-surface/80 text-muted-foreground border-border hover:text-foreground hover:border-border/80"
+                )}
+              >
+                {fitName}
+              </button>
+            ))}
+          </div>
+
           <table className="mt-5 w-full text-sm">
             <thead>
-              <tr className="label-mono text-muted-foreground">
-                <th className="py-2 text-left font-normal">Size</th>
-                <th className="py-2 text-left font-normal">Chest</th>
-                <th className="py-2 text-left font-normal">Length</th>
+              <tr className="label-mono text-muted-foreground text-xs uppercase">
+                <th className="py-2 text-left font-bold">Size</th>
+                <th className="py-2 text-center font-bold">Chest</th>
+                <th className="py-2 text-right font-bold">Length</th>
               </tr>
             </thead>
             <tbody>
-              {sizeChart.map(([s, c, l]) => (
+              {sizeCharts[activeFit].data.map(([s, c, l]) => (
                 <tr key={s} className="border-t border-border">
-                  <td className="py-2.5 font-mono">{s}</td>
-                  <td className="py-2.5 text-muted-foreground">{c}</td>
-                  <td className="py-2.5 text-muted-foreground">{l}</td>
+                  <td className="py-2.5 font-mono font-semibold text-foreground">{s}</td>
+                  <td className="py-2.5 text-center font-mono text-foreground">{c}&Prime;</td>
+                  <td className="py-2.5 text-right font-mono text-foreground">{l}&Prime;</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <p className="label-mono mt-5 text-muted-foreground">
-            Drop shoulder fits run oversized — size down for a regular fit.
+          <p className="label-mono mt-4 text-xs text-muted-foreground border-t border-border/60 pt-3">
+            {sizeCharts[activeFit].note}
           </p>
         </aside>
       </div>

@@ -388,7 +388,7 @@ export function DesktopProductDetail({
               <p className="label-mono uppercase text-xs text-muted-foreground font-bold tracking-wider">
                 Select Size
               </p>
-              {product.subcategory !== "tapestries" && !isAcidWash && (
+              {product.subcategory !== "tapestries" && (
                 <button
                   type="button"
                   onClick={() => setShowSizeChart((prev: boolean) => !prev)}
@@ -446,7 +446,7 @@ export function DesktopProductDetail({
                   transition={{ duration: 0.25 }}
                   className="overflow-hidden mt-3"
                 >
-                  <SizeChart isDropShoulder={isDropShoulder} />
+                  <SizeChart isDropShoulder={isDropShoulder} isAcidWash={isAcidWash} />
                 </motion.div>
               )}
             </AnimatePresence>

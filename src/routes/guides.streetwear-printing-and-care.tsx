@@ -170,7 +170,7 @@ function PrintingCareGuidePage() {
                   </Link>
                 </div>
                 <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Hand-processed using artisan mineral wash cycles. Every single garment features a distinct vintage patina, faded seam edges, and buttery softened cotton hand-feel.
+                  Hand-processed using artisan mineral wash cycles. Every single garment features a distinct vintage patina, faded seam edges, and buttery softened cotton hand-feel. Available in Small, Medium, and Large only for an authentic vintage streetwear fit.
                 </p>
               </div>
 

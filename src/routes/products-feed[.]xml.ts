@@ -47,6 +47,9 @@ export const Route = createFileRoute("/products-feed.xml")({
           else if (imgLower.includes(".webp")) imgMime = "image/webp";
 
           const isApparel = p.category === "t-shirts" || p.category === "hoodies" || p.category === "jerseys";
+          const isAcidWash = p.subcategory === "acid-wash" || p.title.toLowerCase().includes("acid wash");
+          const isDropShoulder = p.subcategory === "drop-shoulder" || p.title.toLowerCase().includes("drop shoulder");
+          const feedSize = isAcidWash ? "S, M, L" : isDropShoulder ? "S, M, L, XL" : "S, M, L, XL, XXL";
 
           return [
             `    <item>`,
@@ -71,7 +74,7 @@ export const Route = createFileRoute("/products-feed.xml")({
               ? [
                   `      <g:age_group>adult</g:age_group>`,
                   `      <g:gender>unisex</g:gender>`,
-                  `      <g:size>S, M, L, XL</g:size>`,
+                  `      <g:size>${feedSize}</g:size>`,
                   `      <g:item_group_id>${escapeXml(p.id)}</g:item_group_id>`,
                 ]
               : []),

@@ -308,8 +308,14 @@ export function ProductsView() {
             const currentPrice = product.price;
             const originalPrice = baseProduct.price;
 
+            const isAcidWash = product.subcategory === "acid-wash" || product.title.toLowerCase().includes("acid wash");
+            const isDropShoulder = product.subcategory === "drop-shoulder" || product.title.toLowerCase().includes("drop shoulder");
             const sizeSummary = product.sizes && product.sizes.length > 0
               ? product.sizes.join(", ")
+              : isAcidWash
+              ? "S, M, L (Acid Wash)"
+              : isDropShoulder
+              ? "S, M, L, XL (Drop Shoulder)"
               : "Standard Sizes";
 
             return (
@@ -453,8 +459,16 @@ function ProductEditModal({
   const [title, setTitle] = useState(product.title);
   const [price, setPrice] = useState<number | string>(product.price);
   const [description, setDescription] = useState(product.description || "");
+  const isAcidWash = product.subcategory === "acid-wash" || product.title.toLowerCase().includes("acid wash");
+  const isDropShoulder = product.subcategory === "drop-shoulder" || product.title.toLowerCase().includes("drop shoulder");
+  const defaultSizes = isAcidWash
+    ? ["S", "M", "L"]
+    : isDropShoulder
+    ? ["S", "M", "L", "XL"]
+    : STANDARD_SIZES;
+
   const [selectedSizes, setSelectedSizes] = useState<string[]>(
-    product.sizes && product.sizes.length > 0 ? product.sizes : STANDARD_SIZES
+    product.sizes && product.sizes.length > 0 ? product.sizes : defaultSizes
   );
   const [customSizeInput, setCustomSizeInput] = useState("");
   const [saving, setSaving] = useState(false);

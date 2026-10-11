@@ -80,7 +80,7 @@ export function ApparelAccordion({ product }: ApparelAccordionProps) {
             {product.subcategory === "acid-wash" && (
               <>
                 <li><strong className="text-foreground">Fabric:</strong> 100% Premium Cotton with individual mineral acid-wash finish</li>
-                <li><strong className="text-foreground">Fit:</strong> Relaxed streetwear vintage fit with reinforced twin-needle stitching</li>
+                <li><strong className="text-foreground">Fit:</strong> Relaxed streetwear vintage fit (Available in S, M, L only)</li>
                 <li><strong className="text-foreground">Print:</strong> Industrial DTF print engineered for longevity through dozens of washes</li>
               </>
             )}

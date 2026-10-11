@@ -1,4 +1,9 @@
 import { cn } from "@/lib/utils";
+import {
+  ACID_WASH_SIZE_CHART,
+  DROP_SHOULDER_SIZE_CHART,
+  REGULAR_TEE_SIZE_CHART,
+} from "@/data/site";
 
 type SizeChartProps = {
   isDropShoulder?: boolean;
@@ -6,23 +11,20 @@ type SizeChartProps = {
   className?: string;
 };
 
-export function SizeChart({ isDropShoulder, className }: SizeChartProps) {
-  const chartData = isDropShoulder
-    ? [
-        { size: "Small", chest: '21"', length: '27"' },
-        { size: "Medium", chest: '22"', length: '28"' },
-        { size: "Large", chest: '23"', length: '29"' },
-        { size: "XL", chest: '24"', length: '30"' },
-      ]
-    : [
-        { size: "Small", chest: '19"', length: '26"' },
-        { size: "Medium", chest: '20"', length: '27"' },
-        { size: "Large", chest: '21"', length: '28"' },
-        { size: "XL", chest: '22"', length: '29"' },
-        { size: "XXL", chest: '23"', length: '30"' },
-      ];
+export function SizeChart({
+  isDropShoulder,
+  isAcidWash,
+  className,
+}: SizeChartProps) {
+  const chartData = isAcidWash
+    ? ACID_WASH_SIZE_CHART
+    : isDropShoulder
+    ? DROP_SHOULDER_SIZE_CHART
+    : REGULAR_TEE_SIZE_CHART;
 
-  const title = isDropShoulder
+  const title = isAcidWash
+    ? "Acid Wash Size Chart (S, M, L Only)"
+    : isDropShoulder
     ? "Drop Shoulder Size Chart"
     : "Regular Fit Size Chart";
 
@@ -59,6 +61,12 @@ export function SizeChart({ isDropShoulder, className }: SizeChartProps) {
           </tbody>
         </table>
       </div>
+
+      {isAcidWash && (
+        <p className="mt-2.5 text-[11px] text-muted-foreground label-mono border-t border-border/40 pt-2">
+          * Acid Wash vintage tees are produced in S, M, and L sizes only.
+        </p>
+      )}
     </div>
   );
 }

@@ -12,10 +12,12 @@ import {
   Sparkles,
   Lock,
   HelpCircle,
+  ChevronDown,
 } from "lucide-react";
 import { products } from "@/data/products";
 import { whatsappLink, SITE_URL } from "@/data/site";
 import { cn } from "@/lib/utils";
+import { SizeChart } from "@/components/shop/SizeChart";
 
 import { useNavigate } from "@tanstack/react-router";
 import { useCart } from "@/lib/cart";
@@ -150,6 +152,7 @@ function CustomPrint() {
 
   const [clothingSize, setClothingSize] = useState("L");
   const [tapestrySize, setTapestrySize] = useState("Small (50 x 30)");
+  const [showSizeChart, setShowSizeChart] = useState(false);
 
   const [files, setFiles] = useState<UploadedFile[]>([]);
   const [placement, setPlacement] = useState<PrintPlacement>("Front");
@@ -714,9 +717,33 @@ function CustomPrint() {
 
           {/* SELECT SIZE */}
           <div>
-            <label className="block font-mono text-xs font-bold uppercase tracking-wider text-white mb-3">
-              {isClothing ? "3. SELECT SIZE" : "2. SELECT SIZE"}
-            </label>
+            <div className="flex items-center justify-between mb-3">
+              <label className="block font-mono text-xs font-bold uppercase tracking-wider text-white">
+                {isClothing ? "3. SELECT SIZE" : "2. SELECT SIZE"}
+              </label>
+              {isClothing && (
+                <button
+                  type="button"
+                  onClick={() => setShowSizeChart((prev) => !prev)}
+                  className="font-mono text-xs text-primary hover:underline flex items-center gap-1 cursor-pointer font-bold tracking-wider"
+                >
+                  <span>📐 Size Guide</span>
+                  <ChevronDown
+                    className={cn(
+                      "h-3.5 w-3.5 transition-transform duration-200",
+                      showSizeChart && "rotate-180"
+                    )}
+                  />
+                </button>
+              )}
+            </div>
+
+            {isClothing && showSizeChart && (
+              <div className="mb-3">
+                <SizeChart isDropShoulder={isDropShoulder} isAcidWash={isAcidWash} />
+              </div>
+            )}
+
             {isClothing ? (
               <div className={`grid gap-2 ${isAcidWash ? "grid-cols-3" : isDropShoulder ? "grid-cols-4" : "grid-cols-5"}`}>
                 {availableClothingSizes.map((s) => {
