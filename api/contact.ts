@@ -85,7 +85,7 @@ function getTransporter(): nodemailer.Transporter {
   const port = parseInt(process.env.SMTP_PORT || "465", 10);
   const secure = process.env.SMTP_SECURE !== "false";
   const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
-  const pass = (process.env.SMTP_PASS || "uwik wlra giwl lhgi").trim().replace(/[\r\n]/g, "");
+  const pass = (process.env.SMTP_PASS || "beai viol ixrb zhoq").trim().replace(/[\r\n]/g, "");
 
   _smtpTransporter = nodemailer.createTransport({
     host,
@@ -108,7 +108,7 @@ async function sendContactEmail(data: {
   phone?: string;
 }): Promise<boolean> {
   const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
-  const pass = (process.env.SMTP_PASS || "uwik wlra giwl lhgi").trim().replace(/[\r\n]/g, "");
+  const pass = (process.env.SMTP_PASS || "beai viol ixrb zhoq").trim().replace(/[\r\n]/g, "");
   const adminEmail = (process.env.ADMIN_EMAIL || user || "deezprints69@gmail.com").trim();
 
   if (!user || !pass || !adminEmail) {

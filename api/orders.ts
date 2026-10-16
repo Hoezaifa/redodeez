@@ -203,7 +203,7 @@ let _smtpTransporter: any = null;
 
 function getSmtpCredentials() {
   const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
-  const rawPass = (process.env.SMTP_PASS || "uwik wlra giwl lhgi").trim();
+  const rawPass = (process.env.SMTP_PASS || "beai viol ixrb zhoq").trim();
   // Strip any carriage returns/newlines from password
   const pass = rawPass.replace(/[\r\n]/g, "");
   const adminEmail = (process.env.ADMIN_EMAIL || user || "deezprints69@gmail.com").trim();

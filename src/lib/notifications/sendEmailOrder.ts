@@ -50,7 +50,7 @@ interface OrderData {
 
 function getSmtpConfig() {
   const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
-  const rawPass = (process.env.SMTP_PASS || "uwik wlra giwl lhgi").trim();
+  const rawPass = (process.env.SMTP_PASS || "beai viol ixrb zhoq").trim();
   const pass = rawPass.replace(/[\r\n]/g, "");
   const adminEmail = (process.env.ADMIN_EMAIL || user || "deezprints69@gmail.com").trim();
   const host = (process.env.SMTP_HOST || "smtp.gmail.com").trim();
