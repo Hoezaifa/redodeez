@@ -77,11 +77,11 @@ let _transporter: nodemailer.Transporter | null = null;
 function getTransporter(): nodemailer.Transporter {
   if (_transporter) return _transporter;
 
-  const host = process.env.SMTP_HOST || "smtp.gmail.com";
+  const host = (process.env.SMTP_HOST || "smtp.gmail.com").trim();
   const port = parseInt(process.env.SMTP_PORT || "465", 10);
   const secure = process.env.SMTP_SECURE !== "false";
-  const user = process.env.SMTP_USER || "deezprints69@gmail.com";
-  const pass = process.env.SMTP_PASS || "xali erne qyqm khjv";
+  const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
+  const pass = (process.env.SMTP_PASS || "uwik wlra giwl lhgi").trim().replace(/[\r\n]/g, "");
 
   _transporter = nodemailer.createTransport({
     host,
@@ -99,9 +99,9 @@ function getTransporter(): nodemailer.Transporter {
 export async function sendContactEmailNotification(
   data: ContactFormData
 ): Promise<boolean> {
-  const user = process.env.SMTP_USER || "deezprints69@gmail.com";
-  const pass = process.env.SMTP_PASS || "xali erne qyqm khjv";
-  const adminEmail = process.env.ADMIN_EMAIL || "deezprints69@gmail.com";
+  const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
+  const pass = (process.env.SMTP_PASS || "uwik wlra giwl lhgi").trim().replace(/[\r\n]/g, "");
+  const adminEmail = (process.env.ADMIN_EMAIL || user || "deezprints69@gmail.com").trim();
 
   if (!user || !pass || !adminEmail) {
     console.log("[Contact Notification] Skipped — SMTP credentials missing");

@@ -110,68 +110,200 @@ function buildEmailPlainText(order: any): string {
     "Admin: https://deezprints.com/admin"].filter(l => l !== undefined).join("\n");
 }
 
+function buildCustomerEmailHtml(order: any): string {
+  const o = order || {};
+  const isCustom = o.orderType === "custom" || (o.items || []).some((i: any) => i && i.isCustom);
+  const d = o.createdAt ? new Date(o.createdAt) : new Date();
+  const date = d.toLocaleDateString("en-PK", { day: "2-digit", month: "short", year: "numeric" });
+  const time = d.toLocaleTimeString("en-PK", { hour: "numeric", minute: "2-digit", hour12: true });
+  const HR = `<tr><td style="padding:12px 0;"><hr style="border:none;border-top:1px solid #e4e4e7;margin:0;" /></td></tr>`;
+
+  const itemRows = (o.items || []).map((item: any) => {
+    if (!item) return "";
+    const title = item.isCustom ? `🎨 ${escHtml(item.blankItem || item.title)}` : escHtml(item.title);
+    const meta = [
+      item.size ? `Size: ${escHtml(item.size)}` : "",
+      item.color ? `Color: ${escHtml(item.color)}` : "",
+      item.isCustom && item.placement ? `Placement: ${escHtml(item.placement)}` : "",
+    ].filter(Boolean).join(" · ");
+
+    return `<tr><td style="padding:6px 0;font-size:14px;color:#18181b;"><strong>${title}</strong> ×${item.qty || 1}${meta ? `<br/><span style="font-size:12px;color:#71717a;">${meta}</span>` : ""}</td><td style="padding:6px 0;font-size:14px;color:#18181b;text-align:right;white-space:nowrap;font-weight:600;">${fmtCurrency((item.price || 0) * (item.qty || 1))}</td></tr>`;
+  }).join("");
+
+  const isCOD = (o.paymentMethod || "").toLowerCase().includes("cash");
+
+  const paymentInstructions = isCOD
+    ? `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-top:12px;color:#9a3412;font-size:13px;line-height:1.5;"><strong>Cash on Delivery (Karachi):</strong> Please keep exact cash of <strong>${fmtCurrency(o.total || 0)}</strong> ready upon delivery. Our rider will contact you prior to arrival.</div>`
+    : `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-top:12px;color:#9a3412;font-size:13px;line-height:1.5;"><strong>Payment Confirmation:</strong> If you haven't sent your payment receipt yet, please share it on WhatsApp at <strong>+92 327 2487127</strong> with your Order ID (<strong>#${escHtml(o.orderId || "N/A")}</strong>) so we can dispatch your parcel immediately.</div>`;
+
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/></head>
+<body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 0;"><tr><td align="center">
+<table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;max-width:560px;width:100%;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+<tr><td style="background:#18181b;padding:24px 28px;"><h1 style="margin:0;font-size:22px;font-weight:900;color:#fff;letter-spacing:2px;">DEEZ PRINTS</h1><p style="margin:6px 0 0;font-size:13px;font-weight:700;color:#f97316;letter-spacing:1px;">ORDER CONFIRMATION</p></td></tr>
+<tr><td style="padding:24px 28px 0;"><h2 style="margin:0 0 8px;font-size:18px;color:#18181b;">Thank you for your order, ${escHtml(o.name || "Customer")}!</h2><p style="margin:0;font-size:14px;color:#52525b;line-height:1.5;">We’ve received your order and are getting it ready. You’ll receive updates as soon as your items are produced and dispatched.</p></td></tr>
+<tr><td style="padding:16px 28px 0;"><table width="100%"><tr><td style="font-size:13px;color:#71717a;">Order Number</td><td style="text-align:right;font-size:13px;color:#71717a;">${date} · ${time}</td></tr><tr><td colspan="2" style="font-size:18px;font-weight:800;color:#f97316;padding-top:2px;">#${escHtml(o.orderId || "N/A")}</td></tr></table></td></tr>
+${HR}
+<tr><td style="padding:0 28px;"><p style="margin:0 0 8px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Your Order</p><table width="100%">${itemRows}</table></td></tr>
+${HR}
+<tr><td style="padding:0 28px;"><table width="100%"><tr><td style="font-size:13px;color:#71717a;padding:3px 0;">Subtotal</td><td style="font-size:13px;color:#18181b;text-align:right;">${fmtCurrency(o.subtotal || 0)}</td></tr><tr><td style="font-size:13px;color:#71717a;padding:3px 0;">Shipping</td><td style="font-size:13px;color:#18181b;text-align:right;">${(o.shipping || 0) === 0 ? "FREE" : fmtCurrency(o.shipping)}</td></tr>${o.discount ? `<tr><td style="font-size:13px;color:#71717a;">Discount</td><td style="font-size:13px;color:#dc2626;text-align:right;">-${fmtCurrency(o.discount)}</td></tr>` : ""}<tr><td style="font-size:16px;font-weight:800;color:#18181b;padding:8px 0 0;">Total</td><td style="font-size:16px;font-weight:800;color:#18181b;text-align:right;padding:8px 0 0;">${fmtCurrency(o.total || 0)}</td></tr></table></td></tr>
+${HR}
+<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Delivery Address</p><p style="margin:0;font-size:14px;font-weight:600;color:#18181b;">${escHtml(o.name || "")} (${escHtml(o.phone || "")})</p><p style="margin:2px 0 0;font-size:14px;color:#18181b;">${escHtml(o.city || "N/A")}</p><p style="margin:2px 0 0;font-size:13px;color:#52525b;">${escHtml(o.address || "N/A")}</p></td></tr>
+${HR}
+<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Payment Method</p><p style="margin:0;font-size:14px;font-weight:600;color:#18181b;">${escHtml(o.paymentMethod || "N/A")}</p>${paymentInstructions}</td></tr>
+${HR}
+<tr><td style="padding:0 28px 24px;" align="center"><p style="margin:0 0 12px;font-size:13px;color:#71717a;">Need to modify your order or have questions?</p><a href="https://wa.me/923272487127?text=${encodeURIComponent(`Hi Deez Prints! I have a question regarding my Order #${o.orderId || ""}`)}" style="display:inline-block;background:#25D366;color:#fff;font-size:13px;font-weight:700;text-decoration:none;padding:11px 24px;border-radius:8px;">💬 Chat on WhatsApp (+92 327 2487127)</a></td></tr>
+<tr><td style="background:#fafafa;padding:16px 28px;text-align:center;"><p style="margin:0;font-size:11px;color:#a1a1aa;">Deez Prints — Streetwear. No limits.<br/>Karachi, Pakistan</p></td></tr>
+</table></td></tr></table></body></html>`;
+}
+
+function buildCustomerEmailPlainText(order: any): string {
+  const o = order || {};
+  const SEP = "────────────────────────────────";
+  const items = (o.items || []).map((i: any) => {
+    if (!i) return "";
+    const title = i.isCustom ? `🎨 ${i.blankItem || i.title}` : (i.title || "Item");
+    const meta = [
+      i.size ? `Size: ${i.size}` : "",
+      i.color ? `Color: ${i.color}` : "",
+      i.isCustom && i.placement ? `Placement: ${i.placement}` : "",
+    ].filter(Boolean).join(" · ");
+    return `  ${title} ×${i.qty || 1} — ${fmtCurrency((i.price || 0) * (i.qty || 1))}${meta ? ` (${meta})` : ""}`;
+  }).filter(Boolean).join("\n");
+
+  return [
+    SEP,
+    "DEEZ PRINTS — ORDER CONFIRMATION",
+    SEP,
+    `Order #${o.orderId || "N/A"}`,
+    `Thank you, ${o.name || "Customer"}! We have received your order.`,
+    "",
+    SEP,
+    "Items Ordered",
+    SEP,
+    items,
+    "",
+    SEP,
+    `Subtotal: ${fmtCurrency(o.subtotal || 0)}`,
+    `Shipping: ${(o.shipping || 0) === 0 ? "FREE" : fmtCurrency(o.shipping)}`,
+    o.discount ? `Discount: -${fmtCurrency(o.discount)}` : "",
+    `Total:    ${fmtCurrency(o.total || 0)}`,
+    SEP,
+    "",
+    `Delivery: ${o.city || "N/A"} — ${o.address || "N/A"}`,
+    `Contact:  ${o.phone || "N/A"}`,
+    `Payment:  ${o.paymentMethod || "N/A"}`,
+    "",
+    "Have questions? WhatsApp us at +92 327 2487127",
+    "Deez Prints — Streetwear. No limits."
+  ].filter(l => l !== "").join("\n");
+}
+
 let _smtpTransporter: any = null;
 
-async function sendOrderEmailNotification(order: any): Promise<boolean> {
-  const o = order || {};
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  const adminEmail = process.env.ADMIN_EMAIL;
+function getSmtpCredentials() {
+  const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
+  const rawPass = (process.env.SMTP_PASS || "uwik wlra giwl lhgi").trim();
+  // Strip any carriage returns/newlines from password
+  const pass = rawPass.replace(/[\r\n]/g, "");
+  const adminEmail = (process.env.ADMIN_EMAIL || user || "deezprints69@gmail.com").trim();
+  const host = (process.env.SMTP_HOST || "smtp.gmail.com").trim();
+  const port = parseInt(process.env.SMTP_PORT || "465", 10);
+  const secure = process.env.SMTP_SECURE !== "false";
 
-  if (!user || !pass || !adminEmail) {
-    console.log(`[Email] Skipped — SMTP not configured (order ${o.orderId || "unknown"})`);
-    return false;
+  return { user, pass, adminEmail, host, port, secure };
+}
+
+function createTransporter() {
+  const { user, pass, host, port, secure } = getSmtpCredentials();
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure,
+    auth: { user, pass },
+    connectionTimeout: 10_000,
+    greetingTimeout: 10_000,
+    socketTimeout: 10_000,
+  });
+}
+
+async function sendOrderEmailNotification(order: any): Promise<{ adminSent: boolean; customerSent: boolean }> {
+  const o = order || {};
+  const { user, pass, adminEmail } = getSmtpCredentials();
+  const customerEmail = o.email && typeof o.email === "string" && o.email.includes("@") ? o.email.trim() : null;
+
+  if (!user || !pass) {
+    console.log(`[Email] Skipped — SMTP user/pass missing (order ${o.orderId || "unknown"})`);
+    return { adminSent: false, customerSent: false };
   }
 
   if (!_smtpTransporter) {
-    _smtpTransporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: parseInt(process.env.SMTP_PORT || "465", 10),
-      secure: process.env.SMTP_SECURE !== "false",
-      auth: { user, pass },
-      connectionTimeout: 10_000,
-      greetingTimeout: 10_000,
-      socketTimeout: 10_000,
-    });
+    _smtpTransporter = createTransporter();
   }
 
   const isCustom = o.orderType === "custom" || (o.items || []).some((i: any) => i && i.isCustom);
-  const mailOptions = {
-    from: `"Deez Prints" <${user}>`,
-    to: adminEmail,
-    subject: `${isCustom ? "🎨" : "🛒"} New Order #${o.orderId || "N/A"} — Rs ${(o.total || 0).toLocaleString()}`,
-    text: buildEmailPlainText(o),
-    html: buildEmailHtml(o),
-  };
+  let adminSent = false;
+  let customerSent = false;
 
-  // Attempt 1
-  try {
-    await _smtpTransporter.sendMail(mailOptions);
-    console.log(`[Email] ✅ Sent — order ${o.orderId}`);
-    return true;
-  } catch (err: any) {
-    console.warn(`[Email] ⚠️ Attempt 1 failed — ${o.orderId}: ${err.message || err}`);
+  // 1. Send Admin Notification Email
+  if (adminEmail) {
+    const adminMailOptions = {
+      from: `"Deez Prints" <${user}>`,
+      to: adminEmail,
+      subject: `${isCustom ? "🎨" : "🛒"} New Order #${o.orderId || "N/A"} — Rs ${(o.total || 0).toLocaleString()}`,
+      text: buildEmailPlainText(o),
+      html: buildEmailHtml(o),
+    };
+
+    try {
+      await _smtpTransporter.sendMail(adminMailOptions);
+      console.log(`[Email] ✅ Admin notification sent — order ${o.orderId}`);
+      adminSent = true;
+    } catch (err: any) {
+      console.warn(`[Email] ⚠️ Admin notification attempt 1 failed — ${o.orderId}: ${err.message || err}`);
+      // Retry once with a fresh transporter
+      try {
+        await new Promise((r) => setTimeout(r, 1500));
+        _smtpTransporter = createTransporter();
+        await _smtpTransporter.sendMail(adminMailOptions);
+        console.log(`[Email] ✅ Admin notification sent (retry) — order ${o.orderId}`);
+        adminSent = true;
+      } catch (retryErr: any) {
+        console.error(`[Email] ❌ Admin notification failed — ${o.orderId}: ${retryErr.message || retryErr}`);
+      }
+    }
   }
 
-  // Retry after 3s with fresh transporter
-  await new Promise((r) => setTimeout(r, 3000));
-  try {
-    _smtpTransporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: parseInt(process.env.SMTP_PORT || "465", 10),
-      secure: process.env.SMTP_SECURE !== "false",
-      auth: { user, pass },
-      connectionTimeout: 10_000,
-      greetingTimeout: 10_000,
-      socketTimeout: 10_000,
-    });
-    await _smtpTransporter.sendMail(mailOptions);
-    console.log(`[Email] ✅ Sent (retry) — order ${o.orderId}`);
-    return true;
-  } catch (err: any) {
-    console.error(`[Email] ❌ Failed — ${o.orderId}: ${err.message || err}`);
-    return false;
+  // 2. Send Customer Order Confirmation Email
+  if (customerEmail) {
+    const customerMailOptions = {
+      from: `"Deez Prints" <${user}>`,
+      to: customerEmail,
+      subject: `Order Confirmed #${o.orderId || "N/A"} — Deez Prints`,
+      text: buildCustomerEmailPlainText(o),
+      html: buildCustomerEmailHtml(o),
+    };
+
+    try {
+      if (!_smtpTransporter) _smtpTransporter = createTransporter();
+      await _smtpTransporter.sendMail(customerMailOptions);
+      console.log(`[Email] ✅ Customer confirmation sent — ${customerEmail} (order ${o.orderId})`);
+      customerSent = true;
+    } catch (err: any) {
+      console.warn(`[Email] ⚠️ Customer confirmation attempt 1 failed — ${customerEmail}: ${err.message || err}`);
+      try {
+        await new Promise((r) => setTimeout(r, 1500));
+        _smtpTransporter = createTransporter();
+        await _smtpTransporter.sendMail(customerMailOptions);
+        console.log(`[Email] ✅ Customer confirmation sent (retry) — ${customerEmail}`);
+        customerSent = true;
+      } catch (retryErr: any) {
+        console.error(`[Email] ❌ Customer confirmation failed — ${customerEmail}: ${retryErr.message || retryErr}`);
+      }
+    }
   }
+
+  return { adminSent, customerSent };
 }
 
 // ─── Database Connection ─────────────────────────────────────────────────────
@@ -339,16 +471,26 @@ async function saveOneOrder(order: any) {
   const statusHistory = JSON.stringify(order.statusHistory || [{ status: order.status || "Pending", date: new Date().toISOString() }]);
   const createdAt = order.createdAt ? new Date(order.createdAt) : new Date();
 
-  // Upsert order — with per-order customer snapshot
-  const existingOrder = await sql`SELECT id FROM orders WHERE "orderId" = ${orderId} LIMIT 1`;
+  // Check for order ID collision
+  let resolvedOrderId = orderId;
+  const existingOrder = await sql`SELECT id FROM orders WHERE "orderId" = ${resolvedOrderId} LIMIT 1`;
 
   let dbOrderId: string;
-  if (existingOrder.length > 0) {
+  if (existingOrder.length > 0 && !order.isUpdate) {
+    // Collision detected on client-generated ID! Generate true next order ID from database
+    resolvedOrderId = await getNextOrderId();
+    const collisionCheck = await sql`SELECT id FROM orders WHERE "orderId" = ${resolvedOrderId} LIMIT 1`;
+    if (collisionCheck.length > 0) {
+      resolvedOrderId = `${resolvedOrderId}-${Math.floor(1000 + Math.random() * 9000)}`;
+    }
+    dbOrderId = crypto.randomUUID();
+    await sql`INSERT INTO orders (id, "orderId", "customerId", notes, "paymentMethod", "orderType", subtotal, shipping, discount, total, status, "statusHistory", "trackingNumber", "customerName", "customerPhone", "customerEmail", "customerCity", "customerAddress", "createdAt", "updatedAt") VALUES (${dbOrderId}, ${resolvedOrderId}, ${customerId}, ${order.notes || null}, ${order.paymentMethod || "COD"}, ${order.orderType || "normal"}, ${order.subtotal || 0}, ${order.shipping || 0}, ${order.discount || 0}, ${order.total || 0}, ${order.status || "Pending"}, ${statusHistory}::jsonb, ${order.trackingNumber || null}, ${name}, ${phone}, ${email}, ${city}, ${address}, ${createdAt.toISOString()}::timestamptz, NOW())`;
+  } else if (existingOrder.length > 0) {
     dbOrderId = existingOrder[0].id;
     await sql`UPDATE orders SET status = ${order.status || "Pending"}, "statusHistory" = ${statusHistory}::jsonb, notes = ${order.notes || null}, "trackingNumber" = ${order.trackingNumber || null}, "paymentMethod" = ${order.paymentMethod || "COD"}, subtotal = ${order.subtotal || 0}, shipping = ${order.shipping || 0}, discount = ${order.discount || 0}, total = ${order.total || 0}, "customerName" = ${name}, "customerPhone" = ${phone}, "customerEmail" = ${email}, "customerCity" = ${city}, "customerAddress" = ${address}, "updatedAt" = NOW() WHERE id = ${dbOrderId}`;
   } else {
     dbOrderId = crypto.randomUUID();
-    await sql`INSERT INTO orders (id, "orderId", "customerId", notes, "paymentMethod", "orderType", subtotal, shipping, discount, total, status, "statusHistory", "trackingNumber", "customerName", "customerPhone", "customerEmail", "customerCity", "customerAddress", "createdAt", "updatedAt") VALUES (${dbOrderId}, ${orderId}, ${customerId}, ${order.notes || null}, ${order.paymentMethod || "COD"}, ${order.orderType || "normal"}, ${order.subtotal || 0}, ${order.shipping || 0}, ${order.discount || 0}, ${order.total || 0}, ${order.status || "Pending"}, ${statusHistory}::jsonb, ${order.trackingNumber || null}, ${name}, ${phone}, ${email}, ${city}, ${address}, ${createdAt.toISOString()}::timestamptz, NOW())`;
+    await sql`INSERT INTO orders (id, "orderId", "customerId", notes, "paymentMethod", "orderType", subtotal, shipping, discount, total, status, "statusHistory", "trackingNumber", "customerName", "customerPhone", "customerEmail", "customerCity", "customerAddress", "createdAt", "updatedAt") VALUES (${dbOrderId}, ${resolvedOrderId}, ${customerId}, ${order.notes || null}, ${order.paymentMethod || "COD"}, ${order.orderType || "normal"}, ${order.subtotal || 0}, ${order.shipping || 0}, ${order.discount || 0}, ${order.total || 0}, ${order.status || "Pending"}, ${statusHistory}::jsonb, ${order.trackingNumber || null}, ${name}, ${phone}, ${email}, ${city}, ${address}, ${createdAt.toISOString()}::timestamptz, NOW())`;
   }
 
   // Re-create items
@@ -361,7 +503,7 @@ async function saveOneOrder(order: any) {
 
   return {
     ...order,
-    orderId,
+    orderId: resolvedOrderId,
     name,
     phone,
     email: email || undefined,

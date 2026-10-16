@@ -13,6 +13,8 @@ import {
   buildOrderEmailHtml,
   buildOrderEmailPlainText,
   buildOrderEmailSubject,
+  buildCustomerOrderEmailHtml,
+  buildCustomerOrderEmailPlainText,
 } from "./emailTemplate";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -47,22 +49,23 @@ interface OrderData {
 // ─── SMTP Configuration ──────────────────────────────────────────────────────
 
 function getSmtpConfig() {
-  return {
-    host: process.env.SMTP_HOST || "smtp.gmail.com",
-    port: parseInt(process.env.SMTP_PORT || "465", 10),
-    secure: process.env.SMTP_SECURE !== "false", // default true for port 465
-    user: process.env.SMTP_USER || "",
-    pass: process.env.SMTP_PASS || "",
-    adminEmail: process.env.ADMIN_EMAIL || "",
-  };
+  const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
+  const rawPass = (process.env.SMTP_PASS || "uwik wlra giwl lhgi").trim();
+  const pass = rawPass.replace(/[\r\n]/g, "");
+  const adminEmail = (process.env.ADMIN_EMAIL || user || "deezprints69@gmail.com").trim();
+  const host = (process.env.SMTP_HOST || "smtp.gmail.com").trim();
+  const port = parseInt(process.env.SMTP_PORT || "465", 10);
+  const secure = process.env.SMTP_SECURE !== "false";
+
+  return { host, port, secure, user, pass, adminEmail };
 }
 
 function isConfigured(): boolean {
-  const { user, pass, adminEmail } = getSmtpConfig();
-  return !!(user && pass && adminEmail);
+  const { user, pass } = getSmtpConfig();
+  return !!(user && pass);
 }
 
-// ─── Transporter (lazy, reused across invocations within same lambda) ─────────
+// ─── Transporter (lazy, reused across invocations within same process) ─────────
 
 let _transporter: nodemailer.Transporter | null = null;
 
@@ -76,7 +79,7 @@ function getTransporter(): nodemailer.Transporter {
     port,
     secure,
     auth: { user, pass },
-    connectionTimeout: 10_000, // 10s max connection
+    connectionTimeout: 10_000,
     greetingTimeout: 10_000,
     socketTimeout: 10_000,
   });
@@ -84,43 +87,18 @@ function getTransporter(): nodemailer.Transporter {
   return _transporter;
 }
 
-// ─── Send with Single Retry ──────────────────────────────────────────────────
-
-async function trySend(order: OrderData): Promise<boolean> {
-  const { user, adminEmail } = getSmtpConfig();
-  const transporter = getTransporter();
-
-  const mailOptions = {
-    from: `"Deez Prints" <${user}>`,
-    to: adminEmail,
-    subject: buildOrderEmailSubject(order),
-    text: buildOrderEmailPlainText(order),
-    html: buildOrderEmailHtml(order),
-  };
-
-  await transporter.sendMail(mailOptions);
-  return true;
-}
-
-function delay(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 // ─── Public API ───────────────────────────────────────────────────────────────
 
 /**
- * Send an admin email notification for a new order.
+ * Send admin order notification and customer confirmation emails.
  *
  * - Never throws. All errors are caught and logged.
- * - Retries once after 3 seconds on SMTP failure.
- * - Returns true if email was sent, false otherwise.
- *
- * Designed for future extension: can support customer confirmation,
- * shipping updates, and cancellation emails without API changes.
+ * - Retries once after 2 seconds on SMTP failure.
+ * - Returns { adminSent, customerSent }.
  */
 export async function sendOrderEmailNotification(
   order: any,
-): Promise<boolean> {
+): Promise<{ adminSent: boolean; customerSent: boolean }> {
   const o = order || {};
   const orderIdStr = o.orderId || "unknown";
 
@@ -128,40 +106,73 @@ export async function sendOrderEmailNotification(
     console.log(
       `[Email] Skipped — SMTP not configured (order ${orderIdStr})`,
     );
-    return false;
+    return { adminSent: false, customerSent: false };
   }
 
+  const { user, adminEmail } = getSmtpConfig();
+  const customerEmail = o.email && typeof o.email === "string" && o.email.includes("@") ? o.email.trim() : null;
   const timestamp = new Date().toISOString();
 
-  // Attempt 1
-  try {
-    await trySend(o);
-    console.log(
-      `[Email] ✅ Sent — order ${orderIdStr} at ${timestamp}`,
-    );
-    return true;
-  } catch (err: any) {
-    console.warn(
-      `[Email] ⚠️ Attempt 1 failed — order ${orderIdStr} at ${timestamp}: ${err.message || err}`,
-    );
+  let adminSent = false;
+  let customerSent = false;
+
+  // 1. Admin Email
+  if (adminEmail) {
+    const adminMail = {
+      from: `"Deez Prints" <${user}>`,
+      to: adminEmail,
+      subject: buildOrderEmailSubject(o),
+      text: buildOrderEmailPlainText(o),
+      html: buildOrderEmailHtml(o),
+    };
+
+    try {
+      const transporter = getTransporter();
+      await transporter.sendMail(adminMail);
+      console.log(`[Email] ✅ Admin notification sent — order ${orderIdStr} at ${timestamp}`);
+      adminSent = true;
+    } catch (err: any) {
+      console.warn(`[Email] ⚠️ Admin attempt 1 failed — order ${orderIdStr}: ${err.message || err}`);
+      try {
+        await new Promise((r) => setTimeout(r, 2000));
+        _transporter = null;
+        await getTransporter().sendMail(adminMail);
+        console.log(`[Email] ✅ Admin notification sent (retry) — order ${orderIdStr}`);
+        adminSent = true;
+      } catch (retryErr: any) {
+        console.error(`[Email] ❌ Admin notification failed — order ${orderIdStr}: ${retryErr.message || retryErr}`);
+      }
+    }
   }
 
-  // Retry after 3 seconds
-  await delay(3000);
+  // 2. Customer Confirmation Email
+  if (customerEmail) {
+    const customerMail = {
+      from: `"Deez Prints" <${user}>`,
+      to: customerEmail,
+      subject: `Order Confirmed #${orderIdStr} — Deez Prints`,
+      text: buildCustomerOrderEmailPlainText(o),
+      html: buildCustomerOrderEmailHtml(o),
+    };
 
-  // Attempt 2
-  try {
-    // Reset transporter in case of stale connection
-    _transporter = null;
-    await trySend(o);
-    console.log(
-      `[Email] ✅ Sent (retry) — order ${orderIdStr} at ${timestamp}`,
-    );
-    return true;
-  } catch (err: any) {
-    console.error(
-      `[Email] ❌ Failed — order ${orderIdStr} at ${timestamp}: ${err.message || err}`,
-    );
-    return false;
+    try {
+      const transporter = getTransporter();
+      await transporter.sendMail(customerMail);
+      console.log(`[Email] ✅ Customer confirmation sent — ${customerEmail} (order ${orderIdStr})`);
+      customerSent = true;
+    } catch (err: any) {
+      console.warn(`[Email] ⚠️ Customer attempt 1 failed — ${customerEmail}: ${err.message || err}`);
+      try {
+        await new Promise((r) => setTimeout(r, 2000));
+        _transporter = null;
+        await getTransporter().sendMail(customerMail);
+        console.log(`[Email] ✅ Customer confirmation sent (retry) — ${customerEmail}`);
+        customerSent = true;
+      } catch (retryErr: any) {
+        console.error(`[Email] ❌ Customer confirmation failed — ${customerEmail}: ${retryErr.message || retryErr}`);
+      }
+    }
   }
+
+  return { adminSent, customerSent };
 }

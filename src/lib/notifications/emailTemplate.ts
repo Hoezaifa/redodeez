@@ -329,3 +329,99 @@ export function buildOrderEmailSubject(order: any): string {
   const prefix = isCustom ? "🎨" : "🛒";
   return `${prefix} New Order #${o.orderId || "N/A"} — Rs ${(o.total || 0).toLocaleString()}`;
 }
+
+export function buildCustomerOrderEmailHtml(order: any): string {
+  const o = order || {};
+  const itemsList = Array.isArray(o.items) ? o.items : [];
+  const { date, time } = formatDate(o.createdAt);
+
+  const itemRows = itemsList
+    .map((item: any) => {
+      if (!item) return "";
+      const title = item.isCustom
+        ? `🎨 ${esc(item.blankItem || item.title)}`
+        : esc(item.title);
+      const meta = [
+        item.size ? `Size: ${esc(item.size)}` : "",
+        item.color ? `Color: ${esc(item.color)}` : "",
+        item.isCustom && item.placement ? `Placement: ${esc(item.placement)}` : "",
+      ]
+        .filter(Boolean)
+        .join(" · ");
+
+      return `<tr><td style="padding:6px 0;font-size:14px;color:#18181b;"><strong>${title}</strong> ×${item.qty || 1}${meta ? `<br/><span style="font-size:12px;color:#71717a;">${meta}</span>` : ""}</td><td style="padding:6px 0;font-size:14px;color:#18181b;text-align:right;white-space:nowrap;font-weight:600;">${formatCurrency((item.price || 0) * (item.qty || 1))}</td></tr>`;
+    })
+    .join("");
+
+  const isCOD = (o.paymentMethod || "").toLowerCase().includes("cash");
+  const paymentInstructions = isCOD
+    ? `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-top:12px;color:#9a3412;font-size:13px;line-height:1.5;"><strong>Cash on Delivery (Karachi):</strong> Please keep exact cash of <strong>${formatCurrency(o.total || 0)}</strong> ready upon delivery. Our rider will contact you prior to arrival.</div>`
+    : `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-top:12px;color:#9a3412;font-size:13px;line-height:1.5;"><strong>Payment Confirmation:</strong> If you haven't sent your payment receipt yet, please share it on WhatsApp at <strong>+92 327 2487127</strong> with your Order ID (<strong>#${esc(o.orderId || "N/A")}</strong>) so we can dispatch your parcel immediately.</div>`;
+
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/></head>
+<body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 0;"><tr><td align="center">
+<table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;max-width:560px;width:100%;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+<tr><td style="background:#18181b;padding:24px 28px;"><h1 style="margin:0;font-size:22px;font-weight:900;color:#fff;letter-spacing:2px;">DEEZ PRINTS</h1><p style="margin:6px 0 0;font-size:13px;font-weight:700;color:#f97316;letter-spacing:1px;">ORDER CONFIRMATION</p></td></tr>
+<tr><td style="padding:24px 28px 0;"><h2 style="margin:0 0 8px;font-size:18px;color:#18181b;">Thank you for your order, ${esc(o.name || "Customer")}!</h2><p style="margin:0;font-size:14px;color:#52525b;line-height:1.5;">We’ve received your order and are getting it ready. You’ll receive updates as soon as your items are produced and dispatched.</p></td></tr>
+<tr><td style="padding:16px 28px 0;"><table width="100%"><tr><td style="font-size:13px;color:#71717a;">Order Number</td><td style="text-align:right;font-size:13px;color:#71717a;">${date} · ${time}</td></tr><tr><td colspan="2" style="font-size:18px;font-weight:800;color:#f97316;padding-top:2px;">#${esc(o.orderId || "N/A")}</td></tr></table></td></tr>
+${HR_HTML}
+<tr><td style="padding:0 28px;"><p style="margin:0 0 8px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Your Order</p><table width="100%">${itemRows}</table></td></tr>
+${HR_HTML}
+<tr><td style="padding:0 28px;"><table width="100%"><tr><td style="font-size:13px;color:#71717a;padding:3px 0;">Subtotal</td><td style="font-size:13px;color:#18181b;text-align:right;">${formatCurrency(o.subtotal || 0)}</td></tr><tr><td style="font-size:13px;color:#71717a;padding:3px 0;">Shipping</td><td style="font-size:13px;color:#18181b;text-align:right;">${(o.shipping || 0) === 0 ? "FREE" : formatCurrency(o.shipping)}</td></tr>${o.discount ? `<tr><td style="font-size:13px;color:#71717a;">Discount</td><td style="font-size:13px;color:#dc2626;text-align:right;">-${formatCurrency(o.discount)}</td></tr>` : ""}<tr><td style="font-size:16px;font-weight:800;color:#18181b;padding:8px 0 0;">Total</td><td style="font-size:16px;font-weight:800;color:#18181b;text-align:right;padding:8px 0 0;">${formatCurrency(o.total || 0)}</td></tr></table></td></tr>
+${HR_HTML}
+<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Delivery Address</p><p style="margin:0;font-size:14px;font-weight:600;color:#18181b;">${esc(o.name || "")} (${esc(o.phone || "")})</p><p style="margin:2px 0 0;font-size:14px;color:#18181b;">${esc(o.city || "N/A")}</p><p style="margin:2px 0 0;font-size:13px;color:#52525b;">${esc(o.address || "N/A")}</p></td></tr>
+${HR_HTML}
+<tr><td style="padding:0 28px;"><p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#a1a1aa;text-transform:uppercase;letter-spacing:1px;">Payment Method</p><p style="margin:0;font-size:14px;font-weight:600;color:#18181b;">${esc(o.paymentMethod || "N/A")}</p>${paymentInstructions}</td></tr>
+${HR_HTML}
+<tr><td style="padding:0 28px 24px;" align="center"><p style="margin:0 0 12px;font-size:13px;color:#71717a;">Need to modify your order or have questions?</p><a href="https://wa.me/923272487127?text=${encodeURIComponent(`Hi Deez Prints! I have a question regarding my Order #${o.orderId || ""}`)}" style="display:inline-block;background:#25D366;color:#fff;font-size:13px;font-weight:700;text-decoration:none;padding:11px 24px;border-radius:8px;">💬 Chat on WhatsApp (+92 327 2487127)</a></td></tr>
+<tr><td style="background:#fafafa;padding:16px 28px;text-align:center;"><p style="margin:0;font-size:11px;color:#a1a1aa;">Deez Prints — Streetwear. No limits.<br/>Karachi, Pakistan</p></td></tr>
+</table></td></tr></table></body></html>`;
+}
+
+export function buildCustomerOrderEmailPlainText(order: any): string {
+  const o = order || {};
+  const itemsList = Array.isArray(o.items) ? o.items : [];
+  const items = itemsList
+    .map((i: any) => {
+      if (!i) return "";
+      const title = i.isCustom ? `🎨 ${i.blankItem || i.title}` : (i.title || "Item");
+      const meta = [
+        i.size ? `Size: ${i.size}` : "",
+        i.color ? `Color: ${i.color}` : "",
+        i.isCustom && i.placement ? `Placement: ${i.placement}` : "",
+      ]
+        .filter(Boolean)
+        .join(" · ");
+      return `  ${title} ×${i.qty || 1} — ${formatCurrency((i.price || 0) * (i.qty || 1))}${meta ? ` (${meta})` : ""}`;
+    })
+    .filter(Boolean)
+    .join("\n");
+
+  return [
+    HR_PLAIN,
+    "DEEZ PRINTS — ORDER CONFIRMATION",
+    HR_PLAIN,
+    `Order #${o.orderId || "N/A"}`,
+    `Thank you, ${o.name || "Customer"}! We have received your order.`,
+    "",
+    HR_PLAIN,
+    "Items Ordered",
+    HR_PLAIN,
+    items,
+    "",
+    HR_PLAIN,
+    `Subtotal: ${formatCurrency(o.subtotal || 0)}`,
+    `Shipping: ${(o.shipping || 0) === 0 ? "FREE" : formatCurrency(o.shipping)}`,
+    o.discount ? `Discount: -${formatCurrency(o.discount)}` : "",
+    `Total:    ${formatCurrency(o.total || 0)}`,
+    HR_PLAIN,
+    "",
+    `Delivery: ${o.city || "N/A"} — ${o.address || "N/A"}`,
+    `Contact:  ${o.phone || "N/A"}`,
+    `Payment:  ${o.paymentMethod || "N/A"}`,
+    "",
+    "Have questions? WhatsApp us at +92 327 2487127",
+    "Deez Prints — Streetwear. No limits."
+  ].filter(l => l !== "").join("\n");
+}

@@ -40,6 +40,8 @@ function Checkout() {
   const [copiedPaymentId, setCopiedPaymentId] = useState<string | null>(null);
   const [cityMode, setCityMode] = useState<"karachi" | "other">("karachi");
   const [detailsConfirmed, setDetailsConfirmed] = useState(false);
+  const [confirmationError, setConfirmationError] = useState(false);
+  const [isSubmittingOrder, setIsSubmittingOrder] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -118,10 +120,13 @@ function Checkout() {
   };
 
   const handlePlaceOrder = async () => {
+    if (isSubmittingOrder) return;
     if (!detailsConfirmed) {
-      alert("Please confirm that you have checked your size, fit and order details before confirming your order.");
+      setConfirmationError(true);
       return;
     }
+    setConfirmationError(false);
+    setIsSubmittingOrder(true);
 
     const methodTitle =
       paymentMethod === "bank"
@@ -166,29 +171,42 @@ function Checkout() {
       updatedAt: now,
     };
 
-    // Save order to Neon database (fully awaited)
-    await saveOrder(orderData);
-
-    setCompletedOrder(orderData);
-    setPlaced(true);
-    setStep(3);
-
-    trackEvent.purchase({
-      orderId: orderData.orderId,
-      total: orderData.total,
-      items: orderData.items,
-      shipping: orderData.shipping,
-    });
-
-    // Send Telegram notification (includes artwork images if custom order)
     try {
-      await sendOrderTelegramNotification(orderData);
-    } catch (err) {
-      console.warn("Telegram order notification warning:", err);
-    }
+      // Save order to Neon database and trigger email dispatch (fully awaited)
+      const saved = await saveOrder(orderData);
+      const finalOrder = saved && saved.orderId ? saved : orderData;
 
-    clear();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+      setCompletedOrder(finalOrder);
+      setPlaced(true);
+      setStep(3);
+
+      trackEvent.purchase({
+        orderId: finalOrder.orderId,
+        total: finalOrder.total,
+        items: finalOrder.items,
+        shipping: finalOrder.shipping,
+      });
+
+      // Send Telegram notification (includes artwork images if custom order)
+      try {
+        await sendOrderTelegramNotification(finalOrder);
+      } catch (err) {
+        console.warn("Telegram order notification warning:", err);
+      }
+
+      clear();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      console.error("Order placement error:", err);
+      // Fallback: still show completion with local order so user is not stuck
+      setCompletedOrder(orderData);
+      setPlaced(true);
+      setStep(3);
+      clear();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } finally {
+      setIsSubmittingOrder(false);
+    }
   };
 
   const handleDownloadReceipt = async () => {
@@ -977,7 +995,13 @@ function Checkout() {
                 )}
 
                 {/* Confirmation Checkbox & Notice */}
-                <div className="space-y-2.5 pt-2">
+                <div
+                  className={`space-y-2.5 pt-2 p-3 rounded-xl transition-all ${
+                    confirmationError && !detailsConfirmed
+                      ? "bg-red-500/10 border border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]"
+                      : ""
+                  }`}
+                >
                   <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">
                     Please check your size, fit and order details before confirming.
                   </p>
@@ -985,27 +1009,46 @@ function Checkout() {
                     <input
                       type="checkbox"
                       checked={detailsConfirmed}
-                      onChange={(e) => setDetailsConfirmed(e.target.checked)}
+                      onChange={(e) => {
+                        setDetailsConfirmed(e.target.checked);
+                        if (e.target.checked) setConfirmationError(false);
+                      }}
                       className="rounded border-white/20 bg-zinc-900 text-primary focus:ring-primary w-4 h-4 cursor-pointer accent-orange-500"
                     />
-                    <span>I’ve checked my size, fit and order details.</span>
+                    <span className={confirmationError && !detailsConfirmed ? "text-red-400 font-semibold" : ""}>
+                      I’ve checked my size, fit and order details.
+                    </span>
                   </label>
+                  {confirmationError && !detailsConfirmed && (
+                    <p className="text-xs text-red-400 font-medium animate-pulse flex items-center gap-1.5 pt-1">
+                      <span>⚠️</span> Please check this box to confirm your order details before placing the order.
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex gap-3 pt-1">
                   <button
                     type="button"
+                    disabled={isSubmittingOrder}
                     onClick={() => setStep(1)}
-                    className="w-1/3 h-12 font-bold text-sm border border-white/15 text-white hover:bg-zinc-800 rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-1"
+                    className="w-1/3 h-12 font-bold text-sm border border-white/15 text-white hover:bg-zinc-800 rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-1 disabled:opacity-50"
                   >
                     <ArrowLeft className="w-4 h-4" /> Back
                   </button>
                   <button
                     type="button"
+                    disabled={isSubmittingOrder}
                     onClick={handlePlaceOrder}
-                    className="w-2/3 h-12 text-base font-extrabold bg-primary text-primary-foreground hover:bg-orange-600 rounded-xl transition-all shadow-lg cursor-pointer"
+                    className="w-2/3 h-12 text-base font-extrabold bg-primary text-primary-foreground hover:bg-orange-600 rounded-xl transition-all shadow-lg cursor-pointer flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Place Order
+                    {isSubmittingOrder ? (
+                      <>
+                        <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span>Placing Order...</span>
+                      </>
+                    ) : (
+                      "Place Order"
+                    )}
                   </button>
                 </div>
               </motion.div>

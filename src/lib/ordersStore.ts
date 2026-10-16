@@ -273,7 +273,18 @@ export async function saveOrder(order: StoredOrder): Promise<StoredOrder> {
   // Save to Neon DB via /api/orders (awaited so server-side email notification completes)
   if (typeof window !== "undefined") {
     try {
-      await apiPost({ order });
+      const res = await apiPost({ order });
+      if (res && res.order) {
+        // If server assigned a collision-resolved orderId, update local cache
+        if (res.order.orderId && res.order.orderId !== order.orderId) {
+          const oldIdx = _inMemoryOrders.findIndex((o) => o.orderId === order.orderId);
+          if (oldIdx >= 0) {
+            _inMemoryOrders[oldIdx] = { ...order, orderId: res.order.orderId };
+            notify();
+          }
+        }
+        return res.order;
+      }
     } catch (err) {
       console.warn("DB save warning:", err);
     }
