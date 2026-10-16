@@ -560,7 +560,7 @@ async function getNextOrderId() {
 async function getSettings() {
   const rows = await sql`SELECT * FROM admin_settings WHERE id = 'singleton' LIMIT 1`;
   if (rows.length === 0) {
-    await sql`INSERT INTO admin_settings (id) VALUES ('singleton') ON CONFLICT DO NOTHING`;
+    await sql`INSERT INTO admin_settings (id, "updatedAt") VALUES ('singleton', NOW()) ON CONFLICT DO NOTHING`;
     const newRows = await sql`SELECT * FROM admin_settings WHERE id = 'singleton' LIMIT 1`;
     return newRows[0] || null;
   }
