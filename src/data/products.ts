@@ -154,6 +154,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329622/dp-regular-chinese--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768564/deez-prints/regular/chinese-black-front.jpg",
     ],
     colors: ["Black"],
@@ -404,6 +405,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329622/dp-regular-berserk-2--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768496/deez-prints/regular/berserk2black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768499/deez-prints/regular/berserk2black-front.jpg",
     ],
@@ -535,6 +537,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329975/dp-regular-sukuna-2--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769003/deez-prints/regular/sukuna-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769012/deez-prints/regular/sukuna-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769006/deez-prints/regular/sukuna-beige-front.jpg",
@@ -667,6 +670,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329622/dp-regular-dbz-1--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768573/deez-prints/regular/dbz-1-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768567/deez-prints/regular/dbz-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768575/deez-prints/regular/dbz-1-white-back.jpg",
@@ -805,6 +809,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329621/dp-regular-berserk--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768490/deez-prints/regular/berserk-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768493/deez-prints/regular/berserk-black-front.jpg",
     ],
@@ -937,6 +942,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329975/dp-regular-sukuna--blue--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768939/deez-prints/regular/sakuna-blue-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768945/deez-prints/regular/sakuna-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768951/deez-prints/regular/sakunga-beige-back.jpg",
@@ -1070,6 +1076,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329967/dp-regular-luffy-4--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768843/deez-prints/regular/luffy-4-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768849/deez-prints/regular/luffy-4-white-front.jpg",
     ],
@@ -1196,6 +1203,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329799/dp-regular-kaijin--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768774/deez-prints/regular/kaijin-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768790/deez-prints/regular/kaijin-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768777/deez-prints/regular/kaijin-beige-front.jpg",
@@ -1331,6 +1339,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329975/dp-regular-spiderverse--black--model.png",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737932/sppiderb_srlaq3.webp",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737932/sppiderf_aqsefr.webp",
     ],
@@ -1468,6 +1477,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329622/dp-regular-bleach--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768529/deez-prints/regular/bleach-whte-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768514/deez-prints/regular/bleach-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768526/deez-prints/regular/bleach-grey-front.jpg",
@@ -1605,6 +1615,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329621/dp-regular-abstract-wings--black--model.png",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737955/calligraphyf_i50rtp.webp",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772737946/wingsback_ojdcgx.webp",
     ],
@@ -1735,6 +1746,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329622/dp-regular-chainsaw-2--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768553/deez-prints/regular/chainsaw-2-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768555/deez-prints/regular/chainsaw-2-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768558/deez-prints/regular/chainsaw-2-grey-front.jpg",
@@ -1873,6 +1885,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329622/dp-regular-chainsaw-1--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768535/deez-prints/regular/chainsaw-1-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768550/deez-prints/regular/chainsaw-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768538/deez-prints/regular/chainsaw-1-beige-front.jpg",
@@ -2017,6 +2030,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329797/dp-regular-divine--black--model.png",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738656/divin_en7ejg.webp",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772738656/div_uzioib.webp",
     ],
@@ -2162,6 +2176,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329621/dp-regular-anime1--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768439/deez-prints/regular/anime1beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768454/deez-prints/regular/anime1white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768442/deez-prints/regular/anime1beige-front.jpg",
@@ -2302,6 +2317,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329621/dp-regular-aizen--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768431/deez-prints/regular/aizen-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768425/deez-prints/regular/aizen-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768434/deez-prints/regular/aizen-white-back.jpg",
@@ -2449,6 +2465,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329797/dp-regular-ferrari--black--model.png",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908159/regferrariFblack_kpig1e.webp",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772908160/regferrariBblack_wgsjpf.webp",
     ],
@@ -2592,6 +2609,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329622/dp-regular-ace-1--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768420/deez-prints/regular/ace-1-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768414/deez-prints/regular/ace-1-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768411/deez-prints/regular/ace-1-black-back.jpg",
@@ -2732,6 +2750,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329796/dp-regular-dbz-8--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768653/deez-prints/regular/dbz-8-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768647/deez-prints/regular/dbz-8-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768650/deez-prints/regular/dbz-8-black-front.jpg",
@@ -2876,6 +2895,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329799/dp-regular-isagi-1--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768764/deez-prints/regular/isagi-1-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768758/deez-prints/regular/isagi-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768761/deez-prints/regular/isagi-1-black-front.jpg",
@@ -3020,6 +3040,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "graphic",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329620/berserk-tee--black--model.png",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/bersk_B_yzgt10.webp",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739461/berserk_Bb_dsrns9.webp",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772739462/whtieb_mewjvg.webp",
@@ -3272,6 +3293,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329983/dp-regular-uchiha-5--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769069/deez-prints/regular/uchiha-5-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769072/deez-prints/regular/uchiha-5-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769075/deez-prints/regular/uchiha-5-white-front.jpg",
@@ -3409,6 +3431,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329797/dp-regular-eye-2--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768681/deez-prints/regular/eye-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768687/deez-prints/regular/eyewhite-front.jpg",
     ],
@@ -3534,6 +3557,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329980/dp-regular-uchiha-2--blue--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769033/deez-prints/regular/uchiha-2-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769023/deez-prints/regular/uchiha-2-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769026/deez-prints/regular/uchiha-2-beige-front.jpg",
@@ -3604,6 +3628,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329835/dp-regular-luffy-2--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768825/deez-prints/regular/luffy-2-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768852/deez-prints/regular/luffy2-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768854/deez-prints/regular/luffy2-black-front.jpg",
@@ -3729,6 +3754,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329621/dp-regular-berserk-3--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768511/deez-prints/regular/berserkwhte-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768505/deez-prints/regular/berserkbeige-front.jpg",
     ],
@@ -3793,6 +3819,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329968/dp-regular-madara-1--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768869/deez-prints/regular/madara-1-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768857/deez-prints/regular/madara-1-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768860/deez-prints/regular/madara-1-beige-front.jpg",
@@ -3861,6 +3888,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329980/dp-regular-uchiha-3--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769050/deez-prints/regular/uchiha-3-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769043/deez-prints/regular/uchiha-3-black-back.jpg",
     ],
@@ -3927,6 +3955,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329796/dp-regular-dbz-7--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768641/deez-prints/regular/dbz-7-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768638/deez-prints/regular/dbz-7-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768635/deez-prints/regular/dbz-7-black-back.jpg",
@@ -3992,6 +4021,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329974/dp-regular-snake--black--model.png",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772883233/snakeREGF_ezwmpp.webp",
       "https://res.cloudinary.com/dsjnjbsgi/image/upload/v1772909295/whitesnakeREGF_qczni7.webp",
     ],
@@ -4043,6 +4073,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329631/dp-regular-dbz-4--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768599/deez-prints/regular/dbz-4-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768593/deez-prints/regular/dbz-4-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768595/deez-prints/regular/dbz-4-black-front.jpg",
@@ -4098,6 +4129,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329621/dp-regular-animeshoot--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768462/deez-prints/regular/animeshootwhite-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768459/deez-prints/regular/animeshootbeige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768457/deez-prints/regular/animeshootbeige-back.jpg",
@@ -4155,6 +4187,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329686/dp-regular-dbz-6--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768624/deez-prints/regular/dbz-6-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768632/deez-prints/regular/dbz-6-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768629/deez-prints/regular/dbz-6-white-back.jpg",
@@ -4207,6 +4240,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329799/dp-regular-luffy-1--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768816/deez-prints/regular/luffy-1-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768819/deez-prints/regular/luffy-1-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768814/deez-prints/regular/luffy-1-beige-back.jpg",
@@ -4260,6 +4294,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329968/dp-regular-naruto-3--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768917/deez-prints/regular/naruto3-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768914/deez-prints/regular/naruto-3-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768911/deez-prints/regular/naruto-3-beige-back.jpg",
@@ -4315,6 +4350,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329658/dp-regular-dbz-5--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768612/deez-prints/regular/dbz-5-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768610/deez-prints/regular/dbz-5-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768607/deez-prints/regular/dbz-5-beige-back.jpg",
@@ -4372,6 +4408,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329867/dp-regular-luffy-3--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768829/deez-prints/regular/luffy-3-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768837/deez-prints/regular/luffy-3-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768834/deez-prints/regular/luffy-3-white-back.jpg",
@@ -4425,6 +4462,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329980/dp-regular-uchiha-1--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769080/deez-prints/regular/uchiha1beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769087/deez-prints/regular/uchiha1black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769092/deez-prints/regular/uchiha1white-front.jpg",
@@ -4476,6 +4514,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329798/dp-regular-ichigo--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768747/deez-prints/regular/Ichigo-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768744/deez-prints/regular/Ichigo-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768741/deez-prints/regular/Ichigo-beige-back.jpg",
@@ -4530,6 +4569,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329974/dp-regular-solo-2--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768974/deez-prints/regular/solo-2-white-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768971/deez-prints/regular/solo-2-blue-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768968/deez-prints/regular/solo-2-blue-back.jpg",
@@ -4550,6 +4590,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329798/dp-regular-hands--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768734/deez-prints/regular/hands-grey-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768732/deez-prints/regular/hands-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768729/deez-prints/regular/hands-black-back.jpg",
@@ -4568,6 +4609,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329984/dp-regular-zoro-2--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769126/deez-prints/regular/zoro-2-beige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769140/deez-prints/regular/zoro-2-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769137/deez-prints/regular/zoro-2-white-back.jpg",
@@ -4587,6 +4629,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329984/dp-regular-zoro-1--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769116/deez-prints/regular/zoro-1-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769110/deez-prints/regular/zoro-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769113/deez-prints/regular/zoro-1-black-front.jpg",
@@ -4624,6 +4667,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329798/dp-regular-fire--grey--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768696/deez-prints/regular/fire-grey-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768690/deez-prints/regular/fire-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768693/deez-prints/regular/fire-black-front.jpg",
@@ -4641,6 +4685,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329975/dp-regular-speed--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768995/deez-prints/regular/speed-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769000/deez-prints/regular/speed-white-front.jpg",
     ],
@@ -4656,6 +4701,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329798/dp-regular-fuck--beige--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768699/deez-prints/regular/fuckbeige-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768705/deez-prints/regular/fuckblack-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768711/deez-prints/regular/fuckgrey-front.jpg",
@@ -4672,6 +4718,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329982/dp-regular-uchiha-4--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769056/deez-prints/regular/uchiha-4-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769066/deez-prints/regular/uchiha-4-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769063/deez-prints/regular/uchiha-4-white-back.jpg",
@@ -4690,6 +4737,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329797/dp-regular-dream--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768670/deez-prints/regular/dreamwhite-front.jpg",
     ],
     colors: ["White"],
@@ -4705,6 +4753,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329969/dp-regular-naruto-1--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768890/deez-prints/regular/naruto-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768899/deez-prints/regular/naruto-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768896/deez-prints/regular/naruto-1-white-back.jpg",
@@ -4723,6 +4772,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329798/dp-regular-goodfellas--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768717/deez-prints/regular/goodfellas-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768723/deez-prints/regular/goodfellasblack-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768726/deez-prints/regular/goodfellasgrey-front.jpg",
@@ -4740,6 +4790,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329969/dp-regular-mob--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768881/deez-prints/regular/mob-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768886/deez-prints/regular/mob-white-front.jpg",
     ],
@@ -4756,6 +4807,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329974/dp-regular-solo-1--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768957/deez-prints/regular/solo-1-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768965/deez-prints/regular/solo-1-white-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768962/deez-prints/regular/solo-1-white-back.jpg",
@@ -4776,6 +4828,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329979/dp-regular-tujiro--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769021/deez-prints/regular/tujiro-black-front.jpg",
     ],
     colors: ["Black"],
@@ -4791,6 +4844,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329983/dp-regular-yamoto-1--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769105/deez-prints/regular/yamoto1-Black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769098/deez-prints/regular/yamoto-1-beige-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787769096/deez-prints/regular/yamoto-1-beige-back.jpg",
@@ -4810,6 +4864,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329968/dp-regular-naruto-2--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768902/deez-prints/regular/naruto-2-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768905/deez-prints/regular/naruto-2-black-front.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768908/deez-prints/regular/naruto-2-grey-front.jpg",
@@ -4867,6 +4922,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329622/dp-regular-dbz-3--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768587/deez-prints/regular/dbz-3-black-back.jpg",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787768590/deez-prints/regular/dbz-3-black-front.jpg",
     ],
@@ -4883,6 +4939,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329621/dp-regular-astral-ruins--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189135/astral-ruins-regular-tee--white--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189135/astral-ruins-regular-tee--beige--front.png",
     ],
@@ -4899,6 +4956,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329622/dp-regular-conquer--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189135/conquer-regular-tee--black--front.png",
     ],
     colors: ["Black"],
@@ -4914,6 +4972,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329622/dp-regular-crimson-thorn-sigil--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189135/crimson-thorn-sigil-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189136/crimson-thorn-sigil-regular-tee--black--front.png",
     ],
@@ -4930,6 +4989,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329797/dp-regular-dbz-bardock-fallen-warrior--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189135/dbz-bardock-fallen-warrior-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189136/dbz-bardock-fallen-warrior-regular-tee--black--front.png",
     ],
@@ -4946,6 +5006,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329797/dp-regular-digital-angel--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189136/digital-angel-regular-tee--white--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189135/digital-angel-regular-tee--beige--front.png",
     ],
@@ -4962,6 +5023,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329798/dp-regular-gogeta-blue-fusion--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189136/gogeta-blue-fusion-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189136/gogeta-blue-fusion-regular-tee--black--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189136/gogeta-blue-fusion-regular-tee--green--back.png",
@@ -4980,6 +5042,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329798/dp-regular-guns-n-roses--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189137/guns-n-roses-regular-tee--black--front.png",
     ],
     colors: ["Black"],
@@ -4995,6 +5058,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329798/dp-regular-hellstar--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189137/hellstar-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189137/hellstar-regular-tee--black--front.png",
     ],
@@ -5011,6 +5075,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329799/dp-regular-look-mom-i-can-fly--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189137/look-mom-i-can-fly-regular-tee--black--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189137/look-mom-i-can-fly-regular-tee--green--front.png",
     ],
@@ -5027,6 +5092,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329968/dp-regular-metallica--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189137/metallica-regular-tee--black--front.png",
     ],
     colors: ["Black"],
@@ -5042,6 +5108,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329969/dp-regular-metallica-2-0--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189137/metallica-2-0-regular-tee--black--front.png",
     ],
     colors: ["Black"],
@@ -5057,6 +5124,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329969/dp-regular-no-friends--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189137/no-friends-regular-tee--black--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189138/no-friends-regular-tee--green--front.png",
     ],
@@ -5073,6 +5141,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329969/dp-regular-no-mercy--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189138/no-mercy-regular-tee--black--front.png",
     ],
     colors: ["Black"],
@@ -5088,6 +5157,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329969/dp-regular-odyssey-spartan--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189146/odyssey-spartan-regular-tee--white--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189146/odyssey-spartan-regular-tee--white--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189146/odyssey-spartan-regular-tee--beige--back.png",
@@ -5106,6 +5176,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329970/dp-regular-punish--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189146/punish-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189146/punish-regular-tee--black--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189147/punish-regular-tee--white--back.png",
@@ -5124,6 +5195,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329970/dp-regular-punk-s-not-dead--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189147/punk-s-not-dead-regular-tee--black--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189147/punk-s-not-dead-regular-tee--white--front.png",
     ],
@@ -5140,6 +5212,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329970/dp-regular-rick-and-morty--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189149/rick-and-morty-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189149/rick-and-morty-regular-tee--black--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189149/rick-and-morty-regular-tee--white--back.png",
@@ -5158,6 +5231,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329970/dp-regular-ruinborn-requiem--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189150/ruinborn-requiem-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189150/ruinborn-requiem-regular-tee--black--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189150/ruinborn-requiem-regular-tee--maroon--back.png",
@@ -5176,6 +5250,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329970/dp-regular-see-no-evil--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189153/see-no-evil-regular-tee--white--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189150/see-no-evil-regular-tee--beige--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189150/see-no-evil-regular-tee--blue--front.png",
@@ -5194,6 +5269,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329970/dp-regular-seedhe-maut-tbsm--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189153/seedhe-maut-tbsm-regular-tee--white--front.png",
     ],
     colors: ["White"],
@@ -5209,6 +5285,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329974/dp-regular-seedhe-maut-tbsm-calm--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189153/seedhe-maut-tbsm-calm-regular-tee--white--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189153/seedhe-maut-tbsm-calm-regular-tee--white--front.png",
     ],
@@ -5225,6 +5302,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329974/dp-regular-seedhe-maut-tbsm-encore--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189153/seedhe-maut-tbsm-encore-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189153/seedhe-maut-tbsm-encore-regular-tee--black--front.png",
     ],
@@ -5241,6 +5319,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329975/dp-regular-stay-safe--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189154/stay-safe-regular-tee--white--front.png",
     ],
     colors: ["White"],
@@ -5256,6 +5335,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329979/dp-regular-supra--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189154/supra-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189157/supra-regular-tee--black--front.png",
     ],
@@ -5272,6 +5352,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329979/dp-regular-the-odyssey--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189157/the-odyssey-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189157/the-odyssey-regular-tee--black--front.png",
     ],
@@ -5288,6 +5369,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329979/dp-regular-travis-scott-cactus-takeover--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189157/travis-scott-cactus-takeover-regular-tee--white--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189157/travis-scott-cactus-takeover-regular-tee--beige--front.png",
     ],
@@ -5304,6 +5386,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329979/dp-regular-travis-scott-highest-in-the-room--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189158/travis-scott-highest-in-the-room-regular-tee--white--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189159/travis-scott-highest-in-the-room-regular-tee--white--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189157/travis-scott-highest-in-the-room-regular-tee--beige--back.png",
@@ -5322,6 +5405,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329983/dp-regular-utopia-screwed--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189161/utopia-screwed-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189161/utopia-screwed-regular-tee--black--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189161/utopia-screwed-regular-tee--green--back.png",
@@ -5340,6 +5424,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329983/dp-regular-utopia-skeleton--white--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189170/utopia-skeleton-regular-tee--white--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189170/utopia-skeleton-regular-tee--white--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189161/utopia-skeleton-regular-tee--beige--back.png",
@@ -5358,6 +5443,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329983/dp-regular-venom-demon-inside--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189170/venom-demon-inside-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189170/venom-demon-inside-regular-tee--black--front.png",
     ],
@@ -5374,6 +5460,7 @@ export const products: Product[] = [
     category: "t-shirts",
     subcategory: "regular",
     images: [
+      "https://res.cloudinary.com/okcxaese/image/upload/v1792329983/dp-regular-wired-different--black--model.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189170/wired-different-regular-tee--black--back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189170/wired-different-regular-tee--black--front.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1792189177/wired-different-regular-tee--green--back.png",
