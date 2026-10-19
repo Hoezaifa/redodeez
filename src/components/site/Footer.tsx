@@ -105,6 +105,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link to="/our-work" className="link-underline">
+                Our Work
+              </Link>
+            </li>
+            <li>
               <Link to="/trust" className="link-underline">
                 Why Deez Prints
               </Link>

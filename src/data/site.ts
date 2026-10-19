@@ -419,5 +419,6 @@ export const navLinks = [
   { label: "Custom Print", to: "/custom-print" },
   { label: "Tapestries", to: "/collections/tapestries" },
   { label: "Mugs", to: "/collections/accessories" },
+  { label: "Our Work", to: "/our-work" },
   { label: "About", to: "/about" },
 ];
