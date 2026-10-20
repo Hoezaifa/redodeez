@@ -168,6 +168,7 @@ function CustomPrint() {
   const isClothing = selectedBase.isClothing;
   const isAcidWash = base === "acid-wash";
   const isDropShoulder = base === "drop-shoulder";
+  const maxAllowedFiles = isClothing ? 2 : 1;
   const availableClothingSizes = isAcidWash
     ? acidWashSizes
     : isDropShoulder
