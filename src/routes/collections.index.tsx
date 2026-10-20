@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useMemo, useRef, useState, useEffect } from "react";
 import { ChevronDown, MapPin } from "lucide-react";
 import { getProducts } from "@/data/products";
@@ -15,8 +15,6 @@ interface CollectionsSearchParams {
   q?: string;
 }
 
-const PAGE_SIZE = 24;
-
 export const Route = createFileRoute("/collections/")({
   validateSearch: (search: Record<string, unknown>): CollectionsSearchParams => {
     return {
@@ -31,18 +29,29 @@ export const Route = createFileRoute("/collections/")({
   },
   loaderDeps: ({ search: { page, sort, dir, cat, q } }) => ({ page, sort, dir, cat, q }),
   loader: async ({ deps }) => {
+    // Permanently redirect legacy URLs with ?page= to the unpaginated URL, preserving other filters
+    if (deps.page !== undefined) {
+      throw redirect({
+        to: "/collections",
+        search: {
+          sort: deps.sort,
+          dir: deps.dir,
+          cat: deps.cat,
+          q: deps.q,
+        },
+        statusCode: 301,
+      });
+    }
     const allProducts = await getProducts();
     return { allProducts, search: deps };
   },
   head: ({ loaderData }) => {
     const search = loaderData?.search;
-    const isUtilityOrPaginated = Boolean(
-      search?.sort || search?.dir || (search?.cat && search.cat !== "all") || (search?.page && search.page > 1) || search?.q
+    const isUtility = Boolean(
+      search?.sort || search?.dir || (search?.cat && search.cat !== "all") || search?.q
     );
     const pageTitle = search?.q
       ? `Search results for "${search.q}" — Deez Prints Streetwear Catalogue`
-      : search?.page && search.page > 1
-      ? `Shop All (Page ${search.page}) — Deez Prints Streetwear Catalogue`
       : "Shop All — Deez Prints Streetwear Catalogue";
 
     return {
@@ -53,7 +62,7 @@ export const Route = createFileRoute("/collections/")({
           content:
             "Browse every Deez Prints piece: drop shoulder tees, acid wash, hoodies, jerseys, tapestries and accessories. Filter by category and price.",
         },
-        ...(isUtilityOrPaginated ? [{ name: "robots", content: "noindex, follow" }] : []),
+        ...(isUtility ? [{ name: "robots", content: "noindex, follow" }] : []),
         { property: "og:title", content: pageTitle },
         { property: "og:description", content: "Every tee, hoodie, jersey and print in one place." },
         { property: "og:url", content: `${SITE_URL}/collections` },
@@ -141,21 +150,12 @@ function ShopAll() {
     return sorted;
   }, [cat, sort, priceDir, search.q, allProducts, nonEmptyCollections]);
 
-  // Build the search params object for SEO pagination links
-  const currentSearchParams = useMemo(() => ({
-    ...(cat !== "all" ? { cat } : {}),
-    ...(sort !== "featured" ? { sort } : {}),
-    ...(sort === "price" && priceDir !== "asc" ? { dir: priceDir } : {}),
-    ...(search.q ? { q: search.q } : {}),
-  }), [cat, sort, priceDir, search.q]);
-
   const handleCategoryChange = (newCat: string) => {
     setMoreOpen(false);
     navigate({
       search: (prev) => ({
         ...prev,
         cat: newCat === "all" ? undefined : newCat,
-        page: undefined, // Reset to page 1 on category switch
       }),
     });
   };
@@ -168,7 +168,6 @@ function ShopAll() {
           ...prev,
           sort: "price",
           dir: nextDir,
-          page: undefined,
         }),
       });
     } else {
@@ -177,7 +176,6 @@ function ShopAll() {
           ...prev,
           sort: newSort === "featured" ? undefined : newSort,
           dir: undefined,
-          page: undefined,
         }),
       });
     }
@@ -390,13 +388,7 @@ function ShopAll() {
           </Link>
         </p>
       ) : (
-        <InfiniteProductGrid
-          products={list}
-          batchSize={PAGE_SIZE}
-          searchParams={currentSearchParams}
-          paginationBasePath="/collections"
-          resetKey={`${cat}-${sort}-${priceDir}-${search.q || ""}`}
-        />
+        <InfiniteProductGrid products={list} />
       )}
     </div>
   );

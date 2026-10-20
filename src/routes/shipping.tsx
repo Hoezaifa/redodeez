@@ -10,12 +10,13 @@ export const Route = createFileRoute("/shipping")({
       {
         name: "description",
         content:
-          "Karachi Rs. 200 via Rider, Nationwide Pakistan Rs. 450 via Courier. Orders take 2–3 working days to prepare before dispatch.",
+          "Karachi: Orders usually prepared within 2 days, delivered around day 3. Outside Karachi: 2–3 days prep plus typically 3–4 additional courier days.",
       },
       { property: "og:title", content: "Shipping & Delivery Policy — Deez Prints" },
       {
         property: "og:description",
-        content: "Karachi Rs. 200, Nationwide Rs. 450 (Courier). 2–3 working days preparation time.",
+        content:
+          "Standard delivery timings: Karachi around day 3 after confirmation; Outside Karachi prep 2–3 days plus around 3–4 additional courier days.",
       },
       { property: "og:url", content: `${SITE_URL}/shipping` },
       { property: "og:site_name", content: "Deez Prints" },
@@ -41,25 +42,37 @@ function Shipping() {
         </div>
         <div className="rounded-xl border border-white/10 bg-surface/50 p-6 space-y-2">
           <Clock className="w-6 h-6 text-primary" />
-          <p className="text-sm font-mono text-muted-foreground uppercase">Preparation Time</p>
-          <p className="text-xl font-bold text-foreground">2–3 Working Days</p>
-          <p className="text-xs text-muted-foreground">Made-to-order production before dispatch</p>
+          <p className="text-sm font-mono text-muted-foreground uppercase">Karachi Timings</p>
+          <p className="text-xl font-bold text-foreground">Delivered Around Day 3</p>
+          <p className="text-xs text-muted-foreground">Prepared within 2 days after confirmation</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-surface/50 p-6 space-y-2">
           <MapPin className="w-6 h-6 text-primary" />
-          <p className="text-sm font-mono text-muted-foreground uppercase">Delivery Method</p>
-          <p className="text-xl font-bold text-foreground">Rider &amp; Courier Services</p>
-          <p className="text-xs text-muted-foreground">Covering Karachi and all major cities across Pakistan</p>
+          <p className="text-sm font-mono text-muted-foreground uppercase">Outside Karachi</p>
+          <p className="text-xl font-bold text-foreground">Prep 2–3 Days + 3–4 Days Transit</p>
+          <p className="text-xs text-muted-foreground">Courier delivery happens after studio preparation</p>
         </div>
       </div>
 
       <div className="mt-12 max-w-3xl space-y-8">
         <div className="rounded-xl border border-white/10 bg-surface/50 p-8 space-y-6">
           <div className="space-y-3">
-            <h2 className="text-2xl font-bold text-foreground">Order Preparation Notice</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Because Deez Prints products are made-to-order/custom, orders take <strong className="text-foreground font-semibold">2–3 working days to prepare</strong> at our Karachi studio before dispatch. Delivery time is additional and depends on your location.
-            </p>
+            <h2 className="text-2xl font-bold text-foreground">Standard Delivery Timings</h2>
+            <div className="space-y-3 text-muted-foreground leading-relaxed">
+              <p>
+                <strong className="text-foreground font-semibold">Karachi:</strong> Orders are usually prepared within 2 days and delivered around day 3 after confirmation.
+              </p>
+              <p>
+                <strong className="text-foreground font-semibold">Outside Karachi:</strong> Preparation usually takes 2–3 days. Courier delivery then typically takes around 3–4 additional days, but can take longer depending on the courier and destination.
+              </p>
+              <div className="rounded-lg bg-zinc-900/80 border border-white/10 p-4 text-xs text-zinc-300 space-y-1.5">
+                <p className="font-semibold text-primary uppercase tracking-wider text-[11px]">Important Delivery Notes:</p>
+                <ul className="list-disc pl-4 space-y-1 text-zinc-400">
+                  <li>Preparation happens before courier transit; nationwide delivery does not mean 3–4 days total.</li>
+                  <li>These timings are estimates, not guaranteed arrival dates. Delivery speed may vary depending on courier routing and destination.</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           <div className="w-full h-px bg-border" />

@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { site, whatsappLink, SITE_URL } from "@/data/site";
+import { GalleryPreview } from "@/components/gallery/GalleryPreview";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -47,7 +48,7 @@ export const Route = createFileRoute("/about")({
 const benefits = [
   { icon: Award, label: "PREMIUM QUALITY", desc: "Top-notch fabric & long-lasting prints." },
   { icon: Truck, label: "EXPRESS SHIPPING", desc: "Karachi Rider & Nationwide Courier." },
-  { icon: ShieldCheck, label: "SECURE PAYMENTS", desc: "Meezan, Easypaisa & JazzCash accepted." },
+  { icon: ShieldCheck, label: "SECURE PAYMENTS", desc: "Easypaisa, Meezan & COD (Karachi)." },
   { icon: RefreshCw, label: "7-DAY EXCHANGE", desc: "Defect or wrong item replacement." },
   { icon: Scissors, label: "MADE TO ORDER", desc: "Every piece is printed just for you." },
 ];
@@ -233,6 +234,16 @@ function About() {
           </div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          ACTUAL PRINTS. OUR WORK. — Gallery Preview
+          ═══════════════════════════════════════════════════════ */}
+      <GalleryPreview
+        eyebrow="ACTUAL PRINTS. OUR WORK."
+        title="VISIBLE PRINT QUALITY. REAL GARMENTS."
+        subtitle="Representative photographs from our Karachi studio. Actual heavyweight blanks, crisp DTF details, and authentic textures."
+        className="border-t border-white/[0.08] bg-[#070707]"
+      />
 
       {/* ═══════════════════════════════════════════════════════
           BENEFITS STRIP

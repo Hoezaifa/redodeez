@@ -14,9 +14,10 @@ export const commercialConfig = {
   shippingKarachiFee: 200,
   shippingNationwideFee: 450,
   freeShippingThreshold: 5000,
-  prepTime: "2–3 working days",
-  deliveryTimeKarachi: "2–4 working days",
-  deliveryTimeNationwide: "3–5 working days",
+  prepTimeKarachi: "Usually within 2 days",
+  prepTimeNationwide: "Usually 2–3 days",
+  deliveryTimeKarachi: "Usually delivered around day 3 after confirmation",
+  deliveryTimeNationwide: "Preparation usually takes 2–3 days, followed by typically 3–4 additional days for courier delivery (can take longer depending on courier and destination)",
   exchangeWindow: "7 days",
   acceptedPaymentMethods: ["Easypaisa", "Bank Transfer (Meezan)", "Cash on Delivery (Karachi only)"] as const,
 };
@@ -32,14 +33,72 @@ export const site = {
   shippingFee: 200,
   shippingFeeNationwide: 450,
   freeShippingThreshold: 5000,
-  deliveryTime: "3–5 working days",
-  deliveryTimeKarachi: "2–4 working days",
-  deliveryTimeNationwide: "3–5 working days",
-  prepTime: "2–3 working days",
+  deliveryTime: "Karachi: delivered around day 3 after confirmation | Outside Karachi: 2–3 days prep + typically 3–4 additional courier days",
+  deliveryTimeKarachi: "Orders are usually prepared within 2 days and delivered around day 3 after confirmation",
+  deliveryTimeNationwide: "Preparation usually takes 2–3 days. Courier delivery then typically takes around 3–4 additional days, but can take longer depending on the courier and destination",
+  prepTime: "Karachi: usually within 2 days | Outside Karachi: usually 2–3 days",
   exchangeWindow: "7 days",
   couriers: "TCS, Leopards, M&P",
-  orderPrepNotice: "Orders take 2–3 working days to prepare before dispatch. Delivery time is additional and depends on your location.",
+  orderPrepNotice: "Karachi: Orders are usually prepared within 2 days and delivered around day 3 after confirmation. Outside Karachi: Preparation usually takes 2–3 days. Courier delivery then typically takes around 3–4 additional days, but can take longer depending on the courier and destination.",
 };
+
+export interface PaymentMethodInfo {
+  id: "easypaisa" | "meezan" | "cod";
+  name: string;
+  shortName: string;
+  subtitle: string;
+  eligibility: string;
+  geographicNote: string;
+  instructions: string;
+  accountTitle?: string;
+  accountNumber?: string;
+  bankName?: string;
+  logo?: string;
+  isCod: boolean;
+}
+
+export const paymentMethodsConfig: PaymentMethodInfo[] = [
+  {
+    id: "easypaisa",
+    name: "Easypaisa",
+    shortName: "Easypaisa",
+    subtitle: "Manual app transfer & WhatsApp receipt confirmation",
+    eligibility: "Available nationwide (Karachi & outside Karachi)",
+    geographicNote: "All destinations",
+    instructions:
+      "Place your order, transfer the payment via the Easypaisa app, then share your receipt screenshot on WhatsApp (+92 327 2487127) for confirmation.",
+    accountTitle: "MUHAMMAD HUZAIFA RIAZ",
+    accountNumber: "03272487127",
+    logo: "/assets/payment/easypaisa.svg",
+    isCod: false,
+  },
+  {
+    id: "meezan",
+    name: "Bank Transfer (Meezan Bank)",
+    shortName: "Meezan Bank",
+    subtitle: "Direct online IBFT & WhatsApp receipt confirmation",
+    eligibility: "Available nationwide (Karachi & outside Karachi)",
+    geographicNote: "All destinations",
+    instructions:
+      "Place your order, transfer the payment via online banking or IBFT to Meezan Bank, then share your receipt screenshot on WhatsApp (+92 327 2487127) for confirmation.",
+    bankName: "Meezan Bank",
+    accountTitle: "MUHAMMAD HUZAIFA RIAZ",
+    accountNumber: "01890110481675",
+    logo: "/assets/payment/meezan.svg",
+    isCod: false,
+  },
+  {
+    id: "cod",
+    name: "Cash on Delivery",
+    shortName: "Cash on Delivery (Karachi Only)",
+    subtitle: "Pay cash upon delivery to the rider",
+    eligibility: "Karachi only — strictly unavailable outside Karachi",
+    geographicNote: "Karachi destinations only (advance payment required outside Karachi)",
+    instructions:
+      "Pay with cash directly to the rider upon parcel arrival. Orders are confirmed via WhatsApp before dispatch. For destinations outside Karachi, advance payment via Easypaisa or Meezan Bank is required to confirm the order.",
+    isCod: true,
+  },
+];
 
 export const bankDetails = {
   easypaisa: {
@@ -48,20 +107,6 @@ export const bankDetails = {
     accountTitle: "MUHAMMAD HUZAIFA RIAZ",
     accountNumber: "03272487127",
     logo: "/assets/payment/easypaisa.svg",
-  },
-  jazzcash: {
-    id: "jazzcash" as const,
-    title: "JazzCash",
-    accountTitle: "MUHAMMAD HUZAIFA RIAZ",
-    accountNumber: "03272487127",
-    logo: "/assets/payment/jazzcash.svg",
-  },
-  raast: {
-    id: "raast" as const,
-    title: "Raast",
-    accountTitle: "MUHAMMAD HUZAIFA RIAZ",
-    accountNumber: "03272487127",
-    logo: "/assets/payment/raast.svg",
   },
   meezan: {
     id: "meezan" as const,
@@ -294,7 +339,7 @@ export const faqs = [
   {
     q: "How long does delivery take?",
     category: "Shipping",
-    a: "Orders take 2–3 working days to prepare at our Karachi studio before dispatch. Delivery time is additional and depends on your location (2–4 working days for Karachi, 3–5 working days via Courier for Nationwide Pakistan).",
+    a: "Karachi: Orders are usually prepared within 2 days and delivered around day 3 after confirmation. Outside Karachi: Preparation usually takes 2–3 days. Courier delivery then typically takes around 3–4 additional days, but can take longer depending on the courier and destination. Please note that preparation happens before courier transit, and these timings are estimates rather than guaranteed arrival dates (nationwide delivery does not mean 3–4 days total).",
   },
   {
     q: "What is your shipping fee?",

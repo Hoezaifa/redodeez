@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and tapestries. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
+          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and tapestries. Upload your own artwork for custom printing. Designed & printed in Karachi, delivered nationwide.",
       },
       { name: "author", content: "Deez Prints" },
       {
@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and tapestries. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
+          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and tapestries. Upload your own artwork for custom printing. Designed & printed in Karachi, delivered nationwide.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
@@ -104,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and tapestries. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
+          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and tapestries. Upload your own artwork for custom printing. Designed & printed in Karachi, delivered nationwide.",
       },
       {
         property: "og:image",
@@ -122,7 +122,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and tapestries. Upload your own artwork for custom printing. Delivered across Pakistan in 3–5 days.",
+          "Oversized drop-shoulder tees, acid wash, hoodies, jerseys and tapestries. Upload your own artwork for custom printing. Designed & printed in Karachi, delivered nationwide.",
       },
       {
         name: "twitter:image",

@@ -99,7 +99,7 @@ export function ApparelAccordion({ product }: ApparelAccordionProps) {
               </>
             )}
             <li><strong className="text-foreground">Production:</strong> Custom made-to-order in Karachi, Pakistan</li>
-            <li><strong className="text-foreground">Preparation Time:</strong> 2–3 business days before courier dispatch</li>
+            <li><strong className="text-foreground">Preparation Time:</strong> Usually within 2 days for Karachi; 2–3 days for outside Karachi</li>
           </ul>
         </div>
       </AccordionItem>
@@ -108,10 +108,10 @@ export function ApparelAccordion({ product }: ApparelAccordionProps) {
       <AccordionItem title="Shipping & 7-Day Exchange Policy">
         <div className="space-y-3 text-[13px] sm:text-sm text-muted-foreground">
           <p>
-            <strong className="text-foreground font-semibold">Delivery Time:</strong> 1–2 business days for Karachi, 2–4 business days nationwide across Pakistan via tracked couriers.
+            <strong className="text-foreground font-semibold">Delivery Time:</strong> Karachi: Orders are usually prepared within 2 days and delivered around day 3 after confirmation. Outside Karachi: Preparation usually takes 2–3 days, then courier delivery typically takes around 3–4 additional days (can take longer depending on the courier and destination).
           </p>
           <p>
-            <strong className="text-foreground font-semibold">Free Nationwide Shipping:</strong> Automatically applied at checkout on all orders of Rs. 5,000 or more (standard flat rate is Rs. 200 Karachi / Rs. 450 Nationwide).
+            <strong className="text-foreground font-semibold">Shipping Rates:</strong> Rs. 200 for Karachi (via Rider) and Rs. 450 for Nationwide Pakistan (via Courier). Free delivery applies to Karachi orders of Rs. 5,000 or more.
           </p>
           <p>
             <strong className="text-foreground font-semibold">7-Day Exchange:</strong> Exchange is available within 7 days only if you receive a defective item, incorrect product, or a different size than the one you ordered. Please check the size chart, fit and order details carefully before confirming your order. Incorrect size selection or change of mind is not eligible for exchange.

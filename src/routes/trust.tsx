@@ -14,6 +14,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { SITE_URL } from "@/data/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/structuredData";
+import { GalleryPreview } from "@/components/gallery/GalleryPreview";
 
 export const Route = createFileRoute("/trust")({
   head: () => ({
@@ -22,13 +23,13 @@ export const Route = createFileRoute("/trust")({
       {
         name: "description",
         content:
-          "Deez Prints is built by people who actually care about what they wear. 10,000+ orders delivered, heavyweight blanks, detailed prints, and 7-day exchange.",
+          "Deez Prints is built by people who actually care about what they wear. Made-to-order production in Karachi, heavyweight blanks, detailed prints, and 7-day exchange.",
       },
       { property: "og:title", content: "Trust & Transparency | Deez Prints" },
       {
         property: "og:description",
         content:
-          "Real People. Real Prints. No Bullshit. 10,000+ orders delivered across Pakistan. 100% quality guaranteed with 7-day exchange.",
+          "Real People. Real Prints. No Bullshit. Made-to-order streetwear produced in Karachi with 7-day exchange protection.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/trust` },
@@ -58,34 +59,6 @@ export const Route = createFileRoute("/trust")({
 const condensedFont = { fontFamily: "'Bebas Neue', sans-serif" };
 const markerFont = { fontFamily: "'Permanent Marker', cursive" };
 
-/* ─── Stats Strip Data ──────────────────────────────────── */
-const stats = [
-  {
-    icon: Truck,
-    value: "10,000+",
-    label: "Orders Delivered",
-    sub: "Across Pakistan",
-  },
-  {
-    icon: Users,
-    value: "5,000+",
-    label: "Happy Customers",
-    sub: "Nationwide Community",
-  },
-  {
-    icon: Calendar,
-    value: "6+ Years",
-    label: "Printing Experience",
-    sub: "Est. 2023 (Rebuilt 2026)",
-  },
-  {
-    icon: ShieldCheck,
-    value: "100%",
-    label: "Quality Guaranteed",
-    sub: "7-Day Exchange",
-  },
-];
-
 /* ─── Promises Data ─────────────────────────────────────── */
 const promises = [
   {
@@ -96,12 +69,12 @@ const promises = [
   {
     icon: Truck,
     title: "Nationwide Shipping",
-    desc: "TCS, Leopards, M&P.\nUsually within 3–5 working days.",
+    desc: "Karachi ~day 3 after confirmation.\nOutside Karachi: prep 2–3d + 3–4d courier.",
   },
   {
     icon: ShieldCheck,
     title: "Secure Payments",
-    desc: "Meezan Bank, Easypaisa,\nJazzCash & Raast.",
+    desc: "Easypaisa, Meezan Bank\n& COD (Karachi only).",
   },
   {
     icon: RefreshCw,
@@ -135,7 +108,7 @@ const processSteps = [
   {
     num: "04",
     title: "It Ships",
-    desc: "Nationwide, with tracking. Usually 3–5 working days.",
+    desc: "Nationwide with tracking. Prep 2–3 days + 3–4 days courier transit.",
   },
 ];
 
@@ -269,44 +242,15 @@ function TrustPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          SECTION 2: STATS STRIP
+          SECTION 2: PROOF OF QUALITY — Gallery Preview
           ═══════════════════════════════════════════════════════ */}
-      <section className="border-b border-white/[0.08] bg-[#080808]">
-        <div className="edge py-8 md:py-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-white/[0.08]">
-            {stats.map((st, i) => {
-              const Icon = st.icon;
-              return (
-                <Reveal key={st.label} delay={i * 0.05}>
-                  <div
-                    className={`flex items-start gap-4 ${
-                      i !== 0 ? "pt-4 md:pt-0 md:pl-6 lg:pl-8" : ""
-                    }`}
-                  >
-                    <div className="p-2.5 rounded-none bg-primary/10 text-primary shrink-0 mt-0.5 border border-primary/20">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div
-                        className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-none"
-                        style={condensedFont}
-                      >
-                        {st.value}
-                      </div>
-                      <div className="text-xs font-bold text-zinc-200 mt-1 uppercase tracking-wider">
-                        {st.label}
-                      </div>
-                      <div className="text-[11px] text-zinc-500 font-mono mt-0.5">
-                        {st.sub}
-                      </div>
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <GalleryPreview
+        compact
+        eyebrow="PROOF OF QUALITY"
+        title="COMPLETED WORK. NO BULLSHIT."
+        subtitle="Actual photographs of prints produced in our Karachi studio. Visible evidence of DTF detailing, vibrant graphics, and heavyweight blanks."
+        className="border-b border-white/[0.08] bg-[#070707]"
+      />
 
       {/* ═══════════════════════════════════════════════════════
           SECTION 3: OUR STORY

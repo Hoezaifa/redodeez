@@ -309,9 +309,9 @@ export function staticPageMeta(path: string): { title: string; description: stri
       };
     case "/payments":
       return {
-        title: "Accepted Payment Methods — Bank Transfer & Mobile Wallets | Deez Prints",
+        title: "Accepted Payment Methods — Easypaisa, Meezan & COD | Deez Prints",
         description:
-          "Secure payment instructions for Deez Prints orders via Meezan Bank, Easypaisa, JazzCash, and Raast instant transfers.",
+          "Secure payment instructions for Deez Prints orders via Easypaisa, Meezan Bank IBFT, and Cash on Delivery (Karachi only).",
       };
     case "/trust":
       return {

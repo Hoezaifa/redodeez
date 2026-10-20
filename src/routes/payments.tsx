@@ -12,12 +12,12 @@ export const Route = createFileRoute("/payments")({
       {
         name: "description",
         content:
-          "Official payment guide for Deez Prints. Supported methods include Meezan Bank Direct Transfer, Easypaisa, JazzCash, and Raast Instant Pay.",
+          "Official payment guide for Deez Prints. Supported methods include Easypaisa, Meezan Bank Transfer, and Cash on Delivery (Karachi only).",
       },
       { property: "og:title", content: "Payment Methods — Deez Prints" },
       {
         property: "og:description",
-        content: "Pay securely via Meezan Bank, Easypaisa, JazzCash, or Raast.",
+        content: "Pay securely via Easypaisa, Meezan Bank Transfer, or Cash on Delivery (Karachi only).",
       },
       { property: "og:url", content: `${SITE_URL}/payments` },
       { property: "og:site_name", content: "Deez Prints" },
@@ -42,13 +42,54 @@ function PaymentsPage() {
       <SectionHeading
         eyebrow="Payment Options"
         title={"Supported\nPayment Methods"}
-        sub="Transparent, direct, and zero-fee. Pay using Meezan Bank transfer, Easypaisa, JazzCash, or Raast."
+        sub="Transparent, direct, and zero-fee. Pay using Easypaisa, Meezan Bank transfer, or Cash on Delivery (Karachi only)."
       />
 
-      {/* Gateway Cards Grid */}
+      {/* Authoritative Methods Grid matching Checkout */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Meezan Bank */}
+        {/* Easypaisa */}
         <Reveal>
+          <div className="h-full bg-zinc-950 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-emerald-500/50 transition-colors">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                <Smartphone className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white uppercase tracking-wide">
+                Easypaisa
+              </h3>
+              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                Send payment directly from your Easypaisa mobile wallet. Available for all orders nationwide.
+              </p>
+
+              <div className="bg-zinc-900 border border-white/5 rounded-xl p-4 space-y-2 text-xs font-mono">
+                <div className="flex justify-between text-zinc-400">
+                  <span>Wallet:</span> <span className="text-white font-bold">Easypaisa</span>
+                </div>
+                <div className="flex justify-between text-zinc-400">
+                  <span>Title:</span> <span className="text-white font-bold">{bankDetails.easypaisa.accountTitle}</span>
+                </div>
+                <div className="flex justify-between text-zinc-400 items-center">
+                  <span>Number:</span>
+                  <button
+                    onClick={() => copyToClipboard(bankDetails.easypaisa.accountNumber, "easypaisa")}
+                    className="flex items-center gap-1 text-emerald-400 font-bold hover:underline"
+                  >
+                    {bankDetails.easypaisa.accountNumber} <Copy className="w-3 h-3" />
+                  </button>
+                </div>
+                {copied === "easypaisa" && (
+                  <p className="text-[10px] text-emerald-400 text-right">Copied to clipboard!</p>
+                )}
+              </div>
+            </div>
+            <span className="text-[11px] font-mono text-zinc-500 bg-zinc-900/60 px-3 py-1.5 rounded border border-white/5 inline-block text-center">
+              Available Nationwide · Zero Fee
+            </span>
+          </div>
+        </Reveal>
+
+        {/* Meezan Bank */}
+        <Reveal delay={0.08}>
           <div className="h-full bg-zinc-950 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-orange-500/50 transition-colors">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center">
@@ -83,89 +124,42 @@ function PaymentsPage() {
               </div>
             </div>
             <span className="text-[11px] font-mono text-zinc-500 bg-zinc-900/60 px-3 py-1.5 rounded border border-white/5 inline-block text-center">
-              Instant IBFT Settlement
+              Available Nationwide · Instant IBFT
             </span>
           </div>
         </Reveal>
 
-        {/* Mobile Wallets (Easypaisa & JazzCash) */}
-        <Reveal delay={0.08}>
-          <div className="h-full bg-zinc-950 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-emerald-500/50 transition-colors">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                <Smartphone className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold text-white uppercase tracking-wide">
-                Easypaisa &amp; JazzCash
-              </h3>
-              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                Send money directly from your Easypaisa or JazzCash mobile wallet in seconds.
-              </p>
-
-              <div className="bg-zinc-900 border border-white/5 rounded-xl p-4 space-y-2 text-xs font-mono">
-                <div className="flex justify-between text-zinc-400">
-                  <span>Wallets:</span> <span className="text-white font-bold">Easypaisa / JazzCash</span>
-                </div>
-                <div className="flex justify-between text-zinc-400">
-                  <span>Title:</span> <span className="text-white font-bold">{bankDetails.easypaisa.accountTitle}</span>
-                </div>
-                <div className="flex justify-between text-zinc-400 items-center">
-                  <span>Number:</span>
-                  <button
-                    onClick={() => copyToClipboard(bankDetails.easypaisa.accountNumber, "wallet")}
-                    className="flex items-center gap-1 text-emerald-400 font-bold hover:underline"
-                  >
-                    {bankDetails.easypaisa.accountNumber} <Copy className="w-3 h-3" />
-                  </button>
-                </div>
-                {copied === "wallet" && (
-                  <p className="text-[10px] text-emerald-400 text-right">Copied to clipboard!</p>
-                )}
-              </div>
-            </div>
-            <span className="text-[11px] font-mono text-zinc-500 bg-zinc-900/60 px-3 py-1.5 rounded border border-white/5 inline-block text-center">
-              Zero Wallet Transfer Fee
-            </span>
-          </div>
-        </Reveal>
-
-        {/* Raast Instant Pay */}
+        {/* Cash on Delivery (Karachi Only) */}
         <Reveal delay={0.16}>
           <div className="h-full bg-zinc-950 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-amber-500/50 transition-colors">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
-                <Wallet className="w-6 h-6" />
+                <Banknote className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white uppercase tracking-wide">
-                Raast Instant Pay
-              </h3>
+              <div className="flex items-center gap-2">
+                <h3 className="text-xl font-bold text-white uppercase tracking-wide">
+                  Cash on Delivery
+                </h3>
+                <span className="text-[10px] font-mono px-2 py-0.5 bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded font-semibold">
+                  Karachi Only
+                </span>
+              </div>
               <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                State Bank of Pakistan's instant payment system. Pay from any Pakistani bank app using our Raast ID.
+                Pay with cash directly to the rider upon delivery at your doorstep in Karachi. Orders are verified via WhatsApp before dispatch.
               </p>
 
-              <div className="bg-zinc-900 border border-white/5 rounded-xl p-4 space-y-2 text-xs font-mono">
-                <div className="flex justify-between text-zinc-400">
-                  <span>Network:</span> <span className="text-white font-bold">SBP Raast System</span>
+              <div className="bg-zinc-900 border border-white/5 rounded-xl p-4 space-y-2 text-xs">
+                <div className="flex items-center gap-2 text-amber-400 font-medium">
+                  <CheckCircle2 className="w-4 h-4 shrink-0" />
+                  <span>Karachi delivery via rider</span>
                 </div>
-                <div className="flex justify-between text-zinc-400">
-                  <span>Title:</span> <span className="text-white font-bold">{bankDetails.raast.accountTitle}</span>
+                <div className="text-[11px] text-zinc-400 pt-1 leading-relaxed border-t border-white/5">
+                  <strong className="text-zinc-300">Outside Karachi:</strong> Advance payment via Easypaisa or Meezan Bank is required to confirm your order.
                 </div>
-                <div className="flex justify-between text-zinc-400 items-center">
-                  <span>Raast ID:</span>
-                  <button
-                    onClick={() => copyToClipboard(bankDetails.raast.accountNumber, "raast")}
-                    className="flex items-center gap-1 text-amber-400 font-bold hover:underline"
-                  >
-                    {bankDetails.raast.accountNumber} <Copy className="w-3 h-3" />
-                  </button>
-                </div>
-                {copied === "raast" && (
-                  <p className="text-[10px] text-emerald-400 text-right">Copied to clipboard!</p>
-                )}
               </div>
             </div>
-            <span className="text-[11px] font-mono text-zinc-500 bg-zinc-900/60 px-3 py-1.5 rounded border border-white/5 inline-block text-center">
-              Zero Transaction Fee · Instant
+            <span className="text-[11px] font-mono text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded border border-amber-500/20 inline-block text-center">
+              Strictly Karachi Only
             </span>
           </div>
         </Reveal>
@@ -181,10 +175,10 @@ function PaymentsPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            ["01", "Place Order", "Choose Meezan Bank or Easypaisa and place your order at checkout."],
-            ["02", "Transfer Funds", "Transfer the exact order total using the bank or wallet details above."],
+            ["01", "Place Order", "Choose Easypaisa, Meezan Bank, or Cash on Delivery (Karachi only) at checkout."],
+            ["02", "Transfer Funds", "For online methods, transfer the exact order total using the account details above."],
             ["03", "Keep Receipt", "Save the transaction reference number or take a payment screenshot."],
-            ["04", "WhatsApp Us", "Share receipt on WhatsApp (0327 2487127) for confirmation and dispatch."],
+            ["04", "WhatsApp Us", "Share receipt on WhatsApp (0327 2487127) for instant order confirmation."],
           ].map(([num, title, desc]) => (
             <div key={num} className="bg-zinc-950 border border-white/5 rounded-xl p-5 space-y-2">
               <span className="label-mono text-primary font-bold text-sm">{num}</span>

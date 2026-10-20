@@ -3875,7 +3875,7 @@ export const products: Product[] = [
       "https://res.cloudinary.com/okcxaese/image/upload/v1792155853/dp-acid-wash-sukuna--grey--model-front-back.png",
       "https://res.cloudinary.com/okcxaese/image/upload/v1787770382/deez-prints/acid/sukuna-grey-front.jpg",
     ],
-    colors: ["Black", "Grey"],
+    colors: ["Grey"],
     rating: 5,
     aesthetic: "anime-archive",
   },

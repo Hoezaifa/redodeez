@@ -11,6 +11,7 @@ import { breadcrumbSchema } from "@/lib/structuredData";
 import { collectionMeta } from "@/lib/seoMeta";
 
 interface CollectionSlugSearchParams {
+  page?: number;
   sort?: "featured" | "price" | "name";
   dir?: "asc" | "desc";
 }
@@ -18,14 +19,27 @@ interface CollectionSlugSearchParams {
 export const Route = createFileRoute("/collections/$slug")({
   validateSearch: (search: Record<string, unknown>): CollectionSlugSearchParams => {
     return {
+      page: search.page ? Math.max(1, Number(search.page)) : undefined,
       sort: ["featured", "price", "name"].includes(search.sort as string)
         ? (search.sort as any)
         : undefined,
       dir: search.dir === "desc" || search.dir === "asc" ? search.dir : undefined,
     };
   },
-  loaderDeps: ({ search: { sort, dir } }) => ({ sort, dir }),
+  loaderDeps: ({ search: { page, sort, dir } }) => ({ page, sort, dir }),
   loader: async ({ params, deps }) => {
+    // Permanently redirect legacy URLs with ?page= to the unpaginated URL, preserving other filters
+    if (deps.page !== undefined) {
+      throw redirect({
+        to: "/collections/$slug",
+        params: { slug: params.slug },
+        search: {
+          sort: deps.sort,
+          dir: deps.dir,
+        },
+        statusCode: 301,
+      });
+    }
     if (params.slug === "wall-art") {
       throw redirect({
         to: "/collections/$slug",
@@ -268,11 +282,7 @@ function CollectionPage() {
 
       <InfiniteProductGrid
         products={items}
-        batchSize={24}
         isComingSoon={isComingSoonCollection}
-        searchParams={currentSearchParams}
-        paginationBasePath={`/collections/${slug}`}
-        resetKey={`${slug}-${sort}-${priceDir}`}
       />
     </div>
   );

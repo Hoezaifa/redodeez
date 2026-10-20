@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronLeft,
@@ -101,6 +101,26 @@ export function DesktopProductDetail({
     },
     [totalImages]
   );
+
+  // Synchronize displayed image when selectedColor changes if a variant image exists
+  useEffect(() => {
+    if (!selectedColor) return;
+    const colorLower = selectedColor.toLowerCase();
+    const idx = product.images.findIndex((img) => {
+      const lower = img.toLowerCase();
+      return (
+        lower.includes(`--${colorLower}--`) ||
+        lower.includes(`-${colorLower}-`) ||
+        lower.includes(`_${colorLower}_`) ||
+        lower.includes(`-${colorLower}.`) ||
+        lower.includes(`_${colorLower}.`) ||
+        lower.includes(`/${colorLower}/`)
+      );
+    });
+    if (idx !== -1) {
+      setCarouselIdx(idx);
+    }
+  }, [selectedColor, product.images]);
 
   const handlePrev = useCallback(() => {
     if (!hasMultipleImages) return;
@@ -315,7 +335,7 @@ export function DesktopProductDetail({
             <div className="text-xs">
               <span className="font-bold text-amber-400 uppercase tracking-wide label-mono">Karachi Delivery Only: </span>
               <span className="text-zinc-300">
-                Fragile ceramic item. Safely dispatched via direct rider exclusively within Karachi (2–4 days). Nationwide courier shipping is not available for drinkware.
+                Fragile ceramic item. Safely dispatched via direct rider exclusively within Karachi (delivered around day 3 after confirmation). Nationwide courier shipping is not available for drinkware.
               </span>
             </div>
           </div>
@@ -577,14 +597,18 @@ export function DesktopProductDetail({
                     ⚠️ Karachi Delivery Exclusively
                   </p>
                   <p>
-                    Due to the fragile nature of high-gloss ceramic, all mugs are hand-packaged with bubble wrap and dispatched exclusively via direct rider within Karachi (2–4 working days) to guarantee zero damage. Mugs cannot be dispatched via nationwide courier services.
+                    Due to the fragile nature of high-gloss ceramic, all mugs are hand-packaged with bubble wrap and dispatched exclusively via direct rider within Karachi (orders usually prepared within 2 days and delivered around day 3 after confirmation) to guarantee zero damage. Mugs cannot be dispatched via nationwide courier services.
                   </p>
                 </div>
               ) : (
-                <p>
-                  Standard delivery time is 3-5 working days across Pakistan, and 2-4 working days for
-                  Karachi. You will receive an instant order notification &amp; confirmation update.
-                </p>
+                <div className="space-y-1.5 text-sm leading-relaxed text-muted-foreground">
+                  <p>
+                    <strong className="text-foreground">Karachi:</strong> Orders are usually prepared within 2 days and delivered around day 3 after confirmation.
+                  </p>
+                  <p>
+                    <strong className="text-foreground">Outside Karachi:</strong> Preparation usually takes 2–3 days. Courier delivery then typically takes around 3–4 additional days, but can take longer depending on the courier and destination.
+                  </p>
+                </div>
               )}
             </AccordionItem>
             <AccordionItem title="7-Day Exchange Policy">

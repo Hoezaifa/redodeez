@@ -29,13 +29,13 @@ const trustSignals = [
   {
     icon: Truck,
     title: "Fast Nationwide Shipping",
-    desc: "Delivered in 3–5 working days across 250+ cities in Pakistan.",
-    badge: "TCS & Leopards Tracked",
+    desc: "Karachi: delivered around day 3. Outside Karachi: 2–3 days prep + typically 3–4 days courier transit.",
+    badge: "Tracked Couriers",
   },
   {
     icon: ShieldCheck,
     title: "Secure Direct Payments",
-    desc: "Encrypted bank & instant mobile wallet transfers with payment verification.",
+    desc: "Easypaisa, Meezan Bank IBFT, and Cash on Delivery (Karachi only) with instant receipt confirmation.",
     badge: "100% Protected",
   },
   {
@@ -64,21 +64,21 @@ const trustSignals = [
   },
 ];
 
-const stats = [
-  { value: "10,000+", label: "Orders Delivered", sub: "Across Pakistan", icon: Package },
-  { value: "5,000+", label: "Happy Customers", sub: "Delivered Nationwide", icon: CheckCircle2 },
-  { value: "6+ Years", label: "Printing Expertise", sub: "Est. Karachi Studio", icon: Award },
-  { value: "100%", label: "Quality Guaranteed", sub: "7-Day Exchange", icon: CheckCircle2 },
+const factualHighlights = [
+  { value: "Karachi Studio", label: "Local Production", sub: "Designed & Printed in Pakistan", icon: MapPin },
+  { value: "Made to Order", label: "Zero Deadstock", sub: "Printed Specifically for You", icon: Scissors },
+  { value: "Hand Inspected", label: "Quality Check", sub: "Pre-Dispatch Inspection", icon: Award },
+  { value: "7-Day Exchange", label: "Defect Protection", sub: "Defective or Wrong Item", icon: ShieldCheck },
 ];
 
 const faqs = [
   {
     q: "What payment methods are supported?",
-    a: "We support direct transfers via Meezan Bank, Easypaisa, and JazzCash, plus Cash on Delivery (Karachi only). For customers outside Karachi, advance payment is required to confirm your order. After transferring, simply share your receipt screenshot via WhatsApp (0327 2487127) for confirmation.",
+    a: "We support direct transfers via Easypaisa and Meezan Bank, plus Cash on Delivery (Karachi only). For customers outside Karachi, advance payment is required to confirm your order. After transferring, simply share your receipt screenshot via WhatsApp (0327 2487127) for confirmation.",
   },
   {
     q: "How long does delivery take?",
-    a: "Standard nationwide delivery takes 3 to 5 working days across Pakistan via TCS, Leopards, and M&P. Orders placed before 1 PM are processed the same day.",
+    a: "Karachi: Orders are usually prepared within 2 days and delivered around day 3 after confirmation. Outside Karachi: Preparation usually takes 2–3 days. Courier delivery then typically takes around 3–4 additional days, but can take longer depending on the courier and destination. Preparation happens before courier transit, and these are estimates rather than guaranteed arrival dates.",
   },
   {
     q: "What is your exchange policy?",
@@ -149,18 +149,18 @@ export function TrustSection() {
           })}
         </div>
 
-        {/* 2. Brand Credibility Stats Banner */}
+        {/* 2. Brand Quality & Workshop Highlights Banner */}
         <Reveal>
           <div className="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-white/10 rounded-2xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-white/10">
-              {stats.map((st, idx) => {
+              {factualHighlights.map((st, idx) => {
                 const Icon = st.icon;
                 return (
                   <div key={st.label} className={`pt-6 lg:pt-0 ${idx !== 0 ? "lg:pl-8" : ""}`}>
                     <div className="inline-flex p-2.5 rounded-xl bg-primary/10 text-primary mb-3">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <p className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono">
+                    <p className="text-xl sm:text-2xl font-extrabold text-white tracking-tight uppercase">
                       {st.value}
                     </p>
                     <p className="text-xs font-bold uppercase tracking-wider text-zinc-300 mt-1">
@@ -175,16 +175,16 @@ export function TrustSection() {
         </Reveal>
 
 
-        {/* 4. Supported Payment Methods (Meezan, Easypaisa, JazzCash) */}
+        {/* 4. Supported Payment Methods (Meezan, Easypaisa, COD) */}
         <Reveal>
           <div className="bg-zinc-950 border border-white/10 rounded-2xl p-8 text-center space-y-6">
             <div className="max-w-xl mx-auto space-y-2">
               <p className="label-mono text-primary">Direct & Transparent</p>
               <h3 className="text-xl font-bold uppercase text-white tracking-wide">
-                Supported Payment Gateways
+                Supported Payment Methods
               </h3>
               <p className="text-xs text-zinc-400">
-                Pay securely via direct bank transfer or your preferred mobile wallet. Every transaction is verified with instant reference matching.
+                Authoritative checkout options: Easypaisa, direct Meezan Bank transfer, and Cash on Delivery (strictly Karachi only).
               </p>
             </div>
 
@@ -196,7 +196,7 @@ export function TrustSection() {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-white">Meezan Bank</p>
-                  <p className="text-[11px] text-zinc-500">Direct IBAN & App</p>
+                  <p className="text-[11px] text-zinc-500">Direct IBAN &amp; App</p>
                 </div>
               </div>
 
@@ -211,14 +211,14 @@ export function TrustSection() {
                 </div>
               </div>
 
-              {/* JazzCash */}
-              <div className="bg-zinc-900/80 border border-white/10 rounded-xl p-4 flex items-center gap-3.5 text-left hover:border-red-500/50 transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center shrink-0">
-                  <Wallet className="w-5 h-5" />
+              {/* Cash on Delivery (Karachi Only) */}
+              <div className="bg-zinc-900/80 border border-white/10 rounded-xl p-4 flex items-center gap-3.5 text-left hover:border-amber-500/50 transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                  <Truck className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-white">JazzCash</p>
-                  <p className="text-[11px] text-zinc-500">Instant Wallet</p>
+                  <p className="text-sm font-bold text-white">Cash on Delivery</p>
+                  <p className="text-[11px] text-amber-400 font-mono font-medium">Karachi Only</p>
                 </div>
               </div>
             </div>

@@ -228,19 +228,61 @@ function ProductPage() {
     ? [...DROP_SHOULDER_SIZES]
     : [...REGULAR_TEE_SIZES];
 
-  // Colors are always the full category list — images are just showcases,
-  // customers can pick any color available in the category
-  const availableColors: string[] =
-    isTapestry || product.category === "accessories" || product.subcategory === "mugs"
-    ? []
-    : isAcidWash
+  // Available colors: respect actual product inventory/variant data if present;
+  // fallback to category defaults if product.colors is empty
+  const defaultCategoryColors = isAcidWash
     ? [...ACID_WASH_COLORS]
     : isDropShoulder
     ? [...DROP_SHOULDER_COLORS]
     : [...REGULAR_TEE_COLORS];
 
+  const availableColors: string[] =
+    isTapestry || product.category === "accessories" || product.subcategory === "mugs"
+      ? []
+      : product.colors && product.colors.length > 0
+      ? product.colors
+      : defaultCategoryColors;
+
+  // Smart initial color selection: align edition in title, primary image, or available inventory
+  const initialColor = (() => {
+    if (!availableColors.length) return "";
+
+    const titleLower = product.title.toLowerCase();
+    for (const c of availableColors) {
+      const cl = c.toLowerCase();
+      if (
+        titleLower.includes(`${cl} edition`) ||
+        titleLower.includes(`mineral ${cl}`) ||
+        titleLower.includes(`vintage ${cl}`)
+      ) {
+        return c;
+      }
+    }
+
+    const firstImg = (product.images[0] || "").toLowerCase();
+    for (const c of availableColors) {
+      const cl = c.toLowerCase();
+      if (
+        firstImg.includes(`--${cl}--`) ||
+        firstImg.includes(`-${cl}-`) ||
+        firstImg.includes(`_${cl}_`) ||
+        firstImg.includes(`-${cl}.`) ||
+        firstImg.includes(`_${cl}.`) ||
+        firstImg.includes(`/${cl}/`)
+      ) {
+        return c;
+      }
+    }
+
+    if (product.colors && product.colors[0] && availableColors.includes(product.colors[0])) {
+      return product.colors[0];
+    }
+
+    return availableColors[0];
+  })();
+
   const [size, setSize] = useState<string>(isTapestry ? (product.sizes?.[0] || 'Small (50 x 30)') : "");
-  const [selectedColor, setSelectedColor] = useState<string>(availableColors[0] || "");
+  const [selectedColor, setSelectedColor] = useState<string>(initialColor);
   const [qty, setQty] = useState(1);
   const [active, setActive] = useState(0);
   const [err, setErr] = useState(false);
