@@ -212,10 +212,27 @@ export default async function handler(
   }
 
   try {
-    let body: any = {};
-    let bodyStr = "";
-    for await (const chunk of req) bodyStr += chunk;
-    if (bodyStr) body = JSON.parse(bodyStr);
+    let body: any = req.body;
+    if (!body || typeof body !== "object" || Object.keys(body).length === 0) {
+      if (typeof req.body === "string" && req.body.trim()) {
+        try {
+          body = JSON.parse(req.body);
+        } catch {
+          body = {};
+        }
+      } else {
+        let bodyStr = "";
+        for await (const chunk of req) bodyStr += chunk;
+        if (bodyStr.trim()) {
+          try {
+            body = JSON.parse(bodyStr);
+          } catch {
+            body = {};
+          }
+        }
+      }
+    }
+    if (!body || typeof body !== "object") body = {};
 
     const { name, email, subject, message, phone } = body;
 

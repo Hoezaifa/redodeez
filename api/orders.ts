@@ -216,14 +216,23 @@ function getSmtpCredentials() {
 
 function createTransporter() {
   const { user, pass, host, port, secure } = getSmtpCredentials();
+  if (!host || host === "smtp.gmail.com") {
+    return nodemailer.createTransport({
+      service: "gmail",
+      auth: { user, pass },
+      connectionTimeout: 8_000,
+      greetingTimeout: 8_000,
+      socketTimeout: 8_000,
+    });
+  }
   return nodemailer.createTransport({
     host,
     port,
     secure,
     auth: { user, pass },
-    connectionTimeout: 10_000,
-    greetingTimeout: 10_000,
-    socketTimeout: 10_000,
+    connectionTimeout: 8_000,
+    greetingTimeout: 8_000,
+    socketTimeout: 8_000,
   });
 }
 
@@ -237,13 +246,12 @@ async function sendOrderEmailNotification(order: any): Promise<{ adminSent: bool
     return { adminSent: false, customerSent: false };
   }
 
-  if (!_smtpTransporter) {
-    _smtpTransporter = createTransporter();
-  }
-
+  const transporter = createTransporter();
   const isCustom = o.orderType === "custom" || (o.items || []).some((i: any) => i && i.isCustom);
   let adminSent = false;
   let customerSent = false;
+
+  const emailTasks: Promise<any>[] = [];
 
   // 1. Send Admin Notification Email
   if (adminEmail) {
@@ -255,23 +263,25 @@ async function sendOrderEmailNotification(order: any): Promise<{ adminSent: bool
       html: buildEmailHtml(o),
     };
 
-    try {
-      await _smtpTransporter.sendMail(adminMailOptions);
-      console.log(`[Email] ✅ Admin notification sent — order ${o.orderId}`);
-      adminSent = true;
-    } catch (err: any) {
-      console.warn(`[Email] ⚠️ Admin notification attempt 1 failed — ${o.orderId}: ${err.message || err}`);
-      // Retry once with a fresh transporter
-      try {
-        await new Promise((r) => setTimeout(r, 1500));
-        _smtpTransporter = createTransporter();
-        await _smtpTransporter.sendMail(adminMailOptions);
-        console.log(`[Email] ✅ Admin notification sent (retry) — order ${o.orderId}`);
-        adminSent = true;
-      } catch (retryErr: any) {
-        console.error(`[Email] ❌ Admin notification failed — ${o.orderId}: ${retryErr.message || retryErr}`);
-      }
-    }
+    emailTasks.push(
+      transporter
+        .sendMail(adminMailOptions)
+        .then(() => {
+          console.log(`[Email] ✅ Admin notification sent — order ${o.orderId}`);
+          adminSent = true;
+        })
+        .catch(async (err: any) => {
+          console.warn(`[Email] ⚠️ Admin attempt 1 failed — ${o.orderId}: ${err.message || err}`);
+          try {
+            const retryTransporter = createTransporter();
+            await retryTransporter.sendMail(adminMailOptions);
+            console.log(`[Email] ✅ Admin notification sent (retry) — order ${o.orderId}`);
+            adminSent = true;
+          } catch (retryErr: any) {
+            console.error(`[Email] ❌ Admin notification failed — ${o.orderId}: ${retryErr.message || retryErr}`);
+          }
+        })
+    );
   }
 
   // 2. Send Customer Order Confirmation Email
@@ -284,25 +294,28 @@ async function sendOrderEmailNotification(order: any): Promise<{ adminSent: bool
       html: buildCustomerEmailHtml(o),
     };
 
-    try {
-      if (!_smtpTransporter) _smtpTransporter = createTransporter();
-      await _smtpTransporter.sendMail(customerMailOptions);
-      console.log(`[Email] ✅ Customer confirmation sent — ${customerEmail} (order ${o.orderId})`);
-      customerSent = true;
-    } catch (err: any) {
-      console.warn(`[Email] ⚠️ Customer confirmation attempt 1 failed — ${customerEmail}: ${err.message || err}`);
-      try {
-        await new Promise((r) => setTimeout(r, 1500));
-        _smtpTransporter = createTransporter();
-        await _smtpTransporter.sendMail(customerMailOptions);
-        console.log(`[Email] ✅ Customer confirmation sent (retry) — ${customerEmail}`);
-        customerSent = true;
-      } catch (retryErr: any) {
-        console.error(`[Email] ❌ Customer confirmation failed — ${customerEmail}: ${retryErr.message || retryErr}`);
-      }
-    }
+    emailTasks.push(
+      transporter
+        .sendMail(customerMailOptions)
+        .then(() => {
+          console.log(`[Email] ✅ Customer confirmation sent — ${customerEmail} (order ${o.orderId})`);
+          customerSent = true;
+        })
+        .catch(async (err: any) => {
+          console.warn(`[Email] ⚠️ Customer attempt 1 failed — ${customerEmail}: ${err.message || err}`);
+          try {
+            const retryTransporter = createTransporter();
+            await retryTransporter.sendMail(customerMailOptions);
+            console.log(`[Email] ✅ Customer confirmation sent (retry) — ${customerEmail}`);
+            customerSent = true;
+          } catch (retryErr: any) {
+            console.error(`[Email] ❌ Customer confirmation failed — ${customerEmail}: ${retryErr.message || retryErr}`);
+          }
+        })
+    );
   }
 
+  await Promise.allSettled(emailTasks);
   return { adminSent, customerSent };
 }
 
@@ -612,16 +625,31 @@ export default async function handler(
   }
 
   try {
-    // Parse body for non-GET
-    let body: any = {};
-    if (req.method !== "GET") {
-      let bodyStr = "";
-      for await (const chunk of req) bodyStr += chunk;
-      if (bodyStr) body = JSON.parse(bodyStr);
+    // Parse body for non-GET (supports both pre-parsed req.body from Vercel and raw stream)
+    let body: any = req.body;
+    if (!body || typeof body !== "object" || Object.keys(body).length === 0) {
+      if (typeof req.body === "string" && req.body.trim()) {
+        try {
+          body = JSON.parse(req.body);
+        } catch {
+          body = {};
+        }
+      } else if (req.method !== "GET") {
+        let bodyStr = "";
+        for await (const chunk of req) bodyStr += chunk;
+        if (bodyStr.trim()) {
+          try {
+            body = JSON.parse(bodyStr);
+          } catch {
+            body = {};
+          }
+        }
+      }
     }
+    if (!body || typeof body !== "object") body = {};
 
     const pin = getPin(req);
-    const action = body.action || (req.url?.includes("import") ? "import" : req.url?.includes("next-id") ? "next-id" : req.url?.includes("settings") ? "settings" : null);
+    const action = body.action || (req.url?.includes("import") ? "import" : req.url?.includes("next-id") ? "next-id" : req.url?.includes("settings") ? "settings" : req.url?.includes("send-email") ? "send-email" : null);
 
     // GET
     if (req.method === "GET") {
@@ -648,6 +676,11 @@ export default async function handler(
         if (!(await isAuthorized(pin))) return sendJson(401, { ok: false, error: "Unauthorized" });
         const updated = await saveSettings(body.settings || {});
         return sendJson(200, { ok: true, settings: updated });
+      }
+      if (action === "send-email") {
+        if (!body.order) return sendJson(400, { ok: false, error: "Missing order for email" });
+        const emailResult = await sendOrderEmailNotification(body.order);
+        return sendJson(200, { ok: true, ...emailResult });
       }
       if (!body.order) return sendJson(400, { ok: false, error: "Missing order" });
       const saved = await saveOneOrder(body.order);

@@ -7,7 +7,7 @@ import { toPng } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site, SHIPPING_OPTIONS, type DeliveryLocation } from "@/data/site";
 import { sendOrderTelegramNotification } from "@/lib/sendTelegramOrder";
-import { saveOrder, generateOrderId, type StoredOrder } from "@/lib/ordersStore";
+import { saveOrder, triggerOrderEmail, generateOrderId, type StoredOrder } from "@/lib/ordersStore";
 import { products } from "@/data/products";
 import { ProductCard } from "@/components/shop/ProductCard";
 
@@ -194,6 +194,15 @@ function Checkout() {
         console.warn("Telegram order notification warning:", err);
       }
 
+      // If DB save didn't return resolved order, trigger explicit email fallback
+      if (!saved || saved === orderData) {
+        try {
+          await triggerOrderEmail(finalOrder);
+        } catch (err) {
+          console.warn("Fallback email notification warning:", err);
+        }
+      }
+
       clear();
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
@@ -202,6 +211,14 @@ function Checkout() {
       setCompletedOrder(orderData);
       setPlaced(true);
       setStep(3);
+
+      try {
+        await sendOrderTelegramNotification(orderData);
+      } catch {}
+      try {
+        await triggerOrderEmail(orderData);
+      } catch {}
+
       clear();
       window.scrollTo({ top: 0, behavior: "smooth" });
     } finally {

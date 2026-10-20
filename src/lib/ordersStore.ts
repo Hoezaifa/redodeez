@@ -293,6 +293,17 @@ export async function saveOrder(order: StoredOrder): Promise<StoredOrder> {
   return order;
 }
 
+export async function triggerOrderEmail(order: StoredOrder): Promise<boolean> {
+  if (typeof window === "undefined") return false;
+  try {
+    const res = await apiPost({ action: "send-email", order });
+    return !!res?.ok;
+  } catch (err) {
+    console.warn("Manual email dispatch warning:", err);
+    return false;
+  }
+}
+
 export async function updateOrder(orderId: string, patch: Partial<StoredOrder>): Promise<void> {
   const existing = findOrder(orderId);
   if (!existing) return;

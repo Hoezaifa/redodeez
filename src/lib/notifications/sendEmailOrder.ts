@@ -74,14 +74,25 @@ function getTransporter(): nodemailer.Transporter {
 
   const { host, port, secure, user, pass } = getSmtpConfig();
 
+  if (!host || host === "smtp.gmail.com") {
+    _transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: { user, pass },
+      connectionTimeout: 8_000,
+      greetingTimeout: 8_000,
+      socketTimeout: 8_000,
+    });
+    return _transporter;
+  }
+
   _transporter = nodemailer.createTransport({
     host,
     port,
     secure,
     auth: { user, pass },
-    connectionTimeout: 10_000,
-    greetingTimeout: 10_000,
-    socketTimeout: 10_000,
+    connectionTimeout: 8_000,
+    greetingTimeout: 8_000,
+    socketTimeout: 8_000,
   });
 
   return _transporter;
