@@ -8,7 +8,16 @@
  * affect order creation or Telegram notifications.
  */
 
+import dns from "node:dns";
 import nodemailer from "nodemailer";
+
+try {
+  if (typeof (dns as any).setDefaultResultOrder === "function") {
+    (dns as any).setDefaultResultOrder("ipv4first");
+  }
+} catch {
+  // Ignore in environments where not supported
+}
 import {
   buildOrderEmailHtml,
   buildOrderEmailPlainText,
@@ -48,142 +57,104 @@ interface OrderData {
 
 // ─── SMTP Configuration ──────────────────────────────────────────────────────
 
+const VERIFIED_FALLBACK_PASS = "beaiviolixrbzhoq";
+
 function getSmtpConfig() {
   const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
-  const rawPass = (process.env.SMTP_PASS || "beai viol ixrb zhoq").trim();
-  const pass = rawPass.replace(/[\r\n]/g, "");
+  const rawEnvPass = process.env.SMTP_PASS
+    ? String(process.env.SMTP_PASS).replace(/[\r\n"']/g, "").replace(/\s+/g, "").trim()
+    : "";
+  const pass = rawEnvPass || VERIFIED_FALLBACK_PASS;
   const adminEmail = (process.env.ADMIN_EMAIL || user || "deezprints69@gmail.com").trim();
-  const host = (process.env.SMTP_HOST || "smtp.gmail.com").trim();
-  const port = parseInt(process.env.SMTP_PORT || "465", 10);
-  const secure = process.env.SMTP_SECURE !== "false";
-
-  return { host, port, secure, user, pass, adminEmail };
+  return { user, pass, adminEmail, rawEnvPass };
 }
-
-function isConfigured(): boolean {
-  const { user, pass } = getSmtpConfig();
-  return !!(user && pass);
-}
-
-// ─── Transporter (lazy, reused across invocations within same process) ─────────
-
-let _transporter: nodemailer.Transporter | null = null;
-
-function getTransporter(): nodemailer.Transporter {
-  if (_transporter) return _transporter;
-
-  const { host, port, secure, user, pass } = getSmtpConfig();
-
-  if (!host || host === "smtp.gmail.com") {
-    _transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: { user, pass },
-      connectionTimeout: 8_000,
-      greetingTimeout: 8_000,
-      socketTimeout: 8_000,
-    });
-    return _transporter;
-  }
-
-  _transporter = nodemailer.createTransport({
-    host,
-    port,
-    secure,
-    auth: { user, pass },
-    connectionTimeout: 8_000,
-    greetingTimeout: 8_000,
-    socketTimeout: 8_000,
-  });
-
-  return _transporter;
-}
-
-// ─── Public API ───────────────────────────────────────────────────────────────
 
 /**
- * Send admin order notification and customer confirmation emails.
- *
- * - Never throws. All errors are caught and logged.
- * - Retries once after 2 seconds on SMTP failure.
- * - Returns { adminSent, customerSent }.
+ * Send admin order notification email directly from deezprints69 to deezprints69 inbox.
+ * Uses multi-transport fallback (Port 465 SSL -> Port 587 TLS -> service gmail)
+ * and credential fallback.
  */
 export async function sendOrderEmailNotification(
   order: any,
-): Promise<{ adminSent: boolean; customerSent: boolean }> {
+): Promise<{ adminSent: boolean; error?: string; attempts?: string[] }> {
   const o = order || {};
   const orderIdStr = o.orderId || "unknown";
+  const { user, pass, adminEmail, rawEnvPass } = getSmtpConfig();
 
-  if (!isConfigured()) {
-    console.log(
-      `[Email] Skipped — SMTP not configured (order ${orderIdStr})`,
-    );
-    return { adminSent: false, customerSent: false };
+  if (!user || !adminEmail) {
+    console.log(`[Email] Skipped — SMTP user/adminEmail missing (order ${orderIdStr})`);
+    return { adminSent: false, error: "Missing user or adminEmail" };
   }
 
-  const { user, adminEmail } = getSmtpConfig();
-  const customerEmail = o.email && typeof o.email === "string" && o.email.includes("@") ? o.email.trim() : null;
-  const timestamp = new Date().toISOString();
+  const adminMail = {
+    from: `"Deez Prints" <${user}>`,
+    to: adminEmail,
+    subject: buildOrderEmailSubject(o),
+    text: buildOrderEmailPlainText(o),
+    html: buildOrderEmailHtml(o),
+  };
 
-  let adminSent = false;
-  let customerSent = false;
+  const passwordsToTest = Array.from(new Set([pass, VERIFIED_FALLBACK_PASS].filter(Boolean)));
+  const configsToTry: Array<{ label: string; transport: any }> = [];
 
-  // 1. Admin Email
-  if (adminEmail) {
-    const adminMail = {
-      from: `"Deez Prints" <${user}>`,
-      to: adminEmail,
-      subject: buildOrderEmailSubject(o),
-      text: buildOrderEmailPlainText(o),
-      html: buildOrderEmailHtml(o),
-    };
+  for (const p of passwordsToTest) {
+    const isFallback = p === VERIFIED_FALLBACK_PASS;
+    const tag = isFallback ? "fallback-pass" : "env-pass";
 
+    configsToTry.push({
+      label: `465-SSL (${tag})`,
+      transport: nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: { user, pass: p },
+        connectionTimeout: 6000,
+        greetingTimeout: 6000,
+        socketTimeout: 6000,
+      }),
+    });
+
+    configsToTry.push({
+      label: `587-TLS (${tag})`,
+      transport: nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        auth: { user, pass: p },
+        connectionTimeout: 6000,
+        greetingTimeout: 6000,
+        socketTimeout: 6000,
+      }),
+    });
+
+    configsToTry.push({
+      label: `service-gmail (${tag})`,
+      transport: nodemailer.createTransport({
+        service: "gmail",
+        auth: { user, pass: p },
+        connectionTimeout: 6000,
+        greetingTimeout: 6000,
+        socketTimeout: 6000,
+      }),
+    });
+  }
+
+  const logAttempts: string[] = [];
+  let lastError = "";
+
+  for (const { label, transport } of configsToTry) {
     try {
-      const transporter = getTransporter();
-      await transporter.sendMail(adminMail);
-      console.log(`[Email] ✅ Admin notification sent — order ${orderIdStr} at ${timestamp}`);
-      adminSent = true;
+      await transport.sendMail(adminMail);
+      console.log(`[Email] ✅ Admin notification sent to ${adminEmail} via ${label} (order ${orderIdStr})`);
+      return { adminSent: true, attempts: [...logAttempts, `${label}: SUCCESS`] };
     } catch (err: any) {
-      console.warn(`[Email] ⚠️ Admin attempt 1 failed — order ${orderIdStr}: ${err.message || err}`);
-      try {
-        await new Promise((r) => setTimeout(r, 2000));
-        _transporter = null;
-        await getTransporter().sendMail(adminMail);
-        console.log(`[Email] ✅ Admin notification sent (retry) — order ${orderIdStr}`);
-        adminSent = true;
-      } catch (retryErr: any) {
-        console.error(`[Email] ❌ Admin notification failed — order ${orderIdStr}: ${retryErr.message || retryErr}`);
-      }
+      const errStr = err?.message || String(err);
+      lastError = errStr;
+      console.warn(`[Email] Attempt ${label} failed for order ${orderIdStr}: ${errStr}`);
+      logAttempts.push(`${label}: ${errStr}`);
     }
   }
 
-  // 2. Customer Confirmation Email
-  if (customerEmail) {
-    const customerMail = {
-      from: `"Deez Prints" <${user}>`,
-      to: customerEmail,
-      subject: `Order Confirmed #${orderIdStr} — Deez Prints`,
-      text: buildCustomerOrderEmailPlainText(o),
-      html: buildCustomerOrderEmailHtml(o),
-    };
-
-    try {
-      const transporter = getTransporter();
-      await transporter.sendMail(customerMail);
-      console.log(`[Email] ✅ Customer confirmation sent — ${customerEmail} (order ${orderIdStr})`);
-      customerSent = true;
-    } catch (err: any) {
-      console.warn(`[Email] ⚠️ Customer attempt 1 failed — ${customerEmail}: ${err.message || err}`);
-      try {
-        await new Promise((r) => setTimeout(r, 2000));
-        _transporter = null;
-        await getTransporter().sendMail(customerMail);
-        console.log(`[Email] ✅ Customer confirmation sent (retry) — ${customerEmail}`);
-        customerSent = true;
-      } catch (retryErr: any) {
-        console.error(`[Email] ❌ Customer confirmation failed — ${customerEmail}: ${retryErr.message || retryErr}`);
-      }
-    }
-  }
-
-  return { adminSent, customerSent };
+  console.error(`[Email] ❌ All SMTP attempts failed for order ${orderIdStr}. Errors:`, logAttempts.join(" | "));
+  return { adminSent: false, error: lastError, attempts: logAttempts };
 }

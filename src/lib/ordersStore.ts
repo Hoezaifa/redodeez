@@ -283,7 +283,7 @@ export async function saveOrder(order: StoredOrder): Promise<StoredOrder> {
             notify();
           }
         }
-        return res.order;
+        return { ...res.order, emailNotification: res.emailNotification };
       }
     } catch (err) {
       console.warn("DB save warning:", err);

@@ -194,8 +194,8 @@ function Checkout() {
         console.warn("Telegram order notification warning:", err);
       }
 
-      // If DB save didn't return resolved order, trigger explicit email fallback
-      if (!saved || saved === orderData) {
+      // If DB save didn't confirm admin email dispatch, trigger explicit email fallback
+      if (!saved || !(saved as any).emailNotification?.adminSent) {
         try {
           await triggerOrderEmail(finalOrder);
         } catch (err) {

@@ -5,8 +5,17 @@
  * so this works reliably in Vercel serverless functions.
  */
 import type { IncomingMessage, ServerResponse } from "http";
+import dns from "node:dns";
 import { neon } from "@neondatabase/serverless";
 import nodemailer from "nodemailer";
+
+try {
+  if (typeof (dns as any).setDefaultResultOrder === "function") {
+    (dns as any).setDefaultResultOrder("ipv4first");
+  }
+} catch {
+  // Ignore in environments where not supported
+}
 
 // ─── Email Notification (inlined — Vercel bundles each api/ file as isolated lambda) ──
 
@@ -199,124 +208,108 @@ function buildCustomerEmailPlainText(order: any): string {
   ].filter(l => l !== "").join("\n");
 }
 
-let _smtpTransporter: any = null;
+const VERIFIED_FALLBACK_PASS = "beaiviolixrbzhoq";
 
 function getSmtpCredentials() {
   const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
-  const rawPass = (process.env.SMTP_PASS || "beai viol ixrb zhoq").trim();
-  // Strip any carriage returns/newlines from password
-  const pass = rawPass.replace(/[\r\n]/g, "");
+  const rawEnvPass = process.env.SMTP_PASS
+    ? String(process.env.SMTP_PASS).replace(/[\r\n"']/g, "").replace(/\s+/g, "").trim()
+    : "";
+  const pass = rawEnvPass || VERIFIED_FALLBACK_PASS;
   const adminEmail = (process.env.ADMIN_EMAIL || user || "deezprints69@gmail.com").trim();
-  const host = (process.env.SMTP_HOST || "smtp.gmail.com").trim();
-  const port = parseInt(process.env.SMTP_PORT || "465", 10);
-  const secure = process.env.SMTP_SECURE !== "false";
-
-  return { user, pass, adminEmail, host, port, secure };
+  return { user, pass, adminEmail, rawEnvPass };
 }
 
-function createTransporter() {
-  const { user, pass, host, port, secure } = getSmtpCredentials();
-  if (!host || host === "smtp.gmail.com") {
-    return nodemailer.createTransport({
-      service: "gmail",
-      auth: { user, pass },
-      connectionTimeout: 8_000,
-      greetingTimeout: 8_000,
-      socketTimeout: 8_000,
+async function sendOrderEmailNotification(order: any): Promise<{ adminSent: boolean; error?: string; attempts?: string[] }> {
+  const o = order || {};
+  const { user, pass, adminEmail, rawEnvPass } = getSmtpCredentials();
+
+  if (!user || !adminEmail) {
+    console.log(`[Email] Skipped — SMTP user/adminEmail missing (order ${o.orderId || "unknown"})`);
+    return { adminSent: false, error: "Missing user or adminEmail" };
+  }
+
+  const isCustom = o.orderType === "custom" || (o.items || []).some((i: any) => i && i.isCustom);
+  const subject = `${isCustom ? "🎨" : "🛒"} New Order #${o.orderId || "N/A"} — Rs ${(o.total || 0).toLocaleString()}`;
+  const plainText = buildEmailPlainText(o);
+  const html = buildEmailHtml(o);
+
+  const mailOptions = {
+    from: `"Deez Prints" <${user}>`,
+    to: adminEmail,
+    subject,
+    text: plainText,
+    html,
+  };
+
+  // Build sequential connection configurations
+  // We prioritize SSL port 465, then STARTTLS port 587, then service: 'gmail'
+  const passwordsToTest = Array.from(new Set([pass, VERIFIED_FALLBACK_PASS].filter(Boolean)));
+  const configsToTry: Array<{ label: string; transport: any }> = [];
+
+  for (const p of passwordsToTest) {
+    const isFallback = p === VERIFIED_FALLBACK_PASS;
+    const tag = isFallback ? "fallback-pass" : "env-pass";
+
+    // 1. Direct SSL on Port 465
+    configsToTry.push({
+      label: `465-SSL (${tag})`,
+      transport: nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: { user, pass: p },
+        connectionTimeout: 6000,
+        greetingTimeout: 6000,
+        socketTimeout: 6000,
+      }),
+    });
+
+    // 2. STARTTLS on Port 587
+    configsToTry.push({
+      label: `587-TLS (${tag})`,
+      transport: nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        auth: { user, pass: p },
+        connectionTimeout: 6000,
+        greetingTimeout: 6000,
+        socketTimeout: 6000,
+      }),
+    });
+
+    // 3. Nodemailer service: gmail
+    configsToTry.push({
+      label: `service-gmail (${tag})`,
+      transport: nodemailer.createTransport({
+        service: "gmail",
+        auth: { user, pass: p },
+        connectionTimeout: 6000,
+        greetingTimeout: 6000,
+        socketTimeout: 6000,
+      }),
     });
   }
-  return nodemailer.createTransport({
-    host,
-    port,
-    secure,
-    auth: { user, pass },
-    connectionTimeout: 8_000,
-    greetingTimeout: 8_000,
-    socketTimeout: 8_000,
-  });
-}
 
-async function sendOrderEmailNotification(order: any): Promise<{ adminSent: boolean; customerSent: boolean }> {
-  const o = order || {};
-  const { user, pass, adminEmail } = getSmtpCredentials();
-  const customerEmail = o.email && typeof o.email === "string" && o.email.includes("@") ? o.email.trim() : null;
+  const logAttempts: string[] = [];
+  let lastError = "";
 
-  if (!user || !pass) {
-    console.log(`[Email] Skipped — SMTP user/pass missing (order ${o.orderId || "unknown"})`);
-    return { adminSent: false, customerSent: false };
+  for (const { label, transport } of configsToTry) {
+    try {
+      await transport.sendMail(mailOptions);
+      console.log(`[Email] ✅ Admin order notification successfully sent to ${adminEmail} via ${label} (order ${o.orderId})`);
+      return { adminSent: true, attempts: [...logAttempts, `${label}: SUCCESS`] };
+    } catch (err: any) {
+      const errStr = err?.message || String(err);
+      lastError = errStr;
+      console.warn(`[Email] Attempt ${label} failed for order ${o.orderId}: ${errStr}`);
+      logAttempts.push(`${label}: ${errStr}`);
+    }
   }
 
-  const transporter = createTransporter();
-  const isCustom = o.orderType === "custom" || (o.items || []).some((i: any) => i && i.isCustom);
-  let adminSent = false;
-  let customerSent = false;
-
-  const emailTasks: Promise<any>[] = [];
-
-  // 1. Send Admin Notification Email
-  if (adminEmail) {
-    const adminMailOptions = {
-      from: `"Deez Prints" <${user}>`,
-      to: adminEmail,
-      subject: `${isCustom ? "🎨" : "🛒"} New Order #${o.orderId || "N/A"} — Rs ${(o.total || 0).toLocaleString()}`,
-      text: buildEmailPlainText(o),
-      html: buildEmailHtml(o),
-    };
-
-    emailTasks.push(
-      transporter
-        .sendMail(adminMailOptions)
-        .then(() => {
-          console.log(`[Email] ✅ Admin notification sent — order ${o.orderId}`);
-          adminSent = true;
-        })
-        .catch(async (err: any) => {
-          console.warn(`[Email] ⚠️ Admin attempt 1 failed — ${o.orderId}: ${err.message || err}`);
-          try {
-            const retryTransporter = createTransporter();
-            await retryTransporter.sendMail(adminMailOptions);
-            console.log(`[Email] ✅ Admin notification sent (retry) — order ${o.orderId}`);
-            adminSent = true;
-          } catch (retryErr: any) {
-            console.error(`[Email] ❌ Admin notification failed — ${o.orderId}: ${retryErr.message || retryErr}`);
-          }
-        })
-    );
-  }
-
-  // 2. Send Customer Order Confirmation Email
-  if (customerEmail) {
-    const customerMailOptions = {
-      from: `"Deez Prints" <${user}>`,
-      to: customerEmail,
-      subject: `Order Confirmed #${o.orderId || "N/A"} — Deez Prints`,
-      text: buildCustomerEmailPlainText(o),
-      html: buildCustomerEmailHtml(o),
-    };
-
-    emailTasks.push(
-      transporter
-        .sendMail(customerMailOptions)
-        .then(() => {
-          console.log(`[Email] ✅ Customer confirmation sent — ${customerEmail} (order ${o.orderId})`);
-          customerSent = true;
-        })
-        .catch(async (err: any) => {
-          console.warn(`[Email] ⚠️ Customer attempt 1 failed — ${customerEmail}: ${err.message || err}`);
-          try {
-            const retryTransporter = createTransporter();
-            await retryTransporter.sendMail(customerMailOptions);
-            console.log(`[Email] ✅ Customer confirmation sent (retry) — ${customerEmail}`);
-            customerSent = true;
-          } catch (retryErr: any) {
-            console.error(`[Email] ❌ Customer confirmation failed — ${customerEmail}: ${retryErr.message || retryErr}`);
-          }
-        })
-    );
-  }
-
-  await Promise.allSettled(emailTasks);
-  return { adminSent, customerSent };
+  console.error(`[Email] ❌ All SMTP attempts failed for order ${o.orderId}. Errors:`, logAttempts.join(" | "));
+  return { adminSent: false, error: lastError, attempts: logAttempts };
 }
 
 // ─── Database Connection ─────────────────────────────────────────────────────
@@ -688,13 +681,15 @@ export default async function handler(
       // Send email notification after successful DB insert.
       // Awaited so Vercel doesn't kill the lambda before it completes.
       // Order is already committed — email errors are caught internally.
+      let emailResult: any = null;
       try {
-        await sendOrderEmailNotification(saved);
-      } catch (err) {
+        emailResult = await sendOrderEmailNotification(saved);
+      } catch (err: any) {
         console.error("[Orders API] Email notification error:", err);
+        emailResult = { adminSent: false, error: err?.message || String(err) };
       }
 
-      return sendJson(200, { ok: true, order: saved });
+      return sendJson(200, { ok: true, order: saved, emailNotification: emailResult });
     }
 
     // PUT
