@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Download, Share2, ArrowLeft, Info, MapPin } from "lucide-react";
+import { Check, Download, Share2, ArrowLeft, Info, MapPin, Tag, X } from "lucide-react";
 import { toPng } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site, SHIPPING_OPTIONS, type DeliveryLocation } from "@/data/site";
@@ -54,10 +54,44 @@ function Checkout() {
 
   const [completedOrder, setCompletedOrder] = useState<StoredOrder | null>(null);
 
+  // Promo Code State
+  const [promoCodeInput, setPromoCodeInput] = useState("");
+  const [appliedPromo, setAppliedPromo] = useState<string | null>(null);
+  const [promoError, setPromoError] = useState<string | null>(null);
+  const [promoSuccess, setPromoSuccess] = useState<string | null>(null);
+
   const shippingOption = SHIPPING_OPTIONS[deliveryLocation];
   const isFreeShipping = subtotal >= site.freeShippingThreshold && deliveryLocation === "karachi";
   const shippingCost = isFreeShipping ? 0 : shippingOption.fee;
-  const total = lines.length ? subtotal + shippingCost : 0;
+
+  // 20% discount on subtotal with code WELCOMEDEEZ
+  const discount = appliedPromo === "WELCOMEDEEZ" ? Math.round(subtotal * 0.2) : 0;
+  const total = lines.length ? Math.max(0, subtotal - discount + shippingCost) : 0;
+
+  const handleApplyPromo = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const cleaned = promoCodeInput.trim().toUpperCase();
+    if (!cleaned) {
+      setPromoError("Please enter a promo code");
+      setPromoSuccess(null);
+      return;
+    }
+    if (cleaned === "WELCOMEDEEZ") {
+      setAppliedPromo("WELCOMEDEEZ");
+      setPromoError(null);
+      setPromoSuccess("20% off applied!");
+    } else {
+      setPromoError("Invalid promo code");
+      setPromoSuccess(null);
+    }
+  };
+
+  const handleRemovePromo = () => {
+    setAppliedPromo(null);
+    setPromoCodeInput("");
+    setPromoError(null);
+    setPromoSuccess(null);
+  };
 
   const hasCustomItems = lines.some((l) => l.isCustom);
   const hasMugInCart = useMemo(
@@ -143,7 +177,13 @@ function Checkout() {
       email: formData.email,
       address: formData.address,
       city: formData.city,
-      notes: formData.notes,
+      notes: formData.notes
+        ? appliedPromo
+          ? `${formData.notes} (Promo: ${appliedPromo} -20%)`
+          : formData.notes
+        : appliedPromo
+        ? `Promo: ${appliedPromo} (-20%)`
+        : undefined,
       paymentMethod: methodTitle,
       items: lines.map((l) => ({
         id: l.id,
@@ -160,7 +200,7 @@ function Checkout() {
       })),
       subtotal,
       shipping: shippingCost,
-      discount: 0,
+      discount,
       total,
       deliveryLocation: shippingOption.label,
       shippingMethod: shippingOption.method,
@@ -494,6 +534,12 @@ function Checkout() {
                 <span>Subtotal</span>
                 <span className="font-mono font-semibold text-zinc-800">Rs. {completedOrder.subtotal.toLocaleString()}</span>
               </div>
+              {completedOrder.discount > 0 && (
+                <div className="flex justify-between text-emerald-600 font-medium">
+                  <span>Discount (Promo Code)</span>
+                  <span className="font-mono font-semibold text-emerald-600">-Rs. {completedOrder.discount.toLocaleString()}</span>
+                </div>
+              )}
               <div className="flex justify-between text-zinc-600">
                 <span>Shipping — {completedOrder.deliveryLocation || "Standard"} / {completedOrder.shippingMethod || "Courier"}</span>
                 <span className="font-mono font-semibold text-zinc-800">Rs. {completedOrder.shipping.toLocaleString()}</span>
@@ -1118,6 +1164,62 @@ function Checkout() {
               ))}
             </div>
 
+            {/* Promo Code Input */}
+            <div className="pt-4 border-t border-white/10">
+              {appliedPromo ? (
+                <div className="flex items-center justify-between p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <Tag className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="font-mono text-xs font-bold text-emerald-400 tracking-wider">
+                      {appliedPromo}
+                    </span>
+                    <span className="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-1.5 py-0.5 rounded">
+                      20% OFF
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleRemovePromo}
+                    className="text-zinc-400 hover:text-white p-1 rounded transition-colors cursor-pointer"
+                    title="Remove promo code"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleApplyPromo} className="space-y-1.5">
+                  <div className="flex gap-2">
+                    <div className="relative flex-1">
+                      <Tag className="w-3.5 h-3.5 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      <input
+                        type="text"
+                        value={promoCodeInput}
+                        onChange={(e) => {
+                          setPromoCodeInput(e.target.value.toUpperCase());
+                          if (promoError) setPromoError(null);
+                        }}
+                        placeholder="PROMO CODE"
+                        className="w-full pl-8 pr-3 py-2 bg-zinc-800/80 border border-white/10 rounded-xl text-xs text-white uppercase placeholder-zinc-500 font-mono tracking-wider focus:outline-none focus:border-primary transition-colors"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={!promoCodeInput.trim()}
+                      className="px-3.5 py-2 bg-zinc-800 hover:bg-zinc-700 disabled:opacity-50 text-white font-bold text-xs uppercase tracking-wider rounded-xl border border-white/10 transition-colors cursor-pointer disabled:cursor-not-allowed"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                  {promoError && (
+                    <p className="text-[11px] text-red-400 font-medium pl-1">{promoError}</p>
+                  )}
+                  {promoSuccess && (
+                    <p className="text-[11px] text-emerald-400 font-medium pl-1">{promoSuccess}</p>
+                  )}
+                </form>
+              )}
+            </div>
+
             {/* Totals */}
             <div className="space-y-2 pt-4 text-xs">
               <div className="flex justify-between text-zinc-400">
@@ -1126,6 +1228,14 @@ function Checkout() {
                   Rs. {subtotal.toLocaleString()}
                 </span>
               </div>
+              {discount > 0 && (
+                <div className="flex justify-between text-emerald-400 font-medium">
+                  <span>Discount ({appliedPromo} -20%)</span>
+                  <span className="font-mono font-bold">
+                    -Rs. {discount.toLocaleString()}
+                  </span>
+                </div>
+              )}
               <div className="flex justify-between text-zinc-400">
                 <span>Shipping — {shippingLabel}</span>
                 <span className="text-white font-medium">
