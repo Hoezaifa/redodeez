@@ -37,6 +37,7 @@ export function homeMeta(): { title: string; description: string; meta: MetaTag[
     meta: [
       { title },
       { name: "description", content: description },
+      { name: "facebook-domain-verification", content: "k1qf1ew926gw326xxehwtikcr29v6q" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
