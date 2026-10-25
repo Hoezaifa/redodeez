@@ -53,7 +53,7 @@ export function CollectionsStrip() {
     },
     {
       slug: "drop-shoulder",
-      name: "Drop Shoulder",
+      name: "Oversized Drop Shoulder",
       blurb: "Oversized cuts, heavyweight 240 GSM cotton.",
       image: activeImages.current["drop-shoulder"],
       tag: "Featured Drop",
@@ -114,7 +114,7 @@ export function CollectionsStrip() {
                   <span className="label-mono text-[10px] text-primary tracking-widest uppercase">
                     Featured Drop
                   </span>
-                  <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight text-white mt-1">
+                  <h3 className="font-display text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-white mt-1">
                     {c.name}
                   </h3>
                   <p className="label-mono mt-1.5 text-xs text-muted-foreground truncate">
