@@ -39,8 +39,6 @@ function Checkout() {
 
   const [copiedPaymentId, setCopiedPaymentId] = useState<string | null>(null);
   const [cityMode, setCityMode] = useState<"karachi" | "other">("karachi");
-  const [detailsConfirmed, setDetailsConfirmed] = useState(false);
-  const [confirmationError, setConfirmationError] = useState(false);
   const [isSubmittingOrder, setIsSubmittingOrder] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -155,11 +153,6 @@ function Checkout() {
 
   const handlePlaceOrder = async () => {
     if (isSubmittingOrder) return;
-    if (!detailsConfirmed) {
-      setConfirmationError(true);
-      return;
-    }
-    setConfirmationError(false);
     setIsSubmittingOrder(true);
 
     const methodTitle =
@@ -1057,37 +1050,6 @@ function Checkout() {
                   </div>
                 )}
 
-                {/* Confirmation Checkbox & Notice */}
-                <div
-                  className={`space-y-2.5 pt-2 p-3 rounded-xl transition-all ${
-                    confirmationError && !detailsConfirmed
-                      ? "bg-red-500/10 border border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]"
-                      : ""
-                  }`}
-                >
-                  <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">
-                    Please check your size, fit and order details before confirming.
-                  </p>
-                  <label className="flex items-center gap-2.5 cursor-pointer text-xs text-zinc-300 select-none">
-                    <input
-                      type="checkbox"
-                      checked={detailsConfirmed}
-                      onChange={(e) => {
-                        setDetailsConfirmed(e.target.checked);
-                        if (e.target.checked) setConfirmationError(false);
-                      }}
-                      className="rounded border-white/20 bg-zinc-900 text-primary focus:ring-primary w-4 h-4 cursor-pointer accent-orange-500"
-                    />
-                    <span className={confirmationError && !detailsConfirmed ? "text-red-400 font-semibold" : ""}>
-                      I’ve checked my size, fit and order details.
-                    </span>
-                  </label>
-                  {confirmationError && !detailsConfirmed && (
-                    <p className="text-xs text-red-400 font-medium animate-pulse flex items-center gap-1.5 pt-1">
-                      <span>⚠️</span> Please check this box to confirm your order details before placing the order.
-                    </p>
-                  )}
-                </div>
 
                 <div className="flex gap-3 pt-1">
                   <button
