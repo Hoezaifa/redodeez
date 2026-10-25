@@ -121,7 +121,7 @@ function Home() {
       acidWash: allAcid,
       latest: allDrop,
       regularTees: allReg,
-      wallArt: allProducts.filter((p) => ["tapestries", "flags"].includes(p.subcategory)).slice(0, 4),
+      wallArt: allProducts.filter((p) => ["tapestries", "flags"].includes(p.subcategory)),
       accessories: allProducts.filter(
         (p) => (p.category === "accessories" || p.subcategory === "mugs") && p.images.length > 0
       ),
