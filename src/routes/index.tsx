@@ -119,10 +119,8 @@ function Home() {
 
     return {
       acidWash: allAcid,
-      // Drop Shoulder: Sand Beige -> Olive Green -> Clean White -> Black
-      latest: selectDiverseRow(allDrop, ["beige", "green", "white", "black"]),
-      // Regular Tees: Crisp White -> Heavy Black -> Warm Beige -> Grey
-      regularTees: selectDiverseRow(allReg, ["white", "black", "beige", "grey"]),
+      latest: allDrop,
+      regularTees: allReg,
       wallArt: allProducts.filter((p) => ["tapestries", "flags"].includes(p.subcategory)).slice(0, 4),
       accessories: allProducts.filter(
         (p) => (p.category === "accessories" || p.subcategory === "mugs") && p.images.length > 0
