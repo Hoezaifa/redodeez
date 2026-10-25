@@ -118,8 +118,7 @@ function Home() {
     const allReg = allProducts.filter((p) => ["regular", "graphic"].includes(p.subcategory));
 
     return {
-      // Acid Wash: Charcoal Black -> Deep Maroon -> Vintage Grey -> Dark Green/Black
-      acidWash: selectDiverseRow(allAcid, ["black", "maroon", "grey", "black"]),
+      acidWash: allAcid,
       // Drop Shoulder: Sand Beige -> Olive Green -> Clean White -> Black
       latest: selectDiverseRow(allDrop, ["beige", "green", "white", "black"]),
       // Regular Tees: Crisp White -> Heavy Black -> Warm Beige -> Grey
