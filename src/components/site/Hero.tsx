@@ -60,7 +60,7 @@ export function CollectionsStrip() {
     },
     {
       slug: "acid-wash",
-      name: "Acid Wash",
+      name: "Oversized Acid Wash",
       blurb: "Hand-washed vintage texture. No two identical.",
       image: activeImages.current["acid-wash"],
       tag: "Vintage Wash",
