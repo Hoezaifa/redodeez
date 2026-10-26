@@ -16,19 +16,31 @@ import {
 import { Reveal } from "@/components/motion/Reveal";
 import { site, whatsappLink, SITE_URL } from "@/data/site";
 import { GalleryPreview } from "@/components/gallery/GalleryPreview";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { aboutPageSchema } from "@/lib/structuredData";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Deez Prints — A Karachi Print Studio" },
+      {
+        title: "About Deez Prints — Karachi Custom T-Shirt Printing & Streetwear Studio",
+      },
       {
         name: "description",
         content:
-          "Deez Prints is a Karachi-based print studio making premium streetwear and custom prints for people who'd rather wear their own ideas.",
+          "Deez Prints is a Karachi-based print studio and streetwear brand offering custom T-shirt printing, DTF printing, screen printing, custom sublimation sports jerseys, and bulk apparel printing across Pakistan.",
       },
-      { property: "og:title", content: "About Deez Prints" },
-      { property: "og:description", content: "A Karachi print studio for bold, wearable ideas." },
+      {
+        property: "og:title",
+        content: "About Deez Prints — Custom T-Shirt Printing & Streetwear Studio Karachi",
+      },
+      {
+        property: "og:description",
+        content:
+          "Karachi print studio offering custom T-shirt printing, DTF printing, screen printing, custom sublimation sports jerseys, and bulk merchandise across Pakistan.",
+      },
       { property: "og:url", content: `${SITE_URL}/about` },
+      { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Deez Prints" },
     ],
     links: [
@@ -328,9 +340,9 @@ function About() {
             </p>
             <p
               className="text-muted-foreground mb-5"
-              style={{ fontSize: "12px", lineHeight: 1.6, maxWidth: "280px" }}
+              style={{ fontSize: "12px", lineHeight: 1.6, maxWidth: "240px" }}
             >
-              We provide studio-grade printing methods tailored to your project — from single 1-of-1 streetwear pieces starting from just 1 piece to high-volume bulk merchandise runs.
+              We utilize studio-grade printing methods to deliver vibrant, durable, and detailed prints on every piece you order.
             </p>
             <Link
               to="/custom-print"
@@ -342,99 +354,69 @@ function About() {
                 letterSpacing: "0.08em",
               }}
             >
-              EXPLORE CUSTOM PRINTING <ArrowRight className="h-3 w-3" />
+              ORDER CUSTOM PRINTS <ArrowRight className="h-3 w-3" />
             </Link>
           </Reveal>
 
-          {/* Right — Four method cards */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            {/* DTF */}
-            <Reveal delay={0.05}>
-              <div className="group relative overflow-hidden border border-white/[0.08] bg-[#0d0d0d] h-full p-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-[9px] uppercase font-bold text-primary bg-primary/10 border border-primary/20 px-2 py-0.5">
-                      Starts from 1 pc
-                    </span>
-                    <span className="font-mono text-[10px] text-zinc-500">DTF</span>
-                  </div>
-                  <h3
-                    className="text-foreground uppercase"
-                    style={{ ...condensedFont, fontSize: "18px", letterSpacing: "0.04em", marginBottom: "4px" }}
-                  >
-                    CUSTOM DTF PRINTING
-                  </h3>
-                  <p className="text-muted-foreground" style={{ fontSize: "11px", lineHeight: 1.55 }}>
-                    High-detail printing with vibrant color fidelity and durable stretch. Perfect for streetwear graphics on 100% cotton blanks.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Custom Sports Jerseys */}
-            <Reveal delay={0.08}>
-              <div className="group relative overflow-hidden border border-white/[0.08] bg-[#0d0d0d] h-full p-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-[9px] uppercase font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5">
-                      Starts from 1 pc
-                    </span>
-                    <span className="font-mono text-[10px] text-zinc-500">Jerseys</span>
-                  </div>
-                  <h3
-                    className="text-foreground uppercase"
-                    style={{ ...condensedFont, fontSize: "18px", letterSpacing: "0.04em", marginBottom: "4px" }}
-                  >
-                    CUSTOM SPORTS JERSEYS
-                  </h3>
-                  <p className="text-muted-foreground" style={{ fontSize: "11px", lineHeight: 1.55 }}>
-                    Fully customized athletic jerseys with 360° all-over printing, custom player names, squad numbers, and team logos on breathable mesh.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Screen Printing */}
-            <Reveal delay={0.1}>
-              <div className="group relative overflow-hidden border border-white/[0.08] bg-[#0d0d0d] h-full p-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-[9px] uppercase font-bold text-zinc-300 bg-white/5 border border-white/10 px-2 py-0.5">
-                      Bulk Orders
-                    </span>
-                    <span className="font-mono text-[10px] text-zinc-500">Screen</span>
-                  </div>
-                  <h3
-                    className="text-foreground uppercase"
-                    style={{ ...condensedFont, fontSize: "18px", letterSpacing: "0.04em", marginBottom: "4px" }}
-                  >
-                    SCREEN PRINTING
-                  </h3>
-                  <p className="text-muted-foreground" style={{ fontSize: "11px", lineHeight: 1.55 }}>
-                    The gold standard for high-volume apparel printing. Engineered for unmatched longevity, crisp lines, and cost efficiency on large runs.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-
+          {/* Right — Two cards */}
+          <div className="grid gap-5 sm:grid-cols-2">
             {/* Sublimation */}
-            <Reveal delay={0.12}>
-              <div className="group relative overflow-hidden border border-white/[0.08] bg-[#0d0d0d] h-full p-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-[9px] uppercase font-bold text-primary bg-primary/10 border border-primary/20 px-2 py-0.5">
-                      1 pc to Bulk
-                    </span>
-                    <span className="font-mono text-[10px] text-zinc-500">Sublimation</span>
-                  </div>
+            <Reveal delay={0.06}>
+              <div className="group relative overflow-hidden border border-white/[0.08] bg-[#0d0d0d] h-full">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/assets/about/sublimation.png"
+                    alt="Sublimation printing close-up"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div
+                  className="absolute top-3 left-3 bg-primary text-primary-foreground uppercase tracking-[0.12em]"
+                  style={{ fontSize: "9px", fontWeight: 800, padding: "4px 8px" }}
+                >
+                  S
+                </div>
+                <div style={{ padding: "14px 16px" }}>
                   <h3
                     className="text-foreground uppercase"
-                    style={{ ...condensedFont, fontSize: "18px", letterSpacing: "0.04em", marginBottom: "4px" }}
+                    style={{ ...condensedFont, fontSize: "16px", letterSpacing: "0.04em", marginBottom: "6px" }}
                   >
                     SUBLIMATION PRINTING
                   </h3>
                   <p className="text-muted-foreground" style={{ fontSize: "11px", lineHeight: 1.55 }}>
-                    Deep dye-infusion that permanently bonds with fibers. Never cracks or fades; perfect for athletic kits and HD satin tapestries.
+                    Vibrant, all-over prints that become part of the fabric. Perfect for bold designs and
+                    long lasting color that won&apos;t crack or fade.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* DTF */}
+            <Reveal delay={0.1}>
+              <div className="group relative overflow-hidden border border-white/[0.08] bg-[#0d0d0d] h-full">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/assets/about/dtf.png"
+                    alt="DTF printing close-up"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div
+                  className="absolute top-3 left-3 bg-primary text-primary-foreground uppercase tracking-[0.12em]"
+                  style={{ fontSize: "9px", fontWeight: 800, padding: "4px 8px" }}
+                >
+                  DTF
+                </div>
+                <div style={{ padding: "14px 16px" }}>
+                  <h3
+                    className="text-foreground uppercase"
+                    style={{ ...condensedFont, fontSize: "16px", letterSpacing: "0.04em", marginBottom: "6px" }}
+                  >
+                    DTF PRINTING
+                  </h3>
+                  <p className="text-muted-foreground" style={{ fontSize: "11px", lineHeight: 1.55 }}>
+                    High detail printing with strong durability and flexibility. Ideal for any fabric and
+                    built to last through every wash.
                   </p>
                 </div>
               </div>
@@ -442,6 +424,64 @@ function About() {
           </div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          CUSTOM PRINTING & SERVICES — Modest Editorial Subsection
+          ═══════════════════════════════════════════════════════ */}
+      <section
+        className="border-t border-white/[0.08]"
+        style={{ paddingTop: "48px", paddingBottom: "52px", background: "#0a0a0a" }}
+      >
+        <div className="edge">
+          <div className="max-w-3xl">
+            <Reveal>
+              <p
+                className="text-primary uppercase tracking-[0.18em] mb-2"
+                style={{ fontSize: "10px", fontWeight: 700, fontFamily: "var(--font-mono)" }}
+              >
+                STUDIO OVERVIEW
+              </p>
+              <h2
+                className="text-foreground uppercase leading-[0.95]"
+                style={{ ...condensedFont, fontSize: "clamp(1.8rem, 4vw, 2.6rem)", marginBottom: "16px" }}
+              >
+                CUSTOM PRINTING &amp; SERVICES
+              </h2>
+            </Reveal>
+
+            <div className="space-y-4 text-muted-foreground" style={{ fontSize: "13px", lineHeight: 1.75 }}>
+              <p>
+                Based in Karachi, Pakistan, Deez Prints operates as both an apparel store and a dedicated custom printing service provider. We offer professional custom T-shirt printing in Karachi with secure nationwide delivery across Pakistan. Whether someone is creating a single 1-of-1 statement piece or producing high-volume runs, our workshop provides end-to-end printing tailored to modern streetwear standards.
+              </p>
+              <p>
+                Our production capabilities include DTF printing (Direct-to-Film), Screen Printing, and Sublimation printing. Through DTF printing, we reproduce intricate multi-color graphics with fine lines and durable flexibility on premium 100% cotton blanks, including regular cuts, 240 GSM oversized drop shoulders, and vintage acid wash tees. For sports clubs, tournaments, and schools, we create fully customized sublimated sports jerseys featuring 360-degree all-over printing, custom player names, squad numbers, sponsor logos, and team crests on breathable, moisture-wicking athletic mesh.
+              </p>
+              <p>
+                We believe custom printing should be accessible to everyone: eligible custom orders start from just 1 piece, including single-piece custom jerseys and custom graphic t-shirts. For businesses, events, colleges, and creative brands, we offer scalable bulk apparel printing and merchandise production with consistent color precision and reliable turnaround times.
+              </p>
+              <p className="pt-1">
+                You can upload your artwork and start a single-piece order directly through our{" "}
+                <Link to="/custom-print" className="text-primary font-semibold hover:underline">
+                  Custom Print ordering page
+                </Link>
+                , or contact our studio on{" "}
+                <a
+                  href={whatsappLink("Hi Deez Prints! I would like to inquire about custom printing services.")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-primary font-semibold hover:underline"
+                >
+                  WhatsApp
+                </a>{" "}
+                for custom sports jerseys and bulk printing inquiries.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* JSON-LD Schema for About & Services */}
+      <JsonLd data={aboutPageSchema()} />
 
       {/* ═══════════════════════════════════════════════════════
           OUR PROCESS — Horizontal 5 steps

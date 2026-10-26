@@ -13,11 +13,6 @@ import {
   Lock,
   HelpCircle,
   ChevronDown,
-  Trophy,
-  Flame,
-  Layers,
-  MessageSquare,
-  CheckCircle2,
 } from "lucide-react";
 import { products } from "@/data/products";
 import { whatsappLink, SITE_URL } from "@/data/site";
@@ -31,17 +26,17 @@ import { uploadArtworkToCloudinary } from "@/lib/cloudinary";
 export const Route = createFileRoute("/custom-print")({
   head: () => ({
     meta: [
-      { title: "Custom Printing & Studio Services — DTF, Screen Printing & Sports Jerseys | Deez Prints" },
+      { title: "Custom Printing — Upload Artwork | Deez Prints" },
       {
         name: "description",
         content:
-          "Karachi print studio offering custom DTF t-shirts, Screen Printing, Sublimation, and fully customized sports jerseys. Eligible custom orders start from just 1 piece with nationwide delivery.",
+          "Upload your artwork for custom DTF t-shirt printing on Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Made in Karachi, delivered nationwide across Pakistan.",
       },
-      { property: "og:title", content: "Custom Printing & Studio Services Karachi & Pakistan — Deez Prints" },
+      { property: "og:title", content: "Custom T-Shirt Printing Karachi & Pakistan — Deez Prints" },
       {
         property: "og:description",
         content:
-          "Custom DTF t-shirts, Screen Printing, Sublimation, and fully customized sports jerseys. Eligible custom orders start from just 1 piece.",
+          "Upload your artwork for custom DTF t-shirt printing on Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Made in Karachi, delivered nationwide across Pakistan.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/custom-print` },
@@ -51,17 +46,17 @@ export const Route = createFileRoute("/custom-print")({
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:type", content: "image/png" },
-      { property: "og:image:alt", content: "Custom printing studio services by Deez Prints — DTF, Screen Printing, Sublimation & Sports Jerseys" },
+      { property: "og:image:alt", content: "Custom t-shirt printing service by Deez Prints — upload your artwork for DTF printing on premium cotton tees" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@deez_prints" },
-      { name: "twitter:title", content: "Custom Printing & Studio Services — Deez Prints" },
+      { name: "twitter:title", content: "Custom T-Shirt Printing Karachi & Pakistan — Deez Prints" },
       {
         name: "twitter:description",
         content:
-          "Custom DTF t-shirts, Screen Printing, Sublimation, and fully customized sports jerseys. Eligible custom orders start from just 1 piece.",
+          "Upload your artwork for custom DTF t-shirt printing on Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Made in Karachi, delivered nationwide across Pakistan.",
       },
       { name: "twitter:image", content: `${SITE_URL}/assets/custom_print_mockup.png` },
-      { name: "twitter:image:alt", content: "Custom printing studio services by Deez Prints — DTF, Screen Printing, Sublimation & Sports Jerseys" },
+      { name: "twitter:image:alt", content: "Custom t-shirt printing service by Deez Prints — upload your artwork for DTF printing on premium cotton tees" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/custom-print` }],
   }),
@@ -315,104 +310,7 @@ function CustomPrint() {
   }
 
   return (
-    <div className="pt-24 sm:pt-32 md:pt-36 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto space-y-12">
-      {/* Studio Header & Service Navigation */}
-      <div className="space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="inline-flex items-center gap-2 text-primary text-xs font-mono font-bold uppercase tracking-widest">
-            <Layers className="w-4 h-4 text-primary" />
-            <span>DEEZ PRINTS STUDIO · PRINTING SERVICES</span>
-          </div>
-          <span className="font-mono text-[11px] text-zinc-300 bg-zinc-900 border border-zinc-800 px-3 py-1">
-            Eligible custom orders start from <strong className="text-primary font-bold">1 piece</strong>
-          </span>
-        </div>
-
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="font-display font-black text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-white leading-none">
-              CUSTOM PRINTING<span className="text-primary">.</span>
-            </h1>
-            <p className="mt-2 text-xs sm:text-sm text-zinc-400 font-sans max-w-2xl">
-              From single 1-of-1 streetwear t-shirts to fully customized sublimated sports jerseys and bulk screen printing orders — order online below or inquire directly with our workshop team.
-            </p>
-          </div>
-        </div>
-
-        {/* 3 Service Spotlight Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
-          {/* Service 1: DTF (Current interactive builder) */}
-          <div className="border border-primary/50 bg-primary/5 p-4 rounded-xl relative">
-            <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="font-mono text-[10px] uppercase font-bold text-primary bg-primary/10 border border-primary/20 px-2 py-0.5">
-                Starts from 1 piece · Order Below
-              </span>
-              <Shirt className="w-4 h-4 text-primary shrink-0" />
-            </div>
-            <h3 className="font-display text-sm font-extrabold uppercase text-white tracking-wide">
-              Custom DTF T-Shirts &amp; Tapestries
-            </h3>
-            <p className="text-[11px] text-zinc-400 font-sans mt-1 leading-snug">
-              Direct-to-Film prints on 180 GSM regular, 240 GSM drop shoulder, and vintage acid wash. Configure artwork and size online below.
-            </p>
-          </div>
-
-          {/* Service 2: Sports Jerseys */}
-          <div className="border border-zinc-800 bg-zinc-950/80 hover:border-primary/40 p-4 rounded-xl flex flex-col justify-between transition-colors">
-            <div>
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="font-mono text-[10px] uppercase font-bold text-zinc-300 bg-white/5 border border-white/10 px-2 py-0.5">
-                  Starts from 1 piece · Sublimation
-                </span>
-                <Trophy className="w-4 h-4 text-primary shrink-0" />
-              </div>
-              <h3 className="font-display text-sm font-extrabold uppercase text-white tracking-wide">
-                Custom Sports Jerseys
-              </h3>
-              <p className="text-[11px] text-zinc-400 font-sans mt-1 leading-snug">
-                Fully customized sports jerseys with all-over printing, custom player names, squad numbers, and team logos.
-              </p>
-            </div>
-            <a
-              href={whatsappLink("Hi Deez Prints! I want to order / inquire about custom sports jerseys (player names, numbers, logos).")}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-3 inline-flex items-center justify-between gap-2 w-full py-2 px-3 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[11px] font-mono font-bold uppercase hover:bg-emerald-500/20 transition-colors rounded-lg"
-            >
-              <span>Inquire on WhatsApp</span>
-              <MessageSquare className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
-          {/* Service 3: Screen Printing & Bulk */}
-          <div className="border border-zinc-800 bg-zinc-950/80 hover:border-primary/40 p-4 rounded-xl flex flex-col justify-between transition-colors">
-            <div>
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="font-mono text-[10px] uppercase font-bold text-zinc-300 bg-white/5 border border-white/10 px-2 py-0.5">
-                  Bulk Orders · High Volume
-                </span>
-                <Flame className="w-4 h-4 text-primary shrink-0" />
-              </div>
-              <h3 className="font-display text-sm font-extrabold uppercase text-white tracking-wide">
-                Screen Printing &amp; Bulk Merch
-              </h3>
-              <p className="text-[11px] text-zinc-400 font-sans mt-1 leading-snug">
-                The gold standard for brand drops, university batches, corporate gear, and event merchandise.
-              </p>
-            </div>
-            <a
-              href={whatsappLink("Hi Deez Prints! I would like to get a quote for a bulk screen printing / merchandise order.")}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-3 inline-flex items-center justify-between gap-2 w-full py-2 px-3 border border-primary/30 bg-primary/10 text-primary text-[11px] font-mono font-bold uppercase hover:bg-primary/20 transition-colors rounded-lg"
-            >
-              <span>Get Bulk Quote</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-        </div>
-      </div>
-
+    <div className="pt-24 sm:pt-32 md:pt-36 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto">
       {/* Responsive Grid */}
       <div className="grid lg:grid-cols-12 gap-8 items-start">
         {/* Left & Center Main Section */}
@@ -956,204 +854,6 @@ function CustomPrint() {
           </div>
         </aside>
       </div>
-
-      {/* Printing Techniques & Capabilities Studio Guide */}
-      <section className="border-t border-zinc-800 pt-16 space-y-10">
-        <div>
-          <div className="inline-flex items-center gap-2 text-primary text-xs font-mono font-bold uppercase tracking-widest mb-2">
-            <Layers className="w-4 h-4 text-primary" />
-            <span>PRINTING TECHNIQUES &amp; SPECIFICATIONS</span>
-          </div>
-          <h2 className="font-display font-black text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-white">
-            WE PRINT IT YOUR WAY<span className="text-primary">.</span>
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 font-sans max-w-2xl mt-2 leading-relaxed">
-            Different creative projects require different printing techniques. Here is an overview of how we produce custom orders at Deez Prints.
-          </p>
-        </div>
-
-        {/* 4 Detailed Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="border border-zinc-800 bg-zinc-950/70 p-5 rounded-xl flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] text-primary uppercase font-bold bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
-                  Starts from 1 pc
-                </span>
-                <Shirt className="w-4 h-4 text-primary" />
-              </div>
-              <h3 className="font-display text-base font-extrabold uppercase text-white">
-                Custom DTF Printing
-              </h3>
-              <p className="text-xs text-zinc-400 font-sans leading-relaxed">
-                Direct-to-Film transfer delivers rich color fidelity, micro-detail clarity, and flexible stretch on cotton blanks.
-              </p>
-              <ul className="text-[11px] text-zinc-300 font-sans space-y-1.5 pt-1">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                  <span>Available on Regular, Drop Shoulder &amp; Acid Wash</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                  <span>No minimum order — from 1-of-1s to volume runs</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                  <span>Direct online builder with instant upload</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border border-zinc-800 bg-zinc-950/70 p-5 rounded-xl flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] text-emerald-400 uppercase font-bold bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">
-                  Starts from 1 pc
-                </span>
-                <Trophy className="w-4 h-4 text-primary" />
-              </div>
-              <h3 className="font-display text-base font-extrabold uppercase text-white">
-                Custom Sports Jerseys
-              </h3>
-              <p className="text-xs text-zinc-400 font-sans leading-relaxed">
-                Full 360° all-over sublimation printing on lightweight, moisture-wicking athletic mesh fabrics.
-              </p>
-              <ul className="text-[11px] text-zinc-300 font-sans space-y-1.5 pt-1">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                  <span>Custom player names, squad numbers &amp; sponsor logos</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                  <span>Starts from just 1 single jersey or complete team rosters</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                  <span>Breathable sports mesh cut &amp; sewn to fit</span>
-                </li>
-              </ul>
-            </div>
-            <a
-              href={whatsappLink("Hi Deez Prints! I want to order / inquire about custom sports jerseys (player names, numbers, logos).")}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-flex items-center justify-center gap-2 w-full py-2 px-3 border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 text-xs font-mono font-bold uppercase hover:bg-emerald-500/20 transition-colors rounded-lg"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>Inquire via WhatsApp</span>
-            </a>
-          </div>
-
-          <div className="border border-zinc-800 bg-zinc-950/70 p-5 rounded-xl flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] text-zinc-300 uppercase font-bold bg-white/5 border border-white/10 px-2 py-0.5 rounded">
-                  Bulk Orders
-                </span>
-                <Flame className="w-4 h-4 text-primary" />
-              </div>
-              <h3 className="font-display text-base font-extrabold uppercase text-white">
-                Screen Printing
-              </h3>
-              <p className="text-xs text-zinc-400 font-sans leading-relaxed">
-                The gold standard for high-volume apparel runs, corporate uniforms, university batches, and brand drops.
-              </p>
-              <ul className="text-[11px] text-zinc-300 font-sans space-y-1.5 pt-1">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                  <span>Exceptional wash longevity &amp; durable texture</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                  <span>Optimized for volume orders and merchandise batches</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                  <span>Competitive volume tier pricing</span>
-                </li>
-              </ul>
-            </div>
-            <a
-              href={whatsappLink("Hi Deez Prints! I would like to get a quote for a bulk screen printing / merchandise order.")}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-flex items-center justify-center gap-2 w-full py-2 px-3 border border-primary/40 bg-primary/10 text-primary text-xs font-mono font-bold uppercase hover:bg-primary/20 transition-colors rounded-lg"
-            >
-              <ArrowRight className="w-3.5 h-3.5" />
-              <span>Request Bulk Quote</span>
-            </a>
-          </div>
-
-          <div className="border border-zinc-800 bg-zinc-950/70 p-5 rounded-xl flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] text-primary uppercase font-bold bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
-                  1 pc to Bulk
-                </span>
-                <Sparkles className="w-4 h-4 text-primary" />
-              </div>
-              <h3 className="font-display text-base font-extrabold uppercase text-white">
-                Sublimation Printing
-              </h3>
-              <p className="text-xs text-zinc-400 font-sans leading-relaxed">
-                Permanent dye infusion into synthetic fibers for zero-hand-feel, fade-proof activewear and room decor.
-              </p>
-              <ul className="text-[11px] text-zinc-300 font-sans space-y-1.5 pt-1">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                  <span>Used for all-over sports kits &amp; custom satin tapestries</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                  <span>Never cracks, peels, or fades with washing</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                  <span>Vibrant edge-to-edge coverage</span>
-                </li>
-              </ul>
-            </div>
-            <a
-              href={whatsappLink("Hi Deez Prints! I have an inquiry about sublimation printing / custom tapestries.")}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-flex items-center justify-center gap-2 w-full py-2 px-3 border border-white/20 bg-white/5 text-zinc-300 text-xs font-mono font-bold uppercase hover:border-primary hover:text-white transition-colors rounded-lg"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>Inquire on WhatsApp</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Order Quantities Policy Strip */}
-        <div className="border border-zinc-800 bg-zinc-950 p-6 sm:p-8 rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="space-y-2 max-w-2xl">
-            <span className="font-mono text-xs uppercase font-bold text-primary">
-              ORDER MINIMUMS EXPLAINED
-            </span>
-            <h3 className="font-display text-lg sm:text-xl font-extrabold uppercase text-white">
-              Single-Piece Orders vs. Bulk Production
-            </h3>
-            <p className="text-xs sm:text-sm text-zinc-400 font-sans leading-relaxed">
-              Eligible custom orders start from just <strong className="text-white">1 piece</strong> — including custom DTF t-shirts, drop shoulders, acid wash tees, tapestries, and fully customized sublimated sports jerseys. 
-              Screen Printing is tailored for bulk orders and high-volume brand merchandise.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full md:w-auto">
-            <a
-              href={whatsappLink("Hi Deez Prints! I would like to discuss a custom order.")}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-black font-mono font-bold text-xs uppercase px-5 py-3 rounded-lg hover:brightness-110 transition-all"
-            >
-              <span>Chat on WhatsApp</span>
-              <MessageSquare className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

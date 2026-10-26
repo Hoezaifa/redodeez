@@ -2,307 +2,224 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import {
   Pencil,
+  Upload,
   Shirt,
-  Sparkles,
+  Package,
   ArrowRight,
   MessageSquare,
-  Layers,
-  Flame,
-  CheckCircle2,
-  PackageCheck,
-  Trophy,
+  Palette,
+  Clock,
+  ShieldCheck,
 } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
-import { whatsappLink } from "@/data/site";
+import { site, whatsappLink } from "@/data/site";
 
 const CUSTOM_IMAGE = "/assets/custom_print_mockup.webp";
-
-export const PRINT_SERVICES = [
-  {
-    id: "dtf",
-    title: "Custom DTF Printing",
-    tagline: "Direct-to-Film on Heavyweight Cotton",
-    minimum: "Starts from 1 piece",
-    isSinglePieceEligible: true,
-    directOrderable: true,
-    description:
-      "Vibrant full-color prints with ultra-fine detail, high wash durability, and zero color cracking. Available on 180 GSM regular tees, 240 GSM oversized drop shoulders, and vintage acid wash.",
-    idealFor: "Custom t-shirts, anime art, streetwear graphics, single 1-of-1s & bulk orders.",
-    cta: "Order Online",
-    to: "/custom-print",
-  },
-  {
-    id: "jerseys",
-    title: "Custom Sports Jerseys",
-    tagline: "Sublimated All-Over Athletic Wear",
-    minimum: "Starts from 1 piece",
-    isSinglePieceEligible: true,
-    directOrderable: false,
-    description:
-      "Fully customized sublimated sports jerseys featuring all-over printing, custom player names, squad numbers, sponsor branding, and team crests on breathable moisture-wicking mesh.",
-    idealFor: "Football, cricket, eSports, basketball, custom fan jerseys & tournament teams.",
-    cta: "Inquire on WhatsApp",
-    href: whatsappLink(
-      "Hi Deez Prints! I'd like to order / get an inquiry for fully customized sports jerseys (player names, numbers, logos)."
-    ),
-  },
-  {
-    id: "screen-printing",
-    title: "Screen Printing",
-    tagline: "Volume Production for Brands & Events",
-    minimum: "Bulk orders",
-    isSinglePieceEligible: false,
-    directOrderable: false,
-    description:
-      "The gold standard for high-volume apparel printing. Crisp, premium-grade prints engineered for unmatched longevity, bold finish, and cost-effective bulk production.",
-    idealFor: "Brand merchandise, university batches, corporate uniforms, event staff & club gear.",
-    cta: "Get Bulk Quote",
-    href: whatsappLink(
-      "Hi Deez Prints! I'd like to get a quote for a bulk screen printing order."
-    ),
-  },
-  {
-    id: "sublimation",
-    title: "Sublimation Printing",
-    tagline: "Deep Dye-Infused Fabric Printing",
-    minimum: "From 1 piece to volume runs",
-    isSinglePieceEligible: true,
-    directOrderable: false,
-    description:
-      "Ink is gas-fused directly into fabric fibers for seamless, zero-hand-feel graphics that never crack, peel, or fade. Engineered for athletic polyester, satin wall tapestries, and flags.",
-    idealFor: "All-over sports kits, high-definition wall tapestries, flags & performance apparel.",
-    cta: "Inquire via WhatsApp",
-    href: whatsappLink(
-      "Hi Deez Prints! I have an inquiry about sublimation printing / custom tapestries."
-    ),
-  },
-];
 
 export function CustomPrintSection() {
   return (
     <section className="edge border-t border-border py-14 md:py-24 bg-background overflow-hidden">
-      {/* Eyebrow & Main Section Headline */}
-      <div className="max-w-3xl mb-12">
-        <Reveal>
-          <div className="inline-flex items-center gap-2 text-primary text-xs font-mono font-bold uppercase tracking-widest mb-3">
-            <Layers className="w-4 h-4 text-primary" />
-            <span>CUSTOM PRINTING &amp; PRODUCTION SERVICES</span>
-          </div>
-
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-foreground leading-[0.95]">
-            YOUR DESIGN.
-            <br />
-            <span className="text-primary">NO LIMITS.</span>
-          </h2>
-
-          <p className="text-sm sm:text-base text-zinc-400 font-sans leading-relaxed mt-4 max-w-2xl">
-            Beyond our signature streetwear drops, Deez Prints is a full-service custom printing provider. 
-            Whether you need a single 1-of-1 custom piece or high-volume merchandise for your brand, team, or university — we produce studio-grade prints tailored to your exact specifications.
-          </p>
-        </Reveal>
-      </div>
-
-      {/* 1-Piece Highlight Banner */}
-      <Reveal delay={0.08}>
-        <div className="mb-10 p-4 sm:p-5 border border-primary/40 bg-primary/10 rounded-none flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-start sm:items-center gap-3">
-            <div className="p-2 bg-primary text-black font-black text-xs shrink-0 flex items-center justify-center">
-              1 PC
-            </div>
-            <div>
-              <p className="font-display text-sm sm:text-base font-extrabold uppercase tracking-wide text-foreground">
-                Eligible custom orders start from just 1 piece
-              </p>
-              <p className="text-xs sm:text-sm text-zinc-300 font-sans mt-0.5">
-                No forced bulk minimums for personal creativity — including custom DTF t-shirts and fully customized sublimated jerseys.
-              </p>
-            </div>
-          </div>
-          <Link
-            to="/custom-print"
-            className="shrink-0 inline-flex items-center gap-2 bg-primary text-black font-mono font-bold text-xs uppercase px-4 py-2.5 hover:bg-white transition-colors"
-          >
-            Start 1-Piece Order <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-      </Reveal>
-
-      {/* Services Grid (4 Cards) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-12">
-        {PRINT_SERVICES.map((srv, idx) => (
-          <Reveal key={srv.id} delay={0.05 * (idx + 1)}>
-            <div className="h-full flex flex-col justify-between border border-border/70 bg-surface/80 p-5 md:p-6 rounded-none hover:border-primary/50 transition-colors">
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-white/10 bg-white/5 text-zinc-300">
-                    {srv.minimum}
-                  </span>
-                  {srv.id === "jerseys" && <Trophy className="w-4 h-4 text-primary shrink-0" />}
-                  {srv.id === "dtf" && <Shirt className="w-4 h-4 text-primary shrink-0" />}
-                  {srv.id === "screen-printing" && <Flame className="w-4 h-4 text-primary shrink-0" />}
-                  {srv.id === "sublimation" && <Sparkles className="w-4 h-4 text-primary shrink-0" />}
-                </div>
-
-                <h3 className="font-display text-lg sm:text-xl font-extrabold uppercase tracking-tight text-foreground">
-                  {srv.title}
-                </h3>
-                <p className="text-xs font-mono text-primary mt-0.5 mb-3">
-                  {srv.tagline}
-                </p>
-
-                <p className="text-xs text-zinc-400 font-sans leading-relaxed mb-4">
-                  {srv.description}
-                </p>
-
-                <div className="border-t border-border/50 pt-3 mb-4">
-                  <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 mb-1">
-                    Ideal For:
-                  </p>
-                  <p className="text-xs text-zinc-300 font-sans leading-snug">
-                    {srv.idealFor}
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                {srv.directOrderable && srv.to ? (
-                  <Link
-                    to={srv.to}
-                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 bg-primary text-black font-mono font-bold text-xs uppercase hover:bg-white transition-colors"
-                  >
-                    <span>{srv.cta}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                ) : (
-                  <a
-                    href={srv.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 border border-white/20 bg-white/5 text-foreground hover:border-emerald-500 hover:text-emerald-400 transition-colors font-mono font-bold text-xs uppercase"
-                  >
-                    <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>{srv.cta}</span>
-                  </a>
-                )}
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      {/* Hero Showcase Split: Custom Builder Callout & Workshop Preview */}
-      <div className="border border-border/80 bg-surface/50 p-6 md:p-10 mb-12">
-        <div className="grid md:grid-cols-12 gap-8 items-center">
-          <div className="md:col-span-7 space-y-5">
+      <div className="flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-10 lg:gap-16 items-center">
+        {/* Left Column wrapper: contents on mobile so children flex-order naturally, column on desktop */}
+        <div className="contents md:flex md:flex-col md:col-span-6 md:space-y-8">
+          {/* Eyebrow + Heading + Subtitle */}
+          <div className="order-1 text-center md:text-left max-w-md mx-auto md:max-w-none md:mx-0">
             <Reveal>
-              <span className="font-mono text-xs uppercase font-bold tracking-widest text-primary">
-                ORDER CUSTOM T-SHIRTS ONLINE
-              </span>
-              <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-foreground leading-tight mt-1">
-                UPLOAD YOUR ARTWORK.
-                <br />
-                WE PRESS ON STREETWEAR BLANKS.
-              </h3>
-              <p className="text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed">
-                Choose your fit: Regular 180 GSM, Oversized Drop Shoulder 240 GSM, Hand-Dyed Acid Wash, or Satin Wall Tapestries. Single-piece custom t-shirt orders start right on our web configurator with front, back, or double-sided placements.
-              </p>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                <div className="flex items-center gap-2 text-xs font-mono text-zinc-300">
-                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                  <span>From 1 Piece</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs font-mono text-zinc-300">
-                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                  <span>High-Res DTF</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs font-mono text-zinc-300">
-                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                  <span>Nationwide Courier</span>
-                </div>
+              <div className="inline-flex items-center justify-center md:justify-start gap-1.5 text-primary text-xs font-mono font-bold uppercase tracking-widest mb-3 md:mb-0">
+                <span>CUSTOM PRINTING</span>
+                <Pencil className="w-3.5 h-3.5 text-primary" />
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-foreground leading-[0.95] mt-1 md:mt-3">
+                YOUR DESIGN.
+                <br />
+                <span className="text-primary">
+                  NO LIMITS.
+                </span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-zinc-400 font-sans leading-relaxed mt-3 md:mt-4 max-w-xs md:max-w-none mx-auto md:mx-0">
+                From concept to fabric.
+                <br />
+                We print it <span className="text-primary font-bold">your way</span>.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* 3 Step Cards Grid */}
+          <div className="order-3 md:order-2 w-full max-w-md mx-auto md:max-w-none md:mx-0 pt-0 md:pt-2">
+            <Reveal delay={0.1}>
+              <div className="grid grid-cols-3 gap-2 md:gap-4">
+                <div className="bg-surface/80 md:bg-transparent border border-white/10 md:border-0 p-3 md:p-0 rounded-none flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-2 md:gap-3 min-h-[110px] md:min-h-0 justify-between md:justify-start">
+                  <div className="p-2 md:p-2.5 rounded-none bg-primary/10 text-primary shrink-0 mb-1 md:mb-0">
+                    <Upload className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-display text-[11px] md:text-xs font-extrabold uppercase text-white tracking-tight">
+                      1. UPLOAD
+                    </p>
+                    <p className="text-[10px] md:text-[11px] text-zinc-400 font-sans leading-tight md:leading-snug mt-0.5">
+                      Send your design.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-surface/80 md:bg-transparent border border-white/10 md:border-0 p-3 md:p-0 rounded-none flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-2 md:gap-3 min-h-[110px] md:min-h-0 justify-between md:justify-start">
+                  <div className="p-2 md:p-2.5 rounded-none bg-primary/10 text-primary shrink-0 mb-1 md:mb-0">
+                    <Shirt className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-display text-[11px] md:text-xs font-extrabold uppercase text-white tracking-tight">
+                      2. WE PRINT
+                    </p>
+                    <p className="text-[10px] md:text-[11px] text-zinc-400 font-sans leading-tight md:leading-snug mt-0.5">
+                      Premium DTF printing.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-surface/80 md:bg-transparent border border-white/10 md:border-0 p-3 md:p-0 rounded-none flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-2 md:gap-3 min-h-[110px] md:min-h-0 justify-between md:justify-start">
+                  <div className="p-2 md:p-2.5 rounded-none bg-primary/10 text-primary shrink-0 mb-1 md:mb-0">
+                    <Package className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-display text-[11px] md:text-xs font-extrabold uppercase text-white tracking-tight">
+                      3. YOU WEAR
+                    </p>
+                    <p className="text-[10px] md:text-[11px] text-zinc-400 font-sans leading-tight md:leading-snug mt-0.5">
+                      Delivered to your door.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Action Buttons Block */}
+          <div className="order-4 md:order-3 w-full max-w-md mx-auto md:max-w-none md:mx-0 pt-0 md:pt-2">
+            <Reveal delay={0.15}>
+              <div className="space-y-3 max-w-md">
                 <Link
                   to="/custom-print"
-                  className="inline-flex items-center justify-center gap-2 py-3.5 px-6 bg-primary text-black font-extrabold uppercase tracking-wider text-xs hover:bg-white transition-colors"
+                  className="w-full py-4 rounded-none bg-primary text-primary-foreground font-extrabold uppercase tracking-wider text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors shadow-xl active:scale-[0.98]"
                 >
                   START CUSTOM PRINT <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link
-                  to="/our-work"
-                  className="inline-flex items-center justify-center gap-2 py-3.5 px-6 border border-white/20 text-white font-bold uppercase tracking-wider text-xs hover:border-primary transition-colors"
-                >
-                  VIEW WORK GALLERY <ArrowRight className="w-3.5 h-3.5 text-primary" />
-                </Link>
-              </div>
-            </Reveal>
-          </div>
 
-          <div className="md:col-span-5">
-            <Reveal delay={0.1}>
-              <div className="relative aspect-square overflow-hidden border border-border/80 bg-zinc-950 p-2 shadow-2xl">
-                <img
-                  src={CUSTOM_IMAGE}
-                  alt="Custom Print Workshop Mockup"
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 p-3 bg-black/80 backdrop-blur-sm border border-white/10 flex items-center justify-between">
-                  <div>
-                    <p className="font-display text-xs font-bold uppercase text-white">Workshop Finished</p>
-                    <p className="font-mono text-[10px] text-zinc-400">Karachi Studio Production</p>
+                <Link
+                  to="/collections/$slug"
+                  params={{ slug: "t-shirts" }}
+                  className="hidden md:flex w-full py-3.5 rounded-none bg-zinc-950 border border-white/10 text-white font-bold uppercase tracking-wider text-xs items-center justify-center gap-2 hover:border-primary/50 transition-colors active:scale-[0.99]"
+                >
+                  SEE EXAMPLES <ArrowRight className="w-3.5 h-3.5 text-primary" />
+                </Link>
+
+                <a
+                  href={whatsappLink("Hi! I need help with custom printing.")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hidden md:flex bg-zinc-950 border border-white/10 p-3.5 rounded-none items-center justify-between hover:border-primary/40 transition-colors text-left group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-none bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                      <MessageSquare className="w-4 h-4 fill-emerald-400/20" />
+                    </div>
+                    <div>
+                      <p className="font-display text-xs font-extrabold uppercase text-white tracking-tight">
+                        NEED HELP?
+                      </p>
+                      <p className="text-[11px] text-zinc-400 font-sans">
+                        Chat with us on WhatsApp
+                      </p>
+                    </div>
                   </div>
-                  <span className="font-mono text-[10px] text-primary uppercase font-bold">1 Pc or Bulk</span>
-                </div>
+
+                  <div className="bg-primary text-black p-2 rounded-none flex items-center justify-center shrink-0 group-hover:translate-x-0.5 transition-transform">
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </a>
               </div>
             </Reveal>
           </div>
         </div>
+
+        {/* Central / Right Mockup Display */}
+        <div className="order-2 md:col-span-6 w-full max-w-[340px] md:max-w-none mx-auto my-2 md:my-0">
+          <Reveal delay={0.1}>
+            <div className="relative w-full aspect-square md:aspect-[4/5] overflow-hidden rounded-none border border-white/10 bg-zinc-950 p-2 md:p-3 shadow-2xl">
+              <div className="relative w-full h-full overflow-hidden rounded-none bg-zinc-900">
+                <motion.img
+                  src={CUSTOM_IMAGE}
+                  alt="Custom Print Mockup"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-center"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </div>
 
-      {/* 4-Column Feature Strip */}
-      <Reveal delay={0.15}>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-border">
-          <div className="p-4 border border-border/40 bg-surface/40">
-            <Shirt className="w-5 h-5 text-primary mb-2" />
-            <p className="font-display text-xs font-extrabold uppercase text-white">
-              Single-Piece &amp; Bulk
-            </p>
-            <p className="text-[11px] text-zinc-400 font-sans mt-1 leading-snug">
-              Eligible custom orders start from 1 piece (DTF &amp; jerseys), with scalable volume rates for bulk runs.
-            </p>
+      {/* Bottom 4-Feature Trust Strip */}
+      <Reveal delay={0.25}>
+        <div className="hidden md:grid mt-16 pt-10 border-t border-white/10 grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex items-start gap-4">
+            <div className="p-3 rounded-none bg-primary/10 text-primary shrink-0 border border-primary/20">
+              <Shirt className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="font-display text-xs font-extrabold uppercase text-white tracking-tight">
+                PREMIUM QUALITY
+              </p>
+              <p className="text-[11px] text-zinc-400 font-sans leading-relaxed mt-1">
+                DTF prints on 240GSM heavyweight fabric.
+              </p>
+            </div>
           </div>
 
-          <div className="p-4 border border-border/40 bg-surface/40">
-            <Layers className="w-5 h-5 text-primary mb-2" />
-            <p className="font-display text-xs font-extrabold uppercase text-white">
-              Screen &amp; Sublimation
-            </p>
-            <p className="text-[11px] text-zinc-400 font-sans mt-1 leading-snug">
-              Dedicated Screen Printing for bulk merchandise, plus all-over Sublimation for sports gear.
-            </p>
+          <div className="flex items-start gap-4">
+            <div className="p-3 rounded-none bg-primary/10 text-primary shrink-0 border border-primary/20">
+              <Palette className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="font-display text-xs font-extrabold uppercase text-white tracking-tight">
+                ANY DESIGN
+              </p>
+              <p className="text-[11px] text-zinc-400 font-sans leading-relaxed mt-1">
+                Your ideas. No restrictions.
+              </p>
+            </div>
           </div>
 
-          <div className="p-4 border border-border/40 bg-surface/40">
-            <PackageCheck className="w-5 h-5 text-primary mb-2" />
-            <p className="font-display text-xs font-extrabold uppercase text-white">
-              Studio Quality Control
-            </p>
-            <p className="text-[11px] text-zinc-400 font-sans mt-1 leading-snug">
-              Every garment is individually inspected before packing to guarantee clean edges and sharp color.
-            </p>
+          <div className="flex items-start gap-4">
+            <div className="p-3 rounded-none bg-primary/10 text-primary shrink-0 border border-primary/20">
+              <Clock className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="font-display text-xs font-extrabold uppercase text-white tracking-tight">
+                FAST PROCESS
+              </p>
+              <p className="text-[11px] text-zinc-400 font-sans leading-relaxed mt-1">
+                24–48h production time.
+              </p>
+            </div>
           </div>
 
-          <div className="p-4 border border-border/40 bg-surface/40">
-            <MessageSquare className="w-5 h-5 text-emerald-400 mb-2" />
-            <p className="font-display text-xs font-extrabold uppercase text-white">
-              Direct WhatsApp Support
-            </p>
-            <p className="text-[11px] text-zinc-400 font-sans mt-1 leading-snug">
-              Quick consultation for artwork placement, custom jersey rosters, and bulk merchandise estimates.
-            </p>
+          <div className="flex items-start gap-4">
+            <div className="p-3 rounded-none bg-primary/10 text-primary shrink-0 border border-primary/20">
+              <ShieldCheck className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="font-display text-xs font-extrabold uppercase text-white tracking-tight">
+                MADE TO LAST
+              </p>
+              <p className="text-[11px] text-zinc-400 font-sans leading-relaxed mt-1">
+                Vibrant prints that stay fresh wash after wash.
+              </p>
+            </div>
           </div>
         </div>
       </Reveal>

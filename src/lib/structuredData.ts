@@ -19,7 +19,7 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/assets/logo.svg`,
     description:
-      "Pakistani streetwear and custom printing studio based in Karachi, Pakistan. Specializing in oversized drop-shoulder tees, vintage acid wash, anime graphic apparel, wall art tapestries, and custom DTF t-shirt printing.",
+      "Karachi-based streetwear brand and custom print studio in Pakistan. Specializing in custom T-shirt printing, DTF printing, screen printing, sublimation printing, customized sports jerseys, oversized drop-shoulder tees, and bulk apparel printing.",
     email: site.email,
     telephone: site.whatsappNumber,
     address: {
@@ -36,12 +36,93 @@ export function organizationSchema() {
       "Acid Wash Tees",
       "Anime Apparel",
       "Custom T-Shirt Printing",
+      "DTF Printing",
+      "Screen Printing",
+      "Sublimation Printing",
+      "Custom Sports Jerseys",
+      "Bulk Apparel Printing",
     ],
     contactPoint: {
       "@type": "ContactPoint",
       telephone: site.whatsappNumber,
       contactType: "customer service",
       availableLanguage: ["English", "Urdu"],
+    },
+  };
+}
+
+/** AboutPage + LocalBusiness / Service schema for the About page */
+export function aboutPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About Deez Prints — Karachi Custom T-Shirt Printing & Streetwear Studio",
+    url: `${SITE_URL}/about`,
+    description:
+      "Deez Prints is a Karachi-based print studio and streetwear brand providing custom T-shirt printing, DTF printing, screen printing, custom sublimation sports jerseys, and bulk apparel printing across Pakistan.",
+    mainEntity: {
+      "@type": "LocalBusiness",
+      name: "Deez Prints",
+      alternateName: "Deez Prints Karachi",
+      url: SITE_URL,
+      logo: `${SITE_URL}/assets/logo.svg`,
+      image: `${SITE_URL}/assets/about/hero-model.webp`,
+      description:
+        "Full-service print studio and streetwear label in Karachi, Pakistan. Specializing in single-piece and bulk custom T-shirt printing, DTF printing, screen printing, and fully customized sublimated sports jerseys.",
+      telephone: site.whatsappNumber,
+      email: site.email,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Karachi",
+        addressRegion: "Sindh",
+        addressCountry: "PK",
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "Pakistan",
+      },
+      makesOffer: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Custom T-Shirt Printing",
+            description: "High-detail custom t-shirt printing starting from 1 piece on regular, oversized drop shoulder, and acid wash blanks.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "DTF (Direct-to-Film) Printing",
+            description: "Vibrant, durable full-color DTF prints on 100% cotton garments and streetwear silhouettes.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Custom Sublimated Sports Jerseys",
+            description: "Fully customized sports jerseys with 360-degree all-over printing, custom player names, squad numbers, and team logos starting from 1 piece.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Screen Printing & Bulk Apparel",
+            description: "High-volume screen printing for corporate uniforms, university batches, event merchandise, and clothing brands.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Sublimation Printing",
+            description: "Permanent fabric dye-infusion printing for athletic kits, flags, and satin wall tapestries.",
+          },
+        },
+      ],
     },
   };
 }
