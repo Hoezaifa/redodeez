@@ -57,8 +57,28 @@ export function Footer() {
             ))}
             <li>
               <Link to="/custom-print" className="link-underline text-primary font-bold">
-                Custom Printing
+                Custom Printing (DTF)
               </Link>
+            </li>
+            <li>
+              <a
+                href={whatsappLink("Hi Deez Prints! I want to inquire about custom sports jerseys.")}
+                target="_blank"
+                rel="noreferrer"
+                className="link-underline text-muted-foreground hover:text-white"
+              >
+                Sports Jerseys (from 1 pc)
+              </a>
+            </li>
+            <li>
+              <a
+                href={whatsappLink("Hi Deez Prints! I want a quote for bulk screen printing.")}
+                target="_blank"
+                rel="noreferrer"
+                className="link-underline text-muted-foreground hover:text-white"
+              >
+                Screen Printing (Bulk)
+              </a>
             </li>
           </ul>
         </nav>

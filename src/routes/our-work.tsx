@@ -194,29 +194,27 @@ function OurWork() {
           </p>
         </Reveal>
 
-        {/* Masonry Grid */}
-        <div className="mt-10 columns-2 gap-3 sm:columns-3 md:columns-4 md:gap-4">
+        {/* Gallery Grid: CSS Grid with 1:1 aspect ratio containers prevents any column-break fragmentation and layout shifts */}
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4">
           {galleryImages.map((img, i) => (
-            <div key={img.src} className="mb-3 md:mb-4 break-inside-avoid">
-              <Reveal delay={0.03 * Math.min(i, 8)}>
-                <button
-                  type="button"
-                  onClick={() => setLightboxIdx(i)}
-                  className="group relative block w-full overflow-hidden rounded-sm bg-surface border border-border/40 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  aria-label={`View: ${img.alt}`}
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    loading={i < 8 ? "eager" : "lazy"}
-                    decoding={i < 8 ? "sync" : "async"}
-                    className="w-full h-auto block object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-                    draggable={false}
-                  />
-                  {/* Hover overlay */}
-                  <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
-                </button>
-              </Reveal>
+            <div key={img.src} className="w-full">
+              <button
+                type="button"
+                onClick={() => setLightboxIdx(i)}
+                className="group relative block w-full aspect-square overflow-hidden rounded-sm bg-surface border border-border/40 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                aria-label={`View: ${img.alt}`}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading={i < 8 ? "eager" : "lazy"}
+                  decoding={i < 8 ? "sync" : "async"}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                  draggable={false}
+                />
+                {/* Hover overlay */}
+                <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
+              </button>
             </div>
           ))}
         </div>

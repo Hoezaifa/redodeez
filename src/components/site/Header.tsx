@@ -262,14 +262,20 @@ export function Header() {
               </div>
               <div className="flex-1 overflow-y-auto py-6 space-y-4">
                 {navLinks.map((l) => (
-                  <Link
-                    key={l.to}
-                    to={l.to}
-                    onClick={() => setOpen(false)}
-                    className="block font-display text-xl font-extrabold uppercase hover:text-primary transition-colors"
-                  >
-                    {l.label}
-                  </Link>
+                  <div key={l.to}>
+                    <Link
+                      to={l.to}
+                      onClick={() => setOpen(false)}
+                      className="block font-display text-xl font-extrabold uppercase hover:text-primary transition-colors"
+                    >
+                      {l.label}
+                    </Link>
+                    {l.to === "/custom-print" && (
+                      <span className="text-[10px] font-mono text-primary uppercase block mt-0.5">
+                        DTF · Jerseys (from 1 pc) · Screen · Bulk
+                      </span>
+                    )}
+                  </div>
                 ))}
               </div>
             </motion.aside>

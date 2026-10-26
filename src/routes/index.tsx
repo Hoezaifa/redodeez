@@ -191,6 +191,8 @@ function Home() {
         />
       )}
 
+      {/* Custom Printing & Production Services Section */}
+      <CustomPrintSection />
 
       {/* Community */}
       <section className="border-t border-border">
