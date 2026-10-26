@@ -165,7 +165,10 @@ function CollectionPage() {
 
   const items = useMemo(() => {
     const c = collections.find((x) => x.slug === slug)!;
-    const list = allProducts.filter((p) => c.match(p));
+    let list = allProducts.filter((p) => c.match(p));
+    if (sort === "featured" && c?.sortFeatured) {
+      list = c.sortFeatured(list);
+    }
     if (sort === "price") {
       list.sort((a, b) => (priceDir === "asc" ? a.price - b.price : b.price - a.price));
     }

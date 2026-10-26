@@ -198,6 +198,8 @@ export const aestheticSlugs = [
 
 export type CollectionStatus = "ACTIVE" | "COMING_SOON";
 
+import { sortAnimeArchive } from "@/data/animeArchiveOrder";
+
 export type Collection = {
   slug: string;
   name: string;
@@ -206,6 +208,7 @@ export type Collection = {
   status: CollectionStatus;
   navHidden?: boolean;
   match: (p: { category: string; subcategory: string; aesthetic?: string }) => boolean;
+  sortFeatured?: <T extends { id: string }>(products: T[]) => T[];
 };
 
 export const collections: Collection[] = [
@@ -216,6 +219,7 @@ export const collections: Collection[] = [
     image: "/assets/collections/anime_archive_v3.webp",
     status: "ACTIVE",
     match: (p) => p.aesthetic === "anime-archive",
+    sortFeatured: sortAnimeArchive,
   },
   {
     slug: "comic-universe",

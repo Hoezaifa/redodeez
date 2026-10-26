@@ -141,7 +141,10 @@ function ShopAll() {
       });
     }
 
-    const sorted = [...filtered];
+    let sorted = [...filtered];
+    if (sort === "featured" && c?.sortFeatured) {
+      sorted = c.sortFeatured(sorted);
+    }
     if (sort === "price") {
       sorted.sort((a, b) => (priceDir === "asc" ? a.price - b.price : b.price - a.price));
     }
