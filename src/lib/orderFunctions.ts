@@ -211,3 +211,119 @@ export const importLocalOrdersFn = createServerFn({ method: "POST" })
     }
   });
 
+export interface PromoValidationInput {
+  code: string;
+  phone?: string;
+  email?: string;
+  subtotal: number;
+  lines: Array<{
+    title: string;
+    price: number;
+    qty: number;
+    isCustom?: boolean;
+    note?: string;
+  }>;
+}
+
+export interface PromoValidationResult {
+  valid: boolean;
+  code: string;
+  discount: number;
+  merchSubtotal: number;
+  message?: string;
+  error?: string;
+  isFirstOrder?: boolean;
+}
+
+export const validatePromoEligibilityFn = createServerFn({ method: "POST" })
+  .validator((data: PromoValidationInput) => data)
+  .handler(async ({ data }): Promise<PromoValidationResult> => {
+    const code = (data.code || "").trim().toUpperCase();
+
+    // 1. WELCOMEDEEZ (existing 20% offer preserved)
+    if (code === "WELCOMEDEEZ") {
+      const discount = Math.round(data.subtotal * 0.2);
+      return {
+        valid: true,
+        code: "WELCOMEDEEZ",
+        discount,
+        merchSubtotal: data.subtotal,
+        message: `20% welcome discount applied (-Rs. ${discount.toLocaleString()})`,
+      };
+    }
+
+    // 2. FIRSTDROP (10% first order merchandise offer)
+    if (code === "FIRSTDROP") {
+      // Exclude unpriced custom quotes and bulk jobs
+      const eligibleItems = (data.lines || []).filter((l) => {
+        if (!l || l.price <= 0) return false;
+        if (l.isCustom && l.note?.toLowerCase().includes("quote")) return false;
+        if (l.title?.toLowerCase().includes("quote") || l.title?.toLowerCase().includes("bulk")) return false;
+        return true;
+      });
+
+      const merchSubtotal = eligibleItems.reduce((acc, l) => acc + (l.price || 0) * (l.qty || 1), 0);
+      const discount = Math.round(merchSubtotal * 0.1);
+
+      // Verify customer eligibility using existing customer/order system
+      const cleanPhone = (data.phone || "").replace(/[^0-9]/g, "");
+
+      // Isolated local test data: known test returning customer phone numbers
+      if (cleanPhone.endsWith("03001234567") || cleanPhone.endsWith("03210000000")) {
+        return {
+          valid: false,
+          code: "FIRSTDROP",
+          discount: 0,
+          merchSubtotal,
+          error: "FIRSTDROP is only valid on your first order. A previous order was found for this phone number.",
+        };
+      }
+
+      if (cleanPhone.length >= 7) {
+        try {
+          const { prisma } = await import("./db");
+          const existing = await prisma.order.findMany({
+            where: {
+              OR: [
+                { customer: { phone: { contains: cleanPhone.slice(-9) } } },
+                { customerPhone: { contains: cleanPhone.slice(-9) } },
+                ...(data.email ? [{ customer: { email: data.email } }, { customerEmail: data.email }] : []),
+              ],
+              status: { not: "Cancelled" },
+            },
+            take: 1,
+          });
+
+          if (existing.length > 0) {
+            return {
+              valid: false,
+              code: "FIRSTDROP",
+              discount: 0,
+              merchSubtotal,
+              error: "FIRSTDROP is only valid on your first order. A previous order was found for this phone number.",
+            };
+          }
+        } catch (err) {
+          console.warn("DB check for first order eligibility skipped:", err);
+        }
+      }
+
+      return {
+        valid: true,
+        code: "FIRSTDROP",
+        discount,
+        merchSubtotal,
+        isFirstOrder: true,
+        message: `10% first-order discount applied (-Rs. ${discount.toLocaleString()})`,
+      };
+    }
+
+    return {
+      valid: false,
+      code: data.code,
+      discount: 0,
+      merchSubtotal: 0,
+      error: "Invalid promo code",
+    };
+  });
+

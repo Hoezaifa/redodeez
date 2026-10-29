@@ -35,19 +35,19 @@ export function DeezHero() {
   return (
     <div
       ref={ref}
-      className="relative min-h-screen overflow-hidden bg-[color:var(--ink-0)] text-white"
+      className="relative min-h-screen overflow-hidden bg-black text-white"
     >
       {/* ── Hero canvas (single responsive tree) ── */}
       <section
         aria-label="Hero"
-        className="relative overflow-hidden flex flex-col md:block"
+        className="relative overflow-hidden flex flex-col md:block bg-black"
         style={{ minHeight: "calc(100vh - 62px - 40px)" }}
       >
         {/* Base bg */}
-        <div className="absolute inset-0 bg-[color:var(--ink-0)]" />
+        <div className="absolute inset-0 bg-black" />
 
-        {/* Film-grain overlay */}
-        <div className="pointer-events-none absolute inset-0 grain opacity-60" />
+        {/* Film-grain overlay (desktop only so mobile black level stays pure) */}
+        <div className="pointer-events-none absolute inset-0 grain opacity-30 hidden md:block" />
 
         {/* Photography Frame: relative aspect-[4/5] on mobile, absolute full-bleed on desktop */}
         <motion.div
@@ -55,17 +55,46 @@ export function DeezHero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, ease }}
           style={{ y: imgY }}
-          className="relative w-full aspect-[4/5] max-h-[480px] overflow-hidden bg-[color:var(--ink-0)] pt-16 md:pt-0 md:max-h-none md:aspect-auto md:absolute md:inset-0 md:pointer-events-none"
+          className="relative w-full aspect-[4/5] max-h-[480px] overflow-hidden bg-black pt-16 md:pt-0 md:max-h-none md:aspect-auto md:absolute md:inset-0 md:pointer-events-none"
         >
           <img
             src={heroDesktop}
             alt="Model wearing an oversized Deez Prints graphic tee"
             width={1600}
             height={1200}
-            className="h-full w-full object-cover object-[75%_20%] md:object-[82%_20%] md:translate-x-0"
+            className="h-full w-full object-cover object-[75%_20%] md:object-[82%_20%] md:translate-x-0 hero-mobile-fade-mask"
             fetchPriority="high"
           />
+
+          {/* Mobile bottom fade: smoothly transitions the bottom ~30% into exact dark background */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-52 z-10 md:hidden"
+            style={{
+              background:
+                "linear-gradient(to top, #000000 0%, #000000 35%, rgba(0, 0, 0, 0.85) 65%, rgba(0, 0, 0, 0.4) 85%, transparent 100%)",
+            }}
+          />
         </motion.div>
+
+        {/* Desktop directional dark gradient: blends left edge of photo into dark background */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none hidden md:block absolute inset-y-0 left-0 w-3/5 lg:w-[56%] z-[1]"
+          style={{
+            background:
+              "linear-gradient(to right, #000000 0%, #000000 35%, rgba(0, 0, 0, 0.85) 55%, transparent 75%)",
+          }}
+        />
+
+        {/* Desktop subtle bottom fade to seamlessly meet feature strip */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none hidden md:block absolute inset-x-0 bottom-0 h-28 z-[1]"
+          style={{
+            background: "linear-gradient(to top, #000000 0%, transparent 100%)",
+          }}
+        />
 
         {/* Vertical brand label (right side) */}
         <div
@@ -80,7 +109,7 @@ export function DeezHero() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 px-5 pb-12 pt-4 flex flex-col md:mx-auto md:h-full md:max-w-[1440px] md:justify-center md:px-10 md:py-20 lg:py-24">
+        <div className="relative z-10 px-5 pb-12 pt-2 -mt-12 md:mt-0 flex flex-col md:mx-auto md:h-full md:max-w-[1440px] md:justify-center md:px-10 md:py-20 lg:py-24">
           <div className="max-w-[560px] md:-translate-x-[20px]">
             {/* Main headline - Exactly ONE h1 */}
             <h1
@@ -186,7 +215,7 @@ export function DeezHero() {
       </section>
 
       {/* ── Bottom feature strip ── */}
-      <div className="relative z-10 border-t border-white/[0.06] bg-[color:var(--ink-0)] overflow-hidden">
+      <div className="relative z-10 border-t border-white/[0.06] bg-[#080808] overflow-hidden">
         {/* Desktop static full width */}
         <div className="hidden md:flex mx-auto h-10 max-w-[1440px] items-center justify-between px-10">
           {features.map((f, i) => (

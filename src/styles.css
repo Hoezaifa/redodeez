@@ -19,6 +19,10 @@
   --radius-2xl: 24px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-ink-0: var(--ink-0);
+  --color-ink-1: var(--ink-1);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
   --color-surface: var(--surface);
   --color-elevated: var(--elevated);
   --color-card: var(--card);
@@ -432,5 +436,12 @@
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@media (max-width: 767px) {
+  .hero-mobile-fade-mask {
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, rgba(0, 0, 0, 0.4) 75%, transparent 100%) !important;
+    mask-image: linear-gradient(to bottom, black 50%, rgba(0, 0, 0, 0.4) 75%, transparent 100%) !important;
+  }
 }
 

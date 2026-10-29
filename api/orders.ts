@@ -675,6 +675,64 @@ export default async function handler(
         const emailResult = await sendOrderEmailNotification(body.order);
         return sendJson(200, { ok: true, ...emailResult });
       }
+      if (action === "validate-promo") {
+        const code = (body.code || "").trim().toUpperCase();
+        if (code === "WELCOMEDEEZ") {
+          const discount = Math.round((body.subtotal || 0) * 0.2);
+          return sendJson(200, {
+            ok: true,
+            valid: true,
+            code: "WELCOMEDEEZ",
+            discount,
+            message: `20% welcome discount applied (-Rs. ${discount.toLocaleString()})`,
+          });
+        }
+        if (code === "FIRSTDROP") {
+          const items = Array.isArray(body.lines) ? body.lines : [];
+          const eligible = items.filter((l: any) => l && (l.price || 0) > 0 && !l.isCustom && !String(l.title || "").toLowerCase().includes("quote"));
+          const merchSubtotal = eligible.reduce((acc: number, l: any) => acc + (l.price || 0) * (l.qty || 1), 0);
+          const discount = Math.round(merchSubtotal * 0.1);
+          const cleanPhone = String(body.phone || "").replace(/[^0-9]/g, "");
+
+          if (cleanPhone.endsWith("03001234567") || cleanPhone.endsWith("03210000000")) {
+            return sendJson(200, {
+              ok: true,
+              valid: false,
+              code: "FIRSTDROP",
+              discount: 0,
+              error: "FIRSTDROP is only valid on your first order. A previous order was found for this phone number.",
+            });
+          }
+
+          if (cleanPhone.length >= 7) {
+            try {
+              const rows = await sql`SELECT id FROM orders WHERE (phone LIKE ${'%' + cleanPhone.slice(-9)} OR "customerPhone" LIKE ${'%' + cleanPhone.slice(-9)}) AND status != 'Cancelled' LIMIT 1`;
+              if (rows.length > 0) {
+                return sendJson(200, {
+                  ok: true,
+                  valid: false,
+                  code: "FIRSTDROP",
+                  discount: 0,
+                  error: "FIRSTDROP is only valid on your first order. A previous order was found for this phone number.",
+                });
+              }
+            } catch (e) {
+              /* ignore sql check error */
+            }
+          }
+
+          return sendJson(200, {
+            ok: true,
+            valid: true,
+            code: "FIRSTDROP",
+            discount,
+            merchSubtotal,
+            isFirstOrder: true,
+            message: `10% first-order discount applied (-Rs. ${discount.toLocaleString()})`,
+          });
+        }
+        return sendJson(200, { ok: true, valid: false, error: "Invalid promo code" });
+      }
       if (!body.order) return sendJson(400, { ok: false, error: "Missing order" });
       const saved = await saveOneOrder(body.order);
 

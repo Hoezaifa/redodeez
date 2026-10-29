@@ -23,7 +23,7 @@ export const Route = createFileRoute("/cart")({
 });
 
 function CartPage() {
-  const { lines, setQty, remove, subtotal } = useCart();
+  const { lines, setQty, remove, subtotal, discount, discountLabel } = useCart();
   const hasMugInCart = lines.some(
     (l) => l.productId.startsWith("mug-") || l.title.toLowerCase().includes("mug")
   );
@@ -109,6 +109,15 @@ function CartPage() {
                 <dt className="text-muted-foreground">Subtotal</dt>
                 <dd>{formatPrice(subtotal)}</dd>
               </div>
+              {discount > 0 && (
+                <div className="flex justify-between items-center text-emerald-400">
+                  <dt className="flex items-center gap-1.5 font-medium">
+                    <span>🏷️</span>
+                    <span>{discountLabel}</span>
+                  </dt>
+                  <dd className="font-mono font-bold">-Rs. {discount.toLocaleString()}</dd>
+                </div>
+              )}
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Shipping</dt>
                 <dd className="text-xs">
@@ -145,8 +154,8 @@ function CartPage() {
               ⏳ {site.orderPrepNotice}
             </p>
             <div className="mt-5 flex items-center justify-between border-t border-border pt-5">
-              <span className="label-mono">Subtotal</span>
-              <span className="font-display text-2xl font-extrabold">{formatPrice(subtotal)}</span>
+              <span className="label-mono">{discount > 0 ? "Total (excl. delivery)" : "Subtotal"}</span>
+              <span className="font-display text-2xl font-extrabold">{formatPrice(Math.max(0, subtotal - discount))}</span>
             </div>
             <Link
               to="/checkout"

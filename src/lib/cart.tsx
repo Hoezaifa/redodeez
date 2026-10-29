@@ -1,6 +1,15 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { trackEvent } from "@/lib/analytics";
 
+import {
+  calculatePromoDiscount,
+  getSavedClaimStatus,
+  getSavedPromoCode,
+  saveClaimStatus,
+  savePromoCode,
+  PROMO_FIRSTDROP,
+} from "./promo";
+
 export type CartLine = {
   id: string;
   productId: string;
@@ -41,6 +50,15 @@ type CartCtx = {
   setDrawerOpen: (v: boolean) => void;
   lastAdded: CartToastInfo | null;
   dismissToast: () => void;
+  appliedPromo: string | null;
+  setAppliedPromo: (code: string | null) => void;
+  isFirstOrderClaimed: boolean;
+  claimFirstOrderOffer: () => void;
+  discount: number;
+  discountLabel: string;
+  merchSubtotal: number;
+  isOfferOpen: boolean;
+  setIsOfferOpen: (v: boolean) => void;
 };
 
 const Ctx = createContext<CartCtx | null>(null);
@@ -52,6 +70,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [lastAdded, setLastAdded] = useState<CartToastInfo | null>(null);
+  const [appliedPromo, setAppliedPromoState] = useState<string | null>(null);
+  const [isFirstOrderClaimed, setIsFirstOrderClaimed] = useState(false);
+  const [isOfferOpen, setIsOfferOpen] = useState(false);
 
   useEffect(() => {
     try {
@@ -59,6 +80,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (raw) setLines(JSON.parse(raw));
       const w = localStorage.getItem(WKEY);
       if (w) setWishlist(JSON.parse(w));
+      const claimed = getSavedClaimStatus();
+      setIsFirstOrderClaimed(claimed);
+      const savedPromo = getSavedPromoCode();
+      if (savedPromo) {
+        setAppliedPromoState(savedPromo);
+      } else if (claimed) {
+        // Auto-apply FIRSTDROP if offer claimed but promo not explicitly cleared
+        setAppliedPromoState(PROMO_FIRSTDROP);
+      }
     } catch {
       /* ignore */
     }
@@ -108,6 +138,22 @@ export function CartProvider({ children }: { children: ReactNode }) {
       });
       trackEvent.addToCart(line);
     };
+
+    const subtotal = lines.reduce((n, l) => n + l.qty * l.price, 0);
+    const promoCalc = calculatePromoDiscount(appliedPromo, lines, subtotal);
+
+    const setAppliedPromo = (code: string | null) => {
+      setAppliedPromoState(code);
+      savePromoCode(code);
+    };
+
+    const claimFirstOrderOffer = () => {
+      setIsFirstOrderClaimed(true);
+      saveClaimStatus(true);
+      setAppliedPromoState(PROMO_FIRSTDROP);
+      savePromoCode(PROMO_FIRSTDROP);
+    };
+
     return {
       lines,
       add,
@@ -118,7 +164,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         ),
       clear: () => setLines([]),
       count: lines.reduce((n, l) => n + l.qty, 0),
-      subtotal: lines.reduce((n, l) => n + l.qty * l.price, 0),
+      subtotal,
       wishlist,
       toggleWish: (id) =>
         setWishlist((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p, id])),
@@ -126,8 +172,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
       setDrawerOpen,
       lastAdded,
       dismissToast: () => setLastAdded(null),
+      appliedPromo,
+      setAppliedPromo,
+      isFirstOrderClaimed,
+      claimFirstOrderOffer,
+      discount: promoCalc.discount,
+      discountLabel: promoCalc.label,
+      merchSubtotal: promoCalc.merchSubtotal,
+      isOfferOpen,
+      setIsOfferOpen,
     };
-  }, [lines, wishlist, drawerOpen, lastAdded]);
+  }, [lines, wishlist, drawerOpen, lastAdded, appliedPromo, isFirstOrderClaimed, isOfferOpen]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

@@ -8,7 +8,7 @@ import { site, SHIPPING_OPTIONS } from "@/data/site";
 import { products } from "@/data/products";
 
 export function CartDrawer() {
-  const { drawerOpen, setDrawerOpen, lines, setQty, remove, add, subtotal } = useCart();
+  const { drawerOpen, setDrawerOpen, lines, setQty, remove, add, subtotal, discount, discountLabel } = useCart();
 
   // "Complete the look" — random products with images, not already in cart
   const suggestions = useMemo(() => {
@@ -205,10 +205,24 @@ export function CartDrawer() {
                 <div className="border-t border-border p-5">
                   <div className="flex items-center justify-between">
                     <span className="label-mono text-muted-foreground">Subtotal</span>
-                    <span className="font-display text-xl font-extrabold">
+                    <span className="font-display text-lg font-extrabold">
                       {formatPrice(subtotal)}
                     </span>
                   </div>
+                  {discount > 0 && (
+                    <div className="flex items-center justify-between text-emerald-400 mt-2 text-xs">
+                      <span className="font-mono font-medium">{discountLabel}</span>
+                      <span className="font-mono font-bold">-Rs. {discount.toLocaleString()}</span>
+                    </div>
+                  )}
+                  {discount > 0 && (
+                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-border/40">
+                      <span className="label-mono text-xs">Total (excl. delivery)</span>
+                      <span className="font-display text-xl font-extrabold text-foreground">
+                        {formatPrice(Math.max(0, subtotal - discount))}
+                      </span>
+                    </div>
+                  )}
                   <p className="label-mono mt-2 text-muted-foreground text-xs">
                     {subtotal >= site.freeShippingThreshold
                       ? "🎉 Karachi orders: FREE Delivery"

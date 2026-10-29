@@ -8,6 +8,13 @@ import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site, SHIPPING_OPTIONS, type DeliveryLocation } from "@/data/site";
 import { sendOrderTelegramNotification } from "@/lib/sendTelegramOrder";
 import { saveOrder, triggerOrderEmail, generateOrderId, type StoredOrder } from "@/lib/ordersStore";
+import { validatePromoEligibilityFn } from "@/lib/orderFunctions";
+import {
+  calculatePromoDiscount,
+  calculateMerchSubtotal,
+  PROMO_FIRSTDROP,
+  PROMO_WELCOMEDEEZ,
+} from "@/lib/promo";
 import { products } from "@/data/products";
 import { ProductCard } from "@/components/shop/ProductCard";
 
@@ -88,7 +95,15 @@ export function buildWhatsAppReceiptMessage(order: StoredOrder): string {
 }
 
 function Checkout() {
-  const { lines, subtotal, clear } = useCart();
+  const {
+    lines,
+    subtotal,
+    clear,
+    appliedPromo: globalPromo,
+    setAppliedPromo: setGlobalPromo,
+    isFirstOrderClaimed,
+  } = useCart();
+
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("easypaisa");
   const [deliveryLocation, setDeliveryLocation] = useState<DeliveryLocation>("karachi");
@@ -113,21 +128,68 @@ function Checkout() {
 
   const [completedOrder, setCompletedOrder] = useState<StoredOrder | null>(null);
 
-  // Promo Code State
+  // Promo Code State — initialized from cart / first-order claim
   const [promoCodeInput, setPromoCodeInput] = useState("");
-  const [appliedPromo, setAppliedPromo] = useState<string | null>(null);
+  const [appliedPromo, setAppliedPromo] = useState<string | null>(
+    globalPromo || (isFirstOrderClaimed ? PROMO_FIRSTDROP : null)
+  );
   const [promoError, setPromoError] = useState<string | null>(null);
-  const [promoSuccess, setPromoSuccess] = useState<string | null>(null);
+  const [promoSuccess, setPromoSuccess] = useState<string | null>(
+    appliedPromo === PROMO_FIRSTDROP
+      ? "10% first-order discount unlocked!"
+      : appliedPromo === PROMO_WELCOMEDEEZ
+      ? "20% off applied!"
+      : null
+  );
 
   const shippingOption = SHIPPING_OPTIONS[deliveryLocation];
   const isFreeShipping = subtotal >= site.freeShippingThreshold && deliveryLocation === "karachi";
   const shippingCost = isFreeShipping ? 0 : shippingOption.fee;
 
-  // 20% discount on subtotal with code WELCOMEDEEZ
-  const discount = appliedPromo === "WELCOMEDEEZ" ? Math.round(subtotal * 0.2) : 0;
+  // Real rupee discount calculation using promo rules:
+  // - FIRSTDROP: 10% off eligible merchandise (excluding unpriced quotes/bulk jobs and delivery)
+  // - WELCOMEDEEZ: 20% off subtotal
+  // - No stacking
+  const merchSubtotal = useMemo(() => calculateMerchSubtotal(lines), [lines]);
+  const promoCalc = useMemo(
+    () => calculatePromoDiscount(appliedPromo, lines, subtotal),
+    [appliedPromo, lines, subtotal]
+  );
+  const discount = promoCalc.discount;
   const total = lines.length ? Math.max(0, subtotal - discount + shippingCost) : 0;
 
-  const handleApplyPromo = (e?: React.FormEvent) => {
+  // Validate FIRSTDROP eligibility server-side when phone number is entered or changed
+  useEffect(() => {
+    const cleanPhone = formData.phone.replace(/[^0-9]/g, "");
+    if (appliedPromo === PROMO_FIRSTDROP && cleanPhone.length >= 10) {
+      validatePromoEligibilityFn({
+        data: {
+          code: PROMO_FIRSTDROP,
+          phone: cleanPhone,
+          email: formData.email,
+          subtotal,
+          lines: lines.map((l) => ({
+            title: l.title,
+            price: l.price,
+            qty: l.qty,
+            isCustom: l.isCustom,
+            note: l.note,
+          })),
+        },
+      }).then((res) => {
+        if (!res.valid) {
+          setPromoError(res.error || "FIRSTDROP is exclusively for first-time customers.");
+          setAppliedPromo(null);
+          setGlobalPromo(null);
+          setPromoSuccess(null);
+        }
+      }).catch(() => {
+        /* Ignore network issues in local mode */
+      });
+    }
+  }, [formData.phone, formData.email, appliedPromo, subtotal, lines, setGlobalPromo]);
+
+  const handleApplyPromo = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     const cleaned = promoCodeInput.trim().toUpperCase();
     if (!cleaned) {
@@ -135,18 +197,55 @@ function Checkout() {
       setPromoSuccess(null);
       return;
     }
-    if (cleaned === "WELCOMEDEEZ") {
-      setAppliedPromo("WELCOMEDEEZ");
-      setPromoError(null);
-      setPromoSuccess("20% off applied!");
-    } else {
-      setPromoError("Invalid promo code");
-      setPromoSuccess(null);
+
+    try {
+      const res = await validatePromoEligibilityFn({
+        data: {
+          code: cleaned,
+          phone: formData.phone,
+          email: formData.email,
+          subtotal,
+          lines: lines.map((l) => ({
+            title: l.title,
+            price: l.price,
+            qty: l.qty,
+            isCustom: l.isCustom,
+            note: l.note,
+          })),
+        },
+      });
+
+      if (res.valid) {
+        setAppliedPromo(res.code);
+        setGlobalPromo(res.code);
+        setPromoError(null);
+        setPromoSuccess(res.message || `${res.code} applied!`);
+      } else {
+        setPromoError(res.error || "Invalid promo code");
+        setPromoSuccess(null);
+      }
+    } catch {
+      // Local fallback
+      if (cleaned === PROMO_FIRSTDROP) {
+        setAppliedPromo(PROMO_FIRSTDROP);
+        setGlobalPromo(PROMO_FIRSTDROP);
+        setPromoError(null);
+        setPromoSuccess("10% off first order applied!");
+      } else if (cleaned === PROMO_WELCOMEDEEZ) {
+        setAppliedPromo(PROMO_WELCOMEDEEZ);
+        setGlobalPromo(PROMO_WELCOMEDEEZ);
+        setPromoError(null);
+        setPromoSuccess("20% off applied!");
+      } else {
+        setPromoError("Invalid promo code");
+        setPromoSuccess(null);
+      }
     }
   };
 
   const handleRemovePromo = () => {
     setAppliedPromo(null);
+    setGlobalPromo(null);
     setPromoCodeInput("");
     setPromoError(null);
     setPromoSuccess(null);
@@ -233,10 +332,10 @@ function Checkout() {
       city: formData.city,
       notes: formData.notes
         ? appliedPromo
-          ? `${formData.notes} (Promo: ${appliedPromo} -20%)`
+          ? `${formData.notes} (Promo: ${appliedPromo} -${promoCalc.percent}%)`
           : formData.notes
         : appliedPromo
-        ? `Promo: ${appliedPromo} (-20%)`
+        ? `Promo: ${appliedPromo} (-${promoCalc.percent}%)`
         : undefined,
       paymentMethod: methodTitle,
       items: lines.map((l) => ({
@@ -1323,7 +1422,7 @@ function Checkout() {
                       {appliedPromo}
                     </span>
                     <span className="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-1.5 py-0.5 rounded">
-                      20% OFF
+                      {promoCalc.percent}% OFF
                     </span>
                   </div>
                   <button
@@ -1379,7 +1478,7 @@ function Checkout() {
               </div>
               {discount > 0 && (
                 <div className="flex justify-between text-emerald-400 font-medium">
-                  <span>Discount ({appliedPromo} -20%)</span>
+                  <span>{promoCalc.label || `Discount (${appliedPromo})`}</span>
                   <span className="font-mono font-bold">
                     -Rs. {discount.toLocaleString()}
                   </span>
