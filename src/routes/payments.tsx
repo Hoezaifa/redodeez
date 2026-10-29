@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Building2, Smartphone, Wallet, ShieldCheck, CheckCircle2, Copy, CreditCard, Banknote } from "lucide-react";
+import { Building2, Smartphone, ShieldCheck, CheckCircle2, Banknote } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/shop/ProductRow";
-import { bankDetails, paymentMethods, whatsappLink, SITE_URL } from "@/data/site";
-import { useState } from "react";
+import { SITE_URL } from "@/data/site";
 
 export const Route = createFileRoute("/payments")({
   head: () => ({
@@ -28,14 +27,6 @@ export const Route = createFileRoute("/payments")({
 });
 
 function PaymentsPage() {
-  const [copied, setCopied] = useState<string | null>(null);
-
-  const copyToClipboard = (text: string, label: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(label);
-    setTimeout(() => setCopied(null), 2000);
-  };
-
   return (
     <div className="edge py-14 md:py-20 space-y-16">
       {/* Header */}
@@ -58,28 +49,17 @@ function PaymentsPage() {
                 Easypaisa
               </h3>
               <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                Send payment directly from your Easypaisa mobile wallet. Available for all orders nationwide.
+                Send payment directly from your Easypaisa mobile wallet or via Raast ID. Available for all orders nationwide.
               </p>
 
-              <div className="bg-zinc-900 border border-white/5 rounded-xl p-4 space-y-2 text-xs font-mono">
-                <div className="flex justify-between text-zinc-400">
-                  <span>Wallet:</span> <span className="text-white font-bold">Easypaisa</span>
+              <div className="bg-zinc-900/90 border border-white/5 rounded-xl p-4 space-y-2 text-xs">
+                <div className="flex items-center gap-2 text-emerald-400 font-semibold">
+                  <CheckCircle2 className="w-4 h-4 shrink-0" />
+                  <span>Instant Mobile App &amp; Raast Transfer</span>
                 </div>
-                <div className="flex justify-between text-zinc-400">
-                  <span>Title:</span> <span className="text-white font-bold">{bankDetails.easypaisa.accountTitle}</span>
-                </div>
-                <div className="flex justify-between text-zinc-400 items-center">
-                  <span>Number:</span>
-                  <button
-                    onClick={() => copyToClipboard(bankDetails.easypaisa.accountNumber, "easypaisa")}
-                    className="flex items-center gap-1 text-emerald-400 font-bold hover:underline"
-                  >
-                    {bankDetails.easypaisa.accountNumber} <Copy className="w-3 h-3" />
-                  </button>
-                </div>
-                {copied === "easypaisa" && (
-                  <p className="text-[10px] text-emerald-400 text-right">Copied to clipboard!</p>
-                )}
+                <p className="text-zinc-400 text-[11px] leading-relaxed pt-1.5 border-t border-white/5">
+                  Official payment details are provided securely at checkout on your private order confirmation screen when placing your order.
+                </p>
               </div>
             </div>
             <span className="text-[11px] font-mono text-zinc-500 bg-zinc-900/60 px-3 py-1.5 rounded border border-white/5 inline-block text-center">
@@ -102,25 +82,14 @@ function PaymentsPage() {
                 Direct online bank transfer via Meezan Mobile App, IBFT, or any Pakistani bank account.
               </p>
 
-              <div className="bg-zinc-900 border border-white/5 rounded-xl p-4 space-y-2 text-xs font-mono">
-                <div className="flex justify-between text-zinc-400">
-                  <span>Bank:</span> <span className="text-white font-bold">{bankDetails.meezan.bankName}</span>
+              <div className="bg-zinc-900/90 border border-white/5 rounded-xl p-4 space-y-2 text-xs">
+                <div className="flex items-center gap-2 text-orange-400 font-semibold">
+                  <CheckCircle2 className="w-4 h-4 shrink-0" />
+                  <span>Meezan Bank · Online IBFT · Raast ID</span>
                 </div>
-                <div className="flex justify-between text-zinc-400">
-                  <span>Title:</span> <span className="text-white font-bold">{bankDetails.meezan.accountTitle}</span>
-                </div>
-                <div className="flex justify-between text-zinc-400 items-center">
-                  <span>Account #:</span>
-                  <button
-                    onClick={() => copyToClipboard(bankDetails.meezan.accountNumber, "meezan")}
-                    className="flex items-center gap-1 text-primary font-bold hover:underline"
-                  >
-                    {bankDetails.meezan.accountNumber} <Copy className="w-3 h-3" />
-                  </button>
-                </div>
-                {copied === "meezan" && (
-                  <p className="text-[10px] text-emerald-400 text-right">Copied to clipboard!</p>
-                )}
+                <p className="text-zinc-400 text-[11px] leading-relaxed pt-1.5 border-t border-white/5">
+                  Full bank account details and Raast transfer coordinates are shown securely at checkout on your order confirmation page.
+                </p>
               </div>
             </div>
             <span className="text-[11px] font-mono text-zinc-500 bg-zinc-900/60 px-3 py-1.5 rounded border border-white/5 inline-block text-center">
@@ -176,7 +145,7 @@ function PaymentsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             ["01", "Place Order", "Choose Easypaisa, Meezan Bank, or Cash on Delivery (Karachi only) at checkout."],
-            ["02", "Transfer Funds", "For online methods, transfer the exact order total using the account details above."],
+            ["02", "Transfer Funds", "Use the official payment account details shown on your order confirmation screen to complete the transfer."],
             ["03", "Keep Receipt", "Save the transaction reference number or take a payment screenshot."],
             ["04", "WhatsApp Us", "Share receipt on WhatsApp (0327 2487127) for instant order confirmation."],
           ].map(([num, title, desc]) => (

@@ -3,7 +3,7 @@ import { useMemo, useState, useRef, useEffect } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, Download, Share2, ArrowLeft, Info, MapPin, Tag, X } from "lucide-react";
-import { toPng } from "html-to-image";
+import { toPng, toBlob } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site, SHIPPING_OPTIONS, type DeliveryLocation } from "@/data/site";
 import { sendOrderTelegramNotification } from "@/lib/sendTelegramOrder";
@@ -28,6 +28,65 @@ export const Route = createFileRoute("/checkout")({
 
 type PaymentMethod = "easypaisa" | "bank" | "cod";
 
+export function buildWhatsAppReceiptMessage(order: StoredOrder): string {
+  const isCod =
+    order.paymentMethod?.toLowerCase().includes("cash on delivery") ||
+    order.paymentMethod?.toLowerCase().includes("cod");
+
+  const formattedDate = new Date(order.createdAt || Date.now()).toLocaleDateString("en-PK", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+
+  const totalItemsCount = order.items.reduce((sum, item) => sum + (item.qty || 1), 0);
+
+  const itemsList = order.items
+    .map((item, idx) => {
+      const variantParts = [item.size, item.color].filter(Boolean);
+      const variantText = variantParts.length > 0 ? ` (${variantParts.join(" / ")})` : "";
+      const customTag = item.isCustom ? " [Custom Design]" : "";
+      const priceText =
+        item.price > 0 ? `Rs. ${(item.price * item.qty).toLocaleString()}` : "(Custom Quote)";
+      const artwork = item.frontArtworkUrl ? `\n   └ 🎨 Artwork: ${item.frontArtworkUrl}` : "";
+      return `${idx + 1}. *${item.title}${variantText}* × ${item.qty} — ${priceText}${customTag}${artwork}`;
+    })
+    .join("\n");
+
+  const lines = [
+    `🧾 *DEEZ PRINTS — OFFICIAL ORDER RECEIPT*`,
+    `━━━━━━━━━━━━━━━━━━━━━━━━`,
+    `*Order ID:* #${order.orderId}`,
+    `*Date:* ${formattedDate}`,
+    `*Payment Method:* ${order.paymentMethod}`,
+    ``,
+    `👤 *CUSTOMER DETAILS:*`,
+    `• *Name:* ${order.name}`,
+    `• *Phone:* ${order.phone}`,
+    ...(order.email ? [`• *Email:* ${order.email}`] : []),
+    `• *Delivery Address:* ${order.address}`,
+    `• *City:* ${order.city}`,
+    ...(order.notes ? [`• *Order Notes:* ${order.notes}`] : []),
+    ``,
+    `📦 *ORDERED ITEMS (${totalItemsCount}):*`,
+    itemsList,
+    ``,
+    `💰 *PAYMENT BREAKDOWN:*`,
+    `• Subtotal: Rs. ${order.subtotal.toLocaleString()}`,
+    ...(order.discount > 0 ? [`• Promo Discount: -Rs. ${order.discount.toLocaleString()}`] : []),
+    `• Shipping (${order.deliveryLocation || "Standard"} / ${order.shippingMethod || "Courier"}): Rs. ${order.shipping.toLocaleString()}`,
+    `━━━━━━━━━━━━━━━━━━━━━━━━`,
+    `*TOTAL AMOUNT:* *Rs. ${order.total.toLocaleString()}*`,
+    `━━━━━━━━━━━━━━━━━━━━━━━━`,
+    ``,
+    isCod
+      ? `💬 *Cash on Delivery (Karachi):* Please confirm my order for dispatch! 🚀`
+      : `📎 *Payment Receipt:* Attached is my payment proof / screenshot below! 🙏`,
+  ];
+
+  return lines.join("\n");
+}
+
 function Checkout() {
   const { lines, subtotal, clear } = useCart();
   const [step, setStep] = useState<1 | 2 | 3>(1);
@@ -35,6 +94,8 @@ function Checkout() {
   const [deliveryLocation, setDeliveryLocation] = useState<DeliveryLocation>("karachi");
   const [placed, setPlaced] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  const [sharingWhatsApp, setSharingWhatsApp] = useState(false);
+  const [shareFeedback, setShareFeedback] = useState<string | null>(null);
   const receiptRef = useRef<HTMLDivElement>(null);
 
   const [copiedPaymentId, setCopiedPaymentId] = useState<string | null>(null);
@@ -276,13 +337,117 @@ function Checkout() {
       });
       const link = document.createElement("a");
       link.href = dataUrl;
-      link.download = `DeezPrints-Receipt-${orderNumber}.png`;
+      link.download = `DeezPrints-Receipt-${completedOrder?.orderId || orderNumber}.png`;
       link.click();
     } catch (err) {
       console.error("Failed to generate receipt", err);
       alert("Failed to download receipt image.");
     } finally {
       setDownloading(false);
+    }
+  };
+
+  /** Share receipt directly to WhatsApp DM (Native File Share on mobile, Clipboard + direct link fallback) */
+  const handleShareOnWhatsApp = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    trackEvent.whatsappClick("checkout_receipt");
+    if (!completedOrder) return;
+
+    if (sharingWhatsApp) {
+      e.preventDefault();
+      return;
+    }
+
+    setSharingWhatsApp(true);
+    setShareFeedback(null);
+
+    const receiptMessage = buildWhatsAppReceiptMessage(completedOrder);
+    const waUrl = whatsappLink(receiptMessage);
+
+    try {
+      let imageBlob: Blob | null = null;
+      let imageFile: File | null = null;
+
+      if (receiptRef.current) {
+        try {
+          imageBlob = await toBlob(receiptRef.current, {
+            backgroundColor: "#ffffff",
+            pixelRatio: 2,
+            filter: (node) => {
+              if (node.tagName?.toLowerCase() === "button") {
+                const ignore = node.getAttribute("data-html2canvas-ignore");
+                if (ignore === "true") return false;
+              }
+              return true;
+            },
+          });
+
+          if (imageBlob) {
+            imageFile = new File(
+              [imageBlob],
+              `DeezPrints-Receipt-${completedOrder.orderId || orderNumber}.png`,
+              { type: "image/png" }
+            );
+          }
+        } catch (imgErr) {
+          console.warn("Could not generate receipt image blob for sharing:", imgErr);
+        }
+      }
+
+      // 1. Mobile Web Share with receipt image file attachment
+      if (
+        imageFile &&
+        typeof navigator !== "undefined" &&
+        "canShare" in navigator &&
+        navigator.canShare({ files: [imageFile] })
+      ) {
+        e.preventDefault();
+        try {
+          await navigator.share({
+            title: `Deez Prints Receipt #${completedOrder.orderId}`,
+            text: receiptMessage,
+            files: [imageFile],
+          });
+          setShareFeedback("Receipt image & details sent via WhatsApp!");
+          return;
+        } catch (shareErr: any) {
+          if (shareErr?.name === "AbortError") {
+            // User closed native share sheet
+            return;
+          }
+          console.warn("Native share failed, falling back to direct link:", shareErr);
+        }
+      }
+
+      // 2. Desktop/Fallback: Copy receipt image to clipboard
+      if (
+        imageBlob &&
+        typeof navigator !== "undefined" &&
+        navigator.clipboard?.write &&
+        (window as any).ClipboardItem
+      ) {
+        try {
+          const ClipboardItemCtor = (window as any).ClipboardItem;
+          await navigator.clipboard.write([
+            new ClipboardItemCtor({ "image/png": imageBlob }),
+          ]);
+          setShareFeedback("📸 Receipt image copied! Paste (Ctrl+V) into WhatsApp.");
+        } catch {
+          // Ignore clipboard permission rejections
+        }
+      }
+
+      // 3. Fallback direct opening of WhatsApp link with full receipt text
+      e.preventDefault();
+      const popup = window.open(waUrl, "_blank", "noopener,noreferrer");
+      if (!popup) {
+        window.location.href = waUrl;
+      }
+    } catch (err) {
+      console.error("WhatsApp share failed:", err);
+      e.preventDefault();
+      window.open(waUrl, "_blank", "noopener,noreferrer");
+    } finally {
+      setSharingWhatsApp(false);
     }
   };
 
@@ -300,9 +465,7 @@ function Checkout() {
       .sort(() => Math.random() - 0.5)
       .slice(0, 4);
 
-    const whatsappMessage = paymentMethod === "cod"
-      ? `Hi Deez Prints! I just placed Order #${completedOrder.orderId} (Cash on Delivery).\n\n*Name:* ${completedOrder.name}\n*Total:* PKR ${completedOrder.total.toLocaleString()}\n*Payment:* ${completedOrder.paymentMethod}\n\nPlease confirm my order for dispatch.`
-      : `Hi Deez Prints! I just placed Order #${completedOrder.orderId}.\n\n*Name:* ${completedOrder.name}\n*Total:* PKR ${completedOrder.total.toLocaleString()}\n*Payment:* ${completedOrder.paymentMethod}\n\nAttached is my payment receipt.`;
+    const whatsappMessage = buildWhatsAppReceiptMessage(completedOrder);
 
     return (
       <div className="max-w-4xl mx-auto pt-28 pb-16 px-4 sm:px-6">
@@ -377,7 +540,7 @@ function Checkout() {
                     </div>
                     <div className="flex justify-between text-zinc-400">
                       <span>Account Title:</span>
-                      <span className="text-white font-bold">{bankDetails.meezan.accountTitle}</span>
+                      <span className="text-white font-bold">{bankDetails.meezan.displayTitle || bankDetails.meezan.accountTitle}</span>
                     </div>
                     <div className="flex justify-between items-center text-zinc-400">
                       <span>Account Number:</span>
@@ -392,6 +555,10 @@ function Checkout() {
                         </button>
                       </div>
                     </div>
+                    <div className="text-[10px] text-emerald-400 flex items-center gap-1.5 pt-1.5 border-t border-white/5">
+                      <span>🔒</span>
+                      <span>Official verified payee for Deez Prints</span>
+                    </div>
                   </>
                 ) : (
                   <>
@@ -401,7 +568,7 @@ function Checkout() {
                     </div>
                     <div className="flex justify-between text-zinc-400">
                       <span>Account Title:</span>
-                      <span className="text-white font-bold">{bankDetails.easypaisa.accountTitle}</span>
+                      <span className="text-white font-bold">{bankDetails.easypaisa.displayTitle || bankDetails.easypaisa.accountTitle}</span>
                     </div>
                     <div className="flex justify-between items-center text-zinc-400">
                       <span>Account Number:</span>
@@ -415,6 +582,10 @@ function Checkout() {
                           {copiedPaymentId === "post-ep" ? "Copied!" : "Copy"}
                         </button>
                       </div>
+                    </div>
+                    <div className="text-[10px] text-emerald-400 flex items-center gap-1.5 pt-1.5 border-t border-white/5">
+                      <span>🔒</span>
+                      <span>Official verified payee for Deez Prints</span>
                     </div>
                   </>
                 )}
@@ -561,19 +732,35 @@ function Checkout() {
             className="w-full bg-zinc-900 text-white hover:bg-black font-extrabold uppercase text-xs tracking-wider py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md"
           >
             <Download className="h-4 w-4" />
-            <span>{downloading ? "GENERATING RECEIPT..." : "DOWNLOAD RECEIPT"}</span>
+            <span>{downloading ? "GENERATING RECEIPT..." : "DOWNLOAD RECEIPT (IMAGE)"}</span>
           </button>
 
           <a
             href={whatsappLink(whatsappMessage)}
             target="_blank"
             rel="noreferrer"
-            onClick={() => trackEvent.whatsappClick("checkout_receipt")}
+            onClick={handleShareOnWhatsApp}
             className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold uppercase text-xs tracking-wider py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md text-center cursor-pointer"
           >
             <Share2 className="h-4 w-4" />
-            <span>{completedOrder.paymentMethod === "Cash on Delivery" ? "CONFIRM ORDER ON WHATSAPP (0327 2487127)" : "SEND RECEIPT ON WHATSAPP (0327 2487127)"}</span>
+            <span>
+              {sharingWhatsApp
+                ? "PREPARING RECEIPT..."
+                : completedOrder.paymentMethod === "Cash on Delivery"
+                ? "CONFIRM ORDER ON WHATSAPP (0327 2487127)"
+                : "SEND RECEIPT ON WHATSAPP (0327 2487127)"}
+            </span>
           </a>
+
+          {shareFeedback && (
+            <div className="text-center text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 py-2.5 px-4 rounded-xl">
+              {shareFeedback}
+            </div>
+          )}
+
+          <p className="text-[11px] text-zinc-400 text-center leading-relaxed">
+            📲 Automatically sends your complete itemized order receipt, delivery details, and payment summary directly to our WhatsApp.
+          </p>
 
           <Link
             to="/collections"
@@ -887,7 +1074,7 @@ function Checkout() {
                           </p>
                           <div className="flex justify-between text-zinc-400 pt-1">
                             <span>Account Title</span>
-                            <span className="text-white font-semibold">{bankDetails.easypaisa.accountTitle}</span>
+                            <span className="text-white font-semibold">{bankDetails.easypaisa.displayTitle || bankDetails.easypaisa.accountTitle}</span>
                           </div>
                           <div className="flex items-center justify-between text-zinc-400">
                             <span>Account Number</span>
@@ -957,7 +1144,7 @@ function Checkout() {
                           </div>
                           <div className="flex justify-between text-zinc-400">
                             <span>Account Title</span>
-                            <span className="text-white font-semibold">{bankDetails.meezan.accountTitle}</span>
+                            <span className="text-white font-semibold">{bankDetails.meezan.displayTitle || bankDetails.meezan.accountTitle}</span>
                           </div>
                           <div className="flex items-center justify-between text-zinc-400">
                             <span>Account Number</span>
