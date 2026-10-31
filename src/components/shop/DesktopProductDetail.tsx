@@ -196,12 +196,12 @@ export function DesktopProductDetail({
           </div>
 
           {/* Image */}
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.img
               key={currentSrc}
               src={currentSrc}
               alt={getProductImageAlt(product, currentSrc, carouselIdx, totalImages)}
-              initial={{ opacity: 0 }}
+              initial={false}
               animate={{
                 opacity: 1,
                 scale: isZoomed ? 2.5 : 1,
@@ -214,6 +214,8 @@ export function DesktopProductDetail({
                 scale: { duration: 0.2, ease: [0.16, 1, 0.3, 1] },
                 opacity: { duration: 0.2 },
               }}
+              fetchPriority="high"
+              loading="eager"
               className="h-full w-full object-cover pointer-events-none"
             />
           </AnimatePresence>

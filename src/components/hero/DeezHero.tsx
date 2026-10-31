@@ -24,7 +24,7 @@ export function DeezHero() {
   const imgY = useTransform(scrollYProgress, [0, 1], [0, 55]);
 
   const lineVariants = {
-    hidden: { y: "108%", opacity: 0 },
+    hidden: { y: "0%", opacity: 1 },
     show: (i: number) => ({
       y: "0%",
       opacity: 1,
@@ -51,8 +51,8 @@ export function DeezHero() {
 
         {/* Photography Frame: relative aspect-[4/5] on mobile, absolute full-bleed on desktop */}
         <motion.div
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ scale: 1.04 }}
+          animate={{ scale: 1 }}
           transition={{ duration: 1.8, ease }}
           style={{ y: imgY }}
           className="relative w-full aspect-[4/5] max-h-[480px] overflow-hidden bg-black pt-16 md:pt-0 md:max-h-none md:aspect-auto md:absolute md:inset-0 md:pointer-events-none"
@@ -60,8 +60,8 @@ export function DeezHero() {
           <img
             src={heroDesktop}
             alt="Model wearing an oversized Deez Prints graphic tee"
-            width={1600}
-            height={1200}
+            width={1743}
+            height={902}
             className="h-full w-full object-cover object-[75%_20%] md:object-[82%_20%] md:translate-x-0 hero-mobile-fade-mask"
             fetchPriority="high"
           />
@@ -119,7 +119,7 @@ export function DeezHero() {
                 <span key={word} className="block overflow-hidden">
                   <motion.span
                     custom={i}
-                    initial="hidden"
+                    initial={false}
                     animate="show"
                     variants={lineVariants}
                     className="inline-block font-black text-white"
@@ -133,7 +133,7 @@ export function DeezHero() {
               <span className="block overflow-visible py-0.5 md:py-1">
                 <motion.span
                   custom={3}
-                  initial="hidden"
+                  initial={false}
                   animate="show"
                   variants={lineVariants}
                   className="inline-block font-black text-white md:text-outline pr-0 md:pr-6"
