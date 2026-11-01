@@ -78,7 +78,9 @@ function Home() {
     };
 
     const getFamily = (p: Product) => {
-      const pid = p.id.toLowerCase()
+      if (!p || !p.id) return "";
+      const pid = p.id
+        .toLowerCase()
         .replace(/^dp-(drop-shoulder|acid-wash|regular)-/, "")
         .replace(/^tapestry-/, "");
       return pid.split("-")[0];
@@ -106,14 +108,12 @@ function Home() {
           if (!usedIds.has(p.id) && !usedFams.has(getFamily(p))) {
             selected.push(p);
             usedIds.add(p.id);
-            usedFams.add(getFamily(matchFamily(p)));
+            usedFams.add(getFamily(p));
           }
         }
       }
       return selected.slice(0, 5);
     };
-
-    const matchFamily = (p: Product) => getFamily(p);
 
     const allAcid = allProducts.filter((p) => p.subcategory === "acid-wash");
     const allDrop = allProducts.filter((p) => p.subcategory === "drop-shoulder");
