@@ -42,7 +42,7 @@ export function ProductCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-6% 0px" }}
       transition={{ duration: 0.5, delay: (index % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative flex flex-col overflow-hidden rounded-lg border border-neutral-800/80 bg-[#121214] transition-all duration-300 hover:border-neutral-700 hover:shadow-xl"
+      className="group relative flex flex-col overflow-hidden rounded-lg border border-neutral-800/80 bg-[#121214] transition-all duration-300 hover:border-neutral-700 hover:shadow-xl h-full"
     >
       {/* Image Container — 3:4 portrait matching model shoots */}
       <div className="relative w-full overflow-hidden bg-neutral-900 aspect-[3/4]">
@@ -60,7 +60,7 @@ export function ProductCard({
                 height={667}
                 loading="lazy"
                 className={cn(
-                  "absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]",
+                  "absolute inset-0 h-full w-full object-cover object-center img-zoom pointer-events-none",
                   alt !== primary && "group-hover:opacity-0",
                 )}
               />
@@ -71,7 +71,7 @@ export function ProductCard({
                   width={500}
                   height={667}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:opacity-100"
+                  className="absolute inset-0 h-full w-full object-cover object-center opacity-0 group-hover:opacity-100 img-zoom pointer-events-none"
                 />
               )}
             </>

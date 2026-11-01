@@ -64,7 +64,7 @@ const COMMUNITY_POSTS = [
 function Home() {
   const { allProducts } = Route.useLoaderData();
 
-  const { acidWash, regularTees, latest, wallArt, accessories } = useMemo(() => {
+  const { acidWash, regularTees, latest, wallArt } = useMemo(() => {
     const getColor = (p: Product) => {
       if (!p.images || p.images.length === 0) return "black";
       const img = p.images[0].toLowerCase();
@@ -100,31 +100,31 @@ function Home() {
         }
       }
 
-      if (selected.length < 4) {
+      if (selected.length < 5) {
         for (const p of pool) {
-          if (selected.length >= 4) break;
+          if (selected.length >= 5) break;
           if (!usedIds.has(p.id) && !usedFams.has(getFamily(p))) {
             selected.push(p);
             usedIds.add(p.id);
-            usedFams.add(getFamily(p));
+            usedFams.add(getFamily(matchFamily(p)));
           }
         }
       }
-      return selected;
+      return selected.slice(0, 5);
     };
+
+    const matchFamily = (p: Product) => getFamily(p);
 
     const allAcid = allProducts.filter((p) => p.subcategory === "acid-wash");
     const allDrop = allProducts.filter((p) => p.subcategory === "drop-shoulder");
     const allReg = allProducts.filter((p) => ["regular", "graphic"].includes(p.subcategory));
+    const allWallArt = allProducts.filter((p) => ["tapestries", "flags"].includes(p.subcategory));
 
     return {
-      acidWash: allAcid,
-      latest: allDrop,
-      regularTees: allReg,
-      wallArt: allProducts.filter((p) => ["tapestries", "flags"].includes(p.subcategory)),
-      accessories: allProducts.filter(
-        (p) => (p.category === "accessories" || p.subcategory === "mugs") && p.images.length > 0
-      ),
+      acidWash: selectDiverseRow(allAcid, ["black", "grey", "white", "maroon", "green"]),
+      latest: selectDiverseRow(allDrop, ["black", "beige", "white", "maroon", "green"]),
+      regularTees: selectDiverseRow(allReg, ["black", "white", "maroon", "beige", "blue"]),
+      wallArt: allWallArt.slice(0, 5),
     };
   }, [allProducts]);
 
@@ -144,7 +144,7 @@ function Home() {
         eyebrow="Acid Wash"
         title={"Vintage\nHeavyweight"}
         items={acidWash}
-        ctaLabel="Shop acid wash"
+        ctaLabel="View all acid wash"
         ctaTo="/collections/$slug"
         ctaParams={{ slug: "acid-wash" }}
       />
@@ -154,7 +154,7 @@ function Home() {
         eyebrow="Tapestries"
         title={"Make your\nspace yours"}
         items={wallArt}
-        ctaLabel="Explore tapestries"
+        ctaLabel="View all tapestries"
         ctaTo="/collections/$slug"
         ctaParams={{ slug: "tapestries" }}
       />
@@ -174,22 +174,10 @@ function Home() {
         eyebrow="Regular Tees"
         title={"Everyday\nEssentials"}
         items={regularTees}
-        ctaLabel="Shop regular tees"
+        ctaLabel="View all regular tees"
         ctaTo="/collections/$slug"
         ctaParams={{ slug: "t-shirts" }}
       />
-
-      {/* Mugs Section — Karachi Delivery Only */}
-      {accessories.length > 0 && (
-        <ProductRow
-          eyebrow="Mugs · Karachi Delivery Only"
-          title={"Ceramic\nStatements"}
-          items={accessories.slice(0, 4)}
-          ctaLabel="Shop mugs"
-          ctaTo="/collections/$slug"
-          ctaParams={{ slug: "accessories" }}
-        />
-      )}
 
 
       {/* Community */}

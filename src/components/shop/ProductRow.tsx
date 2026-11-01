@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Product } from "@/data/products";
 import { ProductCard } from "@/components/shop/ProductCard";
+import { cn } from "@/lib/utils";
 
 export function ProductRow({
   eyebrow,
@@ -21,10 +22,36 @@ export function ProductRow({
   ctaParams?: Record<string, string>;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  // Maximum 5 products per section
+  const displayItems = items.slice(0, 5);
+
+  const updateScrollState = useCallback(() => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 8);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 8);
+    }
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    updateScrollState();
+    el.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+    return () => {
+      el.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, [updateScrollState, displayItems]);
 
   const handleScroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = direction === "left" ? -280 : 280;
+      const cardWidth = scrollRef.current.firstElementChild?.clientWidth || 260;
+      const scrollAmount = direction === "left" ? -(cardWidth * 2) : (cardWidth * 2);
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
@@ -37,23 +64,35 @@ export function ProductRow({
           <div>
             <div className="flex items-center justify-between">
               <p className="label-mono text-primary">{eyebrow}</p>
-              {/* Circular Carousel Controls (visible on mobile only) */}
-              <div className="flex items-center gap-2 md:hidden">
+              {/* Circular Carousel Controls (visible on both mobile & desktop) */}
+              <div className="flex items-center gap-1.5">
                 <button
                   type="button"
                   onClick={() => handleScroll("left")}
+                  disabled={!canScrollLeft}
                   aria-label="Scroll left"
-                  className="grid h-8 w-8 place-items-center rounded-none border border-border-strong bg-surface/80 text-foreground shadow-sm transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
+                  className={cn(
+                    "grid h-8 w-8 place-items-center border border-border-strong bg-surface/80 text-foreground shadow-sm transition-all active:scale-90 cursor-pointer",
+                    canScrollLeft
+                      ? "hover:bg-primary hover:border-primary hover:text-primary-foreground"
+                      : "opacity-30 cursor-not-allowed pointer-events-none"
+                  )}
                 >
-                  <ChevronLeft className="h-3.5 w-3.5 stroke-[2.5]" />
+                  <ChevronLeft className="h-4 w-4 stroke-[2.5]" />
                 </button>
                 <button
                   type="button"
                   onClick={() => handleScroll("right")}
+                  disabled={!canScrollRight}
                   aria-label="Scroll right"
-                  className="grid h-8 w-8 place-items-center rounded-none border border-border-strong bg-surface/80 text-foreground shadow-sm transition-all hover:bg-primary hover:border-primary hover:text-primary-foreground active:scale-90 cursor-pointer"
+                  className={cn(
+                    "grid h-8 w-8 place-items-center border border-border-strong bg-surface/80 text-foreground shadow-sm transition-all active:scale-90 cursor-pointer",
+                    canScrollRight
+                      ? "hover:bg-primary hover:border-primary hover:text-primary-foreground"
+                      : "opacity-30 cursor-not-allowed pointer-events-none"
+                  )}
                 >
-                  <ChevronRight className="h-3.5 w-3.5 stroke-[2.5]" />
+                  <ChevronRight className="h-4 w-4 stroke-[2.5]" />
                 </button>
               </div>
             </div>
@@ -72,16 +111,41 @@ export function ProductRow({
           </div>
         </div>
 
-        {/* Products Container: Horizontal snap scroll on mobile, responsive grid on desktop */}
+        {/* Products Container: Single horizontal row with smooth scrolling and no visible scrollbars */}
         <div
           ref={scrollRef}
-          className="flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:gap-4 max-md:pb-4 max-md:-mx-4 max-md:px-4 scrollbar-none md:grid md:grid-cols-3 xl:grid-cols-4 md:gap-x-4 md:gap-y-10"
+          className="flex items-stretch gap-3 md:gap-4 overflow-x-auto scroll-smooth scrollbar-none snap-x snap-mandatory pb-4 -mx-4 px-4 sm:mx-0 sm:px-0"
         >
-          {items.map((p, i) => (
-            <div key={p.id} className="max-md:w-[72vw] max-md:max-w-[280px] max-md:shrink-0 max-md:snap-start">
+          {displayItems.map((p, i) => (
+            <div
+              key={p.id}
+              className="w-[calc(50%-0.375rem)] min-w-[150px] sm:w-[calc(33.333%-0.667rem)] lg:w-[calc(25%-0.75rem)] shrink-0 snap-start flex flex-col"
+            >
               <ProductCard product={p} index={i} />
             </div>
           ))}
+
+          {/* VIEW ALL Card at end of carousel */}
+          <div className="w-[calc(50%-0.375rem)] min-w-[150px] sm:w-[calc(33.333%-0.667rem)] lg:w-[calc(25%-0.75rem)] shrink-0 snap-start flex flex-col">
+            <Link
+              to={ctaTo}
+              params={ctaParams}
+              className="group relative flex flex-col items-center justify-center h-full min-h-[260px] sm:min-h-[320px] rounded-lg border border-dashed border-border-strong bg-[#121214]/60 hover:bg-[#121214] hover:border-primary transition-all duration-300 p-6 text-center"
+            >
+              <div className="grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-full border border-border-strong bg-surface group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 mb-3 shadow-sm group-hover:scale-110">
+                <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 stroke-[2.5]" />
+              </div>
+              <span className="label-mono text-primary text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-1">
+                {eyebrow}
+              </span>
+              <span className="font-sans font-black text-xs sm:text-sm uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
+                VIEW ALL
+              </span>
+              <span className="label-mono text-[9px] sm:text-[10px] text-muted-foreground mt-2 inline-flex items-center gap-1 group-hover:text-foreground transition-colors">
+                Full Catalogue &rarr;
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
