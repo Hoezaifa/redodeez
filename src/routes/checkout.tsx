@@ -148,7 +148,7 @@ function Checkout() {
 
   // Real rupee discount calculation using promo rules:
   // - FIRSTDROP: 10% off eligible merchandise (excluding unpriced quotes/bulk jobs and delivery)
-  // - WELCOMEDEEZ: 20% off subtotal
+  // - WELCOMEDEEZ: 10% off subtotal
   // - No stacking
   const merchSubtotal = useMemo(() => calculateMerchSubtotal(lines), [lines]);
   const promoCalc = useMemo(
@@ -235,7 +235,7 @@ function Checkout() {
         setAppliedPromo(PROMO_WELCOMEDEEZ);
         setGlobalPromo(PROMO_WELCOMEDEEZ);
         setPromoError(null);
-        setPromoSuccess("20% off applied!");
+        setPromoSuccess("10% off applied!");
       } else {
         setPromoError("Invalid promo code");
         setPromoSuccess(null);

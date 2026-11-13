@@ -240,15 +240,15 @@ export const validatePromoEligibilityFn = createServerFn({ method: "POST" })
   .handler(async ({ data }): Promise<PromoValidationResult> => {
     const code = (data.code || "").trim().toUpperCase();
 
-    // 1. WELCOMEDEEZ (existing 20% offer preserved)
+    // 1. WELCOMEDEEZ (10% welcome offer)
     if (code === "WELCOMEDEEZ") {
-      const discount = Math.round(data.subtotal * 0.2);
+      const discount = Math.round(data.subtotal * 0.1);
       return {
         valid: true,
         code: "WELCOMEDEEZ",
         discount,
         merchSubtotal: data.subtotal,
-        message: `20% welcome discount applied (-Rs. ${discount.toLocaleString()})`,
+        message: `10% welcome discount applied (-Rs. ${discount.toLocaleString()})`,
       };
     }
 

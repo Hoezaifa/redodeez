@@ -47,7 +47,7 @@ const trustSignals = [
   {
     icon: Shirt,
     title: "Heavyweight Blanks",
-    desc: "240+ GSM combed cotton, premium fleece, and breathable oversized fits.",
+    desc: "Premium cotton-blend jersey, premium fleece, and breathable oversized fits.",
     badge: "Luxury Hand-feel",
   },
   {

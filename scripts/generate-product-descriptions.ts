@@ -42,13 +42,13 @@ function generateDescription(p: Product, index: number): string {
   let garmentFact = "";
   if (isDropShoulder) {
     garmentFact =
-      "Constructed from heavyweight 240+ GSM 100% combed compact cotton jersey, providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband.";
+      "Constructed from cotton jersey (70% cotton / 30% polyester), providing a structured boxy silhouette, dropped shoulders, and a durable ribbed neckband.";
   } else if (isAcidWash) {
     garmentFact =
-      "Each shirt undergoes a specialized hand-processed mineral acid wash on 100% cotton fabric, yielding an individualized vintage patina with subtle tonal contrasts at the seams.";
+      "Each shirt is crafted from 100% premium cotton with a vintage-inspired acid-wash finish, yielding an individualized vintage patina with subtle tonal contrasts at the seams.";
   } else if (isRegular) {
     garmentFact =
-      "Tailored in a classic regular fit using 180–200 GSM ring-spun cotton jersey, balancing breathable daily wear with clean drape lines.";
+      "Tailored in a classic regular fit using cotton jersey (70% cotton / 30% polyester), balancing breathable daily wear with clean drape lines.";
   } else if (isTapestry) {
     garmentFact =
       "Produced on lustrous high-density satin fabric, featuring finished hems and vibrant color contrast designed for clean wall hanging and room decoration.";

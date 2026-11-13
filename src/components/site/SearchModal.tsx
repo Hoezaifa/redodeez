@@ -85,7 +85,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
     if (queryLower.includes("drop") || queryLower.includes("shoulder")) {
       return {
         title: "Drop Shoulder Collection",
-        desc: "240+ GSM oversized drop-shoulder graphic tees",
+        desc: "Oversized drop-shoulder graphic tees",
         to: "/collections/drop-shoulder",
       };
     }

@@ -182,22 +182,22 @@ export function getProductSeoData(product: Product): NormalizedProductSeo {
   }
 
   let fit: "drop-shoulder" | "acid-wash" | "regular" | "tapestry" | "mug" | "hoodie" = "regular";
-  let gsm = "180–200 GSM";
-  let material = "100% Combed Ring-Spun Cotton Jersey";
+  let gsm = "";
+  let material = "Cotton Jersey (70% Cotton / 30% Polyester)";
   let printMethod = "Direct-to-Film (DTF)";
   let productType = "Apparel > T-Shirts > Regular Fit Graphic Tees";
   const defaultSizes = ["S", "M", "L", "XL"];
 
   if (subcat === "drop-shoulder") {
     fit = "drop-shoulder";
-    gsm = "240+ GSM";
-    material = "100% Combed Compact Cotton Jersey";
+    gsm = "";
+    material = "Cotton Jersey (70% Cotton / 30% Polyester)";
     printMethod = "Direct-to-Film (DTF)";
     productType = "Apparel > T-Shirts > Drop Shoulder Oversized Tees";
   } else if (subcat === "acid-wash") {
     fit = "acid-wash";
-    gsm = "220+ GSM Mineral Wash";
-    material = "100% Cotton (Hand-Dyed Mineral Wash)";
+    gsm = "";
+    material = "100% Premium Cotton (Acid Wash)";
     printMethod = "Direct-to-Film (DTF)";
     productType = "Apparel > T-Shirts > Vintage Acid Wash Graphic Tees";
   } else if (subcat === "tapestries" || subcat === "flags") {

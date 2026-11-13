@@ -27,7 +27,7 @@ for (const theme of designThemes) {
     for (const p of matching) {
       const distinctFormat =
         p.subcategory === "acid-wash"
-          ? "Acid-washed vintage treatment (mineral wash, heavy 240+ GSM)"
+          ? "Acid-washed vintage treatment (100% premium cotton, vintage-inspired acid-wash finish)"
           : p.subcategory === "drop-shoulder"
           ? "Oversized boxy streetwear silhouette (wide shoulders, loose sleeves)"
           : p.subcategory === "regular"

@@ -60,14 +60,14 @@ export function calculatePromoDiscount(
   }
 
   if (normalized === PROMO_WELCOMEDEEZ) {
-    // Preserve existing 20% customer/gift-card offer
-    const discount = Math.round(subtotal * 0.2);
+    // 10% welcome discount
+    const discount = Math.round(subtotal * 0.1);
     return {
       discount,
       merchSubtotal,
-      percent: 20,
+      percent: 10,
       code: PROMO_WELCOMEDEEZ,
-      label: "Welcome Promo (WELCOMEDEEZ -20%)",
+      label: "Welcome Promo (WELCOMEDEEZ -10%)",
     };
   }
 

@@ -175,7 +175,7 @@ export function CustomPrintSection() {
                 PREMIUM QUALITY
               </p>
               <p className="text-[11px] text-zinc-400 font-sans leading-relaxed mt-1">
-                DTF prints on 240GSM heavyweight fabric.
+                DTF prints on premium cotton-blend fabric.
               </p>
             </div>
           </div>

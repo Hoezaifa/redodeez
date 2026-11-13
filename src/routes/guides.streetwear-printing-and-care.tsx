@@ -22,7 +22,7 @@ export const Route = createFileRoute("/guides/streetwear-printing-and-care")({
       {
         name: "description",
         content:
-          "Complete streetwear printing guide: DTF vs Sublimation vs Screen Printing, 240+ GSM cotton blanks comparison, wash & care rules, and custom print artwork specs.",
+          "Complete streetwear printing guide: DTF vs Sublimation vs Screen Printing, cotton-blend blanks comparison, wash & care rules, and custom print artwork specs.",
       },
       { property: "og:title", content: "DTF Printing & Streetwear Care Guide — Deez Prints" },
       {
@@ -152,37 +152,37 @@ function PrintingCareGuidePage() {
             <div className="space-y-4">
               <div className="rounded-xl border border-border bg-card p-5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="font-heading text-base font-bold text-foreground">Heavyweight Drop Shoulder (240+ GSM)</h3>
+                  <h3 className="font-heading text-base font-bold text-foreground">Drop Shoulder Tees</h3>
                   <Link to="/collections/$slug" params={{ slug: "drop-shoulder" }} className="text-xs text-primary font-bold hover:underline">
                     View Collection →
                   </Link>
                 </div>
                 <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  100% Combed Compact Cotton with zero lint fuzz. Features an oversized boxy streetwear drape, dropped shoulder seams, reinforced 1.25″ ribbed neck collar, and high side density that holds structure after wear.
+                  Cotton Jersey (70% Cotton / 30% Polyester). Features an oversized boxy streetwear drape, dropped shoulder seams, reinforced ribbed neck collar, and a structured silhouette that holds shape after wear.
                 </p>
               </div>
 
               <div className="rounded-xl border border-border bg-card p-5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="font-heading text-base font-bold text-foreground">Mineral Acid Wash Vintage Tees</h3>
+                  <h3 className="font-heading text-base font-bold text-foreground">Acid Wash Vintage Tees</h3>
                   <Link to="/collections/$slug" params={{ slug: "acid-wash" }} className="text-xs text-primary font-bold hover:underline">
                     View Collection →
                   </Link>
                 </div>
                 <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Hand-processed using artisan mineral wash cycles. Every single garment features a distinct vintage patina, faded seam edges, and buttery softened cotton hand-feel. Available in Small, Medium, and Large only for an authentic vintage streetwear fit.
+                  100% Premium Cotton with a vintage-inspired acid-wash finish. Every single garment features a distinct vintage patina, faded seam edges, and buttery softened cotton hand-feel. Relaxed streetwear vintage fit.
                 </p>
               </div>
 
               <div className="rounded-xl border border-border bg-card p-5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="font-heading text-base font-bold text-foreground">Classic Regular Fit Tees (180–200 GSM)</h3>
+                  <h3 className="font-heading text-base font-bold text-foreground">Classic Regular Fit Tees</h3>
                   <Link to="/collections/$slug" params={{ slug: "t-shirts" }} className="text-xs text-primary font-bold hover:underline">
                     View Collection →
                   </Link>
                 </div>
                 <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Breathable 100% ring-spun cotton jersey tailored for Pakistani summer heat. Modern standard chest fit with durable twin-needle hem stitching.
+                  Cotton Jersey (70% Cotton / 30% Polyester) tailored for Pakistani summer heat. Modern standard chest fit with durable twin-needle hem stitching.
                 </p>
               </div>
 

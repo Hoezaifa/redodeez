@@ -678,13 +678,13 @@ export default async function handler(
       if (action === "validate-promo") {
         const code = (body.code || "").trim().toUpperCase();
         if (code === "WELCOMEDEEZ") {
-          const discount = Math.round((body.subtotal || 0) * 0.2);
+          const discount = Math.round((body.subtotal || 0) * 0.1);
           return sendJson(200, {
             ok: true,
             valid: true,
             code: "WELCOMEDEEZ",
             discount,
-            message: `20% welcome discount applied (-Rs. ${discount.toLocaleString()})`,
+            message: `10% welcome discount applied (-Rs. ${discount.toLocaleString()})`,
           });
         }
         if (code === "FIRSTDROP") {

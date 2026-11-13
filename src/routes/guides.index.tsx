@@ -45,7 +45,7 @@ const guidesList = [
     title: "DTF vs Sublimation: The Streetwear Printing & Fabric Care Guide",
     badge: "Garment Science & Care",
     readTime: "6 min read",
-    desc: "Understand how commercial Direct-to-Film (DTF) printing works on 240+ GSM combed cotton blanks, how it compares to sublimation and screen print, and essential washing rules to ensure prints last years.",
+    desc: "Understand how commercial Direct-to-Film (DTF) printing works on premium cotton-blend blanks, how it compares to sublimation and screen print, and essential washing rules to ensure prints last years.",
     icon: Shirt,
     category: "Streetwear & Custom",
     updatedAt: "September 2026",

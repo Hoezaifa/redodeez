@@ -65,15 +65,15 @@ const COLLECTION_TITLES: Record<string, { title: string; desc: string }> = {
   },
   "acid-wash": {
     title: "Acid Wash T-Shirts in Pakistan — Vintage Mineral Wash Anime & Graphic Tees | Deez Prints",
-    desc: "Hand-processed mineral acid wash t-shirts in Pakistan. Unique vintage patina on 100% cotton with high-definition anime and streetwear graphic prints.",
+    desc: "Vintage acid wash t-shirts in Pakistan. Unique vintage patina on 100% premium cotton with high-definition anime and streetwear graphic prints.",
   },
   "drop-shoulder": {
-    title: "Drop Shoulder T-Shirts in Pakistan — 240+ GSM Oversized Graphic Tees | Deez Prints",
-    desc: "Heavyweight 240+ GSM combed compact cotton drop-shoulder tees. Boxy relaxed streetwear fit, DTF printed in Karachi with nationwide delivery across Pakistan.",
+    title: "Drop Shoulder T-Shirts in Pakistan — Oversized Graphic Tees | Deez Prints",
+    desc: "Cotton-blend drop-shoulder tees. Boxy relaxed streetwear fit, DTF printed in Karachi with nationwide delivery across Pakistan.",
   },
   "t-shirts": {
-    title: "Regular Fit Graphic T-Shirts in Pakistan — 100% Ring-Spun Cotton | Deez Prints",
-    desc: "Classic regular fit graphic t-shirts in Pakistan (180–200 GSM). Soft breathable ring-spun cotton jersey featuring original streetwear and anime designs.",
+    title: "Regular Fit Graphic T-Shirts in Pakistan — Cotton Jersey Blend | Deez Prints",
+    desc: "Classic regular fit graphic t-shirts in Pakistan. Soft breathable cotton jersey blend featuring original streetwear and anime designs.",
   },
   tapestries: {
     title: "Anime & Movie Wall Tapestries in Pakistan | Deez Prints",
@@ -185,13 +185,13 @@ export function productMeta(
     fitBlurb = "Premium high-gloss ceramic mug";
   } else if (isAcidWash) {
     garmentType = containsNormalized(cleanDesign, "acid") ? "Vintage Graphic T-Shirt" : "Acid Wash T-Shirt";
-    fitBlurb = "Hand-processed vintage mineral wash (100% cotton)";
+    fitBlurb = "Vintage-inspired acid wash (100% premium cotton)";
   } else if (isDropShoulder) {
     garmentType = containsNormalized(cleanDesign, "drop") ? "Oversized T-Shirt" : "Drop Shoulder T-Shirt";
-    fitBlurb = "Heavyweight 240+ GSM oversized combed cotton";
+    fitBlurb = "Heavyweight oversized cotton-blend jersey";
   } else {
     garmentType = containsNormalized(cleanDesign, "regular") ? "Graphic T-Shirt" : "Regular Fit T-Shirt";
-    fitBlurb = "180–200 GSM ring-spun cotton jersey";
+    fitBlurb = "Cotton jersey blend (70/30)";
   }
 
   const title = `${cleanDesign}${franchisePart} ${garmentType} in Pakistan | Deez Prints`;
@@ -318,7 +318,7 @@ export function staticPageMeta(path: string): { title: string; description: stri
       return {
         title: "Print Quality, Fabrics & Craftsmanship | Deez Prints",
         description:
-          "Discover our 240+ GSM combed cotton blanks, hand-processed mineral acid wash, and industrial DTF print durability testing.",
+          "Discover our premium cotton-blend blanks, vintage-inspired acid wash, and industrial DTF print durability testing.",
       };
     case "/faq":
       return {
