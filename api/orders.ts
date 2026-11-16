@@ -142,7 +142,7 @@ function buildCustomerEmailHtml(order: any): string {
   const isCOD = (o.paymentMethod || "").toLowerCase().includes("cash");
 
   const paymentInstructions = isCOD
-    ? `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-top:12px;color:#9a3412;font-size:13px;line-height:1.5;"><strong>Cash on Delivery (Karachi):</strong> Please keep exact cash of <strong>${fmtCurrency(o.total || 0)}</strong> ready upon delivery. Our rider will contact you prior to arrival.</div>`
+    ? `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-top:12px;color:#9a3412;font-size:13px;line-height:1.5;"><strong>Partial COD (Karachi):</strong> Since your order is custom-made specifically for you, a partial advance payment is required before production begins. The remaining balance of <strong>${fmtCurrency(o.total || 0)}</strong> (minus advance) is payable in cash upon delivery. Our rider will contact you prior to arrival.</div>`
     : `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-top:12px;color:#9a3412;font-size:13px;line-height:1.5;"><strong>Payment Confirmation:</strong> If you haven't sent your payment receipt yet, please share it on WhatsApp at <strong>+92 327 2487127</strong> with your Order ID (<strong>#${escHtml(o.orderId || "N/A")}</strong>) so we can dispatch your parcel immediately.</div>`;
 
   return `<!DOCTYPE html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/></head>

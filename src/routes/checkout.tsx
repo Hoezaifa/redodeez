@@ -1292,7 +1292,7 @@ function Checkout() {
                             )}
                           </div>
                           <span className={`text-[11px] block mt-0.5 ${deliveryLocation === "nationwide" ? "text-amber-400 font-medium" : "text-zinc-400"}`}>
-                            {deliveryLocation === "karachi" ? "Karachi only" : "Outside Karachi: advance payment required to confirm your order."}
+                            {deliveryLocation === "karachi" ? "Partial COD — advance required before production" : "Outside Karachi: advance payment required to confirm your order."}
                           </span>
                         </div>
                       </div>
@@ -1316,7 +1316,7 @@ function Checkout() {
                       <div className="px-4 pb-4 pt-0">
                         <div className="border-t border-white/10 pt-3">
                           <p className="text-xs text-zinc-400 leading-relaxed">
-                            Order will be confirmed via WhatsApp before dispatch. Pay the full amount in cash to the rider at delivery.
+                            Order will be confirmed via WhatsApp before dispatch. A partial advance is required before production as every order is custom-made. Remaining balance is paid in cash to the rider at delivery.
                           </p>
                         </div>
                       </div>

@@ -60,7 +60,7 @@ export const Route = createFileRoute("/about")({
 const benefits = [
   { icon: Award, label: "PREMIUM QUALITY", desc: "Top-notch fabric & long-lasting prints." },
   { icon: Truck, label: "EXPRESS SHIPPING", desc: "Karachi Rider & Nationwide Courier." },
-  { icon: ShieldCheck, label: "SECURE PAYMENTS", desc: "Easypaisa, Meezan & COD (Karachi)." },
+  { icon: ShieldCheck, label: "SECURE PAYMENTS", desc: "Easypaisa, Meezan & Partial COD (Karachi)." },
   { icon: RefreshCw, label: "7-DAY EXCHANGE", desc: "Defect or wrong item replacement." },
   { icon: Scissors, label: "MADE TO ORDER", desc: "Every piece is printed just for you." },
 ];

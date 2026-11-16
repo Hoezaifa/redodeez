@@ -52,7 +52,7 @@ const supportTopics = [
   {
     icon: ShieldCheck,
     title: "Payment Methods",
-    desc: "Pay securely via Easypaisa, Meezan Bank IBFT, or Cash on Delivery (Karachi only).",
+    desc: "Pay securely via Easypaisa, Meezan Bank IBFT, or Partial COD (Karachi only — advance required).",
     link: "/payments",
     cta: "Payment Help",
   },

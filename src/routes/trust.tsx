@@ -74,7 +74,7 @@ const promises = [
   {
     icon: ShieldCheck,
     title: "Secure Payments",
-    desc: "Easypaisa, Meezan Bank\n& COD (Karachi only).",
+    desc: "Easypaisa, Meezan Bank\n& Partial COD (Karachi only).",
   },
   {
     icon: RefreshCw,

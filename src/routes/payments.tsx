@@ -11,12 +11,12 @@ export const Route = createFileRoute("/payments")({
       {
         name: "description",
         content:
-          "Official payment guide for Deez Prints. Supported methods include Easypaisa, Meezan Bank Transfer, and Cash on Delivery (Karachi only).",
+          "Official payment guide for Deez Prints. Supported methods include Easypaisa, Meezan Bank Transfer, and Partial COD (Karachi only — advance required as all orders are custom-made).",
       },
       { property: "og:title", content: "Payment Methods — Deez Prints" },
       {
         property: "og:description",
-        content: "Pay securely via Easypaisa, Meezan Bank Transfer, or Cash on Delivery (Karachi only).",
+        content: "Pay securely via Easypaisa, Meezan Bank Transfer, or Partial COD (Karachi only).",
       },
       { property: "og:url", content: `${SITE_URL}/payments` },
       { property: "og:site_name", content: "Deez Prints" },
@@ -33,7 +33,7 @@ function PaymentsPage() {
       <SectionHeading
         eyebrow="Payment Options"
         title={"Supported\nPayment Methods"}
-        sub="Transparent, direct, and zero-fee. Pay using Easypaisa, Meezan Bank transfer, or Cash on Delivery (Karachi only)."
+        sub="Transparent, direct, and zero-fee. Pay using Easypaisa, Meezan Bank transfer, or Partial COD (Karachi only)."
       />
 
       {/* Authoritative Methods Grid matching Checkout */}
@@ -114,7 +114,7 @@ function PaymentsPage() {
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                Pay with cash directly to the rider upon delivery at your doorstep in Karachi. Orders are verified via WhatsApp before dispatch.
+                Pay with cash directly to the rider upon delivery at your doorstep in Karachi. Since every order is custom-printed specifically for you, a partial advance payment is required before production begins.
               </p>
 
               <div className="bg-zinc-900 border border-white/5 rounded-xl p-4 space-y-2 text-xs">
@@ -123,7 +123,7 @@ function PaymentsPage() {
                   <span>Karachi delivery via rider</span>
                 </div>
                 <div className="text-[11px] text-zinc-400 pt-1 leading-relaxed border-t border-white/5">
-                  <strong className="text-zinc-300">Outside Karachi:</strong> Advance payment via Easypaisa or Meezan Bank is required to confirm your order.
+                  <strong className="text-zinc-300">Partial COD:</strong> Advance payment is collected before production. Remaining balance is paid in cash upon delivery.
                 </div>
               </div>
             </div>
@@ -144,7 +144,7 @@ function PaymentsPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            ["01", "Place Order", "Choose Easypaisa, Meezan Bank, or Cash on Delivery (Karachi only) at checkout."],
+            ["01", "Place Order", "Choose Easypaisa, Meezan Bank, or Partial COD (Karachi only) at checkout."],
             ["02", "Transfer Funds", "Use the official payment account details shown on your order confirmation screen to complete the transfer."],
             ["03", "Keep Receipt", "Save the transaction reference number or take a payment screenshot."],
             ["04", "WhatsApp Us", "Share receipt on WhatsApp (0327 2487127) for instant order confirmation."],

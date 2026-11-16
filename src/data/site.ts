@@ -19,7 +19,7 @@ export const commercialConfig = {
   deliveryTimeKarachi: "Usually delivered around day 3 after confirmation",
   deliveryTimeNationwide: "Preparation usually takes 2–3 days, followed by typically 3–4 additional days for courier delivery (can take longer depending on courier and destination)",
   exchangeWindow: "7 days",
-  acceptedPaymentMethods: ["Easypaisa", "Bank Transfer (Meezan)", "Cash on Delivery (Karachi only)"] as const,
+  acceptedPaymentMethods: ["Easypaisa", "Bank Transfer (Meezan)", "Partial COD (Karachi only)"] as const,
 };
 
 export const site = {
@@ -90,12 +90,12 @@ export const paymentMethodsConfig: PaymentMethodInfo[] = [
   {
     id: "cod",
     name: "Cash on Delivery",
-    shortName: "Cash on Delivery (Karachi Only)",
-    subtitle: "Pay cash upon delivery to the rider",
-    eligibility: "Karachi only — strictly unavailable outside Karachi",
-    geographicNote: "Karachi destinations only (advance payment required outside Karachi)",
+    shortName: "Partial COD (Karachi Only)",
+    subtitle: "Partial COD — advance required before production",
+    eligibility: "Karachi only — partial advance required before production",
+    geographicNote: "Karachi destinations only (advance payment required for all orders as they are custom-made)",
     instructions:
-      "Pay with cash directly to the rider upon parcel arrival. Orders are confirmed via WhatsApp before dispatch. For destinations outside Karachi, advance payment via Easypaisa or Meezan Bank is required to confirm the order.",
+      "Partial COD: since every order is custom-printed specifically for you, a partial advance payment is required before production begins. The remaining balance is paid in cash to the rider upon delivery. Orders are confirmed via WhatsApp before dispatch.",
     isCod: true,
   },
 ];
@@ -165,7 +165,7 @@ export function whatsappLink(message: string) {
     : `https://www.instagram.com/deez_prints/`;
 }
 
-export const paymentMethods = ["Easypaisa", "Bank Transfer (Meezan)", "Cash on Delivery (Karachi only)"];
+export const paymentMethods = ["Easypaisa", "Bank Transfer (Meezan)", "Partial COD (Karachi only)"];
 
 /* ─── Shipping / Delivery Configuration ─────────────────────── */
 
@@ -344,7 +344,7 @@ export const faqs = [
   {
     q: "What payment methods do you accept?",
     category: "Payments",
-    a: "We accept Easypaisa mobile wallet transfers, Meezan Bank direct transfers, and Cash on Delivery (Karachi only). For customers outside Karachi, advance payment is required to confirm your order. After placing your order, transfer the payment and share your receipt screenshot via WhatsApp (0327 2487127). Cash on Delivery orders in Karachi are confirmed via WhatsApp before dispatch.",
+    a: "We accept Easypaisa mobile wallet transfers, Meezan Bank direct transfers, and Partial COD (Karachi only). Since every order is custom-printed specifically for each customer, a partial advance payment is required before production begins. The remaining amount is paid in cash upon delivery. After placing your order, transfer the advance and share your receipt screenshot via WhatsApp (0327 2487127). Cash on Delivery orders in Karachi are confirmed via WhatsApp before dispatch.",
   },
   {
     q: "How long does delivery take?",
@@ -465,7 +465,7 @@ export const COLOR_HEX_MAP: Record<string, string> = {
 export const usps = [
   { title: "Premium Quality", body: "Top-notch fabric & prints" },
   { title: "Fast Dispatch", body: "2–3 days prep before dispatch" },
-  { title: "Secure Payments", body: "Easypaisa, Meezan & COD (Karachi)" },
+  { title: "Secure Payments", body: "Easypaisa, Meezan & Partial COD (Karachi)" },
   { title: "7-Day Exchange", body: "Defect or wrong item replacement" },
 ];
 

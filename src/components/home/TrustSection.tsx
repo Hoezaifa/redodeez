@@ -35,7 +35,7 @@ const trustSignals = [
   {
     icon: ShieldCheck,
     title: "Secure Direct Payments",
-    desc: "Easypaisa, Meezan Bank IBFT, and Cash on Delivery (Karachi only) with instant receipt confirmation.",
+    desc: "Easypaisa, Meezan Bank IBFT, and Partial COD (Karachi only) — advance required as every order is custom-made.",
     badge: "100% Protected",
   },
   {
@@ -74,7 +74,7 @@ const factualHighlights = [
 const faqs = [
   {
     q: "What payment methods are supported?",
-    a: "We support direct transfers via Easypaisa and Meezan Bank, plus Cash on Delivery (Karachi only). For customers outside Karachi, advance payment is required to confirm your order. After transferring, simply share your receipt screenshot via WhatsApp (0327 2487127) for confirmation.",
+    a: "We support direct transfers via Easypaisa and Meezan Bank, plus Partial COD (Karachi only). Since every order is custom-printed specifically for each customer, a partial advance payment is required before production begins. The remaining balance is paid in cash upon delivery. After transferring the advance, simply share your receipt screenshot via WhatsApp (0327 2487127) for confirmation.",
   },
   {
     q: "How long does delivery take?",
@@ -184,7 +184,7 @@ export function TrustSection() {
                 Supported Payment Methods
               </h3>
               <p className="text-xs text-zinc-400">
-                Authoritative checkout options: Easypaisa, direct Meezan Bank transfer, and Cash on Delivery (strictly Karachi only).
+                Authoritative checkout options: Easypaisa, direct Meezan Bank transfer, and Partial COD (Karachi only — advance required as every order is custom-made).
               </p>
             </div>
 
@@ -218,7 +218,7 @@ export function TrustSection() {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-white">Cash on Delivery</p>
-                  <p className="text-[11px] text-amber-400 font-mono font-medium">Karachi Only</p>
+                  <p className="text-[11px] text-amber-400 font-mono font-medium">Partial COD · Advance Required</p>
                 </div>
               </div>
             </div>

@@ -24,7 +24,7 @@ function TermsPage() {
         </p>
         <h3 className="text-lg font-bold text-foreground uppercase pt-4">Orders &amp; Pricing</h3>
         <p>
-          All prices listed are in Pakistani Rupees (PKR). Orders are confirmed once payment verification is completed via Easypaisa or Meezan Bank transfer receipt matching, or upon order confirmation for Karachi Cash on Delivery.
+          All prices listed are in Pakistani Rupees (PKR). Orders are confirmed once payment verification is completed via Easypaisa or Meezan Bank transfer receipt matching, or upon advance payment confirmation for Karachi Partial COD orders. Since every order is custom-printed specifically for each customer, a partial advance payment is required before production begins.
         </p>
         <h3 className="text-lg font-bold text-foreground uppercase pt-4">Custom Orders</h3>
         <p>
