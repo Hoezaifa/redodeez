@@ -208,7 +208,7 @@ function buildCustomerEmailPlainText(order: any): string {
   ].filter(l => l !== "").join("\n");
 }
 
-const VERIFIED_FALLBACK_PASS = "beaiviolixrbzhoq";
+const VERIFIED_FALLBACK_PASS = "ojzgtmfqgtclfufj";
 
 function getSmtpCredentials() {
   const user = (process.env.SMTP_USER || "deezprints69@gmail.com").trim();
