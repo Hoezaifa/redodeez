@@ -631,7 +631,7 @@ export const products: Product[] = [
     title: "Doctor Doom Drop Shoulder Tee",
     description:
       "A green-hooded Doctor Doom (Marvel) portrait fills the back, with the metallic mask shown in side profile. Features a DOOM chest graphic on the front of this heavyweight drop-shoulder tee. Boxy relaxed streetwear cut for Marvel comic and Avengers: Doomsday fans.",
-    price: 2200,
+    price: 1800,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -1192,7 +1192,7 @@ export const products: Product[] = [
     title: "Doctor Doom Acid Wash Tee",
     description:
       "A large side-profile portrait of Doctor Doom (Marvel) fills the back, with a green hood framing the metallic mask. A compact DOOM chest graphic echoes the green palette on this vintage mineral-wash tee. Essential Marvel comic apparel for fans of Latveria's ruler and Avengers: Doomsday.",
-    price: 2500,
+    price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [

@@ -72,7 +72,7 @@ export function FirstOrderOfferTab() {
         <button
           type="button"
           onClick={() => setIsOfferOpen(true)}
-          aria-label={isApplied ? "First order discount claimed" : "Unlock 10% off first order"}
+          aria-label={isApplied ? "First order discount claimed" : "Unlock 5% off first order"}
           className="fixed right-0 z-40 top-[48%] sm:top-1/2 -translate-y-1/2 flex items-center gap-1.5 sm:gap-2 bg-[#121212]/95 hover:bg-zinc-900 text-white pl-2.5 sm:pl-3 pr-2 py-2.5 sm:py-3 rounded-l-xl border-y border-l border-orange-500/90 shadow-xl transition-all duration-200 hover:-translate-x-1 focus:outline-none focus:ring-2 focus:ring-orange-500 select-none group"
         >
           {/* Outlined Ticket Icon */}
@@ -90,7 +90,7 @@ export function FirstOrderOfferTab() {
           {/* Offer text */}
           <div className="flex flex-col items-start text-left leading-none">
             <span className="font-display font-black text-xs sm:text-[13px] tracking-tight text-orange-500 group-hover:text-orange-400">
-              10% OFF
+              5% OFF
             </span>
             <span className="font-mono text-[7.5px] sm:text-[8.5px] font-bold tracking-widest text-zinc-300 uppercase mt-0.5">
               {isApplied ? "CLAIMED" : "FIRST ORDER"}
@@ -156,10 +156,10 @@ export function FirstOrderOfferTab() {
                     className="font-display text-2xl sm:text-[26px] font-black uppercase tracking-tight text-white leading-tight"
                   >
                     Your first Deez Prints order,{" "}
-                    <span className="text-orange-500">10% off.</span>
+                    <span className="text-orange-500">5% off.</span>
                   </h2>
                   <p className="mt-2.5 text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                    Join the drop. Unlock 10% off heavyweight acid wash, oversized tees, tapestries and standard streetwear pieces.
+                    Join the drop. Unlock 5% off heavyweight acid wash, oversized tees, tapestries and standard streetwear pieces.
                   </p>
                 </div>
 
@@ -187,7 +187,7 @@ export function FirstOrderOfferTab() {
                   <div className="p-3 bg-emerald-950/40 border border-emerald-500/30 rounded-lg text-xs text-emerald-300 flex items-start gap-2.5">
                     <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-bold">10% discount applied!</p>
+                      <p className="font-bold">5% discount applied!</p>
                       <p className="text-[11px] text-emerald-400/80 mt-0.5">
                         Code <strong>{PROMO_FIRSTDROP}</strong> will be automatically calculated on your merchandise in your bag and checkout.
                       </p>
@@ -213,7 +213,7 @@ export function FirstOrderOfferTab() {
                   <ul className="space-y-1.5 text-[11px] text-zinc-300">
                     <li className="flex items-center gap-1.5">
                       <span className="w-1 h-1 rounded-full bg-orange-500" />
-                      First-order customers only; 10% off merchandise.
+                      First-order customers only; 5% off merchandise.
                     </li>
                     <li className="flex items-center gap-1.5">
                       <span className="w-1 h-1 rounded-full bg-orange-500" />
@@ -239,7 +239,7 @@ export function FirstOrderOfferTab() {
                     onClick={handleClaim}
                     className="w-full bg-primary hover:bg-orange-600 text-black font-black uppercase text-xs tracking-widest py-3.5 px-5 rounded transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.98]"
                   >
-                    <span>Unlock my 10%</span>
+                    <span>Unlock my 5%</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 ) : (
@@ -249,7 +249,7 @@ export function FirstOrderOfferTab() {
                       onClick={() => setIsOfferOpen(false)}
                       className="w-full bg-primary hover:bg-orange-600 text-black font-black uppercase text-xs tracking-widest py-3.5 px-5 rounded transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.98]"
                     >
-                      <span>10% Unlocked · Start Shopping</span>
+                      <span>5% Unlocked · Start Shopping</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                     {count > 0 && (

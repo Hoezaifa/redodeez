@@ -48,14 +48,14 @@ export function calculatePromoDiscount(
   const merchSubtotal = calculateMerchSubtotal(lines);
 
   if (normalized === PROMO_FIRSTDROP) {
-    // 10% off merchandise, excluding delivery and unpriced custom quotes
-    const discount = Math.round(merchSubtotal * 0.1);
+    // 5% off merchandise, excluding delivery and unpriced custom quotes
+    const discount = Math.round(merchSubtotal * 0.05);
     return {
       discount,
       merchSubtotal,
-      percent: 10,
+      percent: 5,
       code: PROMO_FIRSTDROP,
-      label: "First Order Discount (FIRSTDROP -10%)",
+      label: "First Order Discount (FIRSTDROP -5%)",
     };
   }
 

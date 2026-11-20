@@ -136,7 +136,7 @@ function Checkout() {
   const [promoError, setPromoError] = useState<string | null>(null);
   const [promoSuccess, setPromoSuccess] = useState<string | null>(
     appliedPromo === PROMO_FIRSTDROP
-      ? "10% first-order discount unlocked!"
+      ? "5% first-order discount unlocked!"
       : appliedPromo === PROMO_WELCOMEDEEZ
       ? "20% off applied!"
       : null
@@ -147,7 +147,7 @@ function Checkout() {
   const shippingCost = isFreeShipping ? 0 : shippingOption.fee;
 
   // Real rupee discount calculation using promo rules:
-  // - FIRSTDROP: 10% off eligible merchandise (excluding unpriced quotes/bulk jobs and delivery)
+  // - FIRSTDROP: 5% off eligible merchandise (excluding unpriced quotes/bulk jobs and delivery)
   // - WELCOMEDEEZ: 10% off subtotal
   // - No stacking
   const merchSubtotal = useMemo(() => calculateMerchSubtotal(lines), [lines]);
@@ -230,7 +230,7 @@ function Checkout() {
         setAppliedPromo(PROMO_FIRSTDROP);
         setGlobalPromo(PROMO_FIRSTDROP);
         setPromoError(null);
-        setPromoSuccess("10% off first order applied!");
+        setPromoSuccess("5% off first order applied!");
       } else if (cleaned === PROMO_WELCOMEDEEZ) {
         setAppliedPromo(PROMO_WELCOMEDEEZ);
         setGlobalPromo(PROMO_WELCOMEDEEZ);

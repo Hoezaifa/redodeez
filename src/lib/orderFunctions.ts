@@ -252,7 +252,7 @@ export const validatePromoEligibilityFn = createServerFn({ method: "POST" })
       };
     }
 
-    // 2. FIRSTDROP (10% first order merchandise offer)
+    // 2. FIRSTDROP (5% first order merchandise offer)
     if (code === "FIRSTDROP") {
       // Exclude unpriced custom quotes and bulk jobs
       const eligibleItems = (data.lines || []).filter((l) => {
@@ -263,7 +263,7 @@ export const validatePromoEligibilityFn = createServerFn({ method: "POST" })
       });
 
       const merchSubtotal = eligibleItems.reduce((acc, l) => acc + (l.price || 0) * (l.qty || 1), 0);
-      const discount = Math.round(merchSubtotal * 0.1);
+      const discount = Math.round(merchSubtotal * 0.05);
 
       // Verify customer eligibility using existing customer/order system
       const cleanPhone = (data.phone || "").replace(/[^0-9]/g, "");
@@ -314,7 +314,7 @@ export const validatePromoEligibilityFn = createServerFn({ method: "POST" })
         discount,
         merchSubtotal,
         isFirstOrder: true,
-        message: `10% first-order discount applied (-Rs. ${discount.toLocaleString()})`,
+        message: `5% first-order discount applied (-Rs. ${discount.toLocaleString()})`,
       };
     }
 

@@ -691,7 +691,7 @@ export default async function handler(
           const items = Array.isArray(body.lines) ? body.lines : [];
           const eligible = items.filter((l: any) => l && (l.price || 0) > 0 && !l.isCustom && !String(l.title || "").toLowerCase().includes("quote"));
           const merchSubtotal = eligible.reduce((acc: number, l: any) => acc + (l.price || 0) * (l.qty || 1), 0);
-          const discount = Math.round(merchSubtotal * 0.1);
+          const discount = Math.round(merchSubtotal * 0.05);
           const cleanPhone = String(body.phone || "").replace(/[^0-9]/g, "");
 
           if (cleanPhone.endsWith("03001234567") || cleanPhone.endsWith("03210000000")) {
@@ -728,7 +728,7 @@ export default async function handler(
             discount,
             merchSubtotal,
             isFirstOrder: true,
-            message: `10% first-order discount applied (-Rs. ${discount.toLocaleString()})`,
+            message: `5% first-order discount applied (-Rs. ${discount.toLocaleString()})`,
           });
         }
         return sendJson(200, { ok: true, valid: false, error: "Invalid promo code" });
