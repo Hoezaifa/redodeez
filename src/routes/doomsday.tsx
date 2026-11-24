@@ -318,7 +318,7 @@ function DoomsdayCollectionPage() {
             <h1 className="font-display text-[21px] sm:text-3xl lg:text-4xl font-black uppercase tracking-tight leading-[0.95] text-foreground">
               Doctor Doom Collection
             </h1>
-            <p className="mt-1 max-w-xl text-[11.5px] sm:text-sm leading-snug text-muted-foreground">
+            <p className="hidden md:block mt-1 max-w-xl text-sm leading-snug text-muted-foreground">
               Heavyweight drop-shoulder and vintage acid-wash tees featuring Doctor Doom &amp; Avengers: Doomsday artwork. Printed in Karachi, delivered nationwide.
             </p>
           </div>
