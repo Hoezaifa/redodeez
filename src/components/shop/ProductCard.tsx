@@ -10,10 +10,12 @@ export function ProductCard({
   product,
   index = 0,
   isComingSoon = false,
+  imageAspect = "portrait",
 }: {
   product: Product;
   index?: number;
   isComingSoon?: boolean;
+  imageAspect?: "portrait" | "square";
 }) {
   const { add, wishlist, toggleWish } = useCart();
   const wished = wishlist.includes(product.id);
@@ -44,8 +46,13 @@ export function ProductCard({
       transition={{ duration: 0.5, delay: (index % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
       className="group relative flex flex-col overflow-hidden rounded-lg border border-neutral-800/80 bg-[#121214] transition-all duration-300 hover:border-neutral-700 hover:shadow-xl h-full"
     >
-      {/* Image Container — 3:4 portrait matching model shoots */}
-      <div className="relative w-full overflow-hidden bg-neutral-900 aspect-[3/4]">
+      {/* Image Container — 3:4 portrait by default, or 1:1 square when specified */}
+      <div
+        className={cn(
+          "relative w-full overflow-hidden bg-neutral-900",
+          imageAspect === "square" ? "aspect-square" : "aspect-[3/4]",
+        )}
+      >
         <Link
           to="/products/$productId"
           params={{ productId: product.id }}
@@ -57,7 +64,7 @@ export function ProductCard({
                 src={primary}
                 alt={`Deez Prints ${product.title} — ${subcategoryLabel}`}
                 width={500}
-                height={667}
+                height={imageAspect === "square" ? 500 : 667}
                 loading="lazy"
                 className={cn(
                   "absolute inset-0 h-full w-full object-cover object-center img-zoom pointer-events-none",
@@ -69,7 +76,7 @@ export function ProductCard({
                   src={alt}
                   alt={`Deez Prints ${product.title} detail view — ${subcategoryLabel}`}
                   width={500}
-                  height={667}
+                  height={imageAspect === "square" ? 500 : 667}
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover object-center opacity-0 group-hover:opacity-100 img-zoom pointer-events-none"
                 />
@@ -131,7 +138,7 @@ export function ProductCard({
           <Link
             to="/products/$productId"
             params={{ productId: product.id }}
-            className="font-sans text-xs sm:text-sm font-black uppercase leading-tight tracking-tight text-white line-clamp-1 hover:text-primary transition-colors"
+            className="font-sans text-xs sm:text-sm font-black uppercase leading-snug tracking-tight text-white line-clamp-2 min-h-[2.65em] hover:text-primary transition-colors"
           >
             {product.title}
           </Link>

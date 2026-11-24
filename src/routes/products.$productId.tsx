@@ -12,6 +12,7 @@ import {
   toOgImageUrl,
   ACID_WASH_SIZES,
   ACID_WASH_COLORS,
+  HOODIE_SIZES,
   REGULAR_TEE_SIZES,
   REGULAR_TEE_COLORS,
   DROP_SHOULDER_SIZES,
@@ -201,6 +202,8 @@ function ProductPage() {
     const crumbs = [{ name: "Home", url: "/" }];
     if (isTapestry) {
       crumbs.push({ name: "Tapestries", url: "/collections/tapestries" });
+    } else if (product.subcategory === "acid-wash-hoodies") {
+      crumbs.push({ name: "Acid Wash Hoodies", url: "/collections/acid-wash-hoodies" });
     } else if (product.category === "hoodies" || product.subcategory === "hoodies") {
       crumbs.push({ name: "Hoodies", url: "/collections/hoodies" });
     } else if (product.category === "accessories" || product.subcategory === "mugs") {
@@ -224,6 +227,8 @@ function ProductPage() {
     ? product.sizes || ['Small (50 x 30)', 'Large (70 x 50)']
     : isAcidWash
     ? [...ACID_WASH_SIZES]
+    : product.subcategory === "hoodies"
+    ? [...HOODIE_SIZES]
     : isDropShoulder
     ? [...DROP_SHOULDER_SIZES]
     : [...REGULAR_TEE_SIZES];

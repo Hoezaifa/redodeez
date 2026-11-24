@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
+import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronLeft,
@@ -16,6 +17,7 @@ import {
   Info,
   RotateCcw,
   MapPin,
+  X,
 } from "lucide-react";
 import { cn, getProductImageAlt } from "@/lib/utils";
 import type { Product } from "@/data/products";
@@ -25,6 +27,8 @@ import { SizeChart } from "@/components/shop/SizeChart";
 import { ApparelAccordion } from "@/components/shop/ApparelAccordion";
 import { AccordionItem } from "@/components/shop/AccordionItem";
 import { ColorDropdown } from "@/components/shop/ColorDropdown";
+import { useDoomsdayCountdown } from "@/components/hero/DoomsdayCountdown";
+import doomsdayCollectionDropImg from "@/assets/doomsday-collection-drop.jpg";
 
 /* ─── Types ──────────────────────────────────────────────── */
 
@@ -50,6 +54,204 @@ interface DesktopProductDetailProps {
   isAcidWash: boolean;
   showSizeChart: boolean;
   setShowSizeChart: (v: boolean | ((p: boolean) => boolean)) => void;
+}
+
+/* ─── Doomsday Collection Banner, Mobile Strip & Popup ───── */
+
+function padUnit(n: number): string {
+  return String(n).padStart(2, "0");
+}
+
+function DoomsdayMobileTopBar() {
+  const timeLeft = useDoomsdayCountdown();
+
+  const units = [
+    { label: "D", value: timeLeft ? padUnit(timeLeft.days) : "--" },
+    { label: "H", value: timeLeft ? padUnit(timeLeft.hours) : "--" },
+    { label: "M", value: timeLeft ? padUnit(timeLeft.minutes) : "--" },
+    { label: "S", value: timeLeft ? padUnit(timeLeft.seconds) : "--" },
+  ];
+
+  return (
+    <Link
+      to="/doomsday"
+      aria-label="Explore the full Doctor Doom Doomsday Collection"
+      className="lg:hidden grid grid-cols-[124px_1fr] items-center gap-3 rounded-lg border border-white/20 border-l-2 border-l-primary bg-[#0b0b0e] p-2.5 cursor-pointer transition-colors active:scale-[0.99] hover:border-white/35"
+    >
+      <img
+        src={doomsdayCollectionDropImg}
+        alt="Doctor Doom Doomsday Collection"
+        width={1024}
+        height={768}
+        decoding="async"
+        className="w-full h-auto rounded-md border border-white/15"
+      />
+      <div className="min-w-0 flex flex-col gap-1.5">
+        <p className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-primary leading-none truncate">
+          THE DOOMSDAY DROP
+        </p>
+        <div className="grid grid-cols-4 gap-1">
+          {units.map((u) => (
+            <span
+              key={u.label}
+              className="flex flex-col items-center justify-center rounded border border-white/15 bg-black/85 py-1 font-display text-xs font-black text-white tabular-nums leading-none"
+            >
+              <span>{u.value}</span>
+              <span className="mt-0.5 font-mono text-[7px] font-bold text-white/55">{u.label}</span>
+            </span>
+          ))}
+        </div>
+        <span className="inline-flex items-center justify-center rounded-sm border border-primary/70 bg-primary/15 py-1 font-mono text-[9.5px] font-black uppercase tracking-[0.14em] text-primary leading-none">
+          EXPLORE FULL DROP →
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function DoomsdayProductCollectionBanner() {
+  const timeLeft = useDoomsdayCountdown();
+
+  const units = [
+    { label: "DAYS", value: timeLeft ? padUnit(timeLeft.days) : "--" },
+    { label: "HRS", value: timeLeft ? padUnit(timeLeft.hours) : "--" },
+    { label: "MIN", value: timeLeft ? padUnit(timeLeft.minutes) : "--" },
+    { label: "SEC", value: timeLeft ? padUnit(timeLeft.seconds) : "--" },
+  ];
+
+  return (
+    <aside
+      aria-label="Doctor Doom Doomsday Collection"
+      className="grid grid-cols-1 sm:grid-cols-[235px_1fr] xl:grid-cols-[255px_1fr] items-center gap-3 sm:gap-4 rounded-lg border border-white/15 bg-[#0b0b0e] p-2.5 sm:p-3"
+    >
+      {/* Left: Compact Clickable Collection Artwork */}
+      <Link
+        to="/doomsday"
+        aria-label="Explore the full Doctor Doom Doomsday Collection"
+        className="group block w-full overflow-hidden rounded-md border border-white/15 cursor-pointer transition-all duration-300 hover:border-white/30 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      >
+        <img
+          src={doomsdayCollectionDropImg}
+          alt="Doctor Doom Doomsday Collection — Explore the full drop"
+          width={1024}
+          height={768}
+          decoding="async"
+          className="block w-full h-auto transition-transform duration-300 ease-out sm:group-hover:scale-[1.02]"
+        />
+      </Link>
+
+      {/* Right: Live Countdown Timer */}
+      <div className="flex flex-col justify-center min-w-0 px-1 sm:px-0">
+        <span className="font-mono text-[9.5px] font-black uppercase tracking-[0.22em] text-primary leading-none">
+          THE DOOMSDAY DROP
+        </span>
+        <span className="mt-1 font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-white/60 leading-none">
+          DOOMSDAY ARRIVES IN
+        </span>
+
+        <div className="mt-2.5 grid grid-cols-4 gap-1.5">
+          {units.map((u) => (
+            <div
+              key={u.label}
+              className="flex flex-col items-center justify-center rounded border border-white/15 bg-black/85 px-1.5 py-2"
+            >
+              <span className="font-display text-base xl:text-lg font-black tracking-tight text-white tabular-nums leading-none">
+                {u.value}
+              </span>
+              <span className="mt-1 font-mono text-[7px] font-bold uppercase tracking-[0.12em] text-white/50 leading-none">
+                {u.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <Link
+          to="/doomsday"
+          className="mt-3 inline-flex items-center justify-center border border-primary/70 bg-primary/12 hover:bg-primary hover:text-black text-primary font-mono text-[10px] font-black uppercase tracking-[0.14em] px-3 py-2 transition-colors whitespace-nowrap active:scale-[0.98]"
+        >
+          EXPLORE FULL COLLECTION →
+        </Link>
+      </div>
+    </aside>
+  );
+}
+
+function DoomsdayCollectionPopup({ productId }: { productId: string }) {
+  const [open, setOpen] = useState(false);
+
+  const dismiss = useCallback(() => {
+    setOpen(false);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+    const timer = window.setTimeout(() => {
+      setOpen(true);
+    }, 800);
+
+    return () => window.clearTimeout(timer);
+  }, [productId]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") dismiss();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open, dismiss]);
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Doctor Doom Doomsday Collection"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          onClick={dismiss}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-sm p-4"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: 8 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-[520px]"
+          >
+            <button
+              type="button"
+              onClick={dismiss}
+              aria-label="Close Doomsday Collection popup"
+              className="absolute -top-3 -right-3 z-10 grid h-8 w-8 place-items-center rounded-full border border-white/25 bg-black/90 text-white shadow-lg transition-colors hover:border-white hover:bg-black cursor-pointer"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            <Link
+              to="/doomsday"
+              onClick={dismiss}
+              aria-label="Explore the full Doctor Doom Doomsday Collection"
+              className="group block w-full overflow-hidden rounded-xl border border-white/20 shadow-2xl cursor-pointer transition-all duration-300 hover:border-white/40 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              <img
+                src={doomsdayCollectionDropImg}
+                alt="Doctor Doom Doomsday Collection — Explore the full drop"
+                width={1024}
+                height={768}
+                decoding="async"
+                className="block w-full h-auto transition-transform duration-300 ease-out sm:group-hover:scale-[1.01]"
+              />
+            </Link>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 }
 
 /* ─── Component ──────────────────────────────────────────── */
@@ -89,6 +291,7 @@ export function DesktopProductDetail({
 
   const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
   const isMug = product.subcategory === "mugs" || product.category === "accessories";
+  const isDoomsdayProduct = /doctor doom|dr\.?\s*doom|doomsday/i.test(`${product.title} ${product.id}`);
   const isLargeTapestry = isTapestry && (size?.includes("70 x 50") || size?.toLowerCase().includes("large"));
   const displayPrice = isLargeTapestry ? 4200 : product.price;
 
@@ -172,7 +375,10 @@ export function DesktopProductDetail({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
       {/* ═══════════════════ LEFT COLUMN: IMAGE ═══════════════════ */}
-      <div className="space-y-4">
+      <div className="space-y-3 lg:space-y-4">
+        {/* Mobile Above-the-Fold Doomsday Strip (visible immediately without scrolling) */}
+        {isDoomsdayProduct && <DoomsdayMobileTopBar />}
+
         <div
           ref={containerRef}
           onClick={handleToggleZoom}
@@ -330,6 +536,10 @@ export function DesktopProductDetail({
           </p>
         )}
 
+        {/* Doomsday Collection Banner + Timer (below description, above price) */}
+        {isDoomsdayProduct && <DoomsdayProductCollectionBanner />}
+        {isDoomsdayProduct && <DoomsdayCollectionPopup productId={product.id} />}
+
         {/* Karachi Delivery Only Alert for Mugs */}
         {isMug && (
           <div className="p-3.5 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-start gap-2.5">
@@ -468,7 +678,12 @@ export function DesktopProductDetail({
                   transition={{ duration: 0.25 }}
                   className="overflow-hidden mt-3"
                 >
-                  <SizeChart isDropShoulder={isDropShoulder} isAcidWash={isAcidWash} />
+                  <SizeChart
+                    isDropShoulder={isDropShoulder}
+                    isAcidWash={isAcidWash}
+                    isAcidWashHoodie={product.subcategory === "acid-wash-hoodies"}
+                    isHoodie={product.subcategory === "hoodies"}
+                  />
                 </motion.div>
               )}
             </AnimatePresence>

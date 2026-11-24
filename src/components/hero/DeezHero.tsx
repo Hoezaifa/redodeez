@@ -2,7 +2,10 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import heroDesktop from "@/assets/deez-prints-streetwear-hero.webp";
+// Temporary Doctor Doom hero assets (original: "@/assets/deez-prints-streetwear-hero.webp")
+import heroDesktop from "@/assets/temporary-desktop-hero.jpg";
+import heroMobile from "@/assets/temporary-mobile-hero.jpg";
+import { DoomsdayHeroWidget } from "@/components/hero/DoomsdayCountdown";
 
 /* ─── Constants ─────────────────────────────────────────────── */
 
@@ -40,39 +43,42 @@ export function DeezHero() {
       {/* ── Hero canvas (single responsive tree) ── */}
       <section
         aria-label="Hero"
-        className="relative overflow-hidden flex flex-col md:block bg-black"
+        className="relative overflow-hidden flex flex-col lg:block bg-black"
         style={{ minHeight: "calc(100vh - 62px - 40px)" }}
       >
         {/* Base bg */}
         <div className="absolute inset-0 bg-black" />
 
         {/* Film-grain overlay (desktop only so mobile black level stays pure) */}
-        <div className="pointer-events-none absolute inset-0 grain opacity-30 hidden md:block" />
+        <div className="pointer-events-none absolute inset-0 grain opacity-30 hidden lg:block" />
 
-        {/* Photography Frame: relative aspect-[4/5] on mobile, absolute full-bleed on desktop */}
+        {/* Photography Frame: stacked above module on mobile/tablet, full-bleed on desktop */}
         <motion.div
           initial={{ scale: 1.04 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.8, ease }}
           style={{ y: imgY }}
-          className="relative w-full aspect-[4/5] max-h-[480px] overflow-hidden bg-black pt-16 md:pt-0 md:max-h-none md:aspect-auto md:absolute md:inset-0 md:pointer-events-none"
+          className="relative w-full aspect-[4/5] max-h-[560px] sm:max-h-[600px] md:aspect-[16/10] md:max-h-[540px] overflow-hidden bg-black pt-[92px] md:pt-[100px] lg:pt-0 lg:max-h-none lg:aspect-auto lg:absolute lg:inset-0 lg:pointer-events-none"
         >
-          <img
-            src={heroDesktop}
-            alt="Model wearing an oversized Deez Prints graphic tee"
-            width={1743}
-            height={902}
-            className="h-full w-full object-cover object-[75%_20%] md:object-[82%_20%] md:translate-x-0 hero-mobile-fade-mask"
-            fetchPriority="high"
-          />
+          <picture className="block h-full w-full">
+            <source media="(min-width: 768px)" srcSet={heroDesktop} />
+            <img
+              src={heroMobile}
+              alt="Model wearing an oversized Deez Prints Doctor Doom graphic tee"
+              width={1672}
+              height={941}
+              className="h-full w-full object-cover object-[50%_42%] md:object-[64%_22%] lg:object-[54%_12%] lg:scale-[0.92] lg:-translate-x-[8.5%] xl:scale-100 xl:-translate-x-[9.5%] 2xl:-translate-x-[8%] lg:translate-y-7"
+              fetchPriority="high"
+            />
+          </picture>
 
-          {/* Mobile bottom fade: smoothly transitions the bottom ~30% into exact dark background */}
+          {/* Mobile/tablet bottom fade: subtle edge blend so the full tee graphic stays visible */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-52 z-10 md:hidden"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-20 z-10 lg:hidden"
             style={{
               background:
-                "linear-gradient(to top, #000000 0%, #000000 35%, rgba(0, 0, 0, 0.85) 65%, rgba(0, 0, 0, 0.4) 85%, transparent 100%)",
+                "linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.55) 45%, transparent 100%)",
             }}
           />
         </motion.div>
@@ -80,17 +86,27 @@ export function DeezHero() {
         {/* Desktop directional dark gradient: blends left edge of photo into dark background */}
         <div
           aria-hidden="true"
-          className="pointer-events-none hidden md:block absolute inset-y-0 left-0 w-3/5 lg:w-[56%] z-[1]"
+          className="pointer-events-none hidden lg:block absolute inset-y-0 left-0 lg:w-[46%] xl:w-[48%] z-[1]"
           style={{
             background:
-              "linear-gradient(to right, #000000 0%, #000000 35%, rgba(0, 0, 0, 0.85) 55%, transparent 75%)",
+              "linear-gradient(to right, #000000 0%, #000000 32%, rgba(0, 0, 0, 0.8) 58%, transparent 82%)",
+          }}
+        />
+
+        {/* Desktop right-side dark gradient behind Doomsday countdown widget */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none hidden lg:block absolute inset-y-0 right-0 lg:w-[34%] xl:w-[32%] z-[1]"
+          style={{
+            background:
+              "linear-gradient(to left, #000000 0%, #000000 38%, rgba(0, 0, 0, 0.85) 68%, transparent 100%)",
           }}
         />
 
         {/* Desktop subtle bottom fade to seamlessly meet feature strip */}
         <div
           aria-hidden="true"
-          className="pointer-events-none hidden md:block absolute inset-x-0 bottom-0 h-28 z-[1]"
+          className="pointer-events-none hidden lg:block absolute inset-x-0 bottom-0 h-28 z-[1]"
           style={{
             background: "linear-gradient(to top, #000000 0%, transparent 100%)",
           }}
@@ -109,14 +125,23 @@ export function DeezHero() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 px-5 pb-12 pt-2 -mt-12 md:mt-0 flex flex-col md:mx-auto md:h-full md:max-w-[1440px] md:justify-center md:px-10 md:py-20 lg:py-24">
-          <div className="max-w-[560px] md:-translate-x-[20px]">
+        <div className="relative z-10 px-5 pb-10 pt-2 md:pt-4 lg:pt-24 lg:pb-24 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-8 lg:mx-auto lg:h-full lg:max-w-[1560px] lg:pl-10 lg:pr-12 xl:pl-12 xl:pr-14">
+          {/* Headline + Main CTAs (hidden on mobile/tablet during temporary Doom drop, left on desktop) */}
+          <div className="hidden lg:block order-2 lg:order-1 max-w-[340px] xl:max-w-[490px] 2xl:max-w-[520px] lg:-translate-x-[10px] xl:-translate-x-[18px]">
             {/* Main headline - Exactly ONE h1 */}
             <h1
-              className="font-display uppercase leading-[0.88] md:leading-[0.855] tracking-tight md:tracking-[-0.01em] pr-0 md:pr-6 text-[44px] xs:text-[52px] md:text-[clamp(62px,8.5vw,110px)] xl:text-[clamp(70px,9.5vw,128px)]"
+              className="font-display uppercase leading-[0.92] md:leading-[0.855] tracking-tight md:tracking-[-0.01em] pr-0 md:pr-4 xl:pr-6 text-[36px] xs:text-[42px] lg:text-[clamp(56px,5.8vw,78px)] xl:text-[clamp(76px,7.4vw,112px)] 2xl:text-[clamp(90px,8.2vw,126px)]"
             >
+              {/* Mobile 2-line layout: WEAR WHAT / YOU CREATE */}
+              <span className="block md:hidden font-black text-white">Wear What</span>
+              <span className="block md:hidden font-black text-white">
+                You Create
+                <span className="inline-block h-3 w-3 bg-[color:var(--accent)] ml-1.5 align-baseline" />
+              </span>
+
+              {/* Desktop 4-line layout */}
               {["Wear", "What", "You"].map((word, i) => (
-                <span key={word} className="block overflow-hidden">
+                <span key={word} className="hidden md:block overflow-hidden">
                   <motion.span
                     custom={i}
                     initial={false}
@@ -129,31 +154,29 @@ export function DeezHero() {
                 </span>
               ))}
 
-              {/* "CREATE." */}
-              <span className="block overflow-visible py-0.5 md:py-1">
+              {/* Desktop "CREATE." */}
+              <span className="hidden md:block overflow-visible py-1">
                 <motion.span
                   custom={3}
                   initial={false}
                   animate="show"
                   variants={lineVariants}
-                  className="inline-block font-black text-white md:text-outline pr-0 md:pr-6"
+                  className="inline-block font-black text-outline pr-6"
                 >
-                  Create
-                  <span className="inline-block h-3.5 w-3.5 md:hidden bg-[color:var(--accent)] ml-1.5 align-baseline" />
-                  <span className="hidden md:inline">.</span>
+                  Create.
                 </motion.span>
               </span>
             </h1>
 
             {/* Horizontal Divider on mobile */}
-            <div className="my-5 h-px w-full bg-white/15 md:hidden" />
+            <div className="my-4 h-px w-full bg-white/15 md:hidden" />
 
             {/* Sub-bullets */}
             <motion.ul
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.7, ease }}
-              className="space-y-2 md:mt-8"
+              className="space-y-1.5 md:space-y-2 md:mt-8"
             >
               {["Streetwear. Custom Prints.", "No Limits."].map((line) => (
                 <li key={line} className="flex items-center gap-3">
@@ -175,25 +198,35 @@ export function DeezHero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.88, ease }}
-              className="mt-7 md:mt-10 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-3 md:gap-4"
+              className="mt-5 md:mt-8 xl:mt-10 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 xl:gap-4"
             >
               <Link
                 to="/collections"
-                className="group relative flex sm:inline-flex h-[44px] sm:h-[48px] items-center justify-between sm:justify-center gap-3 sm:gap-4 bg-[color:var(--accent)] px-4 sm:px-7 text-[11px] sm:text-xs font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] text-black transition-all duration-300 hover:bg-white hover:scale-105 active:scale-[0.97] rounded shadow-lg"
+                className="group relative flex sm:inline-flex h-[44px] xl:h-[48px] items-center justify-between sm:justify-center gap-2.5 xl:gap-4 bg-[color:var(--accent)] px-4 xl:px-7 text-[11px] xl:text-xs font-black uppercase tracking-[0.15em] xl:tracking-[0.2em] text-black transition-all duration-300 hover:bg-white hover:scale-105 active:scale-[0.97] rounded shadow-lg"
               >
                 <span>Shop All</span>
-                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-1 stroke-[3]" />
+                <ArrowRight className="h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform duration-300 group-hover:translate-x-1 stroke-[3]" />
               </Link>
 
               <Link
                 to="/custom-print"
-                className="group flex sm:inline-flex h-[44px] sm:h-[48px] items-center justify-between sm:justify-center gap-2 sm:gap-3 border border-white/30 bg-white/10 px-4 sm:px-6 text-[11px] sm:text-xs font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white transition-all duration-300 hover:bg-white hover:text-black active:scale-[0.97] rounded"
+                className="group flex sm:inline-flex h-[44px] xl:h-[48px] items-center justify-between sm:justify-center gap-2 xl:gap-3 border border-white/30 bg-white/10 px-4 xl:px-6 text-[11px] xl:text-xs font-black uppercase tracking-[0.15em] xl:tracking-[0.2em] text-white transition-all duration-300 hover:bg-white hover:text-black active:scale-[0.97] rounded"
               >
                 <span className="truncate">Explore Custom</span>
-                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white shrink-0 stroke-[3]" />
+                <ArrowRight className="h-3.5 w-3.5 xl:h-4 xl:w-4 text-white shrink-0 stroke-[3]" />
               </Link>
             </motion.div>
           </div>
+
+          {/* Avengers: Doomsday Countdown & Collection CTA (below image on mobile/tablet, dedicated right zone on desktop) */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.55, ease }}
+            className="order-1 lg:order-2 flex justify-center lg:justify-end lg:ml-auto lg:pr-2 xl:pr-4 shrink-0"
+          >
+            <DoomsdayHeroWidget />
+          </motion.div>
         </div>
 
         {/* Animated scroll indicator */}

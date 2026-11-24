@@ -243,15 +243,16 @@
 
 @keyframes marquee-x {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-@utility animate-marquee {
-  animation: marquee-x 32s linear infinite;
+.animate-marquee {
+  animation: marquee-x 30s linear infinite;
+  will-change: transform;
 }
 
 @layer utilities {
@@ -443,5 +444,87 @@
     -webkit-mask-image: linear-gradient(to bottom, black 50%, rgba(0, 0, 0, 0.4) 75%, transparent 100%) !important;
     mask-image: linear-gradient(to bottom, black 50%, rgba(0, 0, 0, 0.4) 75%, transparent 100%) !important;
   }
+}
+
+/* ---------- Avengers: Doomsday Campaign CTA ---------- */
+
+.doomsday-cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(180deg, #1d2520 0%, #121814 52%, #0b0f0d 100%);
+  color: #eef5f0;
+  border: 1px solid rgba(52, 168, 96, 0.5);
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.72),
+    0 0 14px rgba(34, 148, 76, 0.16),
+    inset 0 1px 0 rgba(196, 240, 212, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.65);
+  transition:
+    background 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.3s ease;
+}
+
+.doomsday-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    112deg,
+    transparent 20%,
+    rgba(130, 232, 168, 0.14) 48%,
+    rgba(255, 255, 255, 0.08) 52%,
+    transparent 76%
+  );
+  transform: translateX(-115%);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.doomsday-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    80% 100% at 50% 100%,
+    rgba(46, 178, 94, 0.18) 0%,
+    transparent 70%
+  );
+  opacity: 0.55;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.doomsday-cta:hover {
+  background: linear-gradient(180deg, #233028 0%, #152019 52%, #0e1611 100%);
+  border-color: rgba(74, 212, 124, 0.8);
+  color: #ffffff;
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.8),
+    0 0 22px rgba(45, 178, 94, 0.3),
+    inset 0 1px 0 rgba(210, 250, 224, 0.28),
+    inset 0 -1px 0 rgba(36, 148, 76, 0.3);
+}
+
+.doomsday-cta:hover::before {
+  transform: translateX(115%);
+}
+
+.doomsday-cta:hover::after {
+  opacity: 1;
+}
+
+.doomsday-cta:active {
+  transform: scale(0.985);
+}
+
+.doomsday-cta:focus-visible {
+  outline: 2px solid #4ade80;
+  outline-offset: 2px;
 }
 

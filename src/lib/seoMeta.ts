@@ -83,6 +83,10 @@ const COLLECTION_TITLES: Record<string, { title: string; desc: string }> = {
     title: "Streetwear Hoodies in Pakistan — Heavyweight Fleece | Deez Prints",
     desc: "Heavyweight 350+ GSM fleece streetwear hoodies by Deez Prints. Premium boxy fit with durable graphic prints, dispatched across Pakistan.",
   },
+  "acid-wash-hoodies": {
+    title: "Acid Wash Hoodies in Pakistan — Vintage Heavyweight Fleece | Deez Prints",
+    desc: "Vintage mineral-washed heavyweight fleece hoodies by Deez Prints. Oversized streetwear fit with high-definition graphic prints, dispatched across Pakistan.",
+  },
   accessories: {
     title: "Anime Mugs & Graphic Drinkware in Karachi | Deez Prints",
     desc: "High-gloss ceramic anime mugs and graphic drinkware by Deez Prints. Safely packaged and delivered exclusively across Karachi via local rider.",

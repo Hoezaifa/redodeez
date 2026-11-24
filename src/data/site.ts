@@ -314,10 +314,18 @@ export const collections: Collection[] = [
   {
     slug: "hoodies",
     name: "Hoodies",
-    blurb: "Fleece-backed heavyweight drops in development. Drop coming soon.",
-    image: "/assets/collections/hoodies.jpg",
-    status: "COMING_SOON",
-    match: (p) => p.category === "hoodies",
+    blurb: "Heavyweight 350+ GSM fleece streetwear hoodies built for the drop.",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1795549823/doctor-doom-iron-mask-black-hoodie-back.jpg",
+    status: "ACTIVE",
+    match: (p) => p.category === "hoodies" && p.subcategory === "hoodies",
+  },
+  {
+    slug: "acid-wash-hoodies",
+    name: "Acid Wash Hoodies",
+    blurb: "Vintage mineral-washed heavyweight fleece hoodies. No two identical.",
+    image: "https://res.cloudinary.com/okcxaese/image/upload/v1795549822/doctor-doom-iron-mask-black-acid-wash-hoodie-back.jpg",
+    status: "ACTIVE",
+    match: (p) => p.subcategory === "acid-wash-hoodies",
   },
   {
     slug: "tapestries",
@@ -407,6 +415,20 @@ export const ACID_WASH_SIZE_CHART = [
   { size: "Small", chest: '22"', length: '28"' },
   { size: "Medium", chest: '23"', length: '29"' },
   { size: "Large", chest: '24"', length: '30"' },
+] as const;
+
+export const ACID_WASH_HOODIE_SIZE_CHART = [
+  { size: "Small", chest: '22"', length: '27"' },
+  { size: "Medium", chest: '23"', length: '27.5"' },
+  { size: "Large", chest: '24"', length: '28"' },
+] as const;
+
+export const HOODIE_SIZES = ["S", "M", "L", "XL"] as const;
+export const HOODIE_SIZE_CHART = [
+  { size: "Small", chest: '20"', length: '26"' },
+  { size: "Medium", chest: '21"', length: '27"' },
+  { size: "Large", chest: '22"', length: '28"' },
+  { size: "XL", chest: '23"', length: '29"' },
 ] as const;
 
 export const REGULAR_TEE_SIZES = ["S", "M", "L", "XL", "XXL"] as const;

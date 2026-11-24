@@ -81,7 +81,7 @@ export const Route = createFileRoute("/collections/$slug")({
       blurb
     );
     const isEmpty = (loaderData?.productCount ?? 0) === 0;
-    const isComingSoon = loaderData?.slug === "hoodies";
+    const isComingSoon = false;
     const search = loaderData?.search;
     const isUtilitySort = Boolean(search?.sort || search?.dir);
     const shouldNoindex = isEmpty || isComingSoon || isUtilitySort;
@@ -154,7 +154,7 @@ function CollectionPage() {
   }), [sort, priceDir]);
 
   const isAesthetic = aestheticSlugs.includes(slug);
-  const isComingSoonCollection = slug === "hoodies";
+  const isComingSoonCollection = false;
 
   const filterableCollections = useMemo(() => {
     if (isAesthetic) {

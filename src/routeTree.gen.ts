@@ -17,6 +17,7 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CocnballsRouteImport } from './routes/cocnballs'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomPrintRouteImport } from './routes/custom-print'
+import { Route as DoomsdayRouteImport } from './routes/doomsday'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as OpenaiProductsFeedDotjsonRouteImport } from './routes/openai-products-feed[.]json'
 import { Route as OurWorkRouteImport } from './routes/our-work'
@@ -76,6 +77,11 @@ const ContactRoute = ContactRouteImport.update({
 const CustomPrintRoute = CustomPrintRouteImport.update({
   id: '/custom-print',
   path: '/custom-print',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DoomsdayRoute = DoomsdayRouteImport.update({
+  id: '/doomsday',
+  path: '/doomsday',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -191,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/cocnballs': typeof CocnballsRoute
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
+  '/doomsday': typeof DoomsdayRoute
   '/faq': typeof FaqRoute
   '/openai-products-feed.json': typeof OpenaiProductsFeedDotjsonRoute
   '/our-work': typeof OurWorkRoute
@@ -221,6 +228,7 @@ export interface FileRoutesByTo {
   '/cocnballs': typeof CocnballsRoute
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
+  '/doomsday': typeof DoomsdayRoute
   '/faq': typeof FaqRoute
   '/openai-products-feed.json': typeof OpenaiProductsFeedDotjsonRoute
   '/our-work': typeof OurWorkRoute
@@ -252,6 +260,7 @@ export interface FileRoutesById {
   '/cocnballs': typeof CocnballsRoute
   '/contact': typeof ContactRoute
   '/custom-print': typeof CustomPrintRoute
+  '/doomsday': typeof DoomsdayRoute
   '/faq': typeof FaqRoute
   '/openai-products-feed.json': typeof OpenaiProductsFeedDotjsonRoute
   '/our-work': typeof OurWorkRoute
@@ -284,6 +293,7 @@ export interface FileRouteTypes {
     | '/cocnballs'
     | '/contact'
     | '/custom-print'
+    | '/doomsday'
     | '/faq'
     | '/openai-products-feed.json'
     | '/our-work'
@@ -314,6 +324,7 @@ export interface FileRouteTypes {
     | '/cocnballs'
     | '/contact'
     | '/custom-print'
+    | '/doomsday'
     | '/faq'
     | '/openai-products-feed.json'
     | '/our-work'
@@ -344,6 +355,7 @@ export interface FileRouteTypes {
     | '/cocnballs'
     | '/contact'
     | '/custom-print'
+    | '/doomsday'
     | '/faq'
     | '/openai-products-feed.json'
     | '/our-work'
@@ -375,6 +387,7 @@ export interface RootRouteChildren {
   CocnballsRoute: typeof CocnballsRoute
   ContactRoute: typeof ContactRoute
   CustomPrintRoute: typeof CustomPrintRoute
+  DoomsdayRoute: typeof DoomsdayRoute
   FaqRoute: typeof FaqRoute
   OpenaiProductsFeedDotjsonRoute: typeof OpenaiProductsFeedDotjsonRoute
   OurWorkRoute: typeof OurWorkRoute
@@ -453,6 +466,13 @@ declare module '@tanstack/react-router' {
       path: '/custom-print'
       fullPath: '/custom-print'
       preLoaderRoute: typeof CustomPrintRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doomsday': {
+      id: '/doomsday'
+      path: '/doomsday'
+      fullPath: '/doomsday'
+      preLoaderRoute: typeof DoomsdayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -607,6 +627,7 @@ const rootRouteChildren: RootRouteChildren = {
   CocnballsRoute: CocnballsRoute,
   ContactRoute: ContactRoute,
   CustomPrintRoute: CustomPrintRoute,
+  DoomsdayRoute: DoomsdayRoute,
   FaqRoute: FaqRoute,
   OpenaiProductsFeedDotjsonRoute: OpenaiProductsFeedDotjsonRoute,
   OurWorkRoute: OurWorkRoute,

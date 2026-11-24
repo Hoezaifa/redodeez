@@ -18,7 +18,6 @@ import { CartProvider } from "@/lib/cart";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CartDrawer } from "@/components/site/CartDrawer";
-import { FirstOrderOfferTab } from "@/components/site/FirstOrderOfferTab";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/structuredData";
 
@@ -163,6 +162,18 @@ gtag('config', 'G-T9ZGB9XLM0');`,
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y4dx03y5ij");`,
       },
+      {
+        children: `!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2413761612783602');
+fbq('track', 'PageView');`,
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -180,6 +191,15 @@ function RootShell({ children }: { children: ReactNode }) {
         <meta name="p:domain_verify" content="224a4bde89bf6ae8a33af0493a310072" />
       </head>
       <body>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=2413761612783602&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:label-mono"
@@ -208,7 +228,7 @@ function RootComponent() {
 
   const prevPath = useRef(activePath);
 
-  // Scroll-to-top and Google Analytics route tracking after active route change
+  // Scroll-to-top and analytics route tracking after active route change
   useEffect(() => {
     if (prevPath.current !== activePath) {
       window.scrollTo(0, 0);
@@ -217,6 +237,9 @@ function RootComponent() {
         (window as unknown as { gtag: Function }).gtag("config", "G-T9ZGB9XLM0", {
           page_path: activePath,
         });
+      }
+      if (typeof window !== "undefined" && "fbq" in window && typeof (window as unknown as { fbq: Function }).fbq === "function") {
+        (window as unknown as { fbq: Function }).fbq("track", "PageView");
       }
     }
   }, [activePath]);
@@ -234,7 +257,6 @@ function RootComponent() {
         </main>
         {!isAdmin && <Footer />}
         {!isAdmin && <CartDrawer />}
-        {!isAdmin && <FirstOrderOfferTab />}
       </CartProvider>
     </QueryClientProvider>
   );

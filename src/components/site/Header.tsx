@@ -1,12 +1,88 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Search, Heart, ShoppingBag, Menu, X, Check } from "lucide-react";
 import { LOGO_URL, navLinks, SHIPPING_OPTIONS, site } from "@/data/site";
 import { useCart } from "@/lib/cart";
 import { SearchModal } from "@/components/site/SearchModal";
 import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
+
+const ANNOUNCEMENTS = [
+  `Karachi delivery Rs. ${SHIPPING_OPTIONS.karachi.fee} via ${SHIPPING_OPTIONS.karachi.method}`,
+  `${SHIPPING_OPTIONS.nationwide.label} delivery Rs. ${SHIPPING_OPTIONS.nationwide.fee} via ${SHIPPING_OPTIONS.nationwide.method}`,
+  `Free Karachi delivery on orders above Rs. ${site.freeShippingThreshold.toLocaleString()}`,
+  "Easypaisa, Bank Transfer & Partial COD (Karachi only)",
+  "7-day exchange (defective/wrong item)",
+  "Printed in Karachi",
+];
+
+function AnnouncementBar() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+
+  useEffect(() => {
+    let rafId = 0;
+    let lastTime = performance.now();
+    let offset = 0;
+    const speedPxPerSec = 52;
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - lastTime) / 1000, 0.1);
+      lastTime = now;
+
+      const track = trackRef.current;
+      if (track && !pausedRef.current) {
+        const halfWidth = track.scrollWidth / 2;
+        if (halfWidth > 0) {
+          offset = (offset + speedPxPerSec * dt) % halfWidth;
+          track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+        }
+      }
+
+      rafId = window.requestAnimationFrame(tick);
+    };
+
+    rafId = window.requestAnimationFrame(tick);
+    return () => window.cancelAnimationFrame(rafId);
+  }, []);
+
+  return (
+    <div
+      role="region"
+      aria-label="Store announcements"
+      onMouseEnter={() => {
+        pausedRef.current = true;
+      }}
+      onMouseLeave={() => {
+        pausedRef.current = false;
+      }}
+      className="h-8 md:h-9 overflow-hidden border-b border-border bg-background flex items-center select-none"
+    >
+      <div
+        ref={trackRef}
+        className="flex w-max shrink-0 whitespace-nowrap will-change-transform"
+      >
+        {Array.from({ length: 2 }).map((_, k) => (
+          <div
+            key={k}
+            aria-hidden={k === 1 ? "true" : undefined}
+            className="flex shrink-0 items-center gap-12 sm:gap-16 pr-12 sm:pr-16"
+          >
+            {ANNOUNCEMENTS.map((t) => (
+              <span
+                key={t}
+                className="label-mono text-[10px] sm:text-[11px] md:text-xs text-muted-foreground"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function Header() {
   const { count, setDrawerOpen, wishlist, lastAdded, dismissToast } = useCart();
@@ -44,35 +120,14 @@ export function Header() {
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="fixed inset-x-0 top-0 z-50"
       >
-        <div className="hidden overflow-hidden border-b border-border bg-background md:block">
-          <div className="flex whitespace-nowrap py-2">
-            <div className="flex animate-marquee gap-16 pr-16">
-              {Array.from({ length: 2 }).map((_, k) => (
-                <div key={k} className="flex shrink-0 gap-16">
-                  {[
-                    `Karachi delivery Rs. ${SHIPPING_OPTIONS.karachi.fee} via ${SHIPPING_OPTIONS.karachi.method}`,
-                    `${SHIPPING_OPTIONS.nationwide.label} delivery Rs. ${SHIPPING_OPTIONS.nationwide.fee} via ${SHIPPING_OPTIONS.nationwide.method}`,
-                    `Free Karachi delivery on orders above Rs. ${site.freeShippingThreshold.toLocaleString()}`,
-                    "Easypaisa, Bank Transfer & Partial COD (Karachi only)",
-                    "7-day exchange (defective/wrong item)",
-                    "Printed in Karachi",
-                  ].map((t) => (
-                    <span key={t} className="label-mono text-muted-foreground">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <AnnouncementBar />
 
         <div
           className={cn(
             "edge relative border-b transition-colors duration-500",
             isSolid
               ? "border-border/60 bg-background/95 backdrop-blur-md"
-              : "border-transparent bg-linear-to-b from-background/80 to-transparent",
+              : "border-border/40 bg-background/80 backdrop-blur-md",
           )}
         >
           {/* Main nav row — logo left, icons right, desktop nav centered */}

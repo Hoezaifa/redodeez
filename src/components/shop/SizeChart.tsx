@@ -1,28 +1,42 @@
 import { cn } from "@/lib/utils";
 import {
+  ACID_WASH_HOODIE_SIZE_CHART,
   ACID_WASH_SIZE_CHART,
   DROP_SHOULDER_SIZE_CHART,
+  HOODIE_SIZE_CHART,
   REGULAR_TEE_SIZE_CHART,
 } from "@/data/site";
 
 type SizeChartProps = {
   isDropShoulder?: boolean;
   isAcidWash?: boolean;
+  isAcidWashHoodie?: boolean;
+  isHoodie?: boolean;
   className?: string;
 };
 
 export function SizeChart({
   isDropShoulder,
   isAcidWash,
+  isAcidWashHoodie,
+  isHoodie,
   className,
 }: SizeChartProps) {
-  const chartData = isAcidWash
+  const chartData = isAcidWashHoodie
+    ? ACID_WASH_HOODIE_SIZE_CHART
+    : isHoodie
+    ? HOODIE_SIZE_CHART
+    : isAcidWash
     ? ACID_WASH_SIZE_CHART
     : isDropShoulder
     ? DROP_SHOULDER_SIZE_CHART
     : REGULAR_TEE_SIZE_CHART;
 
-  const title = isAcidWash
+  const title = isAcidWashHoodie
+    ? "Acid Wash Hoodie Size Chart (S, M, L Only)"
+    : isHoodie
+    ? "Hoodie Size Chart"
+    : isAcidWash
     ? "Acid Wash Size Chart (S, M, L Only)"
     : isDropShoulder
     ? "Drop Shoulder Size Chart"
@@ -62,9 +76,11 @@ export function SizeChart({
         </table>
       </div>
 
-      {isAcidWash && (
+      {(isAcidWashHoodie || isAcidWash) && (
         <p className="mt-2.5 text-[11px] text-muted-foreground label-mono border-t border-border/40 pt-2">
-          * Acid Wash vintage tees are produced in S, M, and L sizes only.
+          {isAcidWashHoodie
+            ? "* Acid Wash hoodies are produced in S, M, and L sizes only."
+            : "* Acid Wash vintage tees are produced in S, M, and L sizes only."}
         </p>
       )}
     </div>

@@ -20,7 +20,8 @@ export function FirstOrderOfferTab() {
   const [copied, setCopied] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Hide on checkout or admin pages
+  // Hide on homepage, checkout, or admin pages
+  const isHome = location.pathname === "/";
   const isCheckout = location.pathname.startsWith("/checkout");
   const isAdmin = location.pathname.startsWith("/cocnballs");
 
@@ -48,7 +49,7 @@ export function FirstOrderOfferTab() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOfferOpen, setIsOfferOpen]);
 
-  if (isCheckout || isAdmin) {
+  if (isHome || isCheckout || isAdmin) {
     return null;
   }
 
@@ -69,37 +70,57 @@ export function FirstOrderOfferTab() {
       {/* ── Compact Floating Tab Attached to Right Edge ── */}
       {/* Hidden when cart drawer or offer panel is active */}
       {!drawerOpen && !isOfferOpen && (
-        <button
-          type="button"
-          onClick={() => setIsOfferOpen(true)}
-          aria-label={isApplied ? "First order discount claimed" : "Unlock 5% off first order"}
-          className="fixed right-0 z-40 top-[48%] sm:top-1/2 -translate-y-1/2 flex items-center gap-1.5 sm:gap-2 bg-[#121212]/95 hover:bg-zinc-900 text-white pl-2.5 sm:pl-3 pr-2 py-2.5 sm:py-3 rounded-l-xl border-y border-l border-orange-500/90 shadow-xl transition-all duration-200 hover:-translate-x-1 focus:outline-none focus:ring-2 focus:ring-orange-500 select-none group"
-        >
-          {/* Outlined Ticket Icon */}
-          <div className="flex flex-col items-center">
+        <>
+          {/* Mobile: slim vertical right-edge tab docked low so it never blocks header, filters, or headings */}
+          <button
+            type="button"
+            onClick={() => setIsOfferOpen(true)}
+            aria-label={isApplied ? "First order discount claimed" : "Unlock 5% off first order"}
+            className="sm:hidden fixed right-0 bottom-6 z-40 flex flex-col items-center gap-1 bg-[#121212]/90 hover:bg-zinc-900 text-white py-2.5 px-1.5 rounded-l-lg border-y border-l border-orange-500/75 shadow-lg transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-orange-500 select-none"
+          >
             {isApplied ? (
-              <div className="relative">
-                <Ticket className="w-4 h-4 text-emerald-400 stroke-[2]" />
-                <Check className="w-2.5 h-2.5 text-emerald-400 absolute -bottom-1 -right-1 stroke-[3]" />
-              </div>
+              <Check className="w-3 h-3 text-emerald-400 stroke-[2.5]" />
             ) : (
-              <Ticket className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-orange-500 stroke-[1.8]" />
+              <Ticket className="w-3 h-3 text-orange-500 stroke-[2]" />
             )}
-          </div>
-
-          {/* Offer text */}
-          <div className="flex flex-col items-start text-left leading-none">
-            <span className="font-display font-black text-xs sm:text-[13px] tracking-tight text-orange-500 group-hover:text-orange-400">
-              5% OFF
+            <span className="[writing-mode:vertical-rl] rotate-180 font-display font-black text-[9px] tracking-[0.12em] uppercase text-orange-500 leading-none">
+              {isApplied ? "5% ON" : "5% OFF"}
             </span>
-            <span className="font-mono text-[7.5px] sm:text-[8.5px] font-bold tracking-widest text-zinc-300 uppercase mt-0.5">
-              {isApplied ? "CLAIMED" : "FIRST ORDER"}
-            </span>
-          </div>
+          </button>
 
-          {/* Subtle chevron */}
-          <ChevronLeft className="w-3.5 h-3.5 text-zinc-400 group-hover:text-orange-400 transition-transform group-hover:-translate-x-0.5 ml-0.5" />
-        </button>
+          {/* Tablet / Desktop: full floating right-edge tab */}
+          <button
+            type="button"
+            onClick={() => setIsOfferOpen(true)}
+            aria-label={isApplied ? "First order discount claimed" : "Unlock 5% off first order"}
+            className="hidden sm:flex fixed right-0 z-40 top-1/2 -translate-y-1/2 items-center gap-2 bg-[#121212]/95 hover:bg-zinc-900 text-white pl-3 pr-2 py-3 rounded-l-xl border-y border-l border-orange-500/90 shadow-xl transition-all duration-200 hover:-translate-x-1 focus:outline-none focus:ring-2 focus:ring-orange-500 select-none group"
+          >
+            {/* Outlined Ticket Icon */}
+            <div className="flex flex-col items-center">
+              {isApplied ? (
+                <div className="relative">
+                  <Ticket className="w-4 h-4 text-emerald-400 stroke-[2]" />
+                  <Check className="w-2.5 h-2.5 text-emerald-400 absolute -bottom-1 -right-1 stroke-[3]" />
+                </div>
+              ) : (
+                <Ticket className="w-4.5 h-4.5 text-orange-500 stroke-[1.8]" />
+              )}
+            </div>
+
+            {/* Offer text */}
+            <div className="flex flex-col items-start text-left leading-none">
+              <span className="font-display font-black text-[13px] tracking-tight text-orange-500 group-hover:text-orange-400">
+                5% OFF
+              </span>
+              <span className="font-mono text-[8.5px] font-bold tracking-widest text-zinc-300 uppercase mt-0.5">
+                {isApplied ? "CLAIMED" : "FIRST ORDER"}
+              </span>
+            </div>
+
+            {/* Subtle chevron */}
+            <ChevronLeft className="w-3.5 h-3.5 text-zinc-400 group-hover:text-orange-400 transition-transform group-hover:-translate-x-0.5 ml-0.5" />
+          </button>
+        </>
       )}
 
       {/* ── Slide-Out Offer Panel / Modal ── */}
