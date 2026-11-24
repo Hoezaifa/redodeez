@@ -86,11 +86,14 @@ function DoomsdayMobileTopBar() {
         decoding="async"
         className="w-full h-auto rounded-md border border-white/15"
       />
-      <div className="min-w-0 flex flex-col gap-1.5">
-        <p className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-primary leading-none truncate">
-          THE DOOMSDAY DROP
+      <div className="min-w-0 flex flex-col gap-1">
+        <p className="font-display text-[11px] font-black uppercase tracking-wide text-primary leading-tight truncate">
+          THE DOOMSDAY DROP IS LIVE
         </p>
-        <div className="grid grid-cols-4 gap-1">
+        <p className="font-mono text-[8.5px] font-bold uppercase tracking-[0.08em] text-white/75 leading-none truncate">
+          GET YOURS BEFORE TIME RUNS OUT
+        </p>
+        <div className="grid grid-cols-4 gap-1 mt-0.5">
           {units.map((u) => (
             <span
               key={u.label}
@@ -142,11 +145,11 @@ function DoomsdayProductCollectionBanner() {
 
       {/* Right: Live Countdown Timer */}
       <div className="flex flex-col justify-center min-w-0 px-1 sm:px-0">
-        <span className="font-mono text-[9.5px] font-black uppercase tracking-[0.22em] text-primary leading-none">
-          THE DOOMSDAY DROP
+        <span className="font-display text-xs sm:text-sm xl:text-[15px] font-black uppercase tracking-wide text-primary leading-tight">
+          THE DOOMSDAY DROP IS LIVE
         </span>
-        <span className="mt-1 font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-white/60 leading-none">
-          DOOMSDAY ARRIVES IN
+        <span className="mt-1 font-mono text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.12em] text-white/75 leading-snug">
+          GET YOURS BEFORE THE CLOCK RUNS OUT
         </span>
 
         <div className="mt-2.5 grid grid-cols-4 gap-1.5">
