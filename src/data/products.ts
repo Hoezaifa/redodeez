@@ -30,6 +30,9 @@ export interface Product {
   productType?: string;
   style?: string;
   imageAlts?: string[];
+  seoTitle?: string;
+  metaDescription?: string;
+  searchKeywords?: string[];
 }
 
 /* ─── Three-Axis Taxonomy Helper ────────────────────────────── */
@@ -633,7 +636,7 @@ export const products: Product[] = [
     id: "dp-drop-shoulder-dr-doom",
     title: "Doctor Doom Drop Shoulder Tee",
     description:
-      "A green-hooded Doctor Doom (Marvel) portrait fills the back, with the metallic mask shown in side profile. Features a DOOM chest graphic on the front of this heavyweight drop-shoulder tee. Boxy relaxed streetwear cut for Marvel comic and Avengers: Doomsday fans.",
+      "This Doctor Doom Side Profile drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases a large painted side-profile portrait of Doctor Doom in a dark green gold-trimmed cloak and weathered metallic iron mask emerging from the lower-left hem, while the front chest carries bold white DOOM block lettering overlapped by a dark green hooded Doctor Doom silhouette centered across the chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -644,6 +647,13 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Drop Shoulder Tee — back painted side-profile portrait of green-hooded Doctor Doom in metallic mask on black oversized drop-shoulder T-shirt",
+      "Doctor Doom Drop Shoulder Tee — front chest graphic with white DOOM lettering and hooded Doctor Doom silhouette on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Doctor Doom Side Profile Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Side Profile drop shoulder t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom","dr doom","marvel villain","avengers doomsday","comic portrait","green cloak","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-luffy-3",
@@ -1194,7 +1204,7 @@ export const products: Product[] = [
     id: "dp-acid-wash-dr-doom",
     title: "Doctor Doom Acid Wash Tee",
     description:
-      "A large side-profile portrait of Doctor Doom (Marvel) fills the back, with a green hood framing the metallic mask. A compact DOOM chest graphic echoes the green palette on this vintage mineral-wash tee. Essential Marvel comic apparel for fans of Latveria's ruler and Avengers: Doomsday.",
+      "This Doctor Doom Side Profile acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. The back showcases a large painted side-profile portrait of Doctor Doom in a dark green gold-trimmed cloak and weathered metallic iron mask emerging from the lower-left hem, while the front chest carries bold white DOOM block lettering overlapped by a dark green hooded Doctor Doom silhouette centered across the chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -1205,6 +1215,13 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Acid Wash Tee — back painted side-profile portrait of green-hooded Doctor Doom in metallic mask on charcoal vintage acid wash T-shirt",
+      "Doctor Doom Acid Wash Tee — front chest graphic with white DOOM lettering and hooded Doctor Doom silhouette on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Doctor Doom Side Profile Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Side Profile acid wash t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom","dr doom","marvel villain","avengers doomsday","comic portrait","green cloak","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-regular-aizen",
@@ -5519,7 +5536,7 @@ export const products: Product[] = [
     id: "dp-drop-shoulder-doctor-doom-throne",
     title: "Doctor Doom Throne Drop Shoulder Tee",
     description:
-      "Doctor Doom sits enthroned in green cloak and steel armor above a pile of skulls on the back, holding glowing blue energy beside DR. DOOM typography and Latverian lore text. A minimal green helmet emblem sits centered on the chest of this heavyweight black drop-shoulder tee for Marvel comic fans.",
+      "This Doctor Doom Throne drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases Doctor Doom seated on a carved stone throne above skulls in his bright green cloak and silver armor holding glowing blue energy, paired with white DR. DOOM serif lettering and Latveria bio text on the left, while the front chest carries a compact stylized green horned mask emblem centered on the upper chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5530,12 +5547,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Throne Drop Shoulder Tee — back artwork showing Doctor Doom seated on a stone throne above skulls with DR. DOOM typography on black oversized drop-shoulder T-shirt",
+      "Doctor Doom Throne Drop Shoulder Tee — front upper chest featuring minimalist green horned Doctor Doom emblem on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Doctor Doom Throne Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Throne drop shoulder t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom throne","dr doom","latveria","avengers doomsday","comic throne art","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-doctor-doom-throne",
     title: "Doctor Doom Throne Acid Wash Tee",
     description:
-      "Seated on a carved stone throne with skulls at his boots, Doctor Doom anchors the back print alongside DR. DOOM lettering and bio text. Finished with a compact green mask emblem on the front chest, this vintage mineral-wash cotton tee brings Marvel comic artwork to a relaxed acid-wash silhouette.",
+      "This Doctor Doom Throne acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. The back showcases Doctor Doom seated on a carved stone throne above skulls in his bright green cloak and silver armor holding glowing blue energy, paired with white DR. DOOM serif lettering and Latveria bio text on the left, while the front chest carries a compact stylized green horned mask emblem centered on the upper chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -5546,12 +5570,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Throne Acid Wash Tee — back artwork showing Doctor Doom seated on a stone throne above skulls with DR. DOOM typography on charcoal vintage acid wash T-shirt",
+      "Doctor Doom Throne Acid Wash Tee — front upper chest featuring minimalist green horned Doctor Doom emblem on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Doctor Doom Throne Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Throne acid wash t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom throne","dr doom","latveria","avengers doomsday","comic throne art","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-doctor-doom-reigns",
     title: "Doctor Doom Reigns Drop Shoulder Tee",
     description:
-      "A shadowed comic illustration of Dr. Victor Doom in his hooded green cloak spans the lower back, paired with English and Japanese katakana lettering. A crisp black mask emblem centers the front of this white drop-shoulder tee for Marvel and Avengers: Doomsday fans.",
+      "This Doctor Doom Reigns White drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases a shadowed comic illustration of Doctor Doom in a bright green hooded cloak rising from the lower right on a crisp white base, balanced by black DR. VICTOR DOOM English and Japanese katakana lettering on the left, while the front chest carries a minimalist black horned mask emblem centered on the white upper chest. Finished in white with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5562,12 +5593,19 @@ export const products: Product[] = [
     colors: ["White"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Reigns Drop Shoulder Tee — back print of green-cloaked Doctor Doom with DR. VICTOR DOOM and Japanese katakana text on white oversized drop-shoulder T-shirt",
+      "Doctor Doom Reigns Drop Shoulder Tee — front white chest with minimalist black horned Doctor Doom emblem on white oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Doctor Doom Reigns White Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Reigns White drop shoulder t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom reigns","victor doom","white streetwear tee","katakana","avengers doomsday","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-avengers-doomsday-doctor-doom-face",
     title: "Avengers Doomsday Doctor Doom Face Drop Shoulder Tee",
     description:
-      "A distressed split-face graphic blends Doctor Doom's fractured iron mask with a bruised human face framed in a sketched green hood across the back. The front carries the green-accented Avengers Doomsday chest logo on a relaxed black drop-shoulder tee.",
+      "This Avengers Doomsday Split Face drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases a distressed split-face graphic merging Doctor Doom's riveted metallic iron mask on the right with a bruised human face on the left inside a sketched green hood, while the front chest carries the metallic silver-and-green AVENGERS DOOMSDAY title logo centered across the chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5578,12 +5616,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Avengers Doomsday Doctor Doom Face Drop Shoulder Tee — back split-face artwork blending Doctor Doom's iron mask and bruised human face inside a green hood on black oversized drop-shoulder T-shirt",
+      "Avengers Doomsday Doctor Doom Face Drop Shoulder Tee — front chest printed with metallic silver-and-green AVENGERS DOOMSDAY logo on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Avengers Doomsday Split Face Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Avengers Doomsday Split Face drop shoulder t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["avengers doomsday","doctor doom face","split face graphic","marvel doomsday","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-avengers-doomsday-doctor-doom-face",
     title: "Avengers Doomsday Doctor Doom Face Acid Wash Tee",
     description:
-      "Shattered metallic mask plates reveal a scarred face beneath a rough green hood in the halftone back artwork. Paired with the metallic-green Avengers Doomsday chest title on the front, this 100% cotton acid-wash tee delivers a weathered streetwear finish.",
+      "This Avengers Doomsday Split Face acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. The back showcases a distressed split-face graphic merging Doctor Doom's riveted metallic iron mask on the right with a bruised human face on the left inside a sketched green hood, while the front chest carries the metallic silver-and-green AVENGERS DOOMSDAY title logo centered across the chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -5594,12 +5639,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Avengers Doomsday Doctor Doom Face Acid Wash Tee — back split-face artwork blending Doctor Doom's iron mask and bruised human face inside a green hood on charcoal vintage acid wash T-shirt",
+      "Avengers Doomsday Doctor Doom Face Acid Wash Tee — front chest printed with metallic silver-and-green AVENGERS DOOMSDAY logo on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Avengers Doomsday Split Face Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Avengers Doomsday Split Face acid wash t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["avengers doomsday","doctor doom face","split face graphic","marvel doomsday","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-doctor-doom-avengers-doomsday",
     title: "Doctor Doom Avengers Doomsday Drop Shoulder Tee",
     description:
-      "A split-portrait front panel reads HELL ANSWERS TO ME / FOR I AM DOOM, contrasting the iron mask with Victor's face in green and amber tones. On the back, a hooded Doctor Doom stands with crossed armored arms in front of bold white DOOMSDAY block lettering on a boxy black drop-shoulder tee.",
+      "This Doctor Doom Hell Answers To Me drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases an armored, green-hooded Doctor Doom standing with arms crossed in front of oversized white DOOMSDAY block lettering, while the front chest carries a square split-portrait chest panel contrasting Doctor Doom's green-lit iron mask and amber human face, framed by stacked text reading HELL ANSWERS TO ME and FOR I AM DOOM. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5610,12 +5662,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Avengers Doomsday Drop Shoulder Tee — back print of crossed-arms Doctor Doom standing before bold white DOOMSDAY lettering on black oversized drop-shoulder T-shirt",
+      "Doctor Doom Avengers Doomsday Drop Shoulder Tee — front chest split-portrait panel reading HELL ANSWERS TO ME / FOR I AM DOOM on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Doctor Doom Hell Answers To Me Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Hell Answers To Me drop shoulder t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["hell answers to me","for i am doom","avengers doomsday","doctor doom","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-doctor-doom-avengers-doomsday",
     title: "Doctor Doom Avengers Doomsday Acid Wash Tee",
     description:
-      "Bold white DOOMSDAY typography rises behind an armored, green-hooded Doctor Doom with folded arms across the back. The front chest features the split-face HELL ANSWERS TO ME / FOR I AM DOOM graphic, printed on a vintage mineral-wash black cotton tee.",
+      "This Doctor Doom Hell Answers To Me acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. The back showcases an armored, green-hooded Doctor Doom standing with arms crossed in front of oversized white DOOMSDAY block lettering, while the front chest carries a square split-portrait chest panel contrasting Doctor Doom's green-lit iron mask and amber human face, framed by stacked text reading HELL ANSWERS TO ME and FOR I AM DOOM. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -5626,12 +5685,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Avengers Doomsday Acid Wash Tee — back print of crossed-arms Doctor Doom standing before bold white DOOMSDAY lettering on charcoal vintage acid wash T-shirt",
+      "Doctor Doom Avengers Doomsday Acid Wash Tee — front chest split-portrait panel reading HELL ANSWERS TO ME / FOR I AM DOOM on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Doctor Doom Hell Answers To Me Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Hell Answers To Me acid wash t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["hell answers to me","for i am doom","avengers doomsday","doctor doom","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-doctor-doom-iron-mask",
     title: "Doctor Doom Iron Mask Drop Shoulder Tee",
     description:
-      "High-contrast white ink and deep emerald shading render Doctor Doom's hooded iron mask beneath oversized DOOM display lettering on the back. A sharp white DR. DOOM wordmark sits across the chest of this black drop-shoulder tee.",
+      "This Doctor Doom Iron Mask drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases a high-contrast black-and-white ink illustration of Doctor Doom's iron mask framed in a deep emerald hood beneath giant white DOOM display lettering, while the front chest carries a sharp white angular DR. DOOM wordmark centered on the upper chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2200,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5642,12 +5708,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Iron Mask Drop Shoulder Tee — back monochrome and emerald portrait of Doctor Doom's iron mask under giant white DOOM lettering on black oversized drop-shoulder T-shirt",
+      "Doctor Doom Iron Mask Drop Shoulder Tee — front chest with crisp white angular DR. DOOM wordmark on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Doctor Doom Iron Mask Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Iron Mask drop shoulder t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom iron mask","dr doom mask","emerald doom","avengers doomsday","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-doctor-doom-iron-mask",
     title: "Doctor Doom Iron Mask Acid Wash Tee",
     description:
-      "An angular white DR. DOOM logo anchors the front chest, leading into a full-back monochrome and emerald portrait of Doom's iron mask framed by giant DOOM lettering. Printed with crisp DTF detail on a charcoal acid-wash cotton tee.",
+      "This Doctor Doom Iron Mask acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. The back showcases a high-contrast black-and-white ink illustration of Doctor Doom's iron mask framed in a deep emerald hood beneath giant white DOOM display lettering, while the front chest carries a sharp white angular DR. DOOM wordmark centered on the upper chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2400,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -5658,12 +5731,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Iron Mask Acid Wash Tee — back monochrome and emerald portrait of Doctor Doom's iron mask under giant white DOOM lettering on charcoal vintage acid wash T-shirt",
+      "Doctor Doom Iron Mask Acid Wash Tee — front chest with crisp white angular DR. DOOM wordmark on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Doctor Doom Iron Mask Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Iron Mask acid wash t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom iron mask","dr doom mask","emerald doom","avengers doomsday","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-doctor-doom-latverian-ruler",
     title: "Doctor Doom Latverian Ruler Drop Shoulder Tee",
     description:
-      "Classic comic linework shows Doctor Doom standing with armored arms crossed in deep green robes beneath bold white DOCTOR DOOM lettering on the back. A matching serif DOCTOR DOOM logo sits on the front chest of this black drop-shoulder tee.",
+      "This Doctor Doom Latverian Ruler drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases classic comic-ink linework of Doctor Doom standing with armored gauntlets crossed in a deep green cloak rising from the lower right, topped by serif white DOCTOR DOOM typography, while the front chest carries a classic white serif DOCTOR DOOM wordmark centered across the chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5674,12 +5754,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Latverian Ruler Drop Shoulder Tee — back comic-ink illustration of crossed-arms Doctor Doom in green cloak beneath DOCTOR DOOM lettering on black oversized drop-shoulder T-shirt",
+      "Doctor Doom Latverian Ruler Drop Shoulder Tee — front chest printed with white serif DOCTOR DOOM wordmark on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Doctor Doom Latverian Ruler Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Latverian Ruler drop shoulder t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["latverian ruler","doctor doom comic","classic doom","avengers doomsday","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-doctor-doom-latverian-ruler",
     title: "Doctor Doom Latverian Ruler Acid Wash Tee",
     description:
-      "Crisp black-and-white inked gauntlets and a forest-green cloak highlight Latveria's ruler on the back, topped with classic DOCTOR DOOM typography. The front mirrors the white DOCTOR DOOM title across the chest on a faded mineral-wash cotton tee.",
+      "This Doctor Doom Latverian Ruler acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. The back showcases classic comic-ink linework of Doctor Doom standing with armored gauntlets crossed in a deep green cloak rising from the lower right, topped by serif white DOCTOR DOOM typography, while the front chest carries a classic white serif DOCTOR DOOM wordmark centered across the chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -5690,12 +5777,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Latverian Ruler Acid Wash Tee — back comic-ink illustration of crossed-arms Doctor Doom in green cloak beneath DOCTOR DOOM lettering on charcoal vintage acid wash T-shirt",
+      "Doctor Doom Latverian Ruler Acid Wash Tee — front chest printed with white serif DOCTOR DOOM wordmark on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Doctor Doom Latverian Ruler Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Latverian Ruler acid wash t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["latverian ruler","doctor doom comic","classic doom","avengers doomsday","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-doctor-doom-victor-von-doom",
     title: "Doctor Doom Victor Von Doom Drop Shoulder Tee",
     description:
-      "Stacked white DOCTOR DOOM typography pairs with a realistic close-up of Doom's silver mask and hooded green cloak rising from the lower right front. Designed with a clean, unprinted back on a relaxed black drop-shoulder tee for Marvel fans.",
+      "This Victor Von Doom Front Print drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. On the front, it features tall stacked white DOCTOR DOOM block typography on the left paired with a cinematic close-up of Doctor Doom's silver mask and dark green hood rising from the lower right hem, paired with an intentionally clean, unprinted solid black back so the front graphic stands out. Produced in black with durable DTF printing in sizes S, M, L, and XL (chest 21\"–24\"). Printed to order in Karachi by Deez Prints with Rs. 200 rider delivery across Karachi (free on orders over Rs. 5,000) and Rs. 450 nationwide courier delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5706,12 +5800,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Victor Von Doom Drop Shoulder Tee — front-only print with stacked white DOCTOR DOOM typography and silver mask close-up on black oversized drop-shoulder T-shirt",
+      "Doctor Doom Victor Von Doom Drop Shoulder Tee — clean unprinted solid black back view on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Victor Von Doom Front Print Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Victor Von Doom Front Print drop shoulder t-shirt in Pakistan. Front-only Doctor Doom mask print on black drop shoulder tee, DTF printed in Karachi by Deez Prints.",
+    searchKeywords: ["victor von doom","doctor doom front print","minimal back tee","avengers doomsday","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-doctor-doom-victor-von-doom",
     title: "Doctor Doom Victor Von Doom Acid Wash Tee",
     description:
-      "A cinematic close-up of Victor Von Doom's metallic mask and dark green hood anchors the lower right front beside tall white DOCTOR DOOM lettering. The reverse is kept completely blank to let the washed charcoal texture and front graphic stand out on this 100% cotton acid-wash tee.",
+      "This Victor Von Doom Front Print acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. On the front, it features tall stacked white DOCTOR DOOM block typography on the left paired with a cinematic close-up of Doctor Doom's silver mask and dark green hood rising from the lower right hem, paired with an intentionally clean, unprinted solid black back so the front graphic stands out. Produced in charcoal acid-wash with durable DTF printing in sizes S, M, and L (chest 22\"–24\"). Printed to order in Karachi by Deez Prints with Rs. 200 rider delivery across Karachi (free on orders over Rs. 5,000) and Rs. 450 nationwide courier delivery across Pakistan.",
     price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -5722,12 +5823,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Victor Von Doom Acid Wash Tee — front-only print with stacked white DOCTOR DOOM typography and silver mask close-up on charcoal vintage acid wash T-shirt",
+      "Doctor Doom Victor Von Doom Acid Wash Tee — clean unprinted solid black back view on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Victor Von Doom Front Print Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Victor Von Doom Front Print acid wash t-shirt in Pakistan. Front-only Doctor Doom mask print on black acid wash tee, DTF printed in Karachi by Deez Prints.",
+    searchKeywords: ["victor von doom","doctor doom front print","minimal back tee","avengers doomsday","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-cyclopes-x-doomsday",
     title: "Cyclops x Doomsday Optic Blast Drop Shoulder Tee",
     description:
-      "Cyclops unleashes a crimson optic blast across the back in dramatic comic shading, paired with a bold circular X-Men chest crest on the front. Printed on a heavyweight black drop-shoulder tee for Marvel and Avengers: Doomsday fans.",
+      "This Cyclops Optic Blast drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases a dynamic comic illustration of Cyclops kneeling in his blue-and-yellow X-Men suit firing a towering crimson optic blast upward from his visor with a glowing yellow X-Men crest behind his shoulder, while the front chest carries a distressed circular yellow-and-red X emblem centered on the chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5738,12 +5846,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Cyclops x Doomsday Optic Blast Drop Shoulder Tee — back comic graphic of Cyclops firing a towering crimson optic blast with yellow X-Men crest on black oversized drop-shoulder T-shirt",
+      "Cyclops x Doomsday Optic Blast Drop Shoulder Tee — front chest printed with distressed circular yellow-and-red X emblem on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Cyclops Optic Blast Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Cyclops Optic Blast drop shoulder t-shirt in Pakistan. Cyclops graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["cyclops","x-men","optic blast","scott summers","avengers doomsday","mutant streetwear","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-cyclopes-x-doomsday",
     title: "Cyclops x Doomsday Optic Blast Acid Wash Tee",
     description:
-      "A high-impact crimson optic beam graphic of Cyclops anchors the back print, balanced by an amber X emblem on the chest. Finished on a vintage mineral-washed charcoal cotton tee.",
+      "This Cyclops Optic Blast acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. The back showcases a dynamic comic illustration of Cyclops kneeling in his blue-and-yellow X-Men suit firing a towering crimson optic blast upward from his visor with a glowing yellow X-Men crest behind his shoulder, while the front chest carries a distressed circular yellow-and-red X emblem centered on the chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -5754,12 +5869,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Cyclops x Doomsday Optic Blast Acid Wash Tee — back comic graphic of Cyclops firing a towering crimson optic blast with yellow X-Men crest on charcoal vintage acid wash T-shirt",
+      "Cyclops x Doomsday Optic Blast Acid Wash Tee — front chest printed with distressed circular yellow-and-red X emblem on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Cyclops Optic Blast Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Cyclops Optic Blast acid wash t-shirt in Pakistan. Cyclops graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["cyclops","x-men","optic blast","scott summers","avengers doomsday","mutant streetwear","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-hoodie-cyclopes-x-doomsday",
     title: "Cyclops x Doomsday Optic Blast Hoodie",
     description:
-      "Cyclops firing his signature red optic blast fills the back of this heavyweight 350+ GSM black fleece hoodie, finished with a circular X-Men emblem on the front chest.",
+      "This Cyclops Optic Blast hoodie brings fan-inspired Avengers: Doomsday artwork to a structured black fleece pullover hoodie with ribbed cuffs, drawstring hood, and front kangaroo pocket. The back showcases a dynamic comic illustration of Cyclops kneeling in his blue-and-yellow X-Men suit firing a towering crimson optic blast upward from his visor with a glowing yellow X-Men crest behind his shoulder, while the front chest carries a distressed circular yellow-and-red X emblem centered on the chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 20\"–23\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "hoodies",
     subcategory: "hoodies",
@@ -5770,12 +5892,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Cyclops x Doomsday Optic Blast Hoodie — back comic graphic of Cyclops firing a towering crimson optic blast with yellow X-Men crest on black fleece pullover hoodie",
+      "Cyclops x Doomsday Optic Blast Hoodie — front chest printed with distressed circular yellow-and-red X emblem on black fleece pullover hoodie",
+    ],
+    seoTitle: "Cyclops Optic Blast Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Cyclops Optic Blast hoodie in Pakistan. Cyclops graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["cyclops","x-men","optic blast","scott summers","avengers doomsday","mutant streetwear","hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-hoodie-cyclopes-x-doomsday",
     title: "Cyclops x Doomsday Optic Blast Acid Wash Hoodie",
     description:
-      "Distressed vintage mineral-wash fleece meets Cyclops's blazing crimson optic blast across the back and a compact X emblem on the front chest. Built for the Avengers: Doomsday drop.",
+      "This Cyclops Optic Blast acid wash hoodie brings fan-inspired Avengers: Doomsday artwork to a charcoal mineral-washed fleece pullover hoodie combining a faded vintage wash with structured streetwear warmth. The back showcases a dynamic comic illustration of Cyclops kneeling in his blue-and-yellow X-Men suit firing a towering crimson optic blast upward from his visor with a glowing yellow X-Men crest behind his shoulder, while the front chest carries a distressed circular yellow-and-red X emblem centered on the chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 3000,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
@@ -5786,12 +5915,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Cyclops x Doomsday Optic Blast Acid Wash Hoodie — back comic graphic of Cyclops firing a towering crimson optic blast with yellow X-Men crest on charcoal vintage acid wash fleece hoodie",
+      "Cyclops x Doomsday Optic Blast Acid Wash Hoodie — front chest printed with distressed circular yellow-and-red X emblem on charcoal vintage acid wash fleece hoodie",
+    ],
+    seoTitle: "Cyclops Optic Blast Acid Wash Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Cyclops Optic Blast acid wash hoodie in Pakistan. Cyclops graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["cyclops","x-men","optic blast","scott summers","avengers doomsday","mutant streetwear","acid wash hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-cyclops-doomsday",
     title: "Cyclops To Me My X-Men Doomsday Drop Shoulder Tee",
     description:
-      "Bold yellow TO ME, MY X-MEN typography dominates the back with a Cyclops portrait tucked into the front chest. Relaxed heavyweight black drop-shoulder fit printed in Karachi.",
+      "This Cyclops To Me My X-Men drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases bold distressed yellow stacked typography reading TO ME, MY X-MEN accented with electric blue energy streaks behind the lettering, while the front chest carries a compact chest illustration of Cyclops in his blue-and-yellow suit firing a vertical red optic blast with the yellow X emblem. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5802,12 +5938,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Cyclops To Me My X-Men Doomsday Drop Shoulder Tee — back distressed yellow stacked TO ME, MY X-MEN typography with blue energy accents on black oversized drop-shoulder T-shirt",
+      "Cyclops To Me My X-Men Doomsday Drop Shoulder Tee — front chest graphic of Cyclops in blue-and-yellow suit firing a vertical crimson optic blast on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Cyclops To Me My X-Men Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Cyclops To Me My X-Men drop shoulder t-shirt in Pakistan. Cyclops graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["to me my x-men","cyclops","x-men shirt","avengers doomsday","scott summers","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-cyclops-doomsday",
     title: "Cyclops To Me My X-Men Doomsday Acid Wash Tee",
     description:
-      "Classic X-Men battle-cry lettering TO ME, MY X-MEN pops in distressed yellow across the back, paired with a Cyclops optic-blast chest graphic on vintage acid-wash cotton.",
+      "This Cyclops To Me My X-Men acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. The back showcases bold distressed yellow stacked typography reading TO ME, MY X-MEN accented with electric blue energy streaks behind the lettering, while the front chest carries a compact chest illustration of Cyclops in his blue-and-yellow suit firing a vertical red optic blast with the yellow X emblem. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -5818,12 +5961,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Cyclops To Me My X-Men Doomsday Acid Wash Tee — back distressed yellow stacked TO ME, MY X-MEN typography with blue energy accents on charcoal vintage acid wash T-shirt",
+      "Cyclops To Me My X-Men Doomsday Acid Wash Tee — front chest graphic of Cyclops in blue-and-yellow suit firing a vertical crimson optic blast on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Cyclops To Me My X-Men Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Cyclops To Me My X-Men acid wash t-shirt in Pakistan. Cyclops graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["to me my x-men","cyclops","x-men shirt","avengers doomsday","scott summers","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-hoodie-cyclops-doomsday",
     title: "Cyclops To Me My X-Men Doomsday Hoodie",
     description:
-      "Oversized yellow TO ME, MY X-MEN back print paired with a crisp Cyclops front chest graphic on a heavyweight black fleece streetwear hoodie.",
+      "This Cyclops To Me My X-Men hoodie brings fan-inspired Avengers: Doomsday artwork to a structured black fleece pullover hoodie with ribbed cuffs, drawstring hood, and front kangaroo pocket. The back showcases bold distressed yellow stacked typography reading TO ME, MY X-MEN accented with electric blue energy streaks behind the lettering, while the front chest carries a compact chest illustration of Cyclops in his blue-and-yellow suit firing a vertical red optic blast with the yellow X emblem. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 20\"–23\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "hoodies",
     subcategory: "hoodies",
@@ -5834,12 +5984,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Cyclops To Me My X-Men Doomsday Hoodie — back distressed yellow stacked TO ME, MY X-MEN typography with blue energy accents on black fleece pullover hoodie",
+      "Cyclops To Me My X-Men Doomsday Hoodie — front chest graphic of Cyclops in blue-and-yellow suit firing a vertical crimson optic blast on black fleece pullover hoodie",
+    ],
+    seoTitle: "Cyclops To Me My X-Men Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Cyclops To Me My X-Men hoodie in Pakistan. Cyclops graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["to me my x-men","cyclops","x-men shirt","avengers doomsday","scott summers","hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-hoodie-cyclops-doomsday",
     title: "Cyclops To Me My X-Men Doomsday Acid Wash Hoodie",
     description:
-      "Heavyweight charcoal acid-wash fleece hoodie featuring bold yellow TO ME, MY X-MEN back typography and a Cyclops chest print for the Doomsday collection.",
+      "This Cyclops To Me My X-Men acid wash hoodie brings fan-inspired Avengers: Doomsday artwork to a charcoal mineral-washed fleece pullover hoodie combining a faded vintage wash with structured streetwear warmth. The back showcases bold distressed yellow stacked typography reading TO ME, MY X-MEN accented with electric blue energy streaks behind the lettering, while the front chest carries a compact chest illustration of Cyclops in his blue-and-yellow suit firing a vertical red optic blast with the yellow X emblem. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 3000,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
@@ -5850,12 +6007,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Cyclops To Me My X-Men Doomsday Acid Wash Hoodie — back distressed yellow stacked TO ME, MY X-MEN typography with blue energy accents on charcoal vintage acid wash fleece hoodie",
+      "Cyclops To Me My X-Men Doomsday Acid Wash Hoodie — front chest graphic of Cyclops in blue-and-yellow suit firing a vertical crimson optic blast on charcoal vintage acid wash fleece hoodie",
+    ],
+    seoTitle: "Cyclops To Me My X-Men Acid Wash Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Cyclops To Me My X-Men acid wash hoodie in Pakistan. Cyclops graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["to me my x-men","cyclops","x-men shirt","avengers doomsday","scott summers","acid wash hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-dooms-ascension",
     title: "Doctor Doom Ascension Drop Shoulder Tee",
     description:
-      "Doctor Doom rises cloaked in emerald energy across the back in sharp comic-ink detail, paired with a minimal green chest crest on a boxy black drop-shoulder tee.",
+      "This Doctor Doom Ascension drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases a painterly side-profile illustration of Doctor Doom looking upward in a tattered emerald-green hood with a gold clasp and gleaming silver mask, dissolving into green paint splatters along the lower edge, while the front chest carries the metallic silver-and-green AVENGERS DOOMSDAY logo centered on the chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5866,12 +6030,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Ascension Drop Shoulder Tee — back painterly side-profile artwork of Doctor Doom in emerald hood dissolving into paint splatters on black oversized drop-shoulder T-shirt",
+      "Doctor Doom Ascension Drop Shoulder Tee — front chest printed with metallic silver-and-green AVENGERS DOOMSDAY logo on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Doctor Doom Ascension Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Ascension drop shoulder t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom ascension","avengers doomsday","painterly doom","emerald hood","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-dooms-ascension",
     title: "Doctor Doom Ascension Acid Wash Tee",
     description:
-      "Emerald-lit Doctor Doom ascension artwork anchors the full back print, complemented by a subtle chest emblem on a washed charcoal 100% cotton tee.",
+      "This Doctor Doom Ascension acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. The back showcases a painterly side-profile illustration of Doctor Doom looking upward in a tattered emerald-green hood with a gold clasp and gleaming silver mask, dissolving into green paint splatters along the lower edge, while the front chest carries the metallic silver-and-green AVENGERS DOOMSDAY logo centered on the chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -5882,12 +6053,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Ascension Acid Wash Tee — back painterly side-profile artwork of Doctor Doom in emerald hood dissolving into paint splatters on charcoal vintage acid wash T-shirt",
+      "Doctor Doom Ascension Acid Wash Tee — front chest printed with metallic silver-and-green AVENGERS DOOMSDAY logo on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Doctor Doom Ascension Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Ascension acid wash t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom ascension","avengers doomsday","painterly doom","emerald hood","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-hoodie-dooms-ascension",
     title: "Doctor Doom Ascension Hoodie",
     description:
-      "Heavyweight black fleece hoodie showcasing Doctor Doom ascending in glowing green aura on the back and a clean green emblem on the chest.",
+      "This Doctor Doom Ascension hoodie brings fan-inspired Avengers: Doomsday artwork to a structured black fleece pullover hoodie with ribbed cuffs, drawstring hood, and front kangaroo pocket. The back showcases a painterly side-profile illustration of Doctor Doom looking upward in a tattered emerald-green hood with a gold clasp and gleaming silver mask, dissolving into green paint splatters along the lower edge, while the front chest carries the metallic silver-and-green AVENGERS DOOMSDAY logo centered on the chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 20\"–23\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "hoodies",
     subcategory: "hoodies",
@@ -5898,12 +6076,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Ascension Hoodie — back painterly side-profile artwork of Doctor Doom in emerald hood dissolving into paint splatters on black fleece pullover hoodie",
+      "Doctor Doom Ascension Hoodie — front chest printed with metallic silver-and-green AVENGERS DOOMSDAY logo on black fleece pullover hoodie",
+    ],
+    seoTitle: "Doctor Doom Ascension Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Ascension hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom ascension","avengers doomsday","painterly doom","emerald hood","hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-hoodie-dooms-ascension",
     title: "Doctor Doom Ascension Acid Wash Hoodie",
     description:
-      "Vintage mineral-washed fleece hoodie printed with Doctor Doom's emerald ascension artwork on the back and a matching crest on the front chest.",
+      "This Doctor Doom Ascension acid wash hoodie brings fan-inspired Avengers: Doomsday artwork to a charcoal mineral-washed fleece pullover hoodie combining a faded vintage wash with structured streetwear warmth. The back showcases a painterly side-profile illustration of Doctor Doom looking upward in a tattered emerald-green hood with a gold clasp and gleaming silver mask, dissolving into green paint splatters along the lower edge, while the front chest carries the metallic silver-and-green AVENGERS DOOMSDAY logo centered on the chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 3000,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
@@ -5914,12 +6099,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Ascension Acid Wash Hoodie — back painterly side-profile artwork of Doctor Doom in emerald hood dissolving into paint splatters on charcoal vintage acid wash fleece hoodie",
+      "Doctor Doom Ascension Acid Wash Hoodie — front chest printed with metallic silver-and-green AVENGERS DOOMSDAY logo on charcoal vintage acid wash fleece hoodie",
+    ],
+    seoTitle: "Doctor Doom Ascension Acid Wash Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Ascension acid wash hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom ascension","avengers doomsday","painterly doom","emerald hood","acid wash hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-drop-shoulder-dooms-visage",
     title: "Doctor Doom Visage Drop Shoulder Tee",
     description:
-      "A fierce halftone close-up of Doctor Doom's metallic visage glowing with emerald eyes spans the back, paired with a clean chest mark on a heavyweight black drop-shoulder tee.",
+      "This Doctor Doom Visage drop shoulder t-shirt brings fan-inspired Avengers: Doomsday artwork to a relaxed boxy drop-shoulder silhouette with dropped sleeves in breathable cotton-blend jersey. The back showcases a symmetrical distressed monochrome iron mask of Doctor Doom with glowing neon-green flame eyes, vertical distressed script down the nose bridge, and white gothic DOCTOR DOOM lettering arched across the forehead, while the front chest carries a minimalist bright-green horned mask emblem centered on the upper chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 21\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 1900,
     category: "t-shirts",
     subcategory: "drop-shoulder",
@@ -5930,12 +6122,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Visage Drop Shoulder Tee — back distressed monochrome Doctor Doom mask with neon-green flame eyes and gothic DOCTOR DOOM lettering on black oversized drop-shoulder T-shirt",
+      "Doctor Doom Visage Drop Shoulder Tee — front upper chest with minimalist bright-green horned Doctor Doom emblem on black oversized drop-shoulder T-shirt",
+    ],
+    seoTitle: "Doctor Doom Visage Drop Shoulder T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Visage drop shoulder t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom visage","gothic doom","green flame eyes","metal font doom","avengers doomsday","drop shoulder tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-dooms-visage",
     title: "Doctor Doom Visage Acid Wash Tee",
     description:
-      "Doctor Doom's imposing iron mask with emerald accents fills the back of this vintage acid-wash tee, balanced by a minimal front chest print.",
+      "This Doctor Doom Visage acid wash t-shirt brings fan-inspired Avengers: Doomsday artwork to a vintage mineral-washed 100% cotton tee with a weathered charcoal finish where subtle wash variation makes each piece distinct. The back showcases a symmetrical distressed monochrome iron mask of Doctor Doom with glowing neon-green flame eyes, vertical distressed script down the nose bridge, and white gothic DOCTOR DOOM lettering arched across the forehead, while the front chest carries a minimalist bright-green horned mask emblem centered on the upper chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "t-shirts",
     subcategory: "acid-wash",
@@ -5946,12 +6145,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Visage Acid Wash Tee — back distressed monochrome Doctor Doom mask with neon-green flame eyes and gothic DOCTOR DOOM lettering on charcoal vintage acid wash T-shirt",
+      "Doctor Doom Visage Acid Wash Tee — front upper chest with minimalist bright-green horned Doctor Doom emblem on charcoal vintage acid wash T-shirt",
+    ],
+    seoTitle: "Doctor Doom Visage Acid Wash T-Shirt Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Visage acid wash t-shirt in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom visage","gothic doom","green flame eyes","metal font doom","avengers doomsday","acid wash tee","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-hoodie-dooms-visage",
     title: "Doctor Doom Visage Hoodie",
     description:
-      "Heavyweight black fleece hoodie featuring the stark monochrome-and-emerald Doctor Doom Visage graphic on the back and a subtle front chest print.",
+      "This Doctor Doom Visage hoodie brings fan-inspired Avengers: Doomsday artwork to a structured black fleece pullover hoodie with ribbed cuffs, drawstring hood, and front kangaroo pocket. The back showcases a symmetrical distressed monochrome iron mask of Doctor Doom with glowing neon-green flame eyes, vertical distressed script down the nose bridge, and white gothic DOCTOR DOOM lettering arched across the forehead, while the front chest carries a minimalist bright-green horned mask emblem centered on the upper chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 20\"–23\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "hoodies",
     subcategory: "hoodies",
@@ -5962,12 +6168,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Visage Hoodie — back distressed monochrome Doctor Doom mask with neon-green flame eyes and gothic DOCTOR DOOM lettering on black fleece pullover hoodie",
+      "Doctor Doom Visage Hoodie — front upper chest with minimalist bright-green horned Doctor Doom emblem on black fleece pullover hoodie",
+    ],
+    seoTitle: "Doctor Doom Visage Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Visage hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom visage","gothic doom","green flame eyes","metal font doom","avengers doomsday","hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-hoodie-dooms-visage",
     title: "Doctor Doom Visage Acid Wash Hoodie",
     description:
-      "Mineral-washed charcoal fleece hoodie carrying Doctor Doom's emerald-eyed iron visage across the back with a crisp front chest detail.",
+      "This Doctor Doom Visage acid wash hoodie brings fan-inspired Avengers: Doomsday artwork to a charcoal mineral-washed fleece pullover hoodie combining a faded vintage wash with structured streetwear warmth. The back showcases a symmetrical distressed monochrome iron mask of Doctor Doom with glowing neon-green flame eyes, vertical distressed script down the nose bridge, and white gothic DOCTOR DOOM lettering arched across the forehead, while the front chest carries a minimalist bright-green horned mask emblem centered on the upper chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 3000,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
@@ -5978,12 +6191,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Visage Acid Wash Hoodie — back distressed monochrome Doctor Doom mask with neon-green flame eyes and gothic DOCTOR DOOM lettering on charcoal vintage acid wash fleece hoodie",
+      "Doctor Doom Visage Acid Wash Hoodie — front upper chest with minimalist bright-green horned Doctor Doom emblem on charcoal vintage acid wash fleece hoodie",
+    ],
+    seoTitle: "Doctor Doom Visage Acid Wash Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Visage acid wash hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom visage","gothic doom","green flame eyes","metal font doom","avengers doomsday","acid wash hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-hoodie-doctor-doom-throne",
     title: "Doctor Doom Throne Hoodie",
     description:
-      "Doctor Doom sits enthroned in green cloak and steel armor above a pile of skulls on the back, paired with a minimal green helmet emblem on the chest of this heavyweight black fleece hoodie.",
+      "This Doctor Doom Throne hoodie brings fan-inspired Avengers: Doomsday artwork to a structured black fleece pullover hoodie with ribbed cuffs, drawstring hood, and front kangaroo pocket. The back showcases Doctor Doom seated on a carved stone throne above skulls in his bright green cloak and silver armor holding glowing blue energy, paired with white DR. DOOM serif lettering and Latveria bio text on the left, while the front chest carries a compact stylized green horned mask emblem centered on the upper chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 20\"–23\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "hoodies",
     subcategory: "hoodies",
@@ -5994,12 +6214,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Throne Hoodie — back artwork showing Doctor Doom seated on a stone throne above skulls with DR. DOOM typography on black fleece pullover hoodie",
+      "Doctor Doom Throne Hoodie — front upper chest featuring minimalist green horned Doctor Doom emblem on black fleece pullover hoodie",
+    ],
+    seoTitle: "Doctor Doom Throne Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Throne hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom throne","dr doom","latveria","avengers doomsday","comic throne art","hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-hoodie-doctor-doom-throne",
     title: "Doctor Doom Throne Acid Wash Hoodie",
     description:
-      "Seated on a carved stone throne above skulls, Doctor Doom anchors the back print of this vintage mineral-washed heavyweight fleece hoodie with a compact green mask chest emblem.",
+      "This Doctor Doom Throne acid wash hoodie brings fan-inspired Avengers: Doomsday artwork to a charcoal mineral-washed fleece pullover hoodie combining a faded vintage wash with structured streetwear warmth. The back showcases Doctor Doom seated on a carved stone throne above skulls in his bright green cloak and silver armor holding glowing blue energy, paired with white DR. DOOM serif lettering and Latveria bio text on the left, while the front chest carries a compact stylized green horned mask emblem centered on the upper chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 3000,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
@@ -6010,12 +6237,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Throne Acid Wash Hoodie — back artwork showing Doctor Doom seated on a stone throne above skulls with DR. DOOM typography on charcoal vintage acid wash fleece hoodie",
+      "Doctor Doom Throne Acid Wash Hoodie — front upper chest featuring minimalist green horned Doctor Doom emblem on charcoal vintage acid wash fleece hoodie",
+    ],
+    seoTitle: "Doctor Doom Throne Acid Wash Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Throne acid wash hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom throne","dr doom","latveria","avengers doomsday","comic throne art","acid wash hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-hoodie-doctor-doom-reign-black",
     title: "Doctor Doom Reign Black Hoodie",
     description:
-      "A shadowed comic illustration of Doctor Doom in his hooded green cloak with bold DOOM lettering spans the back, finished with a crisp green mask emblem on the front of this black fleece hoodie.",
+      "This Doctor Doom Reign Lightning hoodie brings fan-inspired Avengers: Doomsday artwork to a structured black fleece pullover hoodie with ribbed cuffs, drawstring hood, and front kangaroo pocket. The back showcases tall distressed green DOOM block lettering streaked with white lightning bolts behind a monochrome hooded portrait of Doctor Doom's metallic mask, while the front chest carries a green-lit metallic Avengers A emblem centered on the chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 20\"–23\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "hoodies",
     subcategory: "hoodies",
@@ -6026,12 +6260,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Reign Black Hoodie — back graphic with distressed green DOOM lightning lettering and monochrome Doctor Doom portrait on black fleece pullover hoodie",
+      "Doctor Doom Reign Black Hoodie — front chest featuring glowing green metallic Avengers A emblem on black fleece pullover hoodie",
+    ],
+    seoTitle: "Doctor Doom Reign Lightning Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Reign Lightning hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom reign","avengers doomsday hoodie","doom lightning","green avengers emblem","hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-hoodie-avengers-doomsday-doctor-doom-face",
     title: "Avengers Doomsday Doctor Doom Face Hoodie",
     description:
-      "A distressed split-face graphic blends Doctor Doom's fractured iron mask with a bruised human face beneath a sketched green hood on the back, paired with the Avengers Doomsday chest logo on a black fleece hoodie.",
+      "This Avengers Doomsday Split Face hoodie brings fan-inspired Avengers: Doomsday artwork to a structured black fleece pullover hoodie with ribbed cuffs, drawstring hood, and front kangaroo pocket. The back showcases a distressed split-face graphic merging Doctor Doom's riveted metallic iron mask on the right with a bruised human face on the left inside a sketched green hood, while the front chest carries the metallic silver-and-green AVENGERS DOOMSDAY title logo centered across the chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 20\"–23\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "hoodies",
     subcategory: "hoodies",
@@ -6042,12 +6283,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Avengers Doomsday Doctor Doom Face Hoodie — back split-face artwork blending Doctor Doom's iron mask and bruised human face inside a green hood on black fleece pullover hoodie",
+      "Avengers Doomsday Doctor Doom Face Hoodie — front chest printed with metallic silver-and-green AVENGERS DOOMSDAY logo on black fleece pullover hoodie",
+    ],
+    seoTitle: "Avengers Doomsday Split Face Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Avengers Doomsday Split Face hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["avengers doomsday","doctor doom face","split face graphic","marvel doomsday","hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-hoodie-avengers-doomsday-doctor-doom-face",
     title: "Avengers Doomsday Doctor Doom Face Acid Wash Hoodie",
     description:
-      "Shattered metallic mask plates reveal a scarred face beneath a rough green hood on the back, paired with the Avengers Doomsday chest title on a vintage acid-wash fleece hoodie.",
+      "This Avengers Doomsday Split Face acid wash hoodie brings fan-inspired Avengers: Doomsday artwork to a charcoal mineral-washed fleece pullover hoodie combining a faded vintage wash with structured streetwear warmth. The back showcases a distressed split-face graphic merging Doctor Doom's riveted metallic iron mask on the right with a bruised human face on the left inside a sketched green hood, while the front chest carries the metallic silver-and-green AVENGERS DOOMSDAY title logo centered across the chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 3000,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
@@ -6058,12 +6306,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Avengers Doomsday Doctor Doom Face Acid Wash Hoodie — back split-face artwork blending Doctor Doom's iron mask and bruised human face inside a green hood on charcoal vintage acid wash fleece hoodie",
+      "Avengers Doomsday Doctor Doom Face Acid Wash Hoodie — front chest printed with metallic silver-and-green AVENGERS DOOMSDAY logo on charcoal vintage acid wash fleece hoodie",
+    ],
+    seoTitle: "Avengers Doomsday Split Face Acid Wash Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Avengers Doomsday Split Face acid wash hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["avengers doomsday","doctor doom face","split face graphic","marvel doomsday","acid wash hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-hoodie-doctor-doom-avengers-doomsday",
     title: "Doctor Doom Avengers Doomsday Hoodie",
     description:
-      "A hooded Doctor Doom stands with crossed armored arms in front of bold white DOOMSDAY block lettering on the back, paired with the split-portrait chest graphic on a heavyweight black hoodie.",
+      "This Doctor Doom Hell Answers To Me hoodie brings fan-inspired Avengers: Doomsday artwork to a structured black fleece pullover hoodie with ribbed cuffs, drawstring hood, and front kangaroo pocket. The back showcases an armored, green-hooded Doctor Doom standing with arms crossed in front of oversized white DOOMSDAY block lettering, while the front chest carries a square split-portrait chest panel contrasting Doctor Doom's green-lit iron mask and amber human face, framed by stacked text reading HELL ANSWERS TO ME and FOR I AM DOOM. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 20\"–23\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "hoodies",
     subcategory: "hoodies",
@@ -6074,12 +6329,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Avengers Doomsday Hoodie — back print of crossed-arms Doctor Doom standing before bold white DOOMSDAY lettering on black fleece pullover hoodie",
+      "Doctor Doom Avengers Doomsday Hoodie — front chest split-portrait panel reading HELL ANSWERS TO ME / FOR I AM DOOM on black fleece pullover hoodie",
+    ],
+    seoTitle: "Doctor Doom Hell Answers To Me Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Hell Answers To Me hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["hell answers to me","for i am doom","avengers doomsday","doctor doom","hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-hoodie-doctor-doom-avengers-doomsday",
     title: "Doctor Doom Avengers Doomsday Acid Wash Hoodie",
     description:
-      "Bold white DOOMSDAY typography rises behind an armored, green-hooded Doctor Doom across the back, paired with the split-face chest graphic on a mineral-wash charcoal fleece hoodie.",
+      "This Doctor Doom Hell Answers To Me acid wash hoodie brings fan-inspired Avengers: Doomsday artwork to a charcoal mineral-washed fleece pullover hoodie combining a faded vintage wash with structured streetwear warmth. The back showcases an armored, green-hooded Doctor Doom standing with arms crossed in front of oversized white DOOMSDAY block lettering, while the front chest carries a square split-portrait chest panel contrasting Doctor Doom's green-lit iron mask and amber human face, framed by stacked text reading HELL ANSWERS TO ME and FOR I AM DOOM. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 3000,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
@@ -6090,12 +6352,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Avengers Doomsday Acid Wash Hoodie — back print of crossed-arms Doctor Doom standing before bold white DOOMSDAY lettering on charcoal vintage acid wash fleece hoodie",
+      "Doctor Doom Avengers Doomsday Acid Wash Hoodie — front chest split-portrait panel reading HELL ANSWERS TO ME / FOR I AM DOOM on charcoal vintage acid wash fleece hoodie",
+    ],
+    seoTitle: "Doctor Doom Hell Answers To Me Acid Wash Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Hell Answers To Me acid wash hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["hell answers to me","for i am doom","avengers doomsday","doctor doom","acid wash hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-hoodie-doctor-doom-iron-mask",
     title: "Doctor Doom Iron Mask Hoodie",
     description:
-      "High-contrast white ink and deep emerald shading render Doctor Doom's hooded iron mask beneath oversized DOOM lettering on the back, with a sharp white DR. DOOM chest wordmark on a heavyweight black hoodie.",
+      "This Doctor Doom Iron Mask hoodie brings fan-inspired Avengers: Doomsday artwork to a structured black fleece pullover hoodie with ribbed cuffs, drawstring hood, and front kangaroo pocket. The back showcases a high-contrast black-and-white ink illustration of Doctor Doom's iron mask framed in a deep emerald hood beneath giant white DOOM display lettering, while the front chest carries a sharp white angular DR. DOOM wordmark centered on the upper chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 20\"–23\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "hoodies",
     subcategory: "hoodies",
@@ -6106,12 +6375,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Iron Mask Hoodie — back monochrome and emerald portrait of Doctor Doom's iron mask under giant white DOOM lettering on black fleece pullover hoodie",
+      "Doctor Doom Iron Mask Hoodie — front chest with crisp white angular DR. DOOM wordmark on black fleece pullover hoodie",
+    ],
+    seoTitle: "Doctor Doom Iron Mask Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Iron Mask hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom iron mask","dr doom mask","emerald doom","avengers doomsday","hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-hoodie-doctor-doom-iron-mask",
     title: "Doctor Doom Iron Mask Acid Wash Hoodie",
     description:
-      "An angular white DR. DOOM logo anchors the front chest, leading into a full-back monochrome and emerald portrait of Doom's iron mask framed by giant DOOM lettering on a charcoal acid-wash hoodie.",
+      "This Doctor Doom Iron Mask acid wash hoodie brings fan-inspired Avengers: Doomsday artwork to a charcoal mineral-washed fleece pullover hoodie combining a faded vintage wash with structured streetwear warmth. The back showcases a high-contrast black-and-white ink illustration of Doctor Doom's iron mask framed in a deep emerald hood beneath giant white DOOM display lettering, while the front chest carries a sharp white angular DR. DOOM wordmark centered on the upper chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 3000,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
@@ -6122,12 +6398,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Iron Mask Acid Wash Hoodie — back monochrome and emerald portrait of Doctor Doom's iron mask under giant white DOOM lettering on charcoal vintage acid wash fleece hoodie",
+      "Doctor Doom Iron Mask Acid Wash Hoodie — front chest with crisp white angular DR. DOOM wordmark on charcoal vintage acid wash fleece hoodie",
+    ],
+    seoTitle: "Doctor Doom Iron Mask Acid Wash Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Iron Mask acid wash hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["doctor doom iron mask","dr doom mask","emerald doom","avengers doomsday","acid wash hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-hoodie-doctor-doom-latverian-ruler",
     title: "Doctor Doom Latverian Ruler Hoodie",
     description:
-      "Classic comic linework shows Doctor Doom standing with armored arms crossed in deep green robes beneath bold white DOCTOR DOOM lettering on the back, with a matching chest wordmark on a black fleece hoodie.",
+      "This Doctor Doom Latverian Ruler hoodie brings fan-inspired Avengers: Doomsday artwork to a structured black fleece pullover hoodie with ribbed cuffs, drawstring hood, and front kangaroo pocket. The back showcases classic comic-ink linework of Doctor Doom standing with armored gauntlets crossed in a deep green cloak rising from the lower right, topped by serif white DOCTOR DOOM typography, while the front chest carries a classic white serif DOCTOR DOOM wordmark centered across the chest. Finished in black with crisp DTF print detail and available in sizes S, M, L, and XL (chest 20\"–23\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 2000,
     category: "hoodies",
     subcategory: "hoodies",
@@ -6138,12 +6421,19 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Latverian Ruler Hoodie — back comic-ink illustration of crossed-arms Doctor Doom in green cloak beneath DOCTOR DOOM lettering on black fleece pullover hoodie",
+      "Doctor Doom Latverian Ruler Hoodie — front chest printed with white serif DOCTOR DOOM wordmark on black fleece pullover hoodie",
+    ],
+    seoTitle: "Doctor Doom Latverian Ruler Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Latverian Ruler hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["latverian ruler","doctor doom comic","classic doom","avengers doomsday","hoodie","doomsday collection","marvel inspired"],
   },
   {
     id: "dp-acid-wash-hoodie-doctor-doom-latverian-ruler",
     title: "Doctor Doom Latverian Ruler Acid Wash Hoodie",
     description:
-      "Crisp inked gauntlets and a forest-green cloak highlight Latveria's ruler on the back beneath classic DOCTOR DOOM typography, mirrored on the front chest of a faded mineral-wash fleece hoodie.",
+      "This Doctor Doom Latverian Ruler acid wash hoodie brings fan-inspired Avengers: Doomsday artwork to a charcoal mineral-washed fleece pullover hoodie combining a faded vintage wash with structured streetwear warmth. The back showcases classic comic-ink linework of Doctor Doom standing with armored gauntlets crossed in a deep green cloak rising from the lower right, topped by serif white DOCTOR DOOM typography, while the front chest carries a classic white serif DOCTOR DOOM wordmark centered across the chest. Finished in charcoal acid-wash with crisp DTF print detail and available in sizes S, M, and L (chest 22\"–24\"). Printed in Karachi by Deez Prints with Rs. 200 Karachi delivery (free above Rs. 5,000) and Rs. 450 nationwide delivery across Pakistan.",
     price: 3000,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
@@ -6154,6 +6444,13 @@ export const products: Product[] = [
     colors: ["Black"],
     rating: 5,
     aesthetic: "comic-universe",
+    imageAlts: [
+      "Doctor Doom Latverian Ruler Acid Wash Hoodie — back comic-ink illustration of crossed-arms Doctor Doom in green cloak beneath DOCTOR DOOM lettering on charcoal vintage acid wash fleece hoodie",
+      "Doctor Doom Latverian Ruler Acid Wash Hoodie — front chest printed with white serif DOCTOR DOOM wordmark on charcoal vintage acid wash fleece hoodie",
+    ],
+    seoTitle: "Doctor Doom Latverian Ruler Acid Wash Hoodie Pakistan | Deez Prints",
+    metaDescription: "Shop the Doctor Doom Latverian Ruler acid wash hoodie in Pakistan. Doctor Doom graphic streetwear DTF printed in Karachi by Deez Prints with nationwide delivery.",
+    searchKeywords: ["latverian ruler","doctor doom comic","classic doom","avengers doomsday","acid wash hoodie","doomsday collection","marvel inspired"],
   },
 ];
 
@@ -6222,7 +6519,7 @@ export async function fetchProductOverrides(): Promise<Record<string, ProductOve
  * Subcategories currently visible in the store.
  * To re-enable a category, simply add it back to this set.
  */
-const VISIBLE_SUBCATEGORIES: ReadonlySet<string> = new Set([
+export const VISIBLE_SUBCATEGORIES: ReadonlySet<string> = new Set([
   "regular",
   "graphic",
   "drop-shoulder",

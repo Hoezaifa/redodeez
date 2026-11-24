@@ -130,13 +130,15 @@ function ShopAll() {
         const subcatL = p.subcategory.toLowerCase();
         const aestheticL = (p.aesthetic || "").toLowerCase();
         const descL = (p.description || "").toLowerCase();
+        const kwL = (p.searchKeywords || []).join(" ").toLowerCase();
         return tokens.every(
           (t) =>
             titleL.includes(t) ||
             catL.includes(t) ||
             subcatL.includes(t) ||
             aestheticL.includes(t) ||
-            descL.includes(t)
+            descL.includes(t) ||
+            kwL.includes(t)
         );
       });
     }

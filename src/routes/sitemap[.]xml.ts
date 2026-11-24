@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { collections, SITE_URL } from "@/data/site";
-import { getProductsWithTimestamps } from "@/data/products";
+import { getProductsWithTimestamps, VISIBLE_SUBCATEGORIES } from "@/data/products";
 
 interface SitemapEntry {
   path: string;
@@ -41,9 +41,14 @@ export const Route = createFileRoute("/sitemap.xml")({
         const allProducts = await getProductsWithTimestamps();
         const siteLastMod = getSiteMtime();
 
-        // Only index products that are published and have at least one image
+        // Only index products that are published, in visible subcategories, and have at least one image
         const activeProducts = allProducts.filter(
-          (p) => !p.retired && p.images && p.images.length > 0 && (p as any).published !== false
+          (p) =>
+            !p.retired &&
+            VISIBLE_SUBCATEGORIES.has(p.subcategory) &&
+            p.images &&
+            p.images.length > 0 &&
+            (p as any).published !== false
         );
 
         // Only emit collections that are ACTIVE, not navHidden, and have at least one matching active product
@@ -53,6 +58,7 @@ export const Route = createFileRoute("/sitemap.xml")({
 
         const staticPaths = [
           "/",
+          "/doomsday",
           "/collections",
           "/custom-print",
           "/our-work",

@@ -1,5 +1,13 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /cocnballs
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+Disallow: /wishlist
+
+User-agent: OAI-SearchBot
+Allow: /
 
 Sitemap: https://deezprints.com/sitemap.xml

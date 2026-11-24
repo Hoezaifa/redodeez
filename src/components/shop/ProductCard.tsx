@@ -4,7 +4,7 @@ import { Heart, ShoppingCart } from "lucide-react";
 import type { Product } from "@/data/products";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/cart";
-import { cn } from "@/lib/utils";
+import { cn, getProductImageAlt } from "@/lib/utils";
 
 export function ProductCard({
   product,
@@ -62,7 +62,7 @@ export function ProductCard({
             <>
               <img
                 src={primary}
-                alt={`Deez Prints ${product.title} — ${subcategoryLabel}`}
+                alt={getProductImageAlt(product, primary, 0, product.images.length)}
                 width={500}
                 height={imageAspect === "square" ? 500 : 667}
                 loading="lazy"
@@ -74,7 +74,7 @@ export function ProductCard({
               {alt !== primary && (
                 <img
                   src={alt}
-                  alt={`Deez Prints ${product.title} detail view — ${subcategoryLabel}`}
+                  alt={getProductImageAlt(product, alt, 1, product.images.length)}
                   width={500}
                   height={imageAspect === "square" ? 500 : 667}
                   loading="lazy"

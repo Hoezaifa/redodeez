@@ -144,6 +144,8 @@ export function productMeta(
 ): { title: string; description: string; seoTitle: string } {
   const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
   const isMug = product.category === "accessories" || product.subcategory === "mugs";
+  const isAcidWashHoodie = product.subcategory === "acid-wash-hoodies";
+  const isHoodie = product.subcategory === "hoodies" || product.category === "hoodies";
   const isAcidWash = product.subcategory === "acid-wash";
   const isDropShoulder = product.subcategory === "drop-shoulder";
 
@@ -157,8 +159,8 @@ export function productMeta(
 
   // Clean design name by stripping garment suffixes and internal garment markers
   let cleanDesign = product.title
-    .replace(/\s+(Acid Wash Tee|Drop Shoulder Tee|Regular Tee|Graphic Tee|Tee|T-Shirt|Tshirt|Satin Wall Tapestry|Wall Tapestry|Tapestry|Ceramic Mug|Graphic Mug|Mug)$/i, "")
-    .replace(/\b(Acid Wash Tee|Drop Shoulder Tee|Regular Tee|Graphic Tee)\b/gi, "")
+    .replace(/\s+(Acid Wash Hoodie|Hoodie|Acid Wash Tee|Drop Shoulder Tee|Regular Tee|Graphic Tee|Tee|T-Shirt|Tshirt|Satin Wall Tapestry|Wall Tapestry|Tapestry|Ceramic Mug|Graphic Mug|Mug)$/i, "")
+    .replace(/\b(Acid Wash Hoodie|Acid Wash Tee|Drop Shoulder Tee|Regular Tee|Graphic Tee)\b/gi, "")
     .replace(/\s+(Acid Wash|Drop Shoulder)$/i, "")
     .replace(/\s{2,}/g, " ")
     .trim();
@@ -179,7 +181,7 @@ export function productMeta(
   }
 
   let garmentType = "Graphic T-Shirt";
-  let fitBlurb = "100% cotton graphic apparel";
+  let fitBlurb = "Cotton graphic apparel";
 
   if (isTapestry) {
     garmentType = containsNormalized(cleanDesign, "tapestry") ? "Satin Wall Art" : "Satin Wall Tapestry";
@@ -187,6 +189,12 @@ export function productMeta(
   } else if (isMug) {
     garmentType = containsNormalized(cleanDesign, "mug") ? "Drinkware" : "Anime Ceramic Mug";
     fitBlurb = "Premium high-gloss ceramic mug";
+  } else if (isAcidWashHoodie) {
+    garmentType = containsNormalized(cleanDesign, "acid") ? "Vintage Graphic Hoodie" : "Acid Wash Hoodie";
+    fitBlurb = "Vintage mineral-washed fleece hoodie";
+  } else if (isHoodie) {
+    garmentType = containsNormalized(cleanDesign, "hoodie") ? "Graphic Fleece" : "Graphic Hoodie";
+    fitBlurb = "Heavyweight fleece streetwear hoodie";
   } else if (isAcidWash) {
     garmentType = containsNormalized(cleanDesign, "acid") ? "Vintage Graphic T-Shirt" : "Acid Wash T-Shirt";
     fitBlurb = "Vintage-inspired acid wash (100% premium cotton)";
@@ -198,18 +206,22 @@ export function productMeta(
     fitBlurb = "Cotton jersey blend (70/30)";
   }
 
-  const title = `${cleanDesign}${franchisePart} ${garmentType} in Pakistan | Deez Prints`;
+  const title = product.seoTitle || `${cleanDesign}${franchisePart} ${garmentType} in Pakistan | Deez Prints`;
 
   // Fit string for factual summary
   let fitStr = "regular fit T-shirt";
   if (isTapestry) fitStr = "satin wall tapestry";
   else if (isMug) fitStr = "ceramic coffee mug";
+  else if (isAcidWashHoodie) fitStr = "acid wash hoodie";
+  else if (isHoodie) fitStr = "streetwear hoodie";
   else if (isAcidWash) fitStr = "vintage acid wash T-shirt";
   else if (isDropShoulder) fitStr = "drop shoulder T-shirt";
 
   // Build factual product-specific meta description
   let description = "";
-  if (product.id === "dp-drop-shoulder-tbsm") {
+  if (product.metaDescription) {
+    description = product.metaDescription;
+  } else if (product.id === "dp-drop-shoulder-tbsm") {
     description = "Seedhe Maut TBSM drop shoulder T-shirt with performer silhouettes and a chest emblem. DTF printed in Karachi by Deez Prints.";
   } else if (product.id === "dp-drop-shoulder-dr-doom") {
     description = "Doctor Doom (Marvel) drop shoulder T-shirt with green-hooded metallic mask back portrait and chest logo. Boxy streetwear fit by Deez Prints.";

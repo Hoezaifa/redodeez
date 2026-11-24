@@ -5,6 +5,8 @@ import { getProducts, type Product } from "@/data/products";
 import { SITE_URL } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { useDoomsdayCountdown } from "@/components/hero/DoomsdayCountdown";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, collectionPageSchema } from "@/lib/structuredData";
 import { cn } from "@/lib/utils";
 
 export function isDoomProduct(p: Product): boolean {
@@ -133,17 +135,35 @@ export const Route = createFileRoute("/doomsday")({
     const doomProducts = allProducts.filter(isDoomProduct);
     return { doomProducts };
   },
-  head: () => ({
-    meta: [
-      { title: "Avengers: Doomsday — Doctor Doom Collection | Deez Prints" },
-      {
-        name: "description",
-        content:
-          "Shop the complete Doctor Doom & Avengers: Doomsday streetwear collection at Deez Prints. Heavyweight drop-shoulder and vintage acid-wash tees printed in Karachi.",
-      },
-    ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/doomsday` }],
-  }),
+  head: () => {
+    const title = "Avengers Doomsday T-Shirts & Hoodies in Pakistan | Deez Prints";
+    const description =
+      "Shop Avengers: Doomsday & Doctor Doom graphic T-shirts, vintage acid-wash tees, and fleece hoodies in Pakistan. Featuring Doctor Doom and Cyclops X-Men artwork, DTF printed in Karachi with nationwide delivery.";
+    const url = `${SITE_URL}/doomsday`;
+    const ogImage =
+      "https://res.cloudinary.com/okcxaese/image/upload/v1795288657/doctor-doom-iron-mask-black-drop-shoulder-back.jpg";
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: url },
+        { property: "og:site_name", content: "Deez Prints" },
+        { property: "og:image", content: ogImage },
+        { property: "og:image:secure_url", content: ogImage },
+        { property: "og:image:alt", content: "Avengers: Doomsday & Doctor Doom Streetwear Collection — Deez Prints" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: "@deez_prints" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: ogImage },
+      ],
+      links: [{ rel: "canonical", href: url }],
+    };
+  },
   component: DoomsdayCollectionPage,
 });
 
@@ -298,8 +318,35 @@ function DoomsdayCollectionPage() {
     { id: "acid-wash-hoodies", label: `Acid Wash Hoodies (${acidHoodieCount})` },
   ] as const;
 
+  const collectionSchema = useMemo(
+    () =>
+      collectionPageSchema({
+        name: "Avengers: Doomsday Graphic T-Shirts & Hoodies",
+        description:
+          "Shop Avengers: Doomsday and Doctor Doom graphic T-shirts, vintage acid-wash tees, and fleece hoodies in Pakistan, printed in Karachi by Deez Prints.",
+        url: "/doomsday",
+        items: doomProducts.map((p) => ({
+          id: p.id,
+          title: p.title,
+          image: p.images[0],
+        })),
+      }),
+    [doomProducts],
+  );
+
+  const crumbsSchema = useMemo(
+    () =>
+      breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Avengers: Doomsday Collection", url: "/doomsday" },
+      ]),
+    [],
+  );
+
   return (
     <div className="min-h-screen bg-background pt-[102px] md:pt-[116px] pb-14">
+      <JsonLd data={collectionSchema} />
+      <JsonLd data={crumbsSchema} />
       {/* Header Banner */}
       <section className="edge border-b border-border/60 pb-3 md:pb-5">
         {/* Desktop Breadcrumb (hidden on mobile to reclaim vertical space) */}
@@ -316,10 +363,10 @@ function DoomsdayCollectionPage() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-2 md:gap-4">
           <div className="min-w-0">
             <h1 className="font-display text-[21px] sm:text-3xl lg:text-4xl font-black uppercase tracking-tight leading-[0.95] text-foreground">
-              Doctor Doom Collection
+              Avengers: Doomsday Graphic T-Shirts &amp; Hoodies
             </h1>
-            <p className="hidden md:block mt-1 max-w-xl text-sm leading-snug text-muted-foreground">
-              Heavyweight drop-shoulder and vintage acid-wash tees featuring Doctor Doom &amp; Avengers: Doomsday artwork. Printed in Karachi, delivered nationwide.
+            <p className="hidden md:block mt-1.5 max-w-2xl text-sm leading-snug text-muted-foreground">
+              Shop Avengers: Doomsday T-shirts and hoodies in Pakistan, featuring fan-inspired Doctor Doom and Cyclops X-Men graphic streetwear. Every artwork in the drop is available across oversized drop-shoulder tees, vintage acid-wash tees, black fleece hoodies, and acid-wash hoodies. All pieces are DTF printed in Karachi by Deez Prints with Rs. 200 rider delivery in Karachi (free above Rs. 5,000) and Rs. 450 nationwide courier delivery across Pakistan.
             </p>
           </div>
 
@@ -513,13 +560,33 @@ function DoomsdayCollectionPage() {
           </div>
         )}
 
-        {/* Complete Catalogue Footer */}
+        {/* Complete Catalogue Footer + Crawlable Full-Drop Links */}
         {totalVisibleCount > 0 && (
-          <div className="flex items-center justify-center py-8 md:py-10 border-t border-border/40 mt-8 md:mt-10">
+          <div className="flex flex-col items-center justify-center gap-3 py-8 md:py-10 border-t border-border/40 mt-8 md:mt-10">
             <span className="label-mono text-[11px] sm:text-xs text-muted-foreground uppercase tracking-widest">
               {artworkGroups.length} {artworkGroups.length === 1 ? "artwork" : "artworks"} · All{" "}
               {totalVisibleCount} matching pieces shown
             </span>
+            <details className="w-full max-w-4xl text-center">
+              <summary className="cursor-pointer label-mono text-[10px] text-muted-foreground/75 hover:text-primary uppercase tracking-widest transition-colors list-none">
+                Browse all {doomProducts.length} Doomsday pieces index
+              </summary>
+              <nav
+                aria-label="All Avengers: Doomsday products"
+                className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-muted-foreground"
+              >
+                {doomProducts.map((p) => (
+                  <Link
+                    key={p.id}
+                    to="/products/$productId"
+                    params={{ productId: p.id }}
+                    className="hover:text-primary underline-offset-4 hover:underline transition-colors"
+                  >
+                    {p.title}
+                  </Link>
+                ))}
+              </nav>
+            </details>
           </div>
         )}
       </section>

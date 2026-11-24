@@ -49,10 +49,10 @@ export function getProductImageAlt(
   const cleanTitle = product.title.trim();
 
   if (subcat === "acid-wash") {
-    return `${cleanTitle} on hand-dyed acid wash streetwear tee — ${angleDesc}`;
+    return `${cleanTitle} on vintage acid wash streetwear tee — ${angleDesc}`;
   }
   if (subcat === "drop-shoulder") {
-    return `${cleanTitle} on heavyweight 240 GSM drop-shoulder oversized tee — ${angleDesc}`;
+    return `${cleanTitle} on oversized drop-shoulder streetwear tee — ${angleDesc}`;
   }
   if (subcat === "tapestries" || subcat === "flags") {
     return `${cleanTitle} satin wall art tapestry — ${angleDesc}`;
@@ -60,9 +60,12 @@ export function getProductImageAlt(
   if (subcat === "mugs") {
     return `${cleanTitle} ceramic graphic print mug — ${angleDesc}`;
   }
+  if (subcat === "acid-wash-hoodies") {
+    return `${cleanTitle} on vintage acid wash streetwear hoodie — ${angleDesc}`;
+  }
   if (subcat === "hoodies") {
-    return `${cleanTitle} heavyweight fleece streetwear hoodie — ${angleDesc}`;
+    return `${cleanTitle} fleece streetwear hoodie — ${angleDesc}`;
   }
 
-  return `${cleanTitle} on premium cotton regular tee — ${angleDesc}`;
+  return `${cleanTitle} on cotton regular fit tee — ${angleDesc}`;
 }

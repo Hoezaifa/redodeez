@@ -124,9 +124,26 @@ const FRANCHISE_PATTERNS: Array<{
   },
   {
     franchise: "Marvel",
-    keywords: ["spider-man", "spiderman", "peter parker", "spiderverse", "doctor doom", "dr. doom", "dr doom", "venom", "punisher", "marvel"],
+    keywords: [
+      "spider-man",
+      "spiderman",
+      "peter parker",
+      "spiderverse",
+      "doctor doom",
+      "dr. doom",
+      "dr doom",
+      "doomsday",
+      "avengers",
+      "cyclops",
+      "cyclopes",
+      "x-men",
+      "venom",
+      "punisher",
+      "marvel",
+    ],
     characters: [
-      { name: "Doctor Doom", aliases: ["doctor doom", "dr. doom", "dr doom"] },
+      { name: "Doctor Doom", aliases: ["doctor doom", "dr. doom", "dr doom", "dooms"] },
+      { name: "Cyclops", aliases: ["cyclops", "cyclopes", "x-men"] },
       { name: "Spider-Man", aliases: ["spider-man", "spiderman", "peter parker"] },
       { name: "Venom", aliases: ["venom"] },
       { name: "Punisher", aliases: ["punisher"] },
@@ -152,11 +169,10 @@ const FRANCHISE_PATTERNS: Array<{
   },
 ];
 
-/** Extract canonical design key to group sibling fits (drop, acid, regular) */
+/** Extract canonical design key to group sibling fits (drop, acid, regular, hoodie) */
 export function deriveDesignKey(product: Product): string {
   return product.id
-    .replace(/^dp-(acid-wash|drop-shoulder|regular)-/, "")
-    .replace(/^dp-(mug|tapestry|hoodie)-/, "")
+    .replace(/^dp-(acid-wash-hoodie|acid-wash|drop-shoulder|regular|hoodie|mug|tapestry)-/, "")
     .replace(/^tshirt-(acid|drop)-/, "");
 }
 
@@ -186,7 +202,7 @@ export function getProductSeoData(product: Product): NormalizedProductSeo {
   let material = "Cotton Jersey (70% Cotton / 30% Polyester)";
   let printMethod = "Direct-to-Film (DTF)";
   let productType = "Apparel > T-Shirts > Regular Fit Graphic Tees";
-  const defaultSizes = ["S", "M", "L", "XL"];
+  let defaultSizes = ["S", "M", "L", "XL"];
 
   if (subcat === "drop-shoulder") {
     fit = "drop-shoulder";
@@ -200,6 +216,7 @@ export function getProductSeoData(product: Product): NormalizedProductSeo {
     material = "100% Premium Cotton (Acid Wash)";
     printMethod = "Direct-to-Film (DTF)";
     productType = "Apparel > T-Shirts > Vintage Acid Wash Graphic Tees";
+    defaultSizes = ["S", "M", "L"];
   } else if (subcat === "tapestries" || subcat === "flags") {
     fit = "tapestry";
     gsm = "Standard High-Density Satin";
@@ -212,12 +229,20 @@ export function getProductSeoData(product: Product): NormalizedProductSeo {
     material = "Ceramic";
     printMethod = "Sublimation Heat Press";
     productType = "Home & Kitchen > Drinkware > Coffee Mugs";
+  } else if (subcat === "acid-wash-hoodies") {
+    fit = "hoodie";
+    gsm = "";
+    material = "Acid Wash Cotton Fleece";
+    printMethod = "Direct-to-Film (DTF)";
+    productType = "Apparel > Outerwear > Acid Wash Streetwear Hoodies";
+    defaultSizes = ["S", "M", "L"];
   } else if (product.category === "hoodies") {
     fit = "hoodie";
-    gsm = "350+ GSM";
-    material = "100% Cotton Fleece";
+    gsm = "";
+    material = "Cotton Fleece";
     printMethod = "Direct-to-Film (DTF)";
     productType = "Apparel > Outerwear > Streetwear Hoodies";
+    defaultSizes = ["S", "M", "L", "XL"];
   }
 
   const primaryColor = product.colors && product.colors.length > 0 ? product.colors[0] : "Black";
@@ -225,10 +250,22 @@ export function getProductSeoData(product: Product): NormalizedProductSeo {
 
   const meta = productMeta(product, franchise, characters[0] || null);
 
+  const garmentNoun =
+    fit === "tapestry"
+      ? "wall tapestry"
+      : fit === "mug"
+      ? "ceramic mug"
+      : subcat === "acid-wash-hoodies"
+      ? `acid wash hoodie in ${primaryColor}`
+      : fit === "hoodie"
+      ? `hoodie in ${primaryColor}`
+      : `t-shirt in ${primaryColor}`;
+
   const imageAlt = absImages.map((_, idx) => {
-    const viewType = idx === 0 ? "front view" : idx === 1 ? "back graphic view" : "detail view";
+    if (product.imageAlts?.[idx]) return product.imageAlts[idx];
+    const viewType = idx === 0 ? "primary view" : idx === 1 ? "alternate view" : "detail view";
     const entity = characters[0] ? `${characters[0]} ${franchise || ""}` : product.title;
-    return `${entity.trim()} ${fit === "tapestry" ? "wall tapestry" : "t-shirt in " + primaryColor} — ${viewType}`;
+    return `${entity.trim()} ${garmentNoun} — ${viewType}`;
   });
 
   return {

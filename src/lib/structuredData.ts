@@ -270,7 +270,17 @@ export function productSchema(product: Product, offerRange?: OfferRange) {
       };
 
   const isTapestry = product.subcategory === "tapestries" || product.subcategory === "flags";
-  const material = isTapestry ? "High-Density Satin Fabric" : "100% Cotton";
+  const material = isTapestry
+    ? "High-Density Satin Fabric"
+    : product.subcategory === "acid-wash-hoodies"
+    ? "Acid Wash Cotton Fleece"
+    : product.category === "hoodies"
+    ? "Cotton Fleece"
+    : product.subcategory === "acid-wash"
+    ? "100% Cotton"
+    : product.category === "accessories"
+    ? "Ceramic"
+    : "Cotton Jersey Blend";
 
   const absoluteImages = product.images.length > 0
     ? product.images.map((img) => toAbsoluteImageUrl(img))
@@ -292,6 +302,8 @@ export function productSchema(product: Product, offerRange?: OfferRange) {
       ? "Home & Decor > Wall Art > Tapestries"
       : product.category === "t-shirts"
       ? `Apparel > T-Shirts > ${product.subcategory === "drop-shoulder" ? "Drop Shoulder" : product.subcategory === "acid-wash" ? "Acid Wash" : "Regular Tees"}`
+      : product.subcategory === "acid-wash-hoodies"
+      ? "Apparel > Hoodies > Acid Wash Hoodies"
       : product.category === "hoodies"
       ? "Apparel > Hoodies"
       : product.category === "accessories"
@@ -320,6 +332,35 @@ export function breadcrumbSchema(crumbs: Array<{ name: string; url: string }>) {
         item: itemUrl,
       };
     }),
+  };
+}
+
+/** CollectionPage + ItemList schema for collection hubs (e.g. /doomsday) */
+export function collectionPageSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  items: Array<{ id: string; title: string; image?: string }>;
+}) {
+  const fullUrl = opts.url.startsWith("http")
+    ? opts.url
+    : `${SITE_URL}${opts.url.startsWith("/") ? "" : "/"}${opts.url}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: opts.name,
+    description: opts.description,
+    url: fullUrl,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: opts.items.length,
+      itemListElement: opts.items.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${SITE_URL}/products/${item.id}`,
+        name: item.title,
+      })),
+    },
   };
 }
 
