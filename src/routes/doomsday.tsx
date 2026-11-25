@@ -482,13 +482,13 @@ function DoomsdayCollectionPage() {
           </div>
         ) : isSingleFinishView ? (
           /* Single-finish filter active: 2-col mobile, 3-col tablet, 4-col desktop */
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-2.5 gap-y-3 md:gap-x-4 md:gap-y-7">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-2.5 md:gap-x-4 md:gap-y-7">
             {artworkGroups.map((group, groupIdx) => {
               const groupNum = pad(groupIdx + 1);
               const startIdx = groupStartIndices[groupIdx] ?? 0;
               return (
-                <div key={group.key} className="row-span-2 grid grid-rows-subgrid gap-y-1.5 min-w-0">
-                  <div className="flex items-end pb-1 border-b border-border/50">
+                <div key={group.key} className="md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-1.5 min-w-0">
+                  <div className="hidden md:flex items-end pb-1 border-b border-border/50">
                     <div className="flex items-start gap-1.5 min-w-0">
                       <span
                         aria-hidden="true"
@@ -510,7 +510,7 @@ function DoomsdayCollectionPage() {
           </div>
         ) : (
           /* Paired artwork view: 1 group/row on mobile (2 cards side-by-side), 2 groups/row on lg+ (4 cards wide) */
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-3.5 md:gap-y-8 lg:gap-x-7 xl:gap-x-9">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-2.5 md:gap-y-8 lg:gap-x-7 xl:gap-x-9">
             {artworkGroups.map((group, groupIdx) => {
               const groupNum = pad(groupIdx + 1);
               const startIdx = groupStartIndices[groupIdx] ?? 0;
@@ -521,11 +521,11 @@ function DoomsdayCollectionPage() {
                   key={group.key}
                   className={cn(
                     "flex flex-col min-w-0",
-                    groupIdx > 0 && "pt-3 border-t border-border/45 lg:pt-0 lg:border-t-0",
+                    groupIdx > 0 && "md:pt-3 md:border-t md:border-border/45 lg:pt-0 lg:border-t-0",
                   )}
                 >
-                  {/* Compact Editorial Artwork Header — wraps cleanly on long names */}
-                  <div className="flex items-start justify-between gap-2 pb-1.5 mb-2 md:pb-2 md:mb-3 border-b border-border/55">
+                  {/* Compact Editorial Artwork Header — hidden on mobile to maximize product image space */}
+                  <div className="hidden md:flex items-start justify-between gap-2 pb-2 mb-3 border-b border-border/55">
                     <div className="flex items-start gap-2 min-w-0">
                       <span
                         aria-hidden="true"
