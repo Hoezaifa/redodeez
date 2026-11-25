@@ -128,17 +128,17 @@ export function ProductCard({
         </button>
       </div>
 
-      {/* Details Container Bottom — Tightened padding and recovered vertical space */}
-      <div className="flex flex-col gap-0.5 p-2.5 sm:px-3 sm:py-2.5 bg-[#0a0a0c] border-t border-neutral-800/80 text-left flex-1 justify-between">
+      {/* Details Container Bottom — Compact on mobile so product image dominates */}
+      <div className="flex flex-col gap-0 sm:gap-0.5 px-2 py-1.5 sm:px-3 sm:py-2.5 bg-[#0a0a0c] border-t border-neutral-800/80 text-left flex-1 justify-between">
         <div className="flex flex-col gap-0.5">
-          <p className="label-mono text-[9px] sm:text-[10px] font-extrabold text-primary uppercase tracking-widest leading-none">
+          <p className="label-mono text-[8.5px] sm:text-[10px] font-extrabold text-primary uppercase tracking-wider sm:tracking-widest leading-none">
             {subcategoryLabel}
           </p>
 
           <Link
             to="/products/$productId"
             params={{ productId: product.id }}
-            className="font-sans text-xs sm:text-sm font-black uppercase leading-snug tracking-tight text-white line-clamp-2 min-h-[2.65em] hover:text-primary transition-colors"
+            className="font-sans text-[11px] sm:text-sm font-black uppercase leading-[1.18] sm:leading-snug tracking-tight text-white line-clamp-2 sm:min-h-[2.65em] hover:text-primary transition-colors"
           >
             {product.title}
           </Link>
@@ -147,18 +147,18 @@ export function ProductCard({
         {/* Price row — or Coming Soon status */}
         {isComingSoon ? (
           <div className="flex items-center justify-between mt-1 sm:mt-1.5">
-            <span className="font-mono text-xs text-neutral-400 uppercase tracking-wide">
+            <span className="font-mono text-[11px] sm:text-xs text-neutral-400 uppercase tracking-wide leading-none">
               {product.subcategory === "tapestries"
                 ? `Est. ${formatPrice(product.price)}`
                 : formatPrice(product.price)}
             </span>
-            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/30 px-1.5 py-0.5 rounded font-bold">
+            <span className="text-[8.5px] sm:text-[10px] font-mono uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/30 px-1.5 py-0.5 rounded font-bold leading-none">
               Drop Soon
             </span>
           </div>
         ) : (
           <div className="flex items-center justify-between mt-1 sm:mt-1.5">
-            <p className="font-sans font-bold text-xs sm:text-sm text-primary tracking-tight">
+            <p className="font-sans font-bold text-[11.5px] sm:text-sm text-primary tracking-tight leading-none">
               {product.subcategory === "tapestries"
                 ? `From ${formatPrice(product.price)}`
                 : formatPrice(product.price)}
@@ -168,9 +168,9 @@ export function ProductCard({
               type="button"
               aria-label="Quick Add to Cart"
               onClick={handleQuickAdd}
-              className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center border border-primary/40 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all active:scale-90 shadow-sm"
+              className="grid h-6 w-6 sm:h-8 sm:w-8 place-items-center border border-primary/40 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all active:scale-90 shadow-sm"
             >
-              <ShoppingCart className="h-3.5 w-3.5 stroke-[2]" />
+              <ShoppingCart className="h-3 w-3 sm:h-3.5 sm:w-3.5 stroke-[2]" />
             </button>
           </div>
         )}
