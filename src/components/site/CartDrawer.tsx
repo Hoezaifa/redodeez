@@ -4,8 +4,9 @@ import { X, Minus, Plus } from "lucide-react";
 import { useMemo } from "react";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
-import { site, SHIPPING_OPTIONS } from "@/data/site";
+import { site } from "@/data/site";
 import { products } from "@/data/products";
+import { calculateShipping } from "@/lib/shipping";
 
 export function CartDrawer() {
   const { drawerOpen, setDrawerOpen, lines, setQty, remove, add, subtotal, discount, discountLabel } = useCart();
@@ -22,6 +23,11 @@ export function CartDrawer() {
   const hasMugInCart = useMemo(
     () => lines.some((l) => l.productId.startsWith("mug-") || l.title.toLowerCase().includes("mug")),
     [lines]
+  );
+
+  const shippingQuote = useMemo(
+    () => calculateShipping(lines, "karachi", subtotal),
+    [lines, subtotal]
   );
 
 
@@ -72,16 +78,21 @@ export function CartDrawer() {
                         <span>📍</span> Karachi Delivery Only (Contains Ceramic Mugs)
                       </p>
                       <p className="text-[11px] text-muted-foreground">
-                        Ceramic drinkware delivered exclusively in Karachi (Rs. {SHIPPING_OPTIONS.karachi.fee}). {subtotal >= site.freeShippingThreshold && <span className="text-emerald-400 font-bold">Free Karachi delivery unlocked!</span>}
+                        Ceramic drinkware delivered exclusively in Karachi (Rs. {shippingQuote.karachiBaseFee}). {shippingQuote.isFreeKarachi && <span className="text-emerald-400 font-bold">Free Karachi delivery unlocked!</span>}
                       </p>
                     </div>
-                  ) : subtotal >= site.freeShippingThreshold ? (
-                    <p className="text-xs text-emerald-400 font-bold">
-                      🎉 Karachi orders qualify for FREE delivery!
-                    </p>
+                  ) : shippingQuote.isFreeKarachi ? (
+                    <div className="space-y-0.5">
+                      <p className="text-xs text-emerald-400 font-bold">
+                        🎉 Karachi orders qualify for FREE delivery!
+                      </p>
+                      <p className="text-[11px] text-muted-foreground">
+                        Nationwide Pakistan: <span className="text-primary font-semibold">Rs. {shippingQuote.nationwideBaseFee}</span>
+                      </p>
+                    </div>
                   ) : (
                     <p className="text-xs text-muted-foreground">
-                      Shipping: <span className="text-primary font-semibold">Karachi Rs. {SHIPPING_OPTIONS.karachi.fee}</span> · <span className="text-primary font-semibold">Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}</span> <span className="text-[11px] block text-foreground/80 mt-0.5">Free Karachi delivery above Rs. {site.freeShippingThreshold.toLocaleString()}</span>
+                      Shipping: <span className="text-primary font-semibold">Karachi Rs. {shippingQuote.karachiBaseFee}</span> · <span className="text-primary font-semibold">Nationwide Rs. {shippingQuote.nationwideBaseFee}</span> <span className="text-[11px] block text-foreground/80 mt-0.5">Free Karachi delivery on orders Rs. {site.freeShippingThreshold.toLocaleString()}+</span>
                     </p>
                   )}
                 </div>
@@ -224,9 +235,13 @@ export function CartDrawer() {
                     </div>
                   )}
                   <p className="label-mono mt-2 text-muted-foreground text-xs">
-                    {subtotal >= site.freeShippingThreshold
-                      ? "🎉 Karachi orders: FREE Delivery"
-                      : `Karachi Rs. ${SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. ${SHIPPING_OPTIONS.nationwide.fee}`}
+                    {hasMugInCart
+                      ? shippingQuote.isFreeKarachi
+                        ? "Karachi: FREE Delivery"
+                        : `Karachi Rs. ${shippingQuote.karachiBaseFee}`
+                      : shippingQuote.isFreeKarachi
+                      ? `Karachi FREE · Nationwide Rs. ${shippingQuote.nationwideBaseFee}`
+                      : `Karachi Rs. ${shippingQuote.karachiBaseFee} · Nationwide Rs. ${shippingQuote.nationwideBaseFee}`}
                   </p>
                   <div className="mt-5 grid gap-2">
                     <Link

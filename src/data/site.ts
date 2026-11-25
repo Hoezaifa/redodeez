@@ -12,7 +12,9 @@ export const CDN = "https://res.cloudinary.com/dsjnjbsgi/image/upload";
 
 export const commercialConfig = {
   shippingKarachiFee: 200,
+  shippingKarachiHeavyFee: 350,
   shippingNationwideFee: 450,
+  shippingNationwideHeavyFee: 550,
   freeShippingThreshold: 5000,
   prepTimeKarachi: "Usually within 2 days",
   prepTimeNationwide: "Usually 2–3 days",
@@ -31,7 +33,9 @@ export const site = {
   whatsappNumber: "923272487127",
   hours: "Online store — available 24/7",
   shippingFee: 200,
+  shippingFeeHeavy: 350,
   shippingFeeNationwide: 450,
+  shippingFeeNationwideHeavy: 550,
   freeShippingThreshold: 5000,
   deliveryTime: "Karachi: delivered around day 3 after confirmation | Outside Karachi: 2–3 days prep + typically 3–4 additional courier days",
   deliveryTimeKarachi: "Orders are usually prepared within 2 days and delivered around day 3 after confirmation",
@@ -174,20 +178,23 @@ export type DeliveryLocation = "karachi" | "nationwide";
 export const SHIPPING_OPTIONS: Record<DeliveryLocation, {
   label: string;
   fee: number;
+  heavyFee: number;
   method: string;
   description: string;
 }> = {
   karachi: {
     label: "Karachi",
     fee: 200,
+    heavyFee: 350,
     method: "Rider",
-    description: "Karachi — Rs. 200 via Rider",
+    description: "Karachi — Rs. 200 (up to 3 T-shirts / 1 Hoodie) or Rs. 350 via Rider",
   },
   nationwide: {
     label: "Nationwide Pakistan",
     fee: 450,
+    heavyFee: 550,
     method: "Courier",
-    description: "Nationwide — Rs. 450 via Courier",
+    description: "Nationwide — Rs. 450 (up to 3 T-shirts / 1 Hoodie) or Rs. 550 via Courier",
   },
 };
 
@@ -361,7 +368,7 @@ export const faqs = [
   },
   {
     q: "What is your shipping fee?",
-    a: "Karachi delivery is Rs. 200 and Nationwide Pakistan delivery is Rs. 450 (via Courier). Karachi orders over Rs. 5,000 qualify for FREE delivery. Please note: ceramic mugs are delivered only within Karachi.",
+    a: "Up to 3 T-shirts or 1 Hoodie: Karachi Rs. 200 (via Rider) and Nationwide Pakistan Rs. 450 (via Courier). More than 3 T-shirts or more than 1 Hoodie: Karachi Rs. 350 (via Rider) and Nationwide Pakistan Rs. 550 (via Courier). Karachi orders of Rs. 5,000 or more qualify for FREE delivery (Karachi only). Please note: ceramic mugs are delivered only within Karachi.",
     category: "Shipping",
   },
   {

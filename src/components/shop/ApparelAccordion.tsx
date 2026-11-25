@@ -112,7 +112,7 @@ export function ApparelAccordion({ product }: ApparelAccordionProps) {
             <strong className="text-foreground font-semibold">Delivery Time:</strong> Karachi: Orders are usually prepared within 2 days and delivered around day 3 after confirmation. Outside Karachi: Preparation usually takes 2–3 days, then courier delivery typically takes around 3–4 additional days (can take longer depending on the courier and destination).
           </p>
           <p>
-            <strong className="text-foreground font-semibold">Shipping Rates:</strong> Rs. 200 for Karachi (via Rider) and Rs. 450 for Nationwide Pakistan (via Courier). Free delivery applies to Karachi orders of Rs. 5,000 or more.
+            <strong className="text-foreground font-semibold">Shipping Rates:</strong> Up to 3 T-shirts or 1 Hoodie: Rs. 200 for Karachi (via Rider) and Rs. 450 for Nationwide Pakistan (via Courier). More than 3 T-shirts or more than 1 Hoodie: Rs. 350 for Karachi and Rs. 550 for Nationwide Pakistan. Free delivery applies to Karachi orders of Rs. 5,000 or more (Karachi only).
           </p>
           <p>
             <strong className="text-foreground font-semibold">7-Day Exchange:</strong> Exchange is available within 7 days only if you receive a defective item, incorrect product, or a different size than the one you ordered. Please check the size chart, fit and order details carefully before confirming your order. Incorrect size selection or change of mind is not eligible for exchange.

@@ -6,6 +6,7 @@ import { Check, Download, Share2, ArrowLeft, Info, MapPin, Tag, X } from "lucide
 import { toPng, toBlob } from "html-to-image";
 import { useCart } from "@/lib/cart";
 import { bankDetails, whatsappLink, site, SHIPPING_OPTIONS, type DeliveryLocation } from "@/data/site";
+import { calculateShipping } from "@/lib/shipping";
 import { sendOrderTelegramNotification } from "@/lib/sendTelegramOrder";
 import { saveOrder, triggerOrderEmail, generateOrderId, type StoredOrder } from "@/lib/ordersStore";
 import { validatePromoEligibilityFn } from "@/lib/orderFunctions";
@@ -143,8 +144,12 @@ function Checkout() {
   );
 
   const shippingOption = SHIPPING_OPTIONS[deliveryLocation];
-  const isFreeShipping = subtotal >= site.freeShippingThreshold && deliveryLocation === "karachi";
-  const shippingCost = isFreeShipping ? 0 : shippingOption.fee;
+  const shippingQuote = useMemo(
+    () => calculateShipping(lines, deliveryLocation, subtotal),
+    [lines, deliveryLocation, subtotal]
+  );
+  const isFreeShipping = shippingQuote.isFreeShipping;
+  const shippingCost = shippingQuote.fee;
 
   // Real rupee discount calculation using promo rules:
   // - FIRSTDROP: 5% off eligible merchandise (excluding unpriced quotes/bulk jobs and delivery)
@@ -373,12 +378,17 @@ function Checkout() {
       setPlaced(true);
       setStep(3);
 
-      trackEvent.purchase({
-        orderId: finalOrder.orderId,
-        total: finalOrder.total,
-        items: finalOrder.items,
-        shipping: finalOrder.shipping,
-      });
+      // Fire GA4 purchase and Meta Purchase immediately after confirmed server DB persistence
+      // for all payment methods (Bank Transfer, Easypaisa, Partial COD, Full COD).
+      if (saved.persistedToDb) {
+        trackEvent.purchase({
+          orderId: finalOrder.orderId,
+          total: finalOrder.total,
+          items: finalOrder.items,
+          shipping: finalOrder.shipping,
+          paymentMethod,
+        });
+      }
 
       // Send Telegram notification (includes artwork images if custom order)
       try {
@@ -1089,10 +1099,10 @@ function Checkout() {
                           <span className="text-[11px] text-zinc-400">
                             {isDisabled ? (
                               <span className="text-amber-400/80 font-medium">Karachi only</span>
-                            ) : isFreeShipping && key === "karachi" ? (
+                            ) : shippingQuote.isFreeKarachi && key === "karachi" ? (
                               <span className="text-emerald-400 font-bold">FREE — {opt.method}</span>
                             ) : (
-                              `Rs. ${opt.fee} — ${opt.method}`
+                              `Rs. ${key === "karachi" ? shippingQuote.karachiBaseFee : shippingQuote.nationwideBaseFee} — ${opt.method}`
                             )}
                           </span>
                         </button>

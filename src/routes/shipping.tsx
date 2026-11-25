@@ -35,9 +35,11 @@ function Shipping() {
         <div className="rounded-xl border border-white/10 bg-surface/50 p-6 space-y-2">
           <Truck className="w-6 h-6 text-primary" />
           <p className="text-sm font-mono text-muted-foreground uppercase">Shipping Rates</p>
-          <p className="text-xl font-bold text-foreground">Karachi Rs. {SHIPPING_OPTIONS.karachi.fee} | Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}</p>
+          <p className="text-xl font-bold text-foreground">
+            Karachi Rs. {SHIPPING_OPTIONS.karachi.fee}–{SHIPPING_OPTIONS.karachi.heavyFee} | Nationwide Rs. {SHIPPING_OPTIONS.nationwide.fee}–{SHIPPING_OPTIONS.nationwide.heavyFee}
+          </p>
           <p className="text-xs text-muted-foreground">
-            Karachi via Rider | Rest of Pakistan via Courier
+            Based on order quantity · Karachi via Rider | Rest of Pakistan via Courier
           </p>
         </div>
         <div className="rounded-xl border border-white/10 bg-surface/50 p-6 space-y-2">
@@ -80,17 +82,17 @@ function Shipping() {
           <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground">Delivery Rates &amp; Methods</h2>
             <p className="text-muted-foreground leading-relaxed">
-              We offer two delivery options during checkout:
+              Delivery charges are calculated automatically at checkout based on your delivery location and order quantity:
             </p>
             <ul className="list-disc pl-5 text-muted-foreground space-y-2">
               <li>
-                <strong className="text-foreground font-semibold">Karachi (Rs. {SHIPPING_OPTIONS.karachi.fee}):</strong> Delivered directly to your doorstep via rider.
+                <strong className="text-foreground font-semibold">Up to 3 T-shirts or 1 Hoodie:</strong> Karachi <strong className="text-foreground font-semibold">Rs. {SHIPPING_OPTIONS.karachi.fee}</strong> (via Rider) · Nationwide Pakistan <strong className="text-foreground font-semibold">Rs. {SHIPPING_OPTIONS.nationwide.fee}</strong> (via Courier).
               </li>
               <li>
-                <strong className="text-foreground font-semibold">Nationwide Pakistan (Rs. {SHIPPING_OPTIONS.nationwide.fee}):</strong> Dispatched via reliable courier services across all provinces.
+                <strong className="text-foreground font-semibold">More than 3 T-shirts or more than 1 Hoodie:</strong> Karachi <strong className="text-foreground font-semibold">Rs. {SHIPPING_OPTIONS.karachi.heavyFee}</strong> (via Rider) · Nationwide Pakistan <strong className="text-foreground font-semibold">Rs. {SHIPPING_OPTIONS.nationwide.heavyFee}</strong> (via Courier).
               </li>
               <li>
-                <strong className="text-emerald-400 font-semibold">Free Karachi Delivery:</strong> Karachi orders exceeding <strong className="text-foreground font-semibold">Rs. {site.freeShippingThreshold.toLocaleString()}</strong> qualify for complimentary free shipping.
+                <strong className="text-emerald-400 font-semibold">Free Karachi Delivery:</strong> Karachi orders of <strong className="text-foreground font-semibold">Rs. {site.freeShippingThreshold.toLocaleString()}</strong> or more qualify for complimentary free shipping (applies to Karachi only).
               </li>
               <li>
                 <strong className="text-amber-400 font-semibold">Ceramic Mugs (Karachi Only):</strong> Due to the fragility of ceramic drinkware, mugs are delivered exclusively within Karachi via local rider and cannot be dispatched via nationwide courier.

@@ -9,9 +9,9 @@ import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 const ANNOUNCEMENTS = [
-  `Karachi delivery Rs. ${SHIPPING_OPTIONS.karachi.fee} via ${SHIPPING_OPTIONS.karachi.method}`,
-  `${SHIPPING_OPTIONS.nationwide.label} delivery Rs. ${SHIPPING_OPTIONS.nationwide.fee} via ${SHIPPING_OPTIONS.nationwide.method}`,
-  `Free Karachi delivery on orders above Rs. ${site.freeShippingThreshold.toLocaleString()}`,
+  `Karachi delivery: Rs. ${SHIPPING_OPTIONS.karachi.fee} (up to 3 tees / 1 hoodie) · Rs. ${SHIPPING_OPTIONS.karachi.heavyFee} (larger orders)`,
+  `${SHIPPING_OPTIONS.nationwide.label} delivery: Rs. ${SHIPPING_OPTIONS.nationwide.fee} (up to 3 tees / 1 hoodie) · Rs. ${SHIPPING_OPTIONS.nationwide.heavyFee} (larger orders)`,
+  `Free Karachi delivery on orders Rs. ${site.freeShippingThreshold.toLocaleString()}+`,
   "Easypaisa, Bank Transfer & Partial COD (Karachi only)",
   "7-day exchange (defective/wrong item)",
   "Printed in Karachi",

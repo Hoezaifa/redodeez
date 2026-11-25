@@ -81,7 +81,7 @@ export const Route = createFileRoute("/products-feed.xml")({
             `      <g:shipping>`,
             `        <g:country>PK</g:country>`,
             `        <g:service>Standard Courier</g:service>`,
-            `        <g:price>${p.price >= 5000 ? 0 : 450} PKR</g:price>`,
+            `        <g:price>450 PKR</g:price>`,
             `      </g:shipping>`,
             `    </item>`,
           ]

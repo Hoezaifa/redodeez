@@ -366,7 +366,7 @@ function DoomsdayCollectionPage() {
               Avengers: Doomsday Graphic T-Shirts &amp; Hoodies
             </h1>
             <p className="hidden md:block mt-1.5 max-w-2xl text-sm leading-snug text-muted-foreground">
-              Shop Avengers: Doomsday T-shirts and hoodies in Pakistan, featuring fan-inspired Doctor Doom and Cyclops X-Men graphic streetwear. Every artwork in the drop is available across oversized drop-shoulder tees, vintage acid-wash tees, black fleece hoodies, and acid-wash hoodies. All pieces are DTF printed in Karachi by Deez Prints with Rs. 200 rider delivery in Karachi (free above Rs. 5,000) and Rs. 450 nationwide courier delivery across Pakistan.
+              Shop Avengers: Doomsday T-shirts and hoodies in Pakistan, featuring fan-inspired Doctor Doom and Cyclops X-Men graphic streetwear. Every artwork in the drop is available across oversized drop-shoulder tees, vintage acid-wash tees, black fleece hoodies, and acid-wash hoodies. All pieces are DTF printed in Karachi by Deez Prints with Karachi rider delivery (Rs. 200 for up to 3 tees / 1 hoodie, Rs. 350 for larger orders; free in Karachi on orders Rs. 5,000+) and nationwide courier delivery across Pakistan (Rs. 450 for up to 3 tees / 1 hoodie, Rs. 550 for larger orders).
             </p>
           </div>
 

@@ -260,8 +260,13 @@ export function findOrder(orderId: string): StoredOrder | undefined {
   return _inMemoryOrders.find((o) => o.orderId === orderId);
 }
 
-export async function saveOrder(order: StoredOrder): Promise<StoredOrder> {
-  // Update local memory + localStorage INSTANTLY
+export interface SaveOrderResult extends StoredOrder {
+  persistedToDb: boolean;
+  emailNotification?: { adminSent?: boolean; customerSent?: boolean; [key: string]: any };
+}
+
+export async function saveOrder(order: StoredOrder): Promise<SaveOrderResult> {
+  // Update local memory + localStorage INSTANTLY for local fallback/UX
   const idx = _inMemoryOrders.findIndex((o) => o.orderId === order.orderId);
   if (idx >= 0) {
     _inMemoryOrders[idx] = { ...order, updatedAt: new Date().toISOString() };
@@ -270,27 +275,30 @@ export async function saveOrder(order: StoredOrder): Promise<StoredOrder> {
   }
   notify();
 
-  // Save to Neon DB via /api/orders (awaited so server-side email notification completes)
-  if (typeof window !== "undefined") {
-    try {
-      const res = await apiPost({ order });
-      if (res && res.order) {
-        // If server assigned a collision-resolved orderId, update local cache
-        if (res.order.orderId && res.order.orderId !== order.orderId) {
-          const oldIdx = _inMemoryOrders.findIndex((o) => o.orderId === order.orderId);
-          if (oldIdx >= 0) {
-            _inMemoryOrders[oldIdx] = { ...order, orderId: res.order.orderId };
-            notify();
-          }
-        }
-        return { ...res.order, emailNotification: res.emailNotification };
-      }
-    } catch (err) {
-      console.warn("DB save warning:", err);
+  // Save to Neon DB via /api/orders (awaited so server-side persistence & email dispatch complete)
+  if (typeof window === "undefined") {
+    throw new Error("saveOrder must be called in a browser context");
+  }
+
+  const res = await apiPost({ order });
+  if (!res || res.ok === false || !res.order || !res.order.orderId) {
+    throw new Error(res?.error || "Server did not confirm order persistence");
+  }
+
+  // If server assigned a collision-resolved orderId, update local cache
+  if (res.order.orderId !== order.orderId) {
+    const oldIdx = _inMemoryOrders.findIndex((o) => o.orderId === order.orderId);
+    if (oldIdx >= 0) {
+      _inMemoryOrders[oldIdx] = { ...order, orderId: res.order.orderId };
+      notify();
     }
   }
 
-  return order;
+  return {
+    ...res.order,
+    emailNotification: res.emailNotification,
+    persistedToDb: true,
+  };
 }
 
 export async function triggerOrderEmail(order: StoredOrder): Promise<boolean> {
@@ -308,7 +316,11 @@ export async function updateOrder(orderId: string, patch: Partial<StoredOrder>):
   const existing = findOrder(orderId);
   if (!existing) return;
   const merged = { ...existing, ...patch, updatedAt: new Date().toISOString() };
-  await saveOrder(merged);
+  try {
+    await saveOrder(merged);
+  } catch (err) {
+    console.warn("Order update DB sync warning:", err);
+  }
 }
 
 export async function updateStatus(

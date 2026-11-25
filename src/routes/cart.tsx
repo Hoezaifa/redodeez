@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Minus, Plus, X } from "lucide-react";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
-import { site, SHIPPING_OPTIONS } from "@/data/site";
+import { site } from "@/data/site";
+import { calculateShipping } from "@/lib/shipping";
 import { SectionHeading } from "@/components/shop/ProductRow";
 
 export const Route = createFileRoute("/cart")({
@@ -27,6 +28,7 @@ function CartPage() {
   const hasMugInCart = lines.some(
     (l) => l.productId.startsWith("mug-") || l.title.toLowerCase().includes("mug")
   );
+  const shippingQuote = calculateShipping(lines, "karachi", subtotal);
 
   return (
     <div className="edge py-14 md:py-20">
@@ -122,9 +124,15 @@ function CartPage() {
                 <dt className="text-muted-foreground">Shipping</dt>
                 <dd className="text-xs">
                   {hasMugInCart ? (
-                    <span className="text-amber-300 font-semibold">Karachi (Rs. {SHIPPING_OPTIONS.karachi.fee})</span>
+                    <span className="text-amber-300 font-semibold">
+                      Karachi ({shippingQuote.isFreeKarachi ? "FREE" : `Rs. ${shippingQuote.karachiBaseFee}`})
+                    </span>
                   ) : (
-                    <span className="text-muted-foreground">from Rs. {SHIPPING_OPTIONS.karachi.fee}</span>
+                    <span className="text-muted-foreground">
+                      {shippingQuote.isFreeKarachi
+                        ? `Karachi FREE · Nationwide Rs. ${shippingQuote.nationwideBaseFee}`
+                        : `from Rs. ${shippingQuote.karachiBaseFee}`}
+                    </span>
                   )}
                 </dd>
               </div>
@@ -140,13 +148,13 @@ function CartPage() {
               </div>
             ) : null}
             <div className="mt-4 p-3 rounded-lg border border-white/10 bg-background/50 text-xs">
-              {subtotal >= site.freeShippingThreshold ? (
+              {shippingQuote.isFreeKarachi ? (
                 <p className="text-emerald-400 font-bold">
-                  🎉 Karachi orders qualify for FREE shipping!
+                  🎉 Karachi orders qualify for FREE shipping! <span className="block text-[11px] font-normal text-muted-foreground mt-0.5">Nationwide Pakistan: Rs. {shippingQuote.nationwideBaseFee}</span>
                 </p>
               ) : (
                 <p className="text-muted-foreground">
-                  Karachi orders above <span className="text-primary font-bold">Rs. {site.freeShippingThreshold.toLocaleString()}</span> get <span className="text-foreground font-bold">FREE delivery</span>
+                  Karachi orders of <span className="text-primary font-bold">Rs. {site.freeShippingThreshold.toLocaleString()}+</span> get <span className="text-foreground font-bold">FREE delivery</span> (Karachi only)
                 </p>
               )}
             </div>
@@ -165,8 +173,10 @@ function CartPage() {
             </Link>
             <p className="label-mono mt-4 text-muted-foreground text-xs">
               {hasMugInCart
-                ? `Ceramic Mugs · Karachi Only (Rs. ${SHIPPING_OPTIONS.karachi.fee})`
-                : `Karachi Rs. ${SHIPPING_OPTIONS.karachi.fee} · Nationwide Rs. ${SHIPPING_OPTIONS.nationwide.fee}`}
+                ? `Ceramic Mugs · Karachi Only (${shippingQuote.isFreeKarachi ? "FREE" : `Rs. ${shippingQuote.karachiBaseFee}`})`
+                : shippingQuote.isFreeKarachi
+                ? `Karachi FREE · Nationwide Rs. ${shippingQuote.nationwideBaseFee}`
+                : `Karachi Rs. ${shippingQuote.karachiBaseFee} · Nationwide Rs. ${shippingQuote.nationwideBaseFee}`}
             </p>
           </aside>
         </div>
