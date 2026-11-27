@@ -18,6 +18,7 @@ import { CartProvider } from "@/lib/cart";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CartDrawer } from "@/components/site/CartDrawer";
+import { DoomDropCoupon } from "@/components/site/DoomDropCoupon";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/structuredData";
 
@@ -257,6 +258,7 @@ function RootComponent() {
         </main>
         {!isAdmin && <Footer />}
         {!isAdmin && <CartDrawer />}
+        {!isAdmin && <DoomDropCoupon />}
       </CartProvider>
     </QueryClientProvider>
   );

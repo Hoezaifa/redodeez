@@ -240,7 +240,26 @@ export const validatePromoEligibilityFn = createServerFn({ method: "POST" })
   .handler(async ({ data }): Promise<PromoValidationResult> => {
     const code = (data.code || "").trim().toUpperCase();
 
-    // 1. WELCOMEDEEZ (10% welcome offer)
+    // 1. DOOM5 (5% drop offer — valid for all customers on eligible merchandise)
+    if (code === "DOOM5") {
+      const eligibleItems = (data.lines || []).filter((l) => {
+        if (!l || l.price <= 0) return false;
+        if (l.isCustom && l.note?.toLowerCase().includes("quote")) return false;
+        if (l.title?.toLowerCase().includes("quote") || l.title?.toLowerCase().includes("bulk")) return false;
+        return true;
+      });
+      const merchSubtotal = eligibleItems.reduce((acc, l) => acc + (l.price || 0) * (l.qty || 1), 0);
+      const discount = Math.round(merchSubtotal * 0.05);
+      return {
+        valid: true,
+        code: "DOOM5",
+        discount,
+        merchSubtotal,
+        message: `5% off applied (-Rs. ${discount.toLocaleString()})`,
+      };
+    }
+
+    // 2. WELCOMEDEEZ (10% welcome offer)
     if (code === "WELCOMEDEEZ") {
       const discount = Math.round(data.subtotal * 0.1);
       return {

@@ -2,6 +2,7 @@ import type { CartLine } from "./cart";
 
 export const PROMO_FIRSTDROP = "FIRSTDROP";
 export const PROMO_WELCOMEDEEZ = "WELCOMEDEEZ";
+export const PROMO_DOOM5 = "DOOM5";
 
 export const LS_KEY_FIRST_CLAIMED = "deez_first_order_claimed_v1";
 export const LS_KEY_APPLIED_PROMO = "deez_applied_promo_v1";
@@ -46,6 +47,18 @@ export function calculatePromoDiscount(
 } {
   const normalized = (code || "").trim().toUpperCase();
   const merchSubtotal = calculateMerchSubtotal(lines);
+
+  if (normalized === PROMO_DOOM5) {
+    // 5% off eligible merchandise, excluding delivery and unpriced custom quotes
+    const discount = Math.round(merchSubtotal * 0.05);
+    return {
+      discount,
+      merchSubtotal,
+      percent: 5,
+      code: PROMO_DOOM5,
+      label: "Drop Code (DOOM5 -5%)",
+    };
+  }
 
   if (normalized === PROMO_FIRSTDROP) {
     // 5% off merchandise, excluding delivery and unpriced custom quotes

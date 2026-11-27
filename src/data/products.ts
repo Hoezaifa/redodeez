@@ -637,7 +637,7 @@ export const products: Product[] = [
     title: "Doctor Doom Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this boxy drop-shoulder tee features a large painted side-profile portrait of Doctor Doom in a dark green gold-trimmed cloak and weathered metallic mask across the back, paired with bold white DOOM chest lettering overlapped by a hooded silhouette.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -1205,7 +1205,7 @@ export const products: Product[] = [
     title: "Doctor Doom Acid Wash Tee",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash cotton tee features a large painted side-profile portrait of Doctor Doom in a dark green gold-trimmed cloak and weathered metallic mask across the back, paired with bold white DOOM chest lettering overlapped by a hooded silhouette.",
-    price: 2000,
+    price: 2050,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [
@@ -5537,7 +5537,7 @@ export const products: Product[] = [
     title: "Doctor Doom Throne Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this boxy drop-shoulder tee features Doctor Doom seated on a carved stone throne above skulls in a bright green cloak holding glowing blue energy beside DR. DOOM serif text on the back, balanced by a green horned emblem on the chest.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -5560,7 +5560,7 @@ export const products: Product[] = [
     title: "Doctor Doom Throne Acid Wash Tee",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash cotton tee features Doctor Doom seated on a carved stone throne above skulls in a bright green cloak holding glowing blue energy beside DR. DOOM serif text on the back, balanced by a green horned emblem on the chest.",
-    price: 2000,
+    price: 2050,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [
@@ -5583,7 +5583,7 @@ export const products: Product[] = [
     title: "Doctor Doom Reigns Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this white boxy drop-shoulder tee features a shadowed comic illustration of green-cloaked Doctor Doom rising from the lower right on a crisp white base with DR. VICTOR DOOM and Japanese katakana text on the back, finished with a black horned chest emblem.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -5606,7 +5606,7 @@ export const products: Product[] = [
     title: "Avengers Doomsday Doctor Doom Face Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this boxy drop-shoulder tee features a distressed split-face back graphic merging Doctor Doom's riveted iron mask with a bruised human face inside a sketched green hood, paired with the metallic silver-and-green AVENGERS DOOMSDAY chest logo.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -5629,7 +5629,7 @@ export const products: Product[] = [
     title: "Avengers Doomsday Doctor Doom Face Acid Wash Tee",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash cotton tee features a distressed split-face back graphic merging Doctor Doom's riveted iron mask with a bruised human face inside a sketched green hood, paired with the metallic silver-and-green AVENGERS DOOMSDAY chest logo.",
-    price: 2000,
+    price: 2050,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [
@@ -5652,7 +5652,7 @@ export const products: Product[] = [
     title: "Doctor Doom Avengers Doomsday Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this boxy drop-shoulder tee features an armored, green-hooded Doctor Doom with arms crossed before oversized white DOOMSDAY lettering on the back, paired with a split-portrait chest panel reading HELL ANSWERS TO ME / FOR I AM DOOM.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -5675,7 +5675,7 @@ export const products: Product[] = [
     title: "Doctor Doom Avengers Doomsday Acid Wash Tee",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash cotton tee features an armored, green-hooded Doctor Doom with arms crossed before oversized white DOOMSDAY lettering on the back, paired with a split-portrait chest panel reading HELL ANSWERS TO ME / FOR I AM DOOM.",
-    price: 2000,
+    price: 2050,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [
@@ -5744,7 +5744,7 @@ export const products: Product[] = [
     title: "Doctor Doom Latverian Ruler Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this boxy drop-shoulder tee features classic comic-ink linework of Doctor Doom standing with armored gauntlets crossed in a deep green cloak beneath serif white DOCTOR DOOM lettering on the back, mirrored by a matching chest wordmark.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -5767,7 +5767,7 @@ export const products: Product[] = [
     title: "Doctor Doom Latverian Ruler Acid Wash Tee",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash cotton tee features classic comic-ink linework of Doctor Doom standing with armored gauntlets crossed in a deep green cloak beneath serif white DOCTOR DOOM lettering on the back, mirrored by a matching chest wordmark.",
-    price: 2000,
+    price: 2050,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [
@@ -5790,7 +5790,7 @@ export const products: Product[] = [
     title: "Doctor Doom Victor Von Doom Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this boxy drop-shoulder tee features tall stacked white DOCTOR DOOM typography beside a cinematic close-up of Doctor Doom's silver mask and dark green hood on the lower right front, leaving the back clean and unprinted.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -5813,7 +5813,7 @@ export const products: Product[] = [
     title: "Doctor Doom Victor Von Doom Acid Wash Tee",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash cotton tee features tall stacked white DOCTOR DOOM typography beside a cinematic close-up of Doctor Doom's silver mask and dark green hood on the lower right front, leaving the back clean and unprinted.",
-    price: 2000,
+    price: 2050,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [
@@ -5836,7 +5836,7 @@ export const products: Product[] = [
     title: "Cyclops x Doomsday Optic Blast Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this boxy drop-shoulder tee features a comic illustration of Cyclops kneeling in his blue-and-yellow X-Men suit firing a towering crimson optic blast beside a glowing X crest on the back, paired with a distressed yellow-and-red X chest emblem.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -5859,7 +5859,7 @@ export const products: Product[] = [
     title: "Cyclops x Doomsday Optic Blast Acid Wash Tee",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash cotton tee features a comic illustration of Cyclops kneeling in his blue-and-yellow X-Men suit firing a towering crimson optic blast beside a glowing X crest on the back, paired with a distressed yellow-and-red X chest emblem.",
-    price: 2000,
+    price: 2050,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [
@@ -5882,7 +5882,7 @@ export const products: Product[] = [
     title: "Cyclops x Doomsday Optic Blast Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this black fleece pullover hoodie features a comic illustration of Cyclops kneeling in his blue-and-yellow X-Men suit firing a towering crimson optic blast beside a glowing X crest on the back, paired with a distressed yellow-and-red X chest emblem.",
-    price: 2000,
+    price: 2050,
     category: "hoodies",
     subcategory: "hoodies",
     images: [
@@ -5905,7 +5905,7 @@ export const products: Product[] = [
     title: "Cyclops x Doomsday Optic Blast Acid Wash Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash fleece hoodie features a comic illustration of Cyclops kneeling in his blue-and-yellow X-Men suit firing a towering crimson optic blast beside a glowing X crest on the back, paired with a distressed yellow-and-red X chest emblem.",
-    price: 3000,
+    price: 3050,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
     images: [
@@ -5928,7 +5928,7 @@ export const products: Product[] = [
     title: "Cyclops To Me My X-Men Doomsday Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this boxy drop-shoulder tee features bold distressed yellow TO ME, MY X-MEN typography with electric blue energy streaks across the back, paired with a compact chest illustration of Cyclops unleashing a vertical crimson optic blast.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -5951,7 +5951,7 @@ export const products: Product[] = [
     title: "Cyclops To Me My X-Men Doomsday Acid Wash Tee",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash cotton tee features bold distressed yellow TO ME, MY X-MEN typography with electric blue energy streaks across the back, paired with a compact chest illustration of Cyclops unleashing a vertical crimson optic blast.",
-    price: 2000,
+    price: 2050,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [
@@ -5974,7 +5974,7 @@ export const products: Product[] = [
     title: "Cyclops To Me My X-Men Doomsday Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this black fleece pullover hoodie features bold distressed yellow TO ME, MY X-MEN typography with electric blue energy streaks across the back, paired with a compact chest illustration of Cyclops unleashing a vertical crimson optic blast.",
-    price: 2000,
+    price: 2050,
     category: "hoodies",
     subcategory: "hoodies",
     images: [
@@ -5997,7 +5997,7 @@ export const products: Product[] = [
     title: "Cyclops To Me My X-Men Doomsday Acid Wash Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash fleece hoodie features bold distressed yellow TO ME, MY X-MEN typography with electric blue energy streaks across the back, paired with a compact chest illustration of Cyclops unleashing a vertical crimson optic blast.",
-    price: 3000,
+    price: 3050,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
     images: [
@@ -6020,7 +6020,7 @@ export const products: Product[] = [
     title: "Doctor Doom Ascension Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this boxy drop-shoulder tee features a painterly side-profile of Doctor Doom looking upward in a tattered emerald hood with gold clasp dissolving into paint splatters on the back, paired with the metallic silver-and-green AVENGERS DOOMSDAY chest logo.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -6043,7 +6043,7 @@ export const products: Product[] = [
     title: "Doctor Doom Ascension Acid Wash Tee",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash cotton tee features a painterly side-profile of Doctor Doom looking upward in a tattered emerald hood with gold clasp dissolving into paint splatters on the back, paired with the metallic silver-and-green AVENGERS DOOMSDAY chest logo.",
-    price: 2000,
+    price: 2050,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [
@@ -6066,7 +6066,7 @@ export const products: Product[] = [
     title: "Doctor Doom Ascension Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this black fleece pullover hoodie features a painterly side-profile of Doctor Doom looking upward in a tattered emerald hood with gold clasp dissolving into paint splatters on the back, paired with the metallic silver-and-green AVENGERS DOOMSDAY chest logo.",
-    price: 2000,
+    price: 2050,
     category: "hoodies",
     subcategory: "hoodies",
     images: [
@@ -6089,7 +6089,7 @@ export const products: Product[] = [
     title: "Doctor Doom Ascension Acid Wash Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash fleece hoodie features a painterly side-profile of Doctor Doom looking upward in a tattered emerald hood with gold clasp dissolving into paint splatters on the back, paired with the metallic silver-and-green AVENGERS DOOMSDAY chest logo.",
-    price: 3000,
+    price: 3050,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
     images: [
@@ -6112,7 +6112,7 @@ export const products: Product[] = [
     title: "Doctor Doom Visage Drop Shoulder Tee",
     description:
       "Part of the Avengers: Doomsday drop, this boxy drop-shoulder tee features a distressed monochrome Doctor Doom iron mask with neon-green flame eyes, vertical nose-bridge script, and gothic DOCTOR DOOM forehead lettering on the back, balanced by a green horned emblem on the chest.",
-    price: 1900,
+    price: 1950,
     category: "t-shirts",
     subcategory: "drop-shoulder",
     images: [
@@ -6135,7 +6135,7 @@ export const products: Product[] = [
     title: "Doctor Doom Visage Acid Wash Tee",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash cotton tee features a distressed monochrome Doctor Doom iron mask with neon-green flame eyes, vertical nose-bridge script, and gothic DOCTOR DOOM forehead lettering on the back, balanced by a green horned emblem on the chest.",
-    price: 2000,
+    price: 2050,
     category: "t-shirts",
     subcategory: "acid-wash",
     images: [
@@ -6158,7 +6158,7 @@ export const products: Product[] = [
     title: "Doctor Doom Visage Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this black fleece pullover hoodie features a distressed monochrome Doctor Doom iron mask with neon-green flame eyes, vertical nose-bridge script, and gothic DOCTOR DOOM forehead lettering on the back, balanced by a green horned emblem on the chest.",
-    price: 2000,
+    price: 2050,
     category: "hoodies",
     subcategory: "hoodies",
     images: [
@@ -6181,7 +6181,7 @@ export const products: Product[] = [
     title: "Doctor Doom Visage Acid Wash Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash fleece hoodie features a distressed monochrome Doctor Doom iron mask with neon-green flame eyes, vertical nose-bridge script, and gothic DOCTOR DOOM forehead lettering on the back, balanced by a green horned emblem on the chest.",
-    price: 3000,
+    price: 3050,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
     images: [
@@ -6204,7 +6204,7 @@ export const products: Product[] = [
     title: "Doctor Doom Throne Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this black fleece pullover hoodie features Doctor Doom seated on a carved stone throne above skulls in a bright green cloak holding glowing blue energy beside DR. DOOM serif text on the back, balanced by a green horned emblem on the chest.",
-    price: 2000,
+    price: 2050,
     category: "hoodies",
     subcategory: "hoodies",
     images: [
@@ -6227,7 +6227,7 @@ export const products: Product[] = [
     title: "Doctor Doom Throne Acid Wash Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash fleece hoodie features Doctor Doom seated on a carved stone throne above skulls in a bright green cloak holding glowing blue energy beside DR. DOOM serif text on the back, balanced by a green horned emblem on the chest.",
-    price: 3000,
+    price: 3050,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
     images: [
@@ -6250,7 +6250,7 @@ export const products: Product[] = [
     title: "Doctor Doom Reign Black Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this black fleece pullover hoodie features tall distressed green DOOM block lettering streaked with white lightning behind a monochrome hooded Doctor Doom portrait on the back, paired with a green-lit metallic Avengers A emblem on the chest.",
-    price: 2000,
+    price: 2050,
     category: "hoodies",
     subcategory: "hoodies",
     images: [
@@ -6273,7 +6273,7 @@ export const products: Product[] = [
     title: "Avengers Doomsday Doctor Doom Face Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this black fleece pullover hoodie features a distressed split-face back graphic merging Doctor Doom's riveted iron mask with a bruised human face inside a sketched green hood, paired with the metallic silver-and-green AVENGERS DOOMSDAY chest logo.",
-    price: 2000,
+    price: 2050,
     category: "hoodies",
     subcategory: "hoodies",
     images: [
@@ -6296,7 +6296,7 @@ export const products: Product[] = [
     title: "Avengers Doomsday Doctor Doom Face Acid Wash Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash fleece hoodie features a distressed split-face back graphic merging Doctor Doom's riveted iron mask with a bruised human face inside a sketched green hood, paired with the metallic silver-and-green AVENGERS DOOMSDAY chest logo.",
-    price: 3000,
+    price: 3050,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
     images: [
@@ -6319,7 +6319,7 @@ export const products: Product[] = [
     title: "Doctor Doom Avengers Doomsday Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this black fleece pullover hoodie features an armored, green-hooded Doctor Doom with arms crossed before oversized white DOOMSDAY lettering on the back, paired with a split-portrait chest panel reading HELL ANSWERS TO ME / FOR I AM DOOM.",
-    price: 2000,
+    price: 2050,
     category: "hoodies",
     subcategory: "hoodies",
     images: [
@@ -6342,7 +6342,7 @@ export const products: Product[] = [
     title: "Doctor Doom Avengers Doomsday Acid Wash Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash fleece hoodie features an armored, green-hooded Doctor Doom with arms crossed before oversized white DOOMSDAY lettering on the back, paired with a split-portrait chest panel reading HELL ANSWERS TO ME / FOR I AM DOOM.",
-    price: 3000,
+    price: 3050,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
     images: [
@@ -6365,7 +6365,7 @@ export const products: Product[] = [
     title: "Doctor Doom Iron Mask Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this black fleece pullover hoodie features high-contrast black-and-white ink artwork of Doctor Doom's iron mask framed in a deep emerald hood beneath giant white DOOM lettering on the back, anchored by a sharp white DR. DOOM chest wordmark.",
-    price: 2000,
+    price: 2050,
     category: "hoodies",
     subcategory: "hoodies",
     images: [
@@ -6388,7 +6388,7 @@ export const products: Product[] = [
     title: "Doctor Doom Iron Mask Acid Wash Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash fleece hoodie features high-contrast black-and-white ink artwork of Doctor Doom's iron mask framed in a deep emerald hood beneath giant white DOOM lettering on the back, anchored by a sharp white DR. DOOM chest wordmark.",
-    price: 3000,
+    price: 3050,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
     images: [
@@ -6411,7 +6411,7 @@ export const products: Product[] = [
     title: "Doctor Doom Latverian Ruler Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this black fleece pullover hoodie features classic comic-ink linework of Doctor Doom standing with armored gauntlets crossed in a deep green cloak beneath serif white DOCTOR DOOM lettering on the back, mirrored by a matching chest wordmark.",
-    price: 2000,
+    price: 2050,
     category: "hoodies",
     subcategory: "hoodies",
     images: [
@@ -6434,7 +6434,7 @@ export const products: Product[] = [
     title: "Doctor Doom Latverian Ruler Acid Wash Hoodie",
     description:
       "Part of the Avengers: Doomsday drop, this charcoal vintage acid-wash fleece hoodie features classic comic-ink linework of Doctor Doom standing with armored gauntlets crossed in a deep green cloak beneath serif white DOCTOR DOOM lettering on the back, mirrored by a matching chest wordmark.",
-    price: 3000,
+    price: 3050,
     category: "hoodies",
     subcategory: "acid-wash-hoodies",
     images: [

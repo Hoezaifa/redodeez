@@ -104,31 +104,31 @@ export function DoomsdayHeroWidget() {
           ))}
         </div>
 
-        {/* CTA Buttons: 2 side-by-side (Doom Drop + Shop All) + full-width Explore Custom on mobile/tablet; single full-width on desktop */}
+        {/* CTA Buttons: full-width Doom Drop + 2 smaller side-by-side (Shop All + Custom) on mobile/tablet; single full-width on desktop */}
         <div className="mt-3 flex flex-col gap-2 lg:hidden">
+          <Link
+            to="/doomsday"
+            className="doomsday-cta group flex h-[44px] w-full items-center justify-center gap-2 rounded px-4 text-[11px] font-black uppercase tracking-[0.2em]"
+          >
+            <span className="relative z-10">Doom Drop</span>
+            <ArrowRight className="relative z-10 h-3.5 w-3.5 shrink-0 stroke-[2.75] text-[#4ade80] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#86efac]" />
+          </Link>
           <div className="grid grid-cols-2 gap-2">
             <Link
-              to="/doomsday"
-              className="doomsday-cta group flex h-[40px] items-center justify-center gap-1.5 rounded px-2.5 text-[10px] font-black uppercase tracking-[0.16em]"
-            >
-              <span className="relative z-10">Doom Drop</span>
-              <ArrowRight className="relative z-10 h-3 w-3 shrink-0 stroke-[2.75] text-[#4ade80] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-[#86efac]" />
-            </Link>
-            <Link
               to="/collections"
-              className="group flex h-[40px] items-center justify-center gap-1.5 rounded border border-white/30 bg-white/10 px-2.5 text-[10px] font-black uppercase tracking-[0.12em] text-white transition-all duration-300 hover:bg-white hover:text-black active:scale-[0.98]"
+              className="group flex h-[38px] items-center justify-center gap-1.5 rounded border border-white/25 bg-white/[0.08] px-2.5 text-[10px] font-black uppercase tracking-[0.14em] text-white transition-all duration-300 hover:bg-white hover:text-black active:scale-[0.98]"
             >
               <span>Shop All</span>
               <ArrowRight className="h-3 w-3 shrink-0 stroke-[3] transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
+            <Link
+              to="/custom-print"
+              className="group flex h-[38px] items-center justify-center gap-1.5 rounded border border-white/25 bg-white/[0.06] px-2.5 text-[10px] font-black uppercase tracking-[0.14em] text-white transition-all duration-300 hover:bg-white hover:text-black active:scale-[0.98]"
+            >
+              <span>Custom</span>
+              <ArrowRight className="h-3 w-3 shrink-0 stroke-[3] transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
           </div>
-          <Link
-            to="/custom-print"
-            className="group flex h-[42px] w-full items-center justify-center gap-2 rounded border border-white/25 bg-white/[0.06] px-4 text-[10.5px] font-black uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-white hover:text-black active:scale-[0.98]"
-          >
-            <span>Explore Custom</span>
-            <ArrowRight className="h-3.5 w-3.5 shrink-0 stroke-[3] transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
         </div>
 
         <Link

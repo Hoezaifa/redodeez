@@ -13,6 +13,7 @@ import { validatePromoEligibilityFn } from "@/lib/orderFunctions";
 import {
   calculatePromoDiscount,
   calculateMerchSubtotal,
+  PROMO_DOOM5,
   PROMO_FIRSTDROP,
   PROMO_WELCOMEDEEZ,
 } from "@/lib/promo";
@@ -136,10 +137,12 @@ function Checkout() {
   );
   const [promoError, setPromoError] = useState<string | null>(null);
   const [promoSuccess, setPromoSuccess] = useState<string | null>(
-    appliedPromo === PROMO_FIRSTDROP
+    appliedPromo === PROMO_DOOM5
+      ? "5% off applied (DOOM5)"
+      : appliedPromo === PROMO_FIRSTDROP
       ? "5% first-order discount unlocked!"
       : appliedPromo === PROMO_WELCOMEDEEZ
-      ? "20% off applied!"
+      ? "10% off applied!"
       : null
   );
 
@@ -231,7 +234,12 @@ function Checkout() {
       }
     } catch {
       // Local fallback
-      if (cleaned === PROMO_FIRSTDROP) {
+      if (cleaned === PROMO_DOOM5) {
+        setAppliedPromo(PROMO_DOOM5);
+        setGlobalPromo(PROMO_DOOM5);
+        setPromoError(null);
+        setPromoSuccess("5% off applied (DOOM5)");
+      } else if (cleaned === PROMO_FIRSTDROP) {
         setAppliedPromo(PROMO_FIRSTDROP);
         setGlobalPromo(PROMO_FIRSTDROP);
         setPromoError(null);
@@ -276,11 +284,14 @@ function Checkout() {
     }
   }, [deliveryLocation, paymentMethod]);
 
+  const hasTrackedCheckoutRef = useRef(false);
+
   useEffect(() => {
-    if (lines.length > 0) {
+    if (!hasTrackedCheckoutRef.current && lines.length > 0) {
+      hasTrackedCheckoutRef.current = true;
       trackEvent.beginCheckout(lines, total);
     }
-  }, []);
+  }, [lines, total]);
 
   const orderNumber = useMemo(() => generateOrderId(), []);
 
