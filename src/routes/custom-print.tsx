@@ -30,13 +30,13 @@ export const Route = createFileRoute("/custom-print")({
       {
         name: "description",
         content:
-          "Upload your artwork for custom DTF t-shirt printing on Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Made in Karachi, delivered nationwide across Pakistan.",
+          "Upload your artwork for custom DTF printing on Regular Tees, Drop Shoulder, Acid Wash, Hoodies, and Sweatshirts. Made in Karachi, delivered nationwide across Pakistan.",
       },
-      { property: "og:title", content: "Custom T-Shirt Printing Karachi & Pakistan — Deez Prints" },
+      { property: "og:title", content: "Custom T-Shirt, Hoodie & Sweatshirt Printing Karachi & Pakistan — Deez Prints" },
       {
         property: "og:description",
         content:
-          "Upload your artwork for custom DTF t-shirt printing on Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Made in Karachi, delivered nationwide across Pakistan.",
+          "Upload your artwork for custom DTF printing on Regular Tees, Drop Shoulder, Acid Wash, Hoodies, and Sweatshirts. Made in Karachi, delivered nationwide across Pakistan.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/custom-print` },
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/custom-print")({
       {
         name: "twitter:description",
         content:
-          "Upload your artwork for custom DTF t-shirt printing on Regular Tees, Drop Shoulder, Acid Wash, and Tapestries. Made in Karachi, delivered nationwide across Pakistan.",
+          "Upload your artwork for custom DTF printing on Regular Tees, Drop Shoulder, Acid Wash, Hoodies, and Sweatshirts. Made in Karachi, delivered nationwide across Pakistan.",
       },
       { name: "twitter:image", content: `${SITE_URL}/assets/custom_print_mockup.png` },
       { name: "twitter:image:alt", content: "Custom t-shirt printing service by Deez Prints — upload your artwork for DTF printing on premium cotton tees" },
@@ -67,7 +67,8 @@ export const Route = createFileRoute("/custom-print")({
 const regTeeProduct = products.find((p) => (p.subcategory as string) === "oversized") ?? products[0];
 const dropProduct = products.find((p) => p.title.toLowerCase().includes("drop")) ?? products[1];
 const acidProduct = products.find((p) => p.subcategory === "acid-wash") ?? products[2];
-const tapestryProduct = products.find((p) => p.subcategory === "tapestries" || p.subcategory === "flags") ?? products[3];
+const regularHoodieProduct = products.find((p) => p.subcategory === "hoodies") ?? products[0];
+const acidWashHoodieProduct = products.find((p) => p.subcategory === "acid-wash-hoodies") ?? regularHoodieProduct;
 
 const bases = [
   {
@@ -92,17 +93,34 @@ const bases = [
     image: acidProduct.images[0],
   },
   {
-    id: "tapestry",
-    label: "TAPESTRY",
-    subtitle: "High-Quality Wall Piece",
-    isClothing: false,
-    image: tapestryProduct.images[0],
+    id: "regular-hoodie",
+    label: "REGULAR HOODIE",
+    subtitle: "350+ GSM Heavyweight Fleece",
+    isClothing: true,
+    image: regularHoodieProduct.images[0],
+  },
+  {
+    id: "acid-wash-hoodie",
+    label: "ACID WASH HOODIE",
+    subtitle: "Mineral-Washed Heavyweight Fleece",
+    isClothing: true,
+    image: acidWashHoodieProduct.images[0],
+  },
+  {
+    id: "sweatshirt",
+    label: "SWEATSHIRT",
+    subtitle: "350+ GSM Heavyweight Fleece",
+    isClothing: true,
+    image: regularHoodieProduct.images[0],
   },
 ];
 
 const dropShoulderSizes = ["S", "M", "L", "XL"];
 const regularSizes = ["S", "M", "L", "XL", "XXL"];
 const acidWashSizes = ["S", "M", "L"];
+const regularHoodieSizes = ["S", "M", "L", "XL"];
+const acidWashHoodieSizes = ["S", "M", "L"];
+const sweatshirtSizes = ["S", "M", "L", "XL"];
 const tapestrySizes = ["Small (50 x 30)", "Large (70 x 50)"];
 
 const regularTeeColorOptions = [
@@ -149,6 +167,7 @@ function CustomPrint() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [base, setBase] = useState(bases[0].id);
   const [color, setColor] = useState(dropShoulderColorOptions[0].name);
+  const [hoodieColor, setHoodieColor] = useState("");
 
   const [clothingSize, setClothingSize] = useState("L");
   const [tapestrySize, setTapestrySize] = useState("Small (50 x 30)");
@@ -168,17 +187,32 @@ function CustomPrint() {
   const isClothing = selectedBase.isClothing;
   const isAcidWash = base === "acid-wash";
   const isDropShoulder = base === "drop-shoulder";
+  const isRegularHoodie = base === "regular-hoodie";
+  const isAcidWashHoodie = base === "acid-wash-hoodie";
+  const isSweatshirt = base === "sweatshirt";
+  const isFleece = isRegularHoodie || isAcidWashHoodie || isSweatshirt;
   const maxAllowedFiles = isClothing ? 2 : 1;
-  const availableClothingSizes = isAcidWash
-    ? acidWashSizes
-    : isDropShoulder
-    ? dropShoulderSizes
-    : regularSizes;
+  const availableClothingSizes = isAcidWashHoodie
+    ? acidWashHoodieSizes
+    : isRegularHoodie
+      ? regularHoodieSizes
+      : isSweatshirt
+        ? sweatshirtSizes
+        : isAcidWash
+          ? acidWashSizes
+          : isDropShoulder
+            ? dropShoulderSizes
+            : regularSizes;
   const availableColors = isAcidWash
     ? acidWashColorOptions
     : isDropShoulder
-    ? dropShoulderColorOptions
-    : regularTeeColorOptions;
+      ? dropShoulderColorOptions
+      : regularTeeColorOptions;
+  const resolvedColor = isFleece
+    ? hoodieColor.trim() || undefined
+    : isClothing
+      ? color
+      : undefined;
   const currentSize = isClothing ? clothingSize : tapestrySize;
   const placementText = !isClothing
     ? "Wall Print"
@@ -192,23 +226,38 @@ function CustomPrint() {
       setFiles((prev) => prev.slice(0, 1));
     }
     const targetSizes =
-      newBaseId === "acid-wash"
-        ? acidWashSizes
-        : newBaseId === "drop-shoulder"
-        ? dropShoulderSizes
-        : regularSizes;
-    const targetColors =
-      newBaseId === "acid-wash"
-        ? acidWashColorOptions
-        : newBaseId === "drop-shoulder"
-        ? dropShoulderColorOptions
-        : regularTeeColorOptions;
+      newBaseId === "acid-wash-hoodie"
+        ? acidWashHoodieSizes
+        : newBaseId === "regular-hoodie"
+          ? regularHoodieSizes
+          : newBaseId === "sweatshirt"
+            ? sweatshirtSizes
+            : newBaseId === "acid-wash"
+              ? acidWashSizes
+              : newBaseId === "drop-shoulder"
+                ? dropShoulderSizes
+                : regularSizes;
 
     if (!targetSizes.includes(clothingSize)) {
       setClothingSize(targetSizes[0]);
     }
-    if (!targetColors.some((c) => c.name === color)) {
-      setColor(targetColors[0].name);
+
+    if (
+      newBaseId !== "regular-hoodie" &&
+      newBaseId !== "acid-wash-hoodie" &&
+      newBaseId !== "sweatshirt" &&
+      newBaseId !== "tapestry"
+    ) {
+      const targetColors =
+        newBaseId === "acid-wash"
+          ? acidWashColorOptions
+          : newBaseId === "drop-shoulder"
+            ? dropShoulderColorOptions
+            : regularTeeColorOptions;
+
+      if (!targetColors.some((c) => c.name === color)) {
+        setColor(targetColors[0].name);
+      }
     }
   }
 
@@ -289,7 +338,7 @@ function CustomPrint() {
         price: finalItemPrice,
         image: frontUrl || files[0].preview,
         size: currentSize,
-        color: isClothing ? color : undefined,
+        color: resolvedColor,
         qty: 1,
         note: notes,
         isCustom: true,
@@ -320,7 +369,7 @@ function CustomPrint() {
             <label className="block font-mono text-xs font-bold uppercase tracking-wider text-white">
               SELECT CUSTOM BASE ITEM
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {bases.map((b) => {
                 const selected = base === b.id;
                 return (
@@ -359,7 +408,7 @@ function CustomPrint() {
                 </h1>
                 <p className="mt-4 text-xs sm:text-sm text-zinc-400 font-sans leading-relaxed">
                   {isClothing
-                    ? "Upload your artwork for custom streetwear t-shirts. Front, back, or double-sided prints."
+                    ? "Upload your artwork for custom streetwear tees, hoodies & sweatshirts. Front, back, or double-sided prints."
                     : "Upload high-res artwork for custom HD satin fabric tapestries and wall art hanging pieces."}
                 </p>
               </div>
@@ -687,32 +736,51 @@ function CustomPrint() {
           {isClothing && (
             <div>
               <label className="block font-mono text-xs font-bold uppercase tracking-wider text-white mb-3">
-                2. SELECT COLOR
+                {isFleece ? "2. PREFERRED COLOR (OPTIONAL)" : "2. SELECT COLOR"}
               </label>
-              <div className="flex flex-wrap gap-2">
-                {availableColors.map((c) => {
-                  const selected = color === c.name;
-                  return (
-                    <button
-                      key={c.id}
-                      type="button"
-                      onClick={() => setColor(c.name)}
-                      className={cn(
-                        "h-9 px-3 rounded-md font-sans text-xs flex items-center gap-2 border transition-all cursor-pointer",
-                        selected
-                          ? "border-primary bg-zinc-900 text-white font-bold shadow-sm"
-                          : "border-zinc-800 bg-zinc-900/40 text-zinc-300 hover:border-zinc-700",
-                      )}
-                    >
-                      <span
-                        className="h-3 w-3 rounded-full border border-white/20 shrink-0"
-                        style={{ backgroundColor: c.colorHex }}
-                      />
-                      <span>{c.name}</span>
-                    </button>
-                  );
-                })}
-              </div>
+              {isFleece ? (
+                <div className="space-y-1.5">
+                  <input
+                    type="text"
+                    value={hoodieColor}
+                    onChange={(e) => setHoodieColor(e.target.value)}
+                    placeholder={
+                      isAcidWashHoodie
+                        ? "E.g., Black, Grey, Maroon (optional)"
+                        : "E.g., Black, Charcoal, Navy, Beige (optional)"
+                    }
+                    className="w-full bg-zinc-900/60 border border-zinc-800 rounded-md px-3 py-2.5 text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-primary"
+                  />
+                  <p className="text-[11px] text-zinc-500 font-sans">
+                    Leave blank if you don't have a specific color preference — we'll confirm available shades on WhatsApp.
+                  </p>
+                </div>
+              ) : (
+                <div className="flex flex-wrap gap-2">
+                  {availableColors.map((c) => {
+                    const selected = color === c.name;
+                    return (
+                      <button
+                        key={c.id}
+                        type="button"
+                        onClick={() => setColor(c.name)}
+                        className={cn(
+                          "h-9 px-3 rounded-md font-sans text-xs flex items-center gap-2 border transition-all cursor-pointer",
+                          selected
+                            ? "border-primary bg-zinc-900 text-white font-bold shadow-sm"
+                            : "border-zinc-800 bg-zinc-900/40 text-zinc-300 hover:border-zinc-700",
+                        )}
+                      >
+                        <span
+                          className="h-3 w-3 rounded-full border border-white/20 shrink-0"
+                          style={{ backgroundColor: c.colorHex }}
+                        />
+                        <span>{c.name}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           )}
 
@@ -741,12 +809,25 @@ function CustomPrint() {
 
             {isClothing && showSizeChart && (
               <div className="mb-3">
-                <SizeChart isDropShoulder={isDropShoulder} isAcidWash={isAcidWash} />
+                <SizeChart
+                  isDropShoulder={isDropShoulder}
+                  isAcidWash={isAcidWash}
+                  isHoodie={isRegularHoodie || isSweatshirt}
+                  isAcidWashHoodie={isAcidWashHoodie}
+                />
               </div>
             )}
 
             {isClothing ? (
-              <div className={`grid gap-2 ${isAcidWash ? "grid-cols-3" : isDropShoulder ? "grid-cols-4" : "grid-cols-5"}`}>
+              <div
+                className={`grid gap-2 ${
+                  availableClothingSizes.length === 3
+                    ? "grid-cols-3"
+                    : availableClothingSizes.length === 4
+                      ? "grid-cols-4"
+                      : "grid-cols-5"
+                }`}
+              >
                 {availableClothingSizes.map((s) => {
                   const selected = clothingSize === s;
                   return (
@@ -809,7 +890,7 @@ function CustomPrint() {
             <div className="flex flex-wrap items-center justify-between text-xs font-mono border border-zinc-800/80 bg-zinc-900/40 rounded-lg px-3.5 py-2.5 text-zinc-300">
               <span className="text-zinc-400">Configuration:</span>
               <span className="font-bold text-white uppercase">
-                {selectedBase.label} • {isClothing ? `${color} • ` : ""}{currentSize} • {placementText}
+                {selectedBase.label} • {resolvedColor ? `${resolvedColor} • ` : ""}{currentSize} • {placementText}
               </span>
             </div>
 

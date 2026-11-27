@@ -41,7 +41,7 @@ function classifyCartLine(line: Pick<CartLine, "productId" | "title" | "blankIte
   }
 
   const descriptor = `${line.blankItem ?? ""} ${line.title ?? ""} ${line.productId ?? ""}`.toLowerCase();
-  if (descriptor.includes("hoodie")) {
+  if (descriptor.includes("hoodie") || descriptor.includes("sweatshirt")) {
     return "hoodie";
   }
   if (TSHIRT_PATTERN.test(descriptor)) {
